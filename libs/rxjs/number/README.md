@@ -35,5 +35,5 @@ fromArray(['1', '1.2', '45.34'])
 
 | Method                                                                                                                  | Operator     | Example                                                |
 | ----------------------------------------------------------------------------------------------------------------------- | ------------ | ------------------------------------------------------ |
-| [Number.parseFloat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat) | `parseFloat` | `from('12.34').pipe(parseFloat()).subscribe(// 12.34)` |
-| [Number.parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt)     | `parseInt`   | `from('12.34').pipe(parseInt()).subscribe(// 12)`      |
+| [Number.parseFloat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat) | `parseFloat` | `from(['12.34']).pipe(parseFloat()).subscribe(// 12.34)` |
+| [Number.parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt)     | `parseInt`   | `from(['12.34']).pipe(parseInt()).subscribe(// 12)`      |

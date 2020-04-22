@@ -4,7 +4,7 @@ import { map } from 'rxjs/operators';
 /**
  * The available positions to trim a string at
  */
-export type TrimPosition = 'left' | 'right' | 'all';
+export type TrimPosition = 'start' | 'end' | 'all';
 
 /**
  * Trims a string from an input Observable, the default behaviour is to trim a string
@@ -13,24 +13,22 @@ export type TrimPosition = 'left' | 'right' | 'all';
  * The operator takes an optional option of `left` or 'right` to only trim before or after the string
  * @param position The position to apply a trim at
  */
-export function trimString(
-  position: TrimPosition = 'all'
-): MonoTypeOperatorFunction<string> {
+export function trimString(position: TrimPosition = 'all'): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) =>
     source.pipe(
       map(value => {
         switch (position) {
-          case 'left': {
+          case 'start': {
             return value.trimLeft();
           }
 
-          case 'right': {
+          case 'end': {
             return value.trimRight();
           }
           case 'all':
           default:
             return value.trim();
         }
-      })
+      }),
     );
 }

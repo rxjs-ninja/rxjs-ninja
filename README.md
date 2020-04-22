@@ -1,76 +1,43 @@
-# Tinynodes
+# RxJS Primitives
 
-This project was generated using [Nx](https://nx.dev).
+This set of libraries provides some low-level operators for handling different operations with
+primitive values (`string`, `number`, `boolean`, etc).
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
+## Libraries
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+### rxjs-string
 
-## Adding capabilities to your workspace
+This library provides operators around the ECMAScript `String` methods, taking an input Observable
+and returning a string or boolean output
 
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
+|Method|Operator|Example|
+|------|--------|-------|
+|`String.prototype.toLocaleUpperCase`|`toUpperCase`| `from('hello world').pipe(toUpperCase()).subscribe(// 'HELLO WORLD')`|
+|`String.prototype.toLocaleLowerCase`|`toLowerCase`| `from('HELLO WORLD').pipe(toLowerCase()).subscribe(// 'hello world')`|
+|`String.prototype.trim`|`trim`| `from('  hello world  ').pipe(trim()).subscribe(// 'hello world')`|
+|`String.prototype.trimLeft`|`trim`| `from('  hello world  ').pipe(trim('left')).subscribe(// 'hello world  ')`|
+|`String.prototype.trimRight`|`trim`| `from('  hello world  ').pipe(trim('right')).subscribe(// '  hello world')`|
+|`String.prototype.padStart`|`padString`| `from('1234').pipe(padString('start', 5)).subscribe(// ' 1234')`|
+|`String.prototype.padEnd`|`padString`| `from('1234').pipe(padString('end', 5)).subscribe(// '1234 ')`|
+|`String.prototype.endsWith`|`endsWith`| `from('Hello?').pipe(endsWith('?')).subscribe(// true)`|
+|`String.prototype.charAt`|`charAt`| `from('Hello?').pipe(charAt(2)).subscribe(// 'e')`|
+|`String.prototype.charCodeAt`|`charCodeAt`| `from('Hello?').pipe(charCodeAt(2)).subscribe(// 101)`|
 
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
+### rxjs-number
 
-Below are some plugins which you can add to your workspace:
+This library provides operators around the ECMAScript `Number` methods, taking an input Observable
+and returning a number or boolean output
 
-- [React](https://reactjs.org)
-  - `npm install --save-dev @nrwl/react`
-- Web (no framework frontends)
-  - `npm install --save-dev @nrwl/web`
-- [Angular](https://angular.io)
-  - `npm install --save-dev @nrwl/angular`
-- [Nest](https://nestjs.com)
-  - `npm install --save-dev @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `npm install --save-dev @nrwl/express`
-- [Node](https://nodejs.org)
-  - `npm install --save-dev @nrwl/node`
+|Method|Operator|Example|
+|------|--------|-------|
+|`Number.prototype.parseFloat`|`parseFloat`| `from('12.34').pipe(parseFloat()).subscribe(// 12.34)`|
+|`Number.prototype.parseInt`|`parseInt`| `from('12.34').pipe(parseInt()).subscribe(// 12)`|
 
-## Generate an application
+### rxjs-boolean
 
-Run `nx g @nrwl/react:app my-app` to generate an application.
+This library provides handy methods where you are working with booleans, it takes any Observable value
+and returns results based on a boolean result
 
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `nx g @nrwl/react:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are sharable across libraries and applications. They can be imported from `@tinynodes/mylib`.
-
-## Development server
-
-Run `nx serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `nx g @nrwl/react:component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `nx build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `nx test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev) to learn more.
+|Operator|Example|
+|`firstTruthy`|from(['', '', 'test']).pipe(firstTruthy()).subscribe(// 'test')|
+|`filterTruthy`|from(['test1', '', 'test2']).pipe(filterTruthy()).subscribe(// 'test1', 'test2')|

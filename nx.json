@@ -18,5 +18,15 @@
       }
     }
   },
-  "projects": {}
+  "projects": {
+    "rxjs-string": {
+      "tags": []
+    },
+    "rxjs-number": {
+      "tags": []
+    },
+    "rxjs-boolean": {
+      "tags": []
+    }
+  }
 }

@@ -1,7 +1,20 @@
-# rxjs-boolean
+# RxJS Primitives - Boolean Operators
 
-This library was generated with [Nx](https://nx.dev).
+This library is for [RxJS Primitives](https://github.com/tanepiper/rxjs-primitives) and
+provides some convenience operators for [RxJS](https://rxjs-dev.firebaseapp.com/) around
+filtering values from Observables using boolean logic
 
-## Running unit tests
+## Status
 
-Run `ng test rxjs-boolean` to execute the unit tests via [Jest](https://jestjs.io).
+This library is currently in development. Please be aware APIs may change and there are missing features.
+
+## How to install
+
+In your project run `npm install @tinynodes/rxjs-boolean`
+
+To include in your project you can import the operators to include in any RxJS `pipe`
+
+| Operator       | Example                                                                            |
+| -------------- | ---------------------------------------------------------------------------------- |
+| `firstTruthy`  | `from(['', '', 'test']).pipe(firstTruthy()).subscribe(// 'test')`                  |
+| `filterTruthy` | `from(['test1', '', 'test2']).pipe(filterTruthy()).subscribe(// 'test1', 'test2')` |

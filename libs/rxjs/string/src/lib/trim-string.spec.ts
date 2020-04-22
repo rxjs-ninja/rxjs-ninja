@@ -14,7 +14,7 @@ describe('trim string', () => {
 
   it('should trim a string on the left only', done => {
     of('  this is a test  ')
-      .pipe(trimString('left'), take(1))
+      .pipe(trimString('start'), take(1))
       .subscribe({
         next: value => expect(value).toBe('this is a test  '),
         complete: () => done(),
@@ -23,7 +23,7 @@ describe('trim string', () => {
 
   it('should trim a string on the right only', done => {
     of('  this is a test  ')
-      .pipe(trimString('right'), take(1))
+      .pipe(trimString('end'), take(1))
       .subscribe({
         next: value => expect(value).toBe('  this is a test'),
         complete: () => done(),

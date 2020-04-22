@@ -27,6 +27,9 @@
     },
     "rxjs-boolean": {
       "tags": []
+    },
+    "rxjs-utility": {
+      "tags": []
     }
   }
 }

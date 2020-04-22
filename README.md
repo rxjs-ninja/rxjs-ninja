@@ -39,5 +39,6 @@ This library provides handy methods where you are working with booleans, it take
 and returns results based on a boolean result
 
 |Operator|Example|
-|`firstTruthy`|from(['', '', 'test']).pipe(firstTruthy()).subscribe(// 'test')|
-|`filterTruthy`|from(['test1', '', 'test2']).pipe(filterTruthy()).subscribe(// 'test1', 'test2')|
+|--------|-------|
+|`firstTruthy`|`from(['', '', 'test']).pipe(firstTruthy()).subscribe(// 'test')`|
+|`filterTruthy`|`from(['test1', '', 'test2']).pipe(filterTruthy()).subscribe(// 'test1', 'test2')`|

@@ -16,15 +16,15 @@ To include in your project you can import the operators to include in any RxJS `
 
 ```ts
 import { toUpperCase, toLowerCase } from '@tinynodes/rxjs-string';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject,Observable } from "rxjs";
 
 export class TalkClass {
   $currentText = new BehaviorSubject<string>('');
 
-  public shout(): string {
+  public shout(): Observable<string> {
     return this.$currentText.asObservable().pipe(toUpperCase());
   }
-  public whisper(): string {
+  public whisper(): Observable<string> {
     return this.$currentText.asObservable().pipe(toLowerCase());
   }
 }

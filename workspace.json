@@ -12,10 +12,7 @@
           "options": {
             "linter": "eslint",
             "config": "libs/rxjs/string/.eslintrc",
-            "tsConfig": [
-              "libs/rxjs/string/tsconfig.lib.json",
-              "libs/rxjs/string/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/rxjs/string/tsconfig.lib.json", "libs/rxjs/string/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/rxjs/string/**"]
           }
         },
@@ -50,10 +47,7 @@
           "options": {
             "linter": "eslint",
             "config": "libs/rxjs/number/.eslintrc",
-            "tsConfig": [
-              "libs/rxjs/number/tsconfig.lib.json",
-              "libs/rxjs/number/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/rxjs/number/tsconfig.lib.json", "libs/rxjs/number/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/rxjs/number/**"]
           }
         },
@@ -88,10 +82,7 @@
           "options": {
             "linter": "eslint",
             "config": "libs/rxjs/boolean/.eslintrc",
-            "tsConfig": [
-              "libs/rxjs/boolean/tsconfig.lib.json",
-              "libs/rxjs/boolean/tsconfig.spec.json"
-            ],
+            "tsConfig": ["libs/rxjs/boolean/tsconfig.lib.json", "libs/rxjs/boolean/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/rxjs/boolean/**"]
           }
         },
@@ -111,6 +102,41 @@
             "packageJson": "libs/rxjs/boolean/package.json",
             "main": "libs/rxjs/boolean/src/index.ts",
             "assets": ["libs/rxjs/boolean/*.md"]
+          }
+        }
+      }
+    },
+    "rxjs-utility": {
+      "root": "libs/rxjs/utility",
+      "sourceRoot": "libs/rxjs/utility/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/rxjs/utility/.eslintrc",
+            "tsConfig": ["libs/rxjs/utility/tsconfig.lib.json", "libs/rxjs/utility/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/rxjs/utility/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/rxjs/utility/jest.config.js",
+            "tsConfig": "libs/rxjs/utility/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/rxjs/utility",
+            "tsConfig": "libs/rxjs/utility/tsconfig.lib.json",
+            "packageJson": "libs/rxjs/utility/package.json",
+            "main": "libs/rxjs/utility/src/index.ts",
+            "assets": ["libs/rxjs/utility/*.md"]
           }
         }
       }

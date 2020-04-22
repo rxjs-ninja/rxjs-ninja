@@ -1,1 +1,2 @@
-export * from './lib/rxjs-boolean';
+export { firstTruthy } from './lib/first-truthy';
+export { filterTruthy } from './lib/filter-truthy';

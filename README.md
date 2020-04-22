@@ -8,6 +8,12 @@ convenience `Boolean` methods.
 
 These are operators allow developers to avoid having to handle their own mapping or logic
 
+## Install Instructions
+
+To include in your project install one or more of the libraries
+
+> npm i @tinynodes/rxjs-string @tinynodes/rxjs-number @tinynodes/rxjs-boolean
+
 ## Libraries
 
 ### rxjs-string

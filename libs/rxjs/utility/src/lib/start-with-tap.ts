@@ -12,7 +12,7 @@ import { switchMap, tap } from 'rxjs/operators';
  *  startWithTap(() => this.onTouch())
  * ).subscribe()
  */
-export function startWithTap<T>(callback: () => void): MonoTypeOperatorFunction<T> {
+export function startWithTap<T = unknown>(callback: () => void): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>) =>
     of(undefined).pipe(
       tap(callback),

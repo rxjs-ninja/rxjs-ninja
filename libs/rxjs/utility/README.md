@@ -11,9 +11,33 @@ This library is currently in development. Please be aware APIs may change and th
 
 In your project run `npm install @tinynodes/rxjs-boolean`
 
-To include in your project you can import the operators to include in any RxJS `pipe`
+## Operators
 
-| Operator            | Example                                                                                                               |
-| ------------------- | --------------------------------------------------------------------------------------------------------------------- |
-| `startWithTap`      | `form.valueChange.pipe(startWithTap(() => this.touch())).subscribe()`                                                 |
-| `debounceWithQuery` | `searchSource.pipe(debouceWithQuery(1000, (search: string) => this.http.get('/query?search=${search}'))).subscribe()` |
+### `startWithTap`
+
+The `startWithTap` operator allows a developer to do a one-time tap event on the first emission
+from an Observable value.
+
+#### Example
+
+```
+form.valueChange
+  .pipe(
+    startWithTap(() => this.touch()
+)).subscribe()
+```
+
+### `debounceWithQuery`
+
+The `debouceWithQuery` operator takes two required parameters the debounce `time` and a function
+that takes a string and returns an Observable value.
+
+```ts
+const queryFn = (query: string) => {
+  return http.get(`/search?query=${query}`)
+}
+stringInput.change.pipe(
+  debounceWithQuery(1000, queryFn)
+).pipe(value => console.log(value)) // Results from a remote query
+
+```

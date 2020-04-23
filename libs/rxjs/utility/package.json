@@ -1,4 +1,8 @@
 {
   "name": "@tinynodes/rxjs-utility",
-  "version": "0.0.1"
+  "description": "Useful utilities for RxJS",
+  "version": "0.0.1",
+  "peerDependencies": {
+    "rxjs": "^6.5.0"
+  }
 }

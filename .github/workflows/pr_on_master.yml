@@ -16,8 +16,7 @@ jobs:
         # Latest nodes only
         node-version: [13.x, 14.x]
     steps:
-      - name: Checkout Libraries
-        uses: actions/checkout@v2
+      - uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0

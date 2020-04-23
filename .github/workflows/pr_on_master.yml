@@ -1,4 +1,7 @@
+# File for Pull Request on master branch
 name: PR on master
+
+# When a PR is opened to master
 on:
   pull_request:
     branches:
@@ -7,42 +10,36 @@ on:
 
 jobs:
   build:
+
+    # Setup OS and Node Version
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [13.x, 14.x]
+        # Latest nodes only
+        node-version: [13.x]
+
+    # Define Steps
     steps:
-      - name: Checkout Libraries
-        uses: actions/checkout@v2
+      # Checkout code
+      - uses: actions/checkout@v2
         with:
+          ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
-      - run: git checkout HEAD^
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
+      # Make sure we have all branches
+      - name: Fetch other branches
+        run: git fetch --no-tags --prune --depth=5 origin master
+
       - name: Install environment
         run: npm install
+
       - name: Run lint
-        shell: bash
-        run: |
-          if [[ $GITHUB_BASE_REF ]]
-          then
-            export NX_BASE=remotes/origin/$GITHUB_BASE_REF
-          else
-            export NX_BASE=$(git rev-parse HEAD~1)
-          fi
-          echo "Base => $NX_BASE"
-          npm run format:check -- --base=$NX_BASE
-          npm run affected:lint -- --base=$NX_BASE
+        run: npm run affected:lint -- --base=origin/master
+
       - name: Tests coverage
-        shell: bash
-        run: |
-          if [[ $GITHUB_BASE_REF ]]
-          then
-            export NX_BASE=remotes/origin/$GITHUB_BASE_REF
-          else
-            export NX_BASE=$(git rev-parse HEAD~1)
-          fi
-          echo "Base => $NX_BASE"
-          npm run affected:test -- --codeCoverage --base=$NX_BASE
+        run: npm run affected:test -- --codeCoverage --base=origin/master

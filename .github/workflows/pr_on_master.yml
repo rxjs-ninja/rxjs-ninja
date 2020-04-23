@@ -10,24 +10,30 @@ on:
 
 jobs:
   build:
+
+    # Setup OS and Node Version
     runs-on: ubuntu-latest
     strategy:
       matrix:
         # Latest nodes only
         node-version: [13.x, 14.x]
+
+    # Define Steps
     steps:
+      # Checkout code
       - uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
-      - name: Fetch other branches
-        run: git fetch --no-tags --prune --depth=5 origin master
-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
+      # Make sure we have all branches
+      - name: Fetch other branches
+        run: git fetch --no-tags --prune --depth=5 origin master
 
       - name: Install environment
         run: npm install

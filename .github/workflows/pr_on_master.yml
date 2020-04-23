@@ -32,7 +32,7 @@ jobs:
           else
             export NX_BASE=$(git rev-parse HEAD~1)
           fi
-          echo "Base => $NX_BASE"
+          echo "From Base $NX_BASE"
           npm run format:check -- --base=$NX_BASE
           npm run affected:lint -- --base=$NX_BASE
       - name: Tests coverage
@@ -44,5 +44,5 @@ jobs:
           else
             export NX_BASE=$(git rev-parse HEAD~1)
           fi
-          echo "Base => $NX_BASE"
+          echo "From Base $NX_BASE"
           npm run affected:test -- --codeCoverage --base=$NX_BASE

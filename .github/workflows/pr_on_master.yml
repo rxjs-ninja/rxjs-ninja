@@ -18,9 +18,15 @@ jobs:
     steps:
       - name: Checkout Libraries
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
 
       - name: Fetch other branches
-        run: git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+        run: git fetch --no-tags --prune --depth=5 origin master
+
+      - name: Get Master
+        run: git pull master
 
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1

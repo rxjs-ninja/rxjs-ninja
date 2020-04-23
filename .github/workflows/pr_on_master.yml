@@ -12,7 +12,8 @@ jobs:
       matrix:
         node-version: [13.x, 14.x]
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout Libraries
+        uses: actions/checkout@v2
         with:
           fetch-depth: 0
       - name: Use Node.js ${{ matrix.node-version }}

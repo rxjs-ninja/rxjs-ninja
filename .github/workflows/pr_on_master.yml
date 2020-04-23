@@ -1,29 +1,48 @@
 name: PR on master
-
 on:
   pull_request:
     branches:
-    - master
+      - master
     types: [opened, reopened, synchronize]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
-        node-version: [10.x, 12.x, 13.x, 14.x]
-
+        node-version: [13.x, 14.x]
     steps:
-      - uses: actions/checkout@v1
+      - name: Checkout Libraries
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - run: git checkout HEAD^
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
       - name: Install environment
         run: npm install
-      - name: Linter
-        run: npm run ng lint
+      - name: Run lint
+        shell: bash
+        run: |
+          if [[ $GITHUB_BASE_REF ]]
+          then
+            export NX_BASE=remotes/origin/$GITHUB_BASE_REF
+          else
+            export NX_BASE=$(git rev-parse HEAD~1)
+          fi
+          echo "Base => $NX_BASE"
+          npm run format:check -- --base=$NX_BASE
+          npm run affected:lint -- --base=$NX_BASE
       - name: Tests coverage
-        run: npm run test:cov
+        shell: bash
+        run: |
+          if [[ $GITHUB_BASE_REF ]]
+          then
+            export NX_BASE=remotes/origin/$GITHUB_BASE_REF
+          else
+            export NX_BASE=$(git rev-parse HEAD~1)
+          fi
+          echo "Base => $NX_BASE"
+          npm run affected:test -- --codeCoverage --base=$NX_BASE

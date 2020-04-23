@@ -1,0 +1,49 @@
+name: Merge on master
+
+on:
+  pull_request:
+    branches:
+    - master
+    types: [closed]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+      - name: Checkout
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
+        uses: actions/checkout@master
+        with:
+          ref: master
+      - name: Use Node.js ${{ matrix.node-version }}
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
+        uses: actions/setup-node@master
+        with:
+          node-version: ${{ matrix.node-version }}
+      - name: Install environment
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
+        run: npm install
+      - name: Login to github
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
+        env:
+          CI: true
+          GITHUB_AUTH_TOKEN: ${{ secrets.ACTION_AUTH_TOKEN }}
+        run: |
+          git checkout master
+          git config user.name "bab2683"
+          git config user.email "barahona.braulio@gmail.com"
+          git remote set-url origin https://bab2683:$GITHUB_AUTH_TOKEN@github.com/bab2683/nx-to-npm-with-github-actions-tutorial.git
+      - name: Deploy
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
+        env:
+          CI: true
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
+          npm run lib-publish

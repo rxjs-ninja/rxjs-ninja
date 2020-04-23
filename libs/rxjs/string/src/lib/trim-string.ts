@@ -1,10 +1,6 @@
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-/**
- * The available positions to trim a string at
- */
-export type TrimPosition = 'start' | 'end' | 'all';
+import { TrimPosition } from '../types/position';
 
 /**
  * Trims a string from an input Observable, the default behaviour is to trim a string

@@ -1,10 +1,6 @@
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-
-/**
- * The position to do the string padding at
- */
-export type PadPosition = 'start' | 'end';
+import { PadPosition } from '../types/position';
 
 /**
  * Pads a string - can pad from the start or end and to a specified length.

@@ -25,9 +25,6 @@ jobs:
       - name: Fetch other branches
         run: git fetch --no-tags --prune --depth=5 origin master
 
-      - name: Get Master
-        run: git pull master
-
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:

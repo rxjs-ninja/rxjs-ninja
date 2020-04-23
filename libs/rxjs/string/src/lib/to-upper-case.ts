@@ -8,9 +8,6 @@ import { map } from 'rxjs/operators';
  * to do the conversion, as such this operator accepts an optional locale or locales to convert to
  * @param locales Locales for string conversion
  */
-export function toUpperCase<T>(
-  locales?: string | string[]
-): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) =>
-    source.pipe(map(value => value.toLocaleUpperCase(locales)));
+export function toUpperCase(locales?: string | string[]): MonoTypeOperatorFunction<string> {
+  return (source: Observable<string>) => source.pipe(map(value => value.toLocaleUpperCase(locales)));
 }

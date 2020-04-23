@@ -19,18 +19,19 @@ jobs:
       - name: Fetch other branches
         run: git fetch --no-tags --prune --depth=5 origin master
 
+      # Setup node
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
 
+      # Run Install
       - name: Install environment
-        run: npm install
+        run: npm ci
 
       - name: Deploy
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         env:
-          CI: true
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: |
           npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN

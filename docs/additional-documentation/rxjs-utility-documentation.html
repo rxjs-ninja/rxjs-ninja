@@ -56,26 +56,24 @@ provides some convenience operators for <a href="https://rxjs-dev.firebaseapp.co
 <p>This library is currently in development. Please be aware APIs may change and there are missing features.</p>
 <h2 id="how-to-install">How to install</h2>
 <p>In your project run <code>npm install @tinynodes/rxjs-boolean</code></p>
-<p>To include in your project you can import the operators to include in any RxJS <code>pipe</code></p>
-<table class="table table-bordered compodoc-table">
-<thead>
-<tr>
-<th>Operator</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>startWithTap</code></td>
-<td><code>form.valueChange.pipe(startWithTap(() =&gt; this.touch())).subscribe()</code></td>
-</tr>
-<tr>
-<td><code>debounceWithQuery</code></td>
-<td><code>searchSource.pipe(debouceWithQuery(1000, (search: string) =&gt; this.http.get(&#39;/query?search=${search}&#39;))).subscribe()</code></td>
-</tr>
-</tbody>
-</table>
-
+<h2 id="operators">Operators</h2>
+<h3 id="startwithtap"><code>startWithTap</code></h3>
+<p>The <code>startWithTap</code> operator allows a developer to do a one-time tap event on the first emission
+from an Observable value.</p>
+<h4 id="example">Example</h4>
+<div><pre class="line-numbers"><code class="language-none">form.valueChange
+  .pipe(
+    startWithTap(() =&gt; this.touch()
+)).subscribe()</code></pre></div><h3 id="debouncewithquery"><code>debounceWithQuery</code></h3>
+<p>The <code>debouceWithQuery</code> operator takes two required parameters the debounce <code>time</code> and a function
+that takes a string and returns an Observable value.</p>
+<div><pre class="line-numbers"><code class="language-ts">const queryFn = (query: string) =&gt; {
+  return http.get(`/search?query=${query}`)
+}
+stringInput.change.pipe(
+  debounceWithQuery(1000, queryFn)
+).pipe(value =&gt; console.log(value)) // Results from a remote query
+</code></pre></div>
                    </div><div class="search-results">
     <div class="has-results">
         <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>

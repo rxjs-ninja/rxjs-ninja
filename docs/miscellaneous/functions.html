@@ -77,6 +77,9 @@
                             <a href="#firstTruthy" title="libs/rxjs/boolean/src/lib/first-truthy.ts"><b>firstTruthy</b>&nbsp;&nbsp;&nbsp;(libs/.../first-truthy.ts)</a>
                         </li>
                         <li>
+                            <a href="#fromEndsWith" title="libs/rxjs/string/src/lib/from-ends-with.ts"><b>fromEndsWith</b>&nbsp;&nbsp;&nbsp;(libs/.../from-ends-with.ts)</a>
+                        </li>
+                        <li>
                             <a href="#isFinite" title="libs/rxjs/number/src/lib/is-finite.ts"><b>isFinite</b>&nbsp;&nbsp;&nbsp;(libs/.../is-finite.ts)</a>
                         </li>
                         <li>
@@ -154,7 +157,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Returns the string character at a position passed as the parameter to this method</p>
+                    <div class="io-description"><p>Takes an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> string value and returns
+the character at the specified 0-index position</p>
 </div>
 
                     <div class="io-description">
@@ -177,7 +181,7 @@
 
 
                                     <td>
-                                        <p>The position for the character to return, starts at 0</p>
+                                        <p>The position for the character to return</p>
 
                                     </td>
                                 </tr>
@@ -223,7 +227,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Returns the string character code at a position passed as the parameter to this method</p>
+                    <div class="io-description"><p>Takes an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> string value and returns
+the character code for the character at the specified 0-index position</p>
 </div>
 
                     <div class="io-description">
@@ -246,7 +251,7 @@
 
 
                                     <td>
-                                        <p>The position for the character to return, starts at 0</p>
+                                        <p>The position for the character to return</p>
 
                                     </td>
                                 </tr>
@@ -292,7 +297,9 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Debounce a search query, takes a function that takes a string as it&#39;s parameter and returns an observable of results</p>
+                    <div class="io-description"><p>Operator that takes an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> string value
+and debounces it by the <code>time</code> parameter, and checks that the value changes.
+When the debounce completes the <code>queryMethod</code> is called and the result returned.</p>
 </div>
 
                     <div class="io-description">
@@ -315,7 +322,7 @@
 
 
                                     <td>
-                                        <p>The time to debounce</p>
+                                        <p>The time to debounce the query by</p>
 
                                     </td>
                                 </tr>
@@ -342,7 +349,8 @@
 
                     </div>
                     <div class="io-description">
-                        
+                        <p>An {</p>
+
                     </div>
                 </td>
             </tr>
@@ -374,7 +382,8 @@
 
             <tr>
                 <td class="col-md-4">
-                    <div class="io-description"><p>Returns if a string ends with a passed character, an optional length to look at the string can be passed</p>
+                    <div class="io-description"><p>Takes an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> string and returns a boolean
+value if the string ends with a passed character</p>
 </div>
 
                     <div class="io-description">
@@ -384,6 +393,7 @@
                                 <tr>
                                     <td>Name</td>
                                     <td>Optional</td>
+                                    <td>Description</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -395,6 +405,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The character to check</p>
+
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>length</td>
@@ -404,6 +418,10 @@
                                     </td>
 
 
+                                    <td>
+                                        <p>The length of the string to check</p>
+
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -513,6 +531,89 @@ firstTruthy()
                     </div>
                     <div class="io-description">
                         <b>Returns : </b>    <code>MonoTypeOperatorFunction&lt;T&gt;</code>
+
+                    </div>
+                    <div class="io-description">
+                        
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>    <h3>libs/rxjs/string/src/lib/from-ends-with.ts</h3>
+    <section>
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fromEndsWith"></a>
+                    <span class="name">
+                        <b>
+                            fromEndsWith
+                        </b>
+                        <a href="#fromEndsWith"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>fromEndsWith(character, length?)</code>
+                </td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Takes an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> string and returns a string
+if it ends with a specified character</p>
+</div>
+
+                    <div class="io-description">
+                        <b>Parameters :</b>
+                        <table class="params">
+                            <thead>
+                                <tr>
+                                    <td>Name</td>
+                                    <td>Optional</td>
+                                    <td>Description</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>character</td>
+
+                                    <td>
+                                        No
+                                    </td>
+
+
+                                    <td>
+                                        <p>The character to check</p>
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>length</td>
+
+                                    <td>
+                                        Yes
+                                    </td>
+
+
+                                    <td>
+                                        <p>The length of the string to check</p>
+
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                    </div>
+                    <div class="io-description">
+                        <b>Returns : </b>    <code>MonoTypeOperatorFunction&lt;string&gt;</code>
 
                     </div>
                     <div class="io-description">

@@ -1,5 +1,4 @@
 import { from } from 'rxjs';
-import { parseFloat } from './parse-float';
 import { parseInt } from './parse-int';
 
 describe('parseInt', () => {

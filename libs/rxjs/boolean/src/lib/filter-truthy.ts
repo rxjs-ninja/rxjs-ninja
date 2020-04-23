@@ -2,8 +2,14 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * Filter a source for only truthy values
+ * Returns only items that are truthy from an observable source
+ *
+ * @example
+ *
+ * from([true, false, '', 'test', undefined])
+ *  .pipe(filterTruthy())
+ *  .subscribe(value => console.log(value)) // [true, 'test']
  */
-export function filterTruthy(): MonoTypeOperatorFunction<unknown> {
-  return (source: Observable<unknown>) => source.pipe(filter(Boolean));
+export function filterTruthy<T>(): MonoTypeOperatorFunction<T> {
+  return (source: Observable<T>) => source.pipe(filter<T>(Boolean));
 }

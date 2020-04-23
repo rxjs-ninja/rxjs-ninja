@@ -1,4 +1,7 @@
+# File for Pull Request on master branch
 name: PR on master
+
+# When a PR is opened to master
 on:
   pull_request:
     branches:
@@ -10,19 +13,23 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
+        # Latest nodes only
         node-version: [13.x, 14.x]
     steps:
       - name: Checkout Libraries
         uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
-      - run: git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+
+      - name: Fetch other branches
+        run: git fetch --no-tags --prune --depth=1 origin +refs/heads/*:refs/remotes/origin/*
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: Install environment
         run: npm install
+
       - name: Run lint
         shell: bash
         run: |
@@ -35,6 +42,7 @@ jobs:
           echo "From Base $NX_BASE"
           npm run format:check -- --base=$NX_BASE
           npm run affected:lint -- --base=$NX_BASE
+
       - name: Tests coverage
         shell: bash
         run: |

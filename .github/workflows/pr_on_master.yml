@@ -39,7 +39,7 @@ jobs:
         run: npm install
 
       - name: Run lint
-        run: npm run affected:lint
+        run: npm run affected:lint -- --base=origin/master
 
       - name: Tests coverage
-        run: npm run affected:test -- --codeCoverage
+        run: npm run affected:test -- --codeCoverage --base=origin/master

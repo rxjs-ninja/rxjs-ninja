@@ -20,10 +20,10 @@
     "@typescript-eslint/explicit-function-return-type": "off",
     "@typescript-eslint/no-parameter-properties": "off",
     "@nrwl/nx/enforce-module-boundaries": [
-      "error",
+      "warn",
       {
         "enforceBuildableLibDependency": true,
-        "allow": [],
+        "allow": ["@tinynodes/rxjs-number"],
         "depConstraints": [{ "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }]
       }
     ]

@@ -19,5 +19,7 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: Install environment
         run: npm install
+      - name: Lint
+        run: npm run affected:lint -- --base=master
       - name: Tests coverage
-        run: npm run affected:test --codeCoverage
+        run: npm run affected:test -- --codeCoverage --base=master

@@ -1,6 +1,5 @@
 import { from } from 'rxjs';
 import { firstTruthy } from './first-truthy';
-import { count } from 'rxjs/operators';
 
 describe('firstTruthy', () => {
   it('should return the first true value from a source', done => {
@@ -18,7 +17,7 @@ describe('firstTruthy', () => {
     from([null, false, ''])
       .pipe(firstTruthy())
       .subscribe({
-        next: value => called++,
+        next: () => called++,
         complete: () => {
           expect(called).toBe(0);
           done();

@@ -1,5 +1,5 @@
-import { MonoTypeOperatorFunction, Observable, throwError } from 'rxjs';
-import { catchError, first, onErrorResumeNext } from 'rxjs/operators';
+import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { first, onErrorResumeNext } from 'rxjs/operators';
 
 /**
  * Returns the first truthy item from an Observable source, in this case it does

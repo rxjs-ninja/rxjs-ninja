@@ -25,6 +25,6 @@ jobs:
       - name: Install environment
         run: npm install
       - name: Lint
-        run: npm run affected:lint -- --base=remotes/origin/master
+        run: npm run affected:lint -- --base=master
       - name: Tests coverage
-        run: npm run affected:test -- --codeCoverage --base=remotes/origin/master
+        run: npm run affected:test -- --codeCoverage --base=master

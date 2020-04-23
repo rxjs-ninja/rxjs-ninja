@@ -1,3 +1,6 @@
+/**
+ * RxJS Primitives
+ */
 export { isFinite } from './lib/is-finite';
 export { isInteger } from './lib/is-integer';
 export { isNaN } from './lib/is-nan';

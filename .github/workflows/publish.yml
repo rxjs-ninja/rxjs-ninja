@@ -15,6 +15,10 @@ jobs:
       # Checkout code
       - uses: actions/checkout@v2
 
+      # Make sure we have all branches
+      - name: Fetch other branches
+        run: git fetch --no-tags --prune --depth=5 origin master
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:

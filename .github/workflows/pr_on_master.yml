@@ -20,6 +20,6 @@ jobs:
       - name: Install environment
         run: npm install
       - name: Lint
-        run: npm run affected:lint -- "--base=master"
+        run: npm run affected:lint
       - name: Tests coverage
-        run: npm run affected:test -- "--codeCoverage --base=master"
+        run: npm run affected:test -- --codeCoverage

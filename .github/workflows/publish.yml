@@ -10,36 +10,37 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [13.x]
     steps:
-      - name: Checkout
-        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
-        uses: actions/checkout@v2
-        with:
-          ref: master
+      # Checkout code
+      - uses: actions/checkout@v2
+
       - name: Use Node.js ${{ matrix.node-version }}
-        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+
       - name: Install environment
-        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         run: npm install
-      - name: Login to github
-        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
-        env:
-          CI: true
-          GITHUB_AUTH_TOKEN: ${{ secrets.ACTION_AUTH_TOKEN }}
-        run: |
-          git checkout master
-          git config user.name "Tane Piper"
-          git config user.email "me@tane.dev"
-          git remote set-url origin https://tanepiper:$ACTION_AUTH_TOKEN@github.com/tanepiper/rxjs-primitives.git
+
       - name: Deploy
-        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
-        env:
-          CI: true
-          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
+          env:
+            CI: true
+            NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+          run: |
+            npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
+            npm run lib-publish
+
+      - name: Build Docs
+        run: npm run docs
+
+      - name: Commit files
         run: |
-          npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
-          npm run lib-publish
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git commit -m "Add changes" -a
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.ACTION_AUTH_TOKEN }}

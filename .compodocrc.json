@@ -1,0 +1,12 @@
+{
+  "$schema": "./node_modules/@compodoc/compodoc/src/config/schema.json",
+  "name": "RxJS Primitives Docs",
+  "output": "./docs/",
+  "tsconfig": "./tsconfig.json",
+  "theme": "readthedocs",
+  "includes": "./libs",
+  "hideGenerator": true,
+  "disablePrivate": true,
+  "disableInternal": false,
+  "disableCoverage": false
+}

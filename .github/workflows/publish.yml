@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
     steps:
       - name: Checkout
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false

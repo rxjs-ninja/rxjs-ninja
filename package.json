@@ -25,7 +25,8 @@
     "workspace-schematic": "nx workspace-schematic",
     "dep-graph": "nx dep-graph",
     "help": "nx help",
-    "cz": "git-cz"
+    "cz": "git-cz",
+    "lib-publish": "node ./scripts/publish.js"
   },
   "private": true,
   "dependencies": {

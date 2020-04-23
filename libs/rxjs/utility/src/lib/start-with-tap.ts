@@ -14,8 +14,8 @@ import { switchMap, tap } from 'rxjs/operators';
  */
 export function startWithTap<T>(callback: () => void): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>) =>
-    of({}).pipe(
+    of(undefined).pipe(
       tap(callback),
-      switchMap(o => source),
+      switchMap(() => source),
     );
 }

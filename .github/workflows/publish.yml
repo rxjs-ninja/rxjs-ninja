@@ -24,13 +24,13 @@ jobs:
         run: npm install
 
       - name: Deploy
-          if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
-          env:
-            CI: true
-            NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-          run: |
-            npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
-            npm run lib-publish
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
+        env:
+          CI: true
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
+          npm run lib-publish
 
       - name: Build Docs
         run: npm run docs
@@ -39,7 +39,8 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git commit -m "Add changes" -a
+          git commit -m "Release [skip-ci]" -a
+
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:

@@ -1,20 +1,16 @@
 name: Merge on master
-
 on:
   pull_request:
     branches:
-    - master
+      - master
     types: [closed]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [12.x]
-
     steps:
       - name: Checkout
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false

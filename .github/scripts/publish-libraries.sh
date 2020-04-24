@@ -28,10 +28,10 @@ RELEASE_TYPE=${1:-$(getBuildType "$COMMIT_MESSAGE")}
 DRY_RUN=${DRY_RUN:-"True"}
 
 # Version the parent library
-npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
+# npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
 # Get the version to set on sub-libraries
-VERSION="$(awk '/version/{gsub(/("|",)/,"",$2);print $2}' "$ROOT_DIR/package.json")"
-echo "RxJS Primitives $RELEASE_TYPE - $VERSION."
+# VERSION="$(awk '/version/{gsub(/("|",)/,"",$2);print $2}' "$ROOT_DIR/package.json")"
+# echo "RxJS Primitives $RELEASE_TYPE - $VERSION."
 
 AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base=origin/master~1)
 if [ "$AFFECTED" != "" ]; then

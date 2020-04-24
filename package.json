@@ -26,8 +26,7 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "cz": "git-cz",
-    "docs": "compodoc",
-    "lib-publish": "node ./scripts/publish.js"
+    "docs": "compodoc"
   },
   "private": true,
   "dependencies": {

@@ -23,16 +23,9 @@ PARENT_DIR="$PWD"
 ROOT_DIR="."
 echo "Removing Dist"
 rm -rf "${ROOT_DIR:?}/dist"
-
 COMMIT_MESSAGE="$(git log -1 --pretty=format:"%s")"
-
 RELEASE_TYPE=${1:-$(getBuildType "$COMMIT_MESSAGE")}
-BRANCH=${2:-master}
-ONLY_AFFECTED=${3:-"False"}
-BUILD_NUMBER=${BUILD_NUMBER:-0}
 DRY_RUN=${DRY_RUN:-"True"}
-LAST_RELEASE="$(git describe --abbrev=0 --always)"
-echo "$LAST_RELEASE:$BUILD_NUMBER:$RELEASE_TYPE"
 
 # Version the parent library
 npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
@@ -40,9 +33,7 @@ npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE
 VERSION="$(awk '/version/{gsub(/("|",)/,"",$2);print $2}' "$ROOT_DIR/package.json")"
 echo "RxJS Primitives $RELEASE_TYPE - $VERSION."
 
-AFFECTED_RULE=$([ "$ONLY_AFFECTED" == 'False' ] && echo "--all" || echo "--base=$LAST_RELEASE")
-
-AFFECTED=$(node node_modules/.bin/nx affected:libs --plain "$AFFECTED_RULE")
+AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base=origin/master~1)
 if [ "$AFFECTED" != "" ]; then
   cd "$PARENT_DIR"
   echo "Copy Environment Files"
@@ -71,16 +62,3 @@ if [ "$AFFECTED" != "" ]; then
 else
   echo "No Libraries to publish"
 fi
-
-# Commit back to repo with changes
-cd "$PARENT_DIR"
-if [ "$DRY_RUN" == "False" ]; then
-  echo "Committing version back to repo"
-  git add .
-  git commit -m "RxJS Primitives $RELEASE_TYPE - $VERSION"
-  git tag "$VERSION" -m "$RELEASE_TYPE-$VERSION"
-  echo "Release done and submitted to repository"
-else
-  echo "Dry Run, not committing back to repository"
-fi
-wait

@@ -26,7 +26,7 @@ rm -rf "${ROOT_DIR:?}/dist"
 
 COMMIT_MESSAGE="$(git log -1 --pretty=format:"%s")"
 
-RELEASE_TYPE=${1:-getBuildType "$COMMIT_MESSAGE"}
+RELEASE_TYPE=${1:-$(getBuildType "$COMMIT_MESSAGE")}
 BRANCH=${2:-master}
 ONLY_AFFECTED=${3:-"False"}
 BUILD_NUMBER=${BUILD_NUMBER:-0}
@@ -35,24 +35,23 @@ LAST_RELEASE="$(git describe --abbrev=0 --always)"
 echo "$LAST_RELEASE:$BUILD_NUMBER:$RELEASE_TYPE"
 
 # Version the parent library
-npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "Animana Core Release $RELEASE_TYPE. Jenkins Build: $BUILD_NUMBER"
+npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
 # Get the version to set on sub-libraries
 VERSION="$(awk '/version/{gsub(/("|",)/,"",$2);print $2}' "$ROOT_DIR/package.json")"
-echo "Animana Core Release $RELEASE_TYPE - $VERSION."
+echo "RxJS Primitives $RELEASE_TYPE - $VERSION."
 
 AFFECTED_RULE=$([ "$ONLY_AFFECTED" == 'False' ] && echo "--all" || echo "--base=$LAST_RELEASE")
 
-AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --exclude="$IGNORE_PROJECTS" "$AFFECTED_RULE")
+AFFECTED=$(node node_modules/.bin/nx affected:libs --plain "$AFFECTED_RULE")
 if [ "$AFFECTED" != "" ]; then
   cd "$PARENT_DIR"
   echo "Copy Environment Files"
-  cp "$ROOT_DIR/.ci/.npmrc" ".npmrc"
 
   while IFS= read -r -d $' ' lib; do
     echo "Setting version for $lib"
     cd "$PARENT_DIR"
     cd "$ROOT_DIR/libs/${lib/-//}"
-    npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "Animana Core Release $RELEASE_TYPE. Jenkins Build: $BUILD_NUMBER"
+    npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
     echo "Building $lib"
     cd "$PARENT_DIR"
     npm run build "$lib" -- --prod
@@ -76,13 +75,12 @@ fi
 # Commit back to repo with changes
 cd "$PARENT_DIR"
 if [ "$DRY_RUN" == "False" ]; then
-  echo "Comitting version back to repo"
+  echo "Committing version back to repo"
   git add .
-  git commit -m "Animana Core Release $RELEASE_TYPE - $VERSION"
-  git tag "$VERSION" -m "Release $RELEASE_TYPE - $VERSION Tagged by Jenkins Build $BUILD_NUMBER"
-  git push --set-upstream origin "$BRANCH" --tags
+  git commit -m "RxJS Primitives $RELEASE_TYPE - $VERSION"
+  git tag "$VERSION" -m "$RELEASE_TYPE-$VERSION"
   echo "Release done and submitted to repository"
 else
-  echo "Dry Run, not comitting back to repository"
+  echo "Dry Run, not committing back to repository"
 fi
 wait

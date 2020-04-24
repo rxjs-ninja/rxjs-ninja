@@ -27,7 +27,7 @@
     "help": "nx help",
     "cz": "git-cz",
     "docs": "compodoc",
-    "lib-publish": "node ./scripts/publish.js"
+    "lib-publish": "node ./scripts/publish.js rxjs"
   },
   "private": true,
   "dependencies": {

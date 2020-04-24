@@ -7,7 +7,7 @@ const { readdirSync } = require('fs');
 function getAffectedLibs() {
   const result = execSync(`npm run affected:libs -- --base=origin/master~1`).toString();
   const data = result.match(/- (.+)/gm);
-  return data ? data.map(lib => lib.replace('- ', '/')) : [];
+  return data ? data.map(lib => lib.replace('- ', '')) : [];
 }
 
 /**

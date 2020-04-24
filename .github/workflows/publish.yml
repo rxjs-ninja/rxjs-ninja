@@ -13,20 +13,25 @@ jobs:
         node-version: [13.x]
     steps:
       # Checkout code
-      - uses: actions/checkout@v2
+      - name: Checkout Code
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
+        uses: actions/checkout@v2
 
       # Make sure we have all branches
       - name: Fetch other branches
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         run: git fetch --no-tags --prune --depth=5 origin master
 
       # Setup node
       - name: Use Node.js ${{ matrix.node-version }}
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
 
       # Run Install
       - name: Install environment
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         run: npm ci
 
       - name: Deploy
@@ -35,12 +40,14 @@ jobs:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: |
           npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
-          npm run lib-publish || true
+          ./.github/scripts/publish-libraries.sh
 
       - name: Build Docs
-        run: npm run docs
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
+        run: ./.github/scripts/build-docs.sh
 
       - name: Commit files
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
@@ -48,6 +55,7 @@ jobs:
           git commit -m "Release [skip-ci]" -a || true
 
       - name: Push changes
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.ACTION_AUTH_TOKEN }}

@@ -36,10 +36,10 @@ jobs:
         run: git fetch --no-tags --prune --depth=5 origin master
 
       - name: Install environment
-        run: npm install
+        run: npm ci
 
       - name: Run lint
-        run: npm run affected:lint -- --base=origin/master
+        run: ./.github/scripts/run-linting.sh
 
       - name: Tests coverage
-        run: npm run affected:test -- --codeCoverage --base=origin/master
+        run: ./.github/scripts/run-testing.sh

@@ -12,7 +12,7 @@ getBuildType() {
     release_type="major"
   elif [[ "$1" == *"fix"* ]]; then
     release_type="patch"
-   elif [[ "$1" == *"fix"* ]]; then
+   elif [[ "$1" == *"docs"* ]]; then
     release_type="patch"
   fi
   echo "$release_type"
@@ -42,7 +42,7 @@ if [ "$AFFECTED" != "" ]; then
     echo "Setting version for $lib"
     cd "$PARENT_DIR"
     cd "$ROOT_DIR/libs/${lib/-//}"
-    npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
+    npm version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
     echo "Building $lib"
     cd "$PARENT_DIR"
     npm run build "$lib" -- --prod

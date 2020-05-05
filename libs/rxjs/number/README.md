@@ -31,17 +31,85 @@ fromArray(['1', '1.2', '45.34'])
   });
 ```
 
-## Available Methods
+## RxJS Number API
+
+### `isFinite`/`fromIsFinite`
+
+Based on [Number.isFinite](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite) the
+two methods provided by this library can be used inside an Observable subscription. The `isFinite` method returns a boolean
+value based on the input, while `fromIsFinite` returns the underlying value.
+
+#### Example
+
+```ts
+from([1, Infinity])
+  .pipe(isFinite())
+  .subscribe(console.log) // [true, false]
+
+from([1, Infinity])
+  .pipe(fromIsFinite())
+  .subscribe(console.log) // [1]
+```
+
+### `isInteger`/`fromIsInteger`
+
+Based on [Number.isInteger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger) the
+two methods provided by this library can be used inside an Observable subscription. The `isInteger` method returns a boolean
+value based on the input, while `fromIsInteger` returns the underlying value.
+
+### `isSafeInteger`/`fromIsSafeInteger`
+
+Based on [Number.isSafeInteger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger) the
+two methods provided by this library can be used inside an Observable subscription. The `isSafeInteger` method returns a boolean
+value based on the input, while `fromIsSafeInteger` returns the underlying value.
+
+### `isNaN`
+
+Based on | [Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN) this method
+returns a boolean value in an Observable number source.
+
+### `parseFloat`
+
+Based on [Number.parseFloat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat) the method
+returns a parsed float value from an Observable string source.
+
+### `parseInt`
+
+Based on [Number.parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt) the method
+returns a parsed integer value from an Observable string source.
+
+The method take an optional `radix` value, the default is `10`.
+
+### `toExponential`
+
+Based on [Number.prototype.toExponential](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential) this method
+returns a number value to the required `exponential` parameter.
+
+### `toLocaleString`
+
+Based on [Number.prototype.toLocaleString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) this method
+takes an Observable number value and returns a string formatted based on [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
+options.
+
+### `toPrecision`
+
+Based on [Number.prototype.toPrecision](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision) this method
+takes an Observable number and returns a string formatted to the passed `precision` value.
+
+### `toString`
+
+Based on [Number.prototype.toString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString) this method
+takes an Observable number and returns a string value based on the optional `radix` - the default value is `10`.
 
 | Method                                                                                                                                    | Operator         | Example                                                                                                              |
 | ----------------------------------------------------------------------------------------------------------------------------------------- | ---------------- | -------------------------------------------------------------------------------------------------------------------- |
-| [Number.isFinite](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite)                       | `isFinite`       | `from([Infinity]).pipe(isFinite()).subscribe(// false)`                                                              |
-| [Number.isInteger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger)                     | `isInteger`      | `from([1, 3.14]).pipe(isInteger()).subscribe(// true, false)`                                                        |
-| [Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)                             | `isNaN`          | `from([1, NaN]).pipe(isInteger()).subscribe(// false, true)`                                                         |
-| [Number.isSafeInteger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger)             | `isSafeInteger`  | `from([[Math.pow(2, 53), Math.pow(2, 53) - 1]]).pipe(isInteger()).subscribe(// false, true)`                         |
-| [Number.parseFloat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat)                   | `parseFloat`     | `from(['12.34']).pipe(parseFloat()).subscribe(// 12.34)`                                                             |
-| [Number.parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt)                       | `parseInt`       | `from(['12.34']).pipe(parseInt()).subscribe(// 12)`                                                                  |
-| [Number.prototype.toExponential](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential)   | `toExponential`  | `from([1000, 2000, 3000]).pipe(toExponential(2)).subscribe(// ['1.00e+3', '2.00e+3', '3.00e+3'])`                    |
+|                        | `isFinite`       | `from([Infinity]).pipe(isFinite()).subscribe(// false)`                                                              |
+|                      | `isInteger`      | `from([1, 3.14]).pipe(isInteger()).subscribe(// true, false)`                                                        |
+                             | `isNaN`          | `from([1, NaN]).pipe(isInteger()).subscribe(// false, true)`                                                         |
+|              | `isSafeInteger`  | `from([[Math.pow(2, 53), Math.pow(2, 53) - 1]]).pipe(isInteger()).subscribe(// false, true)`                         |
+|                   | `parseFloat`     | `from(['12.34']).pipe(parseFloat()).subscribe(// 12.34)`                                                             |
+|                       | `parseInt`       | `from(['12.34']).pipe(parseInt()).subscribe(// 12)`                                                                  |
+|   | `toExponential`  | `from([1000, 2000, 3000]).pipe(toExponential(2)).subscribe(// ['1.00e+3', '2.00e+3', '3.00e+3'])`                    |
 | [Number.prototype.toLocaleString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) | `toLocaleString` | `from([1000000]).pipe(toLocaleString('en-GB', { currency: 'EUR', style: 'currency' }).subscribe(// '€1,000,000.00')` |
 | [Number.prototype.toPrecision](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision)       | `toPrecision`    | `from([123.456, 0.004, 1.23e5]).pipe(toPrecision(4)).subscribe(// ['123.5', '0.004000', '1.230e+5'])`                |
-| [Number.prototype.toString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)             | `toString`       | `from([1, 255]).pipe(toString(16)).subscribe(// ['1', 'ff'])`                                                        |
+|            | `toString`       | `from([1, 255]).pipe(toString(16)).subscribe(// ['1', 'ff'])`                                                        |

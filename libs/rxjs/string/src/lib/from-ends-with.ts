@@ -8,5 +8,5 @@ import { map } from 'rxjs/operators';
  * @param length The length of the string to check
  */
 export function fromEndsWith(character: string, length?: number): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map(value => value.endsWith(character, length) && value));
+  return (source: Observable<string>) => source.pipe(map((value) => value.endsWith(character, length) && value));
 }

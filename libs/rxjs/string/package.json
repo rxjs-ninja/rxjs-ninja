@@ -2,7 +2,25 @@
   "name": "@tinynodes/rxjs-string",
   "description": "Operators for handling RxJS Observable of string",
   "version": "0.0.2",
+  "keywords": [
+    "rxjs",
+    "typescript",
+    "reactive"
+  ],
+  "homepage": "https://tanepiper.github.io/rxjs-primitives/",
+  "bugs": {
+    "url": "https://github.com/tanepiper/rxjs-primitives/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Tane Piper",
+    "url": "https://tane.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tanepiper/rxjs-primitives.git"
+  },
   "peerDependencies": {
-    "rxjs": "^6.5.0"
+    "rxjs": ">=6.5.0"
   }
 }

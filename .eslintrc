@@ -23,7 +23,7 @@
       "warn",
       {
         "enforceBuildableLibDependency": true,
-        "allow": ["@tinynodes/rxjs-boolean"],
+        "allow": [],
         "depConstraints": [{ "sourceTag": "*", "onlyDependOnLibsWithTags": ["*"] }]
       }
     ]

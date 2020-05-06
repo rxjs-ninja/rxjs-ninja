@@ -1,7 +1,8 @@
 {
-  "name": "RxJS Primitives Documentation",
+  "name": "RxJS Primitives",
   "mode": "modules",
   "out": "docs",
   "exclude": ["**/*.spec.ts"],
-  "readme": "README.md"
+  "readme": "README.md",
+  "includes": "libs/rxjs"
 }

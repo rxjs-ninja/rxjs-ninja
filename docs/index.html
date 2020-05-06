@@ -1,129 +1,144 @@
 <!doctype html>
-<html class="no-js" lang="">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="x-ua-compatible" content="ie=edge">
-        <title>RxJS Primitives Docs</title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
-	      <link rel="stylesheet" href="./styles/style.css">
-        <link rel="stylesheet" href="./styles/readthedocs.css">
-    </head>
-    <body>
-
-        <div class="navbar navbar-default navbar-fixed-top visible-xs">
-            <a href="./" class="navbar-brand">RxJS Primitives Docs</a>
-            <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
-        </div>
-
-        <div class="xs-menu menu" id="mobile-menu">
-                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
-        </div>
-
-        <div class="container-fluid main">
-           <div class="row main">
-               <div class="hidden-xs menu">
-                   <compodoc-menu mode="normal"></compodoc-menu>
-               </div>
-               <!-- START CONTENT -->
-               <div class="content getting-started">
-                   <div class="content-data">
-
-<h1 id="rxjs-primitives">RxJS Primitives</h1>
-<p>This set of libraries provides some low-level <a href="https://rxjs-dev.firebaseapp.com/">RxJS</a> operators for handling different operations with
-Observable values of primitive types (<code>string</code>, <code>number</code>, <code>boolean</code>, etc).</p>
-<p>These operators use methods from ECMAScript built-in objects such as <code>String</code> and <code>Number</code> and it also includes some
-convenience <code>Boolean</code> methods.</p>
-<p>These are operators allow developers to avoid having to handle their own mapping or logic</p>
-<h2 id="install-instructions">Install Instructions</h2>
-<p>To include in your project install one or more of the libraries</p>
-<blockquote>
-<p>npm i @tinynodes/rxjs-string @tinynodes/rxjs-number @tinynodes/rxjs-boolean @tinynodes/rxjs-utility</p>
-</blockquote>
-<h2 id="libraries">Libraries</h2>
-<h3 id="rxjs-string">rxjs-string</h3>
-<p><a href="libs/rxjs/string/README.md">API Documentation</a></p>
-<p>This library provides operators around the ECMAScript <code>String</code> methods, taking an input Observable
-and returning a string or boolean output.</p>
-<h3 id="rxjs-number">rxjs-number</h3>
-<p><a href="libs/rxjs/number/README.md">API Documentation</a></p>
-<p>This library provides operators around the ECMAScript <code>Number</code> methods, taking an input Observable
-and returning a number or boolean output</p>
-<h3 id="rxjs-boolean">rxjs-boolean</h3>
-<p><a href="libs/rxjs/boolean/README.md">API Documentation</a></p>
-<p>This library provides handy methods where you are working with booleans, it takes any Observable value
-and returns results based on a boolean result</p>
-<h2 id="rxjs-utility">rxjs-utility</h2>
-<p><a href="libs/rxjs/utility/README.md">API Documentation</a></p>
-<p>A library that provides some additional useful operators such as <code>startWithTap</code> or <code>debouceWithQuery</code></p>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                   
-
-
-
-
-                   </div><div class="search-results">
-    <div class="has-results">
-        <h1 class="search-results-title"><span class='search-results-count'></span> result-matching "<span class='search-query'></span>"</h1>
-        <ul class="search-results-list"></ul>
-    </div>
-    <div class="no-results">
-        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
-    </div>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>RxJS Primitives Documentation</title>
+	<meta name="description" content="Documentation for RxJS Primitives Documentation">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">RxJS Primitives Documentation</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>RxJS Primitives Documentation</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#rxjs-primitives" id="rxjs-primitives" style="color: inherit; text-decoration: none;">
+					<h1>RxJS Primitives</h1>
+				</a>
+				<p>This set of libraries provides some low-level <a href="https://rxjs-dev.firebaseapp.com/">RxJS</a> operators for handling different operations with
+				Observable values of primitive types (<code>string</code>, <code>number</code>, <code>boolean</code>, etc).</p>
+				<p>These operators use methods from ECMAScript built-in objects such as <code>String</code> and <code>Number</code> and it also includes some
+				convenience <code>Boolean</code> methods.</p>
+				<p>These are operators allow developers to avoid having to handle their own mapping or logic.</p>
+				<ul>
+					<li><a href="https://github.com/tanepiper/rxjs-primitives">Github</a></li>
+					<li>Full <a href="https://tanepiper.github.io/rxjs-primitives/">API Documentation</a> is available with examples.</li>
+				</ul>
+				<a href="#install-instructions" id="install-instructions" style="color: inherit; text-decoration: none;">
+					<h2>Install Instructions</h2>
+				</a>
+				<p>To include in your project install one or more of the libraries</p>
+				<blockquote>
+					<p><code>npm i @tinynodes/rxjs-string</code></p>
+				</blockquote>
+				<blockquote>
+					<p><code>npm i @tinynodes/rxjs-number</code></p>
+				</blockquote>
+				<blockquote>
+					<p><code>npm i @tinynodes/rxjs-boolean</code></p>
+				</blockquote>
+				<blockquote>
+					<p><code>npm i @tinynodes/rxjs-utility</code></p>
+				</blockquote>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/boolean.html">boolean</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/number.html">number</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/string.html">string</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utility.html">utility</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
 </div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
-               <!-- END CONTENT -->
-           </div>
-       </div>
-
-       <script>
-            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
-            var COMPODOC_CURRENT_PAGE_CONTEXT = 'getting-started';
-            var COMPODOC_CURRENT_PAGE_URL = 'index.html';
-            var MAX_SEARCH_RESULTS = 15;
-       </script>
-
-       <script src="./js/libs/custom-elements.min.js"></script>
-       <script src="./js/libs/lit-html.js"></script>
-       <!-- Required to polyfill modern browsers as code is ES5 for IE... -->
-       <script src="./js/libs/custom-elements-es5-adapter.js" charset="utf-8" defer></script>
-       <script src="./js/menu-wc.js" defer></script>
-
-       <script src="./js/libs/bootstrap-native.js"></script>
-
-       <script src="./js/libs/es6-shim.min.js"></script>
-       <script src="./js/libs/EventDispatcher.js"></script>
-       <script src="./js/libs/promise.min.js"></script>
-       <script src="./js/libs/zepto.min.js"></script>
-
-       <script src="./js/compodoc.js"></script>
-
-       <script src="./js/tabs.js"></script>
-       <script src="./js/menu.js"></script>
-       <script src="./js/libs/clipboard.min.js"></script>
-       <script src="./js/libs/prism.js"></script>
-       <script src="./js/sourceCode.js"></script>
-          <script src="./js/search/search.js"></script>
-          <script src="./js/search/lunr.min.js"></script>
-          <script src="./js/search/search-lunr.js"></script>
-          <script src="./js/search/search_index.js"></script>
-       <script src="./js/lazy-load-graphs.js"></script>
-
-
-    </body>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
 </html>

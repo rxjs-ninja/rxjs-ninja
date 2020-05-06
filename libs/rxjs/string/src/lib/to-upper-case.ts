@@ -1,13 +1,31 @@
+/**
+ * @packageDocumentation
+ * @module string
+ */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * Operator for taking a string and converting it to all upper case characters.
+ * The `toUpperCase` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * value and returns a string changed to all upper case characters
  *
- * The method uses {@link String.prototype.toLocaleUpperCase|https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleUpperCase|}
- * to do the conversion, as such this operator accepts an optional locale or locales to convert to
- * @param locales Locales for string conversion
+ * @param locales Optional locales to pass for string formatting
+ *
+ * @remarks
+ * This operator is based on both [String.prototype.toLocaleUpperCase](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleUpperCase)
+ * rather than [toUpperCase](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase) as this provides support
+ * for localisation of string
+ *
+ * @example
+ * ```ts
+ * from(['äpfel'])
+ *  .pipe(toUpperCase('de-DE'))
+ *  .subscribe(....) // ['ÄPFEL']
+ * ```
+ *
+ * @returns String that is converted to upper case
+ * @category RxJS String Formatting
  */
 export function toUpperCase(locales?: string | string[]): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map(value => value.toLocaleUpperCase(locales)));
+  return (source: Observable<string>) => source.pipe(map((value) => value.toLocaleUpperCase(locales)));
 }

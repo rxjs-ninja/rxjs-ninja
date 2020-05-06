@@ -1,8 +1,26 @@
 {
   "name": "@tinynodes/rxjs-utility",
-  "description": "Useful utilities for R",
+  "description": "Useful utilities for RxJS",
   "version": "0.0.1",
+  "keywords": [
+    "rxjs",
+    "typescript",
+    "reactive"
+  ],
+  "homepage": "https://tanepiper.github.io/rxjs-primitives/",
+  "bugs": {
+    "url": "https://github.com/tanepiper/rxjs-primitives/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Tane Piper",
+    "url": "https://tane.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tanepiper/rxjs-primitives.git"
+  },
   "peerDependencies": {
-    "rxjs": "^6.5.0"
+    "rxjs": ">=6.5.0"
   }
 }

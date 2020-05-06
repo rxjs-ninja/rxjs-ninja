@@ -1,5 +1,7 @@
 /**
- * RxJS Primitives
+ * @packageDocumentation
+ * @module string
+ * @ignore
  */
 export { charAt } from './lib/char-at';
 export { charCodeAt } from './lib/char-code-at';

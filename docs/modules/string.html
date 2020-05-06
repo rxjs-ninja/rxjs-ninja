@@ -81,10 +81,13 @@
 							<h3>RxJS From String Query Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#fromendswith" class="tsd-kind-icon">from<wbr>Ends<wbr>With</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#fromincludes" class="tsd-kind-icon">from<wbr>Includes</a></li>
 							</ul>
 							<h3>RxJS String Formatting Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#padstring" class="tsd-kind-icon">pad<wbr>String</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#replace" class="tsd-kind-icon">replace</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#substring" class="tsd-kind-icon">substring</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#tolowercase" class="tsd-kind-icon">to<wbr>Lower<wbr>Case</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#touppercase" class="tsd-kind-icon">to<wbr>Upper<wbr>Case</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#trimstring" class="tsd-kind-icon">trim<wbr>String</a></li>
@@ -94,6 +97,8 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#charat" class="tsd-kind-icon">char<wbr>At</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#charcodeat" class="tsd-kind-icon">char<wbr>Code<wbr>At</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#endswith" class="tsd-kind-icon">ends<wbr>With</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#includes" class="tsd-kind-icon">includes</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#indexof" class="tsd-kind-icon">index<wbr>Of</a></li>
 							</ul>
 						</section>
 					</div>
@@ -107,7 +112,7 @@
 					<div class="tsd-signature tsd-kind-icon">Pad<wbr>Position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5049d93/libs/rxjs/string/src/types/position.ts#L9">string/src/types/position.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/e5ae7e3/libs/rxjs/string/src/types/position.ts#L9">string/src/types/position.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -122,7 +127,7 @@
 					<div class="tsd-signature tsd-kind-icon">Trim<wbr>Position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5049d93/libs/rxjs/string/src/types/position.ts#L14">string/src/types/position.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/e5ae7e3/libs/rxjs/string/src/types/position.ts#L14">string/src/types/position.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -144,18 +149,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5049d93/libs/rxjs/string/src/lib/from-ends-with.ts#L30">string/src/lib/from-ends-with.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/e5ae7e3/libs/rxjs/string/src/lib/from-ends-with.ts#L30">string/src/lib/from-ends-with.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The <code>fromEndsWith</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
-										value and returns a string value if the string of length ends with the passed character
-									Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith">String.prototype.endsWith</a></p>
+									value and returns a string value if the string of length ends with the passed character</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
-									<dd><p>If no length is passed then is uses the length of the passed string
+									<dd><p>Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith">String.prototype.endsWith</a>
+											If no length is passed then is uses the length of the passed string
 										If you need to get the boolean quality instead of value use <a href="string.html#endswith">endsWith</a></p>
 									</dd>
 									<dt>example</dt>
@@ -185,6 +190,50 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="fromincludes" class="tsd-anchor"></a>
+					<h3>from<wbr>Includes</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Includes<span class="tsd-signature-symbol">(</span>searchStr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/e5ae7e3/libs/rxjs/string/src/lib/from-includes.ts#L28">string/src/lib/from-includes.ts:28</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>fromIncludes</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
+									value and returns a string value if the string contains the includes parameter</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes">String.prototype.includes</a>
+										If you need to get the boolean quality instead of value use <a href="string.html#includes">includes</a></p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'test'</span>, <span class="hljs-string">'foobar'</span>, <span class="hljs-string">'testing'</span>])
+ .pipe(fromIncludes(<span class="hljs-string">'test'</span>))
+ .subscribe(....) <span class="hljs-comment">// ['test', 'testing']</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>searchStr: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to check the string includes</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>String that passes the equality check of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes">String.prototype.includes</a></p>
+						</li>
+					</ul>
+				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>RxJS String Formatting Functions</h2>
@@ -198,7 +247,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5049d93/libs/rxjs/string/src/lib/pad-string.ts#L32">string/src/lib/pad-string.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/e5ae7e3/libs/rxjs/string/src/lib/pad-string.ts#L32">string/src/lib/pad-string.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -246,6 +295,104 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="replace" class="tsd-anchor"></a>
+					<h3>replace</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">replace<span class="tsd-signature-symbol">(</span>pattern<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">RegExp</span>, replacement<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/e5ae7e3/libs/rxjs/string/src/lib/replace.ts#L28">string/src/lib/replace.ts:28</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>replace</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
+									value and returns a string with the text replaced via the passed pattern</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>This operator is based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace">String.prototype.replace</a></p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'Mary had a little lamb'</span>])
+ .pipe(replace(<span class="hljs-string">'lamb'</span>, <span class="hljs-string">'dog'</span>))
+ .subscribe(....) <span class="hljs-comment">// ['Mary had a little dog']</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>pattern: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">RegExp</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A string or regular expression to evaluate in the string</p>
+									</div>
+								</li>
+								<li>
+									<h5>replacement: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The replacement string</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>String with text replaced based on pattern and replacement string</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="substring" class="tsd-anchor"></a>
+					<h3>substring</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">substring<span class="tsd-signature-symbol">(</span>start<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, end<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/e5ae7e3/libs/rxjs/string/src/lib/substring.ts#L28">string/src/lib/substring.ts:28</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>substring</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
+									value and returns a substring based on the passed start and end value</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>This operator is based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring">String.prototype.substring</a></p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'Mary had a little lamb'</span>])
+ .pipe(substring(<span class="hljs-number">0</span>, <span class="hljs-number">4</span>))
+ .subscribe(....) <span class="hljs-comment">// ['Mary']</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>start: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Index of the string where to start the substring</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> end: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional end index of the substring, if not passed it will use the string length</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>String that is a substring of the original string</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="tolowercase" class="tsd-anchor"></a>
 					<h3>to<wbr>Lower<wbr>Case</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -255,7 +402,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5049d93/libs/rxjs/string/src/lib/to-lower-case.ts#L29">string/src/lib/to-lower-case.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/e5ae7e3/libs/rxjs/string/src/lib/to-lower-case.ts#L29">string/src/lib/to-lower-case.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -300,7 +447,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5049d93/libs/rxjs/string/src/lib/to-upper-case.ts#L29">string/src/lib/to-upper-case.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/e5ae7e3/libs/rxjs/string/src/lib/to-upper-case.ts#L29">string/src/lib/to-upper-case.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -345,7 +492,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5049d93/libs/rxjs/string/src/lib/trim-string.ts#L31">string/src/lib/trim-string.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/e5ae7e3/libs/rxjs/string/src/lib/trim-string.ts#L31">string/src/lib/trim-string.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -394,18 +541,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5049d93/libs/rxjs/string/src/lib/char-at.ts#L28">string/src/lib/char-at.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/e5ae7e3/libs/rxjs/string/src/lib/char-at.ts#L28">string/src/lib/char-at.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The <code>charAt</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
-										value and returns the ASCII character at the passed position.
-									Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt">String.prototype.charAt</a></p>
+									value and returns the ASCII character at the passed position.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
-									<dd><p>The position number passed starts from 0</p>
+									<dd><p>Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt">String.prototype.charAt</a>
+										The position number passed starts from 0</p>
 									</dd>
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'AbCdE'</span>])
@@ -438,18 +585,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5049d93/libs/rxjs/string/src/lib/char-code-at.ts#L28">string/src/lib/char-code-at.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/e5ae7e3/libs/rxjs/string/src/lib/char-code-at.ts#L28">string/src/lib/char-code-at.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The <code>charCodeAt</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
-										value and returns a number of the ASCII code for the character
-									Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt">String.prototype.charCodeAt</a></p>
+									value and returns a number of the ASCII code for the character</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
-									<dd><p>The position number passed starts from 0</p>
+									<dd><p>Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt">String.prototype.charCodeAt</a>
+										The position number passed starts from 0</p>
 									</dd>
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'abcde'</span>])
@@ -482,18 +629,18 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5049d93/libs/rxjs/string/src/lib/ends-with.ts#L30">string/src/lib/ends-with.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/e5ae7e3/libs/rxjs/string/src/lib/ends-with.ts#L30">string/src/lib/ends-with.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The <code>endsWith</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
-										value and returns a boolean value if the string of length ends with the passed character
-									Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith">String.prototype.endsWith</a></p>
+									value and returns a boolean value if the string of length ends with the passed character</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
-									<dd><p>If no length is passed then is uses the length of the passed string
+									<dd><p>Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith">String.prototype.endsWith</a>
+											If no length is passed then is uses the length of the passed string
 										If you need to get the string value instead of boolean use <a href="string.html#fromendswith">fromEndsWith</a></p>
 									</dd>
 									<dt>example</dt>
@@ -520,6 +667,99 @@
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>Boolean value if the string passes the equality check of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith">String.prototype.endsWith</a></p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="includes" class="tsd-anchor"></a>
+					<h3>includes</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">includes<span class="tsd-signature-symbol">(</span>searchStr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/e5ae7e3/libs/rxjs/string/src/lib/includes.ts#L28">string/src/lib/includes.ts:28</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>includes</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
+									value and returns a boolean value if the string includes the passed value string</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes">String.prototype.includes</a>
+										If you need to get the string value instead of boolean use <a href="string.html#fromincludes">fromIncludes</a></p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'test'</span>, <span class="hljs-string">'testing'</span>])
+ .pipe(includes(<span class="hljs-string">'test'</span>))
+ .subscribe(....) <span class="hljs-comment">// [true, true]</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>searchStr: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to check if the string includes this</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Boolean value if the string passes the equality check of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes">String.prototype.includes</a></p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="indexof" class="tsd-anchor"></a>
+					<h3>index<wbr>Of</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">index<wbr>Of<span class="tsd-signature-symbol">(</span>searchStr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/e5ae7e3/libs/rxjs/string/src/lib/index-of.ts#L28">string/src/lib/index-of.ts:28</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>indexOf</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
+									value and returns the index number of the string passed, with optional start index</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/indexOf">String.prototype.indexOf</a></p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'test'</span>])
+ .pipe(indexOf(<span class="hljs-string">'s'</span>))
+ .subscribe(....) <span class="hljs-comment">// [2]</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>searchStr: <span class="tsd-signature-type">string</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The value to search for in the string</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> start: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional start position from 0 being the beginning of the string</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Index of the location where the string starts</p>
 						</li>
 					</ul>
 				</section>
@@ -566,7 +806,22 @@
 						<a href="string.html#fromendswith" class="tsd-kind-icon">from<wbr>Ends<wbr>With</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="string.html#fromincludes" class="tsd-kind-icon">from<wbr>Includes</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="string.html#includes" class="tsd-kind-icon">includes</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="string.html#indexof" class="tsd-kind-icon">index<wbr>Of</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="string.html#padstring" class="tsd-kind-icon">pad<wbr>String</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="string.html#replace" class="tsd-kind-icon">replace</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="string.html#substring" class="tsd-kind-icon">substring</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="string.html#tolowercase" class="tsd-kind-icon">to<wbr>Lower<wbr>Case</a>

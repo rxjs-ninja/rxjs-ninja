@@ -8,11 +8,11 @@ import { map } from 'rxjs/operators';
 /**
  * The `charCodeAt` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
  * value and returns a number of the ASCII code for the character
- * Based on [String.prototype.charCodeAt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)
  *
  * @param position The character position to return a character code from
  *
  * @remarks
+ * Based on [String.prototype.charCodeAt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)
  * The position number passed starts from 0
  *
  * @example

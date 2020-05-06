@@ -1,7 +1,7 @@
 {
   "name": "@tinynodes/rxjs-string",
   "description": "Operators for handling RxJS Observable of string",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "keywords": [
     "rxjs",
     "typescript",

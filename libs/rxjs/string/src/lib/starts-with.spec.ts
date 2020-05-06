@@ -1,9 +1,8 @@
 import { of } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { endsWith } from './ends-with';
 import { startsWith } from './starts-with';
 
-describe('endsWith', () => {
+describe('startsWith', () => {
   it('should return true if a string starts with a character', (done) => {
     of('test?')
       .pipe(startsWith('t'), take(1))

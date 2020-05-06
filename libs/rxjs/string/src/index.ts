@@ -12,6 +12,7 @@ export { fromCharCode } from './lib/from-char-code';
 export { fromCodePoint } from './lib/from-code-point';
 export { fromEndsWith } from './lib/from-ends-with';
 export { fromIncludes } from './lib/from-includes';
+export { fromStartsWith } from './lib/from-starts-with';
 export { includes } from './lib/includes';
 export { indexOf } from './lib/index-of';
 export { lastIndexOf } from './lib/last-index-of';

@@ -1,6 +1,11 @@
 /**
- * RxJS Primitives
+ * @packageDocumentation
+ * @module number
+ * @ignore
  */
+export { fromIsFinite } from './lib/from-is-finite';
+export { fromIsInteger } from './lib/from-is-integer';
+export { fromIsSafeInteger } from './lib/from-is-safe-integer';
 export { isFinite } from './lib/is-finite';
 export { isInteger } from './lib/is-integer';
 export { isNaN } from './lib/is-nan';

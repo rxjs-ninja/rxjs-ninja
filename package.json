@@ -26,32 +26,33 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "cz": "git-cz",
-    "docs": "compodoc"
+    "docs": "typedoc"
   },
   "private": true,
   "dependencies": {
     "rxjs": "^6.5.5"
   },
   "devDependencies": {
-    "@compodoc/compodoc": "^1.1.11",
     "@nrwl/eslint-plugin-nx": "9.2.3",
     "@nrwl/jest": "9.2.3",
     "@nrwl/node": "^9.2.3",
     "@nrwl/workspace": "9.2.3",
     "@types/jest": "25.2.1",
-    "@types/node": "~13.13.2",
-    "@typescript-eslint/eslint-plugin": "2.29.0",
-    "@typescript-eslint/parser": "2.29.0",
-    "commitizen": "^4.0.4",
-    "cz-conventional-changelog": "^3.1.0",
+    "@types/node": "~13.13.5",
+    "@typescript-eslint/eslint-plugin": "2.31.0",
+    "@typescript-eslint/parser": "2.31.0",
+    "commitizen": "^4.1.2",
+    "cz-conventional-changelog": "^3.2.0",
     "dotenv": "8.2.0",
     "eslint": "6.8.0",
     "eslint-config-prettier": "6.11.0",
-    "jest": "25.4.0",
+    "jest": "25.5.4",
     "prettier": "2.0.5",
     "ts-jest": "25.4.0",
-    "ts-node": "~8.9.0",
-    "tslint": "~6.1.1",
+    "ts-node": "~8.10.1",
+    "tslint": "~6.1.2",
+    "typedoc": "^0.17.6",
+    "typedoc-plugin-external-module-name": "^3.1.0",
     "typescript": "~3.8.3"
   },
   "config": {

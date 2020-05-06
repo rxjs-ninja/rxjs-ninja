@@ -4,8 +4,6 @@ import { reduce } from 'rxjs/operators';
 
 describe('fromIncludes', () => {
   it('should return a string if a string includes the value', (done) => {
-    const output = [];
-
     from(['test', 'testing', 'foobar'])
       .pipe(
         fromIncludes('test'),

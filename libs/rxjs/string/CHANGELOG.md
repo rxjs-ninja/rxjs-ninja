@@ -5,9 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [1.1.0] - 2020-05-06
 
-New operators added:
+Additional operators added with tests
 
 - `codePointAt` - Returns the code point at a specified index position of an `Observable<string>`
 - `concat` - Returns a string of the original `Observable<string>` concatenated with additional string passed as parameters

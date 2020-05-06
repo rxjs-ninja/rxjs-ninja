@@ -17,7 +17,7 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['Hello|World'])
+ * of('Hello|World')
  *  .pipe(split('|'))
  *  .subscribe(....) // ['Hello', 'World']
  * ```

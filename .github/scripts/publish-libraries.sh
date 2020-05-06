@@ -25,7 +25,7 @@ echo "Removing Dist"
 rm -rf "${ROOT_DIR:?}/dist"
 COMMIT_MESSAGE="$(git log -1 --pretty=format:"%s")"
 RELEASE_TYPE=${1:-$(getBuildType "$COMMIT_MESSAGE")}
-DRY_RUN=${DRY_RUN:-"True"}
+DRY_RUN=${DRY_RUN:-"False"}
 
 # Version the parent library
 # npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"

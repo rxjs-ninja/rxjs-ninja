@@ -45,7 +45,7 @@ if [ "$AFFECTED" != "" ]; then
     npm version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
     echo "Building $lib"
     cd "$PARENT_DIR"
-    npm run build "$lib" -- --prod
+    npm run build "$lib" -- --prod --with-deps
     wait
   done <<<"$AFFECTED " # leave space on end to generate correct output
 

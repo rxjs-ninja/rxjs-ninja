@@ -1,6 +1,6 @@
 {
   "name": "@tinynodes/rxjs-utility",
-  "description": "Useful utilities for R",
+  "description": "Useful utilities for RxJS",
   "version": "0.0.1",
   "keywords": [
     "rxjs",

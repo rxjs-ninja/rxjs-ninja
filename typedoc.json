@@ -1,0 +1,7 @@
+{
+  "name": "RxJS Primitives Documentation",
+  "mode": "modules",
+  "out": "docs",
+  "exclude": ["**/*.spec.ts"],
+  "readme": "README.md"
+}

@@ -1,18 +1,37 @@
+/**
+ * @packageDocumentation
+ * @module string
+ */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { TrimPosition } from '../types/position';
 
 /**
- * Trims a string from an input Observable, the default behaviour is to trim a string
- * of all preceding and trailing white space.
+ * The `trimString` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * value and returns a trimmed string
  *
- * The operator takes an optional option of `left` or 'right` to only trim before or after the string
- * @param position The position to apply a trim at
+ * @param position The position to trim the string from, either 'start', 'end' or 'all'
+ *
+ * @remarks
+ * This operator is based on [String.prototype.trim](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim),
+ * [trimStart](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimStart) and
+ * [trimEnd](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimEnd) but
+ * provide a single API via [[TrimPosition]] option
+ *
+ * @example
+ * ```ts
+ * from(['     12345     '])
+ *  .pipe(trimString('end'))
+ *  .subscribe(....) // ['     12345']
+ * ```
+ *
+ * @returns String that is trimmed based on the [[TrimPosition]] option
+ * @category RxJS String Formatting
  */
 export function trimString(position: TrimPosition = 'all'): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) =>
     source.pipe(
-      map(value => {
+      map((value) => {
         switch (position) {
           case 'start': {
             return value.trimLeft();

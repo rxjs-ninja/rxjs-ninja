@@ -12,7 +12,7 @@ import { PadPosition } from '../types/position';
 export function padString(padPosition: PadPosition, maxLength: number, fillString?: string): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) =>
     source.pipe(
-      map(value => {
+      map((value) => {
         switch (padPosition) {
           case 'end': {
             return value.padEnd(maxLength, fillString);

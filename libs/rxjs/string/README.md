@@ -4,7 +4,8 @@ This library contains the [RxJS Primitives](https://github.com/tanepiper/rxjs-pr
 ECMAScript [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 methods.
 
-[API Documentation](https://tanepiper.github.io/rxjs-primitives/)
+- [Github](https://github.com/tanepiper/rxjs-primitives)
+- Full [API Documentation](https://tanepiper.github.io/rxjs-primitives/) is available with examples.
 
 ## How to install
 

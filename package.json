@@ -26,14 +26,13 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "cz": "git-cz",
-    "docs": "compodoc"
+    "docs": "typedoc"
   },
   "private": true,
   "dependencies": {
     "rxjs": "^6.5.5"
   },
   "devDependencies": {
-    "@compodoc/compodoc": "^1.1.11",
     "@nrwl/eslint-plugin-nx": "9.2.3",
     "@nrwl/jest": "9.2.3",
     "@nrwl/node": "^9.2.3",
@@ -51,7 +50,6 @@
     "prettier": "2.0.5",
     "ts-jest": "25.4.0",
     "ts-node": "~8.10.1",
-    "tsdoc": "0.0.4",
     "tslint": "~6.1.2",
     "typedoc": "^0.17.6",
     "typedoc-plugin-external-module-name": "^3.1.0",

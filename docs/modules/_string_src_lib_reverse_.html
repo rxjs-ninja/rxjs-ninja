@@ -3,17 +3,17 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>RxJS Primitives</title>
+	<title>&quot;string/src/lib/reverse&quot; | RxJS Primitives</title>
 	<meta name="description" content="Documentation for RxJS Primitives">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="../assets/css/main.css">
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">RxJS Primitives</a>
+					<a href="../index.html" class="title">RxJS Primitives</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -53,10 +53,13 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="globals.html">Globals</a>
+					<a href="../globals.html">Globals</a>
+				</li>
+				<li>
+					<a href="_string_src_lib_reverse_.html">&quot;string/src/lib/reverse&quot;</a>
 				</li>
 			</ul>
-			<h1>RxJS Primitives</h1>
+			<h1>Module &quot;string/src/lib/reverse&quot;</h1>
 		</div>
 	</div>
 </header>
@@ -68,48 +71,83 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Modules</h3>
+							<h3>RxJS String Formatting Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-module"><a href="modules/_string_src_lib_reverse_.html" class="tsd-kind-icon">&quot;string/src/lib/reverse&quot;</a></li>
-								<li class="tsd-kind-module"><a href="modules/_string_src_lib_titleize_.html" class="tsd-kind-icon">&quot;string/src/lib/titleize&quot;</a></li>
-								<li class="tsd-kind-module"><a href="modules/boolean.html" class="tsd-kind-icon">boolean</a></li>
-								<li class="tsd-kind-module"><a href="modules/number.html" class="tsd-kind-icon">number</a></li>
-								<li class="tsd-kind-module"><a href="modules/string.html" class="tsd-kind-icon">string</a></li>
-								<li class="tsd-kind-module"><a href="modules/utility.html" class="tsd-kind-icon">utility</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="_string_src_lib_reverse_.html#reverse" class="tsd-kind-icon">reverse</a></li>
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>RxJS String Formatting Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="reverse" class="tsd-anchor"></a>
+					<h3>reverse</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">reverse<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7692c29/libs/rxjs/string/src/lib/reverse.ts#L21">string/src/lib/reverse.ts:21</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>reverse</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
+									value and returns a string that is reversed</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>This is a custom operator for this library and uses a method found on <a href="https://1loc.dev/">1loc</a></p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">of(<span class="hljs-string">'emordnilaP'</span>)
+ .pipe(reverse())
+ .subscribe(....) <span class="hljs-comment">// 'Palindrome'</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>String that is reversed</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals current ">
-						<a href="globals.html"><em>Globals</em></a>
+					<li class="globals  ">
+						<a href="../globals.html"><em>Globals</em></a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="_string_src_lib_reverse_.html">&quot;string/src/lib/reverse&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_string_src_lib_reverse_.html">&quot;string/src/lib/reverse&quot;</a>
+						<a href="_string_src_lib_titleize_.html">&quot;string/src/lib/titleize&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/_string_src_lib_titleize_.html">&quot;string/src/lib/titleize&quot;</a>
+						<a href="boolean.html">boolean</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/boolean.html">boolean</a>
+						<a href="number.html">number</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/number.html">number</a>
+						<a href="string.html">string</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="modules/string.html">string</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="modules/utility.html">utility</a>
+						<a href="utility.html">utility</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="_string_src_lib_reverse_.html#reverse" class="tsd-kind-icon">reverse</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -132,7 +170,7 @@
 	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+<script src="../assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

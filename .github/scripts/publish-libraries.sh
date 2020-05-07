@@ -12,7 +12,9 @@ getBuildType() {
     release_type="major"
   elif [[ "$1" == *"fix"* ]]; then
     release_type="patch"
-   elif [[ "$1" == *"docs"* ]]; then
+  elif [[ "$1" == *"docs"* ]]; then
+    release_type="patch"
+  elif [[ "$1" == *"chore"* ]]; then
     release_type="patch"
   fi
   echo "$release_type"

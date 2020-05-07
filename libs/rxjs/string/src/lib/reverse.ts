@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module string
+ */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 

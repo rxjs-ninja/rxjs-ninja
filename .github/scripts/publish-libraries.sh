@@ -2,24 +2,16 @@
 set -o errexit -o noclobber -o nounset -o pipefail
 
 # This script uses the parent version as the version to publish a library with
-# TODO: Improve this script to only publish releases needed
-# TODO: Improve error handing to ensure rollback of bad release
-
 
 getBuildType() {
   local release_type="minor"
   if [[ "$1" == *"feat"* ]]; then
     release_type="major"
-  elif [[ "$1" == *"fix"* ]]; then
-    release_type="patch"
-  elif [[ "$1" == *"docs"* ]]; then
-    release_type="patch"
-  elif [[ "$1" == *"chore"* ]]; then
+  elif [[ "$1" == *"fix"* || "$1" == *"docs"* || "$1" == *"chore"* ]]; then
     release_type="patch"
   fi
   echo "$release_type"
 }
-
 
 PARENT_DIR="$PWD"
 ROOT_DIR="."

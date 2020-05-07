@@ -47,7 +47,7 @@ if [ "$AFFECTED" != "" ]; then
   while IFS= read -r -d $' ' lib; do
     if [ "$DRY_RUN" == "False" ]; then
       echo "Publishing $lib"
-      npm publish "$ROOT_DIR/dist/libs/${lib/-//}"
+      npm publish "$ROOT_DIR/dist/libs/${lib/-//}" --access=public
     else
       echo "Dry Run, not publishing $lib"
     fi

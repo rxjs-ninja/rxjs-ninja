@@ -6,6 +6,11 @@ The libraries included are below, but you can also find ful [API Documentation](
 
 This library is open source on [Github](https://github.com/tanepiper/rxjs-primitives) and available to install as an `npm` modules.
 
+![rxjs-boolean](https://img.shields.io/npm/v/@tinynodes/rxjs-boolean?label=rxjs-boolean)
+![rxjs-number](https://img.shields.io/npm/v/@tinynodes/rxjs-number?label=rxjs-number)
+![rxjs-string](https://img.shields.io/npm/v/@tinynodes/rxjs-string?label=rxjs-string)
+![rxjs-utility](https://img.shields.io/npm/v/@tinynodes/rxjs-utility?label=rxjs-utility)
+
 ## What are these libraries?
 
 This set of libraries provides some low-level operators for handling different operations with Observable values of primitive types (`string`, `number`, `boolean`, etc).
@@ -13,6 +18,8 @@ This set of libraries provides some low-level operators for handling different o
 Some of these operators use methods from ECMAScript built-in objects such as `String` and `Number` and it also includes some convenience `Boolean` methods.
 
 While most of these are one-line operators, they allow developers to avoid having to handle their own mapping or logic when it comes to some common used methods.
+
+If you are looking for arethmetic operators (add, multiply, etc) then check out [rxmetrics](https://loreanvictor.github.io/rxmetics/)
 
 ### rxjs-boolean
 
@@ -47,6 +54,8 @@ There are also operators for formatting numbers as strings such as `toLocaleStri
 - [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/number/CHANGELOG.md)
 
 ### rxjs-string
+
+
 
 A set of operators for working with `Observable` string values. This collection includes operators based on
 [ECMAScript String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String).

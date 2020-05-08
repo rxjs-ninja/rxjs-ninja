@@ -5,7 +5,7 @@ RUN_ALL=${1:-"False"}
 
 echo "Running Unit Testing"
 if [ "$RUN_ALL" == "True" ]; then
-  npm run affected:test -- --base="origin/master" --codeCoverage --all
+  npm run affected:test -- --codeCoverage --all
 else
   npm run affected:test -- --base="origin/master" --codeCoverage
 fi

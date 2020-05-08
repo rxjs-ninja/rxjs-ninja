@@ -6,6 +6,11 @@ The libraries included are below, but you can also find ful [API Documentation](
 
 This library is open source on [Github](https://github.com/tanepiper/rxjs-primitives) and available to install as an `npm` modules.
 
+![https://img.shields.io/npm/v/@tinynodes/rxjs-boolean?label=rxjs-boolean]
+![https://img.shields.io/npm/v/@tinynodes/rxjs-number?label=rxjs-number]
+![https://img.shields.io/npm/v/@tinynodes/rxjs-string?label=rxjs-string]
+![https://img.shields.io/npm/v/@tinynodes/rxjs-utility?label=rxjs-utility]
+
 ## What are these libraries?
 
 This set of libraries provides some low-level operators for handling different operations with Observable values of primitive types (`string`, `number`, `boolean`, etc).
@@ -49,6 +54,8 @@ There are also operators for formatting numbers as strings such as `toLocaleStri
 - [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/number/CHANGELOG.md)
 
 ### rxjs-string
+
+
 
 A set of operators for working with `Observable` string values. This collection includes operators based on
 [ECMAScript String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String).

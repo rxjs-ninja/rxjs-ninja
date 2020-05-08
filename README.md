@@ -14,6 +14,8 @@ Some of these operators use methods from ECMAScript built-in objects such as `St
 
 While most of these are one-line operators, they allow developers to avoid having to handle their own mapping or logic when it comes to some common used methods.
 
+If you are looking for arethmetic operators (add, multiply, etc) then check out [rxmetrics](https://loreanvictor.github.io/rxmetics/)
+
 ### rxjs-boolean
 
 A set of utility operators for handling equality checking and boolean values from `Observable` values

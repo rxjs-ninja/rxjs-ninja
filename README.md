@@ -84,5 +84,5 @@ A set of extra utility operators that provide some useful functionality when dea
 
 #### Information
 
-- [Documentation](https://tanepiper.github.io/rxjs-primitives/utility/boolean.html)
+- [Documentation](https://tanepiper.github.io/rxjs-primitives/modules/utility.html)
 - [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/utility/CHANGELOG.md)

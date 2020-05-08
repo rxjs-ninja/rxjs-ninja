@@ -38,10 +38,10 @@ jobs:
         run: npm ci
 
       - name: Run lint
-        run: ./.github/scripts/run-linting.sh True
+        run: ./.github/scripts/run-linting.sh
 
       - name: Tests coverage
-        run: ./.github/scripts/run-testing.sh True
+        run: ./.github/scripts/run-testing.sh
 
       - name: SonarCloud Scan
         uses: sonarsource/sonarcloud-github-action@master

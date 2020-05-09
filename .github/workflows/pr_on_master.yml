@@ -41,7 +41,7 @@ jobs:
         run: ./.github/scripts/run-linting.sh
 
       - name: Tests coverage
-        run: ./.github/scripts/run-testing.sh
+        run: ./.github/scripts/run-testing.sh False False
 
 #      - name: SonarCloud Scan
 #        uses: SonarSource/sonarcloud-github-action@v1.2

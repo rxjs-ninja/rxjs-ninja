@@ -6,10 +6,10 @@ The libraries included are below, but you can also find ful [API Documentation](
 
 This library is open source on [Github](https://github.com/tanepiper/rxjs-primitives) and available to install as an `npm` modules.
 
-![rxjs-boolean](https://img.shields.io/npm/v/@tinynodes/rxjs-boolean?label=rxjs-boolean)
-![rxjs-number](https://img.shields.io/npm/v/@tinynodes/rxjs-number?label=rxjs-number)
-![rxjs-string](https://img.shields.io/npm/v/@tinynodes/rxjs-string?label=rxjs-string)
-![rxjs-utility](https://img.shields.io/npm/v/@tinynodes/rxjs-utility?label=rxjs-utility)
+[![rxjs-boolean](https://img.shields.io/npm/v/@tinynodes/rxjs-boolean?label=rxjs-boolean)](https://www.npmjs.com/package/@tinynodes/rxjs-boolean)
+[![rxjs-number](https://img.shields.io/npm/v/@tinynodes/rxjs-number?label=rxjs-number)](https://www.npmjs.com/package/@tinynodes/rxjs-number)
+[![rxjs-string](https://img.shields.io/npm/v/@tinynodes/rxjs-string?label=rxjs-string)](https://www.npmjs.com/package/@tinynodes/rxjs-string)
+[![rxjs-utility](https://img.shields.io/npm/v/@tinynodes/rxjs-utility?label=rxjs-utility)](https://www.npmjs.com/package/@tinynodes/rxjs-utility)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tanepiper_rxjs-primitives&metric=alert_status)](https://sonarcloud.io/dashboard?id=tanepiper_rxjs-primitives)
 
 ## What are these libraries?

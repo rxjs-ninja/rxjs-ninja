@@ -3,7 +3,7 @@
  * @module number
  */
 import { Observable, SchedulerLike } from 'rxjs';
-import { scheduleSingleOrArrayValue, subscribeToSingleOrArrayValue } from '../utils/from-value';
+import { scheduleSingleOrArrayNumber, subscribeToSingleOrArrayNumber } from '../utils/from-value';
 
 /**
  * The `fromNumber` operator is used to create an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) number from a passed
@@ -32,7 +32,7 @@ import { scheduleSingleOrArrayValue, subscribeToSingleOrArrayValue } from '../ut
  */
 export function fromNumber(input: number | number[], scheduler?: SchedulerLike): Observable<number> {
   if (scheduler) {
-    return scheduleSingleOrArrayValue<number>(input, scheduler);
+    return scheduleSingleOrArrayNumber<number>(input, scheduler);
   }
-  return new Observable<number>(subscribeToSingleOrArrayValue<number>(input));
+  return new Observable<number>(subscribeToSingleOrArrayNumber<number>(input));
 }

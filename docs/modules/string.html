@@ -78,16 +78,25 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
+							<h3>Other Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="string.html#schedulecharcode" class="tsd-kind-icon">schedule<wbr>Char<wbr>Code</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="string.html#schedulecodepoint" class="tsd-kind-icon">schedule<wbr>Code<wbr>Point</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="string.html#subscribetocharcode" class="tsd-kind-icon">subscribe<wbr>ToChar<wbr>Code</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="string.html#subscribetocodepoint" class="tsd-kind-icon">subscribe<wbr>ToCode<wbr>Point</a></li>
+							</ul>
 							<h3>RxJS From String Creation Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#filtercharcode" class="tsd-kind-icon">filter<wbr>Char<wbr>Code</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#filtercodepoint" class="tsd-kind-icon">filter<wbr>Code<wbr>Point</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#fromcharcode" class="tsd-kind-icon">from<wbr>Char<wbr>Code</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#fromcodepoint" class="tsd-kind-icon">from<wbr>Code<wbr>Point</a></li>
 							</ul>
 							<h3>RxJS From String Query Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#fromendswith" class="tsd-kind-icon">from<wbr>Ends<wbr>With</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#fromincludes" class="tsd-kind-icon">from<wbr>Includes</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#fromstartswith" class="tsd-kind-icon">from<wbr>Starts<wbr>With</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#filterendswith" class="tsd-kind-icon">filter<wbr>Ends<wbr>With</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#filterincludes" class="tsd-kind-icon">filter<wbr>Includes</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="string.html#filterstartswith" class="tsd-kind-icon">filter<wbr>Starts<wbr>With</a></li>
 							</ul>
 							<h3>RxJS String Formatting Functions</h3>
 							<ul class="tsd-index-list">
@@ -126,7 +135,7 @@
 					<div class="tsd-signature tsd-kind-icon">Pad<wbr>Position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/types/position.ts#L9">string/src/types/position.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/types/position.ts#L9">string/src/types/position.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -141,7 +150,7 @@
 					<div class="tsd-signature tsd-kind-icon">Trim<wbr>Position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/types/position.ts#L14">string/src/types/position.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/types/position.ts#L14">string/src/types/position.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -152,23 +161,160 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>RxJS From String Creation Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="fromcharcode" class="tsd-anchor"></a>
-					<h3>from<wbr>Char<wbr>Code</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Char<wbr>Code<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+				<h2>Other Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-private">
+					<a name="schedulecharcode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> schedule<wbr>Char<wbr>Code</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">schedule<wbr>Char<wbr>Code<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/from-char-code.ts#L31">string/src/lib/from-char-code.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/utils/char-code.ts#L27">string/src/utils/char-code.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>fromCharCode</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> array of
+									<p>Takes an input of char codes and returns a method that updates an subscriber
+									with the string value from the char codes</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5>scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-private">
+					<a name="schedulecodepoint" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> schedule<wbr>Code<wbr>Point</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">schedule<wbr>Code<wbr>Point<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/utils/code-point.ts#L25">string/src/utils/code-point.ts:25</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes an input of code points and returns a method that updates an subscriber
+									with the string value from the code points</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5>scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-private">
+					<a name="subscribetocharcode" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> subscribe<wbr>ToChar<wbr>Code</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>ToChar<wbr>Code<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/utils/char-code.ts#L13">string/src/utils/char-code.ts:13</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes an input of char codes and returns a method that updates an subscriber
+									with the string value from the char codes</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The array of char codes to convert to a string</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-private">
+					<a name="subscribetocodepoint" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagConst">Const</span> subscribe<wbr>ToCode<wbr>Point</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>ToCode<wbr>Point<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/utils/code-point.ts#L13">string/src/utils/code-point.ts:13</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes an input of code points and returns a method that updates an subscriber
+									with the string value from the code points</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The array of char codes to convert to a string</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>RxJS From String Creation Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="filtercharcode" class="tsd-anchor"></a>
+					<h3>filter<wbr>Char<wbr>Code</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">filter<wbr>Char<wbr>Code<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/filter-char-code.ts#L31">string/src/lib/filter-char-code.ts:31</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>filterCharCode</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> array of
 									numbers that represent character codes, and returns a string value</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -177,13 +323,13 @@
 										This operator takes an array of number values, if you want to only convert one character this still needs passed as an array</p>
 									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">65</span>, <span class="hljs-number">66</span>, <span class="hljs-number">67</span>, <span class="hljs-number">68</span>])
+									<dd><pre><code class="language-ts">of([<span class="hljs-number">65</span>, <span class="hljs-number">66</span>, <span class="hljs-number">67</span>, <span class="hljs-number">68</span>])
  .pipe(
    reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
      acc.push(val);
      <span class="hljs-keyword">return</span> acc;
    }, []),
-   fromCharCode()
+   filterCharCode()
  ).subscribe(...) <span class="hljs-comment">// 'ABCD'</span></code></pre>
 									</dd>
 								</dl>
@@ -194,21 +340,21 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="fromcodepoint" class="tsd-anchor"></a>
-					<h3>from<wbr>Code<wbr>Point</h3>
+					<a name="filtercodepoint" class="tsd-anchor"></a>
+					<h3>filter<wbr>Code<wbr>Point</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Code<wbr>Point<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">filter<wbr>Code<wbr>Point<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/from-code-point.ts#L31">string/src/lib/from-code-point.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/filter-code-point.ts#L31">string/src/lib/filter-code-point.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>fromCodePoint</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> array of
+									<p>The <code>filterCodePoint</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> array of
 									numbers that represent character code points, and returns a string value</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -223,7 +369,7 @@
      acc.push(val);
      <span class="hljs-keyword">return</span> acc;
    }, []),
-   fromCharCode()
+   filterCodePoint()
  ).subscribe(...) <span class="hljs-comment">// '☃★♲'</span></code></pre>
 									</dd>
 								</dl>
@@ -233,25 +379,109 @@
 						</li>
 					</ul>
 				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>RxJS From String Query Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="fromendswith" class="tsd-anchor"></a>
-					<h3>from<wbr>Ends<wbr>With</h3>
+					<a name="fromcharcode" class="tsd-anchor"></a>
+					<h3>from<wbr>Char<wbr>Code</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Ends<wbr>With<span class="tsd-signature-symbol">(</span>character<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, length<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Char<wbr>Code<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/from-ends-with.ts#L30">string/src/lib/from-ends-with.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/from-char-code.ts#L24">string/src/lib/from-char-code.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>fromEndsWith</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
+									<p>The <code>fromCharCode</code> operator is used to create an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
+									from a number array of char codes</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode">String.fromCharCode</a>
+										This operator takes an array of number values, if you want to only convert one character this still needs passed as an array</p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromCharCode([<span class="hljs-number">65</span>, <span class="hljs-number">66</span>, <span class="hljs-number">67</span>, <span class="hljs-number">68</span>]).subscribe(...) <span class="hljs-comment">// 'ABCD'</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>String from an array of character codes</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="fromcodepoint" class="tsd-anchor"></a>
+					<h3>from<wbr>Code<wbr>Point</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Code<wbr>Point<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/from-code-point.ts#L25">string/src/lib/from-code-point.ts:25</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>fromCodePoint</code> operator is used to create an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
+									from a number array of code points</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode">String.fromCharCode</a>
+										This operator takes an array of number values, if you want to only convert one character this still needs passed as an array</p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromCodePoint([<span class="hljs-number">9731</span>, <span class="hljs-number">9733</span>, <span class="hljs-number">9842</span>]).subscribe(...) <span class="hljs-comment">// '☃★♲'</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>String from an array of character codes</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>RxJS From String Query Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="filterendswith" class="tsd-anchor"></a>
+					<h3>filter<wbr>Ends<wbr>With</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">filter<wbr>Ends<wbr>With<span class="tsd-signature-symbol">(</span>character<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, length<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/filter-ends-with.ts#L30">string/src/lib/filter-ends-with.ts:30</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>filterEndsWith</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
 									value and returns a string value if the string of length ends with the passed character</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -262,7 +492,7 @@
 									</dd>
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'test'</span>, <span class="hljs-string">'testing'</span>])
- .pipe(fromEndsWith(<span class="hljs-string">'g'</span>))
+ .pipe(filterEndsWith(<span class="hljs-string">'g'</span>))
  .subscribe(....) <span class="hljs-comment">// ['testing']</span></code></pre>
 									</dd>
 								</dl>
@@ -288,21 +518,21 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="fromincludes" class="tsd-anchor"></a>
-					<h3>from<wbr>Includes</h3>
+					<a name="filterincludes" class="tsd-anchor"></a>
+					<h3>filter<wbr>Includes</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Includes<span class="tsd-signature-symbol">(</span>searchStr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">filter<wbr>Includes<span class="tsd-signature-symbol">(</span>searchStr<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/from-includes.ts#L28">string/src/lib/from-includes.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/filter-includes.ts#L28">string/src/lib/filter-includes.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>fromIncludes</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
+									<p>The <code>filterIncludes</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
 									value and returns a string value if the string contains the includes parameter</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -312,7 +542,7 @@
 									</dd>
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'test'</span>, <span class="hljs-string">'foobar'</span>, <span class="hljs-string">'testing'</span>])
- .pipe(fromIncludes(<span class="hljs-string">'test'</span>))
+ .pipe(filterIncludes(<span class="hljs-string">'test'</span>))
  .subscribe(....) <span class="hljs-comment">// ['test', 'testing']</span></code></pre>
 									</dd>
 								</dl>
@@ -332,21 +562,21 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="fromstartswith" class="tsd-anchor"></a>
-					<h3>from<wbr>Starts<wbr>With</h3>
+					<a name="filterstartswith" class="tsd-anchor"></a>
+					<h3>filter<wbr>Starts<wbr>With</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Starts<wbr>With<span class="tsd-signature-symbol">(</span>character<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, length<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">filter<wbr>Starts<wbr>With<span class="tsd-signature-symbol">(</span>character<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, length<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/from-starts-with.ts#L30">string/src/lib/from-starts-with.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/filter-starts-with.ts#L30">string/src/lib/filter-starts-with.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>fromStartsWith</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
+									<p>The <code>filterStartsWith</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string
 									value and returns a string value if the string of length starts with the passed character</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -357,7 +587,7 @@
 									</dd>
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'test'</span>, <span class="hljs-string">'testing'</span>, <span class="hljs-string">'foobar'</span>])
- .pipe(fromStartsWith(<span class="hljs-string">'t'</span>))
+ .pipe(filterStartsWith(<span class="hljs-string">'t'</span>))
  .subscribe(....) <span class="hljs-comment">// ['test', 'testing']</span></code></pre>
 									</dd>
 								</dl>
@@ -395,7 +625,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/concat.ts#L27">string/src/lib/concat.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/concat.ts#L27">string/src/lib/concat.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -438,7 +668,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/pad-string.ts#L32">string/src/lib/pad-string.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/pad-string.ts#L32">string/src/lib/pad-string.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -495,7 +725,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/replace.ts#L28">string/src/lib/replace.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/replace.ts#L28">string/src/lib/replace.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -544,7 +774,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/reverse.ts#L25">string/src/lib/reverse.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/reverse.ts#L25">string/src/lib/reverse.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -578,7 +808,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/titleize.ts#L31">string/src/lib/titleize.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/titleize.ts#L31">string/src/lib/titleize.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -629,7 +859,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/to-lower-case.ts#L29">string/src/lib/to-lower-case.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/to-lower-case.ts#L29">string/src/lib/to-lower-case.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -674,7 +904,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/to-upper-case.ts#L29">string/src/lib/to-upper-case.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/to-upper-case.ts#L29">string/src/lib/to-upper-case.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -719,7 +949,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/trim-string.ts#L31">string/src/lib/trim-string.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/trim-string.ts#L31">string/src/lib/trim-string.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -768,7 +998,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/char-at.ts#L28">string/src/lib/char-at.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/char-at.ts#L28">string/src/lib/char-at.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -812,7 +1042,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/char-code-at.ts#L28">string/src/lib/char-code-at.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/char-code-at.ts#L28">string/src/lib/char-code-at.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -856,7 +1086,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/code-point-at.ts#L28">string/src/lib/code-point-at.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/code-point-at.ts#L28">string/src/lib/code-point-at.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -900,7 +1130,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/ends-with.ts#L30">string/src/lib/ends-with.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/ends-with.ts#L30">string/src/lib/ends-with.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -912,7 +1142,7 @@
 									<dt>remarks</dt>
 									<dd><p>Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith">String.prototype.endsWith</a>
 											If no length is passed then is uses the length of the passed string
-										If you need to get the string value instead of boolean use <a href="string.html#fromendswith">fromEndsWith</a></p>
+										If you need to get the string value instead of boolean use [[fromEndsWith]]</p>
 									</dd>
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'test'</span>, <span class="hljs-string">'testing'</span>])
@@ -951,7 +1181,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/includes.ts#L28">string/src/lib/includes.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/includes.ts#L28">string/src/lib/includes.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -962,7 +1192,7 @@
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
 									<dd><p>Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes">String.prototype.includes</a>
-										If you need to get the string value instead of boolean use <a href="string.html#fromincludes">fromIncludes</a></p>
+										If you need to get the string value instead of boolean use [[fromIncludes]]</p>
 									</dd>
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'test'</span>, <span class="hljs-string">'testing'</span>])
@@ -995,7 +1225,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/index-of.ts#L28">string/src/lib/index-of.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/index-of.ts#L28">string/src/lib/index-of.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1044,7 +1274,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/last-index-of.ts#L28">string/src/lib/last-index-of.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/last-index-of.ts#L28">string/src/lib/last-index-of.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1093,7 +1323,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/slice.ts#L28">string/src/lib/slice.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/slice.ts#L28">string/src/lib/slice.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1142,7 +1372,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/split.ts#L28">string/src/lib/split.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/split.ts#L28">string/src/lib/split.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1191,7 +1421,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/starts-with.ts#L30">string/src/lib/starts-with.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/starts-with.ts#L30">string/src/lib/starts-with.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1203,7 +1433,7 @@
 									<dt>remarks</dt>
 									<dd><p>Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith">String.prototype.startsWith</a>
 											If no length is passed then is uses the length of the passed string
-										If you need to get the string value instead of boolean use <a href="string.html#fromstartswith">fromStartsWith</a></p>
+										If you need to get the string value instead of boolean use [[fromStartsWith]]</p>
 									</dd>
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'test'</span>, <span class="hljs-string">'testing'</span>, <span class="hljs-string">'foobar'</span>])
@@ -1242,7 +1472,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/4404c84/libs/rxjs/string/src/lib/substring.ts#L28">string/src/lib/substring.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/string/src/lib/substring.ts#L28">string/src/lib/substring.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1327,19 +1557,25 @@
 						<a href="string.html#endswith" class="tsd-kind-icon">ends<wbr>With</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="string.html#filtercharcode" class="tsd-kind-icon">filter<wbr>Char<wbr>Code</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="string.html#filtercodepoint" class="tsd-kind-icon">filter<wbr>Code<wbr>Point</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="string.html#filterendswith" class="tsd-kind-icon">filter<wbr>Ends<wbr>With</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="string.html#filterincludes" class="tsd-kind-icon">filter<wbr>Includes</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="string.html#filterstartswith" class="tsd-kind-icon">filter<wbr>Starts<wbr>With</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="string.html#fromcharcode" class="tsd-kind-icon">from<wbr>Char<wbr>Code</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="string.html#fromcodepoint" class="tsd-kind-icon">from<wbr>Code<wbr>Point</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="string.html#fromendswith" class="tsd-kind-icon">from<wbr>Ends<wbr>With</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="string.html#fromincludes" class="tsd-kind-icon">from<wbr>Includes</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="string.html#fromstartswith" class="tsd-kind-icon">from<wbr>Starts<wbr>With</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="string.html#includes" class="tsd-kind-icon">includes</a>
@@ -1359,6 +1595,12 @@
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="string.html#reverse" class="tsd-kind-icon">reverse</a>
 					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<a href="string.html#schedulecharcode" class="tsd-kind-icon">schedule<wbr>Char<wbr>Code</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<a href="string.html#schedulecodepoint" class="tsd-kind-icon">schedule<wbr>Code<wbr>Point</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="string.html#slice" class="tsd-kind-icon">slice</a>
 					</li>
@@ -1367,6 +1609,12 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="string.html#startswith" class="tsd-kind-icon">starts<wbr>With</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<a href="string.html#subscribetocharcode" class="tsd-kind-icon">subscribe<wbr>ToChar<wbr>Code</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<a href="string.html#subscribetocodepoint" class="tsd-kind-icon">subscribe<wbr>ToCode<wbr>Point</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="string.html#substring" class="tsd-kind-icon">substring</a>

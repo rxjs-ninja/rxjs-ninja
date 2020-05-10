@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
  * [Number.isFinite](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite)
  *
  * @remarks
- * If you want to return the numbers from the check use the [[fromIsFinite]] operator instead
+ * If you want to return the numbers from the check use the [[filterIsFinite]] operator instead
  *
  * @example
  * ```ts

@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
  * [Number.isSafeInteger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger)
  *
  * @remarks
- * If you want to return the numbers from the check use the [[fromIsSafeInteger]] operator instead
+ * If you want to return the numbers from the check use the [[filterIsSafeInteger]] operator instead
  *
  * @example
  * ```ts

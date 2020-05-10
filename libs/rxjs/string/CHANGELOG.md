@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2020-05-10
+
+### Changed
+
+- The current operators that begin with `from*` are being changed to `filter*` as using `from` has
+  a specific context in RxJS with creating Observable values. The following operators are affected: - `fromCharCode` to `filterCharCode`. For the new `fromCharCode` method, see the Added section below. - `fromCodePoint` to `filterCodePoint`. For the new `fromCodePoint` method, see the Added section below. - `fromEndsWith` to `filterEndsWith` - `fromIncludes` to `filterIncludes` - `fromStartsWith` to `filterStartsWith`
+  Because of this change this release is a major bump to `2.0.0`
+
+### Added
+
+- `fromCharCode` method now takes an array of numbers that are char codes and returns an Observable string value
+- `fromCodePoint` method now takes an array of numbers that are char codes and returns an Observable string value
+
 ## [1.1.2] - 2020-05-07
 
 ### Added
@@ -25,7 +38,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `codePointAt` - Returns the code point at a specified index position of an `Observable<string>`
 - `concat` - Returns a string of the original `Observable<string>` concatenated with additional string passed as parameters
 - `fromCharCode` - Generates a string based on an array of character codes
-- `fromCodePoint` - Generates a string based on an array of code points
+- `filterCodePoint` - Generates a string based on an array of code points
 - `fromStartsWith` - Returns the `String` value of a `Observable<string>` that starts with a specified character
 - `lastIndexOf` - Returns a `Number` last index of a specified string in a `Observable<string>` value
 - `slice`- Returns a substring `String` of the original `Observable<string>` from start index to optional end index

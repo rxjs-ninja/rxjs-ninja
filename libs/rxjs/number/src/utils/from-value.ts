@@ -9,7 +9,7 @@ import { Observable, SchedulerLike, Subscriber, Subscription } from 'rxjs';
  * @private
  * @param input The number to subscribe to
  */
-export const subscribeToNumber = (input: number | number[]) => (subscriber: Subscriber<number>) => {
+export const subscribeToSingleOrArrayValue = <T>(input: T | T[]) => (subscriber: Subscriber<T>) => {
   if (Array.isArray(input)) {
     for (let i = 0; i < input.length; i++) {
       subscriber.next(input[i]);
@@ -26,8 +26,8 @@ export const subscribeToNumber = (input: number | number[]) => (subscriber: Subs
  * @param input The number to subscribe to
  * @param scheduler
  */
-export function scheduleNumber(input: number | number[], scheduler: SchedulerLike) {
-  return new Observable<number>((subscriber) => {
+export function scheduleSingleOrArrayValue<T>(input: T | T[], scheduler: SchedulerLike): Observable<T> {
+  return new Observable<T>((subscriber) => {
     const sub = new Subscription();
     let i = 0;
     sub.add(

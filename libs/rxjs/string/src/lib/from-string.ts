@@ -3,7 +3,7 @@
  * @module string
  */
 import { Observable, SchedulerLike } from 'rxjs';
-import { scheduleString, subscribeToString } from '../utils/string';
+import { scheduleSingleOrArrayValue, subscribeToSingleOrArrayValue } from '../utils/from-value';
 
 /**
  * The `fromString` operator is used to create an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string from a passed
@@ -17,13 +17,9 @@ import { scheduleString, subscribeToString } from '../utils/string';
  * @returns String from an array of character codes
  * @category RxJS String Creation
  */
-export function fromString(input: string, scheduler?: SchedulerLike) {
-  if (!input) {
-    throw new Error('Input cannot be null');
+export function fromString(input: string | string[], scheduler?: SchedulerLike) {
+  if (scheduler) {
+    return scheduleSingleOrArrayValue(input, scheduler);
   }
-  if (!scheduler) {
-    return new Observable<string>(subscribeToString(input));
-  } else {
-    return scheduleString(input, scheduler);
-  }
+  return new Observable<string>(subscribeToSingleOrArrayValue<string>(input));
 }

@@ -9,9 +9,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- The current operators that begin with `from*` are being changed to `filter*` as using `from` has
-  a specific context in RxJS with creating Observable values. The following operators are affected: - `fromIsFinite` to `filterIsFinite` - `fromIsInteger` to `filterIsInteger` - `fromIsSafeInteger` to `filterIsSafeInteger`
-  Because of this change this release is a major bump to `2.0.0`
+- The current operators that begin with `from*` are being changed to `filter*` as using `from` has a specific context in RxJS with creating Observable values.
+
+The following operators are affected:
+
+- `fromIsFinite` to `filterIsFinite`
+- `fromIsInteger` to `filterIsInteger`
+- `fromIsSafeInteger` to `filterIsSafeInteger`
+
+### Added
+
+- `fromNumber` - Creates an Observable number from a passed number parameter
 
 ## [1.0.3] - 2020-05-06
 

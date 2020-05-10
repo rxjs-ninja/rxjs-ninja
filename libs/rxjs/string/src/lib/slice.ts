@@ -23,7 +23,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns A substring of the original string value
- * @category RxJS String Query
+ * @category RxJS String Creation
  */
 export function slice(startIndex: number, endIndex?: number): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(map((value) => value.slice(startIndex, endIndex)));

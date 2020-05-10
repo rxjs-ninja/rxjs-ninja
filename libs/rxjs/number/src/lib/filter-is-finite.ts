@@ -22,7 +22,7 @@ import { filter } from 'rxjs/operators';
  * ```
  *
  * @returns The number value that passes the `Number.isFinite` equality check
- * @category RxJS Filter Number Equality
+ * @category RxJS Number Filter
  */
 export function filterIsFinite(): MonoTypeOperatorFunction<number> {
   return (source: Observable<number>) => source.pipe(filter((value) => Number.isFinite(value)));

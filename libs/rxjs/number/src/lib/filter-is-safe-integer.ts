@@ -4,7 +4,6 @@
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import { filterIsInteger } from './filter-is-integer';
 
 /**
  * The `filterIsSafeInteger` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable}
@@ -23,7 +22,7 @@ import { filterIsInteger } from './filter-is-integer';
  * ```
  *
  * @returns The number value that passes the `Number.isSafeInteger` equality check
- * @category RxJS Filter Number Equality
+ * @category RxJS Number Filter
  */
 export function filterIsSafeInteger(): MonoTypeOperatorFunction<number> {
   return (source: Observable<number>) => source.pipe(filter((value) => Number.isSafeInteger(value)));

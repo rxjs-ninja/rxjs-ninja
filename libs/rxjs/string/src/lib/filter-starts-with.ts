@@ -25,7 +25,7 @@ import { filter } from 'rxjs/operators';
  * ```
  *
  * @returns String that passes the equality check of [String.prototype.startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
- * @category RxJS From String Query
+ * @category RxJS String Filter
  */
 export function filterStartsWith(character: string, length?: number): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(filter((value) => value.startsWith(character, length)));

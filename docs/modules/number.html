@@ -71,18 +71,22 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>RxJS Filter Number Equality Functions</h3>
+							<h3>Other Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="number.html#schedulenumber" class="tsd-kind-icon">schedule<wbr>Number</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="number.html#subscribetonumber" class="tsd-kind-icon">subscribe<wbr>ToNumber</a></li>
+							</ul>
+							<h3>RxJS Number Creation Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#fromnumber" class="tsd-kind-icon">from<wbr>Number</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#parsefloat" class="tsd-kind-icon">parse<wbr>Float</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#parseint" class="tsd-kind-icon">parse<wbr>Int</a></li>
+							</ul>
+							<h3>RxJS Number Filter Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#filterisfinite" class="tsd-kind-icon">filter<wbr>IsFinite</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#filterisinteger" class="tsd-kind-icon">filter<wbr>IsInteger</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#filterissafeinteger" class="tsd-kind-icon">filter<wbr>IsSafe<wbr>Integer</a></li>
-							</ul>
-							<h3>RxJS Number Equality Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#isfinite" class="tsd-kind-icon">is<wbr>Finite</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#isinteger" class="tsd-kind-icon">is<wbr>Integer</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#isnan" class="tsd-kind-icon">is<wbr>NaN</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#issafeinteger" class="tsd-kind-icon">is<wbr>Safe<wbr>Integer</a></li>
 							</ul>
 							<h3>RxJS Number Formatting Functions</h3>
 							<ul class="tsd-index-list">
@@ -91,17 +95,210 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#toprecision" class="tsd-kind-icon">to<wbr>Precision</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
 							</ul>
-							<h3>RxJS Number Parsing Functions</h3>
+							<h3>RxJS Number Query Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#parsefloat" class="tsd-kind-icon">parse<wbr>Float</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#parseint" class="tsd-kind-icon">parse<wbr>Int</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#isfinite" class="tsd-kind-icon">is<wbr>Finite</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#isinteger" class="tsd-kind-icon">is<wbr>Integer</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#isnan" class="tsd-kind-icon">is<wbr>NaN</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#issafeinteger" class="tsd-kind-icon">is<wbr>Safe<wbr>Integer</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>RxJS Filter Number Equality Functions</h2>
+				<h2>Other Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-private">
+					<a name="schedulenumber" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> schedule<wbr>Number</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">schedule<wbr>Number<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scheduler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/utils/number.ts#L23">number/src/utils/number.ts:23</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes an input of number and returns a method that updates an subscriber</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The number to subscribe to</p>
+									</div>
+								</li>
+								<li>
+									<h5>scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-private">
+					<a name="subscribetonumber" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagConst">Const</span> subscribe<wbr>ToNumber</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>ToNumber<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/utils/number.ts#L12">number/src/utils/number.ts:12</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes an input of number and returns a method that updates an subscriber</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The number to subscribe to</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>RxJS Number Creation Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="fromnumber" class="tsd-anchor"></a>
+					<h3>from<wbr>Number</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Number<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scheduler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/lib/from-number.ts#L20">number/src/lib/from-number.ts:20</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>fromNumber</code> operator is used to create an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> number from a passed
+									number value</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromNumber(<span class="hljs-number">6</span> * <span class="hljs-number">7</span>)..subscribe(...) <span class="hljs-comment">// 42</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Observable number from passed number</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="parsefloat" class="tsd-anchor"></a>
+					<h3>parse<wbr>Float</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Float<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/lib/parse-float.ts#L25">number/src/lib/parse-float.ts:25</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>parseFloat</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
+										subscription string and returns a parsed float number using
+									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat">Number.parseFloat</a></p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2.8'</span>, <span class="hljs-string">'3.14'</span>]).pipe(<span class="hljs-built_in">parseFloat</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
+  acc.push(val);
+  <span class="hljs-keyword">return</span> acc;
+}, [])).subscribe(...) <span class="hljs-comment">// [1, 2.8, 3.14]</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Float number from source string <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a></p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="parseint" class="tsd-anchor"></a>
+					<h3>parse<wbr>Int</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Int<span class="tsd-signature-symbol">(</span>radix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/lib/parse-int.ts#L27">number/src/lib/parse-int.ts:27</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>parseInt</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
+										subscription string and returns a parsed integer number using
+									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a></p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>default</dt>
+									<dd><p>10</p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2.8'</span>, <span class="hljs-string">'3.14'</span>]).pipe(<span class="hljs-built_in">parseInt</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
+  acc.push(val);
+  <span class="hljs-keyword">return</span> acc;
+}, [])).subscribe(...) <span class="hljs-comment">// [1, 2, 3]</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> radix: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The base number to parse to</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Integer number from source string <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a></p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>RxJS Number Filter Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="filterisfinite" class="tsd-anchor"></a>
 					<h3>filter<wbr>IsFinite</h3>
@@ -112,7 +309,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/number/src/lib/filter-is-finite.ts#L27">number/src/lib/filter-is-finite.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/lib/filter-is-finite.ts#L27">number/src/lib/filter-is-finite.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -148,7 +345,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/number/src/lib/filter-is-integer.ts#L28">number/src/lib/filter-is-integer.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/lib/filter-is-integer.ts#L28">number/src/lib/filter-is-integer.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -184,7 +381,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/number/src/lib/filter-is-safe-integer.ts#L28">number/src/lib/filter-is-safe-integer.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/lib/filter-is-safe-integer.ts#L27">number/src/lib/filter-is-safe-integer.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -212,150 +409,6 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>RxJS Number Equality Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="isfinite" class="tsd-anchor"></a>
-					<h3>is<wbr>Finite</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Finite<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/number/src/lib/is-finite.ts#L27">number/src/lib/is-finite.ts:27</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>The <code>isFinite</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription numbers and returns the boolean value of a number passing the equality check of
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite">Number.isFinite</a></p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>remarks</dt>
-									<dd><p>If you want to return the numbers from the check use the <a href="number.html#filterisfinite">filterIsFinite</a> operator instead</p>
-									</dd>
-									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">Infinity</span>]).pipe(<span class="hljs-built_in">isFinite</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(...) <span class="hljs-comment">// [true, true, false]</span></code></pre>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Boolean value of a number passing the <code>Number.isFinite</code> equality check</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="isinteger" class="tsd-anchor"></a>
-					<h3>is<wbr>Integer</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Integer<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/number/src/lib/is-integer.ts#L27">number/src/lib/is-integer.ts:27</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>The <code>isInteger</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription numbers and returns the boolean value of a number passing the equality check of
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">Number.isInteger</a></p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>remarks</dt>
-									<dd><p>If you want to return the numbers from the check use the <a href="number.html#filterisinteger">filterIsInteger</a> operator instead</p>
-									</dd>
-									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-string">'4'</span>]).pipe(isInteger(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(...) <span class="hljs-comment">// [true, true, false, false]</span></code></pre>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Boolean value of a number passing the <code>Number.isInteger</code> equality check</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="isnan" class="tsd-anchor"></a>
-					<h3>is<wbr>NaN</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>NaN<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/number/src/lib/is-nan.ts#L25">number/src/lib/is-nan.ts:25</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>The <code>isNaN</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription numbers and returns the boolean value of a number passing the equality check of
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN</a></p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">4</span>]).pipe(<span class="hljs-built_in">isNaN</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(...) <span class="hljs-comment">// [false, false, true, false]</span></code></pre>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Boolean value of a number passing the <code>Number.isNaN</code> equality check</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="issafeinteger" class="tsd-anchor"></a>
-					<h3>is<wbr>Safe<wbr>Integer</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">is<wbr>Safe<wbr>Integer<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/number/src/lib/is-safe-integer.ts#L27">number/src/lib/is-safe-integer.ts:27</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>The <code>isSafeInteger</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription numbers and returns the boolean value of a number passing the equality check of
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger">Number.isSafeInteger</a></p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>remarks</dt>
-									<dd><p>If you want to return the numbers from the check use the <a href="number.html#filterissafeinteger">filterIsSafeInteger</a> operator instead</p>
-									</dd>
-									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>), <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>) - <span class="hljs-number">1</span>]).pipe(isSafeInteger(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(...) <span class="hljs-comment">// [true, false]</span></code></pre>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Boolean value of a number passing the <code>Number.isSafeInteger</code> equality check</p>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>RxJS Number Formatting Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="toexponential" class="tsd-anchor"></a>
@@ -367,7 +420,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/number/src/lib/to-exponential.ts#L26">number/src/lib/to-exponential.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/lib/to-exponential.ts#L26">number/src/lib/to-exponential.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -409,7 +462,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/number/src/lib/to-locale-string.ts#L28">number/src/lib/to-locale-string.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/lib/to-locale-string.ts#L28">number/src/lib/to-locale-string.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -458,7 +511,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/number/src/lib/to-precision.ts#L26">number/src/lib/to-precision.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/lib/to-precision.ts#L26">number/src/lib/to-precision.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -500,7 +553,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/number/src/lib/to-string.ts#L26">number/src/lib/to-string.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/lib/to-string.ts#L26">number/src/lib/to-string.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -534,82 +587,145 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>RxJS Number Parsing Functions</h2>
+				<h2>RxJS Number Query Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="parsefloat" class="tsd-anchor"></a>
-					<h3>parse<wbr>Float</h3>
+					<a name="isfinite" class="tsd-anchor"></a>
+					<h3>is<wbr>Finite</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">parse<wbr>Float<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Finite<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/number/src/lib/parse-float.ts#L25">number/src/lib/parse-float.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/lib/is-finite.ts#L27">number/src/lib/is-finite.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>parseFloat</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription string and returns a parsed float number using
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat">Number.parseFloat</a></p>
+									<p>The <code>isFinite</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
+										subscription numbers and returns the boolean value of a number passing the equality check of
+									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite">Number.isFinite</a></p>
 								</div>
 								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>If you want to return the numbers from the check use the <a href="number.html#filterisfinite">filterIsFinite</a> operator instead</p>
+									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2.8'</span>, <span class="hljs-string">'3.14'</span>]).pipe(<span class="hljs-built_in">parseFloat</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">Infinity</span>]).pipe(<span class="hljs-built_in">isFinite</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
   acc.push(val);
   <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(...) <span class="hljs-comment">// [1, 2.8, 3.14]</span></code></pre>
+}, [])).subscribe(...) <span class="hljs-comment">// [true, true, false]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Float number from source string <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a></p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Boolean value of a number passing the <code>Number.isFinite</code> equality check</p>
 						</li>
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="parseint" class="tsd-anchor"></a>
-					<h3>parse<wbr>Int</h3>
+					<a name="isinteger" class="tsd-anchor"></a>
+					<h3>is<wbr>Integer</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">parse<wbr>Int<span class="tsd-signature-symbol">(</span>radix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Integer<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b6b017e/libs/rxjs/number/src/lib/parse-int.ts#L27">number/src/lib/parse-int.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/lib/is-integer.ts#L27">number/src/lib/is-integer.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>parseInt</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription string and returns a parsed integer number using
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a></p>
+									<p>The <code>isInteger</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
+										subscription numbers and returns the boolean value of a number passing the equality check of
+									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">Number.isInteger</a></p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>default</dt>
-									<dd><p>10</p>
+									<dt>remarks</dt>
+									<dd><p>If you want to return the numbers from the check use the <a href="number.html#filterisinteger">filterIsInteger</a> operator instead</p>
 									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2.8'</span>, <span class="hljs-string">'3.14'</span>]).pipe(<span class="hljs-built_in">parseInt</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-string">'4'</span>]).pipe(isInteger(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
   acc.push(val);
   <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(...) <span class="hljs-comment">// [1, 2, 3]</span></code></pre>
+}, [])).subscribe(...) <span class="hljs-comment">// [true, true, false, false]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> radix: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The base number to parse to</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Integer number from source string <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a></p>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Boolean value of a number passing the <code>Number.isInteger</code> equality check</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="isnan" class="tsd-anchor"></a>
+					<h3>is<wbr>NaN</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>NaN<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/lib/is-nan.ts#L25">number/src/lib/is-nan.ts:25</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>isNaN</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
+										subscription numbers and returns the boolean value of a number passing the equality check of
+									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN</a></p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">4</span>]).pipe(<span class="hljs-built_in">isNaN</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
+  acc.push(val);
+  <span class="hljs-keyword">return</span> acc;
+}, [])).subscribe(...) <span class="hljs-comment">// [false, false, true, false]</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Boolean value of a number passing the <code>Number.isNaN</code> equality check</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="issafeinteger" class="tsd-anchor"></a>
+					<h3>is<wbr>Safe<wbr>Integer</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Safe<wbr>Integer<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/43801da/libs/rxjs/number/src/lib/is-safe-integer.ts#L27">number/src/lib/is-safe-integer.ts:27</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>isSafeInteger</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
+										subscription numbers and returns the boolean value of a number passing the equality check of
+									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger">Number.isSafeInteger</a></p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>If you want to return the numbers from the check use the <a href="number.html#filterissafeinteger">filterIsSafeInteger</a> operator instead</p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>), <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>) - <span class="hljs-number">1</span>]).pipe(isSafeInteger(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
+  acc.push(val);
+  <span class="hljs-keyword">return</span> acc;
+}, [])).subscribe(...) <span class="hljs-comment">// [true, false]</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Boolean value of a number passing the <code>Number.isSafeInteger</code> equality check</p>
 						</li>
 					</ul>
 				</section>
@@ -647,6 +763,9 @@
 						<a href="number.html#filterissafeinteger" class="tsd-kind-icon">filter<wbr>IsSafe<wbr>Integer</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="number.html#fromnumber" class="tsd-kind-icon">from<wbr>Number</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="number.html#isfinite" class="tsd-kind-icon">is<wbr>Finite</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
@@ -663,6 +782,12 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="number.html#parseint" class="tsd-kind-icon">parse<wbr>Int</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<a href="number.html#schedulenumber" class="tsd-kind-icon">schedule<wbr>Number</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<a href="number.html#subscribetonumber" class="tsd-kind-icon">subscribe<wbr>ToNumber</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="number.html#toexponential" class="tsd-kind-icon">to<wbr>Exponential</a>

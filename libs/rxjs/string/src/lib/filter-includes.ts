@@ -23,7 +23,7 @@ import { filter } from 'rxjs/operators';
  * ```
  *
  * @returns String that passes the equality check of [String.prototype.includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)
- * @category RxJS From String Query
+ * @category RxJS String Filter
  */
 export function filterIncludes(searchStr: string): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(filter((value) => value.includes(searchStr)));

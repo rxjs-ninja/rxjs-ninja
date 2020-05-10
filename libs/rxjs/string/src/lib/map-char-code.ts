@@ -6,7 +6,7 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `filterCharCode` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} array of
+ * The `mapCharCode` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} array of
  * numbers that represent character codes, and returns a string value
  *
  * @remarks
@@ -21,13 +21,13 @@ import { map } from 'rxjs/operators';
  *      acc.push(val);
  *      return acc;
  *    }, []),
- *    filterCharCode()
+ *    mapCharCode()
  *  ).subscribe(...) // 'ABCD'
  * ```
  *
  * @returns String from an array of character codes
- * @category RxJS From String Creation
+ * @category RxJS String Map
  */
-export function filterCharCode(): OperatorFunction<number[], string> {
+export function mapCharCode(): OperatorFunction<number[], string> {
   return (source: Observable<number[]>) => source.pipe(map((values) => String.fromCharCode(...values)));
 }

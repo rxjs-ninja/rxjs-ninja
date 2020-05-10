@@ -23,7 +23,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns String that is a substring of the original string
- * @category RxJS String Query
+ * @category RxJS String Creation
  */
 export function substring(start: number, end?: number): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(map((value) => value.substring(start, end)));

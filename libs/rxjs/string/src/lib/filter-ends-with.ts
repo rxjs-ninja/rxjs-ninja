@@ -25,7 +25,7 @@ import { filter } from 'rxjs/operators';
  * ```
  *
  * @returns String that passes the equality check of [String.prototype.endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
- * @category RxJS From String Query
+ * @category RxJS String Filter
  */
 export function filterEndsWith(character: string, length?: number): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(filter((value) => value.endsWith(character, length)));

@@ -19,7 +19,7 @@ import { scheduleCodePoint, subscribeToCodePoint } from '../utils/code-point';
  * ```
  *
  * @returns String from an array of character codes
- * @category RxJS From String Creation
+ * @category RxJS String Creation
  */
 export function fromCodePoint(input: number[], scheduler?: SchedulerLike) {
   if (!input) {

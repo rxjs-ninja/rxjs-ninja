@@ -23,7 +23,7 @@ import { filter } from 'rxjs/operators';
  * ```
  *
  * @returns The number value that passes the `Number.isInteger` equality check
- * @category RxJS Filter Number Equality
+ * @category RxJS Number Filter
  */
 export function filterIsInteger(): MonoTypeOperatorFunction<number> {
   return (source: Observable<number>) => source.pipe(filter((value) => Number.isInteger(value)));

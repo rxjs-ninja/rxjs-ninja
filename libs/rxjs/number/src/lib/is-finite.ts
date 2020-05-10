@@ -22,7 +22,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Boolean value of a number passing the `Number.isFinite` equality check
- * @category RxJS Number Equality
+ * @category RxJS Number Query
  */
 export function isFinite(): OperatorFunction<number, boolean> {
   return (source: Observable<number>) => source.pipe(map((value) => Number.isFinite(value)));

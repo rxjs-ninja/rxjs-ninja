@@ -9,12 +9,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- The current operators that begin with `from*` are being changed to `filter*` as using `from` has
-  a specific context in RxJS with creating Observable values. The following operators are affected: - `fromCharCode` to `filterCharCode`. For the new `fromCharCode` method, see the Added section below. - `fromCodePoint` to `filterCodePoint`. For the new `fromCodePoint` method, see the Added section below. - `fromEndsWith` to `filterEndsWith` - `fromIncludes` to `filterIncludes` - `fromStartsWith` to `filterStartsWith`
-  Because of this change this release is a major bump to `2.0.0`
+- The current operators that begin with `from*` are being changed to `filter*` or `map*` as using `from` has a specific context in RxJS with creating Observable values.
+
+The following operators are affected:
+
+- `fromCharCode` to `mapCharCode`. For the new `fromCharCode` method, see the Added section below.
+- `fromCodePoint` to `mapCodePoint`. For the new `fromCodePoint` method, see the Added section below.
+- `fromEndsWith` to `filterEndsWith`
+- `fromIncludes` to `filterIncludes`
+- `fromStartsWith` to `filterStartsWith`
 
 ### Added
 
+- `fromString` - Creates an Observable string from the string passed as it's parameter
 - `fromCharCode` method now takes an array of numbers that are char codes and returns an Observable string value
 - `fromCodePoint` method now takes an array of numbers that are char codes and returns an Observable string value
 

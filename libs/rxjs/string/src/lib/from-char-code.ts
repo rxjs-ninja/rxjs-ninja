@@ -19,7 +19,7 @@ import { scheduleCharCode, subscribeToCharCode } from '../utils/char-code';
  * ```
  *
  * @returns String from an array of character codes
- * @category RxJS From String Creation
+ * @category RxJS String Creation
  */
 export function fromCharCode(input: number[], scheduler?: SchedulerLike) {
   if (!input) {

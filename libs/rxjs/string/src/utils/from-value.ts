@@ -40,7 +40,7 @@ export function scheduleSingleOrArrayString(input: string | string[], scheduler:
           subscriber.next(input[i++]);
         } else {
           subscriber.next(input);
-          subscriber.next(input);
+          subscriber.complete();
         }
         if (!subscriber.closed) {
           sub.add(this.schedule());

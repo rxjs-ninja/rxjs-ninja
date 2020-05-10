@@ -1,5 +1,5 @@
-import { from, of } from 'rxjs';
-import { reduce, take } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { take } from 'rxjs/operators';
 import { filterCharCode } from './filter-char-code';
 
 describe('filterCharCode', () => {

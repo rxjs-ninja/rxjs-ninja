@@ -3,7 +3,6 @@
  * @module string
  */
 import { Observable, SchedulerLike } from 'rxjs';
-import { scheduleCharCode, subscribeToCharCode } from '../utils/char-code';
 import { scheduleCodePoint, subscribeToCodePoint } from '../utils/code-point';
 
 /**

@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
  * [Number.isInteger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger)
  *
  * @remarks
- * If you want to return the numbers from the check use the [[fromIsInteger]] operator instead
+ * If you want to return the numbers from the check use the [[filterIsInteger]] operator instead
  *
  * @example
  * ```ts
@@ -22,7 +22,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Boolean value of a number passing the `Number.isInteger` equality check
- * @category RxJS Number Equality
+ * @category RxJS Number Query
  */
 export function isInteger(): OperatorFunction<number, boolean> {
   return (source: Observable<number>) => source.pipe(map((value) => Number.isInteger(value)));

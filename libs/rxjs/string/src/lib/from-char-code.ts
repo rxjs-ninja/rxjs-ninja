@@ -2,12 +2,12 @@
  * @packageDocumentation
  * @module string
  */
-import { Observable, OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, SchedulerLike } from 'rxjs';
+import { scheduleCharCode, subscribeToCharCode } from '../utils/char-code';
 
 /**
- * The `fromCharCode` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} array of
- * numbers that represent character codes, and returns a string value
+ * The `fromCharCode` operator is used to create an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * from a number array of char codes
  *
  * @remarks
  * Based on [String.fromCharCode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode)
@@ -15,19 +15,19 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from([65, 66, 67, 68])
- *  .pipe(
- *    reduce((acc, val) => {
- *      acc.push(val);
- *      return acc;
- *    }, []),
- *    fromCharCode()
- *  ).subscribe(...) // 'ABCD'
+ * fromCharCode([65, 66, 67, 68]).subscribe(...) // 'ABCD'
  * ```
  *
  * @returns String from an array of character codes
- * @category RxJS From String Creation
+ * @category RxJS String Creation
  */
-export function fromCharCode(): OperatorFunction<number[], string> {
-  return (source: Observable<number[]>) => source.pipe(map((values) => String.fromCharCode(...values)));
+export function fromCharCode(input: number[], scheduler?: SchedulerLike) {
+  if (!input) {
+    throw new Error('Input cannot be null');
+  }
+  if (!scheduler) {
+    return new Observable<string>(subscribeToCharCode(input));
+  } else {
+    return scheduleCharCode(input, scheduler);
+  }
 }

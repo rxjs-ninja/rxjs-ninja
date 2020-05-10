@@ -15,7 +15,7 @@ import { map } from 'rxjs/operators';
  * @remarks
  * Based on [String.prototype.startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
  * If no length is passed then is uses the length of the passed string
- * If you need to get the string value instead of boolean use [[fromStartsWith]]
+ * If you need to get the string value instead of boolean use [[filterStartsWith]]
  *
  * @example
  * ```ts

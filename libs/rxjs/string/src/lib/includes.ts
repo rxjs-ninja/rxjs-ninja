@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
  *
  * @remarks
  * Based on [String.prototype.includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)
- * If you need to get the string value instead of boolean use [[fromIncludes]]
+ * If you need to get the string value instead of boolean use [[filterIncludes]]
  *
  * @example
  * ```ts

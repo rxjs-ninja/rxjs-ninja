@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
  * [Number.isFinite](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite)
  *
  * @remarks
- * If you want to return the numbers from the check use the [[fromIsFinite]] operator instead
+ * If you want to return the numbers from the check use the [[filterIsFinite]] operator instead
  *
  * @example
  * ```ts
@@ -22,7 +22,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Boolean value of a number passing the `Number.isFinite` equality check
- * @category RxJS Number Equality
+ * @category RxJS Number Query
  */
 export function isFinite(): OperatorFunction<number, boolean> {
   return (source: Observable<number>) => source.pipe(map((value) => Number.isFinite(value)));

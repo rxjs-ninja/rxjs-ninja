@@ -3,9 +3,10 @@
  * @module number
  * @ignore
  */
-export { fromIsFinite } from './lib/from-is-finite';
-export { fromIsInteger } from './lib/from-is-integer';
-export { fromIsSafeInteger } from './lib/from-is-safe-integer';
+export { filterIsFinite } from './lib/filter-is-finite';
+export { filterIsInteger } from './lib/filter-is-integer';
+export { filterIsSafeInteger } from './lib/filter-is-safe-integer';
+export { fromNumber } from './lib/from-number';
 export { isFinite } from './lib/is-finite';
 export { isInteger } from './lib/is-integer';
 export { isNaN } from './lib/is-nan';

@@ -6,7 +6,7 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * The `fromIsFinite` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable}
+ * The `filterIsFinite` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable}
  * subscription numbers and returns the value based on it passing a truthy value of
  * [Number.isFinite](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite)
  *
@@ -15,15 +15,15 @@ import { filter } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from([1, 2, Infinity]).pipe(fromIsFinite(), reduce((acc, val) => {
+ * from([1, 2, Infinity]).pipe(filterIsFinite(), reduce((acc, val) => {
  *   acc.push(val);
  *   return acc;
  * }, [])).subscribe(...) // [1, 2]
  * ```
  *
  * @returns The number value that passes the `Number.isFinite` equality check
- * @category RxJS From Number Equality
+ * @category RxJS Number Filter
  */
-export function fromIsFinite(): MonoTypeOperatorFunction<number> {
+export function filterIsFinite(): MonoTypeOperatorFunction<number> {
   return (source: Observable<number>) => source.pipe(filter((value) => Number.isFinite(value)));
 }

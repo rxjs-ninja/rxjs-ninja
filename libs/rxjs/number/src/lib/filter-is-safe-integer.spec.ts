@@ -1,12 +1,12 @@
 import { from } from 'rxjs';
-import { fromIsSafeInteger } from './from-is-safe-integer';
+import { filterIsSafeInteger } from './filter-is-safe-integer';
 
-describe('fromIsSafeInteger', () => {
+describe('filterIsSafeInteger', () => {
   it('should return true for an integer', (done) => {
     const output = [];
 
     from([1, 2, Math.pow(2, 53), Math.pow(2, 53) - 1])
-      .pipe(fromIsSafeInteger())
+      .pipe(filterIsSafeInteger())
       .subscribe({
         next: (value) => output.push(value),
         complete: () => {

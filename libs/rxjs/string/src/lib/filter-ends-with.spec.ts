@@ -1,12 +1,12 @@
 import { from } from 'rxjs';
 import { reduce, take } from 'rxjs/operators';
-import { fromEndsWith } from '@tinynodes/rxjs-string';
+import { filterEndsWith } from '@tinynodes/rxjs-string';
 
-describe('fromEndsWith', () => {
+describe('filterEndsWith', () => {
   it('should return a string if a string ends with a character', (done) => {
     from(['test?', 'foo', 'bar?'])
       .pipe(
-        fromEndsWith('?'),
+        filterEndsWith('?'),
         reduce((acc, val) => {
           acc.push(val);
           return acc;

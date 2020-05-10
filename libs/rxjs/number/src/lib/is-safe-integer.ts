@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
  * [Number.isSafeInteger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger)
  *
  * @remarks
- * If you want to return the numbers from the check use the [[fromIsSafeInteger]] operator instead
+ * If you want to return the numbers from the check use the [[filterIsSafeInteger]] operator instead
  *
  * @example
  * ```ts
@@ -22,7 +22,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Boolean value of a number passing the `Number.isSafeInteger` equality check
- * @category RxJS Number Equality
+ * @category RxJS Number Query
  */
 export function isSafeInteger(): OperatorFunction<number, boolean> {
   return (source: Observable<number>) => source.pipe(map((value) => Number.isSafeInteger(value)));

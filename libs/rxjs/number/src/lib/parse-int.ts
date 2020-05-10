@@ -22,7 +22,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Integer number from source string {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable}
- * @category RxJS Number Parsing
+ * @category RxJS Number Creation
  */
 export function parseInt(radix = 10): OperatorFunction<string, number> {
   return (source: Observable<string>) => source.pipe(map((value) => Number.parseInt(value, radix)));

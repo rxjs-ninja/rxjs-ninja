@@ -22,7 +22,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns String that is a concatenation of the original string and new values
- * @category RxJS String Formatting
+ * @category RxJS String Creation
  */
 export function concat(...args: string[]): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(map((value) => value.concat(...args)));

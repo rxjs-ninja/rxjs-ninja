@@ -23,7 +23,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Array of strings based on the original string split by the separator
- * @category RxJS String Query
+ * @category RxJS String to Array
  */
 export function split(separator: string, limit?: number): OperatorFunction<string, string[]> {
   return (source: Observable<string>) => source.pipe(map((value) => value.split(separator, limit)));

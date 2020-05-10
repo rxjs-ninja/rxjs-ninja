@@ -6,8 +6,10 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `parseInt` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable}
- * subscription string and returns a parsed integer number using
+ * The `parseInt` operator can be used with an RxJS `pipe` where the source value
+ * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string.
+ *
+ * The operator will attempt to convert the string value to a integer number using
  * [Number.parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt)
  *
  * @param radix The base number to parse to
@@ -21,7 +23,7 @@ import { map } from 'rxjs/operators';
  * }, [])).subscribe(...) // [1, 2, 3]
  * ```
  *
- * @returns Integer number from source string {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable}
+ * @returns A number that is parsed from a string using `Number.parseInt
  * @category RxJS Number Creation
  */
 export function parseInt(radix = 10): OperatorFunction<string, number> {

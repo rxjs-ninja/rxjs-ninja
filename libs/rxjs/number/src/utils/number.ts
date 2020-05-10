@@ -9,8 +9,14 @@ import { Observable, SchedulerLike, Subscriber, Subscription } from 'rxjs';
  * @private
  * @param input The number to subscribe to
  */
-export const subscribeToNumber = (input: number) => (subscriber: Subscriber<number>) => {
-  subscriber.next(input);
+export const subscribeToNumber = (input: number | number[]) => (subscriber: Subscriber<number>) => {
+  if (Array.isArray(input)) {
+    for (let i = 0; i < input.length; i++) {
+      subscriber.next(input[i]);
+    }
+  } else {
+    subscriber.next(input);
+  }
   subscriber.complete();
 };
 
@@ -20,14 +26,25 @@ export const subscribeToNumber = (input: number) => (subscriber: Subscriber<numb
  * @param input The number to subscribe to
  * @param scheduler
  */
-export function scheduleNumber(input: number, scheduler: SchedulerLike) {
+export function scheduleNumber(input: number | number[], scheduler: SchedulerLike) {
   return new Observable<number>((subscriber) => {
     const sub = new Subscription();
+    let i = 0;
     sub.add(
       scheduler.schedule(function () {
-        subscriber.next(input);
-        sub.add(this.schedule());
-        subscriber.complete();
+        if (Array.isArray(input)) {
+          if (i === input.length) {
+            subscriber.complete();
+            return;
+          }
+          subscriber.next(input[i++]);
+        } else {
+          subscriber.next(input);
+          subscriber.next(input);
+        }
+        if (!subscriber.closed) {
+          sub.add(this.schedule());
+        }
       }),
     );
     return sub;

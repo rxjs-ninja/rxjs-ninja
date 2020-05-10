@@ -6,11 +6,13 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `toExponential` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable}
- * subscription number and returns a string based on number raised the exponential value passed
+ * The `toExponential` operator can be used with an RxJS `pipe` where the source value
+ * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) number.
+ *
+ * The operator will return a string value of the number raised to the power passed as a parameter using
  * [Number.prototype.toExponential](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential)
  *
- * @param exponential The number to raise the value to
+ * @param exponential The exponential value to raise the number by
  *
  * @example
  * ```ts
@@ -20,7 +22,7 @@ import { map } from 'rxjs/operators';
  * }, [])).subscribe(...) // ['1.00e+3', '2.00e+3', '3.00e+3']
  * ```
  *
- * @returns String of the {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} number raised to the exponential value
+ * @returns String of the number value raised to the exponential using `Number.prototype.toExponential`
  * @category RxJS Number Formatting
  */
 export function toExponential(exponential: number): OperatorFunction<number, string> {

@@ -6,7 +6,7 @@ import { Observable, SchedulerLike } from 'rxjs';
 import { scheduleCharCode, subscribeToCharCode } from '../utils/char-code';
 
 /**
- * The `fromCharCode` operator is used to create an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `fromCharCode` operator is used to create an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * from a number array of char codes
  *
  * @remarks

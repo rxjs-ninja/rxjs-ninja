@@ -6,7 +6,7 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `mapCharCode` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} array of
+ * The `mapCharCode` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) array of
  * numbers that represent character codes, and returns a string value
  *
  * @remarks

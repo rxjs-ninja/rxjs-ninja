@@ -6,7 +6,7 @@ import { Observable, SchedulerLike } from 'rxjs';
 import { scheduleCodePoint, subscribeToCodePoint } from '../utils/code-point';
 
 /**
- * The `fromCodePoint` operator is used to create an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `fromCodePoint` operator is used to create an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * from a number array of code points
  *
  * @remarks

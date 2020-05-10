@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 import { TrimPosition } from '../types/position';
 
 /**
- * The `trimString` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `trimString` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * value and returns a trimmed string
  *
  * @param position The position to trim the string from, either 'start', 'end' or 'all'

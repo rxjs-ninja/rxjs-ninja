@@ -7,7 +7,7 @@ import { first, onErrorResumeNext } from 'rxjs/operators';
 
 /**
  * The `firstTruthy` operator is used to only the first truthy value from an
- * {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} stream of values
+ * [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) stream of values
  *
  * @remarks
  * If there is no truthy value, this method will use [onErrorResumeNext](https://rxjs-dev.firebaseapp.com/api/index/function/onErrorResumeNext)

@@ -6,10 +6,11 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `isNaN` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable}
- * subscription numbers and returns the boolean value of a number passing the equality check of
- * [Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
+ * The `isNaN` operator can be used with an RxJS `pipe` where the source value
+ * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) number.
  *
+ * The operator will return the boolean value based on it passing
+ * [Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
  *
  * @example
  * ```ts
@@ -19,7 +20,7 @@ import { map } from 'rxjs/operators';
  * }, [])).subscribe(...) // [false, false, true, false]
  * ```
  *
- * @returns Boolean value of a number passing the `Number.isNaN` equality check
+ * @returns A boolean value of the `Number.isNaN` equality check
  * @category RxJS Number Query
  */
 export function isNaN(): OperatorFunction<number, boolean> {

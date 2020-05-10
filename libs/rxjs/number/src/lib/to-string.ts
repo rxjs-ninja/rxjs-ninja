@@ -6,9 +6,14 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `toString` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable}
- * subscription number and returns a string based on number formatted to the passed radix value
+ * The `toLocaleString` operator can be used with an RxJS `pipe` where the source value
+ * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) number.
+ *
+ * The operator will return a string value of the number formatted using
  * [Number.prototype.toString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)
+ *
+ * @remarks
+ * This method takes an optional radix (base number) for format the string to
  *
  * @param radix The base radix to format the string to
  *
@@ -20,7 +25,7 @@ import { map } from 'rxjs/operators';
  * }, [])).subscribe(...) // ['1', '2', 'ff']
  * ```
  *
- * @returns String of the {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} number formatted to the passed radix
+ * @returns String of the number value formatted using `Number.prototype.toString`
  * @category RxJS Number Formatting
  */
 export function toString(radix = 10): OperatorFunction<number, string> {

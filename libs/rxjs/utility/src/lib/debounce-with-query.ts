@@ -7,7 +7,7 @@ import { Observable, ObservableInput, OperatorFunction } from 'rxjs';
 
 /**
  * A function passed to [[debounceWithQuery]] as the second parameter, takes a string
- * from an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} source and returns an
+ * from an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) source and returns an
  * observable result of T
  *
  * @typeParam T The response from an API which returns the result of a query
@@ -15,7 +15,7 @@ import { Observable, ObservableInput, OperatorFunction } from 'rxjs';
 export type QueryMethod<T> = (query: string) => ObservableInput<T>;
 
 /**
- * Operator that takes an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string value
+ * Operator that takes an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string value
  * and debounces it by the `time` parameter, and checks that the value changes.
  * When the debounce completes the `queryMethod` is called and the result returned.
  *
@@ -33,7 +33,7 @@ export type QueryMethod<T> = (query: string) => ObservableInput<T>;
  *  .subscribe(...)
  * ```
  *
- * @returns An {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} value of T
+ * @returns An [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) value of T
  * @category RxJS Observable Utilities
  */
 export function debounceWithQuery<T = unknown>(time: number, queryMethod: QueryMethod<T>): OperatorFunction<string, T> {

@@ -112,13 +112,13 @@
 					<a name="schedulenumber" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> schedule<wbr>Number</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">schedule<wbr>Number<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scheduler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">schedule<wbr>Number<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/utils/number.ts#L23">number/src/utils/number.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/utils/number.ts#L29">number/src/utils/number.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -129,7 +129,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input: <span class="tsd-signature-type">number</span></h5>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The number to subscribe to</p>
 									</div>
@@ -148,13 +148,13 @@
 					<a name="subscribetonumber" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagConst">Const</span> subscribe<wbr>ToNumber</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>ToNumber<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>ToNumber<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/utils/number.ts#L12">number/src/utils/number.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/utils/number.ts#L12">number/src/utils/number.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -165,7 +165,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input: <span class="tsd-signature-type">number</span></h5>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
 											<p>The number to subscribe to</p>
@@ -184,37 +184,51 @@
 					<a name="fromnumber" class="tsd-anchor"></a>
 					<h3>from<wbr>Number</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Number<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scheduler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Number<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/lib/from-number.ts#L20">number/src/lib/from-number.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/lib/from-number.ts#L33">number/src/lib/from-number.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>fromNumber</code> operator is used to create an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> number from a passed
-									number value</p>
+									<p>The <code>fromNumber</code> operator is used to create an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number from a passed
+									number value. A single number or array can be passed, if an array is passed each value is emitted</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
 									<dd><pre><code class="language-ts">fromNumber(<span class="hljs-number">6</span> * <span class="hljs-number">7</span>)..subscribe(...) <span class="hljs-comment">// 42</span></code></pre>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+ .pipe(reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> acc + val))
+ .subscribe(...) <span class="hljs-comment">// 6</span></code></pre>
+									</dd>
+									<dt>remarks</dt>
+									<dd><p>Using <code>fromNumber</code> with an array of numbers is the same as using the <a href="https://rxjs-dev.firebaseapp.com/api/index/function/from">from</a> operator from RxJS</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input: <span class="tsd-signature-type">number</span></h5>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Number input to create an Observable<number> from</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <a href="https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike">SchedulerLike</a> to use for scheduling the emission of values, and providing a notion of &quot;time&quot;</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Observable number from passed number</p>
+							<p>Observable number from passed input parameter</p>
 						</li>
 					</ul>
 				</section>
@@ -228,15 +242,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/lib/parse-float.ts#L25">number/src/lib/parse-float.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/lib/parse-float.ts#L27">number/src/lib/parse-float.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>parseFloat</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription string and returns a parsed float number using
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat">Number.parseFloat</a></p>
+									<p>The <code>parseFloat</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> string.</p>
 								</div>
+								<p>The operator will attempt to convert the string value to a floating point number using
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat">Number.parseFloat</a></p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2.8'</span>, <span class="hljs-string">'3.14'</span>]).pipe(<span class="hljs-built_in">parseFloat</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
@@ -247,7 +262,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Float number from source string <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a></p>
+							<p>A number that is parsed from a string using `Number.parseFloat</p>
 						</li>
 					</ul>
 				</section>
@@ -261,15 +276,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/lib/parse-int.ts#L27">number/src/lib/parse-int.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/lib/parse-int.ts#L29">number/src/lib/parse-int.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>parseInt</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription string and returns a parsed integer number using
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a></p>
+									<p>The <code>parseInt</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> string.</p>
 								</div>
+								<p>The operator will attempt to convert the string value to a integer number using
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a></p>
 								<dl class="tsd-comment-tags">
 									<dt>default</dt>
 									<dd><p>10</p>
@@ -292,7 +308,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Integer number from source string <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a></p>
+							<p>A number that is parsed from a string using `Number.parseInt</p>
 						</li>
 					</ul>
 				</section>
@@ -309,29 +325,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/lib/filter-is-finite.ts#L27">number/src/lib/filter-is-finite.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/lib/filter-is-finite.ts#L33">number/src/lib/filter-is-finite.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>filterIsFinite</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription numbers and returns the value based on it passing a truthy value of
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite">Number.isFinite</a></p>
+									<p>The <code>filterIsFinite</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
 								</div>
+								<p>The operator will return the number value based on it passing
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite">Number.isFinite</a></p>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
-									<dd><p>If you just want to check if a number is within a finite range you can use the <a href="number.html#isfinite">isFinite</a> operator instead</p>
+									<dd><p>If you want the boolean value instead of the number value use the <a href="number.html#isfinite">isFinite</a> operator instead</p>
 									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">Infinity</span>]).pipe(filterIsFinite(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(...) <span class="hljs-comment">// [1, 2]</span></code></pre>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">Infinity</span>])
+ .pipe(
+   filterIsFinite(),
+   reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
+     acc.push(val);
+     <span class="hljs-keyword">return</span> acc;
+   }, [])
+).subscribe(...) <span class="hljs-comment">// [1, 2]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>The number value that passes the <code>Number.isFinite</code> equality check</p>
+							<p>A number value that passes the <code>Number.isFinite</code> equality check</p>
 						</li>
 					</ul>
 				</section>
@@ -345,29 +366,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/lib/filter-is-integer.ts#L28">number/src/lib/filter-is-integer.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/lib/filter-is-integer.ts#L33">number/src/lib/filter-is-integer.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>filterIsInteger</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription numbers and returns the value based on it passing a truthy value of
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">Number.isInteger</a></p>
+									<p>The <code>filterIsInteger</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
 								</div>
+								<p>The operator will return the number value based on it passing
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">Number.isInteger</a></p>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
-									<dd><p>If you just want to check if a number is an integer <a href="number.html#isinteger">isInteger</a> operator instead</p>
+									<dd><p>If you want the boolean value instead of the number value use the <a href="number.html#isinteger">isInteger</a> operator instead</p>
 									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-string">'4'</span>]).pipe(filterIsInteger(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(...) <span class="hljs-comment">// [1, 2]</span></code></pre>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-string">'4'</span>])
+ .pipe(
+   filterIsInteger(),
+   reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
+     acc.push(val);
+     <span class="hljs-keyword">return</span> acc;
+   }, [])
+).subscribe(...) <span class="hljs-comment">// [1, 2]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>The number value that passes the <code>Number.isInteger</code> equality check</p>
+							<p>A number value that passes the <code>Number.isInteger</code> equality check</p>
 						</li>
 					</ul>
 				</section>
@@ -381,29 +407,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/lib/filter-is-safe-integer.ts#L27">number/src/lib/filter-is-safe-integer.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/lib/filter-is-safe-integer.ts#L33">number/src/lib/filter-is-safe-integer.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>filterIsSafeInteger</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription numbers and returns the value based on it passing a truthy value of
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger">Number.isSafeInteger</a></p>
+									<p>The <code>filterIsSafeInteger</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
 								</div>
+								<p>The operator will return the number value based on it passing
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger">Number.isSafeInteger</a></p>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
-									<dd><p>If you just want to check if a number is in the same integer range use the <a href="number.html#issafeinteger">isSafeInteger</a> operator instead</p>
+									<dd><p>If you want the boolean value instead of the number value use the <a href="number.html#issafeinteger">isSafeInteger</a> operator instead</p>
 									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>), <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>) - <span class="hljs-number">1</span>]).pipe(filterIsSafeInteger(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(...) <span class="hljs-comment">// [1, 2, 9007199254740991]</span></code></pre>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>), <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>) - <span class="hljs-number">1</span>])
+ .pipe(
+   filterIsSafeInteger(),
+   reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
+     acc.push(val);
+     <span class="hljs-keyword">return</span> acc;
+   }, [])
+).subscribe(...) <span class="hljs-comment">// [1, 2, 9007199254740991]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>The number value that passes the <code>Number.isSafeInteger</code> equality check</p>
+							<p>A number value that passes the <code>Number.isSafeInteger</code> equality check</p>
 						</li>
 					</ul>
 				</section>
@@ -420,15 +451,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/lib/to-exponential.ts#L26">number/src/lib/to-exponential.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/lib/to-exponential.ts#L28">number/src/lib/to-exponential.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>toExponential</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription number and returns a string based on number raised the exponential value passed
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential">Number.prototype.toExponential</a></p>
+									<p>The <code>toExponential</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
 								</div>
+								<p>The operator will return a string value of the number raised to the power passed as a parameter using
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential">Number.prototype.toExponential</a></p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1000</span>, <span class="hljs-number">2000</span>, <span class="hljs-number">3000</span>]).pipe(toExponential(<span class="hljs-number">2</span>), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
@@ -443,12 +475,12 @@
 								<li>
 									<h5>exponential: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The number to raise the value to</p>
+										<p>The exponential value to raise the number by</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>String of the <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> number raised to the exponential value</p>
+							<p>String of the number value raised to the exponential using <code>Number.prototype.toExponential</code></p>
 						</li>
 					</ul>
 				</section>
@@ -462,17 +494,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/lib/to-locale-string.ts#L28">number/src/lib/to-locale-string.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/lib/to-locale-string.ts#L32">number/src/lib/to-locale-string.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>toLocaleString</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription number and returns a formatted string based the <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat" class="external">Intl.NumberFormat</a>
-										options passed as options
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">Number.prototype.toLocaleString</a></p>
+									<p>The <code>toLocaleString</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
 								</div>
+								<p>The operator will return a string value of the number formatted using
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">Number.prototype.toLocaleString</a></p>
 								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>The <code>toLocaleString</code> uses locale options in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a></p>
+									</dd>
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1000000</span>]).pipe(toLocaleString(<span class="hljs-string">'en-GB'</span>, { currency: <span class="hljs-string">'EUR'</span>, style: <span class="hljs-string">'currency'</span> }), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
   acc.push(val);
@@ -492,12 +527,12 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> format: <span class="tsd-signature-type">NumberFormatOptions</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional formatting of the string based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat" class="external">Intl.NumberFormat</a></p>
+										<p>Optional formatting of the string based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a></p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>String of the <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> number formatted to the passed options</p>
+							<p>String of the number formatted using <code>Number.prototype.toLocaleString</code></p>
 						</li>
 					</ul>
 				</section>
@@ -511,15 +546,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/lib/to-precision.ts#L26">number/src/lib/to-precision.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/lib/to-precision.ts#L28">number/src/lib/to-precision.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>toPrecision</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription number and returns a string based on number formatted to the passed precision value
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision">Number.prototype.toPrecision</a></p>
+									<p>The <code>toPrecision</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
 								</div>
+								<p>The operator will return a string value formatted to the precision value passed
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision">Number.prototype.toPrecision</a></p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">123.456</span>, <span class="hljs-number">0.004</span>, <span class="hljs-number">1.23e5</span>]).pipe(toPrecision(<span class="hljs-number">4</span>), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
@@ -539,7 +575,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>String of the <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> number raised to the exponential value</p>
+							<p>String of the number value formatted using <code>Number.prototype.toPrecision</code></p>
 						</li>
 					</ul>
 				</section>
@@ -553,16 +589,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/lib/to-string.ts#L26">number/src/lib/to-string.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/lib/to-string.ts#L31">number/src/lib/to-string.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>toString</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription number and returns a string based on number formatted to the passed radix value
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString">Number.prototype.toString</a></p>
+									<p>The <code>toLocaleString</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
 								</div>
+								<p>The operator will return a string value of the number formatted using
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString">Number.prototype.toString</a></p>
 								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>This method takes an optional radix (base number) for format the string to</p>
+									</dd>
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">255</span>]).pipe(toString(<span class="hljs-number">16</span>), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
   acc.push(val);
@@ -581,7 +621,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>String of the <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> number formatted to the passed radix</p>
+							<p>String of the number value formatted using <code>Number.prototype.toString</code></p>
 						</li>
 					</ul>
 				</section>
@@ -598,29 +638,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/lib/is-finite.ts#L27">number/src/lib/is-finite.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/lib/is-finite.ts#L33">number/src/lib/is-finite.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>isFinite</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription numbers and returns the boolean value of a number passing the equality check of
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite">Number.isFinite</a></p>
+									<p>The <code>isFinite</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
 								</div>
+								<p>The operator will return the boolean value based on it passing
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite">Number.isFinite</a></p>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
-									<dd><p>If you want to return the numbers from the check use the <a href="number.html#filterisfinite">filterIsFinite</a> operator instead</p>
+									<dd><p>If you want the number value instead of the boolean value use the <a href="number.html#filterisfinite">filterIsFinite</a> operator instead</p>
 									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">Infinity</span>]).pipe(<span class="hljs-built_in">isFinite</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(...) <span class="hljs-comment">// [true, true, false]</span></code></pre>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">Infinity</span>])
+ .pipe(
+   <span class="hljs-built_in">isFinite</span>(),
+   reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
+     acc.push(val);
+     <span class="hljs-keyword">return</span> acc;
+   }, [])
+).subscribe(...) <span class="hljs-comment">// [true, true, false]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Boolean value of a number passing the <code>Number.isFinite</code> equality check</p>
+							<p>A boolean value of the <code>Number.isFinite</code> equality check</p>
 						</li>
 					</ul>
 				</section>
@@ -634,29 +679,34 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/lib/is-integer.ts#L27">number/src/lib/is-integer.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/lib/is-integer.ts#L33">number/src/lib/is-integer.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>isInteger</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription numbers and returns the boolean value of a number passing the equality check of
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">Number.isInteger</a></p>
+									<p>The <code>isInteger</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
 								</div>
+								<p>The operator will return the boolean value based on it passing
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">Number.isInteger</a></p>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
-									<dd><p>If you want to return the numbers from the check use the <a href="number.html#filterisinteger">filterIsInteger</a> operator instead</p>
+									<dd><p>If you want the number value instead of the boolean value use the <a href="number.html#filterisinteger">filterIsInteger</a> operator instead</p>
 									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-string">'4'</span>]).pipe(isInteger(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(...) <span class="hljs-comment">// [true, true, false, false]</span></code></pre>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-string">'4'</span>])
+ .pipe(
+   isInteger(),
+   reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
+     acc.push(val);
+     <span class="hljs-keyword">return</span> acc;
+   }, [])
+).subscribe(...) <span class="hljs-comment">// [true, true, false, false]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Boolean value of a number passing the <code>Number.isInteger</code> equality check</p>
+							<p>A boolean value of the <code>Number.isInteger</code> equality check</p>
 						</li>
 					</ul>
 				</section>
@@ -670,15 +720,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/lib/is-nan.ts#L25">number/src/lib/is-nan.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/lib/is-nan.ts#L26">number/src/lib/is-nan.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>isNaN</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription numbers and returns the boolean value of a number passing the equality check of
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN</a></p>
+									<p>The <code>isNaN</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
 								</div>
+								<p>The operator will return the boolean value based on it passing
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN</a></p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">4</span>]).pipe(<span class="hljs-built_in">isNaN</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
@@ -689,7 +740,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Boolean value of a number passing the <code>Number.isNaN</code> equality check</p>
+							<p>A boolean value of the <code>Number.isNaN</code> equality check</p>
 						</li>
 					</ul>
 				</section>
@@ -703,15 +754,16 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/number/src/lib/is-safe-integer.ts#L27">number/src/lib/is-safe-integer.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/78c5d9b/libs/rxjs/number/src/lib/is-safe-integer.ts#L29">number/src/lib/is-safe-integer.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>isSafeInteger</code> operator can be used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
-										subscription numbers and returns the boolean value of a number passing the equality check of
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger">Number.isSafeInteger</a></p>
+									<p>The <code>isSafeInteger</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
 								</div>
+								<p>The operator will return the boolean value based on it passing
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger">Number.isSafeInteger</a></p>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
 									<dd><p>If you want to return the numbers from the check use the <a href="number.html#filterissafeinteger">filterIsSafeInteger</a> operator instead</p>
@@ -725,7 +777,7 @@
 								</dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Boolean value of a number passing the <code>Number.isSafeInteger</code> equality check</p>
+							<p>A boolean value of the <code>Number.isSafeInteger</code> equality check</p>
 						</li>
 					</ul>
 				</section>

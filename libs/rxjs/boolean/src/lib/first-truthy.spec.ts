@@ -1,5 +1,5 @@
 import { from } from 'rxjs';
-import { firstTruthy } from './first-truthy';
+import { firstTruthy } from '@tinynodes/rxjs-boolean';
 
 describe('firstTruthy', () => {
   it('should return the first true value from a source', (done) => {

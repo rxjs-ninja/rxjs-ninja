@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.1.0] - 2020-05-10
+
+### Changed
+
+- `fromString` now accepts both a single string value or array of string values. When passing an array
+  it acts the same as the [from](https://rxjs-dev.firebaseapp.com/api/index/function/from) operator and also accept a scheduler.
+- `concat` operator now accepts an argument list of strings or an array of strings
+- `fromCharCode` now accepts both a single string value or array of string values, but will only return a single string value
+- `fromCodePoint` now accepts both a single string value or array of string values, but will only return a single string value
+- `mapCharCode` now accepts an Observable single number or array of numbers
+- `mapCodePoint` now accepts an Observable single number or array of numbers
+- Tests refactored and improved
+- Improved documentation
+
 ## [2.0.0] - 2020-05-10
 
 ### Changed

@@ -20,9 +20,9 @@ import { TrimPosition } from '../types/position';
  *
  * @example
  * ```ts
- * from(['     12345     '])
+ * fromString('     12345     ')
  *  .pipe(trimString('end'))
- *  .subscribe(....) // ['     12345']
+ *  .subscribe(console.log) // '     12345'
  * ```
  *
  * @returns String that is trimmed based on the [[TrimPosition]] option

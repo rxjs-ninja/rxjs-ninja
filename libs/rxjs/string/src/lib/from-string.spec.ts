@@ -1,5 +1,5 @@
-import { fromString } from './from-string';
 import { reduce, take } from 'rxjs/operators';
+import { fromString } from '@tinynodes/rxjs-string';
 
 describe('fromString', () => {
   it('should return a Observable from a passed string', (done) => {

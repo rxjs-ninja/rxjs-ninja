@@ -21,7 +21,7 @@ import { filter } from 'rxjs/operators';
  * ```ts
  * from(['test', 'testing', 'foobar'])
  *  .pipe(filterStartsWith('t'))
- *  .subscribe(....) // ['test', 'testing']
+ *  .subscribe(console.log) // ['test', 'testing']
  * ```
  *
  * @returns String that passes the equality check of [String.prototype.startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)

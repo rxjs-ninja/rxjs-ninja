@@ -18,9 +18,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['äpfel'])
+ * fromString('äpfel')
  *  .pipe(toUpperCase('de-DE'))
- *  .subscribe(....) // ['ÄPFEL']
+ *  .subscribe(console.log) // 'ÄPFEL'
  * ```
  *
  * @returns String that is converted to upper case

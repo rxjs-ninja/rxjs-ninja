@@ -21,9 +21,9 @@ import { PadPosition } from '../types/position';
  *
  * @example
  * ```ts
- * from(['12345'])
+ * fromString('12345')
  *  .pipe(padString('end', 10, 'X'))
- *  .subscribe(....) // ['12345XXXXX']
+ *  .subscribe(console.log) // ['12345XXXXX']
  * ```
  *
  * @returns String that is formatted with padding

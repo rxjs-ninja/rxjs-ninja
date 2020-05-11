@@ -14,9 +14,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * of('emordnilaP')
+ * fromString('emordnilaP')
  *  .pipe(reverse())
- *  .subscribe(....) // 'Palindrome'
+ *  .subscribe(console.log) // 'Palindrome'
  * ```
  *
  * @returns String that is reversed

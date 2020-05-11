@@ -17,9 +17,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['Mary had a little lamb'])
+ * fromString('Mary had a little lamb')
  *  .pipe(substring(0, 4))
- *  .subscribe(....) // ['Mary']
+ *  .subscribe(console.log) // 'Mary'
  * ```
  *
  * @returns String that is a substring of the original string

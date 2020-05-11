@@ -21,7 +21,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * from(['test', 'testing', 'foobar'])
  *  .pipe(endsWith('t'))
- *  .subscribe(....) // [true, true, false]
+ *  .subscribe(console.log) // [true, true, false]
  * ```
  *
  * @returns Boolean value if the string passes the equality check of [String.prototype.startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)

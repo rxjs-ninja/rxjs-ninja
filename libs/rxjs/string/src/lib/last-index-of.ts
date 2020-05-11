@@ -17,9 +17,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['test'])
+ * fromSting('test')
  *  .pipe(lastIndexOf('t'))
- *  .subscribe(....) // [3]
+ *  .subscribe(console.log) // 3
  * ```
  *
  * @returns Index of the location where the string starts

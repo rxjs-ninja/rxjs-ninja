@@ -17,9 +17,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * of('Hello|World')
+ * fromString('Hello|World')
  *  .pipe(split('|'))
- *  .subscribe(....) // ['Hello', 'World']
+ *  .subscribe(console.log) // ['Hello', 'World']
  * ```
  *
  * @returns Array of strings based on the original string split by the separator

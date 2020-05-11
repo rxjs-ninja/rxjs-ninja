@@ -18,9 +18,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['ÄPFEL'])
+ * fromString('ÄPFEL')
  *  .pipe(toLowerCase('de-DE'))
- *  .subscribe(....) // ['äpfel']
+ *  .subscribe(console.log) // 'äpfel'
  * ```
  *
  * @returns String that is converted to lower case

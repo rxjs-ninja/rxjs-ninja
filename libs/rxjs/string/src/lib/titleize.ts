@@ -20,9 +20,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['Mary had a little lamb'])
+ * fromString('Mary had a little lamb')
  *  .pipe(titleize())
- *  .subscribe(....) // ['Mary Had A Little Lamb']
+ *  .subscribe(console.log) // 'Mary Had A Little Lamb'
  * ```
  *
  * @returns String that is titleized

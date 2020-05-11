@@ -15,7 +15,7 @@ import { filter } from 'rxjs/operators';
  * ```ts
  * from([true, false, '', 'test', undefined, 0, 1])
  *  .pipe(filterTruthy())
- *  .subscribe(...) // [true, 'test', 1]
+ *  .subscribe(console.log) // [true, 'test', 1]
  * ```
  *
  * @returns All values that are truthy only

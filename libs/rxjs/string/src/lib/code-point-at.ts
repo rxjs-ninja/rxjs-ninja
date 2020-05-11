@@ -8,21 +8,18 @@ import { map } from 'rxjs/operators';
 /**
  * The `codePointAt` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * value and returns the code point of a character at the passed position.
- *
- * @param position The character position to return a character from
- *
- * @remarks
  * Based on [String.prototype.codePointAt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt)
- * The position number passed starts from 0
+ *
+ * @param position The character position to get a code point from, starts from 0
  *
  * @example
  * ```ts
- * from(['☃★♲'])
+ * fromString(['☃★♲'])
  *  .pipe(codePointAt(1))
- *  .subscribe(....) // [9733]
+ *  .subscribe(console.log) // 9733
  * ```
  *
- * @returns The character located at the passed position
+ * @returns Number of the code point from the passed string position
  * @category RxJS String Query
  */
 export function codePointAt(position: number): OperatorFunction<string, number> {

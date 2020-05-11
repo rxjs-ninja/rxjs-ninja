@@ -17,9 +17,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['test', 'testing'])
+ * from(['test', 'testing', 'foobar'])
  *  .pipe(includes('test'))
- *  .subscribe(....) // [true, true]
+ *  .subscribe(console.log) // [true, true, false]
  * ```
  *
  * @returns Boolean value if the string passes the equality check of [String.prototype.includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)

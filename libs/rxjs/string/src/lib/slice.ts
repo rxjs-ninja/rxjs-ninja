@@ -17,12 +17,12 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['Mary had a little lamb'])
+ * fromString('Mary had a little lamb')
  *  .pipe(slice(0, 4))
- *  .subscribe(....) // ['Mary']
+ *  .subscribe(console.log) // 'Mary'
  * ```
  *
- * @returns A substring of the original string value
+ * @returns String that is a substring of the original string value
  * @category RxJS String Creation
  */
 export function slice(startIndex: number, endIndex?: number): MonoTypeOperatorFunction<string> {

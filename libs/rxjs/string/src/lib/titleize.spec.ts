@@ -1,10 +1,9 @@
-import { of } from 'rxjs';
-import { titleize } from './titleize';
 import { take } from 'rxjs/operators';
+import { fromString, titleize } from '@tinynodes/rxjs-string';
 
 describe('titleize', () => {
   it('should titleize a string', (done) => {
-    of('Mary had a little lamb')
+    fromString('Mary had a little lamb')
       .pipe(titleize(), take(1))
       .subscribe({
         next: (value) => expect(value).toBe('Mary Had A Little Lamb'),

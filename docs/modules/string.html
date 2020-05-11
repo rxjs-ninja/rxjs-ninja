@@ -82,10 +82,10 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="string.html#schedulecharcode" class="tsd-kind-icon">schedule<wbr>Char<wbr>Code</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="string.html#schedulecodepoint" class="tsd-kind-icon">schedule<wbr>Code<wbr>Point</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="string.html#schedulesingleorarrayvalue" class="tsd-kind-icon">schedule<wbr>Single<wbr>OrArray<wbr>Value</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="string.html#schedulesingleorarraystring" class="tsd-kind-icon">schedule<wbr>Single<wbr>OrArray<wbr>String</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="string.html#subscribetocharcode" class="tsd-kind-icon">subscribe<wbr>ToChar<wbr>Code</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="string.html#subscribetocodepoint" class="tsd-kind-icon">subscribe<wbr>ToCode<wbr>Point</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="string.html#subscribetosingleorarrayvalue" class="tsd-kind-icon">subscribe<wbr>ToSingle<wbr>OrArray<wbr>Value</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="string.html#subscribetosingleorarraystring" class="tsd-kind-icon">subscribe<wbr>ToSingle<wbr>OrArray<wbr>String</a></li>
 							</ul>
 							<h3>RxJS String Creation Functions</h3>
 							<ul class="tsd-index-list">
@@ -144,7 +144,7 @@
 					<div class="tsd-signature tsd-kind-icon">Pad<wbr>Position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/types/position.ts#L9">string/src/types/position.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/types/position.ts#L9">string/src/types/position.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -159,7 +159,7 @@
 					<div class="tsd-signature tsd-kind-icon">Trim<wbr>Position<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">"start"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"end"</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">"all"</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/types/position.ts#L14">string/src/types/position.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/types/position.ts#L14">string/src/types/position.ts:14</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -175,13 +175,13 @@
 					<a name="schedulecharcode" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> schedule<wbr>Char<wbr>Code</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">schedule<wbr>Char<wbr>Code<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">schedule<wbr>Char<wbr>Code<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/utils/char-code.ts#L27">string/src/utils/char-code.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/utils/from-char-code.utils.ts#L31">string/src/utils/from-char-code.utils.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -193,7 +193,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
 									<h5>scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
@@ -209,13 +209,13 @@
 					<a name="schedulecodepoint" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> schedule<wbr>Code<wbr>Point</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">schedule<wbr>Code<wbr>Point<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">schedule<wbr>Code<wbr>Point<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/utils/code-point.ts#L25">string/src/utils/code-point.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/utils/from-code-point.utils.ts#L29">string/src/utils/from-code-point.utils.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -227,7 +227,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
 								</li>
 								<li>
 									<h5>scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
@@ -239,36 +239,30 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
-					<a name="schedulesingleorarrayvalue" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> schedule<wbr>Single<wbr>OrArray<wbr>Value</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">schedule<wbr>Single<wbr>OrArray<wbr>Value&lt;T&gt;<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-private">
+					<a name="schedulesingleorarraystring" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> schedule<wbr>Single<wbr>OrArray<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">schedule<wbr>Single<wbr>OrArray<wbr>String<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/utils/from-value.ts#L29">string/src/utils/from-value.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/utils/from-string.utils.ts#L29">string/src/utils/from-string.utils.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Takes an input of number and returns a method that updates an subscriber</p>
+									<p>Takes an input of string and returns a method that updates an subscriber</p>
 								</div>
 							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T</h4>
-								</li>
-							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>input: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The number to subscribe to</p>
+										<p>The string to subscribe to</p>
 									</div>
 								</li>
 								<li>
@@ -277,7 +271,7 @@
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -285,13 +279,13 @@
 					<a name="subscribetocharcode" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> subscribe<wbr>ToChar<wbr>Code</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>ToChar<wbr>Code<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>ToChar<wbr>Code<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/utils/char-code.ts#L13">string/src/utils/char-code.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/utils/from-char-code.utils.ts#L13">string/src/utils/from-char-code.utils.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -303,7 +297,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The array of char codes to convert to a string</p>
 									</div>
@@ -317,13 +311,13 @@
 					<a name="subscribetocodepoint" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagConst">Const</span> subscribe<wbr>ToCode<wbr>Point</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>ToCode<wbr>Point<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>ToCode<wbr>Point<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/utils/code-point.ts#L13">string/src/utils/code-point.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/utils/from-code-point.utils.ts#L13">string/src/utils/from-code-point.utils.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -335,7 +329,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
 											<p>The array of char codes to convert to a string</p>
@@ -347,17 +341,17 @@
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
-					<a name="subscribetosingleorarrayvalue" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagConst">Const</span> subscribe<wbr>ToSingle<wbr>OrArray<wbr>Value</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>ToSingle<wbr>OrArray<wbr>Value&lt;T&gt;<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-private">
+					<a name="subscribetosingleorarraystring" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagConst">Const</span> subscribe<wbr>ToSingle<wbr>OrArray<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>ToSingle<wbr>OrArray<wbr>String<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/utils/from-value.ts#L12">string/src/utils/from-value.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/utils/from-string.utils.ts#L12">string/src/utils/from-string.utils.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -365,16 +359,10 @@
 									<p>Takes an input of number and returns a method that updates an subscriber</p>
 								</div>
 							</div>
-							<h4 class="tsd-type-parameters-title">Type parameters</h4>
-							<ul class="tsd-type-parameters">
-								<li>
-									<h4>T</h4>
-								</li>
-							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>input: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<div class="lead">
 											<p>The number to subscribe to</p>
@@ -399,7 +387,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/concat.ts#L27">string/src/lib/concat.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/concat.ts#L27">string/src/lib/concat.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -436,41 +424,46 @@
 					<a name="fromcharcode" class="tsd-anchor"></a>
 					<h3>from<wbr>Char<wbr>Code</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Char<wbr>Code<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Char<wbr>Code<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/from-char-code.ts#L24">string/src/lib/from-char-code.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/from-char-code.ts#L26">string/src/lib/from-char-code.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The <code>fromCharCode</code> operator is used to create an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> string
-									from a number array of char codes</p>
+									from a number or number array of code points using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode">String.fromCharCode</a></p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>remarks</dt>
-									<dd><p>Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode">String.fromCharCode</a>
-										This operator takes an array of number values, if you want to only convert one character this still needs passed as an array</p>
-									</dd>
 									<dt>example</dt>
 									<dd><pre><code class="language-ts">fromCharCode([<span class="hljs-number">65</span>, <span class="hljs-number">66</span>, <span class="hljs-number">67</span>, <span class="hljs-number">68</span>]).subscribe(...) <span class="hljs-comment">// 'ABCD'</span></code></pre>
+									</dd>
+									<dt>remarks</dt>
+									<dd><p>Unlike the <a href="https://rxjs-dev.firebaseapp.com/api/index/function/from">from</a> operator when passing an array of numbers to this operator it will generate a single string</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A number or array of numbers to convert to a string</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional <a href="https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike">SchedulerLike</a></p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>String from an array of character codes</p>
+							<p>String from an character code or array of character codes</p>
 						</li>
 					</ul>
 				</section>
@@ -478,41 +471,46 @@
 					<a name="fromcodepoint" class="tsd-anchor"></a>
 					<h3>from<wbr>Code<wbr>Point</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Code<wbr>Point<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Code<wbr>Point<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/from-code-point.ts#L24">string/src/lib/from-code-point.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/from-code-point.ts#L26">string/src/lib/from-code-point.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The <code>fromCodePoint</code> operator is used to create an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> string
-									from a number array of code points</p>
+									from a number or number array of code points using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint">String.fromCodePoint</a></p>
 								</div>
 								<dl class="tsd-comment-tags">
-									<dt>remarks</dt>
-									<dd><p>Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode">String.fromCharCode</a>
-										This operator takes an array of number values, if you want to only convert one character this still needs passed as an array</p>
-									</dd>
 									<dt>example</dt>
 									<dd><pre><code class="language-ts">fromCodePoint([<span class="hljs-number">9731</span>, <span class="hljs-number">9733</span>, <span class="hljs-number">9842</span>]).subscribe(...) <span class="hljs-comment">// '☃★♲'</span></code></pre>
+									</dd>
+									<dt>remarks</dt>
+									<dd><p>Unlike the <a href="https://rxjs-dev.firebaseapp.com/api/index/function/from">from</a> operator when passing an array of numbers to this operator it will generate a single string</p>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>A number or array of numbers to convert to a string</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional <a href="https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike">SchedulerLike</a></p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>String from an array of character codes</p>
+							<p>String from an character code or array of character codes</p>
 						</li>
 					</ul>
 				</section>
@@ -526,17 +524,24 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/from-string.ts#L20">string/src/lib/from-string.ts:20</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/from-string.ts#L32">string/src/lib/from-string.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The <code>fromString</code> operator is used to create an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> string from a passed
-									string value</p>
+									string value or array of string values</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
 									<dd><pre><code class="language-ts">fromString(<span class="hljs-string">'Foobar'</span>)..pipe(reverse()).subscribe(...) <span class="hljs-comment">// 'rabooF'</span></code></pre>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromString([<span class="hljs-string">'Foo'</span>, <span class="hljs-string">'Bar'</span>])..pipe(reverse()).subscribe(...) <span class="hljs-comment">// ['ooF', 'raB']</span></code></pre>
+									</dd>
+									<dt>remarks</dt>
+									<dd><p>When using <code>fromString</code> with an array, this acts like the <a href="https://rxjs-dev.firebaseapp.com/api/index/function/from">from</a>
+										operator and emits each array item as a separate string</p>
 									</dd>
 								</dl>
 							</div>
@@ -544,9 +549,15 @@
 							<ul class="tsd-parameters">
 								<li>
 									<h5>input: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>the string or string array to create an Observable source from</p>
+									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional <a href="https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike">SchedulerLike</a></p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -564,7 +575,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/slice.ts#L28">string/src/lib/slice.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/slice.ts#L28">string/src/lib/slice.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -613,7 +624,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/substring.ts#L28">string/src/lib/substring.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/substring.ts#L28">string/src/lib/substring.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -665,7 +676,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/filter-ends-with.ts#L30">string/src/lib/filter-ends-with.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/filter-ends-with.ts#L30">string/src/lib/filter-ends-with.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -716,7 +727,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/filter-includes.ts#L28">string/src/lib/filter-includes.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/filter-includes.ts#L28">string/src/lib/filter-includes.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -760,7 +771,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/filter-starts-with.ts#L30">string/src/lib/filter-starts-with.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/filter-starts-with.ts#L30">string/src/lib/filter-starts-with.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -814,7 +825,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/pad-string.ts#L32">string/src/lib/pad-string.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/pad-string.ts#L32">string/src/lib/pad-string.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -871,7 +882,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/replace.ts#L28">string/src/lib/replace.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/replace.ts#L28">string/src/lib/replace.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -920,7 +931,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/reverse.ts#L25">string/src/lib/reverse.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/reverse.ts#L25">string/src/lib/reverse.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -954,7 +965,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/titleize.ts#L31">string/src/lib/titleize.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/titleize.ts#L31">string/src/lib/titleize.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1005,7 +1016,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/to-lower-case.ts#L29">string/src/lib/to-lower-case.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/to-lower-case.ts#L29">string/src/lib/to-lower-case.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1050,7 +1061,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/to-upper-case.ts#L29">string/src/lib/to-upper-case.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/to-upper-case.ts#L29">string/src/lib/to-upper-case.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1095,7 +1106,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/trim-string.ts#L31">string/src/lib/trim-string.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/trim-string.ts#L31">string/src/lib/trim-string.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1144,7 +1155,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/map-char-code.ts#L31">string/src/lib/map-char-code.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/map-char-code.ts#L31">string/src/lib/map-char-code.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1184,7 +1195,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/map-code-point.ts#L31">string/src/lib/map-code-point.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/map-code-point.ts#L31">string/src/lib/map-code-point.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1227,7 +1238,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/char-at.ts#L28">string/src/lib/char-at.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/char-at.ts#L28">string/src/lib/char-at.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1271,7 +1282,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/char-code-at.ts#L28">string/src/lib/char-code-at.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/char-code-at.ts#L28">string/src/lib/char-code-at.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1315,7 +1326,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/code-point-at.ts#L28">string/src/lib/code-point-at.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/code-point-at.ts#L28">string/src/lib/code-point-at.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1359,7 +1370,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/ends-with.ts#L30">string/src/lib/ends-with.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/ends-with.ts#L30">string/src/lib/ends-with.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1410,7 +1421,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/includes.ts#L28">string/src/lib/includes.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/includes.ts#L28">string/src/lib/includes.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1454,7 +1465,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/index-of.ts#L28">string/src/lib/index-of.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/index-of.ts#L28">string/src/lib/index-of.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1503,7 +1514,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/last-index-of.ts#L28">string/src/lib/last-index-of.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/last-index-of.ts#L28">string/src/lib/last-index-of.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1552,7 +1563,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/starts-with.ts#L30">string/src/lib/starts-with.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/starts-with.ts#L30">string/src/lib/starts-with.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1606,7 +1617,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f49941a/libs/rxjs/string/src/lib/split.ts#L28">string/src/lib/split.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/string/src/lib/split.ts#L28">string/src/lib/split.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1738,8 +1749,8 @@
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-private">
 						<a href="string.html#schedulecodepoint" class="tsd-kind-icon">schedule<wbr>Code<wbr>Point</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
-						<a href="string.html#schedulesingleorarrayvalue" class="tsd-kind-icon">schedule<wbr>Single<wbr>OrArray<wbr>Value</a>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<a href="string.html#schedulesingleorarraystring" class="tsd-kind-icon">schedule<wbr>Single<wbr>OrArray<wbr>String</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="string.html#slice" class="tsd-kind-icon">slice</a>
@@ -1756,8 +1767,8 @@
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-private">
 						<a href="string.html#subscribetocodepoint" class="tsd-kind-icon">subscribe<wbr>ToCode<wbr>Point</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
-						<a href="string.html#subscribetosingleorarrayvalue" class="tsd-kind-icon">subscribe<wbr>ToSingle<wbr>OrArray<wbr>Value</a>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-private">
+						<a href="string.html#subscribetosingleorarraystring" class="tsd-kind-icon">subscribe<wbr>ToSingle<wbr>OrArray<wbr>String</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="string.html#substring" class="tsd-kind-icon">substring</a>

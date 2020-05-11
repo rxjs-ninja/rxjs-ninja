@@ -17,9 +17,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['Mary had a little lamb'])
+ * fromString('Mary had a little lamb')
  *  .pipe(replace('lamb', 'dog'))
- *  .subscribe(....) // ['Mary had a little dog']
+ *  .subscribe(console.log) // ['Mary had a little dog']
  * ```
  *
  * @returns String with text replaced based on pattern and replacement string

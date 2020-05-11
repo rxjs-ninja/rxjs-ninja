@@ -21,7 +21,7 @@ import { filter } from 'rxjs/operators';
  * ```ts
  * from(['test', 'testing'])
  *  .pipe(filterEndsWith('g'))
- *  .subscribe(....) // ['testing']
+ *  .subscribe(console.log) // ['testing']
  * ```
  *
  * @returns String that passes the equality check of [String.prototype.endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)

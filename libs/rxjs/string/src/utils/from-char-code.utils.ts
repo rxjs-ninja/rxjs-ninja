@@ -10,9 +10,13 @@ import { Observable, SchedulerLike, Subscriber, Subscription } from 'rxjs';
  * @private
  * @param input The array of char codes to convert to a string
  */
-export function subscribeToCharCode(input: number[]) {
+export function subscribeToCharCode(input: number | number[]) {
   return (subscriber: Subscriber<string>) => {
-    subscriber.next(String.fromCharCode(...input));
+    if (Array.isArray(input)) {
+      subscriber.next(String.fromCharCode(...input));
+    } else {
+      subscriber.next(String.fromCharCode(input));
+    }
     subscriber.complete();
   };
 }
@@ -24,12 +28,16 @@ export function subscribeToCharCode(input: number[]) {
  * @param input
  * @param scheduler
  */
-export function scheduleCharCode(input: number[], scheduler: SchedulerLike) {
+export function scheduleCharCode(input: number | number[], scheduler: SchedulerLike) {
   return new Observable<string>((subscriber) => {
     const sub = new Subscription();
     sub.add(
       scheduler.schedule(function () {
-        subscriber.next(String.fromCharCode(...input));
+        if (Array.isArray(input)) {
+          subscriber.next(String.fromCharCode(...input));
+        } else {
+          subscriber.next(String.fromCharCode(input));
+        }
         sub.add(this.schedule());
         subscriber.complete();
       }),

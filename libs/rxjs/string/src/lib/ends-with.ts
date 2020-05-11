@@ -21,7 +21,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * from(['test', 'testing'])
  *  .pipe(endsWith('g'))
- *  .subscribe(....) // [false, true]
+ *  .subscribe(console.log) // [false, true]
  * ```
  *
  * @returns Boolean value if the string passes the equality check of [String.prototype.endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)

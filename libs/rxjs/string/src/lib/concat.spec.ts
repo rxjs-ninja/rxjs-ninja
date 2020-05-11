@@ -1,10 +1,9 @@
-import { of } from 'rxjs';
-import { concat } from './concat';
 import { take } from 'rxjs/operators';
+import { concat, fromString } from '@tinynodes/rxjs-string';
 
 describe('concat', () => {
   it('should concatenate a string from a source', (done) => {
-    of('test')
+    fromString('test')
       .pipe(concat('ing'), take(1))
       .subscribe({
         next: (value) => expect(value).toBe('testing'),
@@ -13,8 +12,17 @@ describe('concat', () => {
   });
 
   it('should concatenate a string from a source and multiple arguments', (done) => {
-    of('test')
+    fromString('test')
       .pipe(concat('ing', ' ', 'is fun'), take(1))
+      .subscribe({
+        next: (value) => expect(value).toBe('testing is fun'),
+        complete: () => done(),
+      });
+  });
+
+  it('should concatenate a string from a source from an array argument', (done) => {
+    fromString('test')
+      .pipe(concat(['ing', ' ', 'is fun']), take(1))
       .subscribe({
         next: (value) => expect(value).toBe('testing is fun'),
         complete: () => done(),

@@ -30,7 +30,7 @@ export type QueryMethod<T> = (query: string) => ObservableInput<T>;
  *
  * fromEvent(input, 'keyup')
  *  .pipe(debounceWithQuery(500, doQuery))
- *  .subscribe(...)
+ *  .subscribe(console.log)
  * ```
  *
  * @returns An [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) value of T

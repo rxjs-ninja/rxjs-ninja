@@ -19,7 +19,7 @@ import { map } from 'rxjs/operators';
  * from([123.456, 0.004, 1.23e5]).pipe(toPrecision(4), reduce((acc, val) => {
  *   acc.push(val);
  *   return acc;
- * }, [])).subscribe(...) // ['123.5', '0.004000', '1.230e+5']
+ * }, [])).subscribe(console.log) // ['123.5', '0.004000', '1.230e+5']
  * ```
  *
  * @returns String of the number value formatted using `Number.prototype.toPrecision`

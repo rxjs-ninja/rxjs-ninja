@@ -24,7 +24,7 @@ import { filter } from 'rxjs/operators';
  *      acc.push(val);
  *      return acc;
  *    }, [])
- * ).subscribe(...) // [1, 2, 9007199254740991]
+ * ).subscribe(console.log) // [1, 2, 9007199254740991]
  * ```
  *
  * @returns A number value that passes the `Number.isSafeInteger` equality check

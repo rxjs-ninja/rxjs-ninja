@@ -24,7 +24,7 @@ import { filter } from 'rxjs/operators';
  *      acc.push(val);
  *      return acc;
  *    }, [])
- * ).subscribe(...) // [1, 2]
+ * ).subscribe(console.log) // [1, 2]
  * ```
  *
  * @returns A number value that passes the `Number.isFinite` equality check

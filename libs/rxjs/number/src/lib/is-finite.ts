@@ -24,7 +24,7 @@ import { map } from 'rxjs/operators';
  *      acc.push(val);
  *      return acc;
  *    }, [])
- * ).subscribe(...) // [true, true, false]
+ * ).subscribe(console.log) // [true, true, false]
  * ```
  *
  * @returns A boolean value of the `Number.isFinite` equality check

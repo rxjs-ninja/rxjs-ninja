@@ -23,7 +23,7 @@ import { map } from 'rxjs/operators';
  * from([1000000]).pipe(toLocaleString('en-GB', { currency: 'EUR', style: 'currency' }), reduce((acc, val) => {
  *   acc.push(val);
  *   return acc;
- * }, [])).subscribe(...) // ['€1,000,000.00']
+ * }, [])).subscribe(console.log) // ['€1,000,000.00']
  * ```
  *
  * @returns String of the number formatted using `Number.prototype.toLocaleString`

@@ -22,7 +22,7 @@ import { map } from 'rxjs/operators';
  * from([1, 2, 255]).pipe(toString(16), reduce((acc, val) => {
  *   acc.push(val);
  *   return acc;
- * }, [])).subscribe(...) // ['1', '2', 'ff']
+ * }, [])).subscribe(console.log) // ['1', '2', 'ff']
  * ```
  *
  * @returns String of the number value formatted using `Number.prototype.toString`

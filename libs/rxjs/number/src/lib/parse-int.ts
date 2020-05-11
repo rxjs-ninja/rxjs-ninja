@@ -12,6 +12,8 @@ import { map } from 'rxjs/operators';
  * The operator will attempt to convert the string value to a integer number using
  * [Number.parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt)
  *
+ * ![parseInt Marble Diagram](../assets/marble/number/parseInt.svg)
+ *
  * @param radix The base number to parse to
  * @default 10
  *

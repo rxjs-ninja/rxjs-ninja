@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators';
  * The operator will attempt to convert the string value to a floating point number using
  * [Number.parseFloat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat)
  *
+ * ![parseFloat Marble Diagram](../assets/marble/number/parseFloat.svg)
  *
  * @example
  * ```ts

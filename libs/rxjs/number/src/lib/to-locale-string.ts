@@ -12,6 +12,8 @@ import { map } from 'rxjs/operators';
  * The operator will return a string value of the number formatted using
  * [Number.prototype.toLocaleString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString)
  *
+ * ![toLocaleString Marble Diagram](../assets/marble/number/toLocaleString.svg)
+ *
  * @remarks
  * The `toLocaleString` uses locale options in [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
  *

@@ -12,6 +12,8 @@ import { map } from 'rxjs/operators';
  * The operator will return the boolean value based on it passing
  * [Number.isInteger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger)
  *
+ * ![isInteger Marble Diagram](../assets/marble/number/isInteger.svg)
+ *
  * @remarks
  * If you want the number value instead of the boolean value use the [[filterIsInteger]] operator instead
  *

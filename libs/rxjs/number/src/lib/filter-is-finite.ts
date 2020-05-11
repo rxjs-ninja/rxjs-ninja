@@ -12,6 +12,8 @@ import { filter } from 'rxjs/operators';
  * The operator will return the number value based on it passing
  * [Number.isFinite](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite)
  *
+ * ![filterIsFinite Marble Diagram](../assets/marble/number/filterIsFinite.svg)
+ *
  * @remarks
  * If you want the boolean value instead of the number value use the [[isFinite]] operator instead
  *

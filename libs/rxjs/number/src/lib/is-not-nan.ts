@@ -13,6 +13,8 @@ import { map } from 'rxjs/operators';
  * [Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
  * to check a number is valid
  *
+ * ![isNotNaN Marble Diagram](../assets/marble/number/isNotNaN.svg)
+ *
  * @example
  * ```ts
  * fromNumber([1, 2, NaN, 4]).pipe(isNotNaN(), reduce((acc, val) => {

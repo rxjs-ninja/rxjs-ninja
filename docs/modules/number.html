@@ -120,7 +120,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/utils/from-number.utils.ts#L29">number/src/utils/from-number.utils.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/utils/from-number.utils.ts#L29">number/src/utils/from-number.utils.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -162,7 +162,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/utils/from-number.utils.ts#L12">number/src/utils/from-number.utils.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/utils/from-number.utils.ts#L12">number/src/utils/from-number.utils.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -204,7 +204,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/from-number.ts#L33">number/src/lib/from-number.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/from-number.ts#L33">number/src/lib/from-number.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -256,7 +256,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/parse-float.ts#L27">number/src/lib/parse-float.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/parse-float.ts#L28">number/src/lib/parse-float.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -266,6 +266,7 @@
 								</div>
 								<p>The operator will attempt to convert the string value to a floating point number using
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat">Number.parseFloat</a></p>
+								<p><img src="../assets/marble/number/parseFloat.svg" alt="parseFloat Marble Diagram"></p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2.8'</span>, <span class="hljs-string">'3.14'</span>]).pipe(<span class="hljs-built_in">parseFloat</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
@@ -290,7 +291,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/parse-int.ts#L29">number/src/lib/parse-int.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/parse-int.ts#L31">number/src/lib/parse-int.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -300,6 +301,7 @@
 								</div>
 								<p>The operator will attempt to convert the string value to a integer number using
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a></p>
+								<p><img src="../assets/marble/number/parseInt.svg" alt="parseInt Marble Diagram"></p>
 								<dl class="tsd-comment-tags">
 									<dt>default</dt>
 									<dd><p>10</p>
@@ -339,7 +341,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/filter-is-finite.ts#L33">number/src/lib/filter-is-finite.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/filter-is-finite.ts#L35">number/src/lib/filter-is-finite.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -349,6 +351,7 @@
 								</div>
 								<p>The operator will return the number value based on it passing
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite">Number.isFinite</a></p>
+								<p><img src="../assets/marble/number/filterIsFinite.svg" alt="filterIsFinite Marble Diagram"></p>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
 									<dd><p>If you want the boolean value instead of the number value use the <a href="number.html#isfinite">isFinite</a> operator instead</p>
@@ -380,7 +383,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/filter-is-integer.ts#L33">number/src/lib/filter-is-integer.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/filter-is-integer.ts#L35">number/src/lib/filter-is-integer.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -390,6 +393,7 @@
 								</div>
 								<p>The operator will return the number value based on it passing
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">Number.isInteger</a></p>
+								<p><img src="../assets/marble/number/filterIsInteger.svg" alt="filterIsInteger Marble Diagram"></p>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
 									<dd><p>If you want the boolean value instead of the number value use the <a href="number.html#isinteger">isInteger</a> operator instead</p>
@@ -421,7 +425,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/filter-is-not-nan.ts#L34">number/src/lib/filter-is-not-nan.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/filter-is-not-nan.ts#L38">number/src/lib/filter-is-not-nan.ts:38</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -432,6 +436,7 @@
 								<p>The operator will return the number value based on the number not being a NaN using the
 									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN</a>
 								equality check</p>
+								<p><img src="../assets/marble/number/filterIsNotNan.svg" alt="filterIsNotNaN Marble Diagram"></p>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
 									<dd><p>If you want the boolean value instead of the number value use the <a href="number.html#isnotnan">isNotNaN</a> operator instead</p>
@@ -463,7 +468,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/filter-is-safe-integer.ts#L33">number/src/lib/filter-is-safe-integer.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/filter-is-safe-integer.ts#L35">number/src/lib/filter-is-safe-integer.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -473,6 +478,7 @@
 								</div>
 								<p>The operator will return the number value based on it passing
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger">Number.isSafeInteger</a></p>
+								<p><img src="../assets/marble/number/filterIsSafeInteger.svg" alt="filterIsSafeInteger Marble Diagram"></p>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
 									<dd><p>If you want the boolean value instead of the number value use the <a href="number.html#issafeinteger">isSafeInteger</a> operator instead</p>
@@ -507,7 +513,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/to-exponential.ts#L28">number/src/lib/to-exponential.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/to-exponential.ts#L30">number/src/lib/to-exponential.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -517,6 +523,7 @@
 								</div>
 								<p>The operator will return a string value of the number raised to the power passed as a parameter using
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential">Number.prototype.toExponential</a></p>
+								<p><img src="../assets/marble/number/toExponential.svg" alt="toExponential Marble Diagram"></p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1000</span>, <span class="hljs-number">2000</span>, <span class="hljs-number">3000</span>]).pipe(toExponential(<span class="hljs-number">2</span>), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
@@ -550,7 +557,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/to-locale-string.ts#L32">number/src/lib/to-locale-string.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/to-locale-string.ts#L34">number/src/lib/to-locale-string.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -560,6 +567,7 @@
 								</div>
 								<p>The operator will return a string value of the number formatted using
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">Number.prototype.toLocaleString</a></p>
+								<p><img src="../assets/marble/number/toLocaleString.svg" alt="toLocaleString Marble Diagram"></p>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
 									<dd><p>The <code>toLocaleString</code> uses locale options in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a></p>
@@ -602,7 +610,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/to-precision.ts#L28">number/src/lib/to-precision.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/to-precision.ts#L34">number/src/lib/to-precision.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -612,12 +620,17 @@
 								</div>
 								<p>The operator will return a string value formatted to the precision value passed
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision">Number.prototype.toPrecision</a></p>
+								<p><img src="../assets/marble/number/toPrecision.svg" alt="toPrecision Marble Diagram"></p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">123.456</span>, <span class="hljs-number">0.004</span>, <span class="hljs-number">1.23e5</span>]).pipe(toPrecision(<span class="hljs-number">4</span>), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// ['123.5', '0.004000', '1.230e+5']</span></code></pre>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">0.20</span>, <span class="hljs-number">0.36</span>, <span class="hljs-number">1.1</span>])
+.pipe(
+   toPrecision(<span class="hljs-number">1</span>),
+   reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
+     acc.push(val);
+     <span class="hljs-keyword">return</span> acc;
+   }, [])
+).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// ['0.2', '0.4', '1']</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -645,7 +658,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/to-string.ts#L31">number/src/lib/to-string.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/to-string.ts#L33">number/src/lib/to-string.ts:33</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -655,6 +668,7 @@
 								</div>
 								<p>The operator will return a string value of the number formatted using
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString">Number.prototype.toString</a></p>
+								<p><img src="../assets/marble/number/toString.svg" alt="toString Marble Diagram"></p>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
 									<dd><p>This method takes an optional radix (base number) for format the string to</p>
@@ -694,7 +708,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/is-finite.ts#L33">number/src/lib/is-finite.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/is-finite.ts#L35">number/src/lib/is-finite.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -704,6 +718,7 @@
 								</div>
 								<p>The operator will return the boolean value based on it passing
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite">Number.isFinite</a></p>
+								<p><img src="../assets/marble/number/isFinite.svg" alt="isFinite Marble Diagram"></p>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
 									<dd><p>If you want the number value instead of the boolean value use the <a href="number.html#filterisfinite">filterIsFinite</a> operator instead</p>
@@ -735,7 +750,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/is-integer.ts#L33">number/src/lib/is-integer.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/is-integer.ts#L35">number/src/lib/is-integer.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -745,6 +760,7 @@
 								</div>
 								<p>The operator will return the boolean value based on it passing
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">Number.isInteger</a></p>
+								<p><img src="../assets/marble/number/isInteger.svg" alt="isInteger Marble Diagram"></p>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
 									<dd><p>If you want the number value instead of the boolean value use the <a href="number.html#filterisinteger">filterIsInteger</a> operator instead</p>
@@ -776,7 +792,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/is-nan.ts#L26">number/src/lib/is-nan.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/is-nan.ts#L28">number/src/lib/is-nan.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -786,6 +802,7 @@
 								</div>
 								<p>The operator will return the boolean value based on it passing
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN</a></p>
+								<p><img src="../assets/marble/number/isNaN.svg" alt="isNaN Marble Diagram"></p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">4</span>]).pipe(<span class="hljs-built_in">isNaN</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
@@ -810,7 +827,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/is-not-nan.ts#L27">number/src/lib/is-not-nan.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/is-not-nan.ts#L29">number/src/lib/is-not-nan.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -821,6 +838,7 @@
 								<p>The operator will return the boolean value based on it using
 									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN</a>
 								to check a number is valid</p>
+								<p><img src="../assets/marble/number/isNotNaN.svg" alt="isNotNaN Marble Diagram"></p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
 									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">4</span>]).pipe(isNotNaN(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
@@ -845,7 +863,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/212d049/libs/rxjs/number/src/lib/is-safe-integer.ts#L29">number/src/lib/is-safe-integer.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/ed08fa4/libs/rxjs/number/src/lib/is-safe-integer.ts#L31">number/src/lib/is-safe-integer.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -855,6 +873,7 @@
 								</div>
 								<p>The operator will return the boolean value based on it passing
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger">Number.isSafeInteger</a></p>
+								<p><img src="../assets/marble/number/isSafeInteger.svg" alt="isSafeInteger Marble Diagram"></p>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
 									<dd><p>If you want to return the numbers from the check use the <a href="number.html#filterissafeinteger">filterIsSafeInteger</a> operator instead</p>

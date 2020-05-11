@@ -12,6 +12,8 @@ import { map } from 'rxjs/operators';
  * The operator will return a string value of the number formatted using
  * [Number.prototype.toString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)
  *
+ * ![toString Marble Diagram](../assets/marble/number/toString.svg)
+ *
  * @remarks
  * This method takes an optional radix (base number) for format the string to
  *

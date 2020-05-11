@@ -12,6 +12,8 @@ import { map } from 'rxjs/operators';
  * The operator will return the boolean value based on it passing
  * [Number.isSafeInteger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger)
  *
+ * ![isSafeInteger Marble Diagram](../assets/marble/number/isSafeInteger.svg)
+ *
  * @remarks
  * If you want to return the numbers from the check use the [[filterIsSafeInteger]] operator instead
  *

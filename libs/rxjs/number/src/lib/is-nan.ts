@@ -12,6 +12,8 @@ import { map } from 'rxjs/operators';
  * The operator will return the boolean value based on it passing
  * [Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
  *
+ * ![isNaN Marble Diagram](../assets/marble/number/isNaN.svg)
+ *
  * @example
  * ```ts
  * from([1, 2, NaN, 4]).pipe(isNaN(), reduce((acc, val) => {

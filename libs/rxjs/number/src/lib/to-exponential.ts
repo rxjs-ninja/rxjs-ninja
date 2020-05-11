@@ -12,6 +12,8 @@ import { map } from 'rxjs/operators';
  * The operator will return a string value of the number raised to the power passed as a parameter using
  * [Number.prototype.toExponential](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential)
  *
+ * ![toExponential Marble Diagram](../assets/marble/number/toExponential.svg)
+ *
  * @param exponential The exponential value to raise the number by
  *
  * @example

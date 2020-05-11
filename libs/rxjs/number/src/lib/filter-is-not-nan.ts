@@ -13,6 +13,8 @@ import { filter } from 'rxjs/operators';
  * [Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
  * equality check
  *
+ * ![filterIsNotNaN Marble Diagram](../assets/marble/number/filterIsNotNan.svg)
+ *
  * @remarks
  * If you want the boolean value instead of the number value use the [[isNotNaN]] operator instead
  *
@@ -27,6 +29,8 @@ import { filter } from 'rxjs/operators';
  *    }, [])
  * ).subscribe(console.log) // [1, 2, 4]
  * ```
+ *
+ *
  *
  * @returns Number value that does not passes the `Number.isNaN` equality check
  * @category RxJS Number Filter

@@ -10,11 +10,11 @@ import { map } from 'rxjs/operators';
  * value and returns string concatenated with one or more strings passed as arguments
  * This operator is based on [String.prototype.concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat)
  *
- * @param args Additional strings asa list of arguments
+ * @param args Additional strings as list of arguments
  *
- * @remarks
  * @example
  * ```ts
+ * // With Arguments
  * fromString('Mary')
  *  .pipe(concat(' ', 'had a little', ' ', 'lamb'))
  *  .subscribe(console.log) // 'Mary had a little lamb'
@@ -24,7 +24,18 @@ import { map } from 'rxjs/operators';
  * @category RxJS String Creation
  */
 function concat(...args: string[]): MonoTypeOperatorFunction<string>;
-function concat(args: string[]): MonoTypeOperatorFunction<string>;
+/**
+ * @param strings Additional strings as an array
+ *
+ * @example
+ * ```ts
+ * // With Array
+ * fromString('Mary')
+ *  .pipe(concat([' ', 'had a little', ' ', 'lamb']))
+ *  .subscribe(console.log) // 'Mary had a little lamb'
+ * ```
+ */
+function concat(strings: string[]): MonoTypeOperatorFunction<string>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function concat(...args: any): MonoTypeOperatorFunction<string> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

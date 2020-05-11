@@ -1,10 +1,11 @@
 import { from } from 'rxjs';
 import { toPrecision } from './to-precision';
 import { reduce, take } from 'rxjs/operators';
+import { fromNumber } from '@tinynodes/rxjs-number';
 
 describe('toPrecision', () => {
   it('should return string values of numbers formatted to the passed precision', (done) => {
-    from([123.456, 0.004, 1.23e5])
+    fromNumber([123.456, 0.004, 1.23e5])
       .pipe(
         toPrecision(4),
         reduce<string, string[]>((acc, val) => {

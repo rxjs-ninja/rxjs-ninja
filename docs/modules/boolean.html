@@ -92,7 +92,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/boolean/src/lib/filter-truthy.ts#L24">boolean/src/lib/filter-truthy.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7b97f85/libs/rxjs/boolean/src/lib/filter-truthy.ts#L24">boolean/src/lib/filter-truthy.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -104,7 +104,7 @@
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">''</span>, <span class="hljs-string">'test'</span>, <span class="hljs-literal">undefined</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>])
  .pipe(filterTruthy())
- .subscribe(...) <span class="hljs-comment">// [true, 'test', 1]</span></code></pre>
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [true, 'test', 1]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -132,7 +132,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/df9d230/libs/rxjs/boolean/src/lib/first-truthy.ts#L28">boolean/src/lib/first-truthy.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7b97f85/libs/rxjs/boolean/src/lib/first-truthy.ts#L28">boolean/src/lib/first-truthy.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -149,7 +149,7 @@
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">0</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">''</span>, <span class="hljs-number">1</span>])
 .pipe(
    firstTruthy()
- ).subscribe(...) <span class="hljs-comment">// [ 1 ]</span></code></pre>
+ ).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [ 1 ]</span></code></pre>
 									</dd>
 								</dl>
 							</div>

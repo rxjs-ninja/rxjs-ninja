@@ -1,10 +1,11 @@
 import { from } from 'rxjs';
 import { isSafeInteger } from './is-safe-integer';
 import { filter, reduce, take } from 'rxjs/operators';
+import { fromNumber } from '@tinynodes/rxjs-number';
 
 describe('isSafeInteger', () => {
   it('should return if a value is a safe integer', (done) => {
-    from([Math.pow(2, 53), Math.pow(2, 53) - 1])
+    fromNumber([Math.pow(2, 53), Math.pow(2, 53) - 1])
       .pipe(
         isSafeInteger(),
         filter(Boolean),

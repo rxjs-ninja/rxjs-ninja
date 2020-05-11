@@ -1,10 +1,11 @@
 import { from } from 'rxjs';
 import { toExponential } from './to-exponential';
 import { reduce, take } from 'rxjs/operators';
+import { fromNumber } from '@tinynodes/rxjs-number';
 
 describe('toExponential', () => {
   it('should raise a number by the exponential passed and return a string', (done) => {
-    from([1000, 2000, 3000])
+    fromNumber([1000, 2000, 3000])
       .pipe(
         toExponential(2),
         reduce<string, string[]>((acc, val) => {

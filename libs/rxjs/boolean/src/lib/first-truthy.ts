@@ -3,7 +3,7 @@
  * @module boolean
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { filter, first, onErrorResumeNext, take } from 'rxjs/operators';
+import { filter, take } from 'rxjs/operators';
 
 /**
  * The `firstTruthy` operator is used to only the first truthy value from an

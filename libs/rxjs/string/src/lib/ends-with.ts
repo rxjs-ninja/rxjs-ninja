@@ -6,7 +6,7 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `endsWith` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `endsWith` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * value and returns a boolean value if the string of length ends with the passed character
  *
  * @param character The character to check the string ends with
@@ -21,7 +21,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * from(['test', 'testing'])
  *  .pipe(endsWith('g'))
- *  .subscribe(....) // [false, true]
+ *  .subscribe(console.log) // [false, true]
  * ```
  *
  * @returns Boolean value if the string passes the equality check of [String.prototype.endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)

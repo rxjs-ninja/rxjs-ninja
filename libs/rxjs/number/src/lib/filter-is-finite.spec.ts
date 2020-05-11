@@ -1,16 +1,17 @@
 import { from } from 'rxjs';
-import { reduce } from 'rxjs/operators';
+import { reduce, take } from 'rxjs/operators';
 import { filterIsFinite } from './filter-is-finite';
 
-describe('fromIsFinite', () => {
-  it('should return numbers that are finite', (done) => {
+describe('filterIsFinite', () => {
+  it('should return valid numbers that are in a finite range', (done) => {
     from([1, 2, 3, NaN, Infinity, -Infinity, null, '1'])
       .pipe(
         filterIsFinite(),
-        reduce((acc, val) => {
+        reduce<number, number[]>((acc, val) => {
           acc.push(val);
           return acc;
         }, []),
+        take(1),
       )
       .subscribe({
         next: (value) => expect(value).toStrictEqual([1, 2, 3]),

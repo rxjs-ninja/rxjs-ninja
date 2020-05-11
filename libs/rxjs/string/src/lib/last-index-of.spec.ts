@@ -1,11 +1,9 @@
-import { of } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { indexOf } from './index-of';
-import { lastIndexOf } from './last-index-of';
+import { fromString, lastIndexOf } from '@tinynodes/rxjs-string';
 
-describe('indexOf', () => {
+describe('lastIndexOf', () => {
   it('should return the index of a found string', (done) => {
-    of('A lamb, Mary had a little lamb')
+    fromString('A lamb, Mary had a little lamb')
       .pipe(lastIndexOf('lamb'), take(1))
       .subscribe({
         next: (value) => expect(value).toBe(26),
@@ -14,17 +12,17 @@ describe('indexOf', () => {
   });
 
   it('should return the index of a found string when start passed', (done) => {
-    of('A lamb, Mary had a little lamb')
-      .pipe(indexOf('lamb', 5), take(1))
+    fromString('A lamb, Mary had a little lamb')
+      .pipe(lastIndexOf('lamb', 10), take(1))
       .subscribe({
-        next: (value) => expect(value).toBe(26),
+        next: (value) => expect(value).toBe(2),
         complete: () => done(),
       });
   });
 
   it('should return -1 if there is no value found', (done) => {
-    of('A lamb, Mary had a little lamb')
-      .pipe(indexOf('Joe'), take(1))
+    fromString('A lamb, Mary had a little lamb')
+      .pipe(lastIndexOf('Joe'), take(1))
       .subscribe({
         next: (value) => expect(value).toBe(-1),
         complete: () => done(),

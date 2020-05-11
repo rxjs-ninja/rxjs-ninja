@@ -1,5 +1,5 @@
 import { take } from 'rxjs/operators';
-import { fromCodePoint } from './from-code-point';
+import { fromCodePoint } from '@tinynodes/rxjs-string';
 
 describe('fromCodePoint', () => {
   it('should create a string from a passed list of number', (done) => {

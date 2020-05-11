@@ -6,7 +6,7 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `includes` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `includes` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * value and returns a boolean value if the string includes the passed value string
  *
  * @param searchStr The value to check if the string includes this
@@ -17,9 +17,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['test', 'testing'])
+ * from(['test', 'testing', 'foobar'])
  *  .pipe(includes('test'))
- *  .subscribe(....) // [true, true]
+ *  .subscribe(console.log) // [true, true, false]
  * ```
  *
  * @returns Boolean value if the string passes the equality check of [String.prototype.includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)

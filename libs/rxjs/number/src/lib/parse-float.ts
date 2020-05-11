@@ -6,8 +6,10 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `parseFloat` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable}
- * subscription string and returns a parsed float number using
+ * The `parseFloat` operator can be used with an RxJS `pipe` where the source value
+ * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string.
+ *
+ * The operator will attempt to convert the string value to a floating point number using
  * [Number.parseFloat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat)
  *
  *
@@ -16,10 +18,10 @@ import { map } from 'rxjs/operators';
  * from(['1', '2.8', '3.14']).pipe(parseFloat(), reduce((acc, val) => {
  *   acc.push(val);
  *   return acc;
- * }, [])).subscribe(...) // [1, 2.8, 3.14]
+ * }, [])).subscribe(console.log) // [1, 2.8, 3.14]
  * ```
  *
- * @returns Float number from source string {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable}
+ * @returns A number that is parsed from a string using `Number.parseFloat
  * @category RxJS Number Creation
  */
 export function parseFloat(): OperatorFunction<string, number> {

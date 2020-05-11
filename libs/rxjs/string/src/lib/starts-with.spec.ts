@@ -1,10 +1,9 @@
-import { of } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { startsWith } from './starts-with';
+import { fromString, startsWith } from '@tinynodes/rxjs-string';
 
 describe('startsWith', () => {
   it('should return true if a string starts with a character', (done) => {
-    of('test?')
+    fromString('test?')
       .pipe(startsWith('t'), take(1))
       .subscribe({
         next: (value) => expect(value).toBeTruthy(),
@@ -13,7 +12,7 @@ describe('startsWith', () => {
   });
 
   it('should return false if a string does not start with a character', (done) => {
-    of('test?')
+    fromString('test?')
       .pipe(startsWith('?'), take(1))
       .subscribe({
         next: (value) => expect(value).toBeFalsy(),

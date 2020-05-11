@@ -1,5 +1,5 @@
-import { fromCharCode } from './from-char-code';
 import { take } from 'rxjs/operators';
+import { fromCharCode } from '@tinynodes/rxjs-string';
 
 describe('fromCharCode', () => {
   it('should create a string from a passed list of number', (done) => {

@@ -1,14 +1,14 @@
 import { from } from 'rxjs';
-import { isInteger } from './is-integer';
 import { filter, reduce, take } from 'rxjs/operators';
+import { isNotNaN } from '@tinynodes/rxjs-number';
 
-describe('isInteger', () => {
-  it('should return true for an integer', (done) => {
-    from([1, 2, 3.14, '2', false, true, null])
+describe('isNotNaN', () => {
+  it('should return false for NaN value', (done) => {
+    from([1, 2, NaN])
       .pipe(
-        isInteger(),
+        isNotNaN(),
         filter(Boolean),
-        reduce((acc, val) => {
+        reduce<boolean, boolean[]>((acc, val) => {
           acc.push(val);
           return acc;
         }, []),

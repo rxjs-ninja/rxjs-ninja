@@ -6,23 +6,20 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `charCodeAt` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `charCodeAt` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * value and returns a number of the ASCII code for the character
- *
- * @param position The character position to return a character code from
- *
- * @remarks
  * Based on [String.prototype.charCodeAt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)
- * The position number passed starts from 0
+ *
+ * @param position The character position to get a character code from, starts from 0
  *
  * @example
  * ```ts
- * from(['abcde'])
+ * fromString('abcde')
  *  .pipe(charCodeAt(4))
- *  .subscribe(....) // [101]
+ *  .subscribe(console.log) // 101
  * ```
  *
- * @returns The character code of the character located at the passed position
+ * @returns Number of the character code from the passed string position
  * @category RxJS String Query
  */
 export function charCodeAt(position: number): OperatorFunction<string, number> {

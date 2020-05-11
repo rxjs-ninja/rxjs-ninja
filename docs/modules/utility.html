@@ -94,13 +94,13 @@
 					<div class="tsd-signature tsd-kind-icon">Query<wbr>Method&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/utility/src/lib/debounce-with-query.ts#L15">utility/src/lib/debounce-with-query.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/379b097/libs/rxjs/utility/src/lib/debounce-with-query.ts#L15">utility/src/lib/debounce-with-query.ts:15</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
 							<p>A function passed to <a href="utility.html#debouncewithquery">debounceWithQuery</a> as the second parameter, takes a string
-								from an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> source and returns an
+								from an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> source and returns an
 							observable result of T</p>
 						</div>
 					</div>
@@ -150,12 +150,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/utility/src/lib/debounce-with-query.ts#L39">utility/src/lib/debounce-with-query.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/379b097/libs/rxjs/utility/src/lib/debounce-with-query.ts#L39">utility/src/lib/debounce-with-query.ts:39</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Operator that takes an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> string value
+									<p>Operator that takes an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> string value
 										and debounces it by the <code>time</code> parameter, and checks that the value changes.
 									When the debounce completes the <code>queryMethod</code> is called and the result returned.</p>
 								</div>
@@ -165,7 +165,7 @@
 
 fromEvent(input, <span class="hljs-string">'keyup'</span>)
  .pipe(debounceWithQuery(<span class="hljs-number">500</span>, doQuery))
- .subscribe(...)</code></pre>
+ .subscribe(<span class="hljs-built_in">console</span>.log)</code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -194,7 +194,7 @@ fromEvent(input, <span class="hljs-string">'keyup'</span>)
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>An <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> value of T</p>
+							<p>An <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> value of T</p>
 						</li>
 					</ul>
 				</section>
@@ -208,12 +208,12 @@ fromEvent(input, <span class="hljs-string">'keyup'</span>)
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/utility/src/lib/start-with-tap.ts#L29">utility/src/lib/start-with-tap.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/379b097/libs/rxjs/utility/src/lib/start-with-tap.ts#L29">utility/src/lib/start-with-tap.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Operator that is only executed on the first emission from an <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a>
+									<p>Operator that is only executed on the first emission from an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a>
 									The operator is passed a callback which is then executed</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -232,7 +232,7 @@ fromEvent(input, <span class="hljs-string">'keyup'</span>)
 								<li>
 									<h4>T</h4>
 									<div class="tsd-comment tsd-typography">
-										<p>The value type of the <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a></p>
+										<p>The value type of the <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a></p>
 									</div>
 								</li>
 							</ul>
@@ -258,7 +258,7 @@ fromEvent(input, <span class="hljs-string">'keyup'</span>)
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>An <a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> value of T</p>
+							<p>An <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> value of T</p>
 						</li>
 					</ul>
 				</section>

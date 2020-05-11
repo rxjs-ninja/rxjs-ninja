@@ -3,11 +3,11 @@
  * @module boolean
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { first, onErrorResumeNext } from 'rxjs/operators';
+import { filter, take } from 'rxjs/operators';
 
 /**
  * The `firstTruthy` operator is used to only the first truthy value from an
- * {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} stream of values
+ * [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) stream of values
  *
  * @remarks
  * If there is no truthy value, this method will use [onErrorResumeNext](https://rxjs-dev.firebaseapp.com/api/index/function/onErrorResumeNext)
@@ -20,11 +20,11 @@ import { first, onErrorResumeNext } from 'rxjs/operators';
  * from([0, false, '', 1])
  * .pipe(
  *    firstTruthy()
- *  ).subscribe(...) // [ 1 ]
+ *  ).subscribe(console.log) // [ 1 ]
  * ```
  * @returns A single value that is truthy
  * @category RxJS Boolean Utils
  */
 export function firstTruthy<T>(): MonoTypeOperatorFunction<T> {
-  return (source: Observable<T>) => source.pipe(first<T>(Boolean), onErrorResumeNext());
+  return (source: Observable<T>) => source.pipe(filter<T>(Boolean), take(1));
 }

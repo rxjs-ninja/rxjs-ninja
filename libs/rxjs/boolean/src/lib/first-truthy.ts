@@ -3,7 +3,7 @@
  * @module boolean
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { first, onErrorResumeNext } from 'rxjs/operators';
+import { filter, first, onErrorResumeNext, take } from 'rxjs/operators';
 
 /**
  * The `firstTruthy` operator is used to only the first truthy value from an
@@ -20,11 +20,11 @@ import { first, onErrorResumeNext } from 'rxjs/operators';
  * from([0, false, '', 1])
  * .pipe(
  *    firstTruthy()
- *  ).subscribe(...) // [ 1 ]
+ *  ).subscribe(console.log) // [ 1 ]
  * ```
  * @returns A single value that is truthy
  * @category RxJS Boolean Utils
  */
 export function firstTruthy<T>(): MonoTypeOperatorFunction<T> {
-  return (source: Observable<T>) => source.pipe(first<T>(Boolean), onErrorResumeNext());
+  return (source: Observable<T>) => source.pipe(filter<T>(Boolean), take(1));
 }

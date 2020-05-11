@@ -6,7 +6,7 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `replace` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `replace` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * value and returns a string with the text replaced via the passed pattern
  *
  * @param pattern A string or regular expression to evaluate in the string
@@ -17,9 +17,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['Mary had a little lamb'])
+ * fromString('Mary had a little lamb')
  *  .pipe(replace('lamb', 'dog'))
- *  .subscribe(....) // ['Mary had a little dog']
+ *  .subscribe(console.log) // ['Mary had a little dog']
  * ```
  *
  * @returns String with text replaced based on pattern and replacement string

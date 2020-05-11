@@ -6,7 +6,7 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `startsWith` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `startsWith` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * value and returns a boolean value if the string of length starts with the passed character
  *
  * @param character The character to check the string ends with
@@ -21,7 +21,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * from(['test', 'testing', 'foobar'])
  *  .pipe(endsWith('t'))
- *  .subscribe(....) // [true, true, false]
+ *  .subscribe(console.log) // [true, true, false]
  * ```
  *
  * @returns Boolean value if the string passes the equality check of [String.prototype.startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)

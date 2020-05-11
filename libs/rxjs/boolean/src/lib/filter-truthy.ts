@@ -7,7 +7,7 @@ import { filter } from 'rxjs/operators';
 
 /**
  * The `filterTruthy` operator is used to only return truthy values from an
- * {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} stream of values
+ * [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) stream of values
  *
  * @typeParam T Observable value
  *
@@ -15,7 +15,7 @@ import { filter } from 'rxjs/operators';
  * ```ts
  * from([true, false, '', 'test', undefined, 0, 1])
  *  .pipe(filterTruthy())
- *  .subscribe(...) // [true, 'test', 1]
+ *  .subscribe(console.log) // [true, 'test', 1]
  * ```
  *
  * @returns All values that are truthy only

@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### [2.1.0] - 2020-05-11
+
+## Added
+
+- `isNotNaN` operator to return if a value is not a `NaN` value
+- `filterIsNotNaN` - Returns the value that is not a NaN
+
+### Changed
+
+- `fromNumber` now accepts both a single number value, or an array of number values. When passing an array
+  it acts the same as the [from](https://rxjs-dev.firebaseapp.com/api/index/function/from) operator and also accept a scheduler.
+- Tests refactored and improved
+- Improved documentation
+
 ## [2.0.0] - 2020-05-10
 
 ### Changed

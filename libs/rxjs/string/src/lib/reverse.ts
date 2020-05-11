@@ -6,7 +6,7 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `reverse` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `reverse` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * value and returns a string that is reversed
  *
  * @remarks
@@ -14,9 +14,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * of('emordnilaP')
+ * fromString('emordnilaP')
  *  .pipe(reverse())
- *  .subscribe(....) // 'Palindrome'
+ *  .subscribe(console.log) // 'Palindrome'
  * ```
  *
  * @returns String that is reversed

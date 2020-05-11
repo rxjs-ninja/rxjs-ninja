@@ -71,6 +71,15 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Other Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="boolean.html#schedulesingleorarrayboolean" class="tsd-kind-icon">schedule<wbr>Single<wbr>OrArray<wbr>Boolean</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="boolean.html#subscribetosingleorarrayboolean" class="tsd-kind-icon">subscribe<wbr>ToSingle<wbr>OrArray<wbr>Boolean</a></li>
+							</ul>
+							<h3>RxJS Boolean Creation Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="boolean.html#fromboolean" class="tsd-kind-icon">from<wbr>Boolean</a></li>
+							</ul>
 							<h3>RxJS Boolean Utils Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="boolean.html#filtertruthy" class="tsd-kind-icon">filter<wbr>Truthy</a></li>
@@ -78,6 +87,157 @@
 							</ul>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Other Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
+					<a name="schedulesingleorarrayboolean" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> schedule<wbr>Single<wbr>OrArray<wbr>Boolean</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">schedule<wbr>Single<wbr>OrArray<wbr>Boolean&lt;T&gt;<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/379b097/libs/rxjs/boolean/src/utils/from-boolean.utils.ts#L29">boolean/src/utils/from-boolean.utils.ts:29</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes an input of boolean and returns a method that updates an subscriber</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The boolean to subscribe to</p>
+									</div>
+								</li>
+								<li>
+									<h5>scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
+					<a name="subscribetosingleorarrayboolean" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagConst">Const</span> subscribe<wbr>ToSingle<wbr>OrArray<wbr>Boolean</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>ToSingle<wbr>OrArray<wbr>Boolean&lt;T&gt;<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/379b097/libs/rxjs/boolean/src/utils/from-boolean.utils.ts#L12">boolean/src/utils/from-boolean.utils.ts:12</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Takes an input of boolean and returns a method that updates an subscriber</p>
+								</div>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<div class="lead">
+											<p>The boolean to subscribe to</p>
+										</div>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>RxJS Boolean Creation Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="fromboolean" class="tsd-anchor"></a>
+					<h3>from<wbr>Boolean</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Boolean&lt;T&gt;<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/379b097/libs/rxjs/boolean/src/lib/from-boolean.ts#L36">boolean/src/lib/from-boolean.ts:36</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>fromBoolean</code> operator is used to create an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> boolean from a passed
+									value or array of values. The operator can be overloaded with types to be used with strings, number or mixed sources</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>default</dt>
+									<dd><p>boolean</p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromBoolean(<span class="hljs-literal">true</span>).pipe(map(<span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> !val)).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// false</span></code></pre>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromBoolean&lt;<span class="hljs-built_in">string</span>&gt;([<span class="hljs-string">''</span>, <span class="hljs-string">'foo'</span>, <span class="hljs-string">''</span>, <span class="hljs-string">'bar'</span>])
+ .pipe(reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> acc + (val ? <span class="hljs-number">1</span> : <span class="hljs-number">0</span>)))
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// 2</span></code></pre>
+									</dd>
+									<dt>remarks</dt>
+									<dd><p>Using <code>fromBoolean</code> with an array of booleans is the same as using the <a href="https://rxjs-dev.firebaseapp.com/api/index/function/from">from</a> operator from RxJS</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>The type or types to be used to create boolean values from</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Boolean input to create an Observable<boolean> from</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <a href="https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike">SchedulerLike</a> to use for scheduling the emission of values, and providing a notion of &quot;time&quot;</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Boolean value from the initial parameters</p>
+						</li>
+					</ul>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -92,19 +252,19 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/boolean/src/lib/filter-truthy.ts#L24">boolean/src/lib/filter-truthy.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/379b097/libs/rxjs/boolean/src/lib/filter-truthy.ts#L24">boolean/src/lib/filter-truthy.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The <code>filterTruthy</code> operator is used to only return truthy values from an
-									<a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> stream of values</p>
+									<a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> stream of values</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">''</span>, <span class="hljs-string">'test'</span>, <span class="hljs-literal">undefined</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>])
  .pipe(filterTruthy())
- .subscribe(...) <span class="hljs-comment">// [true, 'test', 1]</span></code></pre>
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [true, 'test', 1]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -132,13 +292,13 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/7a2923f/libs/rxjs/boolean/src/lib/first-truthy.ts#L28">boolean/src/lib/first-truthy.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/379b097/libs/rxjs/boolean/src/lib/first-truthy.ts#L28">boolean/src/lib/first-truthy.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The <code>firstTruthy</code> operator is used to only the first truthy value from an
-									<a href="https://rxjs-dev.firebaseapp.com/guide/observable" class="external">Observable</a> stream of values</p>
+									<a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> stream of values</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt>remarks</dt>
@@ -149,7 +309,7 @@
 									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">0</span>, <span class="hljs-literal">false</span>, <span class="hljs-string">''</span>, <span class="hljs-number">1</span>])
 .pipe(
    firstTruthy()
- ).subscribe(...) <span class="hljs-comment">// [ 1 ]</span></code></pre>
+ ).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [ 1 ]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -196,6 +356,15 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="boolean.html#firsttruthy" class="tsd-kind-icon">first<wbr>Truthy</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="boolean.html#fromboolean" class="tsd-kind-icon">from<wbr>Boolean</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
+						<a href="boolean.html#schedulesingleorarrayboolean" class="tsd-kind-icon">schedule<wbr>Single<wbr>OrArray<wbr>Boolean</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
+						<a href="boolean.html#subscribetosingleorarrayboolean" class="tsd-kind-icon">subscribe<wbr>ToSingle<wbr>OrArray<wbr>Boolean</a>
 					</li>
 				</ul>
 			</nav>

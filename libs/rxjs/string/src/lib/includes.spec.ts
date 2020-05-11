@@ -1,10 +1,9 @@
-import { of } from 'rxjs';
 import { take } from 'rxjs/operators';
-import { includes } from './includes';
+import { fromString, includes } from '@tinynodes/rxjs-string';
 
 describe('includes', () => {
   it('should return true if a string includes a query string', (done) => {
-    of('testing')
+    fromString('testing')
       .pipe(includes('test'), take(1))
       .subscribe({
         next: (value) => expect(value).toBeTruthy(),
@@ -13,7 +12,7 @@ describe('includes', () => {
   });
 
   it('should return false if a string does not include a query string', (done) => {
-    of('test?')
+    fromString('test?')
       .pipe(includes('!'), take(1))
       .subscribe({
         next: (value) => expect(value).toBeFalsy(),

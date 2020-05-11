@@ -1,12 +1,12 @@
-import { from } from 'rxjs';
-import { filterIsInteger } from './filter-is-integer';
 import { reduce, take } from 'rxjs/operators';
+import {} from './filter-is-not-nan';
+import { fromNumber, filterIsNotNaN } from '@tinynodes/rxjs-number';
 
-describe('filterIsInteger', () => {
+describe('filterIsNotNaN', () => {
   it('should return valid numbers that are integers', (done) => {
-    from([1, 2, 3.14, '2', false, true, null])
+    fromNumber([1, 2, NaN, 4])
       .pipe(
-        filterIsInteger(),
+        filterIsNotNaN(),
         reduce<number, number[]>((acc, val) => {
           acc.push(val);
           return acc;
@@ -14,7 +14,7 @@ describe('filterIsInteger', () => {
         take(1),
       )
       .subscribe({
-        next: (value) => expect(value).toStrictEqual([1, 2]),
+        next: (value) => expect(value).toStrictEqual([1, 2, 4]),
         complete: () => done(),
       });
   });

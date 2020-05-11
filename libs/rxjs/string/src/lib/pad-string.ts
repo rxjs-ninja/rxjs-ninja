@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 import { PadPosition } from '../types/position';
 
 /**
- * The `padString` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `padString` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * value and returns a padded string based on the passed position and length
  *
  * @param padPosition The position to pad the string at, either 'start' or 'end'
@@ -21,9 +21,9 @@ import { PadPosition } from '../types/position';
  *
  * @example
  * ```ts
- * from(['12345'])
+ * fromString('12345')
  *  .pipe(padString('end', 10, 'X'))
- *  .subscribe(....) // ['12345XXXXX']
+ *  .subscribe(console.log) // ['12345XXXXX']
  * ```
  *
  * @returns String that is formatted with padding

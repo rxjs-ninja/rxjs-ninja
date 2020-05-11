@@ -6,7 +6,7 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `split` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `split` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * value and returns an array of strings based on the original string split on the separator
  *
  * @param separator The character to split the string at
@@ -17,9 +17,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * of('Hello|World')
+ * fromString('Hello|World')
  *  .pipe(split('|'))
- *  .subscribe(....) // ['Hello', 'World']
+ *  .subscribe(console.log) // ['Hello', 'World']
  * ```
  *
  * @returns Array of strings based on the original string split by the separator

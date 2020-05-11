@@ -1,16 +1,16 @@
-import { from } from 'rxjs';
-import { filterIncludes } from './filter-includes';
-import { reduce } from 'rxjs/operators';
+import { reduce, take } from 'rxjs/operators';
+import { filterIncludes, fromString } from '@tinynodes/rxjs-string';
 
-describe('fromIncludes', () => {
+describe('filterIncludes', () => {
   it('should return a string if a string includes the value', (done) => {
-    from(['test', 'testing', 'foobar'])
+    fromString(['test', 'testing', 'foobar'])
       .pipe(
         filterIncludes('test'),
         reduce((acc, val) => {
           acc.push(val);
           return acc;
         }, []),
+        take(1),
       )
       .subscribe({
         next: (value) => expect(value).toStrictEqual(['test', 'testing']),

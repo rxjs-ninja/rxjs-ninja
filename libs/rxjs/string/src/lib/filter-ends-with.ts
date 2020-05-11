@@ -6,7 +6,7 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * The `filterEndsWith` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `filterEndsWith` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * value and returns a string value if the string of length ends with the passed character
  *
  * @param character The character to check the string ends with
@@ -21,7 +21,7 @@ import { filter } from 'rxjs/operators';
  * ```ts
  * from(['test', 'testing'])
  *  .pipe(filterEndsWith('g'))
- *  .subscribe(....) // ['testing']
+ *  .subscribe(console.log) // ['testing']
  * ```
  *
  * @returns String that passes the equality check of [String.prototype.endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)

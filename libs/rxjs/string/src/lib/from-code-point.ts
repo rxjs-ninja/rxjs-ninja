@@ -3,31 +3,29 @@
  * @module string
  */
 import { Observable, SchedulerLike } from 'rxjs';
-import { scheduleCodePoint, subscribeToCodePoint } from '../utils/code-point';
+import { scheduleCodePoint, subscribeToCodePoint } from '../utils/from-code-point.utils';
 
 /**
- * The `fromCodePoint` operator is used to create an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
- * from a number array of code points
+ * The `fromCodePoint` operator is used to create an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * from a number or number array of code points using [String.fromCodePoint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint)
  *
- * @remarks
- * Based on [String.fromCharCode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode)
- * This operator takes an array of number values, if you want to only convert one character this still needs passed as an array
+ * @param input A number or array of numbers to convert to a string
+ * @param scheduler Optional [SchedulerLike](https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike)
  *
  * @example
  * ```ts
- * fromCodePoint([9731, 9733, 9842]).subscribe(...) // '☃★♲'
+ * fromCodePoint([9731, 9733, 9842]).subscribe(console.log) // '☃★♲'
  * ```
  *
- * @returns String from an array of character codes
+ * @remarks
+ * Unlike the [from](https://rxjs-dev.firebaseapp.com/api/index/function/from) operator when passing an array of numbers to this operator it will generate a single string
+ *
+ * @returns String from an character code or array of character codes
  * @category RxJS String Creation
  */
-export function fromCodePoint(input: number[], scheduler?: SchedulerLike) {
-  if (!input) {
-    throw new Error('Input cannot be null');
-  }
-  if (!scheduler) {
-    return new Observable<string>(subscribeToCodePoint(input));
-  } else {
+export function fromCodePoint(input: number | number[], scheduler?: SchedulerLike) {
+  if (scheduler) {
     return scheduleCodePoint(input, scheduler);
   }
+  return new Observable<string>(subscribeToCodePoint(input));
 }

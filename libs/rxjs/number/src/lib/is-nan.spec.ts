@@ -1,19 +1,22 @@
 import { from } from 'rxjs';
 import { isNaN } from './is-nan';
-import { filter } from 'rxjs/operators';
+import { filter, reduce, take } from 'rxjs/operators';
 
-describe('isNan', () => {
+describe('isNaN', () => {
   it('should return true for NaN value', (done) => {
-    const output = [];
-
     from([1, 2, '3', null, undefined, NaN, Infinity])
-      .pipe(isNaN(), filter(Boolean))
+      .pipe(
+        isNaN(),
+        filter(Boolean),
+        reduce<boolean, boolean[]>((acc, val) => {
+          acc.push(val);
+          return acc;
+        }, []),
+        take(1),
+      )
       .subscribe({
-        next: (value) => output.push(value),
-        complete: () => {
-          expect(output).toHaveLength(1);
-          done();
-        },
+        next: (value) => expect(value).toHaveLength(1),
+        complete: () => done(),
       });
   });
 });

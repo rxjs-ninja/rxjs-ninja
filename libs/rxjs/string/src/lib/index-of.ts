@@ -6,7 +6,7 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `indexOf` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `indexOf` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * value and returns the index number of the string passed, with optional start index
  *
  * @param searchStr The value to search for in the string
@@ -17,9 +17,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['test'])
+ * fromString('test')
  *  .pipe(indexOf('s'))
- *  .subscribe(....) // [2]
+ *  .subscribe(console.log) // 2
  * ```
  *
  * @returns Index of the location where the string starts

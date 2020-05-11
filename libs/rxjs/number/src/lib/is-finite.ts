@@ -6,22 +6,28 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `isFinite` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable}
- * subscription numbers and returns the boolean value of a number passing the equality check of
+ * The `isFinite` operator can be used with an RxJS `pipe` where the source value
+ * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) number.
+ *
+ * The operator will return the boolean value based on it passing
  * [Number.isFinite](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite)
  *
  * @remarks
- * If you want to return the numbers from the check use the [[filterIsFinite]] operator instead
+ * If you want the number value instead of the boolean value use the [[filterIsFinite]] operator instead
  *
  * @example
  * ```ts
- * from([1, 2, Infinity]).pipe(isFinite(), reduce((acc, val) => {
- *   acc.push(val);
- *   return acc;
- * }, [])).subscribe(...) // [true, true, false]
+ * from([1, 2, Infinity])
+ *  .pipe(
+ *    isFinite(),
+ *    reduce((acc, val) => {
+ *      acc.push(val);
+ *      return acc;
+ *    }, [])
+ * ).subscribe(console.log) // [true, true, false]
  * ```
  *
- * @returns Boolean value of a number passing the `Number.isFinite` equality check
+ * @returns A boolean value of the `Number.isFinite` equality check
  * @category RxJS Number Query
  */
 export function isFinite(): OperatorFunction<number, boolean> {

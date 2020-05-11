@@ -6,7 +6,7 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `lastIndexOf` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `lastIndexOf` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * value and returns the last index number of the string passed, with optional start index
  *
  * @param searchStr The value to search for in the string
@@ -17,9 +17,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['test'])
+ * fromSting('test')
  *  .pipe(lastIndexOf('t'))
- *  .subscribe(....) // [3]
+ *  .subscribe(console.log) // 3
  * ```
  *
  * @returns Index of the location where the string starts

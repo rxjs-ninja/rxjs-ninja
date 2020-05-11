@@ -6,7 +6,7 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `substring` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `substring` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * value and returns a substring based on the passed start and end value
  *
  * @param start Index of the string where to start the substring
@@ -17,9 +17,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['Mary had a little lamb'])
+ * fromString('Mary had a little lamb')
  *  .pipe(substring(0, 4))
- *  .subscribe(....) // ['Mary']
+ *  .subscribe(console.log) // 'Mary'
  * ```
  *
  * @returns String that is a substring of the original string

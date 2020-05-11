@@ -1,10 +1,9 @@
-import { from } from 'rxjs';
 import { reduce, take } from 'rxjs/operators';
-import { filterStartsWith } from './filter-starts-with';
+import { filterStartsWith, fromString } from '@tinynodes/rxjs-string';
 
-describe('fromStartsWith', () => {
+describe('filterStartsWith', () => {
   it('should return a string if a string ends with a character', (done) => {
-    from(['test?', 'foo', 'test'])
+    fromString(['test?', 'foo', 'test'])
       .pipe(
         filterStartsWith('t'),
         reduce((acc, val) => {

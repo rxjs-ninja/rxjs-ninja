@@ -6,7 +6,7 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `slice` operator can be used with an {@link https://rxjs-dev.firebaseapp.com/guide/observable|Observable} string
+ * The `slice` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
  * value and returns a substring of the original string
  *
  * @param startIndex The start index for the substring
@@ -17,12 +17,12 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['Mary had a little lamb'])
+ * fromString('Mary had a little lamb')
  *  .pipe(slice(0, 4))
- *  .subscribe(....) // ['Mary']
+ *  .subscribe(console.log) // 'Mary'
  * ```
  *
- * @returns A substring of the original string value
+ * @returns String that is a substring of the original string value
  * @category RxJS String Creation
  */
 export function slice(startIndex: number, endIndex?: number): MonoTypeOperatorFunction<string> {

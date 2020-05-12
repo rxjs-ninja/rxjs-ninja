@@ -7,45 +7,48 @@ import { filter } from 'rxjs/operators';
 
 /**
  * The `filterOutOfRange` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) number.
+ * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) number and will return the number
+ * value if the number is outside a min/max value range. The optional `includeBoundingParameters` parameter allows
+ * the min and max values to be excluded.
  *
- * The operator will return the bollean value if the source value is within a passed min and max range
+ * * If you want to get the boolean value of a number being inside a range of min/max use [[inRange]] operator instead
+ * * If you want the number value being outside a range of min/max use the [[filterOutOfRange]] operator instead
  *
  * @param min The minimum number for the range
  * @param max The maximum number for the range
  *
- * @remarks
- * With the `noBoundsMatch` set to true the check will be `val > min && val < min`. The default is `val >= min && val <= max`
- *
- * @remarks
- * If you want the boolean value if a number is outside a range of min/max use [[outOfRange]] operator instead
- * If you want the number value inside of the min/max range use [[filterInRange]] operator instead
- *
  * @example
  * ```ts
- * from([1, 20, 5, 10])
+ * fromNumber([-1, 0, 1, 2, 10, 11])
  *  .pipe(filterOutOfRange(0, 10))
- *  .subscribe(console.log) // [20]
+ *  .subscribe(console.log) // [-1, 11]
  * ```
  *
  * @returns Number value if the number falls outside the `min/max` range
  * @category RxJS Number Filter
  */
 function filterOutOfRange(min: number, max: number): MonoTypeOperatorFunction<number>;
-
 /**
+ * If `includeBoundingParameters` is set to `true`, the range will include the actual `min` and `max` values
+ * by using `>= || <=` as it's equality match
+ *
+ * The default value is `false` and will use a `> || <` equality match
+ *
  * @param min The minimum number for the range
  * @param max The maximum number for the range
- * @param noBoundsMatch If set to true the min and max values are not included in the evaluation
+ * @param includeBoundingParameters If bounding values should be excluded
+ *
  * @example
  * ```ts
- * from([1, 20, 5, 10])
+ * fromNumber([-1, 0, 1, 2, 10, 11])
  *  .pipe(filterOutOfRange(0, 10, true))
- *  .subscribe(console.log) // [20, 10]
+ *  .subscribe(console.log) // [-1, 0, 10, 11]
  * ```
+ *
+ * @returns Number value if the number falls outside the `min/max` range
  * @category RxJS Number Filter
  */
-function filterOutOfRange(min: number, max: number, noBoundsMatch?: boolean): MonoTypeOperatorFunction<number>;
+function filterOutOfRange(min: number, max: number, includeBoundingParameters?: boolean): MonoTypeOperatorFunction<number>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function filterOutOfRange(...args: any): MonoTypeOperatorFunction<number> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

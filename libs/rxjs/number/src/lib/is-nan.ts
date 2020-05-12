@@ -14,10 +14,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from([1, 2, NaN, 4]).pipe(isNaN(), reduce((acc, val) => {
- *   acc.push(val);
- *   return acc;
- * }, [])).subscribe(console.log) // [false, false, true, false]
+ * fromNumber([1, 2, NaN, 4])
+ *  .pipe(isNaN())
+ *  .subscribe(console.log) // [false, false, true, false]
  * ```
  *
  * @returns A boolean value of the `Number.isNaN` equality check

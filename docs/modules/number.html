@@ -76,12 +76,6 @@
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="number.html#schedulesingleorarraynumber" class="tsd-kind-icon">schedule<wbr>Single<wbr>OrArray<wbr>Number</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="number.html#subscribetosingleorarraynumber" class="tsd-kind-icon">subscribe<wbr>ToSingle<wbr>OrArray<wbr>Number</a></li>
 							</ul>
-							<h3>RxJS Number Creation Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#fromnumber" class="tsd-kind-icon">from<wbr>Number</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#parsefloat" class="tsd-kind-icon">parse<wbr>Float</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#parseint" class="tsd-kind-icon">parse<wbr>Int</a></li>
-							</ul>
 							<h3>RxJS Number Filter Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#filterinrange" class="tsd-kind-icon">filter<wbr>InRange</a></li>
@@ -96,6 +90,15 @@
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#toexponential" class="tsd-kind-icon">to<wbr>Exponential</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#tolocalestring" class="tsd-kind-icon">to<wbr>Locale<wbr>String</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#toprecision" class="tsd-kind-icon">to<wbr>Precision</a></li>
+							</ul>
+							<h3>RxJS Number Observables Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#fromnumber" class="tsd-kind-icon">from<wbr>Number</a></li>
+							</ul>
+							<h3>RxJS Number Parsing Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#parsefloat" class="tsd-kind-icon">parse<wbr>Float</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#parseint" class="tsd-kind-icon">parse<wbr>Int</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#tostring" class="tsd-kind-icon">to<wbr>String</a></li>
 							</ul>
 							<h3>RxJS Number Query Functions</h3>
@@ -124,13 +127,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/utils/from-number.utils.ts#L29">number/src/utils/from-number.utils.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/utils/from-number.utils.ts#L34">number/src/utils/from-number.utils.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Takes an input of number and returns a method that updates an subscriber</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>internal</dt>
+									<dd></dd>
+								</dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -166,13 +173,17 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/utils/from-number.utils.ts#L12">number/src/utils/from-number.utils.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/utils/from-number.utils.ts#L14">number/src/utils/from-number.utils.ts:14</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Takes an input of number and returns a method that updates an subscriber</p>
 								</div>
+								<dl class="tsd-comment-tags">
+									<dt>internal</dt>
+									<dd></dd>
+								</dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -197,196 +208,37 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>RxJS Number Creation Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="fromnumber" class="tsd-anchor"></a>
-					<h3>from<wbr>Number</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Number<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scheduler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Number<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/from-number.ts#L22">number/src/lib/from-number.ts:22</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>The <code>fromNumber</code> operator is used to create an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number from a passed
-									number value. A single number or array can be passed, if an array is passed each value is emitted</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><pre><code class="language-ts">fromNumber(<span class="hljs-number">6</span> * <span class="hljs-number">7</span>)..subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// 42</span></code></pre>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>input: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Number to create <code>Observable&lt;number&gt;</code> from</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The <a href="https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike">SchedulerLike</a> to use for scheduling the emission of values, and providing a notion of &quot;time&quot;</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Observable number from passed input parameter</p>
-						</li>
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/from-number.ts#L36">number/src/lib/from-number.ts:36</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
- .pipe(reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> acc + val))
- .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// 6</span></code></pre>
-									</dd>
-									<dt>remarks</dt>
-									<dd><p>Using <code>fromNumber</code> with an array of numbers is the same as using the <a href="https://rxjs-dev.firebaseapp.com/api/index/function/from">from</a> operator from RxJS</p>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>Array of Number to create <code>Observable&lt;number&gt;</code> from</p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The <a href="https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike">SchedulerLike</a> to use for scheduling the emission of values, and providing a notion of &quot;time&quot;</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="parsefloat" class="tsd-anchor"></a>
-					<h3>parse<wbr>Float</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">parse<wbr>Float<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/parse-float.ts#L27">number/src/lib/parse-float.ts:27</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>The <code>parseFloat</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> string.</p>
-								</div>
-								<p>The operator will attempt to convert the string value to a floating point number using
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat">Number.parseFloat</a></p>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2.8'</span>, <span class="hljs-string">'3.14'</span>]).pipe(<span class="hljs-built_in">parseFloat</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 2.8, 3.14]</span></code></pre>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A number that is parsed from a string using `Number.parseFloat</p>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="parseint" class="tsd-anchor"></a>
-					<h3>parse<wbr>Int</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">parse<wbr>Int<span class="tsd-signature-symbol">(</span>radix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/parse-int.ts#L28">number/src/lib/parse-int.ts:28</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>The <code>parseInt</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> string.</p>
-								</div>
-								<p>The operator will attempt to convert the string value to a integer number using
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a></p>
-								<dl class="tsd-comment-tags">
-									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2.8'</span>, <span class="hljs-string">'3.14'</span>]).pipe(<span class="hljs-built_in">parseInt</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 2, 3]</span></code></pre>
-									</dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> radix: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<p>The base number to parse to</p>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A number that is parsed from a string using `Number.parseInt</p>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>RxJS Number Filter Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="filterinrange" class="tsd-anchor"></a>
 					<h3>filter<wbr>InRange</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
 						<li class="tsd-signature tsd-kind-icon">filter<wbr>InRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
-						<li class="tsd-signature tsd-kind-icon">filter<wbr>InRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, noBoundsMatch<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">filter<wbr>InRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, excludeBoundingValues<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/filter-in-range.ts#L32">number/src/lib/filter-in-range.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/filter-in-range.ts#L30">number/src/lib/filter-in-range.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The <code>filterInRange</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
+										is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number and will return the number
+										value if the number is within a min/max value range. The optional <code>excludeBoundingValues</code> parameter allows
+									the min and max values to be excluded.</p>
 								</div>
-								<p>The operator will return the number value if the source value is within a passed min and max range</p>
+								<ul>
+									<li>If you want to get the boolean value of a number being outside a range of min/max use <a href="number.html#inrange">inRange</a> operator instead</li>
+									<li>If you want the number value being outside a range of min/max use the <a href="number.html#filterinrange">filterInRange</a> operator instead</li>
+								</ul>
 								<dl class="tsd-comment-tags">
-									<dt>remarks</dt>
-									<dd><p>If you want the boolean value if a number is inside a range of min/max use <a href="number.html#inrange">inRange</a> operator instead</p>
-										<p>If you want the number value outside of the min/max range use <a href="number.html#filteroutofrange">filterOutOfRange</a> operator instead</p>
-									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">20</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>])
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
  .pipe(filterInRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>))
- .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 5, 10]</span></code></pre>
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [0, 1, 2, 10]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -411,15 +263,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/filter-in-range.ts#L47">number/src/lib/filter-in-range.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/filter-in-range.ts#L51">number/src/lib/filter-in-range.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>If <code>excludeBoundingValues</code> is set to <code>true</code>, the range will not include the actual <code>min</code> and <code>max</code> values
+									by using <code>&gt; &amp;&amp; &lt;</code> as it&#39;s equality match</p>
+								</div>
+								<p>The default value is <code>false</code> and will use a <code>&gt;= &amp;&amp; &lt;=</code> equality match</p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">20</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>])
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
  .pipe(filterInRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">true</span>))
- .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 5]</span></code></pre>
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 2]</span></code></pre>
 									</dd>
 									<dt>category</dt>
 									<dd><p>RxJS Number Filter</p>
@@ -441,13 +298,14 @@
 									</div>
 								</li>
 								<li>
-									<h5>noBoundsMatch: <span class="tsd-signature-type">boolean</span></h5>
+									<h5>excludeBoundingValues: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>If set to true the min and max range will be excluded from the inner bounds</p>
+										<p>If bounding values should be excluded</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Number value if the number falls in the <code>min/max</code> range</p>
 						</li>
 					</ul>
 				</section>
@@ -461,7 +319,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/filter-is-finite.ts#L33">number/src/lib/filter-is-finite.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/filter-is-finite.ts#L28">number/src/lib/filter-is-finite.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -476,14 +334,9 @@
 									<dd><p>If you want the boolean value instead of the number value use the <a href="number.html#isfinite">isFinite</a> operator instead</p>
 									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">Infinity</span>])
- .pipe(
-   filterIsFinite(),
-   reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-     acc.push(val);
-     <span class="hljs-keyword">return</span> acc;
-   }, [])
-).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 2]</span></code></pre>
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">Infinity</span>])
+ .pipe(filterIsFinite())
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 2]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -502,7 +355,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/filter-is-integer.ts#L33">number/src/lib/filter-is-integer.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/filter-is-integer.ts#L28">number/src/lib/filter-is-integer.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -517,14 +370,9 @@
 									<dd><p>If you want the boolean value instead of the number value use the <a href="number.html#isinteger">isInteger</a> operator instead</p>
 									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-string">'4'</span>])
- .pipe(
-   filterIsInteger(),
-   reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-     acc.push(val);
-     <span class="hljs-keyword">return</span> acc;
-   }, [])
-).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 2]</span></code></pre>
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>])
+ .pipe(filterIsInteger())
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 2]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -543,7 +391,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/filter-is-not-nan.ts#L34">number/src/lib/filter-is-not-nan.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/filter-is-not-nan.ts#L29">number/src/lib/filter-is-not-nan.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -560,13 +408,8 @@
 									</dd>
 									<dt>example</dt>
 									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">4</span>])
- .pipe(
-   filterIsNotNaN(),
-   reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-     acc.push(val);
-     <span class="hljs-keyword">return</span> acc;
-   }, [])
-).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 2, 4]</span></code></pre>
+ .pipe(filterIsNotNaN())
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 2, 4]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -585,7 +428,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/filter-is-safe-integer.ts#L33">number/src/lib/filter-is-safe-integer.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/filter-is-safe-integer.ts#L28">number/src/lib/filter-is-safe-integer.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -600,14 +443,9 @@
 									<dd><p>If you want the boolean value instead of the number value use the <a href="number.html#issafeinteger">isSafeInteger</a> operator instead</p>
 									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>), <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>) - <span class="hljs-number">1</span>])
- .pipe(
-   filterIsSafeInteger(),
-   reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-     acc.push(val);
-     <span class="hljs-keyword">return</span> acc;
-   }, [])
-).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 2, 9007199254740991]</span></code></pre>
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>), <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>) - <span class="hljs-number">1</span>])
+ .pipe(filterIsSafeInteger())
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 2, 9007199254740991]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -621,33 +459,31 @@
 					<h3>filter<wbr>Out<wbr>OfRange</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
 						<li class="tsd-signature tsd-kind-icon">filter<wbr>Out<wbr>OfRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
-						<li class="tsd-signature tsd-kind-icon">filter<wbr>Out<wbr>OfRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, noBoundsMatch<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">filter<wbr>Out<wbr>OfRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, includeBoundingParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/filter-out-of-range.ts#L34">number/src/lib/filter-out-of-range.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/filter-out-of-range.ts#L30">number/src/lib/filter-out-of-range.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The <code>filterOutOfRange</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
+										is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number and will return the number
+										value if the number is outside a min/max value range. The optional <code>includeBoundingParameters</code> parameter allows
+									the min and max values to be excluded.</p>
 								</div>
-								<p>The operator will return the bollean value if the source value is within a passed min and max range</p>
+								<ul>
+									<li>If you want to get the boolean value of a number being inside a range of min/max use <a href="number.html#inrange">inRange</a> operator instead</li>
+									<li>If you want the number value being outside a range of min/max use the <a href="number.html#filteroutofrange">filterOutOfRange</a> operator instead</li>
+								</ul>
 								<dl class="tsd-comment-tags">
-									<dt>remarks</dt>
-									<dd><p>With the <code>noBoundsMatch</code> set to true the check will be <code>val &gt; min &amp;&amp; val &lt; min</code>. The default is <code>val &gt;= min &amp;&amp; val &lt;= max</code></p>
-									</dd>
-									<dt>remarks</dt>
-									<dd><p>If you want the boolean value if a number is outside a range of min/max use <a href="number.html#outofrange">outOfRange</a> operator instead
-										If you want the number value inside of the min/max range use <a href="number.html#filterinrange">filterInRange</a> operator instead</p>
-									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">20</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>])
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
  .pipe(filterOutOfRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>))
- .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [20]</span></code></pre>
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [-1, 11]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -672,15 +508,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/filter-out-of-range.ts#L48">number/src/lib/filter-out-of-range.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/filter-out-of-range.ts#L51">number/src/lib/filter-out-of-range.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>If <code>includeBoundingParameters</code> is set to <code>true</code>, the range will include the actual <code>min</code> and <code>max</code> values
+									by using <code>&gt;= || &lt;=</code> as it&#39;s equality match</p>
+								</div>
+								<p>The default value is <code>false</code> and will use a <code>&gt; || &lt;</code> equality match</p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">20</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>])
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
  .pipe(filterOutOfRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">true</span>))
- .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [20, 10]</span></code></pre>
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [-1, 0, 10, 11]</span></code></pre>
 									</dd>
 									<dt>category</dt>
 									<dd><p>RxJS Number Filter</p>
@@ -702,13 +543,14 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> noBoundsMatch: <span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> includeBoundingParameters: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>If set to true the min and max values are not included in the evaluation</p>
+										<p>If bounding values should be excluded</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Number value if the number falls outside the <code>min/max</code> range</p>
 						</li>
 					</ul>
 				</section>
@@ -725,7 +567,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/to-exponential.ts#L28">number/src/lib/to-exponential.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/to-exponential.ts#L27">number/src/lib/to-exponential.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -737,10 +579,9 @@
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential">Number.prototype.toExponential</a></p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1000</span>, <span class="hljs-number">2000</span>, <span class="hljs-number">3000</span>]).pipe(toExponential(<span class="hljs-number">2</span>), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// ['1.00e+3', '2.00e+3', '3.00e+3']</span></code></pre>
+									<dd><pre><code class="language-ts">fromNumber(<span class="hljs-number">1.2</span>)
+ .pipe(toExponential(<span class="hljs-number">2</span>))
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// '1.20e+0'</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -762,31 +603,67 @@
 					<a name="tolocalestring" class="tsd-anchor"></a>
 					<h3>to<wbr>Locale<wbr>String</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>Locale<wbr>String<span class="tsd-signature-symbol">(</span>locales<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, format<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">NumberFormatOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Locale<wbr>String<span class="tsd-signature-symbol">(</span>locales<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Locale<wbr>String<span class="tsd-signature-symbol">(</span>locales<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, format<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">NumberFormatOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/to-locale-string.ts#L32">number/src/lib/to-locale-string.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/to-locale-string.ts#L32">number/src/lib/to-locale-string.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The <code>toLocaleString</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
+										is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number for formats it using
+										<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">Number.prototype.toLocaleString</a>
+									and the passed locale option.</p>
 								</div>
-								<p>The operator will return a string value of the number formatted using
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">Number.prototype.toLocaleString</a></p>
 								<dl class="tsd-comment-tags">
-									<dt>remarks</dt>
-									<dd><p>The <code>toLocaleString</code> uses locale options in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a></p>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromNumber(<span class="hljs-number">1000000</span>)
+ .pipe(toLocaleString(<span class="hljs-string">'nl-NL'</span>))
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// '1.000.000'</span></code></pre>
 									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1000000</span>]).pipe(toLocaleString(<span class="hljs-string">'en-GB'</span>, { currency: <span class="hljs-string">'EUR'</span>, style: <span class="hljs-string">'currency'</span> }), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// ['€1,000,000.00']</span></code></pre>
+									<dd><pre><code class="language-ts">fromNumber(<span class="hljs-number">1000000</span>)
+ .pipe(toLocaleString(<span class="hljs-string">'en-GB'</span>))
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// '1,000,000'</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>locales: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The locale or locales that the number is being formatted for</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>String of the number formatted using <code>Number.prototype.toLocaleString</code></p>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/to-locale-string.ts#L50">number/src/lib/to-locale-string.ts:50</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>toLocaleString</code> uses locale options in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a>
+									to provide additional formatting for values types such as currency</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromNumber(<span class="hljs-number">1000000</span>)
+ .pipe(toLocaleString(<span class="hljs-string">'en-GB'</span>, { currency: <span class="hljs-string">'EUR'</span>, style: <span class="hljs-string">'currency'</span> }))
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// '€1,000,000.00'</span></code></pre>
+									</dd>
+									<dt>category</dt>
+									<dd><p>RxJS Number Formatting</p>
 									</dd>
 								</dl>
 							</div>
@@ -799,9 +676,9 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> format: <span class="tsd-signature-type">NumberFormatOptions</span></h5>
+									<h5>format: <span class="tsd-signature-type">NumberFormatOptions</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional formatting of the string based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a></p>
+										<p>Formatting of the string based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a></p>
 									</div>
 								</li>
 							</ul>
@@ -820,7 +697,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/to-precision.ts#L28">number/src/lib/to-precision.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/to-precision.ts#L28">number/src/lib/to-precision.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -853,49 +730,266 @@
 						</li>
 					</ul>
 				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>RxJS Number Observables Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="tostring" class="tsd-anchor"></a>
-					<h3>to<wbr>String</h3>
+					<a name="fromnumber" class="tsd-anchor"></a>
+					<h3>from<wbr>Number</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span>radix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Number<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, scheduler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Number<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span>, scheduler<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SchedulerLike</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/to-string.ts#L31">number/src/lib/to-string.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/from-number.ts#L24">number/src/lib/from-number.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The <code>toLocaleString</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
+									<p>The <code>fromNumber</code> operator is used to create an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> using a number
+									or array of numbers. The Observable can be subscribed to, which will emit one or more numbers.</p>
 								</div>
-								<p>The operator will return a string value of the number formatted using
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString">Number.prototype.toString</a></p>
 								<dl class="tsd-comment-tags">
-									<dt>remarks</dt>
-									<dd><p>This method takes an optional radix (base number) for format the string to</p>
-									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">255</span>]).pipe(toString(<span class="hljs-number">16</span>), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// ['1', '2', 'ff']</span></code></pre>
+									<dd><pre><code class="language-ts">fromNumber(<span class="hljs-number">6</span>)
+ .pipe(map(<span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> val * <span class="hljs-number">7</span>))
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// 42</span></code></pre>
 									</dd>
 								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> radix: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10</span></h5>
+									<h5>input: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The base radix to format the string to</p>
+										<p>Number to initialise the Observable</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional <a href="https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike">SchedulerLike</a> to use for scheduling the emission of values, and providing a notion of &quot;time&quot;</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Observable created from the input number</p>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/from-number.ts#L43">number/src/lib/from-number.ts:43</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Using <code>fromNumber</code> with an array of numbers is functionally similar to the RxSJ
+										<a href="https://rxjs-dev.firebaseapp.com/api/index/function/from">from</a> operator - each number in the array will emit a value
+									to the subscription</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
+ .pipe(reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> acc + val))
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// 6</span></code></pre>
+									</dd>
+									<dt>category</dt>
+									<dd><p>RxJS Number Observables</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Array of numbers to initialise the Observable</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> scheduler: <span class="tsd-signature-type">SchedulerLike</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The <a href="https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike">SchedulerLike</a> to use for scheduling the emission of values, and providing a notion of &quot;time&quot;</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Observable created from the input array of numbers</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>RxJS Number Parsing Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="parsefloat" class="tsd-anchor"></a>
+					<h3>parse<wbr>Float</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Float<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/parse-float.ts#L26">number/src/lib/parse-float.ts:26</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>parseFloat</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> string.</p>
+								</div>
+								<p>The operator will attempt to convert the string value to a floating point number using
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat">Number.parseFloat</a></p>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromString([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2.8'</span>, <span class="hljs-string">'3.14'</span>])
+ .pipe(<span class="hljs-built_in">parseFloat</span>())
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 2.8, 3.14]</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A number that is parsed from a string using <code>Number.parseFloat</code></p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="parseint" class="tsd-anchor"></a>
+					<h3>parse<wbr>Int</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Int<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Int<span class="tsd-signature-symbol">(</span>radix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/parse-int.ts#L25">number/src/lib/parse-int.ts:25</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>parseInt</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> string.</p>
+								</div>
+								<p>The operator will attempt to convert the string value to a integer number using
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a></p>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromString([<span class="hljs-string">'1'</span>, <span class="hljs-string">'2.8'</span>, <span class="hljs-string">'3.14'</span>])
+ .pipe(<span class="hljs-built_in">parseInt</span>())
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 2, 3]</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A number that is parsed from a string using <code>Number.parseInt</code></p>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/parse-int.ts#L42">number/src/lib/parse-int.ts:42</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>An integer can be parsed to a different base, such as base2 (boolean) or
+									base16 (hexadecimal)</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromString([<span class="hljs-string">'1'</span>, <span class="hljs-string">'ff'</span>, <span class="hljs-string">'40'</span>])
+ .pipe(<span class="hljs-built_in">parseInt</span>(<span class="hljs-number">16</span>))
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [1, 255, 64]</span></code></pre>
+									</dd>
+									<dt>category</dt>
+									<dd><p>RxJS Number Parsing</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>radix: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The base number to parse to default is 10</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A number that is parsed from a string using <code>Number.parseInt</code> using a radix</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="tostring" class="tsd-anchor"></a>
+					<h3>to<wbr>String</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span>radix<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/to-string.ts#L25">number/src/lib/to-string.ts:25</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>toString</code> operator can be used with an RxJS <code>pipe</code> where the source value
+									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
+								</div>
+								<p>The operator will return a string value using
+								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString">Number.prototype.toString</a></p>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromNumber(<span class="hljs-number">42</span>)
+ .pipe(toString())
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// '42'</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>A number that is parsed from a string using <code>Number.parseInt</code></p>
+						</li>
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/to-string.ts#L42">number/src/lib/to-string.ts:42</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>A number can be formatted to a different base, such as base2 (boolean) or
+									base16 (hexadecimal)</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromNumber(<span class="hljs-number">42</span>)
+ .pipe(toString(<span class="hljs-string">'2'</span>))
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// "101010"</span></code></pre>
+									</dd>
+									<dt>category</dt>
+									<dd><p>RxJS Number Parsing</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>radix: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The base number to format to. Default is 10</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>String of the number value formatted using <code>Number.prototype.toString</code></p>
+							<p>A number that is parsed from a string using <code>Number.parseInt</code> with radix</p>
 						</li>
 					</ul>
 				</section>
@@ -907,33 +1001,31 @@
 					<h3>in<wbr>Range</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
 						<li class="tsd-signature tsd-kind-icon">in<wbr>Range<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
-						<li class="tsd-signature tsd-kind-icon">in<wbr>Range<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, noBoundsMatch<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">in<wbr>Range<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, excludeBoundingValues<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/in-range.ts#L34">number/src/lib/in-range.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/in-range.ts#L30">number/src/lib/in-range.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The <code>inRange</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
+										is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number and will return a boolean
+										value if the number is within a min/max value range. The optional <code>excludeBoundingValues</code> parameter allows
+									the min and max values to be excluded.</p>
 								</div>
-								<p>The operator will return the boolean if the source value is within a passed min and max range</p>
+								<ul>
+									<li>If you want to get the boolean value of a number being outside a range of min/max use <a href="number.html#outofrange">outOfRange</a> operator instead</li>
+									<li>If you want the number value instead of the boolean value use the <a href="number.html#filterinrange">filterInRange</a> operator instead</li>
+								</ul>
 								<dl class="tsd-comment-tags">
-									<dt>remarks</dt>
-									<dd><p>With the <code>noBoundsMatch</code> set to true the check will be <code>val &gt; min &amp;&amp; val &lt; min</code>. The default is <code>val &gt;= min &amp;&amp; val &lt;= max</code></p>
-									</dd>
-									<dt>remarks</dt>
-									<dd><p>If you want to find if a number is outside a range of min/max use <a href="number.html#outofrange">outOfRange</a> operator instead
-										If you want the number value instead of the boolean value use the <a href="number.html#filterinrange">filterInRange</a> operator instead</p>
-									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">20</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>])
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
  .pipe(inRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>))
- .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [true, false, true, true]</span></code></pre>
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [false, true, true, true, true, false]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -958,15 +1050,20 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/in-range.ts#L48">number/src/lib/in-range.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/in-range.ts#L51">number/src/lib/in-range.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>If <code>excludeBoundingValues</code> is set to <code>true</code>, the range will not include the actual <code>min</code> and <code>max</code> values
+									by using <code>&gt; &amp;&amp; &lt;</code> as it&#39;s equality match</p>
+								</div>
+								<p>The default value is <code>false</code> and will use a <code>&gt;= &amp;&amp; &lt;=</code> equality match</p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">20</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>])
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
  .pipe(inRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">true</span>))
- .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [true, false, true, false]</span></code></pre>
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [false, false, true, true, false, false]</span></code></pre>
 									</dd>
 									<dt>category</dt>
 									<dd><p>RxJS Number Query</p>
@@ -988,13 +1085,14 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> noBoundsMatch: <span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> excludeBoundingValues: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>If set to true the min and max values are not included in the evaluation</p>
+										<p>If bounding values should be excluded</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Boolean value if the number falls in the <code>min/max</code> range</p>
 						</li>
 					</ul>
 				</section>
@@ -1008,7 +1106,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/is-finite.ts#L33">number/src/lib/is-finite.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/is-finite.ts#L28">number/src/lib/is-finite.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1023,14 +1121,9 @@
 									<dd><p>If you want the number value instead of the boolean value use the <a href="number.html#filterisfinite">filterIsFinite</a> operator instead</p>
 									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">Infinity</span>])
- .pipe(
-   <span class="hljs-built_in">isFinite</span>(),
-   reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-     acc.push(val);
-     <span class="hljs-keyword">return</span> acc;
-   }, [])
-).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [true, true, false]</span></code></pre>
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">Infinity</span>])
+ .pipe(<span class="hljs-built_in">isFinite</span>())
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [true, true, false]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -1049,7 +1142,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/is-integer.ts#L33">number/src/lib/is-integer.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/is-integer.ts#L28">number/src/lib/is-integer.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1064,14 +1157,9 @@
 									<dd><p>If you want the number value instead of the boolean value use the <a href="number.html#filterisinteger">filterIsInteger</a> operator instead</p>
 									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-string">'4'</span>])
- .pipe(
-   isInteger(),
-   reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-     acc.push(val);
-     <span class="hljs-keyword">return</span> acc;
-   }, [])
-).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [true, true, false, false]</span></code></pre>
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>])
+ .pipe(isInteger())
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [true, true, false]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -1090,7 +1178,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/is-nan.ts#L26">number/src/lib/is-nan.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/is-nan.ts#L25">number/src/lib/is-nan.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1102,10 +1190,9 @@
 								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN</a></p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">4</span>]).pipe(<span class="hljs-built_in">isNaN</span>(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [false, false, true, false]</span></code></pre>
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">4</span>])
+ .pipe(<span class="hljs-built_in">isNaN</span>())
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [false, false, true, false]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -1124,7 +1211,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/is-not-nan.ts#L27">number/src/lib/is-not-nan.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/is-not-nan.ts#L26">number/src/lib/is-not-nan.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1137,10 +1224,9 @@
 								to check a number is valid</p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">4</span>]).pipe(isNotNaN(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [true, true, false, true]</span></code></pre>
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">4</span>])
+ .pipe(isNotNaN())
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [true, true, false, true]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -1159,7 +1245,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/is-safe-integer.ts#L29">number/src/lib/is-safe-integer.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/is-safe-integer.ts#L28">number/src/lib/is-safe-integer.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1174,10 +1260,9 @@
 									<dd><p>If you want to return the numbers from the check use the <a href="number.html#filterissafeinteger">filterIsSafeInteger</a> operator instead</p>
 									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>), <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>) - <span class="hljs-number">1</span>]).pipe(isSafeInteger(), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [true, false]</span></code></pre>
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>), <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>) - <span class="hljs-number">1</span>])
+ .pipe(isSafeInteger())
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [true, false]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -1191,33 +1276,31 @@
 					<h3>out<wbr>OfRange</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
 						<li class="tsd-signature tsd-kind-icon">out<wbr>OfRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
-						<li class="tsd-signature tsd-kind-icon">out<wbr>OfRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, noBoundsMatch<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">out<wbr>OfRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, includeBoundingParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/out-of-range.ts#L34">number/src/lib/out-of-range.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/out-of-range.ts#L30">number/src/lib/out-of-range.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The <code>outOfRange</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number.</p>
+										is an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> number and will return a boolean
+										value if the number is outside a min/max value range. The optional <code>includeBoundingParameters</code> parameter allows
+									the min and max values to be included.</p>
 								</div>
-								<p>The operator will return the boolean if the source value is outside a passed min and max range</p>
+								<ul>
+									<li>If you want to get the boolean value of a number being inside a range of min/max use <a href="number.html#inrange">inRange</a> operator instead</li>
+									<li>If you want the number value instead of the boolean value use the <a href="number.html#filteroutofrange">filterOutOfRange</a> operator instead</li>
+								</ul>
 								<dl class="tsd-comment-tags">
-									<dt>remarks</dt>
-									<dd><p>With the <code>noBoundsMatch</code> set to true the check will be <code>val &lt; min &amp;&amp; val &gt; min</code>. The default is <code>val &lt;= min &amp;&amp; val &gt;= max</code></p>
-									</dd>
-									<dt>remarks</dt>
-									<dd><p>If you want to find if a number is between a range of min/max use <a href="number.html#inrange">inRange</a> operator instead
-										If you want the number value instead of the boolean value use the <a href="number.html#filteroutofrange">filterOutOfRange</a> operator instead</p>
-									</dd>
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">20</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>])
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
  .pipe(outOfRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>))
- .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [false, true, false, false]</span></code></pre>
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [true, false, false, false, false, true]</span></code></pre>
 									</dd>
 								</dl>
 							</div>
@@ -1237,20 +1320,25 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Boolean value if the number falls in the <code>min/max</code> range</p>
+							<p>Boolean value if the number falls outside the <code>min/max</code> range</p>
 						</li>
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/f9923e7/libs/rxjs/number/src/lib/out-of-range.ts#L48">number/src/lib/out-of-range.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/1a9f126/libs/rxjs/number/src/lib/out-of-range.ts#L51">number/src/lib/out-of-range.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>If <code>includeBoundingParameters</code> is set to <code>true</code>, the range will include the actual <code>min</code> and <code>max</code> values
+									by using <code>&gt;= || &lt;=</code> as it&#39;s equality match</p>
+								</div>
+								<p>The default value is <code>false</code> and will use a <code>&gt; || &lt;</code> equality match</p>
 								<dl class="tsd-comment-tags">
 									<dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">20</span>, <span class="hljs-number">5</span>, <span class="hljs-number">10</span>])
+									<dd><pre><code class="language-ts">fromNumber([<span class="hljs-number">-1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
  .pipe(outOfRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">true</span>))
- .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [false, true, false, true]</span></code></pre>
+ .subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// [true, true, false, false, true, true]</span></code></pre>
 									</dd>
 									<dt>category</dt>
 									<dd><p>RxJS Number Query</p>
@@ -1272,13 +1360,14 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> noBoundsMatch: <span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> includeBoundingParameters: <span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>If set to true the min and max values are not included in the evaluation</p>
+										<p>If bounding values should be excluded</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Boolean value if the number falls outside the <code>min/max</code> range</p>
 						</li>
 					</ul>
 				</section>

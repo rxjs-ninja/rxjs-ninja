@@ -15,14 +15,13 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from(['1', '2.8', '3.14']).pipe(parseFloat(), reduce((acc, val) => {
- *   acc.push(val);
- *   return acc;
- * }, [])).subscribe(console.log) // [1, 2.8, 3.14]
+ * fromString(['1', '2.8', '3.14'])
+ *  .pipe(parseFloat())
+ *  .subscribe(console.log) // [1, 2.8, 3.14]
  * ```
  *
- * @returns A number that is parsed from a string using `Number.parseFloat
- * @category RxJS Number Creation
+ * @returns A number that is parsed from a string using `Number.parseFloat`
+ * @category RxJS Number Parsing
  */
 export function parseFloat(): OperatorFunction<string, number> {
   return (source: Observable<string>) => source.pipe(map((value) => Number.parseFloat(value)));

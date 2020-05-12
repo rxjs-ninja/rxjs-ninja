@@ -1,14 +1,29 @@
 import { fromNumber } from '@tinynodes/rxjs-number';
 import { inRange } from './in-range';
 import { filterInRange } from './filter-in-range';
-import { take } from 'rxjs/operators';
+import { reduce, take } from 'rxjs/operators';
 
 describe('inRange', () => {
-  it('should return number for a value in range with boundaries', (done) => {
+  it('should return a number value that falls within a boundary', (done) => {
     fromNumber(5)
       .pipe(filterInRange(0, 10), take(1))
       .subscribe({
         next: (value) => expect(value).toBe(5),
+        complete: () => done(),
+      });
+  });
+
+  it('should return number values that falls within a boundary', (done) => {
+    fromNumber([-1, 0, 1, 2, 3])
+      .pipe(
+        filterInRange(0, 10),
+        reduce((acc, val) => {
+          acc.push(val);
+          return acc;
+        }, []),
+      )
+      .subscribe({
+        next: (value) => expect(value).toStrictEqual([0, 1, 2, 3]),
         complete: () => done(),
       });
   });

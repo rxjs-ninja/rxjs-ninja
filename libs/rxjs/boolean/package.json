@@ -1,7 +1,7 @@
 {
   "name": "@tinynodes/rxjs-boolean",
   "description": "Operators for RxJS for filtering with boolean logic",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "keywords": [
     "rxjs",
     "typescript",

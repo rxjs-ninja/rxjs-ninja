@@ -5,16 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2020-05-12
+
+### Added
+
+- Added `lastTruthy` operator that returns the last truthy value from an Observable, with an optional predicate function
+
+### Changed
+
+- `firstTruthy` operator now accepts a predicate function for filtering
+- `fromBoolean` documentation improvements
+
 ## [1.1.0] - 2020-05-11
 
-## Added
+### Added
 
 - `fromBoolean` added that accepts both a single value, or an array of values.
   By default, these values are boolean (e.g. `fromBoolean([true, false])`) however the type of this method can be overriden
   and any value converted to boolean (e.g. `fromBoolean<number>([0, 1, 0, 1, 0, 0 ,1])`)
   When passing an array it acts the same as the [from](https://rxjs-dev.firebaseapp.com/api/index/function/from) operator and also accept a scheduler.
 
-## Changed
+### Changed
 
 - Improved `firstTruthy` operator to now not handle an error state but use `take(1)`
 

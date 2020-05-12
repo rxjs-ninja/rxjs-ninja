@@ -1,4 +1,3 @@
-import { from } from 'rxjs';
 import { isSafeInteger } from './is-safe-integer';
 import { filter, reduce, take } from 'rxjs/operators';
 import { fromNumber } from '@tinynodes/rxjs-number';

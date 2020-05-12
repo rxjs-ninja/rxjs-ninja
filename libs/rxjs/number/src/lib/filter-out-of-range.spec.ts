@@ -1,6 +1,4 @@
-import { fromNumber } from '@tinynodes/rxjs-number';
-import { outOfRange } from './out-of-range';
-import { filterOutOfRange } from './filter-out-of-range';
+import { filterOutOfRange, fromNumber } from '@tinynodes/rxjs-number';
 import { take } from 'rxjs/operators';
 
 describe('filterOutOfRange', () => {
@@ -31,7 +29,7 @@ describe('filterOutOfRange', () => {
     fromNumber(9.9)
       .pipe(filterOutOfRange(0, 10, true), take(1))
       .subscribe({
-        next: (value) => count++,
+        next: () => count++,
         complete: () => {
           expect(count).toBe(0);
           done();

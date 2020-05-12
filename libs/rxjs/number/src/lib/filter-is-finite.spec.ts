@@ -1,6 +1,6 @@
 import { from } from 'rxjs';
 import { reduce, take } from 'rxjs/operators';
-import { filterIsFinite } from './filter-is-finite';
+import { filterIsFinite } from '@tinynodes/rxjs-number';
 
 describe('filterIsFinite', () => {
   it('should return valid numbers that are in a finite range', (done) => {

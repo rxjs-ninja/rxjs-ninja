@@ -8,6 +8,7 @@ export { filterIsFinite } from './lib/filter-is-finite';
 export { filterIsInteger } from './lib/filter-is-integer';
 export { filterIsNotNaN } from './lib/filter-is-not-nan';
 export { filterIsSafeInteger } from './lib/filter-is-safe-integer';
+export { filterOutOfRange } from './lib/filter-out-of-range';
 export { fromNumber } from './lib/from-number';
 export { inRange } from './lib/in-range';
 export { isFinite } from './lib/is-finite';

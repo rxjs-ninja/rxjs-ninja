@@ -1,9 +1,7 @@
-import { fromNumber } from '@tinynodes/rxjs-number';
-import { inRange } from './in-range';
-import { filterInRange } from './filter-in-range';
+import { filterInRange, fromNumber } from '@tinynodes/rxjs-number';
 import { reduce, take } from 'rxjs/operators';
 
-describe('inRange', () => {
+describe('filterInRange', () => {
   it('should return a number value that falls within a boundary', (done) => {
     fromNumber(5)
       .pipe(filterInRange(0, 10), take(1))

@@ -1,5 +1,4 @@
-import { fromNumber } from '@tinynodes/rxjs-number';
-import { inRange } from './in-range';
+import { fromNumber, inRange } from '@tinynodes/rxjs-number';
 
 describe('inRange', () => {
   it('should return true for a value in range with boundaries', (done) => {

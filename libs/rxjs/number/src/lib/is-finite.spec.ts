@@ -1,6 +1,6 @@
 import { from } from 'rxjs';
-import { isFinite } from './is-finite';
 import { filter, reduce, take } from 'rxjs/operators';
+import { isFinite } from '@tinynodes/rxjs-number';
 
 describe('isFinite', () => {
   it('should return boolean value of value being finite', (done) => {

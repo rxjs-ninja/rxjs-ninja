@@ -20,10 +20,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from([1000000]).pipe(toLocaleString('en-GB', { currency: 'EUR', style: 'currency' }), reduce((acc, val) => {
- *   acc.push(val);
- *   return acc;
- * }, [])).subscribe(console.log) // ['€1,000,000.00']
+ * fromNumber(1000000)
+ *  .pipe(toLocaleString('en-GB', { currency: 'EUR', style: 'currency' }))
+ *  .subscribe(console.log) // '€1,000,000.00'
  * ```
  *
  * @returns String of the number formatted using `Number.prototype.toLocaleString`

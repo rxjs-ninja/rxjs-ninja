@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module number
  */
-import { MonoTypeOperatorFunction, Observable, OperatorFunction } from 'rxjs';
+import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
@@ -18,7 +18,8 @@ import { map } from 'rxjs/operators';
  * With the `noBoundsMatch` set to true the check will be `val > min && val < min`. The default is `val >= min && val <= max`
  *
  * @remarks
- * If you want the number value instead of the boolean value use the [[filterIsFinite]] operator instead
+ * If you want to find if a number is outside a range of min/max use [[outOfRange]] operator instead
+ * If you want the number value instead of the boolean value use the [[filterInRange]] operator instead
  *
  * @example
  * ```ts
@@ -28,6 +29,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Boolean value if the number falls in the `min/max` range
+ * @category RxJS Number Query
  */
 function inRange(min: number, max: number): OperatorFunction<number, boolean>;
 /**
@@ -44,7 +46,9 @@ function inRange(min: number, max: number): OperatorFunction<number, boolean>;
  * @category RxJS Number Query
  */
 function inRange(min: number, max: number, noBoundsMatch?: boolean): OperatorFunction<number, boolean>;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function inRange(...args: any): OperatorFunction<number, boolean> {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inArgs: any[] = [...args];
   return (source: Observable<number>) =>
     source.pipe(map((value) => (inArgs[2] ? value > inArgs[0] && value < inArgs[1] : value >= inArgs[0] && value <= inArgs[1])));

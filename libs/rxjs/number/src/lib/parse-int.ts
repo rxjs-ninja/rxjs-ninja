@@ -13,7 +13,6 @@ import { map } from 'rxjs/operators';
  * [Number.parseInt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt)
  *
  * @param radix The base number to parse to
- * @default 10
  *
  * @example
  * ```ts

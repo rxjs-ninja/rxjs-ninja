@@ -19,7 +19,7 @@ import { filter } from 'rxjs/operators';
  * ```
  *
  * @returns All values that are truthy only
- * @category RxJS Boolean Filters
+ * @category RxJS Boolean Utils
  */
 export function filterTruthy<T>(): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>) => source.pipe(filter<T>(Boolean));

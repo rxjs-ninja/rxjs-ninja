@@ -42,9 +42,3 @@ jobs:
 
       - name: Tests coverage
         run: ./.github/scripts/run-testing.sh False False
-
-#      - name: SonarCloud Scan
-#        uses: SonarSource/sonarcloud-github-action@v1.2
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.ACTION_AUTH_TOKEN }}
-#          SONAR_TOKEN: ${{ secrets.SONAR_AUTH_TOKEN }}

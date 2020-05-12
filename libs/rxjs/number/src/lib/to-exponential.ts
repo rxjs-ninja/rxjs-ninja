@@ -16,10 +16,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from([1000, 2000, 3000]).pipe(toExponential(2), reduce((acc, val) => {
- *   acc.push(val);
- *   return acc;
- * }, [])).subscribe(console.log) // ['1.00e+3', '2.00e+3', '3.00e+3']
+ * fromNumber(1.2)
+ *  .pipe(toExponential(2))
+ *  .subscribe(console.log) // '1.20e+0'
  * ```
  *
  * @returns String of the number value raised to the exponential using `Number.prototype.toExponential`

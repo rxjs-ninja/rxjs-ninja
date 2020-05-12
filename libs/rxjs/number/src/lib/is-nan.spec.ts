@@ -1,10 +1,10 @@
-import { from } from 'rxjs';
 import { isNaN } from './is-nan';
 import { filter, reduce, take } from 'rxjs/operators';
+import { fromNumber } from './from-number';
 
 describe('isNaN', () => {
   it('should return true for NaN value', (done) => {
-    from([1, 2, '3', null, undefined, NaN, Infinity])
+    fromNumber([1, 2, NaN, Infinity])
       .pipe(
         isNaN(),
         filter(Boolean),

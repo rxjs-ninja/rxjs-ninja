@@ -1,6 +1,5 @@
 import { from } from 'rxjs';
 import { firstTruthy } from '@tinynodes/rxjs-boolean';
-import { fromBoolean } from './from-boolean';
 
 describe('firstTruthy', () => {
   it('should return the first true value from a source', (done) => {
@@ -23,15 +22,6 @@ describe('firstTruthy', () => {
           expect(called).toBe(0);
           done();
         },
-      });
-  });
-
-  it('should support return value using a predicate method', (done) => {
-    from([1, 2, 3, 4])
-      .pipe(firstTruthy((val) => val % 2 === 0))
-      .subscribe({
-        next: (value) => expect(value).toBe(2),
-        complete: () => done(),
       });
   });
 });

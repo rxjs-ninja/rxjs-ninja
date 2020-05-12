@@ -14,7 +14,7 @@ import { PredicateFn } from '../types/boolean';
  *
  * @example
  * ```ts
- * fromBoolean<string>(['a', 'b', 'c'])
+ * fromString(['a', 'b', 'c'])
  *  .pipe(lastTruthy())
  *  .subscribe(console.log) // 'c'
  * ```

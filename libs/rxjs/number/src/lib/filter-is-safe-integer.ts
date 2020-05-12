@@ -17,14 +17,9 @@ import { filter } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from([1, 2, Math.pow(2, 53), Math.pow(2, 53) - 1])
- *  .pipe(
- *    filterIsSafeInteger(),
- *    reduce((acc, val) => {
- *      acc.push(val);
- *      return acc;
- *    }, [])
- * ).subscribe(console.log) // [1, 2, 9007199254740991]
+ * fromNumber([1, 2, Math.pow(2, 53), Math.pow(2, 53) - 1])
+ *  .pipe(filterIsSafeInteger())
+ *  .subscribe(console.log) // [1, 2, 9007199254740991]
  * ```
  *
  * @returns A number value that passes the `Number.isSafeInteger` equality check

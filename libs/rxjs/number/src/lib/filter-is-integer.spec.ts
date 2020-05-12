@@ -1,6 +1,6 @@
 import { from } from 'rxjs';
-import { filterIsInteger } from './filter-is-integer';
 import { reduce, take } from 'rxjs/operators';
+import { filterIsInteger } from '@tinynodes/rxjs-number';
 
 describe('filterIsInteger', () => {
   it('should return valid numbers that are integers', (done) => {

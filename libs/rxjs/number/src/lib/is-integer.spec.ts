@@ -1,10 +1,10 @@
-import { from } from 'rxjs';
-import { isInteger } from './is-integer';
+import { isInteger } from '@tinynodes/rxjs-number';
 import { filter, reduce, take } from 'rxjs/operators';
+import { fromNumber } from './from-number';
 
 describe('isInteger', () => {
   it('should return true for an integer', (done) => {
-    from([1, 2, 3.14, '2', false, true, null])
+    fromNumber([1, 2, 3.14])
       .pipe(
         isInteger(),
         filter(Boolean),

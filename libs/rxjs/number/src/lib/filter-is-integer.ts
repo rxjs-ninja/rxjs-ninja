@@ -17,14 +17,9 @@ import { filter } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from([1, 2, 3.14, '4'])
- *  .pipe(
- *    filterIsInteger(),
- *    reduce((acc, val) => {
- *      acc.push(val);
- *      return acc;
- *    }, [])
- * ).subscribe(console.log) // [1, 2]
+ * fromNumber([1, 2, 3.14])
+ *  .pipe(filterIsInteger())
+ *  .subscribe(console.log) // [1, 2]
  * ```
  *
  * @returns A number value that passes the `Number.isInteger` equality check

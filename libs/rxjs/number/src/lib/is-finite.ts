@@ -17,14 +17,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from([1, 2, Infinity])
- *  .pipe(
- *    isFinite(),
- *    reduce((acc, val) => {
- *      acc.push(val);
- *      return acc;
- *    }, [])
- * ).subscribe(console.log) // [true, true, false]
+ * fromNumber([1, 2, Infinity])
+ *  .pipe(isFinite())
+ *  .subscribe(console.log) // [true, true, false]
  * ```
  *
  * @returns A boolean value of the `Number.isFinite` equality check

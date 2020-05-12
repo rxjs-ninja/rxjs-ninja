@@ -19,13 +19,8 @@ import { filter } from 'rxjs/operators';
  * @example
  * ```ts
  * fromNumber([1, 2, NaN, 4])
- *  .pipe(
- *    filterIsNotNaN(),
- *    reduce((acc, val) => {
- *      acc.push(val);
- *      return acc;
- *    }, [])
- * ).subscribe(console.log) // [1, 2, 4]
+ *  .pipe(filterIsNotNaN())
+ *  .subscribe(console.log) // [1, 2, 4]
  * ```
  *
  * @returns Number value that does not passes the `Number.isNaN` equality check

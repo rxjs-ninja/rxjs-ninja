@@ -6,8 +6,10 @@ import { Observable, SchedulerLike, Subscriber, Subscription } from 'rxjs';
 
 /**
  * Takes an input of number and returns a method that updates an subscriber
- * @private
  * @param input The number to subscribe to
+ *
+ * @private
+ * @internal
  */
 export const subscribeToSingleOrArrayNumber = <T>(input: number | number[]) => (subscriber: Subscriber<number>) => {
   if (Array.isArray(input)) {
@@ -22,9 +24,12 @@ export const subscribeToSingleOrArrayNumber = <T>(input: number | number[]) => (
 
 /**
  * Takes an input of number and returns a method that updates an subscriber
- * @private
+ *
  * @param input The number to subscribe to
  * @param scheduler
+ *
+ * @private
+ * @internal
  */
 export function scheduleSingleOrArrayNumber<T>(input: number | number[], scheduler: SchedulerLike): Observable<number> {
   return new Observable<number>((subscriber: Subscriber<number>) => {

@@ -17,14 +17,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * from([1, 2, 3.14, '4'])
- *  .pipe(
- *    isInteger(),
- *    reduce((acc, val) => {
- *      acc.push(val);
- *      return acc;
- *    }, [])
- * ).subscribe(console.log) // [true, true, false, false]
+ * fromNumber([1, 2, 3.14])
+ *  .pipe(isInteger())
+ *  .subscribe(console.log) // [true, true, false]
  * ```
  *
  * @returns A boolean value of the `Number.isInteger` equality check

@@ -35,16 +35,10 @@ jobs:
         run: npm ci
 
       - name: Run lint
-        run: ./.github/scripts/run-linting.sh True
+        run: ./.github/scripts/run-linting.sh False
 
       - name: Tests coverage
-        run: ./.github/scripts/run-testing.sh True False
-
-#      - name: SonarCloud Scan
-#        uses: SonarSource/sonarcloud-github-action@v1.2
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.ACTION_AUTH_TOKEN }}
-#          SONAR_TOKEN: ${{ secrets.SONAR_AUTH_TOKEN }}
+        run: ./.github/scripts/run-testing.sh False False
 
       - name: Deploy
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false

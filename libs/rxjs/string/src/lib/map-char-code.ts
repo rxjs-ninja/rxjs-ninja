@@ -14,14 +14,16 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
+ * of(65)
+ *  .pipe(mapCharCode())
+ *  .subscribe(console.log) // 'A'
+ * ```
+ *
+ * @example
+ * ```ts
  * of([65, 66, 67, 68])
- *  .pipe(
- *    reduce((acc, val) => {
- *      acc.push(val);
- *      return acc;
- *    }, []),
- *    mapCharCode()
- *  ).subscribe(console.log) // 'ABCD'
+ *  .pipe(mapCharCode())
+ *  .subscribe(console.log) // 'ABCD'
  * ```
  *
  * @returns String from an array of character codes

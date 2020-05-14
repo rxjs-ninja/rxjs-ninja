@@ -4,7 +4,7 @@
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { TrimPosition } from '../types/position';
+import { TrimPosition, TrimPositionValue } from '../types/position';
 
 /**
  * The `trimString` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
@@ -28,19 +28,19 @@ import { TrimPosition } from '../types/position';
  * @returns String that is trimmed based on the [[TrimPosition]] option
  * @category RxJS String Formatting
  */
-export function trimString(position: TrimPosition = 'all'): MonoTypeOperatorFunction<string> {
+export function trimString(position: TrimPositionValue = 'all'): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) =>
     source.pipe(
       map((value) => {
         switch (position) {
-          case 'start': {
+          case TrimPosition.START: {
             return value.trimLeft();
           }
 
-          case 'end': {
+          case TrimPosition.END: {
             return value.trimRight();
           }
-          case 'all':
+          case TrimPosition.ALL:
           default:
             return value.trim();
         }

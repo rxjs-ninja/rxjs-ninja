@@ -18,25 +18,17 @@ import { map } from 'rxjs/operators';
  *  .subscribe(console.log) // '★'
  * ```
  *
- * @returns String from a code point
- * @category RxJS String Map
- */
-function mapCodePoint(): OperatorFunction<number, string>;
-/**
  * @example
  * ```ts
  * of([9731, 9733, 9842])
  *  .pipe(mapCodePoint())
  *  .subscribe(console.log) // '☃★♲'
- * ```
+ *```
  *
- * @returns String from a an array of code points
+ * @returns String from a code point or an array of code points
  * @category RxJS String Map
  */
-function mapCodePoint(): OperatorFunction<number[], string>;
-function mapCodePoint(): OperatorFunction<number | number[], string> {
+export function mapCodePoint(): OperatorFunction<number | number[], string> {
   return (source: Observable<number | number[]>) =>
     source.pipe(map((values) => (Array.isArray(values) ? String.fromCodePoint(...values) : String.fromCodePoint(values))));
 }
-
-export { mapCodePoint };

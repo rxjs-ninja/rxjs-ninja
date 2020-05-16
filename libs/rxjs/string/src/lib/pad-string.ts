@@ -52,10 +52,10 @@ function padString(padPosition: PadPositionValue, maxLength: number, fillString?
     source.pipe(
       map((value) => {
         switch (padPosition) {
-          case PadPosition.START: {
+          case PadPosition.END: {
             return value.padEnd(maxLength, fillString);
           }
-          case PadPosition.END:
+          case PadPosition.START:
           default:
             return value.padStart(maxLength, fillString);
         }

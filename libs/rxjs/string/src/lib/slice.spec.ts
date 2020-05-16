@@ -13,9 +13,9 @@ describe('slice', () => {
 
   it('should return an sliced string of the original string with end range', (done) => {
     fromString('Mary had a little lamb')
-      .pipe(slice(0, 4), take(1))
+      .pipe(slice(11, 17), take(1))
       .subscribe({
-        next: (value) => expect(value).toStrictEqual('Mary'),
+        next: (value) => expect(value).toStrictEqual('little'),
         complete: () => done(),
       });
   });

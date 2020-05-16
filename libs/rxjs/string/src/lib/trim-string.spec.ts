@@ -1,5 +1,6 @@
 import { take } from 'rxjs/operators';
 import { fromString, trimString } from '@tinynodes/rxjs-string';
+import { TrimPosition } from '../types/position';
 
 describe('trim string', () => {
   it('should trim a string at both ends by default', (done) => {
@@ -13,7 +14,7 @@ describe('trim string', () => {
 
   it('should trim a string on the left only', (done) => {
     fromString('  this is a test  ')
-      .pipe(trimString('start'), take(1))
+      .pipe(trimString(TrimPosition.START), take(1))
       .subscribe({
         next: (value) => expect(value).toBe('this is a test  '),
         complete: () => done(),
@@ -22,7 +23,7 @@ describe('trim string', () => {
 
   it('should trim a string on the right only', (done) => {
     fromString('  this is a test  ')
-      .pipe(trimString('end'), take(1))
+      .pipe(trimString(TrimPosition.END), take(1))
       .subscribe({
         next: (value) => expect(value).toBe('  this is a test'),
         complete: () => done(),

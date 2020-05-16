@@ -38,7 +38,7 @@ jobs:
         run: npm ci
 
       - name: Run lint
-        run: ./.github/scripts/run-linting.sh
+        run: ./.github/scripts/run-linting.sh False
 
       - name: Tests coverage
         run: ./.github/scripts/run-testing.sh False False

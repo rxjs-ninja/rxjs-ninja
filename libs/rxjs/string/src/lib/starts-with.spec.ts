@@ -19,4 +19,13 @@ describe('startsWith', () => {
         complete: () => done(),
       });
   });
+
+  it('should return false if a string does not start with a character', (done) => {
+    fromString('testing')
+      .pipe(startsWith('t', 3), take(1))
+      .subscribe({
+        next: (value) => expect(value).toBeTruthy(),
+        complete: () => done(),
+      });
+  });
 });

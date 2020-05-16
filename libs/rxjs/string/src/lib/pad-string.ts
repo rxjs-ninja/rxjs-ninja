@@ -4,7 +4,7 @@
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PadPosition } from '../types/position';
+import { PadPosition, PadPositionValue } from '../types/position';
 
 /**
  * The `padString` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
@@ -12,7 +12,6 @@ import { PadPosition } from '../types/position';
  *
  * @param padPosition The position to pad the string at, either 'start' or 'end'
  * @param maxLength Pads the string to this length
- * @param fillString Optional character or character to use for padding
  *
  * @remarks
  * This operator is based on both [String.prototype.padStart](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) and
@@ -22,25 +21,46 @@ import { PadPosition } from '../types/position';
  * @example
  * ```ts
  * fromString('12345')
+ *  .pipe(padString('start', 7))
+ *  .subscribe(console.log) // ['  12345']
+ * ```
+ *
+ * @returns String that is formatted with deafult space padding
+ * @category RxJS String Formatting
+ */
+function padString(padPosition: PadPositionValue, maxLength: number): MonoTypeOperatorFunction<string>;
+/**
+ *
+ * @param padPosition The position to pad the string at, either 'start' or 'end'
+ * @param maxLength Pads the string to this length
+ * @param fillString Character or character to use for padding
+ *
+ *
+ * @example
+ * ```ts
+ * fromString('12345')
  *  .pipe(padString('end', 10, 'X'))
  *  .subscribe(console.log) // ['12345XXXXX']
  * ```
  *
- * @returns String that is formatted with padding
+ * @returns String that is formatted with padding using the `fillString`
  * @category RxJS String Formatting
  */
-export function padString(padPosition: PadPosition, maxLength: number, fillString?: string): MonoTypeOperatorFunction<string> {
+function padString(padPosition: PadPositionValue, maxLength: number, fillString: string): MonoTypeOperatorFunction<string>;
+function padString(padPosition: PadPositionValue, maxLength: number, fillString?: string): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) =>
     source.pipe(
       map((value) => {
         switch (padPosition) {
-          case 'end': {
+          case PadPosition.END: {
             return value.padEnd(maxLength, fillString);
           }
-          case 'start':
+          case PadPosition.START:
           default:
             return value.padStart(maxLength, fillString);
         }
       }),
     );
 }
+
+export { padString };

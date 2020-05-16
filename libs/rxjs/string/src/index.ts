@@ -30,3 +30,5 @@ export { titleize } from './lib/titleize';
 export { toLowerCase } from './lib/to-lower-case';
 export { toUpperCase } from './lib/to-upper-case';
 export { trimString } from './lib/trim-string';
+
+export { PadPosition, TrimPosition } from './types/position';

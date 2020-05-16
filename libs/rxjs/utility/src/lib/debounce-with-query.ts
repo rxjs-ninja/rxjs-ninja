@@ -11,6 +11,8 @@ import { Observable, ObservableInput, OperatorFunction } from 'rxjs';
  * observable result of T
  *
  * @typeParam T The response from an API which returns the result of a query
+ *
+ * @param query The string to send to the query method
  */
 export type QueryMethod<T> = (query: string) => ObservableInput<T>;
 

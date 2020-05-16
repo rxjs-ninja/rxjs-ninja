@@ -1,6 +1,5 @@
 import { from } from 'rxjs';
 import { firstTruthy } from '@tinynodes/rxjs-boolean';
-import { fromBoolean } from './from-boolean';
 import { lastTruthy } from './last-truthy';
 
 describe('firstTruthy', () => {

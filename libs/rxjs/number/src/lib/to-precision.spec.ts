@@ -1,4 +1,3 @@
-import { from } from 'rxjs';
 import { toPrecision } from './to-precision';
 import { reduce, take } from 'rxjs/operators';
 import { fromNumber } from '@tinynodes/rxjs-number';

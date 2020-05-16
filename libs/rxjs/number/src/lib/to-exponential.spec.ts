@@ -1,5 +1,5 @@
 import { toExponential } from './to-exponential';
-import { reduce, take } from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { fromNumber } from '@tinynodes/rxjs-number';
 
 describe('toExponential', () => {

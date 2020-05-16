@@ -1,5 +1,5 @@
 import { reduce, take } from 'rxjs/operators';
-import { filterEndsWith, filterStartsWith, fromString } from '@tinynodes/rxjs-string';
+import { filterStartsWith, fromString } from '@tinynodes/rxjs-string';
 
 describe('filterStartsWith', () => {
   it('should return strings that starts with a character at the string full length', (done) => {

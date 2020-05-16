@@ -1,5 +1,5 @@
 import { reduce, take } from 'rxjs/operators';
-import { endsWith, filterEndsWith, fromString } from '@tinynodes/rxjs-string';
+import { endsWith, fromString } from '@tinynodes/rxjs-string';
 
 describe('endsWith', () => {
   it('should return boolean of string that end with a character at the string full length', (done) => {

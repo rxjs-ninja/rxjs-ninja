@@ -1,8 +1,7 @@
 import { from } from 'rxjs';
-import { firstTruthy } from '@tinynodes/rxjs-boolean';
 import { lastTruthy } from './last-truthy';
 
-describe('firstTruthy', () => {
+describe('lastTruthy', () => {
   it('should return the first true value from a source', (done) => {
     from(['a', 'b', 'c'])
       .pipe(lastTruthy())

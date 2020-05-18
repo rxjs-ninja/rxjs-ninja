@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>PadPosition | RxJS Primitives</title>
+	<title>FormType | RxJS Primitives</title>
 	<meta name="description" content="Documentation for RxJS Primitives">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,10 +59,10 @@
 					<a href="../modules/string.html">string</a>
 				</li>
 				<li>
-					<a href="string.padposition.html">PadPosition</a>
+					<a href="string.formtype.html">FormType</a>
 				</li>
 			</ul>
-			<h1>Enumeration PadPosition</h1>
+			<h1>Enumeration FormType</h1>
 		</div>
 	</div>
 </header>
@@ -72,7 +72,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>The position to do the string padding at</p>
+						<p>The type of form to normalize a unicode string with, default is &#39;NFC&#39;</p>
 					</div>
 				</div>
 			</section>
@@ -83,8 +83,10 @@
 						<section class="tsd-index-section ">
 							<h3>Enumeration members</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="string.padposition.html#end" class="tsd-kind-icon">END</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="string.padposition.html#start" class="tsd-kind-icon">START</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="string.formtype.html#nfc" class="tsd-kind-icon">NFC</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="string.formtype.html#nfd" class="tsd-kind-icon">NFD</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="string.formtype.html#nfkc" class="tsd-kind-icon">NFKC</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="string.formtype.html#nfkd" class="tsd-kind-icon">NFKD</a></li>
 							</ul>
 						</section>
 					</div>
@@ -93,32 +95,62 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Enumeration members</h2>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="end" class="tsd-anchor"></a>
-					<h3>END</h3>
-					<div class="tsd-signature tsd-kind-icon">END<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;end&quot;</span></div>
+					<a name="nfc" class="tsd-anchor"></a>
+					<h3>NFC</h3>
+					<div class="tsd-signature tsd-kind-icon">NFC<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;NFC&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5774115/libs/rxjs/string/src/types/position.ts#L23">string/src/types/position.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5774115/libs/rxjs/string/src/types/normalize.ts#L13">string/src/types/normalize.ts:13</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Pad the end of the string from the last string character</p>
+							<p>Canonical Decomposition, followed by Canonical Composition.</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="start" class="tsd-anchor"></a>
-					<h3>START</h3>
-					<div class="tsd-signature tsd-kind-icon">START<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;start&quot;</span></div>
+					<a name="nfd" class="tsd-anchor"></a>
+					<h3>NFD</h3>
+					<div class="tsd-signature tsd-kind-icon">NFD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;NFD&quot;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5774115/libs/rxjs/string/src/types/position.ts#L19">string/src/types/position.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5774115/libs/rxjs/string/src/types/normalize.ts#L17">string/src/types/normalize.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Pad the start of the string</p>
+							<p>Canonical Decomposition.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="nfkc" class="tsd-anchor"></a>
+					<h3>NFKC</h3>
+					<div class="tsd-signature tsd-kind-icon">NFKC<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;NFKC&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5774115/libs/rxjs/string/src/types/normalize.ts#L21">string/src/types/normalize.ts:21</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Compatibility Decomposition, followed by Canonical Composition.</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="nfkd" class="tsd-anchor"></a>
+					<h3>NFKD</h3>
+					<div class="tsd-signature tsd-kind-icon">NFKD<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;NFKD&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5774115/libs/rxjs/string/src/types/normalize.ts#L25">string/src/types/normalize.ts:25</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Compatibility Decomposition.</p>
 						</div>
 					</div>
 				</section>
@@ -149,13 +181,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-enum tsd-parent-kind-module">
-						<a href="string.padposition.html" class="tsd-kind-icon">Pad<wbr>Position</a>
+						<a href="string.formtype.html" class="tsd-kind-icon">Form<wbr>Type</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="string.padposition.html#end" class="tsd-kind-icon">END</a>
+								<a href="string.formtype.html#nfc" class="tsd-kind-icon">NFC</a>
 							</li>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
-								<a href="string.padposition.html#start" class="tsd-kind-icon">START</a>
+								<a href="string.formtype.html#nfd" class="tsd-kind-icon">NFD</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="string.formtype.html#nfkc" class="tsd-kind-icon">NFKC</a>
+							</li>
+							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
+								<a href="string.formtype.html#nfkd" class="tsd-kind-icon">NFKD</a>
 							</li>
 						</ul>
 					</li>

@@ -34,12 +34,6 @@ jobs:
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         run: npm ci
 
-      - name: Run lint
-        run: ./.github/scripts/run-linting.sh False
-
-      - name: Tests coverage
-        run: ./.github/scripts/run-testing.sh False False
-
       - name: Deploy
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         env:

@@ -5,9 +5,9 @@ set -o errexit -o noclobber -o nounset -o pipefail
 
 getBuildType() {
   local release_type="minor"
-  if [[ "$1" == *"(feat)"* ]]; then
+  if [[ "$1" == *"(major)"* ]]; then
     release_type="major"
-  elif [[ "$1" == *"(fix)"* || "$1" == *"(docs)"* || "$1" == *"(chore)"* ]]; then
+  elif [[ "$1" == *"(patch)"* ]]; then
     release_type="patch"
   fi
   echo "$release_type"

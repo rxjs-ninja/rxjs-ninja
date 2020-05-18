@@ -69,3 +69,63 @@ function trimString(position: TrimPositionValue = 'all'): MonoTypeOperatorFuncti
 }
 
 export { trimString };
+
+/**
+ * The `trimLeft` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * value and returns a string trimmed on the left
+ *
+ * This operator is based on [String.prototype.trimLeft](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimLeft)
+ *
+ * @example
+ * ```ts
+ * fromString('     12345     ')
+ *  .pipe(trimLeft())
+ *  .subscribe(console.log) // '12345     '
+ * ```
+ *
+ * @returns String that is formatted with white space to the left trimmed
+ * @category RxJS String Formatting
+ */
+export function trimLeft(): MonoTypeOperatorFunction<string> {
+  return trimString(TrimPosition.START);
+}
+
+/**
+ * The `trimRight` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * value and returns a string trimmed on the right
+ *
+ * This operator is based on [String.prototype.trimRight](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimLeft)
+ *
+ * @example
+ * ```ts
+ * fromString('     12345     ')
+ *  .pipe(trimRight())
+ *  .subscribe(console.log) // '     12345'
+ * ```
+ *
+ * @returns String that is formatted with white space to the right trimmed
+ * @category RxJS String Formatting
+ */
+export function trimRight(): MonoTypeOperatorFunction<string> {
+  return trimString(TrimPosition.START);
+}
+
+/**
+ * The `trimRight` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * value and returns a string trimmed on the right
+ *
+ * This operator is based on [String.prototype.trimRight](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimLeft)
+ *
+ * @example
+ * ```ts
+ * fromString('     12345     ')
+ *  .pipe(trim())
+ *  .subscribe(console.log) // '12345'
+ * ```
+ *
+ * @returns String that is formatted with all surrounding white space trimmed
+ * @category RxJS String Formatting
+ */
+export function trim(): MonoTypeOperatorFunction<string> {
+  return trimString(TrimPosition.ALL);
+}

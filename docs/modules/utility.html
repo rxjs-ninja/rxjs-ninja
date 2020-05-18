@@ -77,6 +77,10 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
+							<h3>RxJS Boolean Validation Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="utility.html#luhncheck" class="tsd-kind-icon">luhn<wbr>Check</a></li>
+							</ul>
 							<h3>RxJS Observable Utilities Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="utility.html#debouncewithquery" class="tsd-kind-icon">debounce<wbr>With<wbr>Query</a></li>
@@ -94,7 +98,7 @@
 					<div class="tsd-signature tsd-kind-icon">Query<wbr>Method&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0ffebb9/libs/rxjs/utility/src/lib/debounce-with-query.ts#L17">utility/src/lib/debounce-with-query.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5180fb0/libs/rxjs/utility/src/lib/debounce-with-query.ts#L17">utility/src/lib/debounce-with-query.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -144,6 +148,40 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>RxJS Boolean Validation Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="luhncheck" class="tsd-anchor"></a>
+					<h3>luhn<wbr>Check</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">luhn<wbr>Check<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5180fb0/libs/rxjs/boolean/src/lib/luhn-check.ts#L20">boolean/src/lib/luhn-check.ts:20</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>luhnCheck</code> operator is used to validate identification numbers such as bank cards,
+									IMEI numbers using the <a href="https://en.wikipedia.org/wiki/Luhn_algorithm">Luhn Algorithm</a></p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>fromString(&#39;4485275742308327&#39;)
+											.pipe(luhnCheck())
+										.subscribe(console.log) // true</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Boolean value if the passed value passes the Luhn check</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>RxJS Observable Utilities Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="debouncewithquery" class="tsd-anchor"></a>
@@ -155,7 +193,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0ffebb9/libs/rxjs/utility/src/lib/debounce-with-query.ts#L41">utility/src/lib/debounce-with-query.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5180fb0/libs/rxjs/utility/src/lib/debounce-with-query.ts#L41">utility/src/lib/debounce-with-query.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -213,7 +251,7 @@ fromEvent(input, <span class="hljs-string">'keyup'</span>)
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0ffebb9/libs/rxjs/utility/src/lib/start-with-tap.ts#L29">utility/src/lib/start-with-tap.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5180fb0/libs/rxjs/utility/src/lib/start-with-tap.ts#L29">utility/src/lib/start-with-tap.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -276,6 +314,21 @@ fromEvent(input, <span class="hljs-string">'keyup'</span>)
 						<a href="../globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="_array_src_index_.html">&quot;array/src/index&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_array_src_lib_intersects_.html">&quot;array/src/lib/intersects&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_array_src_lib_intersects_with_.html">&quot;array/src/lib/intersects-<wbr>with&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_boolean_src_types_intersect_.html">&quot;boolean/src/types/intersect&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_utility_src_lib_tap_on_subscribe_.html">&quot;utility/src/lib/tap-<wbr>on-<wbr>subscribe&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="boolean.html">boolean</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -296,6 +349,9 @@ fromEvent(input, <span class="hljs-string">'keyup'</span>)
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="utility.html#debouncewithquery" class="tsd-kind-icon">debounce<wbr>With<wbr>Query</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="utility.html#luhncheck" class="tsd-kind-icon">luhn<wbr>Check</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="utility.html#startwithtap" class="tsd-kind-icon">start<wbr>With<wbr>Tap</a>

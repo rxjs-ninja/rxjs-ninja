@@ -43,7 +43,11 @@ function lastTruthy<T>(): MonoTypeOperatorFunction<T>;
 function lastTruthy<T>(predicate: PredicateFn<T>): MonoTypeOperatorFunction<T>;
 function lastTruthy<T>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
   if (predicate) {
-    return (source: Observable<T>) => source.pipe(filter<T>(predicate), takeLast(1));
+    return (source: Observable<T>) =>
+      source.pipe(
+        filter<T>((val) => predicate(val)),
+        takeLast(1),
+      );
   }
   return (source: Observable<T>) => source.pipe(filter<T>(Boolean), takeLast(1));
 }

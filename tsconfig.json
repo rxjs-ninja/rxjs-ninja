@@ -19,7 +19,8 @@
       "@tinynodes/rxjs-string": ["libs/rxjs/string/src/index.ts"],
       "@tinynodes/rxjs-number": ["libs/rxjs/number/src/index.ts"],
       "@tinynodes/rxjs-boolean": ["libs/rxjs/boolean/src/index.ts"],
-      "@tinynodes/rxjs-utility": ["libs/rxjs/utility/src/index.ts"]
+      "@tinynodes/rxjs-utility": ["libs/rxjs/utility/src/index.ts"],
+      "@tinynodes/rxjs/array": ["libs/rxjs/array/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

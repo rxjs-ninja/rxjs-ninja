@@ -30,6 +30,9 @@
     },
     "rxjs-utility": {
       "tags": []
+    },
+    "rxjs-array": {
+      "tags": []
     }
   }
 }

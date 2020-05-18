@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module string
  */
-import { Observable, of, SchedulerLike } from 'rxjs';
+import { Observable, SchedulerLike } from 'rxjs';
 import { FormType } from '../types/normalize';
 import { scheduleSingleOrArrayUnicode, subscribeToSingleOrArrayUnicode } from '../utils/from-unicode.utils';
 

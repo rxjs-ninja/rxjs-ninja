@@ -1,8 +1,8 @@
 import { take } from 'rxjs/operators';
-import { fromString, replace } from '@tinynodes/rxjs-string';
+import { fromString } from '@tinynodes/rxjs-string';
 import { repeat } from './repeat';
 
-describe('replace', () => {
+describe('repeat', () => {
   it('should take a string and replace a string pattern', (done) => {
     fromString('foobar')
       .pipe(repeat(5), take(1))

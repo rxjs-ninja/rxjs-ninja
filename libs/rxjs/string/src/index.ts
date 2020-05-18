@@ -27,6 +27,7 @@ export { padString } from './lib/pad-string';
 export { repeat } from './lib/repeat';
 export { replace } from './lib/replace';
 export { reverse } from './lib/reverse';
+export { search } from './lib/search';
 export { slice } from './lib/slice';
 export { split } from './lib/split';
 export { startsWith } from './lib/starts-with';

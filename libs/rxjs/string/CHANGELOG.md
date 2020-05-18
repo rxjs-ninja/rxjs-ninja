@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] - 2020-05-18
+
+### Added
+
+New Operators (now [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) feature complete)
+
+- `fromUnitcode` - Creates a string of Unicode Normalization Form characters
+  and uses [String.prototype.normalize](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize)
+  to convert it to a string
+- `match` and `matchAll` for matching strings or regular expressions.
+  - `match` returns a single Array-like `RegExpMatchArray`
+  - `matchAll` returns an array of Array-like `RegExpMatchArray`
+- `repeat` - This repeats a string by the passed count number. This implementation accepts an optional separator character that can be used to generate strings such as CSV
+- `search` - Searches a string and return the index of the result
+- `padStart` and `padEnd` alias methods now added for padding
+- `trimLeft` `trimRight` and `trim` alias methods now added for trimming
+
+### Changed
+
+- Underlying typescript library for library changed from `es2018` to `es2020`
+
 ## [2.2.1] - 2020-05-16
 
 ### Added

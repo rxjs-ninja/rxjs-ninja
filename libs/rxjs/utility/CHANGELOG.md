@@ -11,7 +11,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - Underlying typescript library for library changed from `es2018` to `es2020`
 
-
 ## [1.1.0] - 2020-05-11
 
 ### Changed

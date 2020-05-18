@@ -23,7 +23,7 @@ export { mapCodePoint } from './lib/map-code-point';
 export { match } from './lib/match';
 export { matchAll } from './lib/match-all';
 export { normalize } from './lib/normalize';
-export { padString } from './lib/pad-string';
+export { padString, padEnd, padStart } from './lib/pad-string';
 export { repeat } from './lib/repeat';
 export { replace } from './lib/replace';
 export { reverse } from './lib/reverse';
@@ -35,7 +35,7 @@ export { substring } from './lib/substring';
 export { titleize } from './lib/titleize';
 export { toLowerCase } from './lib/to-lower-case';
 export { toUpperCase } from './lib/to-upper-case';
-export { trimString } from './lib/trim-string';
+export { trimString, trim, trimLeft, trimRight } from './lib/trim-string';
 
 export { PadPosition, TrimPosition } from './types/position';
 export { FormType } from './types/normalize';

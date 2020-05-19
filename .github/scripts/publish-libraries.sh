@@ -21,6 +21,11 @@ COMMIT_MESSAGE="$(git log -1 --pretty=format:"%s")"
 RELEASE_TYPE=${1:-$(getBuildType "$COMMIT_MESSAGE")}
 DRY_RUN=${DRY_RUN:-"False"}
 
+IGNORE=$(echo "$COMMIT_MESSAGE" | sed -nE "s/^.*\[ignore:(.+)\]$/\1/p")
+if [ "$IGNORE" != "" ]; then
+  echo "Ignoring: $IGNORE"
+fi
+
 # Version the parent library
 # npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
 # Get the version to set on sub-libraries
@@ -33,19 +38,24 @@ if [ "$AFFECTED" != "" ]; then
   echo "Copy Environment Files"
 
   while IFS= read -r -d $' ' lib; do
-    echo "Setting version for $lib"
-    cd "$PARENT_DIR"
-    cd "$ROOT_DIR/libs/${lib/-//}"
-    npm version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
-    echo "Building $lib"
-    cd "$PARENT_DIR"
-    npm run build "$lib" -- --prod --with-deps
-    wait
+
+    if [[ "$IGNORE" == *"$lib"* ]]; then
+      echo "Skipping $lib"
+    else
+      echo "Setting version for $lib"
+      cd "$PARENT_DIR"
+      cd "$ROOT_DIR/libs/${lib/-//}"
+      npm version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
+      echo "Building $lib"
+      cd "$PARENT_DIR"
+      npm run build "$lib" -- --prod --with-deps
+      wait
+    fi
   done <<<"$AFFECTED " # leave space on end to generate correct output
 
   cd "$PARENT_DIR"
   while IFS= read -r -d $' ' lib; do
-    if [ "$DRY_RUN" == "False" ]; then
+    if [[ "$DRY_RUN" == "False" || "$IGNORE" != *"$lib"* ]]; then
       echo "Publishing $lib"
       npm publish "$ROOT_DIR/dist/libs/${lib/-//}" --access=public
     else

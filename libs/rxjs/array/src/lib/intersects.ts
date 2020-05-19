@@ -2,6 +2,11 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MutateValueFn } from '../types/intersect';
 
+/**
+ *
+ * @param checkArray
+ * @param mutate
+ */
 export function intersects<T, K>(checkArray: T[], mutate?: MutateValueFn<T, T | K>): MonoTypeOperatorFunction<T[]> {
   if (mutate) {
     const checkSet = new Set(checkArray.map<T | K>(mutate));

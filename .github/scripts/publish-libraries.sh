@@ -21,6 +21,10 @@ COMMIT_MESSAGE="$(git log -1 --pretty=format:"%s")"
 RELEASE_TYPE=${1:-$(getBuildType "$COMMIT_MESSAGE")}
 DRY_RUN=${DRY_RUN:-"False"}
 
+
+echo "$COMMIT_MESSAGE"
+exit 0;
+
 # Version the parent library
 # npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
 # Get the version to set on sub-libraries

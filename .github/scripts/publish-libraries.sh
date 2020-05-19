@@ -21,9 +21,10 @@ COMMIT_MESSAGE="$(git log -1 --pretty=format:"%s")"
 RELEASE_TYPE=${1:-$(getBuildType "$COMMIT_MESSAGE")}
 DRY_RUN=${DRY_RUN:-"False"}
 
-
-echo "$COMMIT_MESSAGE"
-exit 0;
+#REGEX='/^ignore:([A-Za-z-]*),$/g'
+# IGNORE=$(echo "$COMMIT_MESSAGE" | grep -EF '/^.+\[ignore:([a-zA-Z0-9-,]*)?\]$/gi')
+# echo "$COMMIT_MESSAGE - $IGNORE"
+# exit 0;
 
 # Version the parent library
 # npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
@@ -37,16 +38,21 @@ if [ "$AFFECTED" != "" ]; then
   echo "Copy Environment Files"
 
   while IFS= read -r -d $' ' lib; do
-    echo "Setting version for $lib"
-    cd "$PARENT_DIR"
-    cd "$ROOT_DIR/libs/${lib/-//}"
-    npm version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
-    echo "Building $lib"
-    cd "$PARENT_DIR"
-    npm run build "$lib" -- --prod --with-deps
-    wait
-  done <<<"$AFFECTED " # leave space on end to generate correct output
 
+    if [[ "$lib" =~ /^.+\[ignore:([a-zA-Z0-9-,]*)?\]$/gi ]]; then
+      echo "Skipping $lib"
+    else
+      echo "Setting version for $lib"
+      cd "$PARENT_DIR"
+      cd "$ROOT_DIR/libs/${lib/-//}"
+      npm version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
+      echo "Building $lib"
+      cd "$PARENT_DIR"
+      npm run build "$lib" -- --prod --with-deps
+      wait
+    fi
+  done <<<"$AFFECTED " # leave space on end to generate correct output
+  exit 0;
   cd "$PARENT_DIR"
   while IFS= read -r -d $' ' lib; do
     if [ "$DRY_RUN" == "False" ]; then

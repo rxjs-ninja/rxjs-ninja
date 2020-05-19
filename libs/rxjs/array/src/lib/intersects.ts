@@ -1,6 +1,6 @@
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { MutateValueFn } from '../../../boolean/src/types/intersect';
+import { MutateValueFn } from '../types/intersect';
 
 export function intersects<T, K>(checkArray: T[], mutate?: MutateValueFn<T, T | K>): MonoTypeOperatorFunction<T[]> {
   if (mutate) {

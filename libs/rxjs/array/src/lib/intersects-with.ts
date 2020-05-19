@@ -1,6 +1,6 @@
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PredicateFn } from '../../../boolean/src/types/boolean';
+import { PredicateFn } from '../types/intersect';
 
 export function intersectsWith<T>(intersection: T[], predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>

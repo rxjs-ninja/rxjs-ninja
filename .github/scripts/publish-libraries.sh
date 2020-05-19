@@ -22,14 +22,14 @@ RELEASE_TYPE=${1:-$(getBuildType "$COMMIT_MESSAGE")}
 DRY_RUN=${DRY_RUN:-"False"}
 
 IGNORE=''
-REGEX='/^.+\[ignore:([a-zA-Z0-9-,]*)?\]$/g'
-if [[ "$COMMIT_MESSAGE" =~ $REGEX ]]; then
-  IGNORE=$BASH_REMATCH
-fi
+#REGEX='/^.+\[ignore:([a-zA-Z0-9-,]*)?\]$/g'
+#REGEX=^.*\[ignore:([A-Za-z-,]+)\]$
+#if [[ "$COMMIT_MESSAGE" =~ /^.+\[ignore:([a-zA-Z0-9-,]*)?\]$/gmi ]]; then
+#  IGNORE="$BASH_REMATCH"
+#fi
 
-# IGNORE=$(echo "$COMMIT_MESSAGE" | sed -ne "s$REGEX\1/p")
-echo "$COMMIT_MESSAGE - $IGNORE"
-exit 0;
+IGNORE=$(echo "$COMMIT_MESSAGE" | sed -nE "s/^.*\[ignore:(.+)\]$/\1/p")
+echo "Ignoring: $IGNORE"
 
 # Version the parent library
 # npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
@@ -44,7 +44,7 @@ if [ "$AFFECTED" != "" ]; then
 
   while IFS= read -r -d $' ' lib; do
 
-    if [[ "$lib" =~ /^.+\[ignore:([a-zA-Z0-9-,]*)?\]$/gi ]]; then
+    if [[ "$IGNORE" == *"$lib"* ]]; then
       echo "Skipping $lib"
     else
       echo "Setting version for $lib"
@@ -57,10 +57,10 @@ if [ "$AFFECTED" != "" ]; then
       wait
     fi
   done <<<"$AFFECTED " # leave space on end to generate correct output
-  exit 0;
+
   cd "$PARENT_DIR"
   while IFS= read -r -d $' ' lib; do
-    if [ "$DRY_RUN" == "False" ]; then
+    if [[ "$DRY_RUN" == "False" || "$IGNORE" != *"$lib"* ]]; then
       echo "Publishing $lib"
       npm publish "$ROOT_DIR/dist/libs/${lib/-//}" --access=public
     else

@@ -21,15 +21,10 @@ COMMIT_MESSAGE="$(git log -1 --pretty=format:"%s")"
 RELEASE_TYPE=${1:-$(getBuildType "$COMMIT_MESSAGE")}
 DRY_RUN=${DRY_RUN:-"False"}
 
-IGNORE=''
-#REGEX='/^.+\[ignore:([a-zA-Z0-9-,]*)?\]$/g'
-#REGEX=^.*\[ignore:([A-Za-z-,]+)\]$
-#if [[ "$COMMIT_MESSAGE" =~ /^.+\[ignore:([a-zA-Z0-9-,]*)?\]$/gmi ]]; then
-#  IGNORE="$BASH_REMATCH"
-#fi
-
 IGNORE=$(echo "$COMMIT_MESSAGE" | sed -nE "s/^.*\[ignore:(.+)\]$/\1/p")
-echo "Ignoring: $IGNORE"
+if [ "$IGNORE" != "" ]; then
+  echo "Ignoring: $IGNORE"
+fi
 
 # Version the parent library
 # npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"

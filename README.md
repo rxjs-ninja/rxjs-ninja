@@ -57,8 +57,6 @@ There are also operators for formatting numbers as strings such as `toLocaleStri
 
 ### rxjs-string
 
-
-
 A set of operators for working with `Observable` string values. This collection includes operators based on
 [ECMAScript String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String).
 

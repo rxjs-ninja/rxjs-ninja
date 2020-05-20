@@ -1,4 +1,9 @@
 /**
+ * @packageDocumentation
+ * @module array
+ */
+
+/**
  * Binary searcher method
  * @param searchValue
  * @param searchArray

@@ -28,4 +28,22 @@ describe('intersectsWith', () => {
         complete: () => done(),
       });
   });
+
+  it('should return an array of string items that intersect with no predicate for observable', (done) => {
+    of(['a', 'b', 'c', 'd'])
+      .pipe(intersectsWith(of(['a', 'c'])))
+      .subscribe({
+        next: (value) => expect(value).toStrictEqual(['a', 'c']),
+        complete: () => done(),
+      });
+  });
+
+  it('should return an array of string items that intersect with predicate for observable', (done) => {
+    of(['a', 'b', 'c', 'd'])
+      .pipe(intersectsWith(of(['A', 'C']), (x, y) => x === y.toLowerCase()))
+      .subscribe({
+        next: (value) => expect(value).toStrictEqual(['a', 'c']),
+        complete: () => done(),
+      });
+  });
 });

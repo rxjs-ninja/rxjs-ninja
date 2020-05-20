@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module array
+ */
 import { Observable, OperatorFunction } from 'rxjs';
 import { map, reduce } from 'rxjs/operators';
 import { binarySearcher, defaultSearch } from '../utils/binary-search';
@@ -10,14 +14,10 @@ export function binarySearch<T>(searchValue: T | T[], sort?: SortFn): OperatorFu
     source.pipe(
       reduce<T, T[]>((acc, val) => (Array.isArray(val) ? [...acc, ...val] : [...acc, val]), []),
       map((accArray) => accArray.sort(sortFn)),
-      map((sortedArray) => {
-        console.log(sortedArray, searchValue);
-        const index = binarySearcher(searchValue, sortedArray);
-        return {
-          searchValue: searchValue,
-          searchArray: sortedArray,
-          index,
-        };
-      }),
+      map((sortedArray) => ({
+        searchValue: searchValue,
+        searchArray: sortedArray,
+        index: binarySearcher(searchValue, sortedArray),
+      })),
     );
 }

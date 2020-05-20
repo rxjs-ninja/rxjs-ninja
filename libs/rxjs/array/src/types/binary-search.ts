@@ -1,4 +1,9 @@
 /**
+ * @packageDocumentation
+ * @module array
+ */
+
+/**
  * The response type for an array search
  */
 export interface ArraySearchResult<T = unknown> {
@@ -16,6 +21,12 @@ export interface ArraySearchResult<T = unknown> {
   index: number;
 }
 
+/**
+ *
+ */
 export type SearchValue<T> = (value: T) => boolean | T | T[];
 
+/**
+ * Method to be used to sort an array
+ */
 export type SortFn<T = unknown> = (a: T, b: T) => number;

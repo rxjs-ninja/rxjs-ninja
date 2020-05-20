@@ -1,12 +1,31 @@
 import { MonoTypeOperatorFunction, Observable, defer } from 'rxjs';
+import { CallbackFn } from '../types/utility';
 
 /**
- * Triggers callback every time a new observer subscribes to this chain.
+ * Operator that is executed on each subscription to an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable)
+ * The operator is passed a callback which is then executed
  *
- * @param callback
+ * @remarks
+ * This is similar to the [tap](https://rxjs-dev.firebaseapp.com/api/operators/tap) operator but fires when a subscription occurs
+ *
+ * @typeParam T The value type of the [Observable](https://rxjs-dev.firebaseapp.com/guide/observable)
+ *
+ * @param callback The callback to be executed when this operator is run
+ *
+ * @example
+ * ```ts
+ * fromEvent(element, 'click').pipe(
+ *  tapOnSubscribe(() => console.log('New Subscription'))
+ * ).subscribe()
+ * ```
+ *
+ * @returns An [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) value of T
+ * @category RxJS Observable Utilities
  */
-export const tapOnSubscribe = <T>(callback: () => void): MonoTypeOperatorFunction<T> => (source: Observable<T>): Observable<T> =>
-  defer(() => {
-    callback();
-    return source;
-  });
+export function tapOnSubscribe<T>(callback: CallbackFn): MonoTypeOperatorFunction<T> {
+  return (source: Observable<T>): Observable<T> =>
+    defer(() => {
+      callback();
+      return source;
+    });
+}

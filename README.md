@@ -11,6 +11,7 @@ This library is open source on [Github](https://github.com/tanepiper/rxjs-primit
 [![rxjs-string](https://img.shields.io/npm/v/@tinynodes/rxjs-string?label=rxjs-string)](https://www.npmjs.com/package/@tinynodes/rxjs-string)
 [![rxjs-utility](https://img.shields.io/npm/v/@tinynodes/rxjs-utility?label=rxjs-utility)](https://www.npmjs.com/package/@tinynodes/rxjs-utility)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tanepiper_rxjs-primitives&metric=alert_status)](https://sonarcloud.io/dashboard?id=tanepiper_rxjs-primitives)
+[![Code Coverage](https://codecov.io/gh/tanepiper/rxjs-primitives/branch/master/graph/badge.svg)](https://codecov.io/gh/tanepiper/rxjs-primitives)
 
 ## What are these libraries?
 

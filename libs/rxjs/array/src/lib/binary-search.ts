@@ -3,7 +3,7 @@
  * @module array
  */
 import { Observable, OperatorFunction } from 'rxjs';
-import { map, reduce, tap } from 'rxjs/operators';
+import { map, reduce } from 'rxjs/operators';
 import { binarySearcher, defaultSearch } from '../utils/binary-search';
 import { ArraySearchResult, SortFn } from '../types/binary-search';
 

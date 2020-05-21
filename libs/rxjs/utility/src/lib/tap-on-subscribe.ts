@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module utility
+ */
 import { MonoTypeOperatorFunction, Observable, defer } from 'rxjs';
 import { CallbackFn } from '../types/utility';
 

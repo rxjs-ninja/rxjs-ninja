@@ -9,15 +9,15 @@ import { mapIntersection } from '../utils/intersects';
 
 /**
  *
- * @param checkArray
+ * @param input
  * @param mutate
  */
-export function intersects<T, K>(checkArray: T[] | ObservableInput<T[]>, mutate?: MutateValueFn<T, T | K>): MonoTypeOperatorFunction<T[]> {
+export function intersects<T, K>(input: T[] | ObservableInput<T[]>, mutate?: MutateValueFn<T, T | K>): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) => {
-    if (Array.isArray(checkArray)) {
-      return source.pipe(map(mapIntersection(checkArray, mutate)));
-    } else if (checkArray instanceof Observable) {
-      return checkArray.pipe(switchMap((input) => source.pipe(map(mapIntersection(input, mutate)))));
+    if (Array.isArray(input)) {
+      return source.pipe(map(mapIntersection(input, mutate)));
+    } else if (input instanceof Observable) {
+      return input.pipe(switchMap((input) => source.pipe(map(mapIntersection(input, mutate)))));
     }
   };
 }

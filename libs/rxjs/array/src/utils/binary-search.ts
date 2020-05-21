@@ -19,29 +19,16 @@ export function binarySearcher<T, K>(searchValue: T, searchArray: T[], property?
 
   while (!found && first <= last) {
     middle = Math.floor((first + last) / 2);
-
-    if (property) {
-      if (searchArray[middle][property] == searchValue) {
-        found = true;
-        position = middle;
-      } else if (searchArray[middle][property] > searchValue) {
-        //if in lower half
-        last = middle - 1;
-      } else {
-        //in in upper half
-        first = middle + 1;
-      }
+    const checkValue = property ? searchArray[middle][property] : searchArray[middle];
+    if (checkValue == searchValue) {
+      found = true;
+      position = middle;
+    } else if (checkValue > searchValue) {
+      //if in lower half
+      last = middle - 1;
     } else {
-      if (searchArray[middle] == searchValue) {
-        found = true;
-        position = middle;
-      } else if (searchArray[middle] > searchValue) {
-        //if in lower half
-        last = middle - 1;
-      } else {
-        //in in upper half
-        first = middle + 1;
-      }
+      //in in upper half
+      first = middle + 1;
     }
   }
   return position;
@@ -53,6 +40,9 @@ export function binarySearcher<T, K>(searchValue: T, searchArray: T[], property?
  * @param b
  */
 export function defaultSearch<T>(a: T, b: T): number {
+  if (typeof a === 'string') {
+    return a.localeCompare(b as never);
+  }
   if (a === b) return 0;
   return a < b ? -1 : 1;
 }

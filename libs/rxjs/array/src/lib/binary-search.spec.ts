@@ -3,11 +3,20 @@ import { binarySearch } from './binary-search';
 import { take } from 'rxjs/operators';
 
 describe('binarySearch', () => {
-  it('should binary search a single array', (done) => {
+  it('should binary search a single array of numbers', (done) => {
     of([1, 4, 7, 2, 5, 6, 3, 8, 10, 9])
       .pipe(binarySearch(5), take(1))
       .subscribe({
         next: (value) => expect(value.index).toBe(4),
+        complete: () => done(),
+      });
+  });
+
+  it('should binary search a single array of strings', (done) => {
+    of(['b', 'c', 'd', 'a', 'g', 'f', '34', '2'])
+      .pipe(binarySearch('b'), take(1))
+      .subscribe({
+        next: (value) => expect(value.index).toBe(3),
         complete: () => done(),
       });
   });
@@ -41,7 +50,7 @@ describe('binarySearch', () => {
       return a[1] < b[1] ? -1 : 1;
     };
 
-    of<[number, number][]>([
+    from<[number, number][]>([
       [1, 1],
       [2, 4],
       [3, 7],
@@ -53,9 +62,9 @@ describe('binarySearch', () => {
       [9, 10],
       [10, 9],
     ])
-      .pipe(binarySearch<[number, number], number>(5, sort, 1), take(1))
+      .pipe(binarySearch<[number, number], number>(9, sort, 1), take(1))
       .subscribe({
-        next: (value) => expect(value.index).toBe(4),
+        next: (value) => expect(value.index).toBe(8),
         complete: () => done(),
       });
   });

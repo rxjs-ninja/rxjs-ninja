@@ -6,6 +6,7 @@ The libraries included are below, but you can also find ful [API Documentation](
 
 This library is open source on [Github](https://github.com/tanepiper/rxjs-primitives) and available to install as an `npm` modules.
 
+[![rxjs-array](https://img.shields.io/npm/v/@tinynodes/rxjs-array?label=rxjs-array)](https://www.npmjs.com/package/@tinynodes/rxjs-array)
 [![rxjs-boolean](https://img.shields.io/npm/v/@tinynodes/rxjs-boolean?label=rxjs-boolean)](https://www.npmjs.com/package/@tinynodes/rxjs-boolean)
 [![rxjs-number](https://img.shields.io/npm/v/@tinynodes/rxjs-number?label=rxjs-number)](https://www.npmjs.com/package/@tinynodes/rxjs-number)
 [![rxjs-string](https://img.shields.io/npm/v/@tinynodes/rxjs-string?label=rxjs-string)](https://www.npmjs.com/package/@tinynodes/rxjs-string)

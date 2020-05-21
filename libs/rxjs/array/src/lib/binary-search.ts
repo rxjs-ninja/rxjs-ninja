@@ -3,7 +3,7 @@
  * @module array
  */
 import { Observable, OperatorFunction } from 'rxjs';
-import { map, reduce } from 'rxjs/operators';
+import { map, reduce, tap } from 'rxjs/operators';
 import { binarySearcher, defaultSearch } from '../utils/binary-search';
 import { ArraySearchResult, SortFn } from '../types/binary-search';
 
@@ -18,8 +18,6 @@ import { ArraySearchResult, SortFn } from '../types/binary-search';
  * @typeParam K The type of value in array item to search
  *
  * @param searchValue The value to search for in the source array
- * @param sort Optional sort method for sorting more complex types
- * @param property Optional property to be searched on in more complex objects
  *
  * @example
  * ```ts
@@ -27,6 +25,21 @@ import { ArraySearchResult, SortFn } from '../types/binary-search';
  *  .pipe(binarySearch(5), take(1))
  *  .subscribe(console.log) // { searchValue: 5, searchArray: [1, 2, 3,...], index: 4}
  * ```
+ *
+ * @returns [[ArraySearchResult]] containing the sorted array, search value and index
+ * @category RxJS Array Search
+ */
+function binarySearch<T, K>(searchValue: K): OperatorFunction<T | T[], ArraySearchResult>;
+/**
+ *
+ * @param searchValue The value to search for in the source array
+ * @param sort Optional sort method for sorting more complex types
+ * @param property Optional property to be searched on in more complex objects
+ *
+ * @remarks
+ * When using an additional property, if it's a number the underlying T[] is assumed
+ * to be an array. If you have an object with a number property, use a string value
+ * instead (e.g. `'5'` instead of `5`)
  *
  * @example
  * ```ts
@@ -51,8 +64,6 @@ function binarySearch<T, K>(searchValue: K, sort?: SortFn, property?: string | n
 /**
  *
  * @param searchValue The value to search for in the source array
- * @param sort Optional sort method for sorting more complex types
- * @param property Optional property to be searched on in more complex objects
  *
  * @example
  * ```ts
@@ -60,6 +71,21 @@ function binarySearch<T, K>(searchValue: K, sort?: SortFn, property?: string | n
  *  .pipe(binarySearch(5), take(1))
  *  .subscribe(console.log) // { searchValue: 5, searchArray: [1, 2, 3,...], index: 4}
  * ```
+ *
+ * @returns [[ArraySearchResult]] containing the sorted array, search value and index
+ * @category RxJS Array Search
+ */
+function binarySearch<T, K>(searchValue: K[]): OperatorFunction<T | T[], ArraySearchResult>;
+/**
+ *
+ * @param searchValue The value to search for in the source array
+ * @param sort Optional sort method for sorting more complex types
+ * @param property Optional property to be searched on in more complex objects
+ *
+ * @remarks
+ * When using an additional property, if it's a number the underlying T[] is assumed
+ * to be an array. If you have an object with a number property, use a string value
+ * instead (e.g. `'5'` instead of `5`)
  *
  * @example
  * ```ts
@@ -85,7 +111,10 @@ function binarySearch<T, K>(searchValue: K | K[], sort?: SortFn, property?: stri
 
   return (source: Observable<T | T[]>) =>
     source.pipe(
-      reduce<T, K[]>((acc, val) => (Array.isArray(val) ? [...acc, ...val] : [...acc, val]), []),
+      reduce<T, K[]>(
+        (acc, val) => (Array.isArray(val) ? (property && typeof property === 'number' ? [...acc, val] : [...acc, ...val]) : [...acc, val]),
+        [],
+      ),
       map((accArray) => accArray.sort(sortFn)),
       map((sortedArray) => ({
         searchValue: searchValue,

@@ -20,6 +20,6 @@ import { mapIntersectsWith } from '../utils/intersects';
 export function intersectsWith<T>(input: T[] | ObservableInput<T[]>, predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>
     input instanceof Observable
-      ? input.pipe(switchMap((input) => source.pipe(map(mapIntersectsWith(input, predicate)))))
+      ? input.pipe(switchMap((inputFromSource) => source.pipe(map(mapIntersectsWith(inputFromSource, predicate)))))
       : source.pipe(map(mapIntersectsWith(input as T[], predicate)));
 }

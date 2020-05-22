@@ -26,6 +26,8 @@ export function mapDifferenceWith<T>(input: T[], predicate?: PredicateFn<T>): (v
  *
  * @param checkArray
  * @param mutate
+ * @internal
+ * @private
  */
 export function mapDifference<T, K>(checkArray: T[], mutate?: InputModifierFn<T, T | K>): (value: T[]) => T[] {
   if (mutate) {

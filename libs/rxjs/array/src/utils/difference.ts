@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module array
  */
-import { InputModifierFn, PredicateFn } from '../types/intersect';
+import { InputModifierFn, PredicateFn } from '../types/array-compare';
 
 /**
  * Filter an array to find intersecting items with optional predicate method, otherwise

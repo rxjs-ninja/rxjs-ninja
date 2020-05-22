@@ -11,7 +11,7 @@ import { ArraySearchResult, SortFn } from '../types/binary-search';
  * The `binarySearch` operator takes an Observable array of values T and returns a [[ArraySearchResult]]
  * containing the original array, search value and index of the search value.
  *
- * The sorting method for this search is a basic quality check, if you need more complex sorting such as
+ * The default sorting method for this search is a basic quality check, if you need more complex sorting such as
  * objects you can pass a sorting method and additional property to search on
  *
  * @typeParam T The type in the array to search over
@@ -31,7 +31,6 @@ import { ArraySearchResult, SortFn } from '../types/binary-search';
  */
 function binarySearch<T, K>(searchValue: K): OperatorFunction<T | T[], ArraySearchResult>;
 /**
- *
  * @param searchValue The value to search for in the source array
  * @param sort Optional sort method for sorting more complex types
  * @param property Optional property to be searched on in more complex objects
@@ -60,9 +59,8 @@ function binarySearch<T, K>(searchValue: K): OperatorFunction<T | T[], ArraySear
  * @returns [[ArraySearchResult]] containing the sorted array, search value and index
  * @category RxJS Array Search
  */
-function binarySearch<T, K>(searchValue: K, sort?: SortFn, property?: string | number): OperatorFunction<T | T[], ArraySearchResult>;
+function binarySearch<T, K>(searchValue: K, sort: SortFn, property: string | number): OperatorFunction<T | T[], ArraySearchResult>;
 /**
- *
  * @param searchValue The value to search for in the source array
  *
  * @example
@@ -77,7 +75,6 @@ function binarySearch<T, K>(searchValue: K, sort?: SortFn, property?: string | n
  */
 function binarySearch<T, K>(searchValue: K[]): OperatorFunction<T | T[], ArraySearchResult>;
 /**
- *
  * @param searchValue The value to search for in the source array
  * @param sort Optional sort method for sorting more complex types
  * @param property Optional property to be searched on in more complex objects
@@ -93,7 +90,8 @@ function binarySearch<T, K>(searchValue: K[]): OperatorFunction<T | T[], ArraySe
  *  if (a[1] === b[1]) return 0;
  *  return a[1] < b[1] ? -1 : 1;
  * };
- * of<[number, number][]>([
+ *
+ * from<[number, number][]>([
  *  [1, 1], [2, 4], [3, 7], [4, 2], [5, 5],
  *  [6, 6], [7, 3], [8, 8], [9, 10], [10, 9]
  * ])
@@ -105,7 +103,7 @@ function binarySearch<T, K>(searchValue: K[]): OperatorFunction<T | T[], ArraySe
  * @returns [[ArraySearchResult]] containing the sorted array, search value and index
  * @category RxJS Array Search
  */
-function binarySearch<T, K>(searchValue: K[], sort?: SortFn, property?: string | number): OperatorFunction<T | T[], ArraySearchResult>;
+function binarySearch<T, K>(searchValue: K[], sort: SortFn, property: string | number): OperatorFunction<T | T[], ArraySearchResult>;
 function binarySearch<T, K>(searchValue: K | K[], sort?: SortFn, property?: string | number): OperatorFunction<T | T[], ArraySearchResult> {
   const sortFn = sort ? sort : defaultSearch;
 

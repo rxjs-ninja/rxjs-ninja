@@ -1,7 +1,11 @@
-# rxjs-array
+# RxJS Primitives - Array Operators
 
-This library was generated with [Nx](https://nx.dev).
+This library is for [RxJS Primitives](https://github.com/tanepiper/rxjs-primitives) and provides some convenience
+operators for [RxJS](https://rxjs-dev.firebaseapp.com/) around querying array values.
 
-## Running unit tests
+- [Github](https://github.com/tanepiper/rxjs-primitives)
+- Full [API Documentation](https://tanepiper.github.io/rxjs-primitives/) is available with examples.
 
-Run `ng test rxjs-array` to execute the unit tests via [Jest](https://jestjs.io).
+## How to install
+
+> `npm install @tinynodes/rxjs-array`

@@ -4,7 +4,7 @@
  */
 import { MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { PredicateFn } from '../types/intersect';
+import { PredicateFn } from '../types/array-compare';
 import { mapIntersectsWith } from '../utils/intersects';
 
 /**
@@ -14,15 +14,12 @@ import { mapIntersectsWith } from '../utils/intersects';
  * An optional predicate method can be passed for more complex types, but if none is passed a simple comparison (`===`)
  * will be used to determine the intersection
  *
- * @param intersection
+ * @param input
  * @param predicate
  */
-export function intersectsWith<T>(intersection: T[] | ObservableInput<T[]>, predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T[]> {
-  return (source: Observable<T[]>) => {
-    if (Array.isArray(intersection)) {
-      return source.pipe(map(mapIntersectsWith(intersection, predicate)));
-    } else if (intersection instanceof Observable) {
-      return intersection.pipe(switchMap((input) => source.pipe(map(mapIntersectsWith(input, predicate)))));
-    }
-  };
+export function intersectsWith<T>(input: T[] | ObservableInput<T[]>, predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T[]> {
+  return (source: Observable<T[]>) =>
+    input instanceof Observable
+      ? input.pipe(switchMap((input) => source.pipe(map(mapIntersectsWith(input, predicate)))))
+      : source.pipe(map(mapIntersectsWith(input as T[], predicate)));
 }

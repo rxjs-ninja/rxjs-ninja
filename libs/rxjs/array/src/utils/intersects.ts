@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module array
  */
-import { MutateValueFn, PredicateFn } from '../types/intersect';
+import { InputModifierFn, PredicateFn } from '../types/intersect';
 
 /**
  * Filter an array to find intersecting items with optional predicate method, otherwise
@@ -32,7 +32,7 @@ export function mapIntersectsWith<T>(input: T[], predicate?: PredicateFn<T>): (v
  * @private
  * @internal
  */
-export function mapIntersection<T, K>(checkArray: T[], mutate?: MutateValueFn<T, T | K>): (value: T[]) => T[] {
+export function mapIntersection<T, K>(checkArray: T[], mutate?: InputModifierFn<T, T | K>): (value: T[]) => T[] {
   if (mutate) {
     const checkSet = new Set(checkArray.map<T | K>(mutate));
     return (value: T[]) => [...new Set<T>(value)].filter((x) => checkSet.has(mutate(x)));

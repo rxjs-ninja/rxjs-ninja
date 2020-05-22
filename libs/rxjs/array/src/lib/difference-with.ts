@@ -4,25 +4,81 @@
  */
 import { MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { PredicateFn } from '../types/intersect';
+import { PredicateFn } from '../types/array-compare';
 import { mapDifferenceWith } from '../utils/difference';
 
 /**
- * The `intersectsWith` operator takes a Observable source that is an array of values, and a passed value which is
- * an array or Observable array of values of the same type.
+ * The `differenceWith` can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) array of values
+ * of T, passing in an array or Observable array of values to find the difference between the two. The returned array of
+ * values only contains values from the source Observable
  *
- * An optional predicate method can be passed for more complex types, but if none is passed a simple comparison (`===`)
- * will be used to determine the intersection
+ * An optional predicate method can be passed for more complex types, if none is passed a simple comparison (`===`)
+ * will be used to determine the difference
  *
- * @param intersection
- * @param predicate
+ * @typeParam T The type of data in the input array
+ *
+ * @param input Array of items use to get the difference between two arrays
+ *
+ * @example
+ * ```ts
+ * of(['a', 'b', 'c', 'd'])
+ *  .pipe(differenceWith(['a', 'c']))
+ *  .subscribe(console.log) // ['b', 'd']
+ * ```
+ *
+ * @returns Array of values of difference between the source and input array
+ * @category RxJS Array Difference
  */
-export function differenceWith<T>(intersection: T[] | ObservableInput<T[]>, predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T[]> {
-  return (source: Observable<T[]>) => {
-    if (Array.isArray(intersection)) {
-      return source.pipe(map(mapDifferenceWith(intersection, predicate)));
-    } else if (intersection instanceof Observable) {
-      return intersection.pipe(switchMap((input) => source.pipe(map(mapDifferenceWith(input, predicate)))));
-    }
-  };
+function differenceWith<T>(input: T[]): MonoTypeOperatorFunction<T[]>;
+/**
+ * @param input Observable Array of items use to get the difference between two arrays
+ *
+ * @example
+ * ```ts
+ * of(['a', 'b', 'c', 'd'])
+ *  .pipe(differenceWith(of(['a', 'c'])))
+ *  .subscribe(console.log) // ['b', 'd']
+ * ```
+ *
+ * @returns Array of values of difference between the source and input array
+ * @category RxJS Array Difference
+ */
+function differenceWith<T>(input: ObservableInput<T[]>): MonoTypeOperatorFunction<T[]>;
+/**
+ * @param input Array of items use to get the difference between two arrays
+ * @param predicate Function for comparison of arrays
+ *
+ * @example
+ * ```ts
+ * of(['a', 'b', 'c', 'd'])
+ *  .pipe(differenceWith(['A', 'C'], (x, y) => x === y.toLowerCase()))
+ *  .subscribe(console.log) // ['b', 'd']
+ * ```
+ *
+ * @returns Array of values of difference between the source and input array
+ * @category RxJS Array Difference
+ */
+function differenceWith<T>(input: T[], predicate: PredicateFn<T>): MonoTypeOperatorFunction<T[]>;
+/**
+ * @param input Observable Array of items use to get the difference between two arrays
+ * @param predicate Function for comparison of arrays
+ *
+ * @example
+ * ```ts
+ * of(['a', 'b', 'c', 'd'])
+ *  .pipe(differenceWith(of(['A', 'C']), (x, y) => x === y.toLowerCase()))
+ *  .subscribe(console.log) // ['b', 'd']
+ * ```
+ *
+ * @returns Array of values of difference between the source and input array
+ * @category RxJS Array Difference
+ */
+function differenceWith<T>(input: ObservableInput<T[]>, predicate: PredicateFn<T>): MonoTypeOperatorFunction<T[]>;
+function differenceWith<T>(input: T[] | ObservableInput<T[]>, predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T[]> {
+  return (source: Observable<T[]>) =>
+    input instanceof Observable
+      ? input.pipe(switchMap((input) => source.pipe(map(mapDifferenceWith(input, predicate)))))
+      : source.pipe(map(mapDifferenceWith(input as T[], predicate)));
 }
+
+export { differenceWith };

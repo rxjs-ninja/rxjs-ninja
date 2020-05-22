@@ -1,5 +1,4 @@
 import { of } from 'rxjs';
-import { intersects } from './intersects';
 import { difference } from './difference';
 
 describe('difference', () => {
@@ -23,7 +22,7 @@ describe('difference', () => {
 
   it('should return an Observable array of values that intersect', (done) => {
     of(['a', 'b', 'd'])
-      .pipe(difference(of(['a', 'c']), (val) => val.toUpperCase()))
+      .pipe(difference(of(['A', 'C']), (val) => val.toUpperCase()))
       .subscribe({
         next: (value) => expect(value).toStrictEqual(['b', 'd']),
         complete: () => done(),

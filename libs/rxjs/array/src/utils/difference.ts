@@ -1,12 +1,8 @@
 /**
- * Return a method that's used to check that two arrays have differences
- *
- * @param checkArray
- * @param mutate
- * @private
- * @internal
+ * @packageDocumentation
+ * @module array
  */
-import { MutateValueFn, PredicateFn } from '../types/intersect';
+import { InputModifierFn, PredicateFn } from '../types/intersect';
 
 /**
  * Filter an array to find intersecting items with optional predicate method, otherwise
@@ -19,15 +15,19 @@ import { MutateValueFn, PredicateFn } from '../types/intersect';
  * @internal
  */
 export function mapDifferenceWith<T>(input: T[], predicate?: PredicateFn<T>): (value: T[]) => T[] {
-  return (value: T[]): T[] => {
-    return value.filter(
+  return (value: T[]): T[] =>
+    value.filter(
       (sourceValue) =>
         input.findIndex((checkValue) => (predicate ? predicate(sourceValue, checkValue) : sourceValue === checkValue)) === -1,
     );
-  };
 }
 
-export function mapDifference<T, K>(checkArray: T[], mutate?: MutateValueFn<T, T | K>): (value: T[]) => T[] {
+/**
+ *
+ * @param checkArray
+ * @param mutate
+ */
+export function mapDifference<T, K>(checkArray: T[], mutate?: InputModifierFn<T, T | K>): (value: T[]) => T[] {
   if (mutate) {
     const checkSet = new Set(checkArray.map<T | K>(mutate));
     return (value: T[]) => [...new Set<T>(value)].filter((x) => !checkSet.has(mutate(x)));

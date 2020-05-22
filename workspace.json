@@ -140,6 +140,41 @@
           }
         }
       }
+    },
+    "rxjs-array": {
+      "root": "libs/rxjs/array",
+      "sourceRoot": "libs/rxjs/array/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "config": "libs/rxjs/array/.eslintrc",
+            "tsConfig": ["libs/rxjs/array/tsconfig.lib.json", "libs/rxjs/array/tsconfig.spec.json"],
+            "exclude": ["**/node_modules/**", "!libs/rxjs/array/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/rxjs/array/jest.config.js",
+            "tsConfig": "libs/rxjs/array/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/rxjs/array",
+            "tsConfig": "libs/rxjs/array/tsconfig.lib.json",
+            "packageJson": "libs/rxjs/array/package.json",
+            "main": "libs/rxjs/array/src/index.ts",
+            "assets": ["libs/rxjs/array/*.md"]
+          }
+        }
+      }
     }
   },
   "cli": {

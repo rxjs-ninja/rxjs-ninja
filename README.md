@@ -24,6 +24,19 @@ While most of these are one-line operators, they allow developers to avoid havin
 
 If you are looking for arethmetic operators (add, multiply, etc) then check out [rxmetrics](https://loreanvictor.github.io/rxmetics/)
 
+### rxjs-array
+
+A set of utility operators for various method for `Observable` arrays
+
+#### Installation
+
+> `npm install @tinynodes/rxjs-array`
+
+#### Information
+
+- [Documentation](https://tanepiper.github.io/rxjs-primitives/modules/array.html)
+- [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/array/CHANGELOG.md)
+
 ### rxjs-boolean
 
 A set of utility operators for handling equality checking and boolean values from `Observable` values

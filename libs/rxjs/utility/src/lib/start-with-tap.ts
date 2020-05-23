@@ -4,6 +4,7 @@
  */
 import { MonoTypeOperatorFunction, Observable, of } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
+import { CallbackFn } from '../types/utility';
 
 /**
  * Operator that is only executed on the first emission from an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable)
@@ -26,7 +27,7 @@ import { switchMap, tap } from 'rxjs/operators';
  * @returns An [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) value of T
  * @category RxJS Observable Utilities
  */
-export function startWithTap<T = unknown>(callback: () => void): MonoTypeOperatorFunction<T> {
+export function startWithTap<T = unknown>(callback: CallbackFn): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>) =>
     of(undefined).pipe(
       tap(callback),

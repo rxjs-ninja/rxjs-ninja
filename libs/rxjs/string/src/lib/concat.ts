@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module string
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 
 /**
  * The `concat` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
@@ -25,6 +25,21 @@ import { map } from 'rxjs/operators';
  */
 function concat(...args: string[]): MonoTypeOperatorFunction<string>;
 /**
+ * @param strings Observable array of strings
+ *
+ * @example
+ * ```ts
+ * // With Arguments
+ * fromString('Mary')
+ *  .pipe(concat(of([' ', 'had a little', ' ', 'lamb'])))
+ *  .subscribe(console.log) // 'Mary had a little lamb'
+ * ```
+ *
+ * @returns String that is a concatenation of the original string and new values
+ * @category RxJS String Creation
+ */
+function concat(strings: ObservableInput<string[]>): MonoTypeOperatorFunction<string>;
+/**
  * @param strings Additional strings as an array
  *
  * @example
@@ -42,6 +57,9 @@ function concat(...args: any): MonoTypeOperatorFunction<string> {
   const values: any[] = [...args];
   if (values[0] instanceof Array) {
     return (source: Observable<string>) => source.pipe(map((value) => value.concat(...values[0])));
+  } else if (values[0] instanceof Observable) {
+    return (source: Observable<string>) =>
+      values[0].pipe(switchMap((strings: string[]) => source.pipe(map((value) => value.concat(...strings)))));
   } else {
     return (source: Observable<string>) => source.pipe(map((value) => value.concat(...values)));
   }

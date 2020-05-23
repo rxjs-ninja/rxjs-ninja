@@ -73,14 +73,20 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-parent-kind-module"><a href="utility.html#callbackfn" class="tsd-kind-icon">Callback<wbr>Fn</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="utility.html#querymethod" class="tsd-kind-icon">Query<wbr>Method</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
+							<h3>RxJS Boolean Validation Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="utility.html#luhncheck" class="tsd-kind-icon">luhn<wbr>Check</a></li>
+							</ul>
 							<h3>RxJS Observable Utilities Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="utility.html#debouncewithquery" class="tsd-kind-icon">debounce<wbr>With<wbr>Query</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="utility.html#startwithtap" class="tsd-kind-icon">start<wbr>With<wbr>Tap</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="utility.html#taponsubscribe" class="tsd-kind-icon">tap<wbr>OnSubscribe</a></li>
 							</ul>
 						</section>
 					</div>
@@ -88,13 +94,38 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
+					<a name="callbackfn" class="tsd-anchor"></a>
+					<h3>Callback<wbr>Fn</h3>
+					<div class="tsd-signature tsd-kind-icon">Callback<wbr>Fn<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/34ce864/libs/rxjs/utility/src/types/utility.ts#L5">utility/src/types/utility.ts:5</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="querymethod" class="tsd-anchor"></a>
 					<h3>Query<wbr>Method</h3>
 					<div class="tsd-signature tsd-kind-icon">Query<wbr>Method&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/9145b6f/libs/rxjs/utility/src/lib/debounce-with-query.ts#L17">utility/src/lib/debounce-with-query.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/34ce864/libs/rxjs/utility/src/lib/debounce-with-query.ts#L17">utility/src/lib/debounce-with-query.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -144,6 +175,40 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>RxJS Boolean Validation Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="luhncheck" class="tsd-anchor"></a>
+					<h3>luhn<wbr>Check</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">luhn<wbr>Check<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/34ce864/libs/rxjs/boolean/src/lib/luhn-check.ts#L20">boolean/src/lib/luhn-check.ts:20</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>luhnCheck</code> operator is used to validate identification numbers such as bank cards,
+									IMEI numbers using the <a href="https://en.wikipedia.org/wiki/Luhn_algorithm">Luhn Algorithm</a></p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>fromString(&#39;4485275742308327&#39;)
+											.pipe(luhnCheck())
+										.subscribe(console.log) // true</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Boolean value if the passed value passes the Luhn check</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>RxJS Observable Utilities Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="debouncewithquery" class="tsd-anchor"></a>
@@ -155,7 +220,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/9145b6f/libs/rxjs/utility/src/lib/debounce-with-query.ts#L41">utility/src/lib/debounce-with-query.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/34ce864/libs/rxjs/utility/src/lib/debounce-with-query.ts#L41">utility/src/lib/debounce-with-query.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -207,13 +272,13 @@ fromEvent(input, <span class="hljs-string">'keyup'</span>)
 					<a name="startwithtap" class="tsd-anchor"></a>
 					<h3>start<wbr>With<wbr>Tap</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">start<wbr>With<wbr>Tap&lt;T&gt;<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">start<wbr>With<wbr>Tap&lt;T&gt;<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><a href="utility.html#callbackfn" class="tsd-signature-type">CallbackFn</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/9145b6f/libs/rxjs/utility/src/lib/start-with-tap.ts#L29">utility/src/lib/start-with-tap.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/34ce864/libs/rxjs/utility/src/lib/start-with-tap.ts#L30">utility/src/lib/start-with-tap.ts:30</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -244,22 +309,62 @@ fromEvent(input, <span class="hljs-string">'keyup'</span>)
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>callback: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></h5>
+									<h5>callback: <a href="utility.html#callbackfn" class="tsd-signature-type">CallbackFn</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The callback to be executed when this operator is run</p>
 									</div>
-									<ul class="tsd-parameters">
-										<li class="tsd-parameter-signature">
-											<ul class="tsd-signatures tsd-kind-type-literal">
-												<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-											</ul>
-											<ul class="tsd-descriptions">
-												<li class="tsd-description">
-													<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-												</li>
-											</ul>
-										</li>
-									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>An <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> value of T</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="taponsubscribe" class="tsd-anchor"></a>
+					<h3>tap<wbr>OnSubscribe</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">tap<wbr>OnSubscribe&lt;T&gt;<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><a href="utility.html#callbackfn" class="tsd-signature-type">CallbackFn</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/34ce864/libs/rxjs/utility/src/lib/tap-on-subscribe.ts#L29">utility/src/lib/tap-on-subscribe.ts:29</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Operator that is executed on each subscription to an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a>
+									The operator is passed a callback which is then executed</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>remarks</dt>
+									<dd><p>This is similar to the <a href="https://rxjs-dev.firebaseapp.com/api/operators/tap">tap</a> operator but fires when a subscription occurs</p>
+									</dd>
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromEvent(element, <span class="hljs-string">'click'</span>).pipe(
+ tapOnSubscribe(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">'New Subscription'</span>))
+).subscribe()</code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>The value type of the <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a></p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>callback: <a href="utility.html#callbackfn" class="tsd-signature-type">CallbackFn</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The callback to be executed when this operator is run</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -294,14 +399,23 @@ fromEvent(input, <span class="hljs-string">'keyup'</span>)
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module">
+						<a href="utility.html#callbackfn" class="tsd-kind-icon">Callback<wbr>Fn</a>
+					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="utility.html#querymethod" class="tsd-kind-icon">Query<wbr>Method</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="utility.html#debouncewithquery" class="tsd-kind-icon">debounce<wbr>With<wbr>Query</a>
 					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="utility.html#luhncheck" class="tsd-kind-icon">luhn<wbr>Check</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="utility.html#startwithtap" class="tsd-kind-icon">start<wbr>With<wbr>Tap</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="utility.html#taponsubscribe" class="tsd-kind-icon">tap<wbr>OnSubscribe</a>
 					</li>
 				</ul>
 			</nav>

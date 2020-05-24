@@ -12,10 +12,10 @@ import { mapDifferenceWith } from '../utils/difference';
  * of T, passing in an array or Observable array of values to find the difference between the two. The returned array of
  * values only contains values from the source Observable
  *
- * An optional predicate method can be passed for more complex types, if none is passed a simple comparison (`===`)
+ * An optional [[PredicateFn]] can be passed for more complex types, if none is passed a simple comparison (`===`)
  * will be used to determine the difference
  *
- * @typeParam T The type of data in the input array
+ * @typeParam T Type of item in the input array
  *
  * @param input Array of items use to get the difference between two arrays
  *

@@ -26,8 +26,8 @@
 export type InputModifierFn<T, K> = (value: T) => K;
 
 /**
- * A predicate function that take a value from `filter` and returns a boolean
- * based on an equality check
+ * A predicate function is used with Array filtering and should return a boolean
+ * based on an equality check. Can be used for more complex conditions
  *
  * @typeParam T The type of the value to do an equality check with
  *
@@ -36,6 +36,20 @@ export type InputModifierFn<T, K> = (value: T) => K;
  * const isEvenNumber: PredicateFn<number> = (num: number): boolean => num % 2 === 0
  * ```
  *
- * @returns Boolean value
+ * @example
+ * ```ts
+ * interface ObjectType {
+ *   foo: number,
+ *   bar: string
+ * }
+ * const isTheUltimateAnswer: PredicateFn<ObjectType> = (obj: ObjectType): boolean => obj.foo === 42
+ * ```
+ *
+ * @example
+ * ```ts
+ * const nameIsAfter: PredicateFn<string, string> = (name1: string, name2: string): boolean => name1.localeCompare(name2) === 0
+ * ```
+ *
+ * @returns Boolean value based on the condition of the function
  */
-export type PredicateFn<T> = (value: T, value2: T) => boolean;
+export type PredicateFn<T> = (value: T, value2?: T) => boolean;

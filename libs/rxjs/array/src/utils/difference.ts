@@ -23,11 +23,13 @@ export function mapDifferenceWith<T>(input: T[], predicate?: PredicateFn<T>): (v
 }
 
 /**
+ * Return a method that's used to check that two arrays have differences,
+ * takes an optional method that allows methods to be mutated
  *
  * @param checkArray
  * @param mutate
- * @internal
  * @private
+ * @internal
  */
 export function mapDifference<T, K>(checkArray: T[], mutate?: InputModifierFn<T, T | K>): (value: T[]) => T[] {
   if (mutate) {

@@ -35,14 +35,17 @@ export function binarySearcher<T, K>(searchValue: T, searchArray: T[], property?
 }
 
 /**
+ * Default sort method that provides a number value of comparison order
  * @private
- * @param a
- * @param b
+ * @param first The first comparison parameter
+ * @param second The second comparison parameter
+ *
+ * @returns Number related to the sort order of two comparison parameters
  */
-export function defaultSearch<T>(a: T, b: T): number {
-  if (typeof a === 'string') {
-    return a.localeCompare(b as never);
+export function defaultSort<T>(first: T, second: T): number {
+  if (typeof first === 'string') {
+    return first.localeCompare((second as unknown) as string);
   }
-  if (a === b) return 0;
-  return a < b ? -1 : 1;
+  if (first === second) return 0;
+  return first < second ? -1 : 1;
 }

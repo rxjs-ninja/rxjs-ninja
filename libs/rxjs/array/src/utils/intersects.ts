@@ -24,7 +24,7 @@ export function mapIntersectsWith<T>(input: T[], predicate?: PredicateFn<T>): (v
 }
 
 /**
- * Return a method that's used to check that two arrays have intersecting methods,
+ * Return a method that's used to check that two arrays have intersecting members,
  * takes an optional method that allows methods to be mutated
  *
  * @param checkArray

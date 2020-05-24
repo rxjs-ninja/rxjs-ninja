@@ -12,17 +12,19 @@ import { mapIntersectsWith } from '../utils/intersects';
  * of T, passing in an array or Observable array of values to find the intersection between the two. The returned array of
  * values only contains values from the source Observable
  *
- * An optional predicate method can be passed for more complex types, if none is passed a simple comparison (`===`)
+ * An optional [[PredicateFn]] can be passed for more complex types, if none is passed a simple comparison (`===`)
  * will be used to determine the intersection
  *
- * @typeParam T The type of data in the input array
+ * @typeParam T Type of item in the input array
  *
- * @param input Array of items use to get the intersection between two arrays
+ * @param input Array of items to compare against the source array
  *
  * @example
  * ```ts
+ * const input: string[] = ['a', 'e'];
+ *
  * of(['a', 'b', 'c', 'd'])
- *  .pipe(intersectsWith(['a', 'e']))
+ *  .pipe(intersectsWith(input))
  *  .subscribe(console.log) // ['a']
  * ```
  *
@@ -31,12 +33,14 @@ import { mapIntersectsWith } from '../utils/intersects';
  */
 function intersectsWith<T>(input: T[]): MonoTypeOperatorFunction<T[]>;
 /**
- * @param input Observable Array of items use to get the intersection between two arrays
+ * @param input Observable<Array> of items to compare against the source array
  *
  * @example
  * ```ts
+ * const input: Observable<string[]> = of(['a', 'e']);
+ *
  * of(['a', 'b', 'c', 'd'])
- *  .pipe(intersectsWith(of(['a', 'e'])))
+ *  .pipe(intersectsWith(input))
  *  .subscribe(console.log) // ['a']
  * ```
  *
@@ -45,14 +49,17 @@ function intersectsWith<T>(input: T[]): MonoTypeOperatorFunction<T[]>;
  */
 function intersectsWith<T>(input: ObservableInput<T[]>): MonoTypeOperatorFunction<T[]>;
 /**
- * @param input Array of items use to get the intersection between two arrays
+ * @param input Array of items to compare against the source array
  * @param predicate Function for comparison of arrays
  *
  * @example
  * ```ts
+ * const input: string[] = ['A', 'E'];
+ * const predicate: PredicateFn<string> = (x, y) => x === y.toLowerCase();
+ *
  * of(['a', 'b', 'c', 'd'])
- *  .pipe(intersectsWith(['A', 'E'], (x, y) => x === y.toLowerCase()))
- *  .subscribe(console.log) // ['a', 'c']
+ *  .pipe(intersectsWith(input, predicate))
+ *  .subscribe(console.log) // ['a']
  * ```
  *
  * @returns Array of values of intersection between the source and input array
@@ -60,13 +67,16 @@ function intersectsWith<T>(input: ObservableInput<T[]>): MonoTypeOperatorFunctio
  */
 function intersectsWith<T>(input: T[], predicate: PredicateFn<T>): MonoTypeOperatorFunction<T[]>;
 /**
- * @param input Observable Array of items use to get the intersection between two arrays
+ * @param input Observable<Array> of items to compare against the source array
  * @param predicate Function for comparison of arrays
  *
  * @example
  * ```ts
+ * const input: Observable<string[]> = of(['A', 'E']);
+ * const predicate: PredicateFn<string> = (x, y) => x === y.toLowerCase();
+ *
  * of(['a', 'b', 'c', 'd'])
- *  .pipe(intersectsWith(of(['A', 'E']), (x, y) => x === y.toLowerCase()))
+ *  .pipe(intersectsWith(input, predicate))
  *  .subscribe(console.log) // ['a']
  * ```
  *

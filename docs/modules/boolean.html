@@ -73,6 +73,7 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="boolean.html#inputmodifierfn" class="tsd-kind-icon">Input<wbr>Modifier<wbr>Fn</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="boolean.html#predicatefn" class="tsd-kind-icon">Predicate<wbr>Fn</a></li>
 							</ul>
 						</section>
@@ -88,9 +89,17 @@
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="boolean.html#firsttruthy" class="tsd-kind-icon">first<wbr>Truthy</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="boolean.html#lasttruthy" class="tsd-kind-icon">last<wbr>Truthy</a></li>
 							</ul>
+							<h3>RxJS Boolean Modifier Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="boolean.html#ifsource" class="tsd-kind-icon">if<wbr>Source</a></li>
+							</ul>
 							<h3>RxJS Boolean Observables Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="boolean.html#fromboolean" class="tsd-kind-icon">from<wbr>Boolean</a></li>
+							</ul>
+							<h3>RxJS Boolean Validation Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="boolean.html#luhncheck" class="tsd-kind-icon">luhn<wbr>Check</a></li>
 							</ul>
 						</section>
 					</div>
@@ -99,12 +108,81 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="inputmodifierfn" class="tsd-anchor"></a>
+					<h3>Input<wbr>Modifier<wbr>Fn</h3>
+					<div class="tsd-signature tsd-kind-icon">Input<wbr>Modifier<wbr>Fn&lt;T, K&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">K</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b3f801c/libs/rxjs/boolean/src/types/iif.ts#L26">boolean/src/types/iif.ts:26</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Method used to modify the input value for comparison</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt>param</dt>
+							<dd><p>The value to be modified for comparison</p>
+							</dd>
+							<dt>example</dt>
+							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> modify: InputModifierFn&lt;T&gt; = (value: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">string</span> =&gt;</span> value.toUpperCase()</code></pre>
+							</dd>
+							<dt>example</dt>
+							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> modify: InputModifierFn&lt;T, K&gt; = (value: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">number</span> =&gt;</span> <span class="hljs-built_in">parseInt</span>(value, <span class="hljs-number">10</span>)</code></pre>
+							</dd>
+							<dt>returns</dt>
+							<dd><p>Value of the modifier function</p>
+							</dd>
+						</dl>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T</h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The type of the value to be modified for comparison</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<h4>K</h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The type of the value returned by the function</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>value: <span class="tsd-signature-type">T</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">K</span></h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="predicatefn" class="tsd-anchor"></a>
 					<h3>Predicate<wbr>Fn</h3>
 					<div class="tsd-signature tsd-kind-icon">Predicate<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, value2<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/boolean/src/types/boolean.ts#L19">boolean/src/types/boolean.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b3f801c/libs/rxjs/boolean/src/types/boolean.ts#L19">boolean/src/types/boolean.ts:19</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -169,7 +247,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/boolean/src/utils/from-boolean.utils.ts#L29">boolean/src/utils/from-boolean.utils.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b3f801c/libs/rxjs/boolean/src/utils/from-boolean.utils.ts#L29">boolean/src/utils/from-boolean.utils.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -211,7 +289,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/boolean/src/utils/from-boolean.utils.ts#L12">boolean/src/utils/from-boolean.utils.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b3f801c/libs/rxjs/boolean/src/utils/from-boolean.utils.ts#L12">boolean/src/utils/from-boolean.utils.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -253,7 +331,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/boolean/src/lib/filter-truthy.ts#L24">boolean/src/lib/filter-truthy.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b3f801c/libs/rxjs/boolean/src/lib/filter-truthy.ts#L24">boolean/src/lib/filter-truthy.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -294,7 +372,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/boolean/src/lib/first-truthy.ts#L24">boolean/src/lib/first-truthy.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b3f801c/libs/rxjs/boolean/src/lib/first-truthy.ts#L24">boolean/src/lib/first-truthy.ts:24</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -325,7 +403,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/boolean/src/lib/first-truthy.ts#L42">boolean/src/lib/first-truthy.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b3f801c/libs/rxjs/boolean/src/lib/first-truthy.ts#L42">boolean/src/lib/first-truthy.ts:42</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -395,7 +473,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/boolean/src/lib/last-truthy.ts#L25">boolean/src/lib/last-truthy.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b3f801c/libs/rxjs/boolean/src/lib/last-truthy.ts#L25">boolean/src/lib/last-truthy.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -426,7 +504,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/boolean/src/lib/last-truthy.ts#L43">boolean/src/lib/last-truthy.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b3f801c/libs/rxjs/boolean/src/lib/last-truthy.ts#L43">boolean/src/lib/last-truthy.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -469,6 +547,80 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>RxJS Boolean Modifier Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="ifsource" class="tsd-anchor"></a>
+					<h3>if<wbr>Source</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">if<wbr>Source&lt;I, T, F&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><a href="boolean.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">&gt;</span>, trueResult<span class="tsd-signature-symbol">: </span><a href="boolean.html#inputmodifierfn" class="tsd-signature-type">InputModifierFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, falseResult<span class="tsd-signature-symbol">: </span><a href="boolean.html#inputmodifierfn" class="tsd-signature-type">InputModifierFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b3f801c/libs/rxjs/boolean/src/lib/if-source.ts#L37">boolean/src/lib/if-source.ts:37</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>ifSource</code> operator is used with an <a href="https://rxjs-dev.firebaseapp.com/guide/observable">Observable</a> value and takes a predicate
+									function. Based on the result of the predicate it will return an Observable value of the truthy or falsy result</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">of(<span class="hljs-string">'42'</span>)
+.pipe(
+ ifSource&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span>, <span class="hljs-built_in">string</span>&gt;(
+   <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> value === <span class="hljs-string">'42'</span>,
+   <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> <span class="hljs-built_in">parseInt</span>(value),
+   <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> <span class="hljs-string">`<span class="hljs-subst">${value}</span>: This is not the ultimate answer`</span>,
+ ),
+).subscribe(<span class="hljs-built_in">console</span>.log) <span class="hljs-comment">// 42</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>I</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>The Input Type</p>
+									</div>
+								</li>
+								<li>
+									<h4>T</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>The type returned from the Truthy result</p>
+									</div>
+								</li>
+								<li>
+									<h4>F</h4>
+									<div class="tsd-comment tsd-typography">
+										<p>The type returned from the Falsy result</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>predicate: <a href="boolean.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5>trueResult: <a href="boolean.html#inputmodifierfn" class="tsd-signature-type">InputModifierFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+								<li>
+									<h5>falseResult: <a href="boolean.html#inputmodifierfn" class="tsd-signature-type">InputModifierFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Any value based on the Truthy or Falsy <a href="boolean.html#inputmodifierfn">InputModifierFn</a> based on the <a href="boolean.html#predicatefn">PredicateFn</a> result</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>RxJS Boolean Observables Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="fromboolean" class="tsd-anchor"></a>
@@ -481,7 +633,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/boolean/src/lib/from-boolean.ts#L34">boolean/src/lib/from-boolean.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b3f801c/libs/rxjs/boolean/src/lib/from-boolean.ts#L34">boolean/src/lib/from-boolean.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -534,7 +686,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/boolean/src/lib/from-boolean.ts#L59">boolean/src/lib/from-boolean.ts:59</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b3f801c/libs/rxjs/boolean/src/lib/from-boolean.ts#L59">boolean/src/lib/from-boolean.ts:59</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -588,6 +740,40 @@
 					</ul>
 				</section>
 			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>RxJS Boolean Validation Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="luhncheck" class="tsd-anchor"></a>
+					<h3>luhn<wbr>Check</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">luhn<wbr>Check<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/b3f801c/libs/rxjs/boolean/src/lib/luhn-check.ts#L20">boolean/src/lib/luhn-check.ts:20</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>luhnCheck</code> operator is used to validate identification numbers such as bank cards,
+									IMEI numbers using the <a href="https://en.wikipedia.org/wiki/Luhn_algorithm">Luhn Algorithm</a></p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><p>fromString(&#39;4485275742308327&#39;)
+											.pipe(luhnCheck())
+										.subscribe(console.log) // true</p>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Boolean value if the passed value passes the Luhn check</p>
+						</li>
+					</ul>
+				</section>
+			</section>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
@@ -615,6 +801,9 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="boolean.html#inputmodifierfn" class="tsd-kind-icon">Input<wbr>Modifier<wbr>Fn</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="boolean.html#predicatefn" class="tsd-kind-icon">Predicate<wbr>Fn</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
@@ -627,7 +816,13 @@
 						<a href="boolean.html#fromboolean" class="tsd-kind-icon">from<wbr>Boolean</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="boolean.html#ifsource" class="tsd-kind-icon">if<wbr>Source</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="boolean.html#lasttruthy" class="tsd-kind-icon">last<wbr>Truthy</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="boolean.html#luhncheck" class="tsd-kind-icon">luhn<wbr>Check</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
 						<a href="boolean.html#schedulesingleorarrayboolean" class="tsd-kind-icon">schedule<wbr>Single<wbr>OrArray<wbr>Boolean</a>

@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module utility
+ * @module boolean
  */
 import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';

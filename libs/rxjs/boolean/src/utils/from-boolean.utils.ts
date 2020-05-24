@@ -34,7 +34,9 @@ export function scheduleSingleOrArrayBoolean<T>(input: T | T[], scheduler: Sched
       scheduler.schedule(function () {
         if (Array.isArray(input)) {
           if (i === input.length) {
+            /* istanbul ignore next */
             subscriber.complete();
+            /* istanbul ignore next */
             return;
           }
           subscriber.next(Boolean<T>(input[i++]));
@@ -43,6 +45,7 @@ export function scheduleSingleOrArrayBoolean<T>(input: T | T[], scheduler: Sched
           subscriber.complete();
         }
         if (!subscriber.closed) {
+          /* istanbul ignore next */
           sub.add(this.schedule());
         }
       }),

@@ -3,7 +3,7 @@
  * @module utility
  */
 import { MonoTypeOperatorFunction, Observable, of } from 'rxjs';
-import { map, switchMap, tap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 import { CallbackFn } from '../types/utility';
 
 /**

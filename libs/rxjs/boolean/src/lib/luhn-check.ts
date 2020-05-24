@@ -4,6 +4,7 @@
  */
 import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { createLuhnModulus, reverseLuhnNumbers } from '../utils/luhn-check.utils';
 
 /**
  * The `luhnCheck` operator is used to validate identification numbers such as bank cards,
@@ -20,17 +21,8 @@ import { map } from 'rxjs/operators';
 export function luhnCheck(): OperatorFunction<string | number, boolean> {
   return (source: Observable<string | number>) =>
     source.pipe(
-      map((value) => {
-        return (typeof value === 'number' ? value.toString(10) : value)
-          .split('')
-          .reverse()
-          .map((val) => parseInt(val, 10));
-      }),
-      map((valueArray) => {
-        const lastDigit = valueArray.splice(0, 1)[0];
-        const sum = valueArray.reduce((acc, val, i) => (i % 2 !== 0 ? acc + val : acc + ((val * 2) % 9) || 9), 0);
-        return sum + lastDigit;
-      }),
+      map(reverseLuhnNumbers),
+      map(createLuhnModulus),
       map((value) => value % 10 === 0),
     );
 }

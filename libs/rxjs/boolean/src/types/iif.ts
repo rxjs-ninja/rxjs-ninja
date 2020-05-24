@@ -1,4 +1,9 @@
 /**
+ * @packageDocumentation
+ * @module boolean
+ */
+
+/**
  * Method used to modify the input value for comparison
  *
  * @typeParam T The type of the value to be modified for comparison

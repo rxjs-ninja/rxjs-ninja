@@ -34,7 +34,7 @@ export interface ArraySearchResult<T = unknown> {
  *
  * @example
  * ```ts
- * const sortFn<string> = (first: string, second: string) => first.localCompare(second)
+ * const sortFn<string> = (first: string, second: string): number => first.localCompare(second)
  * ```
  *
  * @returns A number that represents the value match position for sorting

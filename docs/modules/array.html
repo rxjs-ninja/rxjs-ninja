@@ -88,7 +88,7 @@
 							<h3>Other Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="array.html#binarysearcher" class="tsd-kind-icon">binary<wbr>Searcher</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="array.html#defaultsearch" class="tsd-kind-icon">default<wbr>Search</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="array.html#defaultsort" class="tsd-kind-icon">default<wbr>Sort</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="array.html#mapdifference" class="tsd-kind-icon">map<wbr>Difference</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="array.html#mapdifferencewith" class="tsd-kind-icon">map<wbr>Difference<wbr>With</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="array.html#mapintersection" class="tsd-kind-icon">map<wbr>Intersection</a></li>
@@ -120,7 +120,7 @@
 					<div class="tsd-signature tsd-kind-icon">Input<wbr>Modifier<wbr>Fn&lt;T, K&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">K</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/types/array-compare.ts#L26">array/src/types/array-compare.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/types/array-compare.ts#L26">array/src/types/array-compare.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -189,7 +189,7 @@
 					<div class="tsd-signature tsd-kind-icon">Predicate<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, value2<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/types/array-compare.ts#L55">array/src/types/array-compare.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/types/array-compare.ts#L55">array/src/types/array-compare.ts:55</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -209,7 +209,7 @@
 <span class="hljs-keyword">const</span> isTheUltimateAnswer: PredicateFn&lt;ObjectType&gt; = (obj: ObjectType): <span class="hljs-function"><span class="hljs-params">boolean</span> =&gt;</span> obj.foo === <span class="hljs-number">42</span></code></pre>
 							</dd>
 							<dt>example</dt>
-							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> nameIsAfter: PredicateFn&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>&gt; = (name1: <span class="hljs-built_in">string</span>, name2: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">boolean</span> =&gt;</span> name1.localeCompare(name2)</code></pre>
+							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> nameIsAfter: PredicateFn&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>&gt; = (name1: <span class="hljs-built_in">string</span>, name2: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">boolean</span> =&gt;</span> name1.localeCompare(name2) === <span class="hljs-number">0</span></code></pre>
 							</dd>
 							<dt>returns</dt>
 							<dd><p>Boolean value based on the condition of the function</p>
@@ -258,7 +258,7 @@
 					<div class="tsd-signature tsd-kind-icon">Sort<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>first<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, second<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/types/binary-search.ts#L42">array/src/types/binary-search.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/types/binary-search.ts#L42">array/src/types/binary-search.ts:42</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -273,7 +273,7 @@
 							<dd><p>The second value to compare</p>
 							</dd>
 							<dt>example</dt>
-							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> sortFn&lt;<span class="hljs-built_in">string</span>&gt; = <span class="hljs-function">(<span class="hljs-params">first: <span class="hljs-built_in">string</span>, second: <span class="hljs-built_in">string</span></span>) =&gt;</span> first.localCompare(second)</code></pre>
+							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> sortFn&lt;<span class="hljs-built_in">string</span>&gt; = (first: <span class="hljs-built_in">string</span>, second: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">number</span> =&gt;</span> first.localCompare(second)</code></pre>
 							</dd>
 							<dt>returns</dt>
 							<dd><p>A number that represents the value match position for sorting</p>
@@ -329,7 +329,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/utils/binary-search.ts#L13">array/src/utils/binary-search.ts:13</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/utils/binary-search.ts#L13">array/src/utils/binary-search.ts:13</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -367,19 +367,22 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
-					<a name="defaultsearch" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> default<wbr>Search</h3>
+					<a name="defaultsort" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> default<wbr>Sort</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">default<wbr>Search&lt;T&gt;<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+						<li class="tsd-signature tsd-kind-icon">default<wbr>Sort&lt;T&gt;<span class="tsd-signature-symbol">(</span>first<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, second<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/utils/binary-search.ts#L42">array/src/utils/binary-search.ts:42</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/utils/binary-search.ts#L45">array/src/utils/binary-search.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Default sort method that provides a number value of comparison order</p>
+								</div>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -390,15 +393,20 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>a: <span class="tsd-signature-type">T</span></h5>
+									<h5>first: <span class="tsd-signature-type">T</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The first comparison parameter</p>
+									</div>
 								</li>
 								<li>
-									<h5>b: <span class="tsd-signature-type">T</span></h5>
+									<h5>second: <span class="tsd-signature-type">T</span></h5>
 									<div class="tsd-comment tsd-typography">
+										<p>The second comparison parameter</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+							<p>Number related to the sort order of two comparison parameters</p>
 						</li>
 					</ul>
 				</section>
@@ -412,10 +420,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/utils/difference.ts#L32">array/src/utils/difference.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/utils/difference.ts#L34">array/src/utils/difference.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Return a method that&#39;s used to check that two arrays have differences,
+									takes an optional method that allows methods to be mutated</p>
+								</div>
 								<dl class="tsd-comment-tags">
 									<dt>internal</dt>
 									<dd></dd>
@@ -471,7 +483,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/utils/difference.ts#L17">array/src/utils/difference.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/utils/difference.ts#L17">array/src/utils/difference.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -538,12 +550,12 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/utils/intersects.ts#L35">array/src/utils/intersects.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/utils/intersects.ts#L35">array/src/utils/intersects.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Return a method that&#39;s used to check that two arrays have intersecting methods,
+									<p>Return a method that&#39;s used to check that two arrays have intersecting members,
 									takes an optional method that allows methods to be mutated</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -601,7 +613,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/utils/intersects.ts#L17">array/src/utils/intersects.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/utils/intersects.ts#L17">array/src/utils/intersects.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -674,7 +686,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/difference.ts#L32">array/src/lib/difference.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/difference.ts#L32">array/src/lib/difference.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -722,7 +734,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/difference.ts#L46">array/src/lib/difference.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/difference.ts#L46">array/src/lib/difference.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -761,7 +773,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/difference.ts#L61">array/src/lib/difference.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/difference.ts#L61">array/src/lib/difference.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -806,7 +818,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/difference.ts#L76">array/src/lib/difference.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/difference.ts#L76">array/src/lib/difference.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -863,7 +875,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/difference-with.ts#L32">array/src/lib/difference-with.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/difference-with.ts#L32">array/src/lib/difference-with.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -906,7 +918,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/difference-with.ts#L46">array/src/lib/difference-with.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/difference-with.ts#L46">array/src/lib/difference-with.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -942,7 +954,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/difference-with.ts#L61">array/src/lib/difference-with.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/difference-with.ts#L61">array/src/lib/difference-with.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -984,7 +996,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/difference-with.ts#L76">array/src/lib/difference-with.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/difference-with.ts#L76">array/src/lib/difference-with.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1041,7 +1053,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/intersects.ts#L31">array/src/lib/intersects.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/intersects.ts#L31">array/src/lib/intersects.ts:31</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1088,7 +1100,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/intersects.ts#L45">array/src/lib/intersects.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/intersects.ts#L45">array/src/lib/intersects.ts:45</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1127,7 +1139,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/intersects.ts#L60">array/src/lib/intersects.ts:60</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/intersects.ts#L60">array/src/lib/intersects.ts:60</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1172,7 +1184,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/intersects.ts#L75">array/src/lib/intersects.ts:75</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/intersects.ts#L75">array/src/lib/intersects.ts:75</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1229,7 +1241,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/intersects-with.ts#L34">array/src/lib/intersects-with.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/intersects-with.ts#L34">array/src/lib/intersects-with.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1274,7 +1286,7 @@ of([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/intersects-with.ts#L50">array/src/lib/intersects-with.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/intersects-with.ts#L50">array/src/lib/intersects-with.ts:50</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1312,7 +1324,7 @@ of([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/intersects-with.ts#L68">array/src/lib/intersects-with.ts:68</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/intersects-with.ts#L68">array/src/lib/intersects-with.ts:68</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1357,7 +1369,7 @@ of([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/intersects-with.ts#L86">array/src/lib/intersects-with.ts:86</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/intersects-with.ts#L86">array/src/lib/intersects-with.ts:86</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1417,7 +1429,7 @@ of([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/binary-search.ts#L32">array/src/lib/binary-search.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/binary-search.ts#L32">array/src/lib/binary-search.ts:32</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1465,7 +1477,7 @@ of([<span class="hljs-string">'a'</span>, <span class="hljs-string">'b'</span>, 
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/binary-search.ts#L62">array/src/lib/binary-search.ts:62</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/binary-search.ts#L62">array/src/lib/binary-search.ts:62</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1530,7 +1542,7 @@ of([
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/binary-search.ts#L76">array/src/lib/binary-search.ts:76</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/binary-search.ts#L76">array/src/lib/binary-search.ts:76</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1569,7 +1581,7 @@ of([
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/5d8eaf0/libs/rxjs/array/src/lib/binary-search.ts#L106">array/src/lib/binary-search.ts:106</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/197f40f/libs/rxjs/array/src/lib/binary-search.ts#L106">array/src/lib/binary-search.ts:106</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1679,7 +1691,7 @@ of([
 						<a href="array.html#binarysearcher" class="tsd-kind-icon">binary<wbr>Searcher</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
-						<a href="array.html#defaultsearch" class="tsd-kind-icon">default<wbr>Search</a>
+						<a href="array.html#defaultsort" class="tsd-kind-icon">default<wbr>Sort</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="array.html#difference" class="tsd-kind-icon">difference</a>

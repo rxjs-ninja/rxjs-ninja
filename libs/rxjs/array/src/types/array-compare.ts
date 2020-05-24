@@ -47,7 +47,7 @@ export type InputModifierFn<T, K> = (value: T) => K;
  *
  * @example
  * ```ts
- * const nameIsAfter: PredicateFn<string, string> = (name1: string, name2: string): boolean => name1.localeCompare(name2)
+ * const nameIsAfter: PredicateFn<string, string> = (name1: string, name2: string): boolean => name1.localeCompare(name2) === 0
  * ```
  *
  * @returns Boolean value based on the condition of the function

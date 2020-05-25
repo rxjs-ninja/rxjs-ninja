@@ -26,7 +26,8 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help",
     "cz": "git-cz",
-    "docs": "typedoc"
+    "docs": "typedoc",
+    "coverage": "codecov"
   },
   "private": true,
   "dependencies": {
@@ -41,6 +42,7 @@
     "@types/node": "~14.0.1",
     "@typescript-eslint/eslint-plugin": "2.33.0",
     "@typescript-eslint/parser": "2.33.0",
+    "codecov": "^3.7.0",
     "commitizen": "^4.1.2",
     "cz-conventional-changelog": "^3.2.0",
     "dotenv": "8.2.0",

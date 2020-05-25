@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module array
  */
-import { MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { PredicateFn } from '../types/array-compare';
 import { mapIntersectsWith } from '../utils/intersects';
@@ -86,8 +86,8 @@ function intersectsWith<T>(input: T[], predicate: PredicateFn<T>): MonoTypeOpera
 function intersectsWith<T>(input: ObservableInput<T[]>, predicate: PredicateFn<T>): MonoTypeOperatorFunction<T[]>;
 function intersectsWith<T>(input: T[] | ObservableInput<T[]>, predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>
-    input instanceof Observable
-      ? input.pipe(switchMap((inputFromSource) => source.pipe(map(mapIntersectsWith(inputFromSource, predicate)))))
+    isObservable(input)
+      ? input.pipe(switchMap((inputFromSource) => source.pipe(map(mapIntersectsWith(inputFromSource as T[], predicate)))))
       : source.pipe(map(mapIntersectsWith(input as T[], predicate)));
 }
 

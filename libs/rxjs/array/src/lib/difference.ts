@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module array
  */
-import { MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { InputModifierFn } from '../types/array-compare';
 import { mapDifference } from '../utils/difference';
@@ -76,8 +76,8 @@ function difference<T, K>(input: T[], inputModifier: InputModifierFn<T, T | K>):
 function difference<T, K>(input: ObservableInput<T[]>, inputModifier: InputModifierFn<T, T | K>): MonoTypeOperatorFunction<T[]>;
 function difference<T, K>(input: T[] | ObservableInput<T[]>, inputModifier?: InputModifierFn<T, T | K>): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>
-    input instanceof Observable
-      ? input.pipe(switchMap((value) => source.pipe(map(mapDifference(value, inputModifier)))))
+    isObservable(input)
+      ? input.pipe(switchMap((value) => source.pipe(map(mapDifference(value as T[], inputModifier)))))
       : source.pipe(map(mapDifference(input as T[], inputModifier)));
 }
 

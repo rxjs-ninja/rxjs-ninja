@@ -72,8 +72,14 @@ function intersects<T, K>(input: T[], inputModifier: InputModifierFn<T, T | K>):
  * @returns Array of values of intersection between the source and input array
  * @category RxJS Array Intersection
  */
-function intersects<T, K>(input: ObservableInput<T[]>, inputModifier: InputModifierFn<T, T | K>): MonoTypeOperatorFunction<T[]>;
-function intersects<T, K>(input: T[] | ObservableInput<T[]>, inputModifier?: InputModifierFn<T, T | K>): MonoTypeOperatorFunction<T[]> {
+function intersects<T, K>(
+  input: ObservableInput<T[]>,
+  inputModifier: InputModifierFn<T, T | K>,
+): MonoTypeOperatorFunction<T[]>;
+function intersects<T, K>(
+  input: T[] | ObservableInput<T[]>,
+  inputModifier?: InputModifierFn<T, T | K>,
+): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>
     isObservable(input)
       ? input.pipe(switchMap((value) => source.pipe(map(mapIntersection(value as T[], inputModifier)))))

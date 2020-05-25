@@ -73,8 +73,14 @@ function difference<T, K>(input: T[], inputModifier: InputModifierFn<T, T | K>):
  * @returns Array of values of difference between the source and input array
  * @category RxJS Array Difference
  */
-function difference<T, K>(input: ObservableInput<T[]>, inputModifier: InputModifierFn<T, T | K>): MonoTypeOperatorFunction<T[]>;
-function difference<T, K>(input: T[] | ObservableInput<T[]>, inputModifier?: InputModifierFn<T, T | K>): MonoTypeOperatorFunction<T[]> {
+function difference<T, K>(
+  input: ObservableInput<T[]>,
+  inputModifier: InputModifierFn<T, T | K>,
+): MonoTypeOperatorFunction<T[]>;
+function difference<T, K>(
+  input: T[] | ObservableInput<T[]>,
+  inputModifier?: InputModifierFn<T, T | K>,
+): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>
     isObservable(input)
       ? input.pipe(switchMap((value) => source.pipe(map(mapDifference(value as T[], inputModifier)))))

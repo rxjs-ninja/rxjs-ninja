@@ -84,10 +84,15 @@ function intersectsWith<T>(input: T[], predicate: PredicateFn<T>): MonoTypeOpera
  * @category RxJS Array Intersection
  */
 function intersectsWith<T>(input: ObservableInput<T[]>, predicate: PredicateFn<T>): MonoTypeOperatorFunction<T[]>;
-function intersectsWith<T>(input: T[] | ObservableInput<T[]>, predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T[]> {
+function intersectsWith<T>(
+  input: T[] | ObservableInput<T[]>,
+  predicate?: PredicateFn<T>,
+): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>
     isObservable(input)
-      ? input.pipe(switchMap((inputFromSource) => source.pipe(map(mapIntersectsWith(inputFromSource as T[], predicate)))))
+      ? input.pipe(
+          switchMap((inputFromSource) => source.pipe(map(mapIntersectsWith(inputFromSource as T[], predicate)))),
+        )
       : source.pipe(map(mapIntersectsWith(input as T[], predicate)));
 }
 

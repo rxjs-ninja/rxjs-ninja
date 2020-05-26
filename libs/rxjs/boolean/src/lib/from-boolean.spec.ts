@@ -1,5 +1,6 @@
 import { map, reduce, take } from 'rxjs/operators';
 import { filterTruthy, fromBoolean } from '@tinynodes/rxjs-boolean';
+import { asapScheduler } from 'rxjs';
 
 describe('fromBoolean', () => {
   it('should return a Observable boolean from a passed boolean', (done) => {
@@ -62,6 +63,31 @@ describe('fromBoolean', () => {
       )
       .subscribe({
         next: (value) => expect(value).toBe(3),
+        complete: () => done(),
+      });
+  });
+
+  it('should return a Observable boolean from a passed boolean with Scheduler', (done) => {
+    fromBoolean(false, asapScheduler)
+      .pipe(
+        map((val) => !val),
+        take(1),
+      )
+      .subscribe({
+        next: (value) => expect(value).toBeTruthy(),
+        complete: () => done(),
+      });
+  });
+
+  it('should return a Observable boolean from a passed boolean with Scheduler', (done) => {
+    fromBoolean([0, 1, 0, 2], asapScheduler)
+      .pipe(
+        filterTruthy(),
+        reduce((acc) => acc + 1, 0),
+        take(1),
+      )
+      .subscribe({
+        next: (value) => expect(value).toBe(2),
         complete: () => done(),
       });
   });

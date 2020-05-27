@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 import { PadPosition, PadPositionValue } from '../types/position';
 
 /**
- * The `padString` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `padString` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns a padded string based on the passed position and length
  *
  * This operator is based on both [String.prototype.padStart](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) and
@@ -65,7 +65,7 @@ function padString(padPosition: PadPositionValue, maxLength: number, fillString?
 export { padString };
 
 /**
- * The `padStart` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `padStart` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns a string with it's start padded
  * This operator is based on [String.prototype.padStart](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart)
  *
@@ -87,7 +87,7 @@ export function padStart(maxLength: number, fillString?: string): MonoTypeOperat
 }
 
 /**
- * The `padEnd` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `padEnd` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns a string with it's end padded
  *
  * This operator is based on [String.prototype.padEnd](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd)

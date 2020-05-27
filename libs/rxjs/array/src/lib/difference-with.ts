@@ -8,7 +8,7 @@ import { PredicateFn } from '../types/array-compare';
 import { mapDifferenceWith } from '../utils/difference';
 
 /**
- * The `differenceWith` can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) array of values
+ * The `differenceWith` can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) array of values
  * of T, passing in an array or Observable array of values to find the difference between the two. The returned array of
  * values only contains values from the source Observable
  *

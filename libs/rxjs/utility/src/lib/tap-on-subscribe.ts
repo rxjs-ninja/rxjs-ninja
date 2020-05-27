@@ -6,13 +6,13 @@ import { MonoTypeOperatorFunction, Observable, defer } from 'rxjs';
 import { CallbackFn } from '../types/utility';
 
 /**
- * Operator that is executed on each subscription to an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable)
+ * Operator that is executed on each subscription to an [Observable](https://rxjs.dev/api/index/class/Observable)
  * The operator is passed a callback which is then executed
  *
  * @remarks
  * This is similar to the [tap](https://rxjs-dev.firebaseapp.com/api/operators/tap) operator but fires when a subscription occurs
  *
- * @typeParam T The value type of the [Observable](https://rxjs-dev.firebaseapp.com/guide/observable)
+ * @typeParam T The value type of the [Observable](https://rxjs.dev/api/index/class/Observable)
  *
  * @param callback The callback to be executed when this operator is run
  *
@@ -23,7 +23,7 @@ import { CallbackFn } from '../types/utility';
  * ).subscribe()
  * ```
  *
- * @returns An [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) value of T
+ * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T
  * @category RxJS Observable Utilities
  */
 export function tapOnSubscribe<T>(callback: CallbackFn): MonoTypeOperatorFunction<T> {

@@ -8,7 +8,7 @@ import { switchMap } from 'rxjs/operators';
 import { InputModifierFn } from '../types/iif';
 
 /**
- * The `ifSource` operator is used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) value and takes a predicate
+ * The `ifSource` operator is used with an [Observable](https://rxjs.dev/api/index/class/Observable) value and takes a predicate
  * function. Based on the result of the predicate it will return an Observable value of the truthy or falsy result
  *
  * @typeParam I The Input Type

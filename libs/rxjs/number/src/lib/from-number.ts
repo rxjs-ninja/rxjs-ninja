@@ -6,7 +6,7 @@ import { Observable, SchedulerLike } from 'rxjs';
 import { scheduleSingleOrArrayNumber, subscribeToSingleOrArrayNumber } from '../utils/from-number.utils';
 
 /**
- * The `fromNumber` operator is used to create an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) using a number
+ * The `fromNumber` operator is used to create an [Observable](https://rxjs.dev/api/index/class/Observable) using a number
  * or array of numbers. The Observable can be subscribed to, which will emit one or more numbers.
  *
  * @param input Number to initialise the Observable

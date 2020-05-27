@@ -6,7 +6,7 @@ import { Observable, SchedulerLike } from 'rxjs';
 import { scheduleSingleOrArrayString, subscribeToSingleOrArrayString } from '../utils/from-string.utils';
 
 /**
- * The `fromString` operator is used to create an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string from a passed
+ * The `fromString` operator is used to create an [Observable](https://rxjs.dev/api/index/class/Observable) string from a passed
  * string value or array of string values.
  *
  * @param input The string to create the Observable source from

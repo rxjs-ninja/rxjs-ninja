@@ -8,7 +8,7 @@ import { InputModifierFn } from '../types/array-compare';
 import { mapIntersection } from '../utils/intersects';
 
 /**
- * The `intersects` can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) array of values
+ * The `intersects` can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) array of values
  * of T, passing in an array or Observable array of values to find the intersection between the two.
  *
  * An optional method can be used to convert values for comparison (see examples)

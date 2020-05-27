@@ -7,7 +7,7 @@ import { filter } from 'rxjs/operators';
 
 /**
  * The `filterInRange` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) number and will return the number
+ * is an [Observable](https://rxjs.dev/api/index/class/Observable) number and will return the number
  * value if the number is within a min/max value range. The optional `excludeBoundingValues` parameter allows
  * the min and max values to be excluded.
  *

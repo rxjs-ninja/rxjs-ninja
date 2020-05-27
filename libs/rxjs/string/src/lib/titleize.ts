@@ -7,7 +7,7 @@ import { split } from './split';
 import { map } from 'rxjs/operators';
 
 /**
- * The `titleize` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `titleize` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns a string that is titleized (first letter of each word uppercase)
  *
  * [String.prototype.toLocaleUpperCase](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleUpperCase) to handle

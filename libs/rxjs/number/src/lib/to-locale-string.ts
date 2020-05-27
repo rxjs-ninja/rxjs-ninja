@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 
 /**
  * The `toLocaleString` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) number for formats it using
+ * is an [Observable](https://rxjs.dev/api/index/class/Observable) number for formats it using
  * [Number.prototype.toLocaleString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString)
  * and the passed locale option.
  *

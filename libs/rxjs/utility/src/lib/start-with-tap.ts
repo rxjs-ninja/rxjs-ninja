@@ -7,13 +7,13 @@ import { switchMap, tap } from 'rxjs/operators';
 import { CallbackFn } from '../types/utility';
 
 /**
- * Operator that is only executed on the first emission from an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable)
+ * Operator that is only executed on the first emission from an [Observable](https://rxjs.dev/api/index/class/Observable)
  * The operator is passed a callback which is then executed
  *
  * @remarks
  * This is similar to the [tap](https://rxjs-dev.firebaseapp.com/api/operators/tap) operator but is only executed once
  *
- * @typeParam T The value type of the [Observable](https://rxjs-dev.firebaseapp.com/guide/observable)
+ * @typeParam T The value type of the [Observable](https://rxjs.dev/api/index/class/Observable)
  *
  * @param callback The callback to be executed when this operator is run
  *
@@ -33,7 +33,7 @@ import { CallbackFn } from '../types/utility';
  *  ).subscribe(console.log) // 10
  * ```
  *
- * @returns An [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) value of T
+ * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T
  * @category RxJS Observable Utilities
  */
 export function startWithTap<T = unknown>(callback: CallbackFn): MonoTypeOperatorFunction<T> {

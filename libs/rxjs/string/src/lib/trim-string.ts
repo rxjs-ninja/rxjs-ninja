@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 import { TrimPosition, TrimPositionValue } from '../types/position';
 
 /**
- * The `trimString` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `trimString` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns a trimmed string
  *
  * This operator is based on [String.prototype.trim](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim),
@@ -71,7 +71,7 @@ function trimString(position: TrimPositionValue = 'all'): MonoTypeOperatorFuncti
 export { trimString };
 
 /**
- * The `trimLeft` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `trimLeft` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns a string trimmed on the left
  *
  * This operator is based on [String.prototype.trimLeft](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimLeft)
@@ -91,7 +91,7 @@ export function trimLeft(): MonoTypeOperatorFunction<string> {
 }
 
 /**
- * The `trimRight` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `trimRight` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns a string trimmed on the right
  *
  * This operator is based on [String.prototype.trimRight](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimLeft)
@@ -111,7 +111,7 @@ export function trimRight(): MonoTypeOperatorFunction<string> {
 }
 
 /**
- * The `trimRight` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `trimRight` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns a string trimmed on the right
  *
  * This operator is based on [String.prototype.trimRight](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimLeft)

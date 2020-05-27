@@ -7,14 +7,14 @@ import { CallbackFn, PredicateFn } from '../types/utility';
 import { switchMap } from 'rxjs/operators';
 
 /**
- * Operator that calls the passed callback when the value of an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable)
+ * Operator that calls the passed callback when the value of an [Observable](https://rxjs.dev/api/index/class/Observable)
  * provides a truthy value for the passed predicate,
  *
  * @remarks
  * This is similar to the [tap](https://rxjs-dev.firebaseapp.com/api/operators/tap) operator but only executes
  * when the predicate result is truthy
  *
- * @typeParam T The value type of the [Observable](https://rxjs-dev.firebaseapp.com/guide/observable)
+ * @typeParam T The value type of the [Observable](https://rxjs.dev/api/index/class/Observable)
  *
  * @param predicate Function that provides an equality a boolean result for the passed value
  * @param callback The callback to be executed when this operator is run
@@ -28,7 +28,7 @@ import { switchMap } from 'rxjs/operators';
  * .subscribe(console.log) // 'test'
  * ```
  *
- * @returns An [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) value of T
+ * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T
  * @category RxJS Observable Utilities
  */
 function tapIf<T>(predicate: PredicateFn<T>, callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {

@@ -6,7 +6,7 @@ import { MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
 /**
- * The `concat` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `concat` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns string concatenated with one or more strings passed as arguments
  * This operator is based on [String.prototype.concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat)
  *

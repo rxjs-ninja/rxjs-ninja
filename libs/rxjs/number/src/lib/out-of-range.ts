@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 
 /**
  * The `outOfRange` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) number and will return a boolean
+ * is an [Observable](https://rxjs.dev/api/index/class/Observable) number and will return a boolean
  * value if the number is outside a min/max value range. The optional `includeBoundingParameters` parameter allows
  * the min and max values to be included.
  *

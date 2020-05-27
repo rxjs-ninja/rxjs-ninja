@@ -6,7 +6,7 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `lastIndexOf` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `lastIndexOf` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns the index number of the string passed, with optional from index
  * Based on [String.prototype.lastIndexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf)
  *

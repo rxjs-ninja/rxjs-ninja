@@ -8,7 +8,7 @@ import { PredicateFn } from '../types/boolean';
 
 /**
  * The `lastTruthy` operator is used to get only the first truthy value from an
- * [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) stream of values
+ * [Observable](https://rxjs.dev/api/index/class/Observable) stream of values
  *
  * @typeParam T Observable value
  *

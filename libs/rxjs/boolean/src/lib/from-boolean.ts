@@ -6,7 +6,7 @@ import { Observable, SchedulerLike } from 'rxjs';
 import { scheduleSingleOrArrayBoolean, subscribeToSingleOrArrayBoolean } from '../utils/from-boolean.utils';
 
 /**
- * The `fromBoolean` operator is used to create an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) boolean from a passed
+ * The `fromBoolean` operator is used to create an [Observable](https://rxjs.dev/api/index/class/Observable) boolean from a passed
  * value or array of values. The operator can be overloaded with types to be used with strings, number or mixed sources
  *
  * @typeParam T The type or types to be used to create boolean values from

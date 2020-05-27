@@ -6,7 +6,7 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * The `filterStartsWith` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `filterStartsWith` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns a string value if the string of length starts with the passed character using
  * [String.prototype.startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
  *

@@ -1,32 +1,19 @@
-import { from, of } from 'rxjs';
+import { from } from 'rxjs';
 import { tapIf } from './tap-if';
+import { observe } from 'rxjs-marbles/jest';
+import { finalize } from 'rxjs/operators';
 
 describe('tapIf', () => {
-  it('should call tap if the predicate passes as true', (done) => {
-    const predicate = (value: string | number) => typeof value === 'string';
-    let called = 0;
+  it(
+    'tap only if the predicate is truthy ',
+    observe(() => {
+      const isEven = (num: number): boolean => num % 2 == 0;
 
-    from([1, '2', 3])
-      .pipe(tapIf<string | number>(predicate, () => called++))
-      .subscribe({
-        complete: () => {
-          expect(called).toBe(1);
-          done();
-        },
-      });
-  });
-
-  it('should not call tap if the predicate passes as false', (done) => {
-    const predicate = (value: string | number) => typeof value !== 'string';
-    let called = 0;
-
-    from([1, '2', 3])
-      .pipe(tapIf(predicate, () => called++))
-      .subscribe({
-        complete: () => {
-          expect(called).toBe(2);
-          done();
-        },
-      });
-  });
+      const mock = jest.fn();
+      return from([1, 2, 3, 4, 5]).pipe(
+        tapIf(isEven, () => mock()),
+        finalize(() => expect(mock).toHaveBeenCalledTimes(2)),
+      );
+    }),
+  );
 });

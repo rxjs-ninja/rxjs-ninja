@@ -1,21 +1,22 @@
-import { from } from 'rxjs';
 import { parseInt } from './parse-int';
-import { reduce, take } from 'rxjs/operators';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('parseInt', () => {
-  it('should parse a string to a integer number', (done) => {
-    from(['1', '2.3', '3.14'])
-      .pipe(
-        parseInt(),
-        reduce<number, number[]>((acc, val) => {
-          acc.push(val);
-          return acc;
-        }, []),
-        take(1),
-      )
-      .subscribe({
-        next: (value) => expect(value).toStrictEqual([1, 2, 3]),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should return parsed integer values',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-e-', { a: '-1', b: '0', c: '1', d: '2.3', e: '3.14' });
+      const expected = m.cold('-w-v-x-y-z-', { w: -1, v: 0, x: 1, y: 2, z: 3 });
+      m.expect(input.pipe(parseInt())).toBeObservable(expected);
+    }),
+  );
+
+  it(
+    'should return parsed integer values with radix',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-', { a: '0', b: '60', c: 'ff' });
+      const expected = m.cold('-x-y-z-', { x: 0, y: 96, z: 255 });
+      m.expect(input.pipe(parseInt(16))).toBeObservable(expected);
+    }),
+  );
 });

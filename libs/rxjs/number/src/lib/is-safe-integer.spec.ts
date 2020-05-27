@@ -1,22 +1,20 @@
 import { isSafeInteger } from './is-safe-integer';
-import { filter, reduce, take } from 'rxjs/operators';
-import { fromNumber } from '@tinynodes/rxjs-number';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('isSafeInteger', () => {
-  it('should return if a value is a safe integer', (done) => {
-    fromNumber([Math.pow(2, 53), Math.pow(2, 53) - 1])
-      .pipe(
-        isSafeInteger(),
-        filter(Boolean),
-        reduce<boolean, boolean[]>((acc, val) => {
-          acc.push(val);
-          return acc;
-        }, []),
-        take(1),
-      )
-      .subscribe({
-        next: (value) => expect(value).toHaveLength(1),
-        complete: () => done(),
+  it(
+    'should filter values that are safe integer only',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-e-f-', {
+        a: Infinity,
+        b: -1,
+        c: 0,
+        d: Math.pow(2, 53),
+        e: Math.pow(2, 53) - 1,
+        f: 3.14,
       });
-  });
+      const expected = m.cold('-a-b-c-d-e-f-', { a: false, b: true, c: true, d: false, e: true, f: false });
+      m.expect(input.pipe(isSafeInteger())).toBeObservable(expected);
+    }),
+  );
 });

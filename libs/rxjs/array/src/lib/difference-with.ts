@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module array
  */
-import { MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { PredicateFn } from '../types/array-compare';
 import { mapDifferenceWith } from '../utils/difference';
@@ -74,10 +74,15 @@ function differenceWith<T>(input: T[], predicate: PredicateFn<T>): MonoTypeOpera
  * @category RxJS Array Difference
  */
 function differenceWith<T>(input: ObservableInput<T[]>, predicate: PredicateFn<T>): MonoTypeOperatorFunction<T[]>;
-function differenceWith<T>(input: T[] | ObservableInput<T[]>, predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T[]> {
+function differenceWith<T>(
+  input: T[] | ObservableInput<T[]>,
+  predicate?: PredicateFn<T>,
+): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>
-    input instanceof Observable
-      ? input.pipe(switchMap((inputFromSource) => source.pipe(map(mapDifferenceWith(inputFromSource, predicate)))))
+    isObservable(input)
+      ? input.pipe(
+          switchMap((inputFromSource) => source.pipe(map(mapDifferenceWith(inputFromSource as T[], predicate)))),
+        )
       : source.pipe(map(mapDifferenceWith(input as T[], predicate)));
 }
 

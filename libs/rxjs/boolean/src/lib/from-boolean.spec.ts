@@ -67,7 +67,7 @@ describe('fromBoolean', () => {
       });
   });
 
-  it('should return a Observable boolean with different scheduler', (done) => {
+  it('should return a Observable boolean from a passed boolean with Scheduler', (done) => {
     fromBoolean(false, asapScheduler)
       .pipe(
         map((val) => !val),
@@ -79,14 +79,15 @@ describe('fromBoolean', () => {
       });
   });
 
-  it('should return a Observable boolean with different scheduler with array', (done) => {
-    fromBoolean(['', 'true'], asapScheduler)
+  it('should return a Observable boolean from a passed boolean with Scheduler', (done) => {
+    fromBoolean([0, 1, 0, 2], asapScheduler)
       .pipe(
-        map((val) => !val),
+        filterTruthy(),
+        reduce((acc) => acc + 1, 0),
         take(1),
       )
       .subscribe({
-        next: (value) => expect(value).toBeTruthy(),
+        next: (value) => expect(value).toBe(2),
         complete: () => done(),
       });
   });

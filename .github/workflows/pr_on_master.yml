@@ -41,4 +41,6 @@ jobs:
         run: ./.github/scripts/run-linting.sh False
 
       - name: Tests coverage
-        run: ./.github/scripts/run-testing.sh False True
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+        run: ./.github/scripts/run-testing.sh False True $CODECOV_TOKEN

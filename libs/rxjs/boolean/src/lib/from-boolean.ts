@@ -13,7 +13,7 @@ import { scheduleSingleOrArrayBoolean, subscribeToSingleOrArrayBoolean } from '.
  * @default boolean
  *
  * @param input Boolean input to create an Observable<boolean> from
- * @param scheduler The [SchedulerLike](https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike) to use for scheduling the emission of values, and providing a notion of "time"
+ * @param scheduler The [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike) to use for scheduling the emission of values, and providing a notion of "time"
  *
  * @example
  * ```ts
@@ -33,13 +33,13 @@ import { scheduleSingleOrArrayBoolean, subscribeToSingleOrArrayBoolean } from '.
  */
 function fromBoolean<T = boolean>(input: T, scheduler?: SchedulerLike): Observable<boolean>;
 /**
- * Using `fromBoolean` with an array of booleans is the same as using the [from](https://rxjs-dev.firebaseapp.com/api/index/function/from) operator from RxJS
+ * Using `fromBoolean` with an array of booleans is the same as using the [from](https://rxjs.dev/api/index/function/from) operator from RxJS
  *
  * @typeParam T The type or types to be used to create boolean values from
  * @default boolean
  *
  * @param input Boolean Array input to create an Observable<boolean> from
- * @param scheduler The [SchedulerLike](https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike) to use for scheduling the emission of values, and providing a notion of "time"
+ * @param scheduler The [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike) to use for scheduling the emission of values, and providing a notion of "time"
  *
  * @example
  * ```ts

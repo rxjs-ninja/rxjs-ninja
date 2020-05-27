@@ -10,7 +10,7 @@ import { scheduleSingleOrArrayString, subscribeToSingleOrArrayString } from '../
  * string value or array of string values.
  *
  * @param input The string to create the Observable source from
- * @param scheduler Optional [SchedulerLike](https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike)
+ * @param scheduler Optional [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike)
  *
  * @example
  * ```ts
@@ -22,11 +22,11 @@ import { scheduleSingleOrArrayString, subscribeToSingleOrArrayString } from '../
  */
 function fromString(input: string, scheduler?: SchedulerLike): Observable<string>;
 /**
- * When using fromString with an array, this acts like the [from](https://rxjs-dev.firebaseapp.com/api/index/function/from)
+ * When using fromString with an array, this acts like the [from](https://rxjs.dev/api/index/function/from)
  * operator and emits for each array item
  *
  * @param input Array of strings to create Observable values from
- * @param scheduler Optional [SchedulerLike](https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike)
+ * @param scheduler Optional [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike)
  *
  * @example
  * ```ts

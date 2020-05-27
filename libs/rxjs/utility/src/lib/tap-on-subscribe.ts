@@ -10,7 +10,7 @@ import { CallbackFn } from '../types/utility';
  * The operator is passed a callback which is then executed
  *
  * @remarks
- * This is similar to the [tap](https://rxjs-dev.firebaseapp.com/api/operators/tap) operator but fires when a subscription occurs
+ * This is similar to the [tap](https://rxjs.dev/api/operators/tap) operator but fires when a subscription occurs
  *
  * @typeParam T The value type of the [Observable](https://rxjs.dev/api/index/class/Observable)
  *

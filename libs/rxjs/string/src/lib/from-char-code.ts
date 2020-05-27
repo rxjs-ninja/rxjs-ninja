@@ -10,11 +10,11 @@ import { scheduleCharCode, subscribeToCharCode } from '../utils/from-char-code.u
  * from a number or number array of code points using
  * [String.fromCharCode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode)
  *
- * Unlike the [from](https://rxjs-dev.firebaseapp.com/api/index/function/from) operator when passing an array of numbers to
+ * Unlike the [from](https://rxjs.dev/api/index/function/from) operator when passing an array of numbers to
  * this operator it will generate a single string from the passed arguments
  *
  * @param input A char code number to turn into a string
- * @param scheduler Optional [SchedulerLike](https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike)
+ * @param scheduler Optional [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike)
  *
  * @example
  * ```ts
@@ -27,7 +27,7 @@ import { scheduleCharCode, subscribeToCharCode } from '../utils/from-char-code.u
 function fromCharCode(input: number, scheduler?: SchedulerLike): Observable<string>;
 /**
  * @param input An array of char code numbers to turn into a string
- * @param scheduler Optional [SchedulerLike](https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike)
+ * @param scheduler Optional [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike)
  *
  * @example
  * ```ts

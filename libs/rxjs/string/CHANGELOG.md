@@ -63,7 +63,7 @@ New Operators (now [String](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 ### Changed
 
 - `fromString` now accepts both a single string value or array of string values. When passing an array
-  it acts the same as the [from](https://rxjs-dev.firebaseapp.com/api/index/function/from) operator and also accept a scheduler.
+  it acts the same as the [from](https://rxjs.dev/api/index/function/from) operator and also accept a scheduler.
 - `concat` operator now accepts an argument list of strings or an array of strings
 - `fromCharCode` now accepts both a single string value or array of string values, but will only return a single string value
 - `fromCodePoint` now accepts both a single string value or array of string values, but will only return a single string value

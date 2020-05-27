@@ -10,7 +10,7 @@ import { scheduleSingleOrArrayNumber, subscribeToSingleOrArrayNumber } from '../
  * or array of numbers. The Observable can be subscribed to, which will emit one or more numbers.
  *
  * @param input Number to initialise the Observable
- * @param scheduler Optional [SchedulerLike](https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike) to use for scheduling the emission of values, and providing a notion of "time"
+ * @param scheduler Optional [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike) to use for scheduling the emission of values, and providing a notion of "time"
  * @example
  * ```ts
  * fromNumber(6)
@@ -24,11 +24,11 @@ import { scheduleSingleOrArrayNumber, subscribeToSingleOrArrayNumber } from '../
 function fromNumber(input: number, scheduler?: SchedulerLike): Observable<number>;
 /**
  * Using `fromNumber` with an array of numbers is functionally similar to the RxSJ
- * [from](https://rxjs-dev.firebaseapp.com/api/index/function/from) operator - each number in the array will emit a value
+ * [from](https://rxjs.dev/api/index/function/from) operator - each number in the array will emit a value
  * to the subscription
  *
  * @param input Array of numbers to initialise the Observable
- * @param scheduler The [SchedulerLike](https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike) to use for scheduling the emission of values, and providing a notion of "time"
+ * @param scheduler The [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike) to use for scheduling the emission of values, and providing a notion of "time"
  *
  * @example
  * ```ts

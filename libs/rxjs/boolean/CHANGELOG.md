@@ -51,7 +51,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `fromBoolean` added that accepts both a single value, or an array of values.
   By default, these values are boolean (e.g. `fromBoolean([true, false])`) however the type of this method can be overriden
   and any value converted to boolean (e.g. `fromBoolean<number>([0, 1, 0, 1, 0, 0 ,1])`)
-  When passing an array it acts the same as the [from](https://rxjs-dev.firebaseapp.com/api/index/function/from) operator and also accept a scheduler.
+  When passing an array it acts the same as the [from](https://rxjs.dev/api/index/function/from) operator and also accept a scheduler.
 
 ### Changed
 

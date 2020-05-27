@@ -12,7 +12,7 @@ import { scheduleSingleOrArrayUnicode, subscribeToSingleOrArrayUnicode } from '.
  *
  * @param input A string of unicode characters
  * @param form The Unicode Normalization Form to decode the string with
- * @param scheduler Optional [SchedulerLike](https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike)
+ * @param scheduler Optional [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike)
  *
  * @example
  * ```ts
@@ -27,7 +27,7 @@ function fromUnicode(input: string, form?: FormType, scheduler?: SchedulerLike):
 /**
  * @param input An array of strings of unicode characters
  * @param form The Unicode Normalization Form to decode the string with
- * @param scheduler Optional [SchedulerLike](https://rxjs-dev.firebaseapp.com/api/index/interface/SchedulerLike)
+ * @param scheduler Optional [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike)
  *
  * @example
  * ```ts

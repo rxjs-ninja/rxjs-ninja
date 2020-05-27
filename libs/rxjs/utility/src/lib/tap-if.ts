@@ -11,7 +11,7 @@ import { switchMap } from 'rxjs/operators';
  * provides a truthy value for the passed predicate,
  *
  * @remarks
- * This is similar to the [tap](https://rxjs-dev.firebaseapp.com/api/operators/tap) operator but only executes
+ * This is similar to the [tap](https://rxjs.dev/api/operators/tap) operator but only executes
  * when the predicate result is truthy
  *
  * @typeParam T The value type of the [Observable](https://rxjs.dev/api/index/class/Observable)

@@ -23,4 +23,3 @@ export const subscribeToSingleOrArrayUnicode = (input: string | string[], form: 
   }
   subscriber.complete();
 };
-ø;

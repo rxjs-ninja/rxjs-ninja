@@ -61,7 +61,9 @@ function titleize(locales?: string | string[], separator = ' '): MonoTypeOperato
   return (source: Observable<string>) =>
     source.pipe(
       split(separator),
-      map((values) => values.map((word) => `${word.charAt(0).toLocaleUpperCase(locales)}${word.slice(1)}`).join(separator)),
+      map((values) =>
+        values.map((word) => `${word.charAt(0).toLocaleUpperCase(locales)}${word.slice(1)}`).join(separator),
+      ),
     );
 }
 

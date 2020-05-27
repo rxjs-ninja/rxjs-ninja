@@ -48,7 +48,10 @@ function toLocaleString(locales: string | string[]): OperatorFunction<number, st
  * @category RxJS Number Formatting
  */
 function toLocaleString(locales: string | string[], format: Intl.NumberFormatOptions): OperatorFunction<number, string>;
-function toLocaleString(locales: string | string[], format?: Intl.NumberFormatOptions): OperatorFunction<number, string> {
+function toLocaleString(
+  locales: string | string[],
+  format?: Intl.NumberFormatOptions,
+): OperatorFunction<number, string> {
   return (source: Observable<number>) => source.pipe(map((number) => number.toLocaleString(locales, format)));
 }
 

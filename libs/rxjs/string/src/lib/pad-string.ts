@@ -45,8 +45,16 @@ function padString(padPosition: PadPositionValue, maxLength: number): MonoTypeOp
  * @returns String that is formatted with padding using the `fillString`
  * @category RxJS String Formatting
  */
-function padString(padPosition: PadPositionValue, maxLength: number, fillString: string): MonoTypeOperatorFunction<string>;
-function padString(padPosition: PadPositionValue, maxLength: number, fillString?: string): MonoTypeOperatorFunction<string> {
+function padString(
+  padPosition: PadPositionValue,
+  maxLength: number,
+  fillString: string,
+): MonoTypeOperatorFunction<string>;
+function padString(
+  padPosition: PadPositionValue,
+  maxLength: number,
+  fillString?: string,
+): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) =>
     source.pipe(
       map((value) => {

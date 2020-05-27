@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module boolean
  */
-import { Observable, SchedulerLike, Subscriber, Subscription } from 'rxjs';
+import { Subscriber } from 'rxjs';
 
 /**
  * Takes an input of boolean and returns a method that updates an subscriber
@@ -19,37 +19,3 @@ export const subscribeToSingleOrArrayBoolean = <T>(input: T | T[]) => (subscribe
   }
   subscriber.complete();
 };
-
-/**
- * Takes an input of boolean and returns a method that updates an subscriber
- * @private
- * @param input The boolean to subscribe to
- * @param scheduler
- */
-export function scheduleSingleOrArrayBoolean<T>(input: T | T[], scheduler: SchedulerLike): Observable<boolean> {
-  return new Observable<boolean>((subscriber: Subscriber<boolean>) => {
-    const sub = new Subscription();
-    let i = 0;
-    sub.add(
-      scheduler.schedule(function () {
-        if (Array.isArray(input)) {
-          if (i === input.length) {
-            /* istanbul ignore next */
-            subscriber.complete();
-            /* istanbul ignore next */
-            return;
-          }
-          subscriber.next(Boolean<T>(input[i++]));
-        } else {
-          subscriber.next(Boolean<T>(input));
-          subscriber.complete();
-        }
-        if (!subscriber.closed) {
-          /* istanbul ignore next */
-          sub.add(this.schedule());
-        }
-      }),
-    );
-    return sub;
-  });
-}

@@ -48,13 +48,21 @@ function filterOutOfRange(min: number, max: number): MonoTypeOperatorFunction<nu
  * @returns Number value if the number falls outside the `min/max` range
  * @category RxJS Number Filter
  */
-function filterOutOfRange(min: number, max: number, includeBoundingParameters?: boolean): MonoTypeOperatorFunction<number>;
+function filterOutOfRange(
+  min: number,
+  max: number,
+  includeBoundingParameters?: boolean,
+): MonoTypeOperatorFunction<number>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function filterOutOfRange(...args: any): MonoTypeOperatorFunction<number> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inArgs: any[] = [...args];
   return (source: Observable<number>) =>
-    source.pipe(filter((value) => (inArgs[2] ? value <= inArgs[0] || value >= inArgs[1] : value < inArgs[0] || value > inArgs[1])));
+    source.pipe(
+      filter((value) =>
+        inArgs[2] ? value <= inArgs[0] || value >= inArgs[1] : value < inArgs[0] || value > inArgs[1],
+      ),
+    );
 }
 
 export { filterOutOfRange };

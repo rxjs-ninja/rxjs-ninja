@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module string
  */
-import { Observable, SchedulerLike } from 'rxjs';
-import { scheduleCharCode, subscribeToCharCode } from '../utils/from-char-code.utils';
+import { Observable } from 'rxjs';
+import { subscribeToCharCode } from '../utils/from-char-code.utils';
 
 /**
  * The `fromCharCode` operator is used to create an [Observable](https://rxjs.dev/api/index/class/Observable) string
@@ -14,7 +14,6 @@ import { scheduleCharCode, subscribeToCharCode } from '../utils/from-char-code.u
  * this operator it will generate a single string from the passed arguments
  *
  * @param input A char code number to turn into a string
- * @param scheduler Optional [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike)
  *
  * @example
  * ```ts
@@ -24,10 +23,9 @@ import { scheduleCharCode, subscribeToCharCode } from '../utils/from-char-code.u
  * @returns String from a character code
  * @category RxJS String Creation
  */
-function fromCharCode(input: number, scheduler?: SchedulerLike): Observable<string>;
+function fromCharCode(input: number): Observable<string>;
 /**
  * @param input An array of char code numbers to turn into a string
- * @param scheduler Optional [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike)
  *
  * @example
  * ```ts
@@ -37,11 +35,8 @@ function fromCharCode(input: number, scheduler?: SchedulerLike): Observable<stri
  * @returns String from an an array of character codes
  * @category RxJS String Creation
  */
-function fromCharCode(input: number[], scheduler?: SchedulerLike): Observable<string>;
-function fromCharCode(input: number | number[], scheduler?: SchedulerLike): Observable<string> {
-  if (scheduler) {
-    return scheduleCharCode(input, scheduler);
-  }
+function fromCharCode(input: number[]): Observable<string>;
+function fromCharCode(input: number | number[]): Observable<string> {
   return new Observable<string>(subscribeToCharCode(input));
 }
 

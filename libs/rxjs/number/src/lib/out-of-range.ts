@@ -54,7 +54,9 @@ function outOfRange(...args: any): OperatorFunction<number, boolean> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inArgs: any[] = [...args]; // [min, max, includeBoundingParameters]
   return (source: Observable<number>) =>
-    source.pipe(map((value) => (inArgs[2] ? value <= inArgs[0] || value >= inArgs[1] : value < inArgs[0] || value > inArgs[1])));
+    source.pipe(
+      map((value) => (inArgs[2] ? value <= inArgs[0] || value >= inArgs[1] : value < inArgs[0] || value > inArgs[1])),
+    );
 }
 
 export { outOfRange };

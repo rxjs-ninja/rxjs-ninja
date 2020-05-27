@@ -39,5 +39,6 @@ export type QueryMethod<T> = (query: string) => ObservableInput<T>;
  * @category RxJS Observable Utilities
  */
 export function debounceWithQuery<T = unknown>(time: number, queryMethod: QueryMethod<T>): OperatorFunction<string, T> {
-  return (source: Observable<string>) => source.pipe(debounceTime(time), distinctUntilChanged(), switchMap(queryMethod));
+  return (source: Observable<string>) =>
+    source.pipe(debounceTime(time), distinctUntilChanged(), switchMap(queryMethod));
 }

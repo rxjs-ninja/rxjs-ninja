@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module boolean
  */
-import { Observable, SchedulerLike } from 'rxjs';
-import { scheduleSingleOrArrayBoolean, subscribeToSingleOrArrayBoolean } from '../utils/from-boolean.utils';
+import { Observable } from 'rxjs';
+import { subscribeToSingleOrArrayBoolean } from '../utils/from-boolean.utils';
 
 /**
  * The `fromBoolean` operator is used to create an [Observable](https://rxjs.dev/api/index/class/Observable) boolean from a passed
@@ -13,7 +13,6 @@ import { scheduleSingleOrArrayBoolean, subscribeToSingleOrArrayBoolean } from '.
  * @default boolean
  *
  * @param input Boolean input to create an Observable<boolean> from
- * @param scheduler The [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike) to use for scheduling the emission of values, and providing a notion of "time"
  *
  * @example
  * ```ts
@@ -31,7 +30,7 @@ import { scheduleSingleOrArrayBoolean, subscribeToSingleOrArrayBoolean } from '.
  * @returns Boolean value from the initial parameters
  * @category RxJS Boolean Observables
  */
-function fromBoolean<T = boolean>(input: T, scheduler?: SchedulerLike): Observable<boolean>;
+function fromBoolean<T = boolean>(input: T): Observable<boolean>;
 /**
  * Using `fromBoolean` with an array of booleans is the same as using the [from](https://rxjs.dev/api/index/function/from) operator from RxJS
  *
@@ -39,7 +38,6 @@ function fromBoolean<T = boolean>(input: T, scheduler?: SchedulerLike): Observab
  * @default boolean
  *
  * @param input Boolean Array input to create an Observable<boolean> from
- * @param scheduler The [SchedulerLike](https://rxjs.dev/api/index/interface/SchedulerLike) to use for scheduling the emission of values, and providing a notion of "time"
  *
  * @example
  * ```ts
@@ -56,11 +54,8 @@ function fromBoolean<T = boolean>(input: T, scheduler?: SchedulerLike): Observab
  * @returns Boolean value from the initial parameters
  * @category RxJS Boolean Observables
  */
-function fromBoolean<T = boolean>(input: T[], scheduler?: SchedulerLike): Observable<boolean>;
-function fromBoolean<T = boolean>(input: T | T[], scheduler?: SchedulerLike): Observable<boolean> {
-  if (scheduler) {
-    return scheduleSingleOrArrayBoolean<T>(input, scheduler);
-  }
+function fromBoolean<T = boolean>(input: T[]): Observable<boolean>;
+function fromBoolean<T = boolean>(input: T | T[]): Observable<boolean> {
   return new Observable<boolean>(subscribeToSingleOrArrayBoolean<T>(input));
 }
 

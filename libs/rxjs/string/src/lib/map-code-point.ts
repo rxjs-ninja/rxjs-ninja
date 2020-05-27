@@ -30,5 +30,7 @@ import { map } from 'rxjs/operators';
  */
 export function mapCodePoint(): OperatorFunction<number | number[], string> {
   return (source: Observable<number | number[]>) =>
-    source.pipe(map((values) => (Array.isArray(values) ? String.fromCodePoint(...values) : String.fromCodePoint(values))));
+    source.pipe(
+      map((values) => (Array.isArray(values) ? String.fromCodePoint(...values) : String.fromCodePoint(values))),
+    );
 }

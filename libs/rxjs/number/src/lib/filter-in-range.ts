@@ -54,7 +54,11 @@ function filterInRange(...args: any): MonoTypeOperatorFunction<number> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inArgs: any[] = [...args];
   return (source: Observable<number>) =>
-    source.pipe(filter((value) => (inArgs[2] ? value > inArgs[0] && value < inArgs[1] : value >= inArgs[0] && value <= inArgs[1])));
+    source.pipe(
+      filter((value) =>
+        inArgs[2] ? value > inArgs[0] && value < inArgs[1] : value >= inArgs[0] && value <= inArgs[1],
+      ),
+    );
 }
 
 export { filterInRange };

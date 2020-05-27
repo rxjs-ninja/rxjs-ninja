@@ -31,5 +31,7 @@ import { map } from 'rxjs/operators';
  */
 export function mapCharCode(): OperatorFunction<number | number[], string> {
   return (source: Observable<number | number[]>) =>
-    source.pipe(map((values) => (Array.isArray(values) ? String.fromCharCode(...values) : String.fromCharCode(values))));
+    source.pipe(
+      map((values) => (Array.isArray(values) ? String.fromCharCode(...values) : String.fromCharCode(values))),
+    );
 }

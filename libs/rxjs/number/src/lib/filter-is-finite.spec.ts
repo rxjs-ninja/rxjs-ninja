@@ -1,21 +1,13 @@
-import { from } from 'rxjs';
-import { reduce, take } from 'rxjs/operators';
 import { filterIsFinite } from '@tinynodes/rxjs-number';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('filterIsFinite', () => {
-  it('should return valid numbers that are in a finite range', (done) => {
-    from([1, 2, 3, NaN, Infinity, -Infinity, null, '1'])
-      .pipe(
-        filterIsFinite(),
-        reduce<number, number[]>((acc, val) => {
-          acc.push(val);
-          return acc;
-        }, []),
-        take(1),
-      )
-      .subscribe({
-        next: (value) => expect(value).toStrictEqual([1, 2, 3]),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should filter values that are finite only',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-e-', { a: -Infinity, b: 0, c: 1, d: 2, e: Infinity });
+      const expected = m.cold('---b-c-d---', { b: 0, c: 1, d: 2 });
+      m.expect(input.pipe(filterIsFinite())).toBeObservable(expected);
+    }),
+  );
 });

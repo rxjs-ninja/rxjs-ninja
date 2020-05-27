@@ -27,5 +27,5 @@ import { filter } from 'rxjs/operators';
  * @category RxJS Number Filter
  */
 export function filterIsNotNaN(): MonoTypeOperatorFunction<number> {
-  return (source: Observable<number>) => source.pipe(filter((value) => Number.isInteger(value)));
+  return (source: Observable<number>) => source.pipe(filter((value) => !Number.isNaN(value)));
 }

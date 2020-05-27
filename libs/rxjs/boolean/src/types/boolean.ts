@@ -16,4 +16,4 @@
  *
  * @returns Boolean value
  */
-export type PredicateFn<T> = (value: T, value2?: T) => boolean;
+export type PredicateFn<T> = (...args: any) => boolean;

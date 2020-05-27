@@ -1,36 +1,23 @@
-import { from } from 'rxjs';
 import { firstTruthy } from '@tinynodes/rxjs-boolean';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('firstTruthy', () => {
-  it('should return the first true value from a source', (done) => {
-    from([null, false, '', 'test'])
-      .pipe(firstTruthy())
-      .subscribe({
-        next: (value) => expect(value).toBe('test'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'filter the first truthy value',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-e-', { a: '', b: '', c: '', d: 'true', e: '' });
+      const expected = m.cold('-------(d|)', { d: 'true' });
+      m.expect(input.pipe(firstTruthy())).toBeObservable(expected);
+    }),
+  );
 
-  it('should return no value if no truthy value', (done) => {
-    let called = 0;
-
-    from([null, false, ''])
-      .pipe(firstTruthy())
-      .subscribe({
-        next: () => called++,
-        complete: () => {
-          expect(called).toBe(0);
-          done();
-        },
-      });
-  });
-
-  it('should support return value using a predicate method', (done) => {
-    from([1, 2, 3, 4])
-      .pipe(firstTruthy((val) => val % 2 === 0))
-      .subscribe({
-        next: (value) => expect(value).toBe(2),
-        complete: () => done(),
-      });
-  });
+  it(
+    'filter the first truthy value with predicate',
+    marbles((m) => {
+      const predicate = (num: number) => num % 2 === 0;
+      const input = m.hot('-a-b-c-d-e-', { a: 1, b: 3, c: 5, d: 6, e: 8 });
+      const expected = m.cold('-------(d|)', { d: 6 });
+      m.expect(input.pipe(firstTruthy(predicate))).toBeObservable(expected);
+    }),
+  );
 });

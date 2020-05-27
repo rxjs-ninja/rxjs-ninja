@@ -1,28 +1,25 @@
-import { map, reduce, take } from 'rxjs/operators';
+import { map, reduce, tap } from 'rxjs/operators';
 import { fromNumber } from '@tinynodes/rxjs-number';
+import { observe } from 'rxjs-marbles/jest';
 
 describe('fromNumber', () => {
-  it('should return a Observable number from a passed number', (done) => {
-    fromNumber(6)
-      .pipe(
-        map((val) => val * 7),
-        take(1),
-      )
-      .subscribe({
-        next: (value) => expect(value).toBe(42),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should create boolean observable from boolean value',
+    observe(() =>
+      fromNumber(5).pipe(
+        map((val) => val * 2),
+        tap((value) => expect(value).toBe(10)),
+      ),
+    ),
+  );
 
-  it('should return an Observable numbers from passed array', (done) => {
-    fromNumber([1, 2, 3])
-      .pipe(
+  it(
+    'should create boolean observable from boolean value',
+    observe(() =>
+      fromNumber([1, 2, 3, 4]).pipe(
         reduce((acc, val) => acc + val),
-        take(1),
-      )
-      .subscribe({
-        next: (value) => expect(value).toBe(6),
-        complete: () => done(),
-      });
-  });
+        tap((value) => expect(value).toBe(10)),
+      ),
+    ),
+  );
 });

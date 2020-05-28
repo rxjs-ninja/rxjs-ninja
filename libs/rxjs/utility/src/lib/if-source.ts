@@ -1,11 +1,10 @@
 /**
  * @packageDocumentation
- * @module boolean
+ * @module utility
  */
-import { FilterPredicateFn } from '../types/boolean';
+import { InputModifierFn, PredicateFn } from '../types/utility';
 import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { InputModifierFn } from '../types/iif';
 
 /**
  * The `ifSource` operator is used with an [Observable](https://rxjs.dev/api/index/class/Observable) value and takes a predicate
@@ -32,11 +31,11 @@ import { InputModifierFn } from '../types/iif';
  * ).subscribe(console.log) // 42
  * ```
  *
- * @returns Any value based on the Truthy or Falsy [[InputModifierFn]] based on the [[PredicateFn]] result
- * @category RxJS Boolean Modifier
+ * @returns Any value based on the Truthy or Falsy [[InputModifierFn]] based on the [[FilterPredicateFn]] result
+ * @category RxJS Utility Modifier
  */
 function ifSource<I = never, T = I | never, F = I | never>(
-  predicate: FilterPredicateFn,
+  predicate: PredicateFn,
   trueResult: InputModifierFn<I, T>,
   falseResult: InputModifierFn<I, T | F>,
 ): OperatorFunction<I, T | F> {

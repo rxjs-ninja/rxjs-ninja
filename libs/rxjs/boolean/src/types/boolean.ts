@@ -11,9 +11,10 @@
  *
  * @example
  * ```
- * const isEvenNumber: PredicateFn<number> = (num: number) => num % 2 === 0
+ * const isEvenNumber: PredicateFn<number> = (num: number): boolean => num % 2 === 0
  * ```
  *
  * @returns Boolean value
  */
-export type PredicateFn<T> = (...args: any) => boolean;
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export type FilterPredicateFn = (...args: any) => boolean;

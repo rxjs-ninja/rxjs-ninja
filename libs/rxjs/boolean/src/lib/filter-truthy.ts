@@ -4,7 +4,7 @@
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
-import { PredicateFn } from '../types/boolean';
+import { FilterPredicateFn } from '../types/boolean';
 
 /**
  * The `filterTruthy` operator is used to only return truthy values from an
@@ -32,8 +32,8 @@ import { PredicateFn } from '../types/boolean';
  * @returns All values that are truthy only
  * @category RxJS Boolean Filters
  */
-function filterTruthy<T>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T>;
-function filterTruthy<T>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
+function filterTruthy<T>(predicate?: FilterPredicateFn): MonoTypeOperatorFunction<T>;
+function filterTruthy<T>(predicate?: FilterPredicateFn): MonoTypeOperatorFunction<T> {
   if (predicate) {
     return (source: Observable<T>) => source.pipe(filter<T>(predicate));
   }

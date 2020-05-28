@@ -3,8 +3,8 @@
  * @module boolean
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { filter, take } from 'rxjs/operators';
-import { PredicateFn } from '../types/boolean';
+import { filter, first, take } from 'rxjs/operators';
+import { FilterPredicateFn } from '../types/boolean';
 
 /**
  * The `firstTruthy` operator is used to get only the first truthy value from an
@@ -31,11 +31,11 @@ import { PredicateFn } from '../types/boolean';
  * @returns The first truthy boolean value
  * @category RxJS Boolean Filters
  */
-function firstTruthy<T>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
+function firstTruthy<T>(predicate?: FilterPredicateFn): MonoTypeOperatorFunction<T> {
   if (predicate) {
-    return (source: Observable<T>) => source.pipe(filter<T>(predicate), take(1));
+    return (source: Observable<T>) => source.pipe(filter<T>(predicate), first());
   }
-  return (source: Observable<T>) => source.pipe(filter<T>(Boolean), take(1));
+  return (source: Observable<T>) => source.pipe(filter<T>(Boolean), first());
 }
 
 export { firstTruthy };

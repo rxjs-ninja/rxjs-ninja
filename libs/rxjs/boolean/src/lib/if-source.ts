@@ -2,14 +2,15 @@
  * @packageDocumentation
  * @module boolean
  */
-import { PredicateFn } from '../types/boolean';
-import { Observable, of, OperatorFunction } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { FilterPredicateFn } from '../types/boolean';
+import { Observable, OperatorFunction } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { InputModifierFn } from '../types/iif';
 
 /**
  * The `ifSource` operator is used with an [Observable](https://rxjs.dev/api/index/class/Observable) value and takes a predicate
- * function. Based on the result of the predicate it will return an Observable value of the truthy or falsy result
+ * function. Based on the result of the predicate it will return a value based on a truthy or falsy result. Each value can be
+ * cast to a specific type if required
  *
  * @typeParam I The Input Type
  * @typeParam T The type returned from the Truthy result
@@ -34,13 +35,13 @@ import { InputModifierFn } from '../types/iif';
  * @returns Any value based on the Truthy or Falsy [[InputModifierFn]] based on the [[PredicateFn]] result
  * @category RxJS Boolean Modifier
  */
-function ifSource<I = never, T = never, F = never>(
-  predicate: PredicateFn<I>,
+function ifSource<I = never, T = I | never, F = I | never>(
+  predicate: FilterPredicateFn,
   trueResult: InputModifierFn<I, T>,
-  falseResult: InputModifierFn<I, F>,
+  falseResult: InputModifierFn<I, T | F>,
 ): OperatorFunction<I, T | F> {
   return (source: Observable<never>) =>
-    source.pipe(switchMap((value: I) => (predicate(value) ? of(trueResult(value)) : of(falseResult(value)))));
+    source.pipe(map((value: I) => (predicate(value) ? trueResult(value) : falseResult(value))));
 }
 
 export { ifSource };

@@ -4,7 +4,7 @@
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter, takeLast } from 'rxjs/operators';
-import { PredicateFn } from '../types/boolean';
+import { FilterPredicateFn } from '../types/boolean';
 
 /**
  * The `lastTruthy` operator is used to get only the first truthy value from an
@@ -40,14 +40,10 @@ function lastTruthy<T>(): MonoTypeOperatorFunction<T>;
  * @returns The last truthy boolean value
  * @category RxJS Boolean Filters
  */
-function lastTruthy<T>(predicate: PredicateFn<T>): MonoTypeOperatorFunction<T>;
-function lastTruthy<T>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
+function lastTruthy<T>(predicate: FilterPredicateFn): MonoTypeOperatorFunction<T>;
+function lastTruthy<T>(predicate?: FilterPredicateFn): MonoTypeOperatorFunction<T> {
   if (predicate) {
-    return (source: Observable<T>) =>
-      source.pipe(
-        filter<T>((val) => predicate(val)),
-        takeLast(1),
-      );
+    return (source: Observable<T>) => source.pipe(filter<T>(predicate), takeLast(1));
   }
   return (source: Observable<T>) => source.pipe(filter<T>(Boolean), takeLast(1));
 }

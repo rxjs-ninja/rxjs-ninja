@@ -1,13 +1,13 @@
-import { take } from 'rxjs/operators';
-import { charAt, fromString } from '@tinynodes/rxjs-string';
+import { charAt } from '@tinynodes/rxjs-string';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('charAt', () => {
-  it('should return a character at a passed position', (done) => {
-    fromString('test')
-      .pipe(charAt(1), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe('e'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should filter values including the boundary values',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-', { a: 'test', b: 'foo', c: 'a' });
+      const expected = m.cold('-a-b-c-', { a: 's', b: 'o', c: '' });
+      m.expect(input.pipe(charAt(2))).toBeObservable(expected);
+    }),
+  );
 });

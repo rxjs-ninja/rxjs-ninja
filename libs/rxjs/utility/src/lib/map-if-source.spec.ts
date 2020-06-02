@@ -1,5 +1,7 @@
-import { ifSource } from './if-source';
+import { mapIfSource } from './map-if-source';
 import { marbles } from 'rxjs-marbles/jest';
+import { Observable, timer } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 
 describe('ifSource', () => {
   it(
@@ -15,7 +17,7 @@ describe('ifSource', () => {
       });
       m.expect(
         input.pipe(
-          ifSource<string>(
+          mapIfSource<string>(
             (value) => value.toLowerCase() === 'jack',
             (value) => `${value} has a Cow`,
             (value) => `${value} has a Lamb`,
@@ -39,7 +41,7 @@ describe('ifSource', () => {
       });
       m.expect(
         input.pipe(
-          ifSource<number, string>(
+          mapIfSource<number, string>(
             (value) => value === 42,
             (value) => `${value} is the ultimate answer!`,
             (value) => `${value} is NOT the ultimate answer!`,
@@ -64,7 +66,7 @@ describe('ifSource', () => {
       });
       m.expect(
         input.pipe(
-          ifSource<number, string, number>(
+          mapIfSource<number, string, number>(
             (value) => value % 15 == 0 || value % 3 == 0 || value % 5 == 0,
             (value) => (value % 15 == 0 ? `FizzBuzz` : value % 3 === 0 ? 'Fizz' : 'Buzz'),
             (value) => value,

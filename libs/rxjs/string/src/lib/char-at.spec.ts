@@ -3,7 +3,7 @@ import { marbles } from 'rxjs-marbles/jest';
 
 describe('charAt', () => {
   it(
-    'should filter values including the boundary values',
+    'should return the character at the passed position',
     marbles((m) => {
       const input = m.hot('-a-b-c-', { a: 'test', b: 'foo', c: 'a' });
       const expected = m.cold('-a-b-c-', { a: 's', b: 'o', c: '' });

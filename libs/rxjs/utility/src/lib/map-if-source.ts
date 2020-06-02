@@ -34,7 +34,7 @@ import { map } from 'rxjs/operators';
  * @returns Any value based on the Truthy or Falsy [[InputModifierFn]] based on the [[FilterPredicateFn]] result
  * @category RxJS Utility Modifier
  */
-function ifSource<I = never, T = I | never, F = I | never>(
+function mapIfSource<I = never, T = any, F = any>(
   predicate: PredicateFn,
   trueResult: InputModifierFn<I, T>,
   falseResult: InputModifierFn<I, T | F>,
@@ -43,4 +43,4 @@ function ifSource<I = never, T = I | never, F = I | never>(
     source.pipe(map((value: I) => (predicate(value) ? trueResult(value) : falseResult(value))));
 }
 
-export { ifSource };
+export { mapIfSource };

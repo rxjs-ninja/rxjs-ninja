@@ -37,6 +37,7 @@
     "@nrwl/eslint-plugin-nx": "^9.3.0",
     "@nrwl/jest": "^9.3.0",
     "@nrwl/node": "^9.3.0",
+    "@nrwl/nx-cloud": "^9.3.0",
     "@nrwl/workspace": "^9.3.0",
     "@types/jest": "^25.2.2",
     "@types/node": "~14.0.1",

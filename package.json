@@ -34,7 +34,7 @@
     "rxjs": "^6.5.5"
   },
   "devDependencies": {
-    "@nrwl/eslint-plugin-nx": "^9.3.0",
+    "@nrwl/eslint-plugin-nx": "^9.5.1",
     "@nrwl/jest": "^9.3.0",
     "@nrwl/node": "^9.3.0",
     "@nrwl/nx-cloud": "^9.3.0",

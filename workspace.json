@@ -11,7 +11,6 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "config": "libs/rxjs/string/.eslintrc",
             "tsConfig": ["libs/rxjs/string/tsconfig.lib.json", "libs/rxjs/string/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/rxjs/string/**"]
           }
@@ -46,7 +45,6 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "config": "libs/rxjs/number/.eslintrc",
             "tsConfig": ["libs/rxjs/number/tsconfig.lib.json", "libs/rxjs/number/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/rxjs/number/**"]
           }
@@ -81,7 +79,6 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "config": "libs/rxjs/boolean/.eslintrc",
             "tsConfig": ["libs/rxjs/boolean/tsconfig.lib.json", "libs/rxjs/boolean/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/rxjs/boolean/**"]
           }
@@ -116,7 +113,6 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "config": "libs/rxjs/utility/.eslintrc",
             "tsConfig": ["libs/rxjs/utility/tsconfig.lib.json", "libs/rxjs/utility/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/rxjs/utility/**"]
           }
@@ -151,7 +147,6 @@
           "builder": "@nrwl/linter:lint",
           "options": {
             "linter": "eslint",
-            "config": "libs/rxjs/array/.eslintrc",
             "tsConfig": ["libs/rxjs/array/tsconfig.lib.json", "libs/rxjs/array/tsconfig.spec.json"],
             "exclude": ["**/node_modules/**", "!libs/rxjs/array/**"]
           }

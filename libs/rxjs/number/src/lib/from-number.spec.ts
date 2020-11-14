@@ -4,7 +4,7 @@ import { observe } from 'rxjs-marbles/jest';
 
 describe('fromNumber', () => {
   it(
-    'should create boolean observable from boolean value',
+    'should create observable from number value',
     observe(() =>
       fromNumber(5).pipe(
         map((val) => val * 2),
@@ -14,7 +14,7 @@ describe('fromNumber', () => {
   );
 
   it(
-    'should create boolean observable from boolean value',
+    'should create observable from array of value',
     observe(() =>
       fromNumber([1, 2, 3, 4]).pipe(
         reduce((acc, val) => acc + val),

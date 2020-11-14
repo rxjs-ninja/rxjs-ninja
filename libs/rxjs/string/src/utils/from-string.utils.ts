@@ -9,7 +9,7 @@ import { Subscriber } from 'rxjs';
  * @private
  * @param input The number to subscribe to
  */
-export const subscribeToSingleOrArrayString = (input: string | string[]) => (subscriber: Subscriber<string>) => {
+export const subscribeToSingleOrArrayString = (input: string | string[]) => (subscriber: Subscriber<string>): void => {
   if (Array.isArray(input)) {
     for (let i = 0; i < input.length; i++) {
       subscriber.next(input[i]);

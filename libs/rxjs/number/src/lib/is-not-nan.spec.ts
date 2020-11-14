@@ -1,6 +1,4 @@
-import { from } from 'rxjs';
-import { filter, reduce, take } from 'rxjs/operators';
-import { isNaN, isNotNaN } from '@tinynodes/rxjs-number';
+import { isNotNaN } from '@tinynodes/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('isNotNaN', () => {

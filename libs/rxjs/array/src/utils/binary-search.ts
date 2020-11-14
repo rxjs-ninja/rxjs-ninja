@@ -7,10 +7,11 @@
  * Binary searcher method
  * @param searchValue
  * @param searchArray
+ * @param property
  * @private
  * @internal
  */
-export function binarySearcher<T, K>(searchValue: T, searchArray: T[], property?: string | number) {
+export function binarySearcher<T>(searchValue: T, searchArray: T[], property?: string | number): number {
   let first = 0; //left endpoint
   let last = searchArray.length - 1; //right endpoint
   let position = -1;

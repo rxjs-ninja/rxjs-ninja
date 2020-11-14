@@ -50,7 +50,7 @@ function inRange(min: number, max: number): OperatorFunction<number, boolean>;
  */
 function inRange(min: number, max: number, excludeBoundingValues?: boolean): OperatorFunction<number, boolean>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function inRange(...args: any): OperatorFunction<number, boolean> {
+function inRange(...args: any[]): OperatorFunction<number, boolean> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inArgs: any[] = [...args]; // [min, max, excludeBoundingValues]
   return (source: Observable<number>) =>

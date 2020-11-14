@@ -1,9 +1,14 @@
 module.exports = {
-  name: 'rxjs-boolean',
-  preset: '../../../jest.config.js',
-  transform: {
-    '^.+\\.[tj]sx?$': 'ts-jest'
+  displayName: 'rxjs-boolean',
+  preset: '../../../jest.preset.js',
+  globals: {
+    'ts-jest': {
+      tsConfig: '<rootDir>/tsconfig.spec.json',
+    },
   },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'html'],
-  coverageDirectory: '../../../coverage/libs/rxjs/boolean'
+  transform: {
+    '^.+\\.[tj]sx?$': 'ts-jest',
+  },
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
+  coverageDirectory: '../../../coverage/libs/rxjs-boolean',
 };

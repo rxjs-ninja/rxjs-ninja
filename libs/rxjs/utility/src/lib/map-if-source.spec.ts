@@ -1,7 +1,5 @@
 import { mapIfSource } from './map-if-source';
 import { marbles } from 'rxjs-marbles/jest';
-import { Observable, timer } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
 
 describe('ifSource', () => {
   it(

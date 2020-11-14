@@ -52,7 +52,7 @@ function concat(strings: ObservableInput<string[]>): MonoTypeOperatorFunction<st
  */
 function concat(strings: string[]): MonoTypeOperatorFunction<string>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function concat(...args: any): MonoTypeOperatorFunction<string> {
+function concat(...args: any[]): MonoTypeOperatorFunction<string> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const values: any[] = [...args];
   if (values[0] instanceof Array) {

@@ -29,7 +29,7 @@ import { mapDifference } from '../utils/difference';
  * @returns Array of values of difference between the source and input array
  * @category RxJS Array Difference
  */
-function difference<T, K>(input: T[]): MonoTypeOperatorFunction<T[]>;
+function difference<T>(input: T[]): MonoTypeOperatorFunction<T[]>;
 /**
  * @param input An Observable Array of items use to get the difference between two arrays
  *
@@ -43,7 +43,7 @@ function difference<T, K>(input: T[]): MonoTypeOperatorFunction<T[]>;
  * @returns Array of values of difference between the source and input array
  * @category RxJS Array Difference
  */
-function difference<T, K>(input: ObservableInput<T[]>): MonoTypeOperatorFunction<T[]>;
+function difference<T>(input: ObservableInput<T[]>): MonoTypeOperatorFunction<T[]>;
 /**
  * @param input An Observable Array of items use to get the difference between two arrays
  * @param inputModifier A function that provide modification of the values to do the comparision with

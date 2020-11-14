@@ -1,4 +1,4 @@
-import { isFinite, isInteger } from '@tinynodes/rxjs-number';
+import { isInteger } from '@tinynodes/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('isInteger', () => {

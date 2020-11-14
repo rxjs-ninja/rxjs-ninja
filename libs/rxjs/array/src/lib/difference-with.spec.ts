@@ -1,5 +1,4 @@
 import { of } from 'rxjs';
-import { intersectsWith } from './intersects-with';
 import { differenceWith } from './difference-with';
 
 describe('differenceWith', () => {

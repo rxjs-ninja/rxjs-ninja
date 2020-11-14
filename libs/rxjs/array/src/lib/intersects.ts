@@ -28,7 +28,7 @@ import { mapIntersection } from '../utils/intersects';
  * @returns Array of values of intersection between the source and input array
  * @category RxJS Array Intersection
  */
-function intersects<T, K>(input: T[]): MonoTypeOperatorFunction<T[]>;
+function intersects<T>(input: T[]): MonoTypeOperatorFunction<T[]>;
 /**
  * @param input Observable Array of items use to get the intersection between two arrays
  *
@@ -42,7 +42,7 @@ function intersects<T, K>(input: T[]): MonoTypeOperatorFunction<T[]>;
  * @returns Array of values of intersection between the source and input array
  * @category RxJS Array Intersection
  */
-function intersects<T, K>(input: ObservableInput<T[]>): MonoTypeOperatorFunction<T[]>;
+function intersects<T>(input: ObservableInput<T[]>): MonoTypeOperatorFunction<T[]>;
 /**
  * @param input Observable Array of items use to get the intersection between two arrays
  * @param inputModifier A function that provide modification of the values to do the comparision with

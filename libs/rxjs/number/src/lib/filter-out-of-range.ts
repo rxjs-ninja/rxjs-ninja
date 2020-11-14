@@ -54,7 +54,7 @@ function filterOutOfRange(
   includeBoundingParameters?: boolean,
 ): MonoTypeOperatorFunction<number>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function filterOutOfRange(...args: any): MonoTypeOperatorFunction<number> {
+function filterOutOfRange(...args: any[]): MonoTypeOperatorFunction<number> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inArgs: any[] = [...args];
   return (source: Observable<number>) =>

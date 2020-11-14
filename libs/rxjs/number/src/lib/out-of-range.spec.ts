@@ -1,4 +1,3 @@
-import { fromNumber, inRange } from '@tinynodes/rxjs-number';
 import { outOfRange } from './out-of-range';
 import { marbles } from 'rxjs-marbles/jest';
 

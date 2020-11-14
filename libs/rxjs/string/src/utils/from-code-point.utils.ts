@@ -10,7 +10,7 @@ import { Subscriber } from 'rxjs';
  * @private
  * @param input The array of char codes to convert to a string
  */
-export const subscribeToCodePoint = (input: number | number[]) => (subscriber: Subscriber<string>) => {
+export const subscribeToCodePoint = (input: number | number[]) => (subscriber: Subscriber<string>): void => {
   if (Array.isArray(input)) {
     subscriber.next(String.fromCodePoint(...input));
   } else {

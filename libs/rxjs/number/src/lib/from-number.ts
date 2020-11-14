@@ -40,8 +40,8 @@ function fromNumber(input: number): Observable<number>;
  */
 function fromNumber(input: number[]): Observable<number>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function fromNumber(input: any): Observable<number> {
-  return new Observable<number>(subscribeToSingleOrArrayNumber<number>(input));
+function fromNumber(...args: any[]): Observable<number> {
+  return new Observable<number>(subscribeToSingleOrArrayNumber(args[0]));
 }
 
 export { fromNumber };

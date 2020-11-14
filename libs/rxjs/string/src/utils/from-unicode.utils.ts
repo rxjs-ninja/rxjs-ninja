@@ -13,7 +13,7 @@ import { FormType } from '../types/normalize';
  */
 export const subscribeToSingleOrArrayUnicode = (input: string | string[], form: FormType) => (
   subscriber: Subscriber<string>,
-) => {
+): void => {
   if (Array.isArray(input)) {
     for (let i = 0; i < input.length; i++) {
       subscriber.next(input[i].normalize(form));

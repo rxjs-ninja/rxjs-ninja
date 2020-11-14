@@ -3,7 +3,7 @@
  * @module boolean
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { filter, first, take } from 'rxjs/operators';
+import { filter, first } from 'rxjs/operators';
 import { FilterPredicateFn } from '../types/boolean';
 
 /**

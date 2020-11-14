@@ -11,7 +11,7 @@ import { Subscriber } from 'rxjs';
  * @private
  * @internal
  */
-export const subscribeToSingleOrArrayNumber = <T>(input: number | number[]) => (subscriber: Subscriber<number>) => {
+export const subscribeToSingleOrArrayNumber = (input: number | number[]) => (subscriber: Subscriber<number>): void => {
   if (Array.isArray(input)) {
     for (let i = 0; i < input.length; i++) {
       subscriber.next(input[i]);

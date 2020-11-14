@@ -11,7 +11,7 @@ import { Subscriber } from 'rxjs';
  * @param input The array of char codes to convert to a string
  */
 export function subscribeToCharCode(input: number | number[]) {
-  return (subscriber: Subscriber<string>) => {
+  return (subscriber: Subscriber<string>): void => {
     if (Array.isArray(input)) {
       subscriber.next(String.fromCharCode(...input));
     } else {

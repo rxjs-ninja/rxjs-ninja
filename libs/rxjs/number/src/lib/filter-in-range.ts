@@ -50,7 +50,7 @@ function filterInRange(min: number, max: number): MonoTypeOperatorFunction<numbe
  */
 function filterInRange(min: number, max: number, excludeBoundingValues: boolean): MonoTypeOperatorFunction<number>;
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-function filterInRange(...args: any): MonoTypeOperatorFunction<number> {
+function filterInRange(...args: any[]): MonoTypeOperatorFunction<number> {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const inArgs: any[] = [...args];
   return (source: Observable<number>) =>

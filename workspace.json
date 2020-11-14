@@ -8,18 +8,15 @@
       "schematics": {},
       "architect": {
         "lint": {
-          "builder": "@nrwl/linter:lint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "linter": "eslint",
-            "tsConfig": ["libs/rxjs/string/tsconfig.lib.json", "libs/rxjs/string/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/rxjs/string/**"]
+            "lintFilePatterns": ["libs/rxjs/string/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/rxjs/string/jest.config.js",
-            "tsConfig": "libs/rxjs/string/tsconfig.spec.json",
             "passWithNoTests": true
           }
         },
@@ -42,18 +39,15 @@
       "schematics": {},
       "architect": {
         "lint": {
-          "builder": "@nrwl/linter:lint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "linter": "eslint",
-            "tsConfig": ["libs/rxjs/number/tsconfig.lib.json", "libs/rxjs/number/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/rxjs/number/**"]
+            "lintFilePatterns": ["libs/rxjs/number/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/rxjs/number/jest.config.js",
-            "tsConfig": "libs/rxjs/number/tsconfig.spec.json",
             "passWithNoTests": true
           }
         },
@@ -76,18 +70,15 @@
       "schematics": {},
       "architect": {
         "lint": {
-          "builder": "@nrwl/linter:lint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "linter": "eslint",
-            "tsConfig": ["libs/rxjs/boolean/tsconfig.lib.json", "libs/rxjs/boolean/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/rxjs/boolean/**"]
+            "lintFilePatterns": ["libs/rxjs/boolean/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/rxjs/boolean/jest.config.js",
-            "tsConfig": "libs/rxjs/boolean/tsconfig.spec.json",
             "passWithNoTests": true
           }
         },
@@ -110,18 +101,15 @@
       "schematics": {},
       "architect": {
         "lint": {
-          "builder": "@nrwl/linter:lint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "linter": "eslint",
-            "tsConfig": ["libs/rxjs/utility/tsconfig.lib.json", "libs/rxjs/utility/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/rxjs/utility/**"]
+            "lintFilePatterns": ["libs/rxjs/utility/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/rxjs/utility/jest.config.js",
-            "tsConfig": "libs/rxjs/utility/tsconfig.spec.json",
             "passWithNoTests": true
           }
         },
@@ -144,18 +132,15 @@
       "schematics": {},
       "architect": {
         "lint": {
-          "builder": "@nrwl/linter:lint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "linter": "eslint",
-            "tsConfig": ["libs/rxjs/array/tsconfig.lib.json", "libs/rxjs/array/tsconfig.spec.json"],
-            "exclude": ["**/node_modules/**", "!libs/rxjs/array/**"]
+            "lintFilePatterns": ["libs/rxjs/array/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "libs/rxjs/array/jest.config.js",
-            "tsConfig": "libs/rxjs/array/tsconfig.spec.json",
             "passWithNoTests": true
           }
         },
@@ -174,61 +159,5 @@
   },
   "cli": {
     "defaultCollection": "@nrwl/workspace"
-  },
-  "schematics": {
-    "@nrwl/workspace": {
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/cypress": {
-      "cypress-project": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/react": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/next": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/web": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/node": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/nx-plugin": {
-      "plugin": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/nest": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
-    "@nrwl/express": {
-      "application": {
-        "linter": "eslint"
-      },
-      "library": {
-        "linter": "eslint"
-      }
-    }
   }
 }

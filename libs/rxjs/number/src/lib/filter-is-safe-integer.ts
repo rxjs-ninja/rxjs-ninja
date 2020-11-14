@@ -27,7 +27,6 @@ import { filter, tap } from 'rxjs/operators';
  */
 
 function isSafe(num: number): boolean {
-  console.log(num, Number.isSafeInteger(num));
   return Number.isSafeInteger(num);
 }
 

@@ -17,18 +17,6 @@ import { map } from 'rxjs/operators';
  * @param min The minimum number for the range
  * @param max The maximum number for the range
  *
- * @example
- * ```ts
- * fromNumber([-1, 0, 1, 2, 10, 11])
- *  .pipe(outOfRange(0, 10))
- *  .subscribe(console.log) // [true, false, false, false, false, true]
- * ```
- *
- * @returns Boolean value if the number falls outside the `min/max` range
- * @category RxJS Number Query
- */
-function outOfRange(min: number, max: number): OperatorFunction<number, boolean>;
-/**
  * If `includeBoundingParameters` is set to `true`, the range will include the actual `min` and `max` values
  * by using `>= || <=` as it's equality match
  *
@@ -41,6 +29,13 @@ function outOfRange(min: number, max: number): OperatorFunction<number, boolean>
  * @example
  * ```ts
  * fromNumber([-1, 0, 1, 2, 10, 11])
+ *  .pipe(outOfRange(0, 10))
+ *  .subscribe(console.log) // [true, false, false, false, false, true]
+ * ```
+ *
+ * @example
+ * ```ts
+ * fromNumber([-1, 0, 1, 2, 10, 11])
  *  .pipe(outOfRange(0, 10, true))
  *  .subscribe(console.log) // [true, true, false, false, true, true]
  * ```
@@ -48,15 +43,13 @@ function outOfRange(min: number, max: number): OperatorFunction<number, boolean>
  * @returns Boolean value if the number falls outside the `min/max` range
  * @category RxJS Number Query
  */
-function outOfRange(min: number, max: number, includeBoundingParameters?: boolean): OperatorFunction<number, boolean>;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function outOfRange(...args: any[]): OperatorFunction<number, boolean> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const inArgs: any[] = [...args]; // [min, max, includeBoundingParameters]
+export function outOfRange(
+  min: number,
+  max: number,
+  includeBoundingParameters?: boolean,
+): OperatorFunction<number, boolean> {
   return (source: Observable<number>) =>
     source.pipe(
-      map((value) => (inArgs[2] ? value <= inArgs[0] || value >= inArgs[1] : value < inArgs[0] || value > inArgs[1])),
+      map((value) => (includeBoundingParameters ? value <= min || value >= max : value < min || value > max)),
     );
 }
-
-export { outOfRange };

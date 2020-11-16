@@ -12,6 +12,8 @@ import { FilterPredicateFn } from '../types/boolean';
  *
  * @typeParam T Observable value
  *
+ * If a predicate function is passed, this will be used to do the equality check
+ *
  * @example
  * ```ts
  * fromString(['a', 'b', 'c'])
@@ -19,33 +21,19 @@ import { FilterPredicateFn } from '../types/boolean';
  *  .subscribe(console.log) // 'c'
  * ```
  *
- * @returns The last truthy boolean value
- * @category RxJS Boolean Filters
- */
-function lastTruthy<T>(): MonoTypeOperatorFunction<T>;
-/**
- * If a predicate function is passed, this will be used to do the equality check
- *
- * @typeParam T Observable value
- *
- * @param predicate Function to do filtering with
- *
  * @example
  * ```ts
  * fromNumber([1, 2, 3, 4])
- *  .pipe(firstTruthy((value) => value % 2 === 0))
+ *  .pipe(lastTruthy((value) => value % 2 === 0))
  *  .subscribe(console.log) // 4
  * ```
  *
  * @returns The last truthy boolean value
  * @category RxJS Boolean Filters
  */
-function lastTruthy<T>(predicate: FilterPredicateFn): MonoTypeOperatorFunction<T>;
-function lastTruthy<T>(predicate?: FilterPredicateFn): MonoTypeOperatorFunction<T> {
+export function lastTruthy<T>(predicate?: FilterPredicateFn): MonoTypeOperatorFunction<T> {
   if (predicate) {
     return (source: Observable<T>) => source.pipe(filter<T>(predicate), takeLast(1));
   }
   return (source: Observable<T>) => source.pipe(filter<T>(Boolean), takeLast(1));
 }
-
-export { lastTruthy };

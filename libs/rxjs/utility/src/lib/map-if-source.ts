@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
  *
  * @typeParam I The Input Type
  * @typeParam T The type returned from the Truthy result
- * @typeParam F The type returned from the Falsy result
+ * @typeParam F The type returned from the Falsy result, this type is optional and if not included the `T` type will be used
  *
  * @param predicate
  * @param trueResult
@@ -28,6 +28,7 @@ import { map } from 'rxjs/operators';
  *    (value) => parseInt(value),
  *    (value) => `${value}: This is not the ultimate answer`,
  *  ),
+ *
  * ).subscribe(console.log) // 42
  * ```
  *

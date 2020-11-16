@@ -7,7 +7,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Upgraded to Typescript 4
 - `filterTruthy` operator now takes a predicate function
+- `fromBoolean` operator now only takes boolean values
 
 ## [1.4.1] - 2020-05-24
 

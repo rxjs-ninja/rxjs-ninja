@@ -3,7 +3,15 @@
  * @module number
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { filter, tap } from 'rxjs/operators';
+import { filter } from 'rxjs/operators';
+
+/**
+ * @private
+ * @param num
+ */
+function isSafe(num: number): boolean {
+  return Number.isSafeInteger(num);
+}
 
 /**
  * The `filterIsSafeInteger` operator can be used with an RxJS `pipe` where the source value
@@ -25,11 +33,6 @@ import { filter, tap } from 'rxjs/operators';
  * @returns A number value that passes the `Number.isSafeInteger` equality check
  * @category RxJS Number Filter
  */
-
-function isSafe(num: number): boolean {
-  return Number.isSafeInteger(num);
-}
-
 export function filterIsSafeInteger(): MonoTypeOperatorFunction<number> {
-  return (source: Observable<number>) => source.pipe(tap(console.log), filter(isSafe));
+  return (source: Observable<number>) => source.pipe(filter(isSafe));
 }

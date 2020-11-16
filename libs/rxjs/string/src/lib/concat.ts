@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module string
  */
-import { MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
+import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
 /**
@@ -14,22 +14,23 @@ import { map, switchMap } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * // With Arguments
+ * // With Fixed Arguments
  * fromString('Mary')
  *  .pipe(concat(' ', 'had a little', ' ', 'lamb'))
  *  .subscribe(console.log) // 'Mary had a little lamb'
  * ```
  *
- * @returns String that is a concatenation of the original string and new values
- * @category RxJS String Creation
- */
-function concat(...args: string[]): MonoTypeOperatorFunction<string>;
-/**
- * @param strings Observable array of strings
+ * @example
+ * ```ts
+ * // With Fixed Array
+ * fromString('Mary')
+ *  .pipe(concat([' ', 'had a little', ' ', 'lamb']))
+ *  .subscribe(console.log) // 'Mary had a little lamb'
+ * ```
  *
  * @example
  * ```ts
- * // With Arguments
+ * // With Observable source
  * fromString('Mary')
  *  .pipe(concat(of([' ', 'had a little', ' ', 'lamb'])))
  *  .subscribe(console.log) // 'Mary had a little lamb'
@@ -38,31 +39,18 @@ function concat(...args: string[]): MonoTypeOperatorFunction<string>;
  * @returns String that is a concatenation of the original string and new values
  * @category RxJS String Creation
  */
-function concat(strings: ObservableInput<string[]>): MonoTypeOperatorFunction<string>;
-/**
- * @param strings Additional strings as an array
- *
- * @example
- * ```ts
- * // With Array
- * fromString('Mary')
- *  .pipe(concat([' ', 'had a little', ' ', 'lamb']))
- *  .subscribe(console.log) // 'Mary had a little lamb'
- * ```
- */
-function concat(strings: string[]): MonoTypeOperatorFunction<string>;
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function concat(...args: any[]): MonoTypeOperatorFunction<string> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const values: any[] = [...args];
+export function concat<T extends string | string[] | Observable<string | string[]>>(
+  ...args: T[]
+): MonoTypeOperatorFunction<string> {
+  const values: unknown[] = [...args];
   if (values[0] instanceof Array) {
-    return (source: Observable<string>) => source.pipe(map((value) => value.concat(...values[0])));
+    return (source: Observable<string>) => source.pipe(map((value) => value.concat(...(values[0] as string[]))));
   } else if (values[0] instanceof Observable) {
     return (source: Observable<string>) =>
-      values[0].pipe(switchMap((strings: string[]) => source.pipe(map((value) => value.concat(...strings)))));
+      (values[0] as Observable<string[]>).pipe(
+        switchMap((strings: string[]) => source.pipe(map((value) => value.concat(...strings)))),
+      );
   } else {
-    return (source: Observable<string>) => source.pipe(map((value) => value.concat(...values)));
+    return (source: Observable<string>) => source.pipe(map((value) => value.concat(...(values as string[]))));
   }
 }
-
-export { concat };

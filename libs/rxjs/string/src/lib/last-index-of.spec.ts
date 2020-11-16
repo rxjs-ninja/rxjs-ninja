@@ -1,31 +1,26 @@
-import { take } from 'rxjs/operators';
-import { fromString, lastIndexOf } from '@tinynodes/rxjs-string';
+import { lastIndexOf } from '@tinynodes/rxjs-string';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('lastIndexOf', () => {
-  it('should return the index of a found string', (done) => {
-    fromString('foobar barfoo')
-      .pipe(lastIndexOf('foo'), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe(10),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should return last index of where a string is found within another string',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: 'foobar barfoo', b: 'eat food', c: 'test' });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: 10, y: 4, z: -1 });
+      m.expect(input.pipe(lastIndexOf('foo'))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 
-  it('should return the index of a found string when start passed', (done) => {
-    fromString('foobar barfoo')
-      .pipe(lastIndexOf('foo', 2), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe(0),
-        complete: () => done(),
-      });
-  });
-
-  it('should return -1 if there is no value found', (done) => {
-    fromString('foobar barfoo')
-      .pipe(lastIndexOf('fizzbuzz'), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe(-1),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should return last index of where a string is found within another string with start value',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: 'foobar barfoo', b: 'eat food', c: 'test' });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: 0, y: -1, z: -1 });
+      m.expect(input.pipe(lastIndexOf('foo', 0))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

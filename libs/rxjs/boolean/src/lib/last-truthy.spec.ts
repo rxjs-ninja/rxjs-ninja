@@ -1,36 +1,27 @@
-import { from } from 'rxjs';
 import { lastTruthy } from './last-truthy';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('lastTruthy', () => {
-  it('should return the first true value from a source', (done) => {
-    from(['a', 'b', 'c'])
-      .pipe(lastTruthy())
-      .subscribe({
-        next: (value) => expect(value).toBe('c'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should filter the last truthy item',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-e-|', { a: 1, b: 2, c: 3, d: 4, e: 0 });
+      const subs = '^----------!';
+      const expected = m.cold('-----------(d|)', { d: 4 });
+      m.expect(input.pipe(lastTruthy())).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 
-  it('should return no value if no truthy value', (done) => {
-    let called = 0;
-
-    from(['', '', ''])
-      .pipe(lastTruthy())
-      .subscribe({
-        next: () => called++,
-        complete: () => {
-          expect(called).toBe(0);
-          done();
-        },
-      });
-  });
-
-  it('should support return value using a predicate method', (done) => {
-    from([1, 2, 3, 4])
-      .pipe(lastTruthy((val) => val % 2 === 0))
-      .subscribe({
-        next: (value) => expect(value).toBe(4),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should filter the last truthy item with predicate',
+    marbles((m) => {
+      const predicate = (num: number) => num % 2 === 0;
+      const input = m.hot('-a-b-c-d-e-|', { a: 1, b: 2, c: 3, d: 4, e: 5 });
+      const subs = '^----------!';
+      const expected = m.cold('-----------(d|)', { d: 4 });
+      m.expect(input.pipe(lastTruthy(predicate))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

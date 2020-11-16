@@ -1,48 +1,26 @@
-import { filterOutOfRange, fromNumber } from '@tinynodes/rxjs-number';
-import { take } from 'rxjs/operators';
+import { filterOutOfRange } from '@tinynodes/rxjs-number';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('filterOutOfRange', () => {
-  it('should return false for a value in range with boundaries', (done) => {
-    let count = 0;
-    fromNumber(5)
-      .pipe(filterOutOfRange(0, 10), take(1))
-      .subscribe({
-        next: () => count++,
-        complete: () => {
-          expect(count).toBe(0);
-          done();
-        },
-      });
-  });
+  it(
+    'should filter values excluding the boundary values',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-e-|', { a: -1, b: 0, c: 1, d: 2, e: 3.14 });
+      const subs = '^----------!';
+      const expected = m.cold('-a-------e-|', { a: -1, e: 3.14 });
+      m.expect(input.pipe(filterOutOfRange(0, 2))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 
-  it('should return true for a value outside range with boundaries', (done) => {
-    fromNumber(10)
-      .pipe(filterOutOfRange(0, 10), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe(10),
-        complete: () => done(),
-      });
-  });
-
-  it('should return false for a value in range within boundaries', (done) => {
-    let count = 0;
-    fromNumber(9.9)
-      .pipe(filterOutOfRange(0, 10, true), take(1))
-      .subscribe({
-        next: () => count++,
-        complete: () => {
-          expect(count).toBe(0);
-          done();
-        },
-      });
-  });
-
-  it('should return true for a value not in range within boundaries', (done) => {
-    fromNumber(11)
-      .pipe(filterOutOfRange(0, 10, true))
-      .subscribe({
-        next: (value) => expect(value).toBe(11),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should filter values including the boundary values',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-e-|', { a: -1, b: 0, c: 1, d: 2, e: 3.14 });
+      const subs = '^----------!';
+      const expected = m.cold('-a-b---d-e-|', { a: -1, b: 0, d: 2, e: 3.14 });
+      m.expect(input.pipe(filterOutOfRange(0, 2, true))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

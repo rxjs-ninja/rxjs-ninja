@@ -6,7 +6,7 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `startsWith` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `startsWith` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns a boolean value if the string of length starts with the passed character
  *
  * Based on [String.prototype.startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)

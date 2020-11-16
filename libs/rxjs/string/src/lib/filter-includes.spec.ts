@@ -1,20 +1,15 @@
-import { reduce, take } from 'rxjs/operators';
-import { filterIncludes, fromString } from '@tinynodes/rxjs-string';
+import { filterIncludes } from '@tinynodes/rxjs-string';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('filterIncludes', () => {
-  it('should return a string if a string includes the value', (done) => {
-    fromString(['test', 'testing', 'foobar'])
-      .pipe(
-        filterIncludes('test'),
-        reduce((acc, val) => {
-          acc.push(val);
-          return acc;
-        }, []),
-        take(1),
-      )
-      .subscribe({
-        next: (value) => expect(value).toStrictEqual(['test', 'testing']),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should return string value of string including the value',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: 'test', b: 'testing', c: 'driving' });
+      const subs = '^------!';
+      const expected = m.cold('---y-z-|', { y: 'testing', z: 'driving' });
+      m.expect(input.pipe(filterIncludes('ing'))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

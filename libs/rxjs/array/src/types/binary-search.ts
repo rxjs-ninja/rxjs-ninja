@@ -4,25 +4,11 @@
  */
 
 /**
- * The return type for an Array search result, contains the search
- * value, the search array and the index of the search result
+ * The return tuple for an Array search result, contains the search value, the search array and the index of the search result
  *
  * @typeParam T Type of array items
  */
-export interface ArraySearchResult<T = unknown> {
-  /**
-   * The search value of type T
-   */
-  searchValue: T;
-  /**
-   * The array of values of type T
-   */
-  searchArray: T[];
-  /**
-   * The index of search value in the array, if `-1` the item has not been found
-   */
-  index: number;
-}
+export type BinarySearchResult<T = any> = [index: number, searchValue: T, searchArray: T[]]; // eslint-disable-line
 
 /**
  * Method used to sort an Array of values
@@ -39,4 +25,5 @@ export interface ArraySearchResult<T = unknown> {
  *
  * @returns A number that represents the value match position for sorting
  */
-export type SortFn<T = unknown> = (first: T, second: T) => number;
+
+export type SortFn<T = any> = (first: T, second: T) => number; // eslint-disable-line

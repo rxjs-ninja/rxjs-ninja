@@ -1,32 +1,19 @@
-import { of } from 'rxjs';
+import { from } from 'rxjs';
 import { tapOnSubscribe } from './tap-on-subscribe';
-import { take } from 'rxjs/operators';
+import { finalize, take } from 'rxjs/operators';
+import { observe } from 'rxjs-marbles/jest';
 
 describe('tapOnSubscribe', () => {
-  it('should be called on each subscription', (done) => {
-    let count = 0;
-    const obs = of('test');
+  it(
+    'tap on each subscription',
+    observe(() => {
+      const mock = jest.fn();
 
-    obs
-      .pipe(
-        tapOnSubscribe(() => count++),
-        take(1),
-      )
-      .subscribe();
-    obs
-      .pipe(
-        tapOnSubscribe(() => count++),
-        take(1),
-      )
-      .subscribe();
-    obs
-      .pipe(
-        tapOnSubscribe(() => count++),
-        take(1),
-      )
-      .subscribe({
-        next: () => expect(count).toBe(3),
-        complete: () => done(),
-      });
-  });
+      const input = from([1, 2, 3]).pipe(tapOnSubscribe(() => mock()));
+      input.pipe(take(1)).subscribe();
+      input.pipe(take(1)).subscribe();
+
+      return input.pipe(finalize(() => expect(mock).toHaveBeenCalledTimes(3)));
+    }),
+  );
 });

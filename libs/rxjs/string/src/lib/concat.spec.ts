@@ -1,41 +1,49 @@
-import { take } from 'rxjs/operators';
-import { concat, fromString } from '@tinynodes/rxjs-string';
+import { concat } from '@tinynodes/rxjs-string';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('concat', () => {
-  it('should concatenate a string from a source', (done) => {
-    fromString('test')
-      .pipe(concat('ing'), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe('testing'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should concatenate a new string to the source string',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: 'test', b: 'pass', c: 'moo' });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: 'testing', y: 'passing', z: 'mooing' });
+      m.expect(input.pipe(concat('ing'))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 
-  it('should concatenate a string from a source and multiple arguments', (done) => {
-    fromString('test')
-      .pipe(concat('ing', ' ', 'is fun'), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe('testing is fun'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should concatenate a new argument list of strings to the source string',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: 'test', b: 'pass', c: 'moo' });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: 'testing is fun', y: 'passing is fun', z: 'mooing is fun' });
+      m.expect(input.pipe(concat('ing', ' ', 'is fun'))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 
-  it('should concatenate a string from a source from an array argument', (done) => {
-    fromString('test')
-      .pipe(concat(['ing', ' ', 'is fun']), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe('testing is fun'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should concatenate a new array of strings to the source string',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: 'test', b: 'pass', c: 'moo' });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: 'testing is fun', y: 'passing is fun', z: 'mooing is fun' });
+      m.expect(input.pipe(concat(['ing', ' ', 'is fun']))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 
-  it('should concatenate a string from a source from Observable array argument', (done) => {
-    fromString('test')
-      .pipe(concat(of(['ing', ' ', 'is fun'])), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe('testing is fun'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should concatenate a new observable array of strings to the source string',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: 'test', b: 'pass', c: 'moo' });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: 'testing is fun', y: 'passing is fun', z: 'mooing is fun' });
+      m.expect(input.pipe(concat(of(['ing', ' ', 'is fun'])))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

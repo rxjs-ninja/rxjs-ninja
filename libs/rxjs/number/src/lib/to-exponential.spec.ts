@@ -1,14 +1,19 @@
 import { toExponential } from './to-exponential';
-import { take } from 'rxjs/operators';
-import { fromNumber } from '@tinynodes/rxjs-number';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('toExponential', () => {
-  it('should raise a number by the exponential passed and return a string', (done) => {
-    fromNumber(1.2)
-      .pipe(toExponential(2), take(1))
-      .subscribe({
-        next: (value) => expect(value).toStrictEqual('1.20e+0'),
-        complete: () => done(),
+  it(
+    'should return string of value raised to power',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-e-', { a: -1, b: 0, c: 1, d: 2.3, e: 3.14 });
+      const expected = m.cold('-w-v-x-y-z-', {
+        w: '-1.00e+0',
+        v: '0.00e+0',
+        x: '1.00e+0',
+        y: '2.30e+0',
+        z: '3.14e+0',
       });
-  });
+      m.expect(input.pipe(toExponential(2))).toBeObservable(expected);
+    }),
+  );
 });

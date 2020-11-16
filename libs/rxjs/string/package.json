@@ -3,9 +3,21 @@
   "description": "Operators for handling RxJS Observable of string",
   "version": "2.3.1",
   "keywords": [
-    "rxjs",
-    "typescript",
-    "reactive"
+    "Rx",
+    "RxJS",
+    "ReactiveX",
+    "ReactiveExtensions",
+    "Streams",
+    "Observables",
+    "Observable",
+    "Stream",
+    "ES6",
+    "ES2015",
+    "Typescript",
+    "Reactive",
+    "Utility",
+    "String",
+    "Strings"
   ],
   "homepage": "https://tanepiper.github.io/rxjs-primitives/",
   "bugs": {

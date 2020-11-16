@@ -1,31 +1,26 @@
-import { take } from 'rxjs/operators';
-import { fromString, startsWith } from '@tinynodes/rxjs-string';
+import { startsWith } from '@tinynodes/rxjs-string';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('startsWith', () => {
-  it('should return true if a string starts with a character', (done) => {
-    fromString('test?')
-      .pipe(startsWith('t'), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBeTruthy(),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should return boolean value of string starting with passed character',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: 'test', b: 'testing', c: 'gone' });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: true, y: true, z: false });
+      m.expect(input.pipe(startsWith('t'))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 
-  it('should return false if a string does not start with a character', (done) => {
-    fromString('test?')
-      .pipe(startsWith('?'), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBeFalsy(),
-        complete: () => done(),
-      });
-  });
-
-  it('should return false if a string does not start with a character', (done) => {
-    fromString('testing')
-      .pipe(startsWith('t', 3), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBeTruthy(),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should return boolean value of string starting with passed character from start position',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: 'test', b: 'testing', c: 'gone' });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: false, y: false, z: true });
+      m.expect(input.pipe(startsWith('o', 1))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

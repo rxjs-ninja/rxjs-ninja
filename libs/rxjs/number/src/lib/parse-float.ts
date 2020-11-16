@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 
 /**
  * The `parseFloat` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string.
+ * is an [Observable](https://rxjs.dev/api/index/class/Observable) string.
  *
  * The operator will attempt to convert the string value to a floating point number using
  * [Number.parseFloat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat)

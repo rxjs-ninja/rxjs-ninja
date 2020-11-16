@@ -6,7 +6,7 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `charCodeAt` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `charCodeAt` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns a number of the ASCII code for the character
  * Based on [String.prototype.charCodeAt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)
  *

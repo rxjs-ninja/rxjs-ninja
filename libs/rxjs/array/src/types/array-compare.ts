@@ -23,7 +23,7 @@
  *
  * @returns Value of the modifier function
  */
-export type InputModifierFn<T, K> = (value: T) => K;
+export type InputModifierFn<T = unknown, K = unknown> = (value: T) => K;
 
 /**
  * A predicate function is used with Array filtering and should return a boolean
@@ -52,4 +52,4 @@ export type InputModifierFn<T, K> = (value: T) => K;
  *
  * @returns Boolean value based on the condition of the function
  */
-export type PredicateFn<T> = (value: T, value2?: T) => boolean;
+export type PredicateFn<T extends unknown> = (...args: T[]) => boolean;

@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [13.x]
+        node-version: [15.x]
     steps:
       # Checkout code
       - name: Checkout Code
@@ -58,6 +58,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add .
+          git add docs -f
           git commit -m "Release [skip-ci]" -a || true
 
       - name: Push changes

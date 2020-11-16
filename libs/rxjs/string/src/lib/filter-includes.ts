@@ -6,7 +6,7 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * The `filterIncludes` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `filterIncludes` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns a string value if the string contains the includes parameter
  *
  * @param searchStr The value to check the string includes

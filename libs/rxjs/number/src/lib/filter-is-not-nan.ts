@@ -7,7 +7,7 @@ import { filter } from 'rxjs/operators';
 
 /**
  * The `filterIsNotNaN` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) number.
+ * is an [Observable](https://rxjs.dev/api/index/class/Observable) number.
  *
  * The operator will return the number value based on the number not being a NaN using the
  * [Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
@@ -27,5 +27,5 @@ import { filter } from 'rxjs/operators';
  * @category RxJS Number Filter
  */
 export function filterIsNotNaN(): MonoTypeOperatorFunction<number> {
-  return (source: Observable<number>) => source.pipe(filter((value) => Number.isInteger(value)));
+  return (source: Observable<number>) => source.pipe(filter((value) => !Number.isNaN(value)));
 }

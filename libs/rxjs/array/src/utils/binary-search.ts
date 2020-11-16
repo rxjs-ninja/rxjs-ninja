@@ -7,10 +7,15 @@
  * Binary searcher method
  * @param searchValue
  * @param searchArray
+ * @param property
  * @private
  * @internal
  */
-export function binarySearcher<T, K>(searchValue: T, searchArray: T[], property?: string | number) {
+export function binarySearcher<T extends unknown>(
+  searchValue: T,
+  searchArray: T[],
+  property?: string | number,
+): number {
   let first = 0; //left endpoint
   let last = searchArray.length - 1; //right endpoint
   let position = -1;
@@ -18,8 +23,14 @@ export function binarySearcher<T, K>(searchValue: T, searchArray: T[], property?
   let middle;
 
   while (!found && first <= last) {
-    middle = Math.floor((first + last) / 2);
-    const checkValue = property ? searchArray[middle][property] : searchArray[middle];
+    middle = Math.round((first + last) / 2);
+
+    let checkValue;
+    if (typeof property === 'number' || property) {
+      checkValue = (searchArray as never)[middle][property];
+    } else {
+      checkValue = searchArray[middle];
+    }
     if (checkValue == searchValue) {
       found = true;
       position = middle;
@@ -42,7 +53,7 @@ export function binarySearcher<T, K>(searchValue: T, searchArray: T[], property?
  *
  * @returns Number related to the sort order of two comparison parameters
  */
-export function defaultSort<T>(first: T, second: T): number {
+export function defaultSort<T = unknown>(first: T, second: T): number {
   if (typeof first === 'string') {
     return first.localeCompare((second as unknown) as string);
   }

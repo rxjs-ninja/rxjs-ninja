@@ -6,7 +6,7 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `slice` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `slice` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns a substring of the original string.
  *
  * This operator is based on [String.prototype.slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice)

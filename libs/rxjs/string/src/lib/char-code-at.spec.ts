@@ -1,13 +1,15 @@
-import { take } from 'rxjs/operators';
-import { charCodeAt, fromString } from '@tinynodes/rxjs-string';
+import { charCodeAt } from '@tinynodes/rxjs-string';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('charCodeAt', () => {
-  it('should return a character code at a passed position', (done) => {
-    fromString('test')
-      .pipe(charCodeAt(1), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe(101),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should return the character code at the passed position',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: 'test', b: 'foo', c: 'a' });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: 116, y: 102, z: 97 });
+      m.expect(input.pipe(charCodeAt(0))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

@@ -1,23 +1,26 @@
-import { take } from 'rxjs/operators';
-import { fromString } from '@tinynodes/rxjs-string';
 import { repeat } from './repeat';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('repeat', () => {
-  it('should take a string and replace a string pattern', (done) => {
-    fromString('foobar')
-      .pipe(repeat(5), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe('foobarfoobarfoobarfoobarfoobar'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should repeat the passed string by the number of times passed',
+    marbles((m) => {
+      const input = m.hot('-a-|', { a: 'Hello' });
+      const subs = '^--!';
+      const expected = m.cold('-z-|', { z: 'HelloHelloHelloHelloHello' });
+      m.expect(input.pipe(repeat(5))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 
-  it('should take a string and replace a regex pattern', (done) => {
-    fromString('foobar')
-      .pipe(repeat(5, ','), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe('foobar,foobar,foobar,foobar,foobar'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should repeat the passed string by the number of times passed with separator',
+    marbles((m) => {
+      const input = m.hot('-a-|', { a: 'Hello' });
+      const subs = '^--!';
+      const expected = m.cold('-z-|', { z: 'Hello, Hello, Hello, Hello, Hello' });
+      m.expect(input.pipe(repeat(5, ', '))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

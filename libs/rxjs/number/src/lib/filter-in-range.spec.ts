@@ -1,63 +1,26 @@
-import { filterInRange, fromNumber } from '@tinynodes/rxjs-number';
-import { reduce, take } from 'rxjs/operators';
+import { filterInRange } from '@tinynodes/rxjs-number';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('filterInRange', () => {
-  it('should return a number value that falls within a boundary', (done) => {
-    fromNumber(5)
-      .pipe(filterInRange(0, 10), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe(5),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should filter values including the boundary values',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-e-|', { a: -1, b: 0, c: 1, d: 2, e: 3.14 });
+      const subs = '^----------!';
+      const expected = m.cold('---b-c-d---|', { b: 0, c: 1, d: 2 });
+      m.expect(input.pipe(filterInRange(0, 2))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 
-  it('should return number values that falls within a boundary', (done) => {
-    fromNumber([-1, 0, 1, 2, 3])
-      .pipe(
-        filterInRange(0, 10),
-        reduce((acc, val) => {
-          acc.push(val);
-          return acc;
-        }, []),
-      )
-      .subscribe({
-        next: (value) => expect(value).toStrictEqual([0, 1, 2, 3]),
-        complete: () => done(),
-      });
-  });
-
-  it('should return false for a value outside range with boundaries', (done) => {
-    let count = 0;
-    fromNumber(10.1)
-      .pipe(filterInRange(0, 10), take(1))
-      .subscribe({
-        next: () => count++,
-        complete: () => {
-          expect(count).toBe(0);
-          done();
-        },
-      });
-  });
-
-  it('should return number for a value in range within boundaries', (done) => {
-    fromNumber(9.9)
-      .pipe(filterInRange(0, 10, true))
-      .subscribe({
-        next: (value) => expect(value).toBe(9.9),
-        complete: () => done(),
-      });
-  });
-
-  it('should return false for a value not in range within boundaries', (done) => {
-    let count = 0;
-    fromNumber(10)
-      .pipe(filterInRange(0, 10, true), take(1))
-      .subscribe({
-        next: () => count++,
-        complete: () => {
-          expect(count).toBe(0);
-          done();
-        },
-      });
-  });
+  it(
+    'should filter values excluding the boundary values',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-e-|', { a: -1, b: 0, c: 1, d: 2, e: 3.14 });
+      const subs = '^----------!';
+      const expected = m.cold('-----c-----|', { b: 0, c: 1, d: 2 });
+      m.expect(input.pipe(filterInRange(0, 2, true))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

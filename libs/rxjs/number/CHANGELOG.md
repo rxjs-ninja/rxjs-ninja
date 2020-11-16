@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [3.0.0] - 2020-11-17
+
+### Changed
+
+- Updated to Typescript 4
+- Documentation, test and code improvements
+
 ## [2.3.1] - 2020-05-24
 
 ### Changed
@@ -45,7 +52,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 
 - `fromNumber` now accepts both a single number value, or an array of number values. When passing an array
-  it acts the same as the [from](https://rxjs-dev.firebaseapp.com/api/index/function/from) operator and also accept a scheduler.
+  it acts the same as the [from](https://rxjs.dev/api/index/function/from) operator and also accept a scheduler.
 - Tests refactored and improved
 - Improved documentation
 

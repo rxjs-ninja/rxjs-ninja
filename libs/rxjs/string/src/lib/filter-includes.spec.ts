@@ -6,7 +6,7 @@ describe('filterIncludes', () => {
     fromString(['test', 'testing', 'foobar'])
       .pipe(
         filterIncludes('test'),
-        reduce((acc, val) => {
+        reduce<string, string[]>((acc, val) => {
           acc.push(val);
           return acc;
         }, []),

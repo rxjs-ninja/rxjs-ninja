@@ -6,7 +6,7 @@ describe('match', () => {
     fromString('Mary had a little lamb')
       .pipe(match('little'))
       .subscribe({
-        next: (value) => expect(Array.from(value)).toStrictEqual(['little']),
+        next: (value) => expect(Array.from(value as RegExpMatchArray)).toStrictEqual(['little']),
         complete: () => done(),
       });
   });
@@ -15,7 +15,7 @@ describe('match', () => {
     fromString('Testing Test')
       .pipe(match(/[A-Z]/))
       .subscribe({
-        next: (value) => expect(Array.from(value)).toStrictEqual(['T']),
+        next: (value) => expect(Array.from(value as RegExpMatchArray)).toStrictEqual(['T']),
         complete: () => done(),
       });
   });
@@ -24,7 +24,7 @@ describe('match', () => {
     fromString('Mary had a Little Lamb')
       .pipe(match(/[A-Z]/g))
       .subscribe({
-        next: (value) => expect(Array.from(value)).toStrictEqual(['M', 'L', 'L']),
+        next: (value) => expect(Array.from(value as RegExpMatchArray)).toStrictEqual(['M', 'L', 'L']),
         complete: () => done(),
       });
   });

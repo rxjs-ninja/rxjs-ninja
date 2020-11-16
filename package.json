@@ -27,7 +27,7 @@
     "help": "nx help",
     "cz": "git-cz",
     "docs": "typedoc",
-    "coverage": "codecov"
+    "coverage": "codecov --disable=gcov"
   },
   "private": true,
   "dependencies": {

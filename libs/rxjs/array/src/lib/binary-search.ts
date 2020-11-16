@@ -91,7 +91,7 @@ export function binarySearch<T = unknown, K = unknown>(
           return [...acc, val] as K[];
         }
       }, [] as K[]),
-      map((accArray: K[]) => accArray.sort(sortFn)),
+      map((accArray: K[]) => [...accArray].sort(sortFn)),
       map((sortedArray: K[]) => [binarySearcher(searchValue, sortedArray, property), searchValue, sortedArray]),
     );
 }

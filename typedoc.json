@@ -4,5 +4,6 @@
   "out": "docs",
   "exclude": ["**/*.spec.ts"],
   "readme": "README.md",
-  "includes": "libs/rxjs"
+  "includes": "libs/rxjs",
+  "tsconfig": "tsconfig.base.json"
 }

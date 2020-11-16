@@ -1,4 +1,4 @@
-import { charAt, charCodeAt } from '@tinynodes/rxjs-string';
+import { charCodeAt } from '@tinynodes/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('charCodeAt', () => {

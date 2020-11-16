@@ -10,7 +10,6 @@
  */
 export type BinarySearchResult<T = any> = [index: number, searchValue: T, searchArray: T[]]; // eslint-disable-line
 
-
 /**
  * Method used to sort an Array of values
  *

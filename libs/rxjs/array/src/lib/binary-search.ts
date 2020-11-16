@@ -86,11 +86,7 @@ export function binarySearch<T = unknown, K = unknown>(
     source.pipe(
       reduce((acc, val) => {
         if (Array.isArray(val)) {
-          if (property && typeof property === 'number') {
-            return [...acc, val] as K[];
-          } else {
-            return [...acc, ...val] as K[];
-          }
+          return [...acc, ...val] as K[];
         } else {
           return [...acc, val] as K[];
         }

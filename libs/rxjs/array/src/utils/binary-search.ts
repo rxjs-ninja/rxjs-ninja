@@ -19,8 +19,14 @@ export function binarySearcher<T = unknown>(searchValue: T, searchArray: T[], pr
   let middle;
 
   while (!found && first <= last) {
-    middle = Math.floor((first + last) / 2);
-    const checkValue = property ? (searchArray as never)[middle][property] : searchArray[middle];
+    middle = Math.round((first + last) / 2);
+
+    let checkValue;
+    if (typeof property === 'number' || property) {
+      checkValue = (searchArray as never)[middle][property];
+    } else {
+      checkValue = searchArray[middle];
+    }
     if (checkValue == searchValue) {
       found = true;
       position = middle;

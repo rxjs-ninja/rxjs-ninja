@@ -18,7 +18,9 @@ export function mapIntersectsWith<T>(input: T[], predicate?: PredicateFn<T>): (v
   return (value: T[]): T[] => {
     return value.filter(
       (sourceValue) =>
-        input.findIndex((checkValue) => (predicate ? predicate(sourceValue, checkValue) : sourceValue === checkValue)) !== -1,
+        input.findIndex((checkValue) =>
+          predicate ? predicate(sourceValue, checkValue) : sourceValue === checkValue,
+        ) !== -1,
     );
   };
 }

@@ -3,9 +3,21 @@
   "description": "Operators for RxJS for filtering with boolean logic",
   "version": "1.0.2",
   "keywords": [
-    "rxjs",
-    "typescript",
-    "reactive"
+    "Rx",
+    "RxJS",
+    "ReactiveX",
+    "ReactiveExtensions",
+    "Streams",
+    "Observables",
+    "Observable",
+    "Stream",
+    "ES6",
+    "ES2015",
+    "Typescript",
+    "Reactive",
+    "Utility",
+    "Array",
+    "Arrays"
   ],
   "homepage": "https://tanepiper.github.io/rxjs-primitives/",
   "bugs": {

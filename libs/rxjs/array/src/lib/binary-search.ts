@@ -8,14 +8,14 @@ import { binarySearcher, defaultSort } from '../utils/binary-search';
 import { BinarySearchResult, SortFn } from '../types/binary-search';
 
 /**
- * The `binarySearch` operator takes an Observable array of values T and returns a [[ArraySearchResult]]
+ * The `binarySearch` operator takes an Observable array of values T and returns a [[BinarySearchResult]]
  * containing the original array, search value and index of the search value.
  *
  * The default sorting method for this search is a basic quality check, if you need more complex sorting such as
  * objects you can pass a sorting method and additional property to search on
  *
  * @typeParam T The type in the array to search over
- * @typeParam K The type of value in array item to search
+ * @typeParam K The type of the value in array item to search
  *
  * @param searchValue The value to search for in the source array
  * @param sort Optional sort method for sorting more complex types
@@ -30,7 +30,7 @@ import { BinarySearchResult, SortFn } from '../types/binary-search';
  * ```ts
  * of([1, 4, 7, 2, 5, 6, 3, 8, 10, 9])
  *  .pipe(binarySearch(5), take(1))
- *  .subscribe(console.log) // { searchValue: 5, searchArray: [1, 2, 3,...], index: 4}
+ *  .subscribe(console.log) // [4, 5, [1, 2, 3,...]]
  * ```
  *
  * @example
@@ -46,14 +46,14 @@ import { BinarySearchResult, SortFn } from '../types/binary-search';
  * ])
  *  .pipe(binarySearch<{ val: number }, number>(5, sort, 'val'), take(1))
  *  .subscribe(console.log)
- *  // { searchValue: 5, searchArray: [{ val: 1 }, { val: 2}, { val: 3 },...], index: 4}
+ *  // [4, 5, [{ val: 1 }, { val: 2}, { val: 3 },...]]
  * ```
  *
  * @example
  * ```ts
  * from([1, 4, 7, 2, 5, 6, 3, 8, 10, 9])
  *  .pipe(binarySearch(5), take(1))
- *  .subscribe(console.log) // { searchValue: 5, searchArray: [1, 2, 3,...], index: 4}
+ *  .subscribe(console.log) // [4, 5, [1, 2, 3,...]]
  * ```
  *
  * @example
@@ -69,10 +69,10 @@ import { BinarySearchResult, SortFn } from '../types/binary-search';
  * ])
  *  .pipe(binarySearch<[number, number], number>(5, sort, 1), take(1))
  *  .subscribe(console.log)
- *  // { searchValue: 5, searchArray: [[1, 1], [4, 2], [7, 3],...], index: 4}
+ *  // [4, 5, [[1, 1], [4, 2], [7, 3],...]]
  * ```
  *
- * @returns [[ArraySearchResult]] containing the sorted array, search value and index
+ * @returns [[BinarySearchResult]] containing the sorted array, search value and index
  * @category RxJS Array Search
  */
 export function binarySearch<T = unknown, K = unknown>(

@@ -5,13 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [2.0.0] - 2020-11-17
 
 ### Changed
 
-- Upgraded to Typescript 4
+- Updated to Typescript 4
+- Documentation, test and code improvements
 - `filterTruthy` operator now takes a predicate function
-- `fromBoolean` operator now only takes boolean values
+- `fromBoolean` operator now only takes boolean values and no longer creates booleans from other types
 
 ## [1.4.1] - 2020-05-24
 

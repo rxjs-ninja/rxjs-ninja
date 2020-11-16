@@ -15,7 +15,6 @@ import { mapDifference } from '../utils/difference';
  * An optional method can be used to convert values for comparison (see examples)
  *
  * @typeParam T The type of data in the input array
- * @typeParam K The type of data if [[InputModifierFn]] converts the type
  *
  * @param input An Observable Array of items use to get the difference between two arrays
  * @param inputModifier A function that provide modification of the values to do the comparision with

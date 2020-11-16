@@ -5,17 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## Unreleased
+## [2.0.0] - 2020-11-17
 
 ### Changed
 
-- Upgraded to Typescript 4
+- Updated to Typescript 4
+- Documentation, test and code improvements
 
 ### Added
 
-- `tapIf` operator that files only when the predicate function is true
-- `mapIfSource` operator that takes a predicate function, if true it will return the value of the first passed function and if false the second. Each return value can be typed to allow
-  different types.
+- `tapIf` operator that fires a callback only when the predicate function is `true`
+- `mapIfSource` operator that takes a predicate function, and two methods to return a value based on the predicate being `true` or `false`.
 
 ## [1.3.1] - 2020-05-24
 

@@ -3,7 +3,7 @@ set -o errexit -o noclobber -o nounset -o pipefail
 
 # This script uses the parent version as the version to publish a library with
 
-getBuildType() {
+function getBuildType {
   local release_type="minor"
   if [[ "$1" == *"(major)"* ]]; then
     release_type="major"
@@ -32,13 +32,8 @@ fi
 # VERSION="$(awk '/version/{gsub(/("|",)/,"",$2);print $2}' "$ROOT_DIR/package.json")"
 # echo "RxJS Primitives $RELEASE_TYPE - $VERSION."
 
-AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base=origin/master~1)
-if [[ "$AFFECTED" != "" ]]; then
-  cd "$PARENT_DIR"
-  echo "Copy Environment Files"
-
+function doBuilds {
   while IFS= read -r -d $' ' lib; do
-
     if [[ "$IGNORE" == *"$lib"* ]]; then
       echo "Skipping $lib"
     else
@@ -51,9 +46,10 @@ if [[ "$AFFECTED" != "" ]]; then
       npm run build "$lib" -- --prod --with-deps
       wait
     fi
-  done <<<"$AFFECTED " # leave space on end to generate correct output
+  done <<<"$1 " # leave space on end to generate correct output
+}
 
-  cd "$PARENT_DIR"
+function doPublish {
   while IFS= read -r -d $' ' lib; do
     if [[ "$DRY_RUN" == "False" || "$IGNORE" != *"$lib"* ]]; then
       echo "Publishing $lib"
@@ -62,7 +58,21 @@ if [[ "$AFFECTED" != "" ]]; then
       echo "Dry Run, not publishing $lib"
     fi
     wait
-  done <<<"$AFFECTED " # leave space on end to generate correct output
+  done <<<"$1 " # leave space on end to generate correct output
+}
+
+AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base=origin/master~1)
+
+if [[ "$AFFECTED" != "" ]]; then
+  cd "$PARENT_DIR"
+  echo "Copy Environment Files"
+
+  doBuilds "$AFFECTED"
+  wait
+  cd "$PARENT_DIR"
+  doPublish "$AFFECTED"
+  wait
+
 else
   echo "No Libraries to publish"
 fi

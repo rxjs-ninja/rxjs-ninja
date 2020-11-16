@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 
 /**
  * The `toPrecision` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) number.
+ * is an [Observable](https://rxjs.dev/api/index/class/Observable) number.
  *
  * The operator will return a string value formatted to the precision value passed
  * [Number.prototype.toPrecision](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision)

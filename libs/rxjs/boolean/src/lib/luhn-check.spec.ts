@@ -2,44 +2,29 @@
  * @packageDocumentation
  * @module utility
  */
-import { of } from 'rxjs';
 import { luhnCheck } from './luhn-check';
-import { take } from 'rxjs/operators';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('luhnCheck', () => {
-  it('should return true for a valid Luhn number as string', (done) => {
-    of('4485275742308327')
-      .pipe(luhnCheck(), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBeTruthy(),
-        complete: () => done(),
-      });
-  });
+  it(
+    'return truthy for a Luhn check with strings',
+    marbles((m) => {
+      const input = m.hot('-a-(b|)', { a: '1231432153213212', b: '4485275742308327' });
+      const subs = '^--!';
+      const expected = m.cold('-x-(y|)', { x: false, y: true });
+      m.expect(input.pipe(luhnCheck())).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 
-  it('should return true for a valid Luhn number as string', (done) => {
-    of('1231432153213212')
-      .pipe(luhnCheck(), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBeFalsy(),
-        complete: () => done(),
-      });
-  });
-
-  it('should return true for a valid Luhn number', (done) => {
-    of(4485275742308327)
-      .pipe(luhnCheck(), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBeTruthy(),
-        complete: () => done(),
-      });
-  });
-
-  it('should return true for a valid Luhn number as string', (done) => {
-    of(1231432153213212)
-      .pipe(luhnCheck(), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBeFalsy(),
-        complete: () => done(),
-      });
-  });
+  it(
+    'return truthy for a Luhn check with numbers',
+    marbles((m) => {
+      const input = m.hot('-a-(b|)', { a: 1231432153213212, b: 4485275742308327 });
+      const subs = '^--!';
+      const expected = m.cold('-x-(y|)', { x: false, y: true });
+      m.expect(input.pipe(luhnCheck())).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

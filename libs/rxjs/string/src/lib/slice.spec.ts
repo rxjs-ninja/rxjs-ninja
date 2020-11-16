@@ -1,22 +1,26 @@
-import { take } from 'rxjs/operators';
-import { fromString, slice } from '@tinynodes/rxjs-string';
+import { slice } from '@tinynodes/rxjs-string';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('slice', () => {
-  it('should return an sliced string of the original string', (done) => {
-    fromString('Mary had a little lamb')
-      .pipe(slice(5), take(1))
-      .subscribe({
-        next: (value) => expect(value).toStrictEqual('had a little lamb'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should return a sliced string from the start index',
+    marbles((m) => {
+      const input = m.hot('-a-|', { a: 'Mary had a little lamb' });
+      const subs = '^--!';
+      const expected = m.cold('-z-|', { z: 'had a little lamb' });
+      m.expect(input.pipe(slice(5))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 
-  it('should return an sliced string of the original string with end range', (done) => {
-    fromString('Mary had a little lamb')
-      .pipe(slice(11, 17), take(1))
-      .subscribe({
-        next: (value) => expect(value).toStrictEqual('little'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should return a sliced string from the start index to the length value',
+    marbles((m) => {
+      const input = m.hot('-a-|', { a: 'Mary had a little lamb' });
+      const subs = '^--!';
+      const expected = m.cold('-z-|', { z: 'little' });
+      m.expect(input.pipe(slice(11, 17))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

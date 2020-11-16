@@ -3,13 +3,16 @@
  * @module boolean
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { filter, take } from 'rxjs/operators';
+import { filter, first } from 'rxjs/operators';
+import { FilterPredicateFn } from '../types/boolean';
 
 /**
  * The `firstTruthy` operator is used to get only the first truthy value from an
- * [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) stream of values
+ * [Observable](https://rxjs.dev/api/index/class/Observable) stream of values
  *
  * @typeParam T Observable value
+ *
+ * @param predicate Function to do filtering with
  *
  * @example
  * ```ts
@@ -17,17 +20,6 @@ import { filter, take } from 'rxjs/operators';
  *  .pipe(firstTruthy())
  *  .subscribe(console.log) // [ 1 ]
  * ```
- *
- * @returns The first truthy boolean value
- * @category RxJS Boolean Filters
- */
-function firstTruthy<T>(): MonoTypeOperatorFunction<T>;
-/**
- * If a predicate function is passed, this will be used to do the equality check
- *
- * @typeParam T Observable value
- *
- * @param predicate Function to do filtering with
  *
  * @example
  * ```ts
@@ -39,12 +31,15 @@ function firstTruthy<T>(): MonoTypeOperatorFunction<T>;
  * @returns The first truthy boolean value
  * @category RxJS Boolean Filters
  */
-function firstTruthy<T>(predicate: (arg: T) => boolean): MonoTypeOperatorFunction<T>;
-function firstTruthy<T>(predicate?: (arg: T) => boolean): MonoTypeOperatorFunction<T> {
+function firstTruthy<T = unknown>(predicate?: FilterPredicateFn<T>): MonoTypeOperatorFunction<T> {
   if (predicate) {
-    return (source: Observable<T>) => source.pipe(filter<T>(predicate), take(1));
+    return (source: Observable<T>) =>
+      source.pipe(
+        filter((val) => predicate(val)),
+        first(),
+      );
   }
-  return (source: Observable<T>) => source.pipe(filter<T>(Boolean), take(1));
+  return (source: Observable<T>) => source.pipe(filter<T>(Boolean), first());
 }
 
 export { firstTruthy };

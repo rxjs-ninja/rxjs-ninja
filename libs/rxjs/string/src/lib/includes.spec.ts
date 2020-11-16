@@ -1,22 +1,15 @@
-import { take } from 'rxjs/operators';
-import { fromString, includes } from '@tinynodes/rxjs-string';
+import { includes } from '@tinynodes/rxjs-string';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('includes', () => {
-  it('should return true if a string includes a query string', (done) => {
-    fromString('testing')
-      .pipe(includes('test'), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBeTruthy(),
-        complete: () => done(),
-      });
-  });
-
-  it('should return false if a string does not include a query string', (done) => {
-    fromString('test?')
-      .pipe(includes('!'), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBeFalsy(),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should return boolean value of string including a passed string',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: 'test', b: 'testing', c: 'gone' });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: true, y: true, z: false });
+      m.expect(input.pipe(includes('est'))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

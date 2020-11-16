@@ -6,8 +6,16 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
+ * @private
+ * @param num
+ */
+function isSafe(num: number): boolean {
+  return Number.isSafeInteger(num);
+}
+
+/**
  * The `filterIsSafeInteger` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) number.
+ * is an [Observable](https://rxjs.dev/api/index/class/Observable) number.
  *
  * The operator will return the number value based on it passing
  * [Number.isSafeInteger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger)
@@ -26,5 +34,5 @@ import { filter } from 'rxjs/operators';
  * @category RxJS Number Filter
  */
 export function filterIsSafeInteger(): MonoTypeOperatorFunction<number> {
-  return (source: Observable<number>) => source.pipe(filter((value) => Number.isSafeInteger(value)));
+  return (source: Observable<number>) => source.pipe(filter(isSafe));
 }

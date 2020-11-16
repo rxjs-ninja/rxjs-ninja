@@ -6,11 +6,12 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `lastIndexOf` operator can be used with an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) string
+ * The `lastIndexOf` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns the index number of the string passed, with optional from index
  * Based on [String.prototype.lastIndexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf)
  *
  * @param searchStr The value to search for in the string
+ * @param fromIndex The index of the last character in the string to be considered as the beginning of a match.
  *
  * @example
  * ```ts
@@ -18,14 +19,6 @@ import { map } from 'rxjs/operators';
  *  .pipe(lastIndexOf('foo'))
  *  .subscribe(console.log) // 10
  * ```
- *
- * @returns Index of the location where the string starts
- * @category RxJS String Query
- */
-function lastIndexOf(searchStr: string): OperatorFunction<string, number>;
-/**
- * @param searchStr The value to search for in the string
- * @param fromIndex The index of the last character in the string to be considered as the beginning of a match.
  *
  * @example
  * ```ts
@@ -37,9 +30,6 @@ function lastIndexOf(searchStr: string): OperatorFunction<string, number>;
  * @returns Index of the location where the string starts
  * @category RxJS String Query
  */
-function lastIndexOf(searchStr: string, fromIndex: number): OperatorFunction<string, number>;
-function lastIndexOf(searchStr: string, fromIndex?: number): OperatorFunction<string, number> {
+export function lastIndexOf(searchStr: string, fromIndex?: number): OperatorFunction<string, number> {
   return (source: Observable<string>) => source.pipe(map((value) => value.lastIndexOf(searchStr, fromIndex)));
 }
-
-export { lastIndexOf };

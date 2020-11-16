@@ -1,5 +1,8 @@
 {
   "npmScope": "tinynodes",
+  "affected": {
+    "defaultBase": "master"
+  },
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
@@ -8,26 +11,29 @@
   },
   "tasksRunnerOptions": {
     "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
+      "runner": "@nrwl/nx-cloud",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "accessToken": "ZDQ0YTRjMmYtYmM5Ny00MDJkLThiMDUtOTM5OWIyYzdmYWNhfHJlYWQtd3JpdGU=",
+        "cacheableOperations": ["build", "test", "lint", "e2e"],
+        "canTrackAnalytics": false,
+        "showUsageWarnings": true
       }
     }
   },
   "projects": {
-    "rxjs-string": {
-      "tags": []
-    },
-    "rxjs-number": {
+    "rxjs-array": {
       "tags": []
     },
     "rxjs-boolean": {
       "tags": []
     },
-    "rxjs-utility": {
+    "rxjs-number": {
       "tags": []
     },
-    "rxjs-array": {
+    "rxjs-string": {
+      "tags": []
+    },
+    "rxjs-utility": {
       "tags": []
     }
   }

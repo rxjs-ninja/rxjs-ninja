@@ -1,13 +1,37 @@
-import { take } from 'rxjs/operators';
-import { fromString, titleize } from '@tinynodes/rxjs-string';
+import { titleize } from '@tinynodes/rxjs-string';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('titleize', () => {
-  it('should titleize a string', (done) => {
-    fromString('Mary had a little lamb')
-      .pipe(titleize(), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe('Mary Had A Little Lamb'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should return a titlized string',
+    marbles((m) => {
+      const input = m.hot('-a-|', { a: 'Mary had a little lamb' });
+      const subs = '^--!';
+      const expected = m.cold('-z-|', { z: 'Mary Had A Little Lamb' });
+      m.expect(input.pipe(titleize())).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
+    'should return a locale titlized string with locale',
+    marbles((m) => {
+      const input = m.hot('-a-|', { a: 'Mary had ä little lamb' });
+      const subs = '^--!';
+      const expected = m.cold('-z-|', { z: 'Mary Had Ä Little Lamb' });
+      m.expect(input.pipe(titleize('de-DE'))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
+    'should return a locale titlized string with locale and separator',
+    marbles((m) => {
+      const input = m.hot('-a-|', { a: 'Mary-had-ä-little-lamb' });
+      const subs = '^--!';
+      const expected = m.cold('-z-|', { z: 'Mary-Had-Ä-Little-Lamb' });
+      m.expect(input.pipe(titleize('de-DE', '-'))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

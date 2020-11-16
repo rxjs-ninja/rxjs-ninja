@@ -1,22 +1,26 @@
-import { take } from 'rxjs/operators';
-import { fromString, substring } from '@tinynodes/rxjs-string';
+import { substring } from '@tinynodes/rxjs-string';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('substring', () => {
-  it('should return a substring based on a passed start and end', (done) => {
-    fromString('Mary had a little lamb')
-      .pipe(substring(0, 4), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe('Mary'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should return a substring string from the start and end value',
+    marbles((m) => {
+      const input = m.hot('-a-|', { a: 'Mary had a little lamb' });
+      const subs = '^--!';
+      const expected = m.cold('-z-|', { z: 'Mary' });
+      m.expect(input.pipe(substring(0, 4))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 
-  it('should return a substring from start position to end of string', (done) => {
-    fromString('Mary had a little lamb')
-      .pipe(substring(5), take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe('had a little lamb'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should return a substring string from the start and end value',
+    marbles((m) => {
+      const input = m.hot('-a-|', { a: 'Mary had a little lamb' });
+      const subs = '^--!';
+      const expected = m.cold('-z-|', { z: 'had a little lamb' });
+      m.expect(input.pipe(substring(5))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

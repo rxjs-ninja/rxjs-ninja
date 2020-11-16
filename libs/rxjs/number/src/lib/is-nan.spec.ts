@@ -1,22 +1,13 @@
 import { isNaN } from './is-nan';
-import { filter, reduce, take } from 'rxjs/operators';
-import { fromNumber } from './from-number';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('isNaN', () => {
-  it('should return true for NaN value', (done) => {
-    fromNumber([1, 2, NaN, Infinity])
-      .pipe(
-        isNaN(),
-        filter(Boolean),
-        reduce<boolean, boolean[]>((acc, val) => {
-          acc.push(val);
-          return acc;
-        }, []),
-        take(1),
-      )
-      .subscribe({
-        next: (value) => expect(value).toHaveLength(1),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should filter values that are NaN only',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-e-f-', { a: -Infinity, b: -1, c: 0, d: 1, e: NaN, f: 3.14 });
+      const expected = m.cold('-a-b-c-d-e-f-', { a: false, b: false, c: false, d: false, e: true, f: false });
+      m.expect(input.pipe(isNaN())).toBeObservable(expected);
+    }),
+  );
 });

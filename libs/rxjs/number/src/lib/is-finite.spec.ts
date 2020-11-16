@@ -1,22 +1,13 @@
-import { from } from 'rxjs';
-import { filter, reduce, take } from 'rxjs/operators';
 import { isFinite } from '@tinynodes/rxjs-number';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('isFinite', () => {
-  it('should return boolean value of value being finite', (done) => {
-    from([1, 2, 3, NaN, Infinity, -Infinity, null, '1'])
-      .pipe(
-        isFinite(),
-        filter(Boolean),
-        reduce<boolean, boolean[]>((acc, val) => {
-          acc.push(val);
-          return acc;
-        }, []),
-        take(1),
-      )
-      .subscribe({
-        next: (value) => expect(value).toHaveLength(3),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should filter values that are finite only',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-e-', { a: -Infinity, b: 0, c: 1, d: 2, e: Infinity });
+      const expected = m.cold('-a-b-c-d-e-', { a: false, b: true, c: true, d: true, e: false });
+      m.expect(input.pipe(isFinite())).toBeObservable(expected);
+    }),
+  );
 });

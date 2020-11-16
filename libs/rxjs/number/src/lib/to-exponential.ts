@@ -7,7 +7,7 @@ import { map } from 'rxjs/operators';
 
 /**
  * The `toExponential` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs-dev.firebaseapp.com/guide/observable) number.
+ * is an [Observable](https://rxjs.dev/api/index/class/Observable) number.
  *
  * The operator will return a string value of the number raised to the power passed as a parameter using
  * [Number.prototype.toExponential](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential)

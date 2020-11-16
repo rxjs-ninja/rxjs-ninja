@@ -14,7 +14,7 @@ import { InputModifierFn, PredicateFn } from '../types/array-compare';
  * @private
  * @internal
  */
-export function mapDifferenceWith<T>(input: T[], predicate?: PredicateFn<T>): (value: T[]) => T[] {
+export function mapDifferenceWith<T = unknown>(input: T[], predicate?: PredicateFn<T>): (value: T[]) => T[] {
   return (value: T[]): T[] =>
     value.filter(
       (sourceValue) =>
@@ -36,7 +36,10 @@ export function mapDifferenceWith<T>(input: T[], predicate?: PredicateFn<T>): (v
  * @private
  * @internal
  */
-export function mapDifference<T, K>(checkArray: T[], mutate?: InputModifierFn<T, T | K>): (value: T[]) => T[] {
+export function mapDifference<T = unknown, K = unknown>(
+  checkArray: T[],
+  mutate?: InputModifierFn<T, T | K>,
+): (value: T[]) => T[] {
   if (mutate) {
     const checkSet = new Set(checkArray.map<T | K>(mutate));
     return (value: T[]) => [...new Set<T>(value)].filter((x) => !checkSet.has(mutate(x)));

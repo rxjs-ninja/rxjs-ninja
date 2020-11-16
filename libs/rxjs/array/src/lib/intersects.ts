@@ -50,12 +50,12 @@ import { mapIntersection } from '../utils/intersects';
  * @returns Array of values of intersection between the source and input array
  * @category RxJS Array Intersection
  */
-export function intersects<T = unknown, K = unknown>(
+export function intersects<T = unknown>(
   input: T[] | ObservableInput<T[]>,
-  inputModifier?: InputModifierFn<T, T | K>,
+  inputModifier?: InputModifierFn<T, T>,
 ): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>
-    isObservable(input)
-      ? input.pipe(switchMap((value) => source.pipe(map(mapIntersection(value as T[], inputModifier)))))
+    isObservable<T[]>(input)
+      ? input.pipe(switchMap((value) => source.pipe(map(mapIntersection(value, inputModifier)))))
       : source.pipe(map(mapIntersection(input as T[], inputModifier)));
 }

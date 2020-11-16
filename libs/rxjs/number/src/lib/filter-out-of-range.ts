@@ -45,7 +45,6 @@ export function filterOutOfRange(
   max: number,
   includeBoundingParameters?: boolean,
 ): MonoTypeOperatorFunction<number> {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   return (source: Observable<number>) =>
     source.pipe(
       filter((value) => (includeBoundingParameters ? value <= min || value >= max : value < min || value > max)),

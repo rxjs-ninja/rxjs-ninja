@@ -56,10 +56,8 @@ function differenceWith<T = unknown>(
   predicate?: PredicateFn<T>,
 ): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>
-    isObservable(input)
-      ? input.pipe(
-          switchMap((inputFromSource) => source.pipe(map(mapDifferenceWith(inputFromSource as T[], predicate)))),
-        )
+    isObservable<T[]>(input)
+      ? input.pipe(switchMap((inputFromSource) => source.pipe(map(mapDifferenceWith(inputFromSource, predicate)))))
       : source.pipe(map(mapDifferenceWith(input as T[], predicate)));
 }
 

@@ -1,13 +1,15 @@
-import { take } from 'rxjs/operators';
-import { fromString, split } from '@tinynodes/rxjs-string';
+import { split } from '@tinynodes/rxjs-string';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('split', () => {
-  it('should return an array of strings based on a separator on the original string', (done) => {
-    fromString('Name,Age,Street')
-      .pipe(split(','), take(1))
-      .subscribe({
-        next: (value) => expect(value).toStrictEqual(['Name', 'Age', 'Street']),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should split a string into an array at the separator',
+    marbles((m) => {
+      const input = m.hot('-a-|', { a: 'Name,Age,Street' });
+      const subs = '^--!';
+      const expected = m.cold('-z-|', { z: ['Name', 'Age', 'Street'] });
+      m.expect(input.pipe(split(','))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

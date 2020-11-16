@@ -20,13 +20,6 @@ import { subscribeToCodePoint } from '../utils/from-code-point.utils';
  * fromCharCode(9733).subscribe(console.log) // '★'
  * ```
  *
- * @returns String from a code point
- * @category RxJS String Creation
- */
-function fromCodePoint(input: number): Observable<string>;
-/**
- * @param input An array of code point numbers to turn into a string
- *
  * @example
  * ```ts
  * fromCharCode([9731, 9733, 9842]).subscribe(console.log) // '☃★♲'
@@ -35,9 +28,6 @@ function fromCodePoint(input: number): Observable<string>;
  * @returns String from an an array of code points
  * @category RxJS String Creation
  */
-function fromCodePoint(input: number[]): Observable<string>;
-function fromCodePoint(input: number | number[]): Observable<string> {
+export function fromCodePoint(input: number | number[]): Observable<string> {
   return new Observable<string>(subscribeToCodePoint(input));
 }
-
-export { fromCodePoint };

@@ -32,9 +32,9 @@ import { FilterPredicateFn } from '../types/boolean';
  * @returns All values that are truthy only
  * @category RxJS Boolean Filters
  */
-export function filterTruthy<T>(predicate?: FilterPredicateFn): MonoTypeOperatorFunction<T> {
+export function filterTruthy<T = unknown>(predicate?: FilterPredicateFn<T>): MonoTypeOperatorFunction<T> {
   if (predicate) {
-    return (source: Observable<T>) => source.pipe(filter<T>(predicate));
+    return (source: Observable<T>) => source.pipe(filter((value) => predicate(value)));
   }
   return (source: Observable<T>) => source.pipe(filter<T>(Boolean));
 }

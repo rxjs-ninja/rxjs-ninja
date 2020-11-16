@@ -13,7 +13,7 @@ import { subscribeToSingleOrArrayNumber } from '../utils/from-number.utils';
  * [from](https://rxjs.dev/api/index/function/from) operator - each number in the array will emit a value
  * to the subscription
  *
- * @param args The number or array or numbers to start from
+ * @param source The number or array or numbers to start from
  *
  * @example
  * ```ts
@@ -32,6 +32,6 @@ import { subscribeToSingleOrArrayNumber } from '../utils/from-number.utils';
  * @returns Observable created from the input array of numbers
  * @category RxJS Number Observables
  */
-export function fromNumber<T extends number | number[]>(...args: T[]): Observable<number> {
-  return new Observable<number>(subscribeToSingleOrArrayNumber(args[0]));
+export function fromNumber(source: number | number[]): Observable<number> {
+  return new Observable<number>(subscribeToSingleOrArrayNumber(source));
 }

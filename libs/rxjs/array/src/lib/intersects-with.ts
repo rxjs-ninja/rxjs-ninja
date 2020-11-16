@@ -66,9 +66,7 @@ export function intersectsWith<T = unknown>(
   predicate?: PredicateFn<T>,
 ): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>
-    isObservable(input)
-      ? input.pipe(
-          switchMap((inputFromSource) => source.pipe(map(mapIntersectsWith(inputFromSource as T[], predicate)))),
-        )
+    isObservable<T[]>(input)
+      ? input.pipe(switchMap((inputFromSource) => source.pipe(map(mapIntersectsWith(inputFromSource, predicate)))))
       : source.pipe(map(mapIntersectsWith(input as T[], predicate)));
 }

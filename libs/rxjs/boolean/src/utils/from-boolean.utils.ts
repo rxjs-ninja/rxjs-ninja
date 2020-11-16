@@ -9,13 +9,15 @@ import { Subscriber } from 'rxjs';
  * @private
  * @param input The boolean to subscribe to
  */
-export const subscribeToSingleOrArrayBoolean = <T>(input: T | T[]) => (subscriber: Subscriber<boolean>): void => {
+export const subscribeToSingleOrArrayBoolean = (input: boolean | boolean[]) => (
+  subscriber: Subscriber<boolean>,
+): void => {
   if (Array.isArray(input)) {
     for (let i = 0; i < input.length; i++) {
-      subscriber.next(Boolean<T>(input[i]));
+      subscriber.next(Boolean(input[i]));
     }
   } else {
-    subscriber.next(Boolean<T>(input));
+    subscriber.next(Boolean(input));
   }
   subscriber.complete();
 };

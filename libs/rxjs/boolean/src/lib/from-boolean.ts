@@ -14,7 +14,7 @@ import { subscribeToSingleOrArrayBoolean } from '../utils/from-boolean.utils';
  * @typeParam T The type or types to be used to create boolean values from
  * @default boolean
  *
- * @param args Boolean input to create an Observable<boolean> from
+ * @param source Boolean input to create an Observable<boolean> from
  *
  * @example
  * ```ts
@@ -34,6 +34,6 @@ import { subscribeToSingleOrArrayBoolean } from '../utils/from-boolean.utils';
  * @returns Boolean value from the initial parameters
  * @category RxJS Boolean Observables
  */
-export function fromBoolean<T extends boolean | boolean[]>(...args: T[]): Observable<boolean> {
-  return new Observable<boolean>(subscribeToSingleOrArrayBoolean<T>(args[0]));
+export function fromBoolean(source: boolean | boolean[]): Observable<boolean> {
+  return new Observable<boolean>(subscribeToSingleOrArrayBoolean(source));
 }

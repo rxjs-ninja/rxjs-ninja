@@ -1,31 +1,53 @@
-import { fromString } from './from-string';
 import { match } from './match';
+import { marbles } from 'rxjs-marbles/jest';
+import { map } from 'rxjs/operators';
 
 describe('match', () => {
-  it('should return a match for a string', (done) => {
-    fromString('Mary had a little lamb')
-      .pipe(match('little'))
-      .subscribe({
-        next: (value) => expect(Array.from(value as RegExpMatchArray)).toStrictEqual(['little']),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should match a string pattern inside a string',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: 'Mary had a little lamb', b: 'Belittled', c: 'test' });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: 'little', y: 'little', z: null });
+      m.expect(
+        input.pipe(
+          match('little'),
+          map((val) => (val ? val.toString() : null)),
+        ),
+      ).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 
-  it('should return a match for a string only once without global', (done) => {
-    fromString('Testing Test')
-      .pipe(match(/[A-Z]/))
-      .subscribe({
-        next: (value) => expect(Array.from(value as RegExpMatchArray)).toStrictEqual(['T']),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should match a regex pattern inside a string',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: 'Mary had a Little Lamb', b: 'Belittled', c: 'test' });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: 'M', y: 'B', z: null });
+      m.expect(
+        input.pipe(
+          match(/[A-Z]/),
+          map((val) => (val ? val.toString() : null)),
+        ),
+      ).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 
-  it('should return a match for a string multiple tiles with global', (done) => {
-    fromString('Mary had a Little Lamb')
-      .pipe(match(/[A-Z]/g))
-      .subscribe({
-        next: (value) => expect(Array.from(value as RegExpMatchArray)).toStrictEqual(['M', 'L', 'L']),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should match a global regex pattern inside a string',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: 'Mary had a Little Lamb', b: 'Belittled', c: 'test' });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: 'M,L,L', y: 'B', z: null });
+      m.expect(
+        input.pipe(
+          match(/[A-Z]/g),
+          map((val) => (val ? val.toString() : null)),
+        ),
+      ).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
 });

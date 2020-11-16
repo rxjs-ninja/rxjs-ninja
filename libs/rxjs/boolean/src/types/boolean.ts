@@ -17,4 +17,4 @@
  * @returns Boolean value
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type FilterPredicateFn = (...args: any) => boolean;
+export type FilterPredicateFn<T extends unknown> = (...args: T[]) => boolean;

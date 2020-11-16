@@ -1,7 +1,6 @@
 import { of } from 'rxjs';
 import { intersects } from './intersects';
 import { marbles } from 'rxjs-marbles/jest';
-import { difference } from '@tinynodes/rxjs/array';
 
 describe('intersects', () => {
   it(

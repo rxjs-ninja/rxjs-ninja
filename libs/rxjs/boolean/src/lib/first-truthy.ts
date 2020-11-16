@@ -31,9 +31,13 @@ import { FilterPredicateFn } from '../types/boolean';
  * @returns The first truthy boolean value
  * @category RxJS Boolean Filters
  */
-function firstTruthy<T>(predicate?: FilterPredicateFn): MonoTypeOperatorFunction<T> {
+function firstTruthy<T = unknown>(predicate?: FilterPredicateFn<T>): MonoTypeOperatorFunction<T> {
   if (predicate) {
-    return (source: Observable<T>) => source.pipe(filter<T>(predicate), first());
+    return (source: Observable<T>) =>
+      source.pipe(
+        filter((val) => predicate(val)),
+        first(),
+      );
   }
   return (source: Observable<T>) => source.pipe(filter<T>(Boolean), first());
 }

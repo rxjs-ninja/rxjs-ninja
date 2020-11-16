@@ -15,6 +15,7 @@ import { TrimPosition, TrimPositionValue } from '../types/position';
  * [trimEnd](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimEnd) but
  * provide a single API via [[TrimPosition]] option
  *
+ * @param position The position to trim the string from, either 'start', 'end' or 'all'
  *
  * @example
  * ```ts
@@ -22,13 +23,6 @@ import { TrimPosition, TrimPositionValue } from '../types/position';
  *  .pipe(trimString())
  *  .subscribe(console.log) // '12345'
  * ```
- *
- * @returns String that is trimmed based on the [[TrimPosition]] 'all' option
- * @category RxJS String Formatting
- */
-function trimString(): MonoTypeOperatorFunction<string>;
-/**
- * @param position The position to trim the string from, either 'start', 'end' or 'all'
  *
  * @example
  * ```ts
@@ -47,19 +41,15 @@ function trimString(): MonoTypeOperatorFunction<string>;
  * @returns String that is trimmed based on the [[TrimPosition]] option
  * @category RxJS String Formatting
  */
-function trimString(position: TrimPositionValue): MonoTypeOperatorFunction<string>;
-function trimString(position: TrimPositionValue = 'all'): MonoTypeOperatorFunction<string> {
+export function trimString(position: TrimPositionValue = TrimPosition.ALL): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) =>
     source.pipe(
       map((value) => {
         switch (position) {
-          case TrimPosition.START: {
+          case TrimPosition.START:
             return value.trimLeft();
-          }
-
-          case TrimPosition.END: {
+          case TrimPosition.END:
             return value.trimRight();
-          }
           case TrimPosition.ALL:
           default:
             return value.trim();
@@ -67,8 +57,6 @@ function trimString(position: TrimPositionValue = 'all'): MonoTypeOperatorFuncti
       }),
     );
 }
-
-export { trimString };
 
 /**
  * The `trimLeft` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string

@@ -1,25 +1,27 @@
-import { reduce, take } from 'rxjs/operators';
+import { map, reduce, tap } from 'rxjs/operators';
 import { fromString } from '@tinynodes/rxjs-string';
+import { observe } from 'rxjs-marbles/jest';
 
 describe('fromString', () => {
-  it('should return a Observable from a passed string', (done) => {
-    fromString('Testing')
-      .pipe(take(1))
-      .subscribe({
-        next: (value) => expect(value).toBe('Testing'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should create observable from string value',
+    observe(() =>
+      fromString('TESTING').pipe(
+        map((val) => val.toLowerCase()),
+        tap((value) => expect(value).toBe('testing')),
+      ),
+    ),
+  );
 
-  it('should create an Observable from an array of strings', (done) => {
-    fromString(['Foo', 'Bar'])
-      .pipe(
-        reduce((acc, val) => acc + val),
-        take(1),
-      )
-      .subscribe({
-        next: (value) => expect(value).toBe('FooBar'),
-        complete: () => done(),
-      });
-  });
+  it(
+    'should create observable from array of string value',
+    observe(() =>
+      fromString(['TESTING', 'IS', 'FUN']).pipe(
+        map((val) => val.toLowerCase()),
+        reduce((acc, val) => `${acc} ${val}`, ''),
+        map((val) => val.trim()),
+        tap((value) => expect(value).toBe('testing is fun')),
+      ),
+    ),
+  );
 });

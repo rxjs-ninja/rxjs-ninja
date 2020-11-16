@@ -51,12 +51,12 @@ import { mapDifference } from '../utils/difference';
  * @returns Array of values of difference between the source and input array
  * @category RxJS Array Difference
  */
-export function difference<T = unknown, K = unknown>(
+export function difference<T = unknown>(
   input: T[] | ObservableInput<T[]>,
-  inputModifier?: InputModifierFn<T, T | K>,
+  inputModifier?: InputModifierFn<T, T>,
 ): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>
-    isObservable(input)
-      ? input.pipe(switchMap((value) => source.pipe(map(mapDifference(value as T[], inputModifier)))))
+    isObservable<T[]>(input)
+      ? input.pipe(switchMap((value) => source.pipe(map(mapDifference(value, inputModifier)))))
       : source.pipe(map(mapDifference(input as T[], inputModifier)));
 }

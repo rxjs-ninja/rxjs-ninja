@@ -31,9 +31,13 @@ import { FilterPredicateFn } from '../types/boolean';
  * @returns The last truthy boolean value
  * @category RxJS Boolean Filters
  */
-export function lastTruthy<T>(predicate?: FilterPredicateFn): MonoTypeOperatorFunction<T> {
+export function lastTruthy<T = unknown>(predicate?: FilterPredicateFn<T>): MonoTypeOperatorFunction<T> {
   if (predicate) {
-    return (source: Observable<T>) => source.pipe(filter<T>(predicate), takeLast(1));
+    return (source: Observable<T>) =>
+      source.pipe(
+        filter((val) => predicate(val)),
+        takeLast(1),
+      );
   }
   return (source: Observable<T>) => source.pipe(filter<T>(Boolean), takeLast(1));
 }

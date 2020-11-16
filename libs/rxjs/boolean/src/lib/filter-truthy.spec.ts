@@ -1,6 +1,5 @@
 import { filterTruthy } from './filter-truthy';
 import { marbles } from 'rxjs-marbles/jest';
-import { FilterPredicateFn } from '../types/boolean';
 
 describe('filterTruthy', () => {
   it(
@@ -17,7 +16,7 @@ describe('filterTruthy', () => {
   it(
     'should filter a source of truthy values with predicate',
     marbles((m) => {
-      const predicate: FilterPredicateFn = (num: number): boolean => num % 2 === 0;
+      const predicate = (num: number): boolean => num % 2 === 0;
       const input = m.hot('-a-b-c-d-(e|)', { a: 0, b: 1, c: 2, d: 3, e: 4 });
       const subs = '^--------!';
       const expected = m.cold('-a---c---(e|)', { a: 0, c: 2, e: 4 });

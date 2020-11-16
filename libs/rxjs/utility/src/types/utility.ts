@@ -18,7 +18,7 @@ export type CallbackFn<T = unknown> = (value?: T) => void;
  *
  * @returns Boolean value
  */
-export type PredicateFn<T extends unknown> = (...args: T[]) => boolean;
+export type PredicateFn<T = unknown> = (...args: T[]) => boolean;
 
 /**
  * Method used to modify the input value for comparison
@@ -40,4 +40,4 @@ export type PredicateFn<T extends unknown> = (...args: T[]) => boolean;
  *
  * @returns Value of the modifier function
  */
-export type InputModifierFn<T extends unknown, K extends unknown> = (value: T) => K;
+export type InputModifierFn<T = unknown, K = unknown> = (value: T) => K;

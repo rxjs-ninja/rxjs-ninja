@@ -7,11 +7,11 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `ifSource` operator is used with an [Observable](https://rxjs.dev/api/index/class/Observable) value and takes a predicate
+ * The `mapIfSource` operator is used with an [Observable](https://rxjs.dev/api/index/class/Observable) value and takes a predicate
  * function. Based on the result of the predicate it will return a value based on a truthy or falsy result. Each value can be
  * cast to a specific type if required
  *
- * @typeParam I The Input Type
+ * @typeParam I The value type for the incoming observable source
  * @typeParam T The type returned from the Truthy result
  * @typeParam F The type returned from the Falsy result, this type is optional and if not included the `T` type will be used
  *

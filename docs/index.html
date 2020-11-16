@@ -1,0 +1,234 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>RxJS Primitives</title>
+	<meta name="description" content="Documentation for RxJS Primitives">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">RxJS Primitives</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1>RxJS Primitives</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<a href="#rxjs-primitives" id="rxjs-primitives" style="color: inherit; text-decoration: none;">
+					<h1>RxJS Primitives</h1>
+				</a>
+				<p>RxJS Primitives is a set of libraries that provide operators for <a href="https://rxjs-dev.firebaseapp.com/">RxJS</a>.</p>
+				<p>The libraries included are below, but you can also find full <a href="https://tanepiper.github.io/rxjs-primitives/">API Documentation</a> is available with examples.</p>
+				<p>This library is open source on <a href="https://github.com/tanepiper/rxjs-primitives">Github</a> and available to install as an <code>npm</code> modules.</p>
+				<p><a href="https://www.npmjs.com/package/@tinynodes/rxjs-array"><img src="https://img.shields.io/npm/v/@tinynodes/rxjs-array?label=rxjs-array" alt="rxjs-array"></a>
+					<a href="https://www.npmjs.com/package/@tinynodes/rxjs-boolean"><img src="https://img.shields.io/npm/v/@tinynodes/rxjs-boolean?label=rxjs-boolean" alt="rxjs-boolean"></a>
+					<a href="https://www.npmjs.com/package/@tinynodes/rxjs-number"><img src="https://img.shields.io/npm/v/@tinynodes/rxjs-number?label=rxjs-number" alt="rxjs-number"></a>
+					<a href="https://www.npmjs.com/package/@tinynodes/rxjs-string"><img src="https://img.shields.io/npm/v/@tinynodes/rxjs-string?label=rxjs-string" alt="rxjs-string"></a>
+					<a href="https://www.npmjs.com/package/@tinynodes/rxjs-utility"><img src="https://img.shields.io/npm/v/@tinynodes/rxjs-utility?label=rxjs-utility" alt="rxjs-utility"></a>
+					<a href="https://sonarcloud.io/dashboard?id=tanepiper_rxjs-primitives"><img src="https://sonarcloud.io/api/project_badges/measure?project=tanepiper_rxjs-primitives&metric=alert_status" alt="Quality Gate Status"></a>
+				<a href="https://codecov.io/gh/tanepiper/rxjs-primitives"><img src="https://codecov.io/gh/tanepiper/rxjs-primitives/branch/master/graph/badge.svg" alt="Code Coverage"></a></p>
+				<a href="#what-are-these-libraries" id="what-are-these-libraries" style="color: inherit; text-decoration: none;">
+					<h2>What are these libraries?</h2>
+				</a>
+				<p>This set of libraries provides some low-level operators for handling different operations with Observable values of primitive types (<code>string</code>, <code>number</code>, <code>boolean</code>, etc).</p>
+				<p>Some of these operators use methods from ECMAScript built-in objects such as <code>String</code> and <code>Number</code> and it also includes some convenience <code>Boolean</code> methods.</p>
+				<p>While most of these are one-line operators, they allow developers to avoid having to handle their own mapping or logic when it comes to some common used methods.</p>
+				<p>If you are looking for arethmetic operators (add, multiply, etc) then check out <a href="https://loreanvictor.github.io/rxmetics/">rxmetrics</a></p>
+				<a href="#rxjs-array" id="rxjs-array" style="color: inherit; text-decoration: none;">
+					<h3>rxjs-array</h3>
+				</a>
+				<p>A set of utility operators for various method for <code>Observable</code> arrays</p>
+				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+					<h4>Installation</h4>
+				</a>
+				<blockquote>
+					<p><code>npm install @tinynodes/rxjs-array</code></p>
+				</blockquote>
+				<a href="#information" id="information" style="color: inherit; text-decoration: none;">
+					<h4>Information</h4>
+				</a>
+				<ul>
+					<li><a href="https://tanepiper.github.io/rxjs-primitives/modules/array.html">Documentation</a></li>
+					<li><a href="https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/array/CHANGELOG.md">Changelog</a></li>
+				</ul>
+				<a href="#rxjs-boolean" id="rxjs-boolean" style="color: inherit; text-decoration: none;">
+					<h3>rxjs-boolean</h3>
+				</a>
+				<p>A set of utility operators for handling equality checking and boolean values from <code>Observable</code> values</p>
+				<a href="#installation-1" id="installation-1" style="color: inherit; text-decoration: none;">
+					<h4>Installation</h4>
+				</a>
+				<blockquote>
+					<p><code>npm install @tinynodes/rxjs-boolean</code></p>
+				</blockquote>
+				<a href="#information-1" id="information-1" style="color: inherit; text-decoration: none;">
+					<h4>Information</h4>
+				</a>
+				<ul>
+					<li><a href="https://tanepiper.github.io/rxjs-primitives/modules/boolean.html">Documentation</a></li>
+					<li><a href="https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/boolean/CHANGELOG.md">Changelog</a></li>
+				</ul>
+				<a href="#rxjs-number" id="rxjs-number" style="color: inherit; text-decoration: none;">
+					<h3>rxjs-number</h3>
+				</a>
+				<p>A set of operators for working with <code>Observable</code> number values. This collection includes operators based on
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">ECMAScript Number</a>.</p>
+				<p>Where are method is an equality check (e.g. <code>isInteger</code>) there is also a corresponding <code>fromIsInteger</code> that returns the value
+				rather than a boolean value (the only exception is <code>isNaN</code> which does not make sense to have this).</p>
+				<p>There are also operators for formatting numbers as strings such as <code>toLocaleString</code> and from strings such as <code>parseInt</code>.</p>
+				<a href="#installation-2" id="installation-2" style="color: inherit; text-decoration: none;">
+					<h4>Installation</h4>
+				</a>
+				<blockquote>
+					<p><code>npm install @tinynodes/rxjs-number</code></p>
+				</blockquote>
+				<a href="#information-2" id="information-2" style="color: inherit; text-decoration: none;">
+					<h4>Information</h4>
+				</a>
+				<ul>
+					<li><a href="https://tanepiper.github.io/rxjs-primitives/modules/number.html">Documentation</a></li>
+					<li><a href="https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/number/CHANGELOG.md">Changelog</a></li>
+				</ul>
+				<a href="#rxjs-string" id="rxjs-string" style="color: inherit; text-decoration: none;">
+					<h3>rxjs-string</h3>
+				</a>
+				<p>A set of operators for working with <code>Observable</code> string values. This collection includes operators based on
+				<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">ECMAScript String</a>.</p>
+				<p>Where are method is an equality check (e.g. <code>endsWith</code>) there is also a corresponding <code>fromEndWith</code> that returns the value
+				rather than a boolean value.</p>
+				<p>There are also methods for querying strings, generating substrings, exploding strings or formatting.</p>
+				<a href="#installation-3" id="installation-3" style="color: inherit; text-decoration: none;">
+					<h4>Installation</h4>
+				</a>
+				<blockquote>
+					<p><code>npm install @tinynodes/rxjs-string</code></p>
+				</blockquote>
+				<a href="#information-3" id="information-3" style="color: inherit; text-decoration: none;">
+					<h4>Information</h4>
+				</a>
+				<ul>
+					<li><a href="https://tanepiper.github.io/rxjs-primitives/modules/string.html">Documentation</a></li>
+					<li><a href="https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/string/CHANGELOG.md">Changelog</a></li>
+				</ul>
+				<a href="#rxjs-utility" id="rxjs-utility" style="color: inherit; text-decoration: none;">
+					<h3>rxjs-utility</h3>
+				</a>
+				<p>A set of extra utility operators that provide some useful functionality when dealing with <code>Observable</code> values</p>
+				<a href="#installation-4" id="installation-4" style="color: inherit; text-decoration: none;">
+					<h4>Installation</h4>
+				</a>
+				<blockquote>
+					<p><code>npm install @tinynodes/rxjs-utility</code></p>
+				</blockquote>
+				<a href="#information-4" id="information-4" style="color: inherit; text-decoration: none;">
+					<h4>Information</h4>
+				</a>
+				<ul>
+					<li><a href="https://tanepiper.github.io/rxjs-primitives/utility/boolean.html">Documentation</a></li>
+					<li><a href="https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/utility/CHANGELOG.md">Changelog</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/array.html">array</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/boolean.html">boolean</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/number.html">number</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/string.html">string</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/utility.html">utility</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+</body>
+</html>

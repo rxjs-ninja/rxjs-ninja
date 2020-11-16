@@ -26,7 +26,7 @@ import { CallbackFn } from '../types/utility';
  * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T
  * @category RxJS Observable Utilities
  */
-export function tapOnSubscribe<T>(callback: CallbackFn): MonoTypeOperatorFunction<T> {
+export function tapOnSubscribe<T extends unknown>(callback: CallbackFn): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>): Observable<T> =>
     defer(() => {
       callback();

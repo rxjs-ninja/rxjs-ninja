@@ -1,64 +1,33 @@
 {
   "version": 1,
   "projects": {
-    "rxjs-string": {
-      "root": "libs/rxjs/string",
-      "sourceRoot": "libs/rxjs/string/src",
+    "rxjs-array": {
+      "root": "libs/rxjs/array",
+      "sourceRoot": "libs/rxjs/array/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["libs/rxjs/string/**/*.ts"]
+            "lintFilePatterns": ["libs/rxjs/array/**/*.ts"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "libs/rxjs/string/jest.config.js",
+            "jestConfig": "libs/rxjs/array/jest.config.js",
             "passWithNoTests": true
           }
         },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/libs/rxjs/string",
-            "tsConfig": "libs/rxjs/string/tsconfig.lib.json",
-            "packageJson": "libs/rxjs/string/package.json",
-            "main": "libs/rxjs/string/src/index.ts",
-            "assets": ["libs/rxjs/string/*.md"]
-          }
-        }
-      }
-    },
-    "rxjs-number": {
-      "root": "libs/rxjs/number",
-      "sourceRoot": "libs/rxjs/number/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/rxjs/number/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/rxjs/number/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "builder": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/libs/rxjs/number",
-            "tsConfig": "libs/rxjs/number/tsconfig.lib.json",
-            "packageJson": "libs/rxjs/number/package.json",
-            "main": "libs/rxjs/number/src/index.ts",
-            "assets": ["libs/rxjs/number/*.md"]
+            "outputPath": "dist/libs/rxjs/array",
+            "tsConfig": "libs/rxjs/array/tsconfig.lib.json",
+            "packageJson": "libs/rxjs/array/package.json",
+            "main": "libs/rxjs/array/src/index.ts",
+            "assets": ["libs/rxjs/array/*.md"]
           }
         }
       }
@@ -94,6 +63,68 @@
         }
       }
     },
+    "rxjs-number": {
+      "root": "libs/rxjs/number",
+      "sourceRoot": "libs/rxjs/number/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/rxjs/number/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/rxjs/number/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/rxjs/number",
+            "tsConfig": "libs/rxjs/number/tsconfig.lib.json",
+            "packageJson": "libs/rxjs/number/package.json",
+            "main": "libs/rxjs/number/src/index.ts",
+            "assets": ["libs/rxjs/number/*.md"]
+          }
+        }
+      }
+    },
+    "rxjs-string": {
+      "root": "libs/rxjs/string",
+      "sourceRoot": "libs/rxjs/string/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/rxjs/string/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/rxjs/string/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/rxjs/string",
+            "tsConfig": "libs/rxjs/string/tsconfig.lib.json",
+            "packageJson": "libs/rxjs/string/package.json",
+            "main": "libs/rxjs/string/src/index.ts",
+            "assets": ["libs/rxjs/string/*.md"]
+          }
+        }
+      }
+    },
     "rxjs-utility": {
       "root": "libs/rxjs/utility",
       "sourceRoot": "libs/rxjs/utility/src",
@@ -121,37 +152,6 @@
             "packageJson": "libs/rxjs/utility/package.json",
             "main": "libs/rxjs/utility/src/index.ts",
             "assets": ["libs/rxjs/utility/*.md"]
-          }
-        }
-      }
-    },
-    "rxjs-array": {
-      "root": "libs/rxjs/array",
-      "sourceRoot": "libs/rxjs/array/src",
-      "projectType": "library",
-      "schematics": {},
-      "architect": {
-        "lint": {
-          "builder": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["libs/rxjs/array/**/*.ts"]
-          }
-        },
-        "test": {
-          "builder": "@nrwl/jest:jest",
-          "options": {
-            "jestConfig": "libs/rxjs/array/jest.config.js",
-            "passWithNoTests": true
-          }
-        },
-        "build": {
-          "builder": "@nrwl/node:package",
-          "options": {
-            "outputPath": "dist/libs/rxjs/array",
-            "tsConfig": "libs/rxjs/array/tsconfig.lib.json",
-            "packageJson": "libs/rxjs/array/package.json",
-            "main": "libs/rxjs/array/src/index.ts",
-            "assets": ["libs/rxjs/array/*.md"]
           }
         }
       }

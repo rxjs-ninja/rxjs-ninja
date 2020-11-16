@@ -17,7 +17,8 @@ import { mapIntersectsWith } from '../utils/intersects';
  *
  * @typeParam T Type of item in the input array
  *
- * @param input Array of items to compare against the source array
+ * @param input Observable<Array> of items to compare against the source array
+ * @param predicate Function for comparison of arrays
  *
  * @example
  * ```ts
@@ -28,13 +29,6 @@ import { mapIntersectsWith } from '../utils/intersects';
  *  .subscribe(console.log) // ['a']
  * ```
  *
- * @returns Array of values of intersection between the source and input array
- * @category RxJS Array Intersection
- */
-function intersectsWith<T>(input: T[]): MonoTypeOperatorFunction<T[]>;
-/**
- * @param input Observable<Array> of items to compare against the source array
- *
  * @example
  * ```ts
  * const input: Observable<string[]> = of(['a', 'e']);
@@ -43,14 +37,6 @@ function intersectsWith<T>(input: T[]): MonoTypeOperatorFunction<T[]>;
  *  .pipe(intersectsWith(input))
  *  .subscribe(console.log) // ['a']
  * ```
- *
- * @returns Array of values of intersection between the source and input array
- * @category RxJS Array Intersection
- */
-function intersectsWith<T>(input: ObservableInput<T[]>): MonoTypeOperatorFunction<T[]>;
-/**
- * @param input Array of items to compare against the source array
- * @param predicate Function for comparison of arrays
  *
  * @example
  * ```ts
@@ -61,14 +47,6 @@ function intersectsWith<T>(input: ObservableInput<T[]>): MonoTypeOperatorFunctio
  *  .pipe(intersectsWith(input, predicate))
  *  .subscribe(console.log) // ['a']
  * ```
- *
- * @returns Array of values of intersection between the source and input array
- * @category RxJS Array Intersection
- */
-function intersectsWith<T>(input: T[], predicate: PredicateFn<T>): MonoTypeOperatorFunction<T[]>;
-/**
- * @param input Observable<Array> of items to compare against the source array
- * @param predicate Function for comparison of arrays
  *
  * @example
  * ```ts
@@ -83,8 +61,7 @@ function intersectsWith<T>(input: T[], predicate: PredicateFn<T>): MonoTypeOpera
  * @returns Array of values of intersection between the source and input array
  * @category RxJS Array Intersection
  */
-function intersectsWith<T>(input: ObservableInput<T[]>, predicate: PredicateFn<T>): MonoTypeOperatorFunction<T[]>;
-function intersectsWith<T>(
+export function intersectsWith<T = unknown>(
   input: T[] | ObservableInput<T[]>,
   predicate?: PredicateFn<T>,
 ): MonoTypeOperatorFunction<T[]> {
@@ -95,5 +72,3 @@ function intersectsWith<T>(
         )
       : source.pipe(map(mapIntersectsWith(input as T[], predicate)));
 }
-
-export { intersectsWith };

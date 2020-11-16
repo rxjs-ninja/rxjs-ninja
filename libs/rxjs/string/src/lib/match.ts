@@ -20,13 +20,6 @@ import { map } from 'rxjs/operators';
  *  .subscribe(result => console.log(Array.from(result))) // ['little']
  * ```
  *
- * @returns RegExpMatchArray that contains one or more results from the match
- * @category RxJS String Query
- */
-function match(pattern: string): OperatorFunction<string, RegExpMatchArray>;
-/**
- * @param pattern A RegExp to match in the string
- *
  * @example
  * ```ts
  * fromString('Mary had a Little Lamb')
@@ -37,9 +30,6 @@ function match(pattern: string): OperatorFunction<string, RegExpMatchArray>;
  * @returns RegExpMatchArray that contains one or more results from the match
  * @category RxJS String Query
  */
-function match(pattern: RegExp): OperatorFunction<string, RegExpMatchArray>;
-function match(pattern: string | RegExp): OperatorFunction<string, RegExpMatchArray> {
+export function match(pattern: string | RegExp): OperatorFunction<string, RegExpMatchArray | null> {
   return (source: Observable<string>) => source.pipe(map((value) => value.match(pattern)));
 }
-
-export { match };

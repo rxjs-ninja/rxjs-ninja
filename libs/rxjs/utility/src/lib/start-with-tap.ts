@@ -36,7 +36,7 @@ import { CallbackFn } from '../types/utility';
  * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T
  * @category RxJS Observable Utilities
  */
-export function startWithTap<T = unknown>(callback: CallbackFn): MonoTypeOperatorFunction<T> {
+export function startWithTap<T extends unknown>(callback: CallbackFn): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>) =>
     of(undefined).pipe(
       tap(callback),

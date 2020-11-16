@@ -13,6 +13,9 @@ import { map } from 'rxjs/operators';
  * [String.prototype.toLocaleUpperCase](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleUpperCase) to handle
  * upper case so supports locales.
  *
+ * @param locales Locales to pass for string formatting
+ * @param separator Separator if the string isn't using space characters
+ *
  * @remarks
  * This is a custom operator for this library and uses a method found on [1loc](https://1loc.dev/), it uses
  *
@@ -23,28 +26,12 @@ import { map } from 'rxjs/operators';
  *  .subscribe(console.log) // 'Mary Had A Little Lamb'
  * ```
  *
- * @returns String that is titleized
- * @category RxJS String Formatting
- */
-function titleize(): MonoTypeOperatorFunction<string>;
-/**
- *
- * @param locales Locales to pass for string formatting
- *
  * @example
  * ```ts
  * fromString('Mary had ä little lamb')
  *  .pipe(titleize('de-DE'))
  *  .subscribe(console.log) // 'Mary Had Ä Little Lamb'
  * ```
- *
- * @returns String that is titleized
- * @category RxJS String Formatting
- */
-function titleize(locales: string | string[]): MonoTypeOperatorFunction<string>;
-/**
- * @param locales Locales to pass for string formatting
- * @param separator Separator if the string isn't using space characters
  *
  * @example
  * ```ts
@@ -56,8 +43,7 @@ function titleize(locales: string | string[]): MonoTypeOperatorFunction<string>;
  * @returns String that is titleized with custom separator
  * @category RxJS String Formatting
  */
-function titleize(locales: string | string[], separator): MonoTypeOperatorFunction<string>;
-function titleize(locales?: string | string[], separator = ' '): MonoTypeOperatorFunction<string> {
+export function titleize(locales?: string | string[], separator = ' '): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) =>
     source.pipe(
       split(separator),
@@ -66,5 +52,3 @@ function titleize(locales?: string | string[], separator = ' '): MonoTypeOperato
       ),
     );
 }
-
-export { titleize };

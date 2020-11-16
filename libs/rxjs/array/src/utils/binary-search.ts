@@ -11,7 +11,7 @@
  * @private
  * @internal
  */
-export function binarySearcher<T>(searchValue: T, searchArray: T[], property?: string | number): number {
+export function binarySearcher<T = unknown>(searchValue: T, searchArray: T[], property?: string | number): number {
   let first = 0; //left endpoint
   let last = searchArray.length - 1; //right endpoint
   let position = -1;
@@ -20,7 +20,7 @@ export function binarySearcher<T>(searchValue: T, searchArray: T[], property?: s
 
   while (!found && first <= last) {
     middle = Math.floor((first + last) / 2);
-    const checkValue = property ? searchArray[middle][property] : searchArray[middle];
+    const checkValue = property ? (searchArray as never)[middle][property] : searchArray[middle];
     if (checkValue == searchValue) {
       found = true;
       position = middle;

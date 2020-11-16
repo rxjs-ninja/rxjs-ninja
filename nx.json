@@ -21,19 +21,19 @@
     }
   },
   "projects": {
-    "rxjs-string": {
-      "tags": []
-    },
-    "rxjs-number": {
+    "rxjs-array": {
       "tags": []
     },
     "rxjs-boolean": {
       "tags": []
     },
-    "rxjs-utility": {
+    "rxjs-number": {
       "tags": []
     },
-    "rxjs-array": {
+    "rxjs-string": {
+      "tags": []
+    },
+    "rxjs-utility": {
       "tags": []
     }
   }

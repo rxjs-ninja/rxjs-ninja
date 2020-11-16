@@ -10,9 +10,10 @@ import { map } from 'rxjs/operators';
  * value and returns a boolean value if the string of length ends with the passed character using
  * [String.prototype.endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
  *
- * * If you need to get the string value instead of value use [[filterEndsWith]]
+ * - If you need to get the string value instead of value use [[filterEndsWith]]
  *
  * @param character The character to check the string ends with
+ * @param length Optional length of the string to check
  *
  * @example
  * ```ts
@@ -20,14 +21,6 @@ import { map } from 'rxjs/operators';
  *  .pipe(endsWith('g'))
  *  .subscribe(console.log) // [false, true]
  * ```
- *
- * @returns Boolean that passes the equality check of [String.prototype.endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
- * @category RxJS String Query
- */
-function endsWith(character: string): OperatorFunction<string, boolean>;
-/**
- * @param character The character to check the string ends with
- * @param length Optional length of the string to check
  *
  * @example
  * ```ts
@@ -39,9 +32,6 @@ function endsWith(character: string): OperatorFunction<string, boolean>;
  * @returns Boolean that passes the equality check of [String.prototype.endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
  * @category RxJS String Query
  */
-function endsWith(character: string, length: number): OperatorFunction<string, boolean>;
-function endsWith(character: string, length?: number): OperatorFunction<string, boolean> {
+export function endsWith(character: string, length?: number): OperatorFunction<string, boolean> {
   return (source: Observable<string>) => source.pipe(map((value) => value.endsWith(character, length)));
 }
-
-export { endsWith };

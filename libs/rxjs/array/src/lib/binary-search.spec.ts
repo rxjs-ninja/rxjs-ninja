@@ -1,13 +1,14 @@
 import { from, of } from 'rxjs';
 import { binarySearch } from './binary-search';
 import { take } from 'rxjs/operators';
+import { SortFn } from '@tinynodes/rxjs/array';
 
 describe('binarySearch', () => {
   it('should binary search a single array of numbers', (done) => {
     of([1, 4, 7, 2, 5, 6, 3, 8, 10, 9])
       .pipe(binarySearch(5), take(1))
       .subscribe({
-        next: (value) => expect(value.index).toBe(4),
+        next: (value) => expect(value[0]).toBe(4),
         complete: () => done(),
       });
   });
@@ -16,7 +17,7 @@ describe('binarySearch', () => {
     of(['b', 'c', 'd', 'a', 'g', 'f', '34', '2'])
       .pipe(binarySearch('b'), take(1))
       .subscribe({
-        next: (value) => expect(value.index).toBe(3),
+        next: (value) => expect(value[0]).toBe(3),
         complete: () => done(),
       });
   });
@@ -25,21 +26,34 @@ describe('binarySearch', () => {
     from([1, 4, 7, 2, 5, 6, 3, 8, 10, 9])
       .pipe(binarySearch(10), take(1))
       .subscribe({
-        next: (value) => expect(value.index).toBe(9),
+        next: (value) => expect(value[0]).toBe(9),
         complete: () => done(),
       });
   });
 
   it('should binary search with object types', (done) => {
-    const sort = (a: { val: number }, b: { val: number }) => {
+    type TestObj = { val: number };
+
+    const sort: SortFn<TestObj> = (a: TestObj, b: TestObj) => {
       if (a.val === b.val) return 0;
       return a.val < b.val ? -1 : 1;
     };
 
-    of([{ val: 1 }, { val: 4 }, { val: 7 }, { val: 2 }, { val: 5 }, { val: 6 }, { val: 3 }, { val: 8 }, { val: 10 }, { val: 9 }])
+    of<TestObj[]>([
+      { val: 1 },
+      { val: 4 },
+      { val: 7 },
+      { val: 2 },
+      { val: 5 },
+      { val: 6 },
+      { val: 3 },
+      { val: 8 },
+      { val: 10 },
+      { val: 9 },
+    ])
       .pipe(binarySearch<{ val: number }, number>(5, sort, 'val'), take(1))
       .subscribe({
-        next: (value) => expect(value.index).toBe(4),
+        next: (value) => expect(value[0]).toBe(4),
         complete: () => done(),
       });
   });
@@ -64,7 +78,7 @@ describe('binarySearch', () => {
     ])
       .pipe(binarySearch<[number, number], number>(9, sort, 1), take(1))
       .subscribe({
-        next: (value) => expect(value.index).toBe(8),
+        next: (value) => expect(value[0]).toBe(8),
         complete: () => done(),
       });
   });

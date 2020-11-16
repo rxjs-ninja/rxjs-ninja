@@ -17,7 +17,8 @@ import { mapDifferenceWith } from '../utils/difference';
  *
  * @typeParam T Type of item in the input array
  *
- * @param input Array of items use to get the difference between two arrays
+ * @param input Observable Array of items use to get the difference between two arrays
+ * @param predicate Function for comparison of arrays
  *
  * @example
  * ```ts
@@ -26,13 +27,6 @@ import { mapDifferenceWith } from '../utils/difference';
  *  .subscribe(console.log) // ['b', 'd']
  * ```
  *
- * @returns Array of values of difference between the source and input array
- * @category RxJS Array Difference
- */
-function differenceWith<T>(input: T[]): MonoTypeOperatorFunction<T[]>;
-/**
- * @param input Observable Array of items use to get the difference between two arrays
- *
  * @example
  * ```ts
  * of(['a', 'b', 'c', 'd'])
@@ -40,28 +34,12 @@ function differenceWith<T>(input: T[]): MonoTypeOperatorFunction<T[]>;
  *  .subscribe(console.log) // ['b', 'd']
  * ```
  *
- * @returns Array of values of difference between the source and input array
- * @category RxJS Array Difference
- */
-function differenceWith<T>(input: ObservableInput<T[]>): MonoTypeOperatorFunction<T[]>;
-/**
- * @param input Array of items use to get the difference between two arrays
- * @param predicate Function for comparison of arrays
- *
  * @example
  * ```ts
  * of(['a', 'b', 'c', 'd'])
  *  .pipe(differenceWith(['A', 'C'], (x, y) => x === y.toLowerCase()))
  *  .subscribe(console.log) // ['b', 'd']
  * ```
- *
- * @returns Array of values of difference between the source and input array
- * @category RxJS Array Difference
- */
-function differenceWith<T>(input: T[], predicate: PredicateFn<T>): MonoTypeOperatorFunction<T[]>;
-/**
- * @param input Observable Array of items use to get the difference between two arrays
- * @param predicate Function for comparison of arrays
  *
  * @example
  * ```ts
@@ -73,8 +51,7 @@ function differenceWith<T>(input: T[], predicate: PredicateFn<T>): MonoTypeOpera
  * @returns Array of values of difference between the source and input array
  * @category RxJS Array Difference
  */
-function differenceWith<T>(input: ObservableInput<T[]>, predicate: PredicateFn<T>): MonoTypeOperatorFunction<T[]>;
-function differenceWith<T>(
+function differenceWith<T = unknown>(
   input: T[] | ObservableInput<T[]>,
   predicate?: PredicateFn<T>,
 ): MonoTypeOperatorFunction<T[]> {

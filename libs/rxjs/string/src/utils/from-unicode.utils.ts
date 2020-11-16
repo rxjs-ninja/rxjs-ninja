@@ -11,7 +11,7 @@ import { FormType } from '../types/normalize';
  * @param input The number to subscribe to
  * @param form
  */
-export const subscribeToSingleOrArrayUnicode = (input: string | string[], form: FormType) => (
+export const subscribeToSingleOrArrayUnicode = (input: string | string[], form?: FormType) => (
   subscriber: Subscriber<string>,
 ): void => {
   if (Array.isArray(input)) {

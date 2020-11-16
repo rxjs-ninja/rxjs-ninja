@@ -19,14 +19,6 @@ import { subscribeToSingleOrArrayUnicode } from '../utils/from-unicode.utils';
  *  .subscribe(console.log) // Amélie
  * ```
  *
- * @returns String from the decoded unicode string
- * @category RxJS String Creation
- */
-function fromUnicode(input: string, form?: FormType): Observable<string>;
-/**
- * @param input An array of strings of unicode characters
- * @param form The Unicode Normalization Form to decode the string with
- *
  * @example
  * ```ts
  * fromUnicode(['\u0041\u006d\u00e9\u006c\u0069\u0065', '\u0041\u006d\u0065\u0301\u006c\u0069\u0065'])
@@ -36,9 +28,6 @@ function fromUnicode(input: string, form?: FormType): Observable<string>;
  * @returns String from the decoded unicode string
  * @category RxJS String Creation
  */
-function fromUnicode(input: string[], form?: FormType): Observable<string>;
-function fromUnicode(input: string | string[], form?: FormType): Observable<string> {
+export function fromUnicode(input: string | string[], form?: FormType): Observable<string> {
   return new Observable<string>(subscribeToSingleOrArrayUnicode(input, form));
 }
-
-export { fromUnicode };

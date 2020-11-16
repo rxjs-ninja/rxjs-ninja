@@ -16,6 +16,7 @@ import { PadPosition, PadPositionValue } from '../types/position';
  *
  * @param padPosition The position to pad the string at, either 'start' or 'end'
  * @param maxLength Pads the string to this length
+ * @param fillString Character or character to use for padding
  *
  * @example
  * ```ts
@@ -23,17 +24,6 @@ import { PadPosition, PadPositionValue } from '../types/position';
  *  .pipe(padString('start', 7))
  *  .subscribe(console.log) // '  12345'
  * ```
- *
- * @returns String that is formatted with deafult space padding
- * @category RxJS String Formatting
- */
-function padString(padPosition: PadPositionValue, maxLength: number): MonoTypeOperatorFunction<string>;
-/**
- *
- * @param padPosition The position to pad the string at, either 'start' or 'end'
- * @param maxLength Pads the string to this length
- * @param fillString Character or character to use for padding
- *
  *
  * @example
  * ```ts
@@ -45,12 +35,7 @@ function padString(padPosition: PadPositionValue, maxLength: number): MonoTypeOp
  * @returns String that is formatted with padding using the `fillString`
  * @category RxJS String Formatting
  */
-function padString(
-  padPosition: PadPositionValue,
-  maxLength: number,
-  fillString: string,
-): MonoTypeOperatorFunction<string>;
-function padString(
+export function padString(
   padPosition: PadPositionValue,
   maxLength: number,
   fillString?: string,
@@ -69,8 +54,6 @@ function padString(
       }),
     );
 }
-
-export { padString };
 
 /**
  * The `padStart` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string

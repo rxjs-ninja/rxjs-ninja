@@ -14,7 +14,7 @@ import { Observable, ObservableInput, OperatorFunction } from 'rxjs';
  *
  * @param query The string to send to the query method
  */
-export type QueryMethod<T> = (query: string) => ObservableInput<T>;
+export type QueryMethod<T extends unknown> = (query: string) => ObservableInput<T>;
 
 /**
  * Operator that takes an [Observable](https://rxjs.dev/api/index/class/Observable) string value

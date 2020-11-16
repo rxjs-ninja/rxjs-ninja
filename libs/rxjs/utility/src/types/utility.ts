@@ -4,13 +4,13 @@
  */
 
 /**
- *
+ * A simple callback function that can take a value and returns a void
  */
-export type CallbackFn<T = never> = (value?: T) => void;
+export type CallbackFn<T = unknown> = (value?: T) => void;
 
 /**
  * A predicate function that returns a boolean value
- **
+ *
  * @example
  * ```
  * const isEvenNumber: PredicateFn = (num: number): boolean => num % 2 === 0
@@ -18,8 +18,7 @@ export type CallbackFn<T = never> = (value?: T) => void;
  *
  * @returns Boolean value
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export type PredicateFn = (...args: any) => boolean;
+export type PredicateFn<T extends unknown> = (...args: T[]) => boolean;
 
 /**
  * Method used to modify the input value for comparison
@@ -41,4 +40,4 @@ export type PredicateFn = (...args: any) => boolean;
  *
  * @returns Value of the modifier function
  */
-export type InputModifierFn<T, K> = (value: T) => K;
+export type InputModifierFn<T extends unknown, K extends unknown> = (value: T) => K;

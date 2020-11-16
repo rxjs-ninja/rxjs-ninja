@@ -20,13 +20,6 @@ import { subscribeToCharCode } from '../utils/from-char-code.utils';
  * fromCharCode(65).subscribe(console.log) // 'A'
  * ```
  *
- * @returns String from a character code
- * @category RxJS String Creation
- */
-function fromCharCode(input: number): Observable<string>;
-/**
- * @param input An array of char code numbers to turn into a string
- *
  * @example
  * ```ts
  * fromCharCode([65, 66, 67, 68]).subscribe(console.log) // 'ABCD'
@@ -35,9 +28,6 @@ function fromCharCode(input: number): Observable<string>;
  * @returns String from an an array of character codes
  * @category RxJS String Creation
  */
-function fromCharCode(input: number[]): Observable<string>;
-function fromCharCode(input: number | number[]): Observable<string> {
+export function fromCharCode(input: number | number[]): Observable<string> {
   return new Observable<string>(subscribeToCharCode(input));
 }
-
-export { fromCharCode };

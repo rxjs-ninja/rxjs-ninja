@@ -52,4 +52,4 @@ export type InputModifierFn<T, K> = (value: T) => K;
  *
  * @returns Boolean value based on the condition of the function
  */
-export type PredicateFn<T> = (value: T, value2?: T) => boolean;
+export type PredicateFn<T extends unknown> = (...args: T[]) => boolean;

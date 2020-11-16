@@ -31,7 +31,7 @@ import { switchMap } from 'rxjs/operators';
  * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T
  * @category RxJS Observable Utilities
  */
-function tapIf<T>(predicate: PredicateFn, callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
+function tapIf<T extends unknown>(predicate: PredicateFn<T>, callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>) =>
     source.pipe(
       switchMap((value) => {

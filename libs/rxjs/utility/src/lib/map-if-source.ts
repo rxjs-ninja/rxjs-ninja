@@ -21,9 +21,22 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
+ * of('dog')
+ * .pipe(
+ *  mapIfSource<string, string>(
+ *    (value) => value === 'dog',
+ *    (value) => 'woof! woof!',
+ *    (value) => `meow!`,
+ *  ),
+ *
+ * ).subscribe(console.log) // 42
+ * ```
+ *
+ * @example
+ * ```ts
  * of('42')
  * .pipe(
- *  ifSource<string, number, string>(
+ *  mapIfSource<string, number, string>(
  *    (value) => value === '42',
  *    (value) => parseInt(value),
  *    (value) => `${value}: This is not the ultimate answer`,

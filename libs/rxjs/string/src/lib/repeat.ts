@@ -12,26 +12,16 @@ import { map } from 'rxjs/operators';
  * This operator is based on [String.prototype.matchAll](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match)
  *
  * @param count The number of times to repeat the string
+ * @param separator Separator when concatenating strings
  *
- *  * @example
+ * @example
  * ```ts
  * fromString('foobar')
  *  .pipe(repeat(5))
  *  .subscribe(console.log) // 'foobarfoobarfoobarfoobarfoobar'
  * ```
  *
- * @returns String that is a repeat of the source string, repeated by the passed count
- * @category RxJS String Formatting
- */
-function repeat(count: number): MonoTypeOperatorFunction<string>;
-/**
- * This method is a custom implementation allowing an optional separator to be passed
- * which is useful when creating some string values
- *
- * @param count The number of times to repeat the string
- * @param separator Separator when concatenating strings
- *
- *  * @example
+ * @example
  * ```ts
  * fromString('foobar')
  *  .pipe(repeat(5, ','))
@@ -41,8 +31,7 @@ function repeat(count: number): MonoTypeOperatorFunction<string>;
  * @returns String that is a repeat of the source string with a separator, repeated by the passed count
  * @category RxJS String Formatting
  */
-function repeat(count: number, separator: string): MonoTypeOperatorFunction<string>;
-function repeat(count: number, separator?: string): MonoTypeOperatorFunction<string> {
+export function repeat(count: number, separator?: string): MonoTypeOperatorFunction<string> {
   if (separator) {
     return (source: Observable<string>) =>
       source.pipe(
@@ -57,5 +46,3 @@ function repeat(count: number, separator?: string): MonoTypeOperatorFunction<str
   }
   return (source: Observable<string>) => source.pipe(map((value) => value.repeat(count)));
 }
-
-export { repeat };

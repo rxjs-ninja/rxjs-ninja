@@ -1,4 +1,4 @@
-import { parseInt } from './parse-int';
+import { parseInt } from '@tinynodes/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('parseInt', () => {

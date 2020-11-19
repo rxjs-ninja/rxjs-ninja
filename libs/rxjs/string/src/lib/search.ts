@@ -23,9 +23,7 @@ import { map } from 'rxjs/operators';
  * @returns RegExpMatchArray that contains one or more results from the match
  * @category RxJS String Query
  */
-function search(pattern: string): OperatorFunction<string, number>;
-function search(pattern: RegExp): OperatorFunction<string, number>;
-function search(pattern: string | RegExp): OperatorFunction<string, number> {
+
+export function search(pattern: string | RegExp): OperatorFunction<string, number> {
   return (source: Observable<string>) => source.pipe(map((value) => value.search(pattern)));
 }
-export { search };

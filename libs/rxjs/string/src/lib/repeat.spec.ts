@@ -1,4 +1,4 @@
-import { repeat } from './repeat';
+import { repeat } from '@tinynodes/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('repeat', () => {

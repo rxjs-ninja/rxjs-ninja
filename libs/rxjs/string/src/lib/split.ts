@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators';
  * This operator is based on [String.prototype.split](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/split)
  *
  * @param separator The character to split the string at
+ * @param limit Optional limit for the number of times to split
  *
  * @example
  * ```ts
@@ -20,13 +21,6 @@ import { map } from 'rxjs/operators';
  *  .subscribe(console.log) // ['Hello', 'World', 'Foo', 'Bar']
  * ```
  *
- * @returns Array of strings based on the original string split by the separator
- * @category RxJS String to Array
- */
-function split(separator: string): OperatorFunction<string, string[]>;
-/**
- * @param separator The character to split the string at
- * @param limit Optional limit for the number of times to split
  *
  * @example
  * ```ts
@@ -38,9 +32,6 @@ function split(separator: string): OperatorFunction<string, string[]>;
  * @returns Array of strings based on the original string split by the separator
  * @category RxJS String to Array
  */
-function split(separator: string, limit: number): OperatorFunction<string, string[]>;
-function split(separator: string, limit?: number): OperatorFunction<string, string[]> {
+export function split(separator: string, limit?: number): OperatorFunction<string, string[]> {
   return (source: Observable<string>) => source.pipe(map((value) => value.split(separator, limit)));
 }
-
-export { split };

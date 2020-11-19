@@ -13,19 +13,14 @@ import { map } from 'rxjs/operators';
  * rather than [toUpperCase](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase) as this provides support
  * for localisation of string
  *
+ * @param locales Optional locales to pass for string formatting
+ *
  * @example
  * ```ts
  * fromString('apple')
  *  .pipe(toUpperCase())
  *  .subscribe(console.log) // 'APPLE'
  * ```
- *
- * @returns String that is converted to upper case
- * @category RxJS String Formatting
- */
-function toUpperCase(): MonoTypeOperatorFunction<string>;
-/**
- * @param locales Optional locales to pass for string formatting
  *
  * @example
  * ```ts
@@ -37,9 +32,6 @@ function toUpperCase(): MonoTypeOperatorFunction<string>;
  * @returns String that is converted to upper case with passed locale
  * @category RxJS String Formatting
  */
-function toUpperCase(locales: string | string[]): MonoTypeOperatorFunction<string>;
-function toUpperCase(locales?: string | string[]): MonoTypeOperatorFunction<string> {
+export function toUpperCase(locales?: string | string[]): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(map((value) => value.toLocaleUpperCase(locales)));
 }
-
-export { toUpperCase };

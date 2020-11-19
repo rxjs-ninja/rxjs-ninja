@@ -4,12 +4,13 @@
  */
 import { Observable, OperatorFunction } from 'rxjs';
 import { map, reduce } from 'rxjs/operators';
-import { binarySearcher, defaultSort } from '../utils/binary-search';
-import { BinarySearchResult, SortFn } from '../types/binary-search';
+import { binarySearcher, defaultSortFn } from '../utils/binary-search';
+import { BinarySearchResult } from '../types/binary-search';
+import { SortFn } from '../types/sort';
 
 /**
  * The `binarySearch` operator takes an Observable array of values T and returns a [[BinarySearchResult]]
- * containing the original array, search value and index of the search value.
+ * containing the sorted array, search value and index of the search value.
  *
  * The default sorting method for this search is a basic quality check, if you need more complex sorting such as
  * objects you can pass a sorting method and additional property to search on
@@ -19,7 +20,7 @@ import { BinarySearchResult, SortFn } from '../types/binary-search';
  *
  * @param searchValue The value to search for in the source array
  * @param sort Optional sort method for sorting more complex types
- * @param property Optional property to be searched on in more complex objects
+ * @param property Optional property to be searched on, use a number for array index and strings for object keys
  *
  * @remarks
  * When using an additional property, if it's a number the underlying T[] is assumed
@@ -80,7 +81,7 @@ export function binarySearch<T = unknown, K = unknown>(
   sort?: SortFn,
   property?: string | number,
 ): OperatorFunction<T | T[], BinarySearchResult> {
-  const sortFn = sort ? sort : defaultSort;
+  const sortFn = sort ? sort : defaultSortFn;
 
   return (source: Observable<T | T[]>) =>
     source.pipe(

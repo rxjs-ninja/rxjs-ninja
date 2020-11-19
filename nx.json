@@ -35,6 +35,9 @@
     },
     "rxjs-utility": {
       "tags": []
+    },
+    "rxjs-random": {
+      "tags": []
     }
   }
 }

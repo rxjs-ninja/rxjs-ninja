@@ -38,10 +38,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -85,17 +81,15 @@
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
-							<h3>Other Functions</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="boolean.html#createluhnmodulus" class="tsd-kind-icon">create<wbr>Luhn<wbr>Modulus</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="boolean.html#reverseluhnnumbers" class="tsd-kind-icon">reverse<wbr>Luhn<wbr>Numbers</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="boolean.html#subscribetosingleorarrayboolean" class="tsd-kind-icon">subscribe<wbr>ToSingle<wbr>OrArray<wbr>Boolean</a></li>
-							</ul>
 							<h3>RxJS Boolean Filters Functions</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="boolean.html#filtertruthy" class="tsd-kind-icon">filter<wbr>Truthy</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="boolean.html#firsttruthy" class="tsd-kind-icon">first<wbr>Truthy</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="boolean.html#lasttruthy" class="tsd-kind-icon">last<wbr>Truthy</a></li>
+							</ul>
+							<h3>RxJS Boolean Modify Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="boolean.html#flip" class="tsd-kind-icon">flip</a></li>
 							</ul>
 							<h3>RxJS Boolean Observables Functions</h3>
 							<ul class="tsd-index-list">
@@ -117,7 +111,7 @@
 					<div class="tsd-signature tsd-kind-icon">Filter<wbr>Predicate<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/boolean/src/types/boolean.ts#L20">libs/rxjs/boolean/src/types/boolean.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/eb6cba3/libs/rxjs/boolean/src/types/boolean.ts#L20">libs/rxjs/boolean/src/types/boolean.ts:20</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -169,106 +163,6 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Other Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-private">
-					<a name="createluhnmodulus" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> create<wbr>Luhn<wbr>Modulus</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">create<wbr>Luhn<wbr>Modulus<span class="tsd-signature-symbol">(</span>valueArray<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/boolean/src/utils/luhn-check.utils.ts#L25">libs/rxjs/boolean/src/utils/luhn-check.utils.ts:25</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Generate a moulus check number from input</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>internal</dt>
-									<dd></dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>valueArray: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-private">
-					<a name="reverseluhnnumbers" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> reverse<wbr>Luhn<wbr>Numbers</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">reverse<wbr>Luhn<wbr>Numbers<span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/boolean/src/utils/luhn-check.utils.ts#L12">libs/rxjs/boolean/src/utils/luhn-check.utils.ts:12</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Takes a string or number and converts to an array of numbers in reverse order</p>
-								</div>
-								<dl class="tsd-comment-tags">
-									<dt>internal</dt>
-									<dd></dd>
-								</dl>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>value: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-private">
-					<a name="subscribetosingleorarrayboolean" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagPrivate">Private</span> <span class="tsd-flag ts-flagConst">Const</span> subscribe<wbr>ToSingle<wbr>OrArray<wbr>Boolean</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private">
-						<li class="tsd-signature tsd-kind-icon">subscribe<wbr>ToSingle<wbr>OrArray<wbr>Boolean<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">(Anonymous function)</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/boolean/src/utils/from-boolean.utils.ts#L12">libs/rxjs/boolean/src/utils/from-boolean.utils.ts:12</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Takes an input of boolean and returns a method that updates an subscriber</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>input: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">[]</span></h5>
-									<div class="tsd-comment tsd-typography">
-										<div class="lead">
-											<p>The boolean to subscribe to</p>
-										</div>
-									</div>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">(Anonymous function)</span></h4>
-						</li>
-					</ul>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>RxJS Boolean Filters Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="filtertruthy" class="tsd-anchor"></a>
@@ -280,7 +174,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/boolean/src/lib/filter-truthy.ts#L35">libs/rxjs/boolean/src/lib/filter-truthy.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/eb6cba3/libs/rxjs/boolean/src/lib/filter-truthy.ts#L35">libs/rxjs/boolean/src/lib/filter-truthy.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -336,7 +230,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/boolean/src/lib/first-truthy.ts#L34">libs/rxjs/boolean/src/lib/first-truthy.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/eb6cba3/libs/rxjs/boolean/src/lib/first-truthy.ts#L34">libs/rxjs/boolean/src/lib/first-truthy.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -390,7 +284,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/boolean/src/lib/last-truthy.ts#L34">libs/rxjs/boolean/src/lib/last-truthy.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/eb6cba3/libs/rxjs/boolean/src/lib/last-truthy.ts#L34">libs/rxjs/boolean/src/lib/last-truthy.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -434,6 +328,39 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>RxJS Boolean Modify Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="flip" class="tsd-anchor"></a>
+					<h3>flip</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">flip<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/eb6cba3/libs/rxjs/boolean/src/lib/flip.ts#L21">libs/rxjs/boolean/src/lib/flip.ts:21</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>flip</code> operator simply flips a boolean value</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromBoolean(<span class="hljs-literal">false</span>)
+ .pipe(flip())
+ .subscribe() <span class="hljs-comment">// true</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Boolean value flipped from the input</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>RxJS Boolean Observables Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="fromboolean" class="tsd-anchor"></a>
@@ -445,7 +372,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/boolean/src/lib/from-boolean.ts#L37">libs/rxjs/boolean/src/lib/from-boolean.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/eb6cba3/libs/rxjs/boolean/src/lib/from-boolean.ts#L37">libs/rxjs/boolean/src/lib/from-boolean.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -500,7 +427,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/boolean/src/lib/luhn-check.ts#L21">libs/rxjs/boolean/src/lib/luhn-check.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/eb6cba3/libs/rxjs/boolean/src/lib/luhn-check.ts#L21">libs/rxjs/boolean/src/lib/luhn-check.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -539,6 +466,9 @@
 						<a href="number.html">number</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="random.html">random</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="string.html">string</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -551,14 +481,14 @@
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="boolean.html#filterpredicatefn" class="tsd-kind-icon">Filter<wbr>Predicate<wbr>Fn</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-private">
-						<a href="boolean.html#createluhnmodulus" class="tsd-kind-icon">create<wbr>Luhn<wbr>Modulus</a>
-					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="boolean.html#filtertruthy" class="tsd-kind-icon">filter<wbr>Truthy</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="boolean.html#firsttruthy" class="tsd-kind-icon">first<wbr>Truthy</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="boolean.html#flip" class="tsd-kind-icon">flip</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="boolean.html#fromboolean" class="tsd-kind-icon">from<wbr>Boolean</a>
@@ -568,12 +498,6 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="boolean.html#luhncheck" class="tsd-kind-icon">luhn<wbr>Check</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-private">
-						<a href="boolean.html#reverseluhnnumbers" class="tsd-kind-icon">reverse<wbr>Luhn<wbr>Numbers</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-private">
-						<a href="boolean.html#subscribetosingleorarrayboolean" class="tsd-kind-icon">subscribe<wbr>ToSingle<wbr>OrArray<wbr>Boolean</a>
 					</li>
 				</ul>
 			</nav>
@@ -587,11 +511,13 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 			</ul>
 		</div>
 	</div>

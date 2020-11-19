@@ -1,4 +1,4 @@
-import { mapIfSource } from './map-if-source';
+import { mapIfSource } from '@tinynodes/rxjs-utility';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('ifSource', () => {
@@ -68,6 +68,31 @@ describe('ifSource', () => {
             (value) => value % 15 == 0 || value % 3 == 0 || value % 5 == 0,
             (value) => (value % 15 == 0 ? `FizzBuzz` : value % 3 === 0 ? 'Fizz' : 'Buzz'),
             (value) => value,
+          ),
+        ),
+      ).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
+    'should return correct result based on the same value multiplied',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-(e|)', { a: 1, b: 2, c: 3, d: 4, e: 5 });
+      const subs = '^--------!';
+      const expected = m.cold('-a-b-c-d-(e|)', {
+        a: 20,
+        b: 20,
+        c: 60,
+        d: 40,
+        e: 100,
+      });
+      m.expect(
+        input.pipe(
+          mapIfSource(
+            (value) => value % 2 == 0,
+            (value) => value * 10,
+            (value) => value * 20,
           ),
         ),
       ).toBeObservable(expected);

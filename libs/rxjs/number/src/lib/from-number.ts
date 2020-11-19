@@ -3,7 +3,7 @@
  * @module number
  */
 import { Observable } from 'rxjs';
-import { subscribeToSingleOrArrayNumber } from '../utils/from-number.utils';
+import { subscribeToSingleOrArrayNumber } from '../utils/from-number';
 
 /**
  * The `fromNumber` operator is used to create an [Observable](https://rxjs.dev/api/index/class/Observable) using a number

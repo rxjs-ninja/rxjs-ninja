@@ -1,0 +1,39 @@
+{
+  "name": "@tinynodes/rxjs-random",
+  "description": "Operators for RxJS Observable using randomness",
+  "version": "1.0.0-rc",
+  "keywords": [
+    "Rx",
+    "RxJS",
+    "ReactiveX",
+    "ReactiveExtensions",
+    "Streams",
+    "Observables",
+    "Observable",
+    "Stream",
+    "ES6",
+    "ES2015",
+    "Typescript",
+    "Reactive",
+    "Utility",
+    "Math",
+    "Random",
+    "Numbers"
+  ],
+  "homepage": "https://tanepiper.github.io/rxjs-primitives/",
+  "bugs": {
+    "url": "https://github.com/tanepiper/rxjs-primitives/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Tane Piper",
+    "url": "https://tane.dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tanepiper/rxjs-primitives.git"
+  },
+  "peerDependencies": {
+    "rxjs": ">=6.5.0"
+  }
+}

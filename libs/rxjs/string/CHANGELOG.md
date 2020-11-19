@@ -30,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 New Operators (now [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) feature complete)
 
-- `fromUnitcode` - Creates a string of Unicode Normalization Form characters
+- `fromUnicode` - Creates a string of Unicode Normalization Form characters
   and uses [String.prototype.normalize](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize)
   to convert it to a string
 - `match` and `matchAll` for matching strings or regular expressions.

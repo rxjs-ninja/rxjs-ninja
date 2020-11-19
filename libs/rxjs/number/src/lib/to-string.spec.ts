@@ -18,7 +18,7 @@ describe('toString', () => {
   );
 
   it(
-    'should return stnring of number with radix',
+    'should return string of number with radix',
     marbles((m) => {
       const input = m.hot('-a-b-c-', { a: 0, b: 96, c: 255 });
       const expected = m.cold('-x-y-z-', {

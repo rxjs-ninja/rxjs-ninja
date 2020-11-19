@@ -155,6 +155,37 @@
           }
         }
       }
+    },
+    "rxjs-random": {
+      "root": "libs/rxjs/random",
+      "sourceRoot": "libs/rxjs/random/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/rxjs/random/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/rxjs/random/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/libs/rxjs/random",
+            "tsConfig": "libs/rxjs/random/tsconfig.lib.json",
+            "packageJson": "libs/rxjs/random/package.json",
+            "main": "libs/rxjs/random/src/index.ts",
+            "assets": ["libs/rxjs/random/*.md"]
+          }
+        }
+      }
     }
   },
   "cli": {

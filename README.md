@@ -9,6 +9,7 @@ This library is open source on [Github](https://github.com/tanepiper/rxjs-primit
 [![rxjs-array](https://img.shields.io/npm/v/@tinynodes/rxjs-array?label=rxjs-array)](https://www.npmjs.com/package/@tinynodes/rxjs-array)
 [![rxjs-boolean](https://img.shields.io/npm/v/@tinynodes/rxjs-boolean?label=rxjs-boolean)](https://www.npmjs.com/package/@tinynodes/rxjs-boolean)
 [![rxjs-number](https://img.shields.io/npm/v/@tinynodes/rxjs-number?label=rxjs-number)](https://www.npmjs.com/package/@tinynodes/rxjs-number)
+[![rxjs-random](https://img.shields.io/npm/v/@tinynodes/rxjs-random?label=rxjs-utility)](https://www.npmjs.com/package/@tinynodes/rxjs-random)
 [![rxjs-string](https://img.shields.io/npm/v/@tinynodes/rxjs-string?label=rxjs-string)](https://www.npmjs.com/package/@tinynodes/rxjs-string)
 [![rxjs-utility](https://img.shields.io/npm/v/@tinynodes/rxjs-utility?label=rxjs-utility)](https://www.npmjs.com/package/@tinynodes/rxjs-utility)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tanepiper_rxjs-primitives&metric=alert_status)](https://sonarcloud.io/dashboard?id=tanepiper_rxjs-primitives)
@@ -68,6 +69,19 @@ There are also operators for formatting numbers as strings such as `toLocaleStri
 
 - [Documentation](https://tanepiper.github.io/rxjs-primitives/modules/number.html)
 - [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/number/CHANGELOG.md)
+
+### rxjs-random
+
+A set of operators for generating Observable from random values.
+
+#### Installation
+
+> `npm install @tinynodes/rxjs-random`
+
+#### Information
+
+- [Documentation](https://tanepiper.github.io/rxjs-primitives/modules/random.html)
+- [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/random/CHANGELOG.md)
 
 ### rxjs-string
 

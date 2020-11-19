@@ -21,14 +21,6 @@ import { map } from 'rxjs/operators';
  *  .subscribe(console.log) // ['Mary had a little dog']
  * ```
  *
- * @returns String with text replaced based on pattern and replacement string
- * @category RxJS String Formatting
- */
-function replace(pattern: string, replacement: string): MonoTypeOperatorFunction<string>;
-/**
- * @param pattern A regular expression to match on the Observable string to replace
- * @param replacement The replacement string
- *
  * @example
  * ```ts
  * fromString('You get a car, you get a car, YOU GET A CAR')
@@ -39,9 +31,6 @@ function replace(pattern: string, replacement: string): MonoTypeOperatorFunction
  * @returns String with text replaced based on pattern and replacement string
  * @category RxJS String Formatting
  */
-function replace(pattern: RegExp, replacement: string): MonoTypeOperatorFunction<string>;
-function replace(pattern: string | RegExp, replacement: string): MonoTypeOperatorFunction<string> {
+export function replace(pattern: string | RegExp, replacement: string): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(map((value) => value.replace(pattern, replacement)));
 }
-
-export { replace };

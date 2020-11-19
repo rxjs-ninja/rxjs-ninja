@@ -16,4 +16,4 @@ export { flipArray } from './lib/flip-array';
 
 export * from './types/array-compare';
 export * from './types/binary-search';
-export * from './types/search';
+export * from './types/sort';

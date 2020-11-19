@@ -12,6 +12,7 @@ import { map } from 'rxjs/operators';
  * This operator is based on [String.prototype.substring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring)
 
  * @param start Index of the string where to start the substring
+ * @param end Optional end index of the substring, if not passed it will use the string length
  *
  * @example
  * ```ts
@@ -19,15 +20,6 @@ import { map } from 'rxjs/operators';
  *  .pipe(substring(12))
  *  .subscribe(console.log) // 'little lamb'
  * ```
- *
- * @returns String that is a substring of the original string
- * @category RxJS String Creation
- */
-function substring(start: number): MonoTypeOperatorFunction<string>;
-/**
- * @param start Index of the string where to start the substring
- * @param end Optional end index of the substring, if not passed it will use the string length
- *
  *
  * @example
  * ```ts
@@ -39,9 +31,6 @@ function substring(start: number): MonoTypeOperatorFunction<string>;
  * @returns String that is a substring of the original string
  * @category RxJS String Creation
  */
-function substring(start: number, end: number): MonoTypeOperatorFunction<string>;
-function substring(start: number, end?: number): MonoTypeOperatorFunction<string> {
+export function substring(start: number, end?: number): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(map((value) => value.substring(start, end)));
 }
-
-export { substring };

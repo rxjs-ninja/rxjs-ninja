@@ -4,7 +4,7 @@
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { SortFn } from '../types/search';
+import { SortFn } from '../types/sort';
 import { defaultSortFn } from '../utils/binary-search';
 
 /**

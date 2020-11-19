@@ -4,9 +4,9 @@
  */
 import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { SortFn } from '../types/search';
+import { SortFn } from '../types/sort';
 import { defaultSortFn } from '../utils/binary-search';
-import { InputModifierFn } from '../types/array-compare';
+import { MapFn } from '../types/array-compare';
 
 /**
  * The `sortMap` operator takes an array of `T` items and returns a mapped array of items, either T or K
@@ -32,7 +32,7 @@ import { InputModifierFn } from '../types/array-compare';
  * @category RxJS Array Modify
  */
 export function sortMap<T extends any, K extends T | unknown>(
-  mapFn: InputModifierFn<T, K>,
+  mapFn: MapFn<T, K>,
   fn?: SortFn,
 ): OperatorFunction<T[], K[]> {
   const sortFn = fn || defaultSortFn;

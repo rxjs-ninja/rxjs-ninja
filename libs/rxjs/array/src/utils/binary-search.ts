@@ -48,6 +48,7 @@ export function binarySearcher<T extends unknown>(
 /**
  * Default sort method that provides a number value of comparison order
  * @private
+ * @internal
  * @param first The first comparison parameter
  * @param second The second comparison parameter
  *

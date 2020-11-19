@@ -17,6 +17,26 @@ import { defaultSortFn } from '../utils/binary-search';
  *
  * @param fn Optional sorting function
  *
+ * @example
+ * ```ts
+ * of([2, 4, 6, 1, 3, 5])
+ *  .pipe(sort(), tap(console.log))
+ *  .subscribe() [1, 2, 3, 4, 5, 6]
+ * ```
+ *
+ * @example
+ * ```ts
+ *
+ * function sortTuple(a, b) {
+ *    if (a[1] === b[1]) return 0;
+ *    return a[1] < b[1] ? -1 : 1;
+ * }
+ *
+ * of([ [10, 2], [20, 4], [30, 6], [40, 1], [50, 3], [60, 5] ])
+ * .pipe(sort(sortTuple), tap(console.log))
+ * .subscribe() // [ [40, 1], [10, 2], [50, 3], [20, 4], [60, 5], [30, 6] ]
+ * ```
+ *
  * @returns Array of sorted values
  * @category RxJS Array Modify
  */

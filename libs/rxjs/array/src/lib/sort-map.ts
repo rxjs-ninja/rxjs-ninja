@@ -16,7 +16,7 @@ export function sortMap<T extends any, K extends any>(
   const sortFn = fn || defaultSortFn;
   return (source: Observable<T[]>) =>
     source.pipe(
-      map((arr) => arr.sort((a, b) => sortFn(a, b))),
+      map((arr) => arr.sort(sortFn)),
       map((arr) => arr.map(mapFn)),
     );
 }

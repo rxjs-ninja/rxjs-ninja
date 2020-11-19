@@ -1,7 +1,17 @@
+/**
+ * @packageDocumentation
+ * @module array
+ */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { SortFn } from '../types/search';
 
+/**
+ * Default basic sort
+ * @private
+ * @param a
+ * @param b
+ */
 // eslint-disable-next-line
 function defaultSortFn(a: any, b: any): number {
   if (a === b) return 0;

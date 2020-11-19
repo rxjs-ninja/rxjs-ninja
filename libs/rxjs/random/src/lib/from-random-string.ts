@@ -1,12 +1,20 @@
+/**
+ * @packageDocumentation
+ * @module random
+ */
 import { Observable, Subscriber, timer } from 'rxjs';
 import { finalize, map, takeWhile, tap } from 'rxjs/operators';
 import { FromRandomStringOpts } from '../types/from-string';
 
-const allCapsAlpha: string[] = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
-const allLowerAlpha: string[] = [...'abcdefghijklmnopqrstuvwxyz'];
-const allUniqueChars: string[] = [...'~!@#$%^&*()_+-=[]{}|;:\'",./<>?'];
+const allUpperCase: string[] = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
+const allLowerCase: string[] = [...'abcdefghijklmnopqrstuvwxyz'];
+const allSpecialChars: string[] = [...'~!@#$%^&*()_+-=[]{}|;:\'",./<>?'];
 const allNumbers: string[] = [...'0123456789'];
 
+/**
+ * The default options for `fromRandomStr`
+ * @type FromRandomStringOpts
+ */
 const DEFAULT_OPTIONS: FromRandomStringOpts = {
   caps: true,
   lower: true,
@@ -27,10 +35,10 @@ const DEFAULT_OPTIONS: FromRandomStringOpts = {
  */
 export function fromRandomStr(length = 10, emitDelay = 0, opts = DEFAULT_OPTIONS) {
   let seedArray: string[] = [];
-  if (opts.caps) seedArray = [...seedArray, ...allCapsAlpha];
-  if (opts.lower) seedArray = [...seedArray, ...allLowerAlpha];
+  if (opts.caps) seedArray = [...seedArray, ...allUpperCase];
+  if (opts.lower) seedArray = [...seedArray, ...allLowerCase];
   if (opts.number) seedArray = [...seedArray, ...allNumbers];
-  if (opts.special) seedArray = [...seedArray, ...allUniqueChars];
+  if (opts.special) seedArray = [...seedArray, ...allSpecialChars];
 
   return new Observable((subscriber: Subscriber<string>) => {
     timer(0, emitDelay)

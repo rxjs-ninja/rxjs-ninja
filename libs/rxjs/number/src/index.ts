@@ -5,18 +5,19 @@
  */
 export { filterInRange } from './lib/filter-in-range';
 export { filterIsFinite } from './lib/filter-is-finite';
+export { filterIsFloat } from './lib/filter-is-float';
 export { filterIsInteger } from './lib/filter-is-integer';
 export { filterIsNotNaN } from './lib/filter-is-not-nan';
 export { filterIsSafeInteger } from './lib/filter-is-safe-integer';
 export { filterOutOfRange } from './lib/filter-out-of-range';
-export { fromNumber } from './lib/from-number';
 export { fromFibonacci } from './lib/from-fibonacci';
+export { fromNumber } from './lib/from-number';
 export { inRange } from './lib/in-range';
 export { isFinite } from './lib/is-finite';
 export { isInteger } from './lib/is-integer';
 export { isNaN } from './lib/is-nan';
-export { isSafeInteger } from './lib/is-safe-integer';
 export { isNotNaN } from './lib/is-not-nan';
+export { isSafeInteger } from './lib/is-safe-integer';
 export { outOfRange } from './lib/out-of-range';
 export { parseFloat } from './lib/parse-float';
 export { parseInt } from './lib/parse-int';

@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module random
+ */
 import { Observable, Subscriber, timer } from 'rxjs';
 import { finalize, map, takeWhile, tap } from 'rxjs/operators';
 

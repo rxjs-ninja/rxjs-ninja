@@ -66,6 +66,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<dl class="tsd-comment-tags">
+						<dt>ignore</dt>
+						<dd></dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -76,7 +84,6 @@
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#binarysearchresult" class="tsd-kind-icon">Binary<wbr>Search<wbr>Result</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#inputmodifierfn" class="tsd-kind-icon">Input<wbr>Modifier<wbr>Fn</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#predicatefn" class="tsd-kind-icon">Predicate<wbr>Fn</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#sortfn" class="tsd-kind-icon">Sort<wbr>Fn</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -84,6 +91,7 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="array.html#binarysearcher" class="tsd-kind-icon">binary<wbr>Searcher</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="array.html#defaultsort" class="tsd-kind-icon">default<wbr>Sort</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="array.html#defaultsortfn" class="tsd-kind-icon">default<wbr>Sort<wbr>Fn</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="array.html#mapdifference" class="tsd-kind-icon">map<wbr>Difference</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="array.html#mapdifferencewith" class="tsd-kind-icon">map<wbr>Difference<wbr>With</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private"><a href="array.html#mapintersection" class="tsd-kind-icon">map<wbr>Intersection</a></li>
@@ -98,6 +106,12 @@
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#intersects" class="tsd-kind-icon">intersects</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#intersectswith" class="tsd-kind-icon">intersects<wbr>With</a></li>
+							</ul>
+							<h3>RxJS Array Modify Functions</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="array.html#fliparray" class="tsd-kind-icon">flip<wbr>Array</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#sort" class="tsd-kind-icon">sort</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#sortmap" class="tsd-kind-icon">sort<wbr>Map</a></li>
 							</ul>
 							<h3>RxJS Array Search Functions</h3>
 							<ul class="tsd-index-list">
@@ -115,7 +129,7 @@
 					<div class="tsd-signature tsd-kind-icon">Binary<wbr>Search<wbr>Result&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span>index<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span>searchValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span>searchArray<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">]</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/array/src/types/binary-search.ts#L11">libs/rxjs/array/src/types/binary-search.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/types/binary-search.ts#L11">libs/rxjs/array/src/types/binary-search.ts:11</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -141,7 +155,7 @@
 					<div class="tsd-signature tsd-kind-icon">Input<wbr>Modifier<wbr>Fn&lt;T, K&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">K</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/array/src/types/array-compare.ts#L26">libs/rxjs/array/src/types/array-compare.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/types/array-compare.ts#L26">libs/rxjs/array/src/types/array-compare.ts:26</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -210,7 +224,7 @@
 					<div class="tsd-signature tsd-kind-icon">Predicate<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/array/src/types/array-compare.ts#L55">libs/rxjs/array/src/types/array-compare.ts:55</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/types/array-compare.ts#L55">libs/rxjs/array/src/types/array-compare.ts:55</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -270,70 +284,6 @@
 						</ul>
 					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="sortfn" class="tsd-anchor"></a>
-					<h3>Sort<wbr>Fn</h3>
-					<div class="tsd-signature tsd-kind-icon">Sort<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>first<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, second<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/array/src/types/binary-search.ts#L29">libs/rxjs/array/src/types/binary-search.ts:29</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Method used to sort an Array of values</p>
-						</div>
-						<dl class="tsd-comment-tags">
-							<dt>param</dt>
-							<dd><p>The first value to compare</p>
-							</dd>
-							<dt>param</dt>
-							<dd><p>The second value to compare</p>
-							</dd>
-							<dt>example</dt>
-							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> sortFn&lt;<span class="hljs-built_in">string</span>&gt; = (first: <span class="hljs-built_in">string</span>, <span class="hljs-attr">second</span>: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">number</span> =&gt;</span> first.localCompare(second)</code></pre>
-							</dd>
-							<dt>returns</dt>
-							<dd><p>A number that represents the value match position for sorting</p>
-							</dd>
-						</dl>
-					</div>
-					<h4 class="tsd-type-parameters-title">Type parameters</h4>
-					<ul class="tsd-type-parameters">
-						<li>
-							<h4>T = <span class="tsd-signature-type">any</span></h4>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>The Type of the value to sort</p>
-								</div>
-							</div>
-						</li>
-					</ul>
-					<div class="tsd-type-declaration">
-						<h4>Type declaration</h4>
-						<ul class="tsd-parameters">
-							<li class="tsd-parameter-signature">
-								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
-									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>first<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, second<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
-								</ul>
-								<ul class="tsd-descriptions">
-									<li class="tsd-description">
-										<h4 class="tsd-parameters-title">Parameters</h4>
-										<ul class="tsd-parameters">
-											<li>
-												<h5>first: <span class="tsd-signature-type">T</span></h5>
-											</li>
-											<li>
-												<h5>second: <span class="tsd-signature-type">T</span></h5>
-											</li>
-										</ul>
-										<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Other Functions</h2>
@@ -347,7 +297,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/array/src/utils/binary-search.ts#L14">libs/rxjs/array/src/utils/binary-search.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/utils/binary-search.ts#L14">libs/rxjs/array/src/utils/binary-search.ts:14</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -391,7 +341,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/array/src/utils/binary-search.ts#L56">libs/rxjs/array/src/utils/binary-search.ts:56</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/utils/binary-search.ts#L56">libs/rxjs/array/src/utils/binary-search.ts:56</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -425,6 +375,39 @@
 						</li>
 					</ul>
 				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="defaultsortfn" class="tsd-anchor"></a>
+					<h3>default<wbr>Sort<wbr>Fn</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">default<wbr>Sort<wbr>Fn<span class="tsd-signature-symbol">(</span>a<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span>, b<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/utils/sort.ts#L11">libs/rxjs/array/src/utils/sort.ts:11</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Internal basic sort method</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>a: <span class="tsd-signature-type">any</span></h5>
+								</li>
+								<li>
+									<h5>b: <span class="tsd-signature-type">any</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
 					<a name="mapdifference" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> map<wbr>Difference</h3>
@@ -435,7 +418,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/array/src/utils/difference.ts#L39">libs/rxjs/array/src/utils/difference.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/utils/difference.ts#L39">libs/rxjs/array/src/utils/difference.ts:39</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -498,7 +481,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/array/src/utils/difference.ts#L17">libs/rxjs/array/src/utils/difference.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/utils/difference.ts#L17">libs/rxjs/array/src/utils/difference.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -565,7 +548,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/array/src/utils/intersects.ts#L37">libs/rxjs/array/src/utils/intersects.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/utils/intersects.ts#L37">libs/rxjs/array/src/utils/intersects.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -628,7 +611,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/array/src/utils/intersects.ts#L17">libs/rxjs/array/src/utils/intersects.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/utils/intersects.ts#L17">libs/rxjs/array/src/utils/intersects.ts:17</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -698,7 +681,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/array/src/lib/difference.ts#L53">libs/rxjs/array/src/lib/difference.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/lib/difference.ts#L53">libs/rxjs/array/src/lib/difference.ts:53</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -770,7 +753,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/array/src/lib/difference-with.ts#L54">libs/rxjs/array/src/lib/difference-with.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/lib/difference-with.ts#L54">libs/rxjs/array/src/lib/difference-with.ts:54</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -846,7 +829,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/array/src/lib/intersects.ts#L52">libs/rxjs/array/src/lib/intersects.ts:52</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/lib/intersects.ts#L52">libs/rxjs/array/src/lib/intersects.ts:52</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -917,7 +900,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/array/src/lib/intersects-with.ts#L64">libs/rxjs/array/src/lib/intersects-with.ts:64</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/lib/intersects-with.ts#L64">libs/rxjs/array/src/lib/intersects-with.ts:64</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -992,24 +975,164 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>RxJS Array Search Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="binarysearch" class="tsd-anchor"></a>
-					<h3>binary<wbr>Search</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">binary<wbr>Search&lt;T, K&gt;<span class="tsd-signature-symbol">(</span>searchValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">[]</span>, sort<span class="tsd-signature-symbol">?: </span><a href="array.html#sortfn" class="tsd-signature-type">SortFn</a>, property<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><a href="array.html#binarysearchresult" class="tsd-signature-type">BinarySearchResult</a><span class="tsd-signature-symbol">&gt;</span></li>
+				<h2>RxJS Array Modify Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="fliparray" class="tsd-anchor"></a>
+					<h3>flip<wbr>Array</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">flip<wbr>Array<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8bf9c86/libs/rxjs/array/src/lib/binary-search.ts#L78">libs/rxjs/array/src/lib/binary-search.ts:78</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/lib/flip-array.ts#L22">libs/rxjs/array/src/lib/flip-array.ts:22</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>flipArray</code> operator for arrays takes a boolean array of values and returns the array with all
+									values flipped to the opposite boolean</p>
+								</div>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts">fromBoolean([<span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>])
+ .pipe(flipArray())
+ .subscribe() <span class="hljs-comment">// [true, false, true]</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Array of boolean values flipped from the input</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="sort" class="tsd-anchor"></a>
+					<h3>sort</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">sort&lt;T&gt;<span class="tsd-signature-symbol">(</span>fn<span class="tsd-signature-symbol">?: </span><a href="libs_rxjs_array_src_types.html#sortfn" class="tsd-signature-type">SortFn</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/lib/sort.ts#L23">libs/rxjs/array/src/lib/sort.ts:23</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>sort</code> operator takes an array of <code>T</code> items and returns the array sorted.</p>
+								</div>
+								<p>By default the operator can do basic quality check on <code>string</code>, <code>number</code> and <code>boolean</code> values,
+								and can take an optional method to do more complex searches for items such as array or objects</p>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
+									<div class="tsd-comment tsd-typography">
+										<p>The type of data in the input array</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> fn: <a href="libs_rxjs_array_src_types.html#sortfn" class="tsd-signature-type">SortFn</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional sorting function</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Array of sorted values</p>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="sortmap" class="tsd-anchor"></a>
+					<h3>sort<wbr>Map</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">sort<wbr>Map&lt;T, K&gt;<span class="tsd-signature-symbol">(</span>mapFn<span class="tsd-signature-symbol">: </span><a href="array.html#inputmodifierfn" class="tsd-signature-type">InputModifierFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span>, fn<span class="tsd-signature-symbol">?: </span><a href="libs_rxjs_array_src_types.html#sortfn" class="tsd-signature-type">SortFn</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/lib/sort-map.ts#L34">libs/rxjs/array/src/lib/sort-map.ts:34</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The <code>sortMap</code> operator takes an array of <code>T</code> items and returns a mapped array of items, either T or K</p>
+								</div>
+								<p>For sorting the operator can do basic quality check on <code>string</code> and <code>number</code> values,
+								and can take an optional method to do more complex searches for items such as array or objects</p>
+								<dl class="tsd-comment-tags">
+									<dt>example</dt>
+									<dd><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">1</span>, <span class="hljs-number">6</span>])
+.pipe(
+   sortMap(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> value &gt;= <span class="hljs-number">5</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>)
+ ).subscribe() <span class="hljs-comment">// [false, false, true, true, true, true]</span></code></pre>
+									</dd>
+								</dl>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span></h4>
+									<div class="tsd-comment tsd-typography">
+										<p>The type of data in the input array</p>
+									</div>
+								</li>
+								<li>
+									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">unknown</span></h4>
+									<div class="tsd-comment tsd-typography">
+										<p>The type of data in the output array, this can be T or any other value type</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>mapFn: <a href="array.html#inputmodifierfn" class="tsd-signature-type">InputModifierFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>The mapping function to change the value</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> fn: <a href="libs_rxjs_array_src_types.html#sortfn" class="tsd-signature-type">SortFn</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Optional sorting function</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Array of sorted and mapped values</p>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>RxJS Array Search Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="binarysearch" class="tsd-anchor"></a>
+					<h3>binary<wbr>Search</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">binary<wbr>Search&lt;T, K&gt;<span class="tsd-signature-symbol">(</span>searchValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">[]</span>, sort<span class="tsd-signature-symbol">?: </span><a href="libs_rxjs_array_src_types.html#sortfn" class="tsd-signature-type">SortFn</a>, property<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><a href="array.html#binarysearchresult" class="tsd-signature-type">BinarySearchResult</a><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/array/src/lib/binary-search.ts#L79">libs/rxjs/array/src/lib/binary-search.ts:79</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The <code>binarySearch</code> operator takes an Observable array of values T and returns a <a href="array.html#binarysearchresult">BinarySearchResult</a>
-									containing the original array, search value and index of the search value.</p>
+									containing the sorted array, search value and index of the search value.</p>
 								</div>
 								<p>The default sorting method for this search is a basic quality check, if you need more complex sorting such as
 								objects you can pass a sorting method and additional property to search on</p>
@@ -1083,7 +1206,7 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sort: <a href="array.html#sortfn" class="tsd-signature-type">SortFn</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sort: <a href="libs_rxjs_array_src_types.html#sortfn" class="tsd-signature-type">SortFn</a></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Optional sort method for sorting more complex types</p>
 									</div>
@@ -1091,7 +1214,7 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> property: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional property to be searched on in more complex objects</p>
+										<p>Optional property to be searched on, use a number for array index and strings for object keys</p>
 									</div>
 								</li>
 							</ul>
@@ -1115,7 +1238,19 @@
 						<a href="boolean.html">boolean</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="libs_rxjs_array_src_types.html">libs/rxjs/array/src/types</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="libs_rxjs_number_src_lib.html">libs/rxjs/number/src/lib</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="libs_rxjs_random_src.html">libs/rxjs/random/src</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="number.html">number</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="random.html">random</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="string.html">string</a>
@@ -1136,9 +1271,6 @@
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="array.html#predicatefn" class="tsd-kind-icon">Predicate<wbr>Fn</a>
 					</li>
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="array.html#sortfn" class="tsd-kind-icon">Sort<wbr>Fn</a>
-					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="array.html#binarysearch" class="tsd-kind-icon">binary<wbr>Search</a>
 					</li>
@@ -1148,11 +1280,17 @@
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
 						<a href="array.html#defaultsort" class="tsd-kind-icon">default<wbr>Sort</a>
 					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="array.html#defaultsortfn" class="tsd-kind-icon">default<wbr>Sort<wbr>Fn</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="array.html#difference" class="tsd-kind-icon">difference</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="array.html#differencewith" class="tsd-kind-icon">difference<wbr>With</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="array.html#fliparray" class="tsd-kind-icon">flip<wbr>Array</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="array.html#intersects" class="tsd-kind-icon">intersects</a>
@@ -1172,6 +1310,12 @@
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter tsd-is-private">
 						<a href="array.html#mapintersectswith" class="tsd-kind-icon">map<wbr>Intersects<wbr>With</a>
 					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="array.html#sort" class="tsd-kind-icon">sort</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<a href="array.html#sortmap" class="tsd-kind-icon">sort<wbr>Map</a>
+					</li>
 				</ul>
 			</nav>
 		</div>
@@ -1182,6 +1326,8 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
 				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
@@ -1189,6 +1335,9 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 			</ul>
 		</div>
 	</div>

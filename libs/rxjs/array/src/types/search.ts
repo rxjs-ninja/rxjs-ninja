@@ -1,4 +1,9 @@
 /**
+ * @packageDocumentation
+ * @module array
+ */
+
+/**
  * Method used to sort an Array of values
  *
  * @typeParam T The Type of the value to sort

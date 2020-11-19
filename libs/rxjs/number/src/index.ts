@@ -3,6 +3,7 @@
  * @module number
  * @ignore
  */
+/* istanbul ignore file */
 export { filterInRange } from './lib/filter-in-range';
 export { filterIsFinite } from './lib/filter-is-finite';
 export { filterIsFloat } from './lib/filter-is-float';

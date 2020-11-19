@@ -1,3 +1,8 @@
+/**
+ * @packageDocumentation
+ * @module number
+ */
+
 import { Observable, Subscriber, timer } from 'rxjs';
 import { finalize, map, takeWhile, tap } from 'rxjs/operators';
 

@@ -3,6 +3,7 @@
  * @module string
  * @ignore
  */
+/* istanbul ignore file */
 export { charAt } from './lib/char-at';
 export { charCodeAt } from './lib/char-code-at';
 export { codePointAt } from './lib/code-point-at';

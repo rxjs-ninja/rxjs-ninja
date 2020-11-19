@@ -66,6 +66,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<dl class="tsd-comment-tags">
+						<dt>ignore</dt>
+						<dd></dd>
+					</dl>
+				</div>
+			</section>
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
@@ -73,6 +81,8 @@
 						<section class="tsd-index-section ">
 							<h3>Other Functions</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private tsd-is-not-exported"><a href="number.html#fibonacci" class="tsd-kind-icon">fibonacci</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#fromfibonacci" class="tsd-kind-icon">from<wbr>Fibonacci</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private tsd-is-not-exported"><a href="number.html#issafe" class="tsd-kind-icon">is<wbr>Safe</a></li>
 								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-private"><a href="number.html#subscribetosingleorarraynumber" class="tsd-kind-icon">subscribe<wbr>ToSingle<wbr>OrArray<wbr>Number</a></li>
 							</ul>
@@ -120,6 +130,77 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Other Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-private tsd-is-not-exported">
+					<a name="fibonacci" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> fibonacci</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private tsd-is-not-exported">
+						<li class="tsd-signature tsd-kind-icon">fibonacci<span class="tsd-signature-symbol">(</span>n<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, memo<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/from-fibonacci.ts#L14">libs/rxjs/number/src/lib/from-fibonacci.ts:14</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Get the fibonacci number</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>n: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> memo: <span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> = {}</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter-index-signature">
+											<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">number</span></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="fromfibonacci" class="tsd-anchor"></a>
+					<h3>from<wbr>Fibonacci</h3>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Fibonacci<span class="tsd-signature-symbol">(</span>iterations<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, emitDelay<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/from-fibonacci.ts#L23">libs/rxjs/number/src/lib/from-fibonacci.ts:23</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Emits a Fibonacci sequence up to the total number of iterations passed.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>iterations: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> emitDelay: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+									<div class="tsd-comment tsd-typography">
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-private tsd-is-not-exported">
 					<a name="issafe" class="tsd-anchor"></a>
 					<h3><span class="tsd-flag ts-flagPrivate">Private</span> is<wbr>Safe</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-private tsd-is-not-exported">
@@ -129,7 +210,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/filter-is-safe-integer.ts#L12">libs/rxjs/number/src/lib/filter-is-safe-integer.ts:12</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/filter-is-safe-integer.ts#L12">libs/rxjs/number/src/lib/filter-is-safe-integer.ts:12</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -156,7 +237,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/utils/from-number.utils.ts#L14">libs/rxjs/number/src/utils/from-number.utils.ts:14</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/utils/from-number.utils.ts#L14">libs/rxjs/number/src/utils/from-number.utils.ts:14</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -196,7 +277,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/filter-in-range.ts#L44">libs/rxjs/number/src/lib/filter-in-range.ts:44</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/filter-in-range.ts#L44">libs/rxjs/number/src/lib/filter-in-range.ts:44</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -263,7 +344,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/filter-is-finite.ts#L28">libs/rxjs/number/src/lib/filter-is-finite.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/filter-is-finite.ts#L28">libs/rxjs/number/src/lib/filter-is-finite.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -299,7 +380,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/filter-is-float.ts#L28">libs/rxjs/number/src/lib/filter-is-float.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/filter-is-float.ts#L28">libs/rxjs/number/src/lib/filter-is-float.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -335,7 +416,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/filter-is-integer.ts#L28">libs/rxjs/number/src/lib/filter-is-integer.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/filter-is-integer.ts#L28">libs/rxjs/number/src/lib/filter-is-integer.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -371,7 +452,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/filter-is-not-nan.ts#L29">libs/rxjs/number/src/lib/filter-is-not-nan.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/filter-is-not-nan.ts#L29">libs/rxjs/number/src/lib/filter-is-not-nan.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -408,7 +489,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/filter-is-safe-integer.ts#L36">libs/rxjs/number/src/lib/filter-is-safe-integer.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/filter-is-safe-integer.ts#L36">libs/rxjs/number/src/lib/filter-is-safe-integer.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -444,7 +525,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/filter-out-of-range.ts#L43">libs/rxjs/number/src/lib/filter-out-of-range.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/filter-out-of-range.ts#L43">libs/rxjs/number/src/lib/filter-out-of-range.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -513,7 +594,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/to-exponential.ts#L27">libs/rxjs/number/src/lib/to-exponential.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/to-exponential.ts#L27">libs/rxjs/number/src/lib/to-exponential.ts:27</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -555,7 +636,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/to-locale-string.ts#L43">libs/rxjs/number/src/lib/to-locale-string.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/to-locale-string.ts#L43">libs/rxjs/number/src/lib/to-locale-string.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -615,7 +696,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/to-precision.ts#L28">libs/rxjs/number/src/lib/to-precision.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/to-precision.ts#L28">libs/rxjs/number/src/lib/to-precision.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -661,7 +742,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/from-number.ts#L35">libs/rxjs/number/src/lib/from-number.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/from-number.ts#L35">libs/rxjs/number/src/lib/from-number.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -712,7 +793,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/parse-float.ts#L26">libs/rxjs/number/src/lib/parse-float.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/parse-float.ts#L26">libs/rxjs/number/src/lib/parse-float.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -745,7 +826,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/parse-int.ts#L37">libs/rxjs/number/src/lib/parse-int.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/parse-int.ts#L37">libs/rxjs/number/src/lib/parse-int.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -795,7 +876,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/to-string.ts#L36">libs/rxjs/number/src/lib/to-string.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/to-string.ts#L36">libs/rxjs/number/src/lib/to-string.ts:36</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -846,7 +927,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/in-range.ts#L43">libs/rxjs/number/src/lib/in-range.ts:43</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/in-range.ts#L43">libs/rxjs/number/src/lib/in-range.ts:43</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -912,7 +993,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/is-finite.ts#L28">libs/rxjs/number/src/lib/is-finite.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/is-finite.ts#L28">libs/rxjs/number/src/lib/is-finite.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -948,7 +1029,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/is-float.ts#L28">libs/rxjs/number/src/lib/is-float.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/is-float.ts#L28">libs/rxjs/number/src/lib/is-float.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -984,7 +1065,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/is-integer.ts#L28">libs/rxjs/number/src/lib/is-integer.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/is-integer.ts#L28">libs/rxjs/number/src/lib/is-integer.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1020,7 +1101,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/is-nan.ts#L25">libs/rxjs/number/src/lib/is-nan.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/is-nan.ts#L25">libs/rxjs/number/src/lib/is-nan.ts:25</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1053,7 +1134,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/is-not-nan.ts#L26">libs/rxjs/number/src/lib/is-not-nan.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/is-not-nan.ts#L26">libs/rxjs/number/src/lib/is-not-nan.ts:26</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1087,7 +1168,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/is-safe-integer.ts#L28">libs/rxjs/number/src/lib/is-safe-integer.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/is-safe-integer.ts#L28">libs/rxjs/number/src/lib/is-safe-integer.ts:28</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1123,7 +1204,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/8743a80/libs/rxjs/number/src/lib/out-of-range.ts#L46">libs/rxjs/number/src/lib/out-of-range.ts:46</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/6ddfd81/libs/rxjs/number/src/lib/out-of-range.ts#L46">libs/rxjs/number/src/lib/out-of-range.ts:46</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -1194,15 +1275,6 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 					<li class=" tsd-kind-module">
 						<a href="boolean.html">boolean</a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="libs_rxjs_array_src_types.html">libs/rxjs/array/src/types</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="libs_rxjs_number_src_lib.html">libs/rxjs/number/src/lib</a>
-					</li>
-					<li class=" tsd-kind-module">
-						<a href="libs_rxjs_random_src.html">libs/rxjs/random/src</a>
-					</li>
 					<li class="current tsd-kind-module">
 						<a href="number.html">number</a>
 					</li>
@@ -1219,6 +1291,9 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-private tsd-is-not-exported">
+						<a href="number.html#fibonacci" class="tsd-kind-icon">fibonacci</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="number.html#filterinrange" class="tsd-kind-icon">filter<wbr>InRange</a>
 					</li>
@@ -1239,6 +1314,9 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="number.html#filteroutofrange" class="tsd-kind-icon">filter<wbr>Out<wbr>OfRange</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module">
+						<a href="number.html#fromfibonacci" class="tsd-kind-icon">from<wbr>Fibonacci</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module">
 						<a href="number.html#fromnumber" class="tsd-kind-icon">from<wbr>Number</a>

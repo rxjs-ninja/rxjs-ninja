@@ -3,7 +3,7 @@
  * @module array
  * @ignore
  */
-
+/* istanbul ignore file */
 export { binarySearch } from './lib/binary-search';
 export { difference } from './lib/difference';
 export { differenceWith } from './lib/difference-with';

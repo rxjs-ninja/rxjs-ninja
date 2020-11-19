@@ -4,6 +4,7 @@
     "rootDir": ".",
     "removeComments": true,
     "preserveConstEnums": true,
+    "downlevelIteration": true,
     "sourceMap": true,
     "strict": true,
     "declaration": false,

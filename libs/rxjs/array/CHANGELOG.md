@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Fixed
+
+- Correctly export all operators and fixed issues with Angular imports
+
+### Added
+
+- `flipArray` operator that takes an array of boolean value and flips them and returns the array
+- `sort` operator that takes an array and returns it sorted, by default it will use a basic equality check on the array, but a function can be passed for more complex objects and arrays
+- `sortMap` operator that sorts the array and then allows the contents to be mapped
+
 ## [2.0.0] - 2020-11-17
 
 ### Changed

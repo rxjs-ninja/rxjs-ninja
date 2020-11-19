@@ -10,7 +10,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - `fromFiboanacci` operator, generates a sequence of Fibonacci numbers, optionally can be passed a delay property to use as a timer, otherwise
-it emits them immediately.
+  it emits them immediately.
 
 ## [3.0.0] - 2020-11-17
 

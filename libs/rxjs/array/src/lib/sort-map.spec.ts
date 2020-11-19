@@ -1,7 +1,4 @@
-import { of } from 'rxjs';
-import { intersectsWith } from './intersects-with';
 import { marbles } from 'rxjs-marbles';
-import { sort } from './sort';
 import { sortMap } from './sort-map';
 
 describe('sortMap', () => {

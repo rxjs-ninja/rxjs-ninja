@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
  * @example
  * ```ts
  * fromBoolean([false, true, false])
- *  .pipe(flip())
+ *  .pipe(flipArray())
  *  .subscribe() // [true, false, true]
  * ```
  *

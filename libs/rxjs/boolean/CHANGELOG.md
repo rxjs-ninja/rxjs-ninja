@@ -9,7 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
-- Updated issues with Angular imports
+- Correctly export all operators and fixed issues with Angular imports
+
+### Added
+
+- `flip` operator simply flips a boolean value in a stream
 
 ## [2.0.0] - 2020-11-17
 

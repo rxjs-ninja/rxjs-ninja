@@ -1,4 +1,8 @@
 /**
+ * @packageDocumentation
+ * @module array
+ */
+/**
  * Internal basic sort method
  * @param a
  * @param b

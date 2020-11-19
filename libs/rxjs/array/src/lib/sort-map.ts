@@ -2,11 +2,11 @@
  * @packageDocumentation
  * @module array
  */
-
 import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { InputModifierFn, SortFn } from '../types/search';
+import { SortFn } from '../types/search';
 import { defaultSortFn } from '../utils/sort';
+import { InputModifierFn } from '../types/array-compare';
 
 /**
  * The `sortMap` operator takes an array of `T` items and returns a mapped array of items, either T or K

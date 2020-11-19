@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## Unreleased
 
+### Fixed
+
+- Correctly export all operators and fixed issues with Angular imports
+
 ### Added
 
 - `fromFiboanacci` operator, generates a sequence of Fibonacci numbers, optionally can be passed a delay property to use as a timer, otherwise

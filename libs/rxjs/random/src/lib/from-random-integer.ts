@@ -7,7 +7,7 @@ import { finalize, map, takeWhile, tap } from 'rxjs/operators';
  * @param max
  * @param emitDelay
  */
-export function fromRandomInt(min = 0, max = 1, emitDelay = 0) {
+export function fromRandomInt(min = 0, max = 100, emitDelay = 0) {
   min = Math.ceil(min);
   max = Math.floor(max);
 

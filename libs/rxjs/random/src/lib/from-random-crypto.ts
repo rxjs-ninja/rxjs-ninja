@@ -6,7 +6,7 @@ import { finalize, map, takeWhile, tap } from 'rxjs/operators';
  * the `Crypto.getRandomValues` method.
  * @param emitDelay
  */
-export function fromCryptoRandom(emitDelay = 0) {
+export function fromRandomCrypto(emitDelay = 0) {
   return new Observable((subscriber: Subscriber<number>) => {
     const arr = new Uint32Array(1);
     timer(0, emitDelay)

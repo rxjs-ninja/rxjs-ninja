@@ -1,10 +1,9 @@
 import { observe } from 'rxjs-marbles/jest';
 import { reduce, take, tap } from 'rxjs/operators';
-import { fromRandom } from './from-random';
-import { fromCryptoRandom } from './from-crypto-random';
+import { fromRandomCrypto } from './from-random-crypto';
 import TypedArray = NodeJS.TypedArray;
 
-describe('fromCryptoRandom', () => {
+describe('fromRandomCrypto', () => {
   beforeAll(() => {
     (window as any)['crypto'] = window.crypto || {
       getRandomValues: (arr: TypedArray) => {
@@ -20,7 +19,7 @@ describe('fromCryptoRandom', () => {
   it(
     'should create an array of random numbers',
     observe(() =>
-      fromCryptoRandom().pipe(
+      fromRandomCrypto().pipe(
         take(5),
         reduce<number, number[]>((acc, val) => [...acc, val], []),
         tap((value) => {

@@ -1,7 +1,6 @@
 import { observe } from 'rxjs-marbles/jest';
 import { reduce, take, tap } from 'rxjs/operators';
-import { fromRandom } from './from-random';
-import { fromRandomInt } from './from-random-integer';
+import { fromRandomInt } from '@tinynodes/rxjs-random';
 
 describe('fromRandomInt', () => {
   it(

@@ -1,4 +1,4 @@
-import { mapIfSource } from './map-if-source';
+import { mapIfSource } from '@tinynodes/rxjs-utility';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('ifSource', () => {

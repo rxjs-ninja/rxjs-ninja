@@ -5,7 +5,7 @@
 import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { SortFn } from '../types/search';
-import { defaultSortFn } from '../utils/sort';
+import { defaultSortFn } from '../utils/binary-search';
 import { InputModifierFn } from '../types/array-compare';
 
 /**

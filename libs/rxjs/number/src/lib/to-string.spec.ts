@@ -1,4 +1,4 @@
-import { toString } from './to-string';
+import { toString } from '@tinynodes/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('toString', () => {

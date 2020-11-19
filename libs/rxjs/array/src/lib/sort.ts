@@ -5,7 +5,7 @@
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { SortFn } from '../types/search';
-import { defaultSortFn } from '../utils/sort';
+import { defaultSortFn } from '../utils/binary-search';
 
 /**
  * The `sort` operator takes an array of `T` items and returns the array sorted.

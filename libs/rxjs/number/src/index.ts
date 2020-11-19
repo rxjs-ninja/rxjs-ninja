@@ -14,6 +14,7 @@ export { fromFibonacci } from './lib/from-fibonacci';
 export { fromNumber } from './lib/from-number';
 export { inRange } from './lib/in-range';
 export { isFinite } from './lib/is-finite';
+export { isFloat } from './lib/is-float';
 export { isInteger } from './lib/is-integer';
 export { isNaN } from './lib/is-nan';
 export { isNotNaN } from './lib/is-not-nan';

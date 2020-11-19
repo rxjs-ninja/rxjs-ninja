@@ -1,4 +1,4 @@
-import { difference } from './difference';
+import { difference } from '@tinynodes/rxjs-array';
 import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
 

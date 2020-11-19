@@ -1,6 +1,6 @@
 import { observe } from 'rxjs-marbles/jest';
 import { reduce, take, tap } from 'rxjs/operators';
-import { fromRandomCrypto } from './from-random-crypto';
+import { fromRandomCrypto } from '@tinynodes/rxjs-random';
 import TypedArray = NodeJS.TypedArray;
 
 describe('fromRandomCrypto', () => {

@@ -1,4 +1,4 @@
-import { isNaN } from './is-nan';
+import { isNaN } from '@tinynodes/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('isNaN', () => {

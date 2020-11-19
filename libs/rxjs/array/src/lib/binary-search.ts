@@ -4,7 +4,7 @@
  */
 import { Observable, OperatorFunction } from 'rxjs';
 import { map, reduce } from 'rxjs/operators';
-import { binarySearcher, defaultSort } from '../utils/binary-search';
+import { binarySearcher, defaultSortFn } from '../utils/binary-search';
 import { BinarySearchResult } from '../types/binary-search';
 import { SortFn } from '../types/search';
 
@@ -81,7 +81,7 @@ export function binarySearch<T = unknown, K = unknown>(
   sort?: SortFn,
   property?: string | number,
 ): OperatorFunction<T | T[], BinarySearchResult> {
-  const sortFn = sort ? sort : defaultSort;
+  const sortFn = sort ? sort : defaultSortFn;
 
   return (source: Observable<T | T[]>) =>
     source.pipe(

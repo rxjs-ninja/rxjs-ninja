@@ -1,4 +1,4 @@
-import { debounceWithQuery } from './debounce-with-query';
+import { debounceWithQuery } from '@tinynodes/rxjs-utility';
 import { from, of } from 'rxjs';
 
 describe('debounceWithQuery', () => {

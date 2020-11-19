@@ -1,6 +1,7 @@
 /**
  * @packageDocumentation
  * @module number
+ *
  * @ignore
  */
 /* istanbul ignore file */

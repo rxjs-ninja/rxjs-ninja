@@ -29,11 +29,21 @@ const DEFAULT_OPTIONS: FromRandomStringOpts = {
  * By default the string will be made up of upper and lower case characters, to include numbers and special characters
  * pass a [[FromRandomStringOpts]] options object
  *
- * @param length
- * @param emitDelay
- * @param opts
+ * @param length The length of the string to produce
+ * @param emitDelay If set the observable will emit per millisecond set, by default this is 0
+ * @param opts Additional options to include other characters and numbers
+ *
+ * @example
+ * ```ts
+ * fromRandomStr(5)
+ * .pipe(tap(console.log))
+ * .subscribe() // 'AgtYb', 'brYgT', 'TLAvf'...
+ * ```
+ *
+ * @returns Observable with a stream of random strings
+ * @category RxJS Random Observables
  */
-export function fromRandomStr(length = 10, emitDelay = 0, opts = DEFAULT_OPTIONS) {
+export function fromRandomStr(length = 10, emitDelay = 0, opts = DEFAULT_OPTIONS): Observable<string> {
   let seedArray: string[] = [];
   if (opts.caps) seedArray = [...seedArray, ...allUpperCase];
   if (opts.lower) seedArray = [...seedArray, ...allLowerCase];

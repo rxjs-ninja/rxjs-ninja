@@ -38,10 +38,6 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -73,6 +69,7 @@
 				<p><a href="https://www.npmjs.com/package/@tinynodes/rxjs-array"><img src="https://img.shields.io/npm/v/@tinynodes/rxjs-array?label=rxjs-array" alt="rxjs-array"></a>
 					<a href="https://www.npmjs.com/package/@tinynodes/rxjs-boolean"><img src="https://img.shields.io/npm/v/@tinynodes/rxjs-boolean?label=rxjs-boolean" alt="rxjs-boolean"></a>
 					<a href="https://www.npmjs.com/package/@tinynodes/rxjs-number"><img src="https://img.shields.io/npm/v/@tinynodes/rxjs-number?label=rxjs-number" alt="rxjs-number"></a>
+					<a href="https://www.npmjs.com/package/@tinynodes/rxjs-random"><img src="https://img.shields.io/npm/v/@tinynodes/rxjs-random?label=rxjs-random" alt="rxjs-random"></a>
 					<a href="https://www.npmjs.com/package/@tinynodes/rxjs-string"><img src="https://img.shields.io/npm/v/@tinynodes/rxjs-string?label=rxjs-string" alt="rxjs-string"></a>
 					<a href="https://www.npmjs.com/package/@tinynodes/rxjs-utility"><img src="https://img.shields.io/npm/v/@tinynodes/rxjs-utility?label=rxjs-utility" alt="rxjs-utility"></a>
 					<a href="https://sonarcloud.io/dashboard?id=tanepiper_rxjs-primitives"><img src="https://sonarcloud.io/api/project_badges/measure?project=tanepiper_rxjs-primitives&metric=alert_status" alt="Quality Gate Status"></a>
@@ -139,6 +136,23 @@
 					<li><a href="https://tanepiper.github.io/rxjs-primitives/modules/number.html">Documentation</a></li>
 					<li><a href="https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/number/CHANGELOG.md">Changelog</a></li>
 				</ul>
+				<a href="#rxjs-random" id="rxjs-random" style="color: inherit; text-decoration: none;">
+					<h3>rxjs-random</h3>
+				</a>
+				<p>A set of operators for generating Observable from random values.</p>
+				<a href="#installation-3" id="installation-3" style="color: inherit; text-decoration: none;">
+					<h4>Installation</h4>
+				</a>
+				<blockquote>
+					<p><code>npm install @tinynodes/rxjs-random</code></p>
+				</blockquote>
+				<a href="#information-3" id="information-3" style="color: inherit; text-decoration: none;">
+					<h4>Information</h4>
+				</a>
+				<ul>
+					<li><a href="https://tanepiper.github.io/rxjs-primitives/modules/random.html">Documentation</a></li>
+					<li><a href="https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/random/CHANGELOG.md">Changelog</a></li>
+				</ul>
 				<a href="#rxjs-string" id="rxjs-string" style="color: inherit; text-decoration: none;">
 					<h3>rxjs-string</h3>
 				</a>
@@ -147,13 +161,13 @@
 				<p>Where are method is an equality check (e.g. <code>endsWith</code>) there is also a corresponding <code>fromEndWith</code> that returns the value
 				rather than a boolean value.</p>
 				<p>There are also methods for querying strings, generating substrings, exploding strings or formatting.</p>
-				<a href="#installation-3" id="installation-3" style="color: inherit; text-decoration: none;">
+				<a href="#installation-4" id="installation-4" style="color: inherit; text-decoration: none;">
 					<h4>Installation</h4>
 				</a>
 				<blockquote>
 					<p><code>npm install @tinynodes/rxjs-string</code></p>
 				</blockquote>
-				<a href="#information-3" id="information-3" style="color: inherit; text-decoration: none;">
+				<a href="#information-4" id="information-4" style="color: inherit; text-decoration: none;">
 					<h4>Information</h4>
 				</a>
 				<ul>
@@ -164,13 +178,13 @@
 					<h3>rxjs-utility</h3>
 				</a>
 				<p>A set of extra utility operators that provide some useful functionality when dealing with <code>Observable</code> values</p>
-				<a href="#installation-4" id="installation-4" style="color: inherit; text-decoration: none;">
+				<a href="#installation-5" id="installation-5" style="color: inherit; text-decoration: none;">
 					<h4>Installation</h4>
 				</a>
 				<blockquote>
 					<p><code>npm install @tinynodes/rxjs-utility</code></p>
 				</blockquote>
-				<a href="#information-4" id="information-4" style="color: inherit; text-decoration: none;">
+				<a href="#information-5" id="information-5" style="color: inherit; text-decoration: none;">
 					<h4>Information</h4>
 				</a>
 				<ul>
@@ -195,6 +209,9 @@
 						<a href="modules/number.html">number</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/random.html">random</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/string.html">string</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -216,11 +233,13 @@
 			<ul class="tsd-legend">
 				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
 				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
 				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
 			</ul>
 		</div>
 	</div>

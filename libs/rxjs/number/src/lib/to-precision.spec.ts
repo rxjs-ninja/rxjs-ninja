@@ -1,4 +1,4 @@
-import { toPrecision } from './to-precision';
+import { toPrecision } from '@tinynodes/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('toPrecision', () => {

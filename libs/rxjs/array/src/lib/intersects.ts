@@ -4,7 +4,7 @@
  */
 import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { InputModifierFn } from '../types/array-compare';
+import { MapFn } from '../types/array-compare';
 import { mapIntersection } from '../utils/intersects';
 
 /**
@@ -51,7 +51,7 @@ import { mapIntersection } from '../utils/intersects';
  */
 export function intersects<T = unknown>(
   input: T[] | ObservableInput<T[]>,
-  inputModifier?: InputModifierFn<T, T>,
+  inputModifier?: MapFn<T, T>,
 ): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>
     isObservable<T[]>(input)

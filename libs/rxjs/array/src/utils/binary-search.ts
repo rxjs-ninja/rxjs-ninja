@@ -48,12 +48,13 @@ export function binarySearcher<T extends unknown>(
 /**
  * Default sort method that provides a number value of comparison order
  * @private
+ * @internal
  * @param first The first comparison parameter
  * @param second The second comparison parameter
  *
  * @returns Number related to the sort order of two comparison parameters
  */
-export function defaultSort<T = unknown>(first: T, second: T): number {
+export function defaultSortFn<T = unknown>(first: T, second: T): number {
   if (typeof first === 'string') {
     return first.localeCompare((second as unknown) as string);
   }

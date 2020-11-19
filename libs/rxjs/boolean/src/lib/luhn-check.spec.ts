@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module utility
  */
-import { luhnCheck } from './luhn-check';
+import { luhnCheck } from '@tinynodes/rxjs-boolean';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('luhnCheck', () => {

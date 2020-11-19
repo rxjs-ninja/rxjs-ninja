@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { isFloat } from './is-float';
+import { isFloat } from '@tinynodes/rxjs-number';
 
 describe('isFloat', () => {
   it(

@@ -1,4 +1,4 @@
-import { search } from './search';
+import { search } from '@tinynodes/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('search', () => {

@@ -1,13 +1,12 @@
 import { of } from 'rxjs';
-import { binarySearch } from './binary-search';
+import { binarySearch } from '@tinynodes/rxjs-array';
 import { tap } from 'rxjs/operators';
 import { observe } from 'rxjs-marbles/jest';
-import { SortFn } from '@tinynodes/rxjs/array';
 
 describe('binarySearch', () => {
   type TestObj = { val: number };
 
-  const sortObj: SortFn<TestObj> = (a: TestObj, b: TestObj) => {
+  const sortObj = (a: TestObj, b: TestObj) => {
     if (a.val === b.val) return 0;
     return a.val < b.val ? -1 : 1;
   };

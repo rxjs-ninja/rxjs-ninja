@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Fixed
+
+- Correctly export all operators and fixed issues with Angular imports
+
 ## [3.0.0] - 2020-11-17
 
 ### Changed
@@ -30,7 +36,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 New Operators (now [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) feature complete)
 
-- `fromUnitcode` - Creates a string of Unicode Normalization Form characters
+- `fromUnicode` - Creates a string of Unicode Normalization Form characters
   and uses [String.prototype.normalize](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize)
   to convert it to a string
 - `match` and `matchAll` for matching strings or regular expressions.

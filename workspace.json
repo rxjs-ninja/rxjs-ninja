@@ -21,13 +21,26 @@
           }
         },
         "build": {
-          "builder": "@nrwl/node:package",
+          "builder": "@nrwl/web:package",
           "options": {
             "outputPath": "dist/libs/rxjs/array",
             "tsConfig": "libs/rxjs/array/tsconfig.lib.json",
-            "packageJson": "libs/rxjs/array/package.json",
-            "main": "libs/rxjs/array/src/index.ts",
-            "assets": ["libs/rxjs/array/*.md"]
+            "project": "libs/rxjs/array/package.json",
+            "entryFile": "libs/rxjs/array/src/index.ts",
+            "external": ["rxjs"],
+            "babelConfig": "@nrwl/web/babel",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": "libs/rxjs/array/.",
+                "output": "."
+              },
+              {
+                "glob": "CHANGELOG.md",
+                "input": "libs/rxjs/array/.",
+                "output": "."
+              }
+            ]
           }
         }
       }
@@ -52,13 +65,26 @@
           }
         },
         "build": {
-          "builder": "@nrwl/node:package",
+          "builder": "@nrwl/web:package",
           "options": {
             "outputPath": "dist/libs/rxjs/boolean",
             "tsConfig": "libs/rxjs/boolean/tsconfig.lib.json",
-            "packageJson": "libs/rxjs/boolean/package.json",
-            "main": "libs/rxjs/boolean/src/index.ts",
-            "assets": ["libs/rxjs/boolean/*.md"]
+            "project": "libs/rxjs/boolean/package.json",
+            "entryFile": "libs/rxjs/boolean/src/index.ts",
+            "external": ["rxjs"],
+            "babelConfig": "@nrwl/web/babel",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": "libs/rxjs/boolean/.",
+                "output": "."
+              },
+              {
+                "glob": "CHANGELOG.md",
+                "input": "libs/rxjs/boolean/.",
+                "output": "."
+              }
+            ]
           }
         }
       }
@@ -83,13 +109,26 @@
           }
         },
         "build": {
-          "builder": "@nrwl/node:package",
+          "builder": "@nrwl/web:package",
           "options": {
             "outputPath": "dist/libs/rxjs/number",
             "tsConfig": "libs/rxjs/number/tsconfig.lib.json",
-            "packageJson": "libs/rxjs/number/package.json",
-            "main": "libs/rxjs/number/src/index.ts",
-            "assets": ["libs/rxjs/number/*.md"]
+            "project": "libs/rxjs/number/package.json",
+            "entryFile": "libs/rxjs/number/src/index.ts",
+            "external": ["rxjs"],
+            "babelConfig": "@nrwl/web/babel",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": "libs/rxjs/number/.",
+                "output": "."
+              },
+              {
+                "glob": "CHANGELOG.md",
+                "input": "libs/rxjs/number/.",
+                "output": "."
+              }
+            ]
           }
         }
       }
@@ -114,13 +153,26 @@
           }
         },
         "build": {
-          "builder": "@nrwl/node:package",
+          "builder": "@nrwl/web:package",
           "options": {
             "outputPath": "dist/libs/rxjs/string",
             "tsConfig": "libs/rxjs/string/tsconfig.lib.json",
-            "packageJson": "libs/rxjs/string/package.json",
-            "main": "libs/rxjs/string/src/index.ts",
-            "assets": ["libs/rxjs/string/*.md"]
+            "project": "libs/rxjs/string/package.json",
+            "entryFile": "libs/rxjs/string/src/index.ts",
+            "external": ["rxjs"],
+            "babelConfig": "@nrwl/web/babel",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": "libs/rxjs/string/.",
+                "output": "."
+              },
+              {
+                "glob": "CHANGELOG.md",
+                "input": "libs/rxjs/string/.",
+                "output": "."
+              }
+            ]
           }
         }
       }
@@ -145,13 +197,70 @@
           }
         },
         "build": {
-          "builder": "@nrwl/node:package",
+          "builder": "@nrwl/web:package",
           "options": {
             "outputPath": "dist/libs/rxjs/utility",
             "tsConfig": "libs/rxjs/utility/tsconfig.lib.json",
-            "packageJson": "libs/rxjs/utility/package.json",
-            "main": "libs/rxjs/utility/src/index.ts",
-            "assets": ["libs/rxjs/utility/*.md"]
+            "project": "libs/rxjs/utility/package.json",
+            "entryFile": "libs/rxjs/utility/src/index.ts",
+            "external": ["rxjs"],
+            "babelConfig": "@nrwl/web/babel",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": "libs/rxjs/utility/.",
+                "output": "."
+              },
+              {
+                "glob": "CHANGELOG.md",
+                "input": "libs/rxjs/utility/.",
+                "output": "."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "rxjs-random": {
+      "root": "libs/rxjs/random",
+      "sourceRoot": "libs/rxjs/random/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/rxjs/random/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/rxjs/random/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/web:package",
+          "options": {
+            "outputPath": "dist/libs/rxjs/random",
+            "tsConfig": "libs/rxjs/random/tsconfig.lib.json",
+            "project": "libs/rxjs/random/package.json",
+            "entryFile": "libs/rxjs/random/src/index.ts",
+            "external": ["rxjs"],
+            "babelConfig": "@nrwl/web/babel",
+            "assets": [
+              {
+                "glob": "README.md",
+                "input": "libs/rxjs/random/.",
+                "output": "."
+              },
+              {
+                "glob": "CHANGELOG.md",
+                "input": "libs/rxjs/random/.",
+                "output": "."
+              }
+            ]
           }
         }
       }

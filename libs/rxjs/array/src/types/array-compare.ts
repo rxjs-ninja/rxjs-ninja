@@ -4,7 +4,7 @@
  */
 
 /**
- * Method used to modify the input value for comparison
+ * Method used to map one value to another value
  *
  * @typeParam T The type of the value to be modified for comparison
  * @typeParam K The type of the value returned by the function
@@ -13,21 +13,22 @@
  *
  * @example
  * ```ts
- * const modify: InputModifierFn<T> = (value: string): string => value.toUpperCase()
+ * const modify: MapFn<string> = (value: string): string => value.toUpperCase()
  * ```
  *
  * @example
  * ```ts
- * const modify: InputModifierFn<T, K> = (value: string): number => parseInt(value, 10)
+ * const modify: MapFn<string, number> = (value: string): number => parseInt(value, 10)
  * ```
  *
  * @returns Value of the modifier function
  */
-export type MapFn<T = unknown, K = unknown> = (value: T) => K;
+export type MapFn<T = unknown, K = T | unknown> = (value: T) => K;
 
 /**
- * A predicate function is used with Array filtering and should return a boolean
- * based on an equality check. Can be used for more complex conditions
+ * A predicate function is used with filtering and should return a boolean based on an equality check.
+ *
+ * Can be used for more complex conditions
  *
  * @typeParam T The type of the value to do an equality check with
  *

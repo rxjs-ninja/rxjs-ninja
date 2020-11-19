@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module utility
  */
-import { InputModifierFn, PredicateFn } from '../types/utility';
+import { MapFn, PredicateFn } from '../types/utility';
 import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -50,8 +50,8 @@ import { map } from 'rxjs/operators';
  */
 export function mapIfSource<I = unknown, T = unknown, F = unknown>(
   predicate: PredicateFn<I>,
-  trueResult: InputModifierFn<I, T>,
-  falseResult: InputModifierFn<I, T | F>,
+  trueResult: MapFn<I, T>,
+  falseResult: MapFn<I, T | F>,
 ): OperatorFunction<I, T | F> {
   return (source: Observable<I>) =>
     source.pipe(map((value: I) => (predicate(value) ? trueResult(value) : falseResult(value))));

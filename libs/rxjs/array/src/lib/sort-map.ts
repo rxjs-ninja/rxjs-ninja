@@ -31,7 +31,7 @@ import { MapFn } from '../types/array-compare';
  * @returns Array of sorted and mapped values
  * @category RxJS Array Modify
  */
-export function sortMap<T extends any, K extends T | unknown>(
+export function sortMap<T extends unknown, K extends T | unknown>(
   mapFn: MapFn<T, K>,
   fn?: SortFn,
 ): OperatorFunction<T[], K[]> {

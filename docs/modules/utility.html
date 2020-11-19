@@ -78,7 +78,7 @@
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="utility.html#callbackfn" class="tsd-kind-icon">Callback<wbr>Fn</a></li>
-								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="utility.html#inputmodifierfn" class="tsd-kind-icon">Input<wbr>Modifier<wbr>Fn</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="utility.html#mapfn" class="tsd-kind-icon">Map<wbr>Fn</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="utility.html#predicatefn" class="tsd-kind-icon">Predicate<wbr>Fn</a></li>
 								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="utility.html#querymethod" class="tsd-kind-icon">Query<wbr>Method</a></li>
 							</ul>
@@ -107,7 +107,7 @@
 					<div class="tsd-signature tsd-kind-icon">Callback<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">?: </span><a href="" class="tsd-signature-type">T</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/utility/src/types/utility.ts#L9">libs/rxjs/utility/src/types/utility.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/utility/src/types/utility.ts#L9">libs/rxjs/utility/src/types/utility.ts:9</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -144,27 +144,27 @@
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="inputmodifierfn" class="tsd-anchor"></a>
-					<h3>Input<wbr>Modifier<wbr>Fn</h3>
-					<div class="tsd-signature tsd-kind-icon">Input<wbr>Modifier<wbr>Fn&lt;T, K&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">K</span></div>
+					<a name="mapfn" class="tsd-anchor"></a>
+					<h3>Map<wbr>Fn</h3>
+					<div class="tsd-signature tsd-kind-icon">Map<wbr>Fn&lt;T, K&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">K</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/utility/src/types/utility.ts#L43">libs/rxjs/utility/src/types/utility.ts:43</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/utility/src/types/utility.ts#L61">libs/rxjs/utility/src/types/utility.ts:61</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Method used to modify the input value for comparison</p>
+							<p>Method used to map one value to another value</p>
 						</div>
 						<dl class="tsd-comment-tags">
 							<dt>param</dt>
 							<dd><p>The value to be modified for comparison</p>
 							</dd>
 							<dt>example</dt>
-							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> modify: InputModifierFn&lt;T&gt; = (value: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">string</span> =&gt;</span> value.toUpperCase()</code></pre>
+							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> modify: MapFn&lt;<span class="hljs-built_in">string</span>&gt; = (value: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">string</span> =&gt;</span> value.toUpperCase()</code></pre>
 							</dd>
 							<dt>example</dt>
-							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> modify: InputModifierFn&lt;T, K&gt; = (value: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">number</span> =&gt;</span> <span class="hljs-built_in">parseInt</span>(value, <span class="hljs-number">10</span>)</code></pre>
+							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> modify: MapFn&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span>&gt; = (value: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">number</span> =&gt;</span> <span class="hljs-built_in">parseInt</span>(value, <span class="hljs-number">10</span>)</code></pre>
 							</dd>
 							<dt>returns</dt>
 							<dd><p>Value of the modifier function</p>
@@ -182,7 +182,7 @@
 							</div>
 						</li>
 						<li>
-							<h4>K = <span class="tsd-signature-type">unknown</span></h4>
+							<h4>K = <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">unknown</span></h4>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>The type of the value returned by the function</p>
@@ -218,26 +218,42 @@
 					<div class="tsd-signature tsd-kind-icon">Predicate<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/utility/src/types/utility.ts#L21">libs/rxjs/utility/src/types/utility.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/utility/src/types/utility.ts#L39">libs/rxjs/utility/src/types/utility.ts:39</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A predicate function that returns a boolean value</p>
+							<p>A predicate function is used with filtering and should return a boolean based on an equality check.</p>
 						</div>
+						<p>Can be used for more complex conditions</p>
 						<dl class="tsd-comment-tags">
 							<dt>example</dt>
-							<dd><pre><code><span class="hljs-keyword">const</span> isEvenNumber: PredicateFn = (num: number): <span class="hljs-built_in">bool</span>ean =&gt; num % <span class="hljs-number">2</span> === <span class="hljs-number">0</span></code></pre>
+							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> isEvenNumber: PredicateFn&lt;<span class="hljs-built_in">number</span>&gt; = (num: <span class="hljs-built_in">number</span>): <span class="hljs-function"><span class="hljs-params">boolean</span> =&gt;</span> num % <span class="hljs-number">2</span> === <span class="hljs-number">0</span></code></pre>
+							</dd>
+							<dt>example</dt>
+							<dd><pre><code class="language-ts"><span class="hljs-keyword">interface</span> ObjectType {
+  <span class="hljs-attr">foo</span>: <span class="hljs-built_in">number</span>,
+  <span class="hljs-attr">bar</span>: <span class="hljs-built_in">string</span>
+}
+<span class="hljs-keyword">const</span> isTheUltimateAnswer: PredicateFn&lt;ObjectType&gt; = (obj: ObjectType): <span class="hljs-function"><span class="hljs-params">boolean</span> =&gt;</span> obj.foo === <span class="hljs-number">42</span></code></pre>
+							</dd>
+							<dt>example</dt>
+							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> nameIsAfter: PredicateFn&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>&gt; = (name1: <span class="hljs-built_in">string</span>, <span class="hljs-attr">name2</span>: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">boolean</span> =&gt;</span> name1.localeCompare(name2) === <span class="hljs-number">0</span></code></pre>
 							</dd>
 							<dt>returns</dt>
-							<dd><p>Boolean value</p>
+							<dd><p>Boolean value based on the condition of the function</p>
 							</dd>
 						</dl>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
 						<li>
-							<h4>T = <span class="tsd-signature-type">unknown</span></h4>
+							<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The type of the value to do an equality check with</p>
+								</div>
+							</div>
 						</li>
 					</ul>
 					<div class="tsd-type-declaration">
@@ -268,7 +284,7 @@
 					<div class="tsd-signature tsd-kind-icon">Query<wbr>Method&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/utility/src/lib/debounce-with-query.ts#L17">libs/rxjs/utility/src/lib/debounce-with-query.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/utility/src/lib/debounce-with-query.ts#L17">libs/rxjs/utility/src/lib/debounce-with-query.ts:17</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -329,7 +345,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/utility/src/lib/debounce-with-query.ts#L41">libs/rxjs/utility/src/lib/debounce-with-query.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/utility/src/lib/debounce-with-query.ts#L41">libs/rxjs/utility/src/lib/debounce-with-query.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -387,7 +403,7 @@ fromEvent(input, <span class="hljs-string">&#x27;keyup&#x27;</span>)
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/utility/src/lib/start-with-tap.ts#L39">libs/rxjs/utility/src/lib/start-with-tap.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/utility/src/lib/start-with-tap.ts#L39">libs/rxjs/utility/src/lib/start-with-tap.ts:39</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -446,7 +462,7 @@ fromEvent(input, <span class="hljs-string">&#x27;keyup&#x27;</span>)
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/utility/src/lib/tap-if.ts#L34">libs/rxjs/utility/src/lib/tap-if.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/utility/src/lib/tap-if.ts#L34">libs/rxjs/utility/src/lib/tap-if.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -507,7 +523,7 @@ fromEvent(input, <span class="hljs-string">&#x27;keyup&#x27;</span>)
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/utility/src/lib/tap-on-subscribe.ts#L29">libs/rxjs/utility/src/lib/tap-on-subscribe.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/utility/src/lib/tap-on-subscribe.ts#L29">libs/rxjs/utility/src/lib/tap-on-subscribe.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -556,13 +572,13 @@ fromEvent(input, <span class="hljs-string">&#x27;keyup&#x27;</span>)
 					<a name="mapifsource" class="tsd-anchor"></a>
 					<h3>map<wbr>IfSource</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">map<wbr>IfSource&lt;I, T, F&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><a href="utility.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">&gt;</span>, trueResult<span class="tsd-signature-symbol">: </span><a href="utility.html#inputmodifierfn" class="tsd-signature-type">InputModifierFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, falseResult<span class="tsd-signature-symbol">: </span><a href="utility.html#inputmodifierfn" class="tsd-signature-type">InputModifierFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">map<wbr>IfSource&lt;I, T, F&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><a href="utility.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">&gt;</span>, trueResult<span class="tsd-signature-symbol">: </span><a href="utility.html#mapfn" class="tsd-signature-type">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, falseResult<span class="tsd-signature-symbol">: </span><a href="utility.html#mapfn" class="tsd-signature-type">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/utility/src/lib/map-if-source.ts#L51">libs/rxjs/utility/src/lib/map-if-source.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/utility/src/lib/map-if-source.ts#L51">libs/rxjs/utility/src/lib/map-if-source.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -623,16 +639,16 @@ fromEvent(input, <span class="hljs-string">&#x27;keyup&#x27;</span>)
 									<h5>predicate: <a href="utility.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
-									<h5>trueResult: <a href="utility.html#inputmodifierfn" class="tsd-signature-type">InputModifierFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>trueResult: <a href="utility.html#mapfn" class="tsd-signature-type">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 								<li>
-									<h5>falseResult: <a href="utility.html#inputmodifierfn" class="tsd-signature-type">InputModifierFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>falseResult: <a href="utility.html#mapfn" class="tsd-signature-type">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Any value based on the Truthy or Falsy <a href="utility.html#inputmodifierfn">InputModifierFn</a> based on the <a href="boolean.html#filterpredicatefn">FilterPredicateFn</a> result</p>
+							<p>Any value based on the Truthy or Falsy [[InputModifierFn]] based on the [[FilterPredicateFn]] result</p>
 						</li>
 					</ul>
 				</section>
@@ -670,7 +686,7 @@ fromEvent(input, <span class="hljs-string">&#x27;keyup&#x27;</span>)
 						<a href="utility.html#callbackfn" class="tsd-kind-icon">Callback<wbr>Fn</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="utility.html#inputmodifierfn" class="tsd-kind-icon">Input<wbr>Modifier<wbr>Fn</a>
+						<a href="utility.html#mapfn" class="tsd-kind-icon">Map<wbr>Fn</a>
 					</li>
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="utility.html#predicatefn" class="tsd-kind-icon">Predicate<wbr>Fn</a>

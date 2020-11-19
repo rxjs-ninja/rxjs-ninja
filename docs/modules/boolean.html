@@ -77,7 +77,7 @@
 						<section class="tsd-index-section ">
 							<h3>Type aliases</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="boolean.html#filterpredicatefn" class="tsd-kind-icon">Filter<wbr>Predicate<wbr>Fn</a></li>
+								<li class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="boolean.html#predicatefn" class="tsd-kind-icon">Predicate<wbr>Fn</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
@@ -106,25 +106,35 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-					<a name="filterpredicatefn" class="tsd-anchor"></a>
-					<h3>Filter<wbr>Predicate<wbr>Fn</h3>
-					<div class="tsd-signature tsd-kind-icon">Filter<wbr>Predicate<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
+					<a name="predicatefn" class="tsd-anchor"></a>
+					<h3>Predicate<wbr>Fn</h3>
+					<div class="tsd-signature tsd-kind-icon">Predicate<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/boolean/src/types/boolean.ts#L20">libs/rxjs/boolean/src/types/boolean.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/boolean/src/types/boolean.ts#L34">libs/rxjs/boolean/src/types/boolean.ts:34</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A predicate function that take a value from <code>filter</code> and returns a boolean
-							based on an equality check</p>
+							<p>A predicate function is used with filtering and should return a boolean based on an equality check.</p>
 						</div>
+						<p>Can be used for more complex conditions</p>
 						<dl class="tsd-comment-tags">
 							<dt>example</dt>
-							<dd><pre><code><span class="hljs-keyword">const</span> isEvenNumber: PredicateFn&lt;<span class="hljs-built_in">number</span>&gt; = (num: <span class="hljs-built_in">number</span>): <span class="hljs-function"><span class="hljs-params">boolean</span> =&gt;</span> num % <span class="hljs-number">2</span> === <span class="hljs-number">0</span></code></pre>
+							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> isEvenNumber: PredicateFn&lt;<span class="hljs-built_in">number</span>&gt; = (num: <span class="hljs-built_in">number</span>): <span class="hljs-function"><span class="hljs-params">boolean</span> =&gt;</span> num % <span class="hljs-number">2</span> === <span class="hljs-number">0</span></code></pre>
+							</dd>
+							<dt>example</dt>
+							<dd><pre><code class="language-ts"><span class="hljs-keyword">interface</span> ObjectType {
+  <span class="hljs-attr">foo</span>: <span class="hljs-built_in">number</span>,
+  <span class="hljs-attr">bar</span>: <span class="hljs-built_in">string</span>
+}
+<span class="hljs-keyword">const</span> isTheUltimateAnswer: PredicateFn&lt;ObjectType&gt; = (obj: ObjectType): <span class="hljs-function"><span class="hljs-params">boolean</span> =&gt;</span> obj.foo === <span class="hljs-number">42</span></code></pre>
+							</dd>
+							<dt>example</dt>
+							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> nameIsAfter: PredicateFn&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>&gt; = (name1: <span class="hljs-built_in">string</span>, <span class="hljs-attr">name2</span>: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">boolean</span> =&gt;</span> name1.localeCompare(name2) === <span class="hljs-number">0</span></code></pre>
 							</dd>
 							<dt>returns</dt>
-							<dd><p>Boolean value</p>
+							<dd><p>Boolean value based on the condition of the function</p>
 							</dd>
 						</dl>
 					</div>
@@ -168,13 +178,13 @@
 					<a name="filtertruthy" class="tsd-anchor"></a>
 					<h3>filter<wbr>Truthy</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">filter<wbr>Truthy&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="boolean.html#filterpredicatefn" class="tsd-signature-type">FilterPredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">filter<wbr>Truthy&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="boolean.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/boolean/src/lib/filter-truthy.ts#L35">libs/rxjs/boolean/src/lib/filter-truthy.ts:35</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/boolean/src/lib/filter-truthy.ts#L35">libs/rxjs/boolean/src/lib/filter-truthy.ts:35</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -209,7 +219,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="boolean.html#filterpredicatefn" class="tsd-signature-type">FilterPredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="boolean.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Optional predicate method to provide to filter</p>
 									</div>
@@ -224,13 +234,13 @@
 					<a name="firsttruthy" class="tsd-anchor"></a>
 					<h3>first<wbr>Truthy</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">first<wbr>Truthy&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="boolean.html#filterpredicatefn" class="tsd-signature-type">FilterPredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">first<wbr>Truthy&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="boolean.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/boolean/src/lib/first-truthy.ts#L34">libs/rxjs/boolean/src/lib/first-truthy.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/boolean/src/lib/first-truthy.ts#L34">libs/rxjs/boolean/src/lib/first-truthy.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -263,7 +273,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="boolean.html#filterpredicatefn" class="tsd-signature-type">FilterPredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="boolean.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>Function to do filtering with</p>
 									</div>
@@ -278,13 +288,13 @@
 					<a name="lasttruthy" class="tsd-anchor"></a>
 					<h3>last<wbr>Truthy</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">last<wbr>Truthy&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="boolean.html#filterpredicatefn" class="tsd-signature-type">FilterPredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">last<wbr>Truthy&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="boolean.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/boolean/src/lib/last-truthy.ts#L34">libs/rxjs/boolean/src/lib/last-truthy.ts:34</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/boolean/src/lib/last-truthy.ts#L34">libs/rxjs/boolean/src/lib/last-truthy.ts:34</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -318,7 +328,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="boolean.html#filterpredicatefn" class="tsd-signature-type">FilterPredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="boolean.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h4>
@@ -339,7 +349,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/boolean/src/lib/flip.ts#L21">libs/rxjs/boolean/src/lib/flip.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/boolean/src/lib/flip.ts#L21">libs/rxjs/boolean/src/lib/flip.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -372,7 +382,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/boolean/src/lib/from-boolean.ts#L37">libs/rxjs/boolean/src/lib/from-boolean.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/boolean/src/lib/from-boolean.ts#L37">libs/rxjs/boolean/src/lib/from-boolean.ts:37</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -427,7 +437,7 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/0a29275/libs/rxjs/boolean/src/lib/luhn-check.ts#L21">libs/rxjs/boolean/src/lib/luhn-check.ts:21</a></li>
+									<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/boolean/src/lib/luhn-check.ts#L21">libs/rxjs/boolean/src/lib/luhn-check.ts:21</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -479,7 +489,7 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
-						<a href="boolean.html#filterpredicatefn" class="tsd-kind-icon">Filter<wbr>Predicate<wbr>Fn</a>
+						<a href="boolean.html#predicatefn" class="tsd-kind-icon">Predicate<wbr>Fn</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 						<a href="boolean.html#filtertruthy" class="tsd-kind-icon">filter<wbr>Truthy</a>

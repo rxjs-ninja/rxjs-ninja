@@ -10,9 +10,9 @@ import { map } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * fromBoolean(false)
+ * fromBoolean([false, true, false])
  *  .pipe(flip())
- *  .subscribe() // true
+ *  .subscribe() // true, false, true
  * ```
  *
  * @returns Boolean value flipped from the input

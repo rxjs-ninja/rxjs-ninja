@@ -1,0 +1,15 @@
+import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { SortFn } from '../types/search';
+
+// eslint-disable-next-line
+function defaultSortFn(a: any, b: any): number {
+  if (a === b) return 0;
+  return a < b ? -1 : 1;
+}
+
+// eslint-disable-next-line
+export function sort<T extends any>(fn?: SortFn): MonoTypeOperatorFunction<T[]> {
+  const sortFn = fn || defaultSortFn;
+  return (source: Observable<T[]>) => source.pipe(map((arr) => arr.sort((a, b) => sortFn(a, b))));
+}

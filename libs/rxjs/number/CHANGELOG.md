@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## Unreleased
+
+### Added
+
+- `fromFiboanacci` operator, generates a sequence of Fibonacci numbers, optionally can be passed a delay property to use as a timer, otherwise
+it emits them immediately.
+
 ## [3.0.0] - 2020-11-17
 
 ### Changed

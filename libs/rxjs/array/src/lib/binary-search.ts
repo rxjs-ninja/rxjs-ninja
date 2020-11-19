@@ -5,7 +5,8 @@
 import { Observable, OperatorFunction } from 'rxjs';
 import { map, reduce } from 'rxjs/operators';
 import { binarySearcher, defaultSort } from '../utils/binary-search';
-import { BinarySearchResult, SortFn } from '../types/binary-search';
+import { BinarySearchResult } from '../types/binary-search';
+import { SortFn } from '../types/search';
 
 /**
  * The `binarySearch` operator takes an Observable array of values T and returns a [[BinarySearchResult]]

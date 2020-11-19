@@ -12,7 +12,7 @@ function fibonacci(n: number, memo: { [key: number]: number } = {}): number {
 }
 
 /**
- * Emits a Fibonacci sequence up to the
+ * Emits a Fibonacci sequence up to the total number of iterations passed.
  * @param iterations
  * @param emitDelay
  */

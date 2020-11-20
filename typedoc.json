@@ -15,6 +15,9 @@
   "links": [{
     "label": "Github",
     "url": "https://github.com/tanepiper/rxjs-primitives"
+  }, {
+    "label": "NPM",
+    "url": "https://www.npmjs.com/org/tinynodes"
   }],
   "source": [{
     "path": "https://github.com/tanepiper/rxjs-primitives/blob/master/",

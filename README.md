@@ -2,7 +2,7 @@
 
 RxJS Primitives is a set of libraries that provide operators for [RxJS](https://rxjs-dev.firebaseapp.com/).
 
-The libraries included are below, but you can also find full [API Documentation](https://rxjs.ninja/) is available with examples.
+The libraries included are below, but you can also find full [API Documentation](https://rxjs.ninja) is available with examples.
 
 This library is open source on [Github](https://github.com/tanepiper/rxjs-primitives) and available to install as an `npm` modules.
 

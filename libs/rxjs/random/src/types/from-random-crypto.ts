@@ -1,4 +1,9 @@
 /**
+ * @packageDocumentation
+ * @module random
+ */
+
+/**
  * Options for generating a number from `Crypto` module
  */
 export interface FromRandomCryptoOpts {

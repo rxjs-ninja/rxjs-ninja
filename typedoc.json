@@ -2,7 +2,7 @@
   "name": "RxJS Primitives",
   "mode": "modules",
   "out": "docs",
-  "exclude": ["**/*.spec.ts"],
+  "exclude": ["**/*.spec.ts", "tools/**/*"],
   "excludeExternals": true,
   "excludeNotExported": true,
   "excludePrivate": true,
@@ -12,22 +12,21 @@
   "tsconfig": "tsconfig.base.json",
   "theme": "./node_modules/typedoc-neo-theme/bin/default",
   "favicon": "assets/favicon.ico",
-  "plugin": [
-    "typedoc-neo-theme",
-    "typedoc-plugin-external-module-name",
-    "typedoc-plugin-extras",
-    "./tools/plugins/cname"
+  "cname": "rxjs.ninja",
+  "links": [
+    {
+      "label": "Github",
+      "url": "https://github.com/tanepiper/rxjs-primitives"
+    },
+    {
+      "label": "NPM",
+      "url": "https://www.npmjs.com/org/tinynodes"
+    }
   ],
-  "ghCname": "rxjs.ninja",
-  "links": [{
-    "label": "Github",
-    "url": "https://github.com/tanepiper/rxjs-primitives"
-  }, {
-    "label": "NPM",
-    "url": "https://www.npmjs.com/org/tinynodes"
-  }],
-  "source": [{
-    "path": "https://github.com/tanepiper/rxjs-primitives/blob/master/",
-    "line": "L"
-  }]
+  "source": [
+    {
+      "path": "https://github.com/tanepiper/rxjs-primitives/blob/master/",
+      "line": "L"
+    }
+  ]
 }

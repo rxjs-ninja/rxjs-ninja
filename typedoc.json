@@ -9,5 +9,15 @@
   "stripInternal": true,
   "readme": "README.md",
   "includes": "libs/rxjs",
-  "tsconfig": "tsconfig.base.json"
+  "tsconfig": "tsconfig.base.json",
+  "theme": "./node_modules/typedoc-neo-theme/bin/default",
+  "favicon": "assets/favicon.ico",
+  "links": [{
+    "label": "Github",
+    "url": "https://github.com/tanepiper/rxjs-primitives"
+  }],
+  "source": [{
+    "path": "https://github.com/tanepiper/rxjs-primitives/blob/master/",
+    "line": "L"
+  }]
 }

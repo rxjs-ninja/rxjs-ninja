@@ -7,7 +7,7 @@ This library contains the [RxJS Primitives](https://github.com/tanepiper/rxjs-pr
 
 - [Github](https://github.com/tanepiper/rxjs-primitives)
 - [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/string/CHANGELOG.md)
-- Full [API Documentation](https://tanepiper.github.io/rxjs-primitives/modules/random.html) is available with examples.
+- Full [API Documentation](https://rxjs.ninja/modules/random.html) is available with examples.
 
 ## How to install
 

@@ -1,7 +1,7 @@
 {
   "name": "@tinynodes/rxjs-number",
   "description": "Operators for handling RxJS Observable of numbers",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "keywords": [
     "Rx",
     "RxJS",

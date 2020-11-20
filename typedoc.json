@@ -12,6 +12,13 @@
   "tsconfig": "tsconfig.base.json",
   "theme": "./node_modules/typedoc-neo-theme/bin/default",
   "favicon": "assets/favicon.ico",
+  "plugin": [
+    "typedoc-neo-theme",
+    "typedoc-plugin-external-module-name",
+    "typedoc-plugin-extras",
+    "./tools/plugins/cname"
+  ],
+  "ghCname": "rxjs.ninja",
   "links": [{
     "label": "Github",
     "url": "https://github.com/tanepiper/rxjs-primitives"

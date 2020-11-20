@@ -4,9 +4,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>TrimPosition | RxJS Primitives</title>
-	<meta name="description" content="Documentation for RxJS Primitives">
+	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<link rel="icon" href="../favicon.ico" />
 </head>
 <body>
 <header>
@@ -22,7 +23,10 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
+					<ul class="results-priority" style="display:none">
+					</ul>
 					<a href="../index.html" class="title">RxJS Primitives</a>
+					&emsp;<a href="https://github.com/tanepiper/rxjs-primitives" class="title">Github</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -49,94 +53,18 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
-				</li>
-				<li>
 					<a href="../modules/string.html">string</a>
 				</li>
 				<li>
 					<a href="string.trimposition.html">TrimPosition</a>
 				</li>
 			</ul>
-			<h1>Enumeration TrimPosition</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
-		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>The available positions to trim a string at</p>
-					</div>
-				</div>
-			</section>
-			<section class="tsd-panel-group tsd-index-group">
-				<h2>Index</h2>
-				<section class="tsd-panel tsd-index-panel">
-					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
-							<h3>Enumeration members</h3>
-							<ul class="tsd-index-list">
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="string.trimposition.html#all" class="tsd-kind-icon">ALL</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="string.trimposition.html#end" class="tsd-kind-icon">END</a></li>
-								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="string.trimposition.html#start" class="tsd-kind-icon">START</a></li>
-							</ul>
-						</section>
-					</div>
-				</section>
-			</section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Enumeration members</h2>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="all" class="tsd-anchor"></a>
-					<h3>ALL</h3>
-					<div class="tsd-signature tsd-kind-icon">ALL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;all&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/string/src/types/position.ts#L47">libs/rxjs/string/src/types/position.ts:47</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Trim white space before the first non-whitespace character</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="end" class="tsd-anchor"></a>
-					<h3>END</h3>
-					<div class="tsd-signature tsd-kind-icon">END<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;end&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/string/src/types/position.ts#L43">libs/rxjs/string/src/types/position.ts:43</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Trim white space after the last non-whitespace character</p>
-						</div>
-					</div>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
-					<a name="start" class="tsd-anchor"></a>
-					<h3>START</h3>
-					<div class="tsd-signature tsd-kind-icon">START<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;start&quot;</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/tanepiper/rxjs-primitives/blob/be2e2fe/libs/rxjs/string/src/types/position.ts#L39">libs/rxjs/string/src/types/position.ts:39</a></li>
-						</ul>
-					</aside>
-					<div class="tsd-comment tsd-typography">
-						<div class="lead">
-							<p>Trim white space before the first non-whitespace character</p>
-						</div>
-					</div>
-				</section>
-			</section>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+		<div class="col-3 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="globals  ">
@@ -162,11 +90,96 @@
 					</li>
 				</ul>
 			</nav>
+		</div>
+		<div class="col-7 offset-3 col-content">
+			<h1>Enumeration TrimPosition</h1>
+			<section class="tsd-panel tsd-comment"><div class="tsd-comment tsd-typography tsd-comment-shorttext">
+					<div class="lead">
+						<p>The available positions to trim a string at</p>
+					</div>
+			</div></section>
+			<section class="tsd-panel-group tsd-index-group">
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Enumeration members</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="string.trimposition.html#all" class="tsd-kind-icon">ALL</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="string.trimposition.html#end" class="tsd-kind-icon">END</a></li>
+								<li class="tsd-kind-enum-member tsd-parent-kind-enum"><a href="string.trimposition.html#start" class="tsd-kind-icon">START</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Enumeration members</h2>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="all" class="tsd-anchor"></a>
+					<h3>ALL</h3>
+					<div class="tsd-signature tsd-kind-icon">ALL<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;all&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in
+								<a href="https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/string/src/types/position.ts#L47">
+									libs/rxjs/string/src/types/position.ts:47
+								</a>
+							</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>Trim white space before the first non-whitespace character</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="end" class="tsd-anchor"></a>
+					<h3>END</h3>
+					<div class="tsd-signature tsd-kind-icon">END<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;end&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in
+								<a href="https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/string/src/types/position.ts#L43">
+									libs/rxjs/string/src/types/position.ts:43
+								</a>
+							</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>Trim white space after the last non-whitespace character</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-enum-member tsd-parent-kind-enum">
+					<a name="start" class="tsd-anchor"></a>
+					<h3>START</h3>
+					<div class="tsd-signature tsd-kind-icon">START<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol"> = &quot;start&quot;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in
+								<a href="https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/string/src/types/position.ts#L39">
+									libs/rxjs/string/src/types/position.ts:39
+								</a>
+							</li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>Trim white space before the first non-whitespace character</p>
+						</div>
+					</div>
+				</section>
+			</section>
+			<!--{&quot;options&quot;:&quot;/Users/tpiper1/work/personal/rxjs-primitive&quot;,&quot;tsconfig&quot;:&quot;tsconfig.base.json&quot;,&quot;inputFiles&quot;:[&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/array/index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/array/lib/binary-search.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/array/lib/difference-with.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/array/lib/difference.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/array/lib/flip-array.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/array/lib/intersects-with.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/array/lib/intersects.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/array/lib/sort-map.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/array/lib/sort.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/array/types/array-compare.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/array/types/binary-search.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/array/types/sort.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/array/utils/binary-search.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/array/utils/difference.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/array/utils/intersects.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/boolean/index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/boolean/lib/filter-truthy.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/boolean/lib/first-truthy.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/boolean/lib/flip.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/boolean/lib/from-boolean.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/boolean/lib/last-truthy.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/boolean/lib/luhn-check.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/boolean/types/boolean.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/boolean/utils/from-boolean.utils.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/boolean/utils/luhn-check.utils.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/utility/index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/utility/lib/debounce-with-query.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/utility/lib/map-if-source.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/utility/lib/start-with-tap.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/utility/lib/tap-if.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/utility/lib/tap-on-subscribe.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/dist/libs/rxjs/utility/types/utility.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/binary-search.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/binary-search.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/difference-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/difference-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/difference.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/difference.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/flip-array.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/flip-array.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/intersects-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/intersects-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/intersects.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/intersects.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/sort-map.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/sort-map.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/sort.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/lib/sort.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/types/array-compare.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/types/binary-search.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/types/sort.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/utils/binary-search.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/utils/difference.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/array/src/utils/intersects.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/lib/filter-truthy.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/lib/filter-truthy.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/lib/first-truthy.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/lib/first-truthy.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/lib/flip.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/lib/flip.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/lib/from-boolean.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/lib/from-boolean.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/lib/last-truthy.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/lib/last-truthy.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/lib/luhn-check.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/lib/luhn-check.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/types/boolean.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/utils/from-boolean.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/utils/luhn-check.utils.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/boolean/src/utils/luhn-check.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/filter-in-range.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/filter-in-range.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/filter-is-finite.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/filter-is-finite.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/filter-is-float.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/filter-is-float.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/filter-is-integer.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/filter-is-integer.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/filter-is-not-nan.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/filter-is-not-nan.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/filter-is-safe-integer.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/filter-is-safe-integer.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/filter-out-of-range.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/filter-out-of-range.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/from-fibonacci.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/from-fibonacci.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/from-number.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/from-number.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/in-range.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/in-range.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/is-finite.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/is-finite.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/is-float.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/is-float.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/is-integer.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/is-integer.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/is-nan.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/is-nan.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/is-not-nan.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/is-not-nan.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/is-safe-integer.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/is-safe-integer.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/out-of-range.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/out-of-range.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/parse-float.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/parse-float.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/parse-int.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/parse-int.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/to-exponential.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/to-exponential.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/to-locale-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/to-locale-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/to-precision.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/to-precision.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/to-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/lib/to-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/utils/from-fibonacci.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/number/src/utils/from-number.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/random/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/random/src/lib/from-random-crypto.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/random/src/lib/from-random-crypto.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/random/src/lib/from-random-integer.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/random/src/lib/from-random-integer.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/random/src/lib/from-random-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/random/src/lib/from-random-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/random/src/lib/from-random.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/random/src/lib/from-random.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/random/src/types/from-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/char-at.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/char-at.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/char-code-at.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/char-code-at.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/code-point-at.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/code-point-at.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/concat.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/concat.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/ends-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/ends-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/filter-ends-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/filter-ends-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/filter-includes.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/filter-includes.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/filter-starts-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/filter-starts-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/from-char-code.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/from-char-code.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/from-code-point.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/from-code-point.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/from-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/from-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/from-unicode.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/from-unicode.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/includes.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/includes.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/index-of.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/index-of.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/last-index-of.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/last-index-of.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/map-char-code.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/map-char-code.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/map-code-point.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/map-code-point.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/match-all.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/match-all.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/match.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/match.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/normalize.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/normalize.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/pad-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/pad-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/repeat.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/repeat.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/replace.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/replace.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/reverse.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/reverse.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/search.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/search.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/slice.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/slice.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/split.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/split.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/starts-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/starts-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/substring.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/substring.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/titleize.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/titleize.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/to-lower-case.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/to-lower-case.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/to-upper-case.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/to-upper-case.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/trim-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/lib/trim-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/types/normalize.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/types/position.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/utils/from-char-code.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/utils/from-code-point.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/utils/from-string.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/string/src/utils/from-unicode.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/utility/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/utility/src/lib/debounce-with-query.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/utility/src/lib/debounce-with-query.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/utility/src/lib/map-if-source.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/utility/src/lib/map-if-source.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/utility/src/lib/start-with-tap.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/utility/src/lib/start-with-tap.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/utility/src/lib/tap-if.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/utility/src/lib/tap-if.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/utility/src/lib/tap-on-subscribe.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/utility/src/lib/tap-on-subscribe.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-primitive/libs/rxjs/utility/src/types/utility.ts&quot;],&quot;mode&quot;:1,&quot;includeDeclarations&quot;:false,&quot;entryPoint&quot;:&quot;&quot;,&quot;exclude&quot;:[&quot;**/*.spec.ts&quot;],&quot;externalPattern&quot;:[],&quot;excludeExternals&quot;:true,&quot;excludeNotExported&quot;:true,&quot;excludeNotDocumented&quot;:false,&quot;excludePrivate&quot;:true,&quot;excludeProtected&quot;:false,&quot;ignoreCompilerErrors&quot;:false,&quot;disableSources&quot;:false,&quot;includes&quot;:&quot;libs/rxjs&quot;,&quot;media&quot;:&quot;&quot;,&quot;out&quot;:&quot;docs&quot;,&quot;json&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-neo-theme/bin/default&quot;,&quot;name&quot;:&quot;RxJS Primitives&quot;,&quot;includeVersion&quot;:false,&quot;excludeTags&quot;:[],&quot;readme&quot;:&quot;README.md&quot;,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;gitRemote&quot;:&quot;origin&quot;,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:false,&quot;toc&quot;:[],&quot;disableOutputCheck&quot;:false,&quot;help&quot;:false,&quot;version&quot;:false,&quot;plugin&quot;:[],&quot;logger&quot;:&quot;console&quot;,&quot;listInvalidSymbolLinks&quot;:false,&quot;links&quot;:[{&quot;label&quot;:&quot;Github&quot;,&quot;url&quot;:&quot;https://github.com/tanepiper/rxjs-primitives&quot;}],&quot;source&quot;:[{&quot;path&quot;:&quot;https://github.com/tanepiper/rxjs-primitives/blob/master/&quot;,&quot;line&quot;:&quot;L&quot;}],&quot;disableAutoModuleName&quot;:&quot;false&quot;,&quot;favicon&quot;:&quot;assets/favicon.ico&quot;,&quot;noFavicon&quot;:false,&quot;hideDate&quot;:false,&quot;hideTime&quot;:false}-->
+		</div>
+		<div class="col-2 col-menu secondary-menu">
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-enum tsd-parent-kind-module">
+					<li class="current tsd-kind-enum tsd-parent-kind-module root">
 						<a href="string.trimposition.html" class="tsd-kind-icon">Trim<wbr>Position</a>
 						<ul>
 							<li class=" tsd-kind-enum-member tsd-parent-kind-enum">
@@ -188,25 +201,9 @@
 	</div>
 </div>
 <footer class="with-border-bottom">
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-type-alias tsd-has-type-parameter"><span class="tsd-kind-icon">Type alias with type parameter</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-			</ul>
-		</div>
-	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 11/20/2020 at 9:35:17 AM</p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>

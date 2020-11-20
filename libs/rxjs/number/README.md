@@ -9,7 +9,7 @@ Some methods from this library are based on ECMAScript [Number](https://develope
 
 - [Github](https://github.com/tanepiper/rxjs-primitives)
 - [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/number/CHANGELOG.md)
-- Full [API Documentation](https://tanepiper.github.io/rxjs-primitives/modules/number.html) is available with examples.
+- Full [API Documentation](https://rxjs.ninja/modules/number.html) is available with examples.
 
 ## How to install
 

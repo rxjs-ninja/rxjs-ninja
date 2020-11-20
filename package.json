@@ -41,6 +41,7 @@
     "@nrwl/nx-cloud": "10.1.9",
     "@nrwl/web": "10.4.4",
     "@nrwl/workspace": "10.4.4",
+    "@trust/webcrypto": "^0.9.2",
     "@types/jest": "26.0.15",
     "@types/node": "^14.14.9",
     "@typescript-eslint/eslint-plugin": "4.8.1",

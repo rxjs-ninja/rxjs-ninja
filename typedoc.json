@@ -10,9 +10,15 @@
   "readme": "README.md",
   "includes": "libs/rxjs",
   "tsconfig": "tsconfig.base.json",
-  "theme": "./node_modules/typedoc-neo-theme/bin/default",
+  "theme": "./node_modules/typedoc-loopingz-theme/bin/default",
   "favicon": "assets/favicon.ico",
   "cname": "rxjs.ninja",
+  "plugin": [
+    "typedoc-loopingz-theme",
+    "typedoc-plugin-external-module-name",
+    "typedoc-plugin-extras",
+    "typedoc-plugin-ghpages-cname"
+  ],
   "links": [
     {
       "label": "Github",

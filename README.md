@@ -4,7 +4,7 @@
 
 RxJS Ninja is a set of libraries that provide operators for [RxJS](https://rxjs.dev).
 
-This library is open source on [Github](https://github.com/tanepiper/rxjs-ninja) and available to install as an `npm` modules.
+This library is open source on [Github](https://github.com/rxjs-ninja/rxjs-ninja) and available to install as an `npm` modules.
 
 [![rxjs-array](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-array?label=rxjs-array)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-array)
 [![rxjs-boolean](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-boolean?label=rxjs-boolean)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-boolean)

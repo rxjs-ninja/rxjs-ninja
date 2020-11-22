@@ -1,5 +1,6 @@
 {
-  "name": "rxjs-ninja",
+  "name": "@rxjs-ninja/rxjs-ninja",
+  "deacription": "This is the tooling for the rxjs ninja repo",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {

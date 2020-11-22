@@ -18,7 +18,7 @@ You can also check out the source on [GitHub](https://github.com/rxjs-ninja/rxjs
 
 [![rxjs-array](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-array?label=@rxjs-ninja/rxjs-array)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-array)
 
-[Full API](https://rxjs.ninja/modules/array.html)
+[API Documentation](https://rxjs.ninja/modules/array.html)
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/CHANGELOG.md)
 
@@ -49,7 +49,7 @@ of([10, 4, 7, 3, 1, 29, 5])
 
 [![rxjs-boolean](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-boolean?label=@rxjs-ninja/rxjs-boolean)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-boolean)
 
-[Full API](https://rxjs.ninja/modules/boolean.html)
+[API Documentation](https://rxjs.ninja/modules/boolean.html)
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/boolean/CHANGELOG.md)
 
@@ -71,7 +71,7 @@ inputObs$.pipe(lastTruthy()).subscribe(); // ['Ninja']
 
 [![rxjs-number](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-number?label=@rxjs-ninja/rxjs-number)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-number)
 
-[Full API](https://rxjs.ninja/modules/number.html)
+[API Documentation](https://rxjs.ninja/modules/number.html)
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/CHANGELOG.md)
 
@@ -93,7 +93,7 @@ inputObs$.pipe(filterOutOfRange(4, 10)).subscribe(); // 3, 12, 2, 1
 
 [![rxjs-random](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-random?label=@rxjs-ninja/rxjs-random)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-random)
 
-[Full API](https://rxjs.ninja/modules/random.html)
+[API Documentation](https://rxjs.ninja/modules/random.html)
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/CHANGELOG.md)
 
@@ -131,7 +131,7 @@ fromRandomCrypto(0, { bytes: 1, unsigned: true })
 
 [![rxjs-string](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-string?label=@rxjs-ninja/rxjs-string)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-string)
 
-[Full API](https://rxjs.ninja/modules/string.html)
+[API Documentation](https://rxjs.ninja/modules/string.html)
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/CHANGELOG.md)
 
@@ -153,7 +153,7 @@ inputObs$.pipe(titleize()).subscribe(); // Full Power, Half Power, Quarter Power
 
 [![rxjs-utility](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-utility?label=@rxjs-ninja/rxjs-utility)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-utility)
 
-- [Full API](https://rxjs.ninja/modules/string.html)
+- [API Documentation](https://rxjs.ninja/modules/string.html)
 - [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/CHANGELOG.md)
 
 `@rxjs-ninja/rxjs-utility` provides operators for working with Observable values to view them, and modify them and don't

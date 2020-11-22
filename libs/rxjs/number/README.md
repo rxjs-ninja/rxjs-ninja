@@ -6,7 +6,7 @@
 
 [Website](http://rxjs.ninja)
 |
-[Full API](https://rxjs.ninja/modules/number.html)
+[API Documentation](https://rxjs.ninja/modules/number.html)
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/CHANGELOG.md)
 

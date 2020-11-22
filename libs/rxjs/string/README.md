@@ -1,16 +1,13 @@
 # RxJS Ninja - String Operators
 
-[![rxjs-string](https://img.shields.io/npm/v/@tinynodes/rxjs-string?label=rxjs-string)](https://www.npmjs.com/package/@tinynodes/rxjs-string)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tanepiper_rxjs-ninja&metric=alert_status)](https://sonarcloud.io/dashboard?id=tanepiper_rxjs-ninja)
+![The RXJS Ninja Logo](https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/master/assets/logo.png)
 
-This library contains the [RxJS Ninja](https://github.com/tanepiper/rxjs-ninja) for working with numbers including equality checks, formatting and creation.
+[RxJS Ninja](http://rxjs.ninja) is a set of utility operators and observables for use with the [RxJS](https://rxjs.dev) library.
 
-Some methods from this library are based on ECMAScript [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) methods.
+The String library is for use with generating and piping string values - more details are in the [Full API](https://rxjs.ninja/modules/string.html)
 
-- [Github](https://github.com/tanepiper/rxjs-ninja)
-- [Changelog](https://github.com/tanepiper/rxjs-ninja/blob/master/libs/rxjs/string/CHANGELOG.md)
-- Full [API Documentation](https://rxjs.ninja/modules/string.html) is available with examples.
+[![rxjs-string](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-string?label=rxjs-string)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-string)
 
 ## How to install
 
-> `npm install @tinynodes/rxjs-string`
+> `npm install @rxjs-ninja/rxjs-boolean`

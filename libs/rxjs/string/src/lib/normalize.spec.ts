@@ -1,4 +1,4 @@
-import { normalize } from '@tinynodes/rxjs-string';
+import { normalize } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('normalize', () => {

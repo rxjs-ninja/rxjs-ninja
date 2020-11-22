@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.1.0] - 2020-11-22
+
+This release is now under `@rxjs-ninja/rxjs-random`
+
+### Changed
+
+- `fromRandomCrypto` now takes an additional third parameter with `FromRandomCryptoOpts` which allows
+for `1 & 2 byte` values and unsigned values. 
+
 ## [1.0.1] - 2020-11-20
 
 ### Changed

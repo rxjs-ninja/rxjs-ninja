@@ -1,11 +1,13 @@
-# RxJS Ninja - Utility Library
+# RxJS Ninja - Utility Operators
 
-This library is for [RxJS Ninja](https://github.com/tanepiper/rxjs-ninja) and
-provides some convenience operators for [RxJS](https://rxjs-dev.firebaseapp.com/) that provide some useful features.
+![The RXJS Ninja Logo](https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/master/assets/logo.png)
 
-- [Github](https://github.com/tanepiper/rxjs-ninja)
-- Full [API Documentation](https://rxjs.ninja/) is available with examples.
+[RxJS Ninja](http://rxjs.ninja) is a set of utility operators and observables for use with the [RxJS](https://rxjs.dev) library.
+
+The Utility library is for use with Observable values and provides utility methods for use with piping - more details are in the [Full API](https://rxjs.ninja/modules/utility.html)
+
+[![rxjs-utility](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-utility?label=rxjs-utility)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-utility)
 
 ## How to install
 
-> `npm install @tinynodes/rxjs-boolean`
+> `npm install @rxjs-ninja/rxjs-boolean`

@@ -1,4 +1,4 @@
-import { codePointAt } from '@tinynodes/rxjs-string';
+import { codePointAt } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('codePointAt', () => {

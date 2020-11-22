@@ -1,4 +1,4 @@
-import { mapCodePoint } from '@tinynodes/rxjs-string';
+import { mapCodePoint } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('mapCodePoint', () => {

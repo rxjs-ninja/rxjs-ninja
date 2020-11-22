@@ -1,4 +1,4 @@
-import { filterIsNotNaN } from '@tinynodes/rxjs-number';
+import { filterIsNotNaN } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('filterIsNotNaN', () => {

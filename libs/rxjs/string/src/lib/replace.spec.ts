@@ -1,4 +1,4 @@
-import { replace } from '@tinynodes/rxjs-string';
+import { replace } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('replace', () => {

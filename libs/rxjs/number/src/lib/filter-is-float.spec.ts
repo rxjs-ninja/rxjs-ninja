@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { filterIsFloat } from '@tinynodes/rxjs-number';
+import { filterIsFloat } from '@rxjs-ninja/rxjs-number';
 
 describe('filterIsFloat', () => {
   it(

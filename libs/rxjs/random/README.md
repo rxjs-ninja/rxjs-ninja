@@ -1,14 +1,13 @@
 # RxJS Ninja - Random Operators
 
-[![rxjs-random](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-string?label=rxjs-string)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-random)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tanepiper_rxjs-primitives&metric=alert_status)](https://sonarcloud.io/dashboard?id=tanepiper_rxjs-primitives)
+![The RXJS Ninja Logo](https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/master/assets/logo.png)
 
-This library contains the [RxJS Ninja](https://github.com/tanepiper/rxjs-primitives) for working with generating random numbers and strings.
+[RxJS Ninja](http://rxjs.ninja) is a set of utility operators and observables for use with the [RxJS](https://rxjs.dev) library.
 
-- [Github](https://github.com/tanepiper/rxjs-primitives)
-- [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/string/CHANGELOG.md)
-- Full [API Documentation](https://rxjs.ninja/modules/random.html) is available with examples.
+The Random library is for use with generating and piping random values, both numbers and strings - more details are in the [Full API](https://rxjs.ninja/modules/random.html)
+
+[![rxjs-random](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-random?label=rxjs-random)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-random)
 
 ## How to install
 
-> `npm install @rxjs-ninja/rxjs-string`
+> `npm install @rxjs-ninja/rxjs-boolean`

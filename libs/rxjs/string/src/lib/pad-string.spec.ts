@@ -1,4 +1,4 @@
-import { PadPosition, padString } from '@tinynodes/rxjs-string';
+import { PadPosition, padString } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('pad string', () => {

@@ -6,7 +6,7 @@
 
 [Website](https://rxjs.ninja)
 |
-[Full API](https://rxjs.ninja/modules/array.html)
+[API Documentation](https://rxjs.ninja/modules/array.html)
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/CHANGELOG.md)
 

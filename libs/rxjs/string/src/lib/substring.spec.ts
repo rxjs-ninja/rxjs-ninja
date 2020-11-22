@@ -1,4 +1,4 @@
-import { substring } from '@tinynodes/rxjs-string';
+import { substring } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('substring', () => {

@@ -2,9 +2,7 @@
 
 ![The RXJS Ninja Logo](https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/master/assets/logo.png)
 
-RxJS Ninja is a set of libraries that provide operators for [RxJS](https://rxjs-dev.firebaseapp.com/).
-
-The libraries included are below, but you can also find full [API Documentation](https://rxjs.ninja) is available with examples.
+RxJS Ninja is a set of libraries that provide operators for [RxJS](https://rxjs.dev).
 
 This library is open source on [Github](https://github.com/tanepiper/rxjs-ninja) and available to install as an `npm` modules.
 
@@ -38,7 +36,7 @@ A set of utility operators for various method for `Observable` arrays
 #### Information
 
 - [Documentation](https://rxjs.ninja/modules/array.html)
-- [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/array/CHANGELOG.md)
+- [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/array/CHANGELOG.md)
 
 ### rxjs-boolean
 
@@ -51,7 +49,7 @@ A set of utility operators for handling equality checking and boolean values fro
 #### Information
 
 - [Documentation](https://rxjs.ninja/modules/boolean.html)
-- [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/boolean/CHANGELOG.md)
+- [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/boolean/CHANGELOG.md)
 
 ### rxjs-number
 
@@ -70,7 +68,7 @@ There are also operators for formatting numbers as strings such as `toLocaleStri
 #### Information
 
 - [Documentation](https://rxjs.ninja/modules/number.html)
-- [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/number/CHANGELOG.md)
+- [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/number/CHANGELOG.md)
 
 ### rxjs-random
 
@@ -83,7 +81,7 @@ A set of operators for generating Observable from random values.
 #### Information
 
 - [Documentation](https://rxjs.ninja/modules/random.html)
-- [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/random/CHANGELOG.md)
+- [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/random/CHANGELOG.md)
 
 ### rxjs-string
 
@@ -102,7 +100,7 @@ There are also methods for querying strings, generating substrings, exploding st
 #### Information
 
 - [Documentation](https://rxjs.ninja/modules/string.html)
-- [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/string/CHANGELOG.md)
+- [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/string/CHANGELOG.md)
 
 ### rxjs-utility
 
@@ -114,6 +112,8 @@ A set of extra utility operators that provide some useful functionality when dea
 
 #### Information
 
+*This library was formally knows as RxJS Primitives published under the `@tinynodes` npm domain.*
+
 - [Documentation](https://rxjs.ninja/utility/boolean.html)
-- [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/utility/CHANGELOG.md)
+- [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/utility/CHANGELOG.md)
 - Logo created by [DesignEvo logo maker](https://www.designevo.com/logo-maker/)

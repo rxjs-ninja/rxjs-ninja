@@ -1,5 +1,5 @@
 import { from } from 'rxjs';
-import { tapOnSubscribe } from '@tinynodes/rxjs-utility';
+import { tapOnSubscribe } from '@rxjs-ninja/rxjs-utility';
 import { finalize, take } from 'rxjs/operators';
 import { observe } from 'rxjs-marbles/jest';
 

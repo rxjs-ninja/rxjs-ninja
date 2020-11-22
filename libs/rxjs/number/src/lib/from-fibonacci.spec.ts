@@ -1,4 +1,4 @@
-import { fromFibonacci } from '@tinynodes/rxjs-number';
+import { fromFibonacci } from '@rxjs-ninja/rxjs-number';
 import { observe } from 'rxjs-marbles/jest';
 import { reduce, tap } from 'rxjs/operators';
 

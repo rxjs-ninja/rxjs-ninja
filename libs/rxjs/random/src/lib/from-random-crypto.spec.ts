@@ -1,7 +1,7 @@
 import { getRandomValues } from '@trust/webcrypto';
 import { observe } from 'rxjs-marbles/jest';
 import { reduce, take, tap } from 'rxjs/operators';
-import { fromRandomCrypto } from '@tinynodes/rxjs-random';
+import { fromRandomCrypto } from '@rxjs-ninja/rxjs-random';
 
 describe('fromRandomCrypto', () => {
   beforeAll(() => {

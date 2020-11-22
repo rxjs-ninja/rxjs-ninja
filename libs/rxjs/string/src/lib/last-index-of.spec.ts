@@ -1,4 +1,4 @@
-import { lastIndexOf } from '@tinynodes/rxjs-string';
+import { lastIndexOf } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('lastIndexOf', () => {

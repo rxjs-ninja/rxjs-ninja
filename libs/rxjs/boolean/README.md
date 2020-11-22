@@ -1,10 +1,12 @@
 # RxJS Ninja - Boolean Operators
 
-This library is for [RxJS Ninja](https://github.com/tanepiper/rxjs-ninja) and provides some convenience
-operators for [RxJS](https://rxjs-dev.firebaseapp.com/) around filtering values from Observables using boolean logic.
+![The RXJS Ninja Logo](https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/master/assets/logo.png)
 
-- [Github](https://github.com/tanepiper/rxjs-ninja)
-- Full [API Documentation](https://rxjs.ninja) is available with examples.
+[RxJS Ninja](http://rxjs.ninja) is a set of utility operators and observables for use with the [RxJS](https://rxjs.dev) library.
+
+The Boolean library is for use with generating and piping boolean values - more details are in the [Full API](https://rxjs.ninja/modules/boolean.html)
+
+[![rxjs-boolean](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-boolean?label=rxjs-boolean)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-boolean)
 
 ## How to install
 

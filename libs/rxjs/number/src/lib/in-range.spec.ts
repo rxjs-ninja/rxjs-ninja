@@ -1,4 +1,4 @@
-import { inRange } from '@tinynodes/rxjs-number';
+import { inRange } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('inRange', () => {

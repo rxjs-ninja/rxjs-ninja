@@ -1,4 +1,4 @@
-import { slice } from '@tinynodes/rxjs-string';
+import { slice } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('slice', () => {

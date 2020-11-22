@@ -1,4 +1,4 @@
-import { filterOutOfRange } from '@tinynodes/rxjs-number';
+import { filterOutOfRange } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('filterOutOfRange', () => {

@@ -1,4 +1,4 @@
-import { filterIsSafeInteger } from '@tinynodes/rxjs-number';
+import { filterIsSafeInteger } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('filterIsSafeInteger', () => {

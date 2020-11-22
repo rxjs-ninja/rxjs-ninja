@@ -1,4 +1,4 @@
-import { endsWith } from '@tinynodes/rxjs-string';
+import { endsWith } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('endsWith', () => {

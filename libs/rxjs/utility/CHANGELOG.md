@@ -5,9 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [2.1.1] - 2020-11-22
+## [2.1.2] - 2020-11-22
 
-Same version released under new NPM package name `@rxjs-ninja/rxjs-utility`
+### Changed
+
+- Package is now published under `@rxjs-ninja/rxjs-utility` (this also includes previous version for migration from `@tinynodes/rxjs-utility`)
+- Documentation updates
 
 ## [2.1.1] - 2020-11-20
 

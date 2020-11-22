@@ -64,7 +64,7 @@ jobs:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: |
           npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
-          ./.github/scripts/library-deploy.sh
+          ./.github/scripts/library-publish.sh
 
       - name: Build Docs
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false

@@ -9,9 +9,9 @@ COVERAGE_RULE=$([[ "$WITH_COVERAGE" == 'True' ]] && echo "--codeCoverage" || ech
 
 echo "Running Unit Testing"
 if [[ "$RUN_ALL" == "True" ]]; then
-  npm run affected:test -- "$COVERAGE_RULE" --all --skip-nx-cache
+  npm run affected:test -- "$COVERAGE_RULE" --all --skip-nx-cache --parallel --maxParallel=2
 else
-  npm run affected:test -- --base="origin/main" "$COVERAGE_RULE" --skip-nx-cache
+  npm run affected:test -- --base=origin/main~1 "$COVERAGE_RULE" --skip-nx-cache --parallel --maxParallel=2
 fi
 echo "Unit Testing Complete"
 if [[ "$WITH_COVERAGE" == "True" ]]; then

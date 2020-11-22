@@ -17,6 +17,7 @@
     "typedoc-loopingz-theme",
     "typedoc-plugin-external-module-name",
     "typedoc-plugin-extras",
+    "typedoc-plugin-pages",
     "typedoc-plugin-ghpages-cname"
   ],
   "links": [
@@ -34,5 +35,10 @@
       "path": "https://github.com/rxjs-ninja/rxjs-ninja/blob/main/",
       "line": "L"
     }
-  ]
+  ],
+  "pages": {
+    "replaceGlobalsPage": true,
+    "groups": [],
+    "output": "pages"
+  }
 }

@@ -1,13 +1,25 @@
-# RxJS Ninja - Boolean Operators
+# RxJS Ninja - Booleans
 
-![The RXJS Ninja Logo](https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/master/assets/logo.png)
+![The RXJS Ninja Logo](https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/main/assets/logo.png)
 
-[RxJS Ninja](http://rxjs.ninja) is a set of utility operators and observables for use with the [RxJS](https://rxjs.dev) library.
+[![rxjs-boolean](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-boolean?label=@rxjs-ninja/rxjs-boolean)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-boolean)
 
-The Boolean library is for use with generating and piping boolean values - more details are in the [Full API](https://rxjs.ninja/modules/boolean.html)
+[Website](https://rxjs.ninja)
+|
+[Full API](https://rxjs.ninja/modules/boolean.html)
+|
+[Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/boolean/CHANGELOG.md)
 
-[![rxjs-boolean](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-boolean?label=rxjs-boolean)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-boolean)
+`@rxjs-ninja/rxjs-boolean` provides operators for querying, filtering and modifying boolean values, and Observable for generating boolean emitters.
 
-## How to install
+For example, you can use the `firstTruthy` or `lastTruthy` value from an array:
 
-> `npm install @rxjs-ninja/rxjs-boolean`
+```ts
+import { from } from 'rxjs';
+import { firstTruthy, lastTruthy } from '@rxjs-ninja/rxjs-array';
+
+const inputObs$ = from(['', '', 'Hello', 'There', 'RxJS', 'Ninja', '', '']);
+
+inputObs$.pipe(firstTruthy()).subscribe(); // ['Hello']
+inputObs$.pipe(lastTruthy()).subscribe(); // ['Ninja']
+```

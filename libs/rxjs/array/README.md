@@ -1,13 +1,34 @@
-# RxJS Ninja - Array Operators
+# RxJS Ninja - Arrays
 
-![The RXJS Ninja Logo](https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/master/assets/logo.png)
+![The RXJS Ninja Logo](https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/main/assets/logo.png)
 
-[RxJS Ninja](http://rxjs.ninja) is a set of utility operators and observables for use with the [RxJS](https://rxjs.dev) library.
+[![rxjs-array](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-array?label=@rxjs-ninja/rxjs-array)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-array)
 
-The Array library is for use with piping arrays, and their values - more details are in the [Full API](https://rxjs.ninja/modules/array.html)
+[Website](https://rxjs.ninja)
+|
+[Full API](https://rxjs.ninja/modules/array.html)
+|
+[Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/CHANGELOG.md)
 
-[![rxjs-array](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-array?label=rxjs-array)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-array)
+`@rxjs-ninja/rxjs-array` provides operators for querying, filtering and modifying arrays.
 
-## How to install
+For example, you could `sortMap` an array of values from number into boolean and them `flipArray` the values:
 
-> `npm install @rxjs-ninja/rxjs-array`
+```ts
+import { of } from 'rxjs';
+import { sortMap, flipArray } from '@rxjs-ninja/rxjs-array';
+
+of([10, 4, 7, 3, 1, 29, 5])
+  .pipe(
+    /**
+     * Out of the box `sortMap` does a basic sort on an array so the
+     * result will be [1, 3, 4, 5, 7, 10, 29]
+     * Then the map function will be called with the result, here we do a modulus 2 check
+     * so the result is [false, false, true, false, false, true, false]
+     */
+    sortMap((value) => value % 2),
+    // Now we flip the array
+    flipArray(),
+  )
+  .subscribe(); // [true, true, false, true, true, false, true]
+```

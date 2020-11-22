@@ -7,7 +7,7 @@ echo "Running Linting"
 if [[ "$RUN_ALL" == "True" ]]; then
   npm run affected:lint -- --all
 else
-  npm run affected:lint -- --base="origin/master"
+  npm run affected:lint -- --base="origin/main"
 fi
 echo "Linting Complete"
 wait

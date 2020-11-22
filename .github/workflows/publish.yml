@@ -1,8 +1,8 @@
-name: Merge on master
+name: Merge on main
 on:
   pull_request:
     branches:
-      - master
+      - main
     types: [closed]
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
       # Make sure we have all branches
       - name: Fetch other branches
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
-        run: git fetch --no-tags --prune --depth=5 origin master
+        run: git fetch --no-tags --prune --depth=5 origin main
 
       # Setup node
       - name: Use Node.js ${{ matrix.node-version }}

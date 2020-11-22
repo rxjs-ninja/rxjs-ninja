@@ -1,13 +1,25 @@
-# RxJS Ninja - Number Operators
+# RxJS Ninja - Numbers
 
-![The RXJS Ninja Logo](https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/master/assets/logo.png)
+![The RXJS Ninja Logo](https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/main/assets/logo.png)
 
-[RxJS Ninja](http://rxjs.ninja) is a set of utility operators and observables for use with the [RxJS](https://rxjs.dev) library.
+[![rxjs-number](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-number?label=@rxjs-ninja/rxjs-number)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-number)
 
-The Number library is for use with generating and piping number values - more details are in the [Full API](https://rxjs.ninja/modules/number.html)
+[Website](http://rxjs.ninja)
+|
+[Full API](https://rxjs.ninja/modules/number.html)
+|
+[Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/CHANGELOG.md)
 
-[![rxjs-number](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-number?label=rxjs-number)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-number)
+`@rxjs-ninja/rxjs-number` provides operators for querying, filtering and modifying number values, and Observable for generating number emitters.
 
-## How to install
+For example, you can use the `fromNumber` to generate a sequence of numbers and filter out ones
+that are out of range.
 
-> `npm install @rxjs-ninja/rxjs-number`
+```ts
+import { fromNumber, filterInRange, fitlerOutOfRange } from '@rxjs-ninja/rxjs-number';
+
+const inputObs$ = fromNumber([10, 4, 3, 6, 12, 2, 1, 5]);
+
+inputObs$.pipe(filterInRange(4, 10)).subscribe(); // 10, 4, 6, 5
+inputObs$.pipe(filterOutOfRange(4, 10)).subscribe(); // 3, 12, 2, 1
+```

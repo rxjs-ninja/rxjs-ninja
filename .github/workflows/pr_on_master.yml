@@ -1,11 +1,11 @@
-# File for Pull Request on master branch
-name: PR on master
+# File for Pull Request on main branch
+name: PR on main
 
-# When a PR is opened to master
+# When a PR is opened to main
 on:
   pull_request:
     branches:
-      - master
+      - main
     types: [opened, reopened, synchronize]
 
 jobs:
@@ -32,7 +32,7 @@ jobs:
 
       # Make sure we have all branches
       - name: Fetch other branches
-        run: git fetch --no-tags --prune --depth=5 origin master
+        run: git fetch --no-tags --prune --depth=5 origin main
 
       - name: Install environment
         run: npm ci

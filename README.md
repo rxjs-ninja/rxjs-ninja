@@ -1,11 +1,11 @@
 ## RxJS Ninja
 
-![The RXJS Ninja Logo](https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/master/assets/logo.png)
+![The RXJS Ninja Logo](https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/main/assets/logo.png)
 
 RxJS Ninja is a set of libraries that provide operators and observables for [RxJS](https://rxjs.dev).
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rxjs-ninja_rxjs-ninja&metric=alert_status)](https://sonarcloud.io/dashboard?id=rxjs-ninja_rxjs-ninja)
-[![codecov](https://codecov.io/gh/rxjs-ninja/rxjs-ninja/branch/master/graph/badge.svg?token=RCNN1XMSN4)](https://codecov.io/gh/rxjs-ninja/rxjs-ninja)
+[![codecov](https://codecov.io/gh/rxjs-ninja/rxjs-ninja/branch/main/graph/badge.svg?token=RCNN1XMSN4)](https://codecov.io/gh/rxjs-ninja/rxjs-ninja)
 
 ### Packages
 
@@ -18,8 +18,9 @@ You can also check out the source on [GitHub](https://github.com/rxjs-ninja/rxjs
 
 [![rxjs-array](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-array?label=@rxjs-ninja/rxjs-array)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-array)
 
-- [Full API](https://rxjs.ninja/modules/array.html)
-- [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/array/CHANGELOG.md)
+[Full API](https://rxjs.ninja/modules/array.html)
+|
+[Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/CHANGELOG.md)
 
 `@rxjs-ninja/rxjs-array` provides operators for querying, filtering and modifying arrays.
 
@@ -37,18 +38,20 @@ of([10, 4, 7, 3, 1, 29, 5])
      * Then the map function will be called with the result, here we do a modulus 2 check
      * so the result is [false, false, true, false, false, true, false]
      */
-    sortMap(value => value % 2),
+    sortMap((value) => value % 2),
     // Now we flip the array
-    flipArray()
-  ).subscribe() // [true, true, false, true, true, false, true]
+    flipArray(),
+  )
+  .subscribe(); // [true, true, false, true, true, false, true]
 ```
 
 #### Booleans
 
 [![rxjs-boolean](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-boolean?label=@rxjs-ninja/rxjs-boolean)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-boolean)
 
-- [Full API](https://rxjs.ninja/modules/boolean.html)
-- [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/boolean/CHANGELOG.md)
+[Full API](https://rxjs.ninja/modules/boolean.html)
+|
+[Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/boolean/CHANGELOG.md)
 
 `@rxjs-ninja/rxjs-boolean` provides operators for querying, filtering and modifying boolean values, and Observable for generating boolean emitters.
 
@@ -60,16 +63,17 @@ import { firstTruthy, lastTruthy } from '@rxjs-ninja/rxjs-array';
 
 const inputObs$ = from(['', '', 'Hello', 'There', 'RxJS', 'Ninja', '', '']);
 
-inputObs$.pipe(firstTruthy()).subscribe() // ['Hello']
-inputObs$.pipe(lastTruthy()).subscribe() // ['Ninja']
+inputObs$.pipe(firstTruthy()).subscribe(); // ['Hello']
+inputObs$.pipe(lastTruthy()).subscribe(); // ['Ninja']
 ```
 
 #### Numbers
 
 [![rxjs-number](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-number?label=@rxjs-ninja/rxjs-number)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-number)
 
-- [Full API](https://rxjs.ninja/modules/number.html)
-- [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/number/CHANGELOG.md)
+[Full API](https://rxjs.ninja/modules/number.html)
+|
+[Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/CHANGELOG.md)
 
 `@rxjs-ninja/rxjs-number` provides operators for querying, filtering and modifying number values, and Observable for generating number emitters.
 
@@ -81,16 +85,17 @@ import { fromNumber, filterInRange, fitlerOutOfRange } from '@rxjs-ninja/rxjs-nu
 
 const inputObs$ = fromNumber([10, 4, 3, 6, 12, 2, 1, 5]);
 
-inputObs$.pipe(filterInRange(4, 10)).subscribe() ;// 10, 4, 6, 5
-inputObs$.pipe(filterOutOfRange(4, 10)).subscribe(); // 3, 12, 2, 1 
+inputObs$.pipe(filterInRange(4, 10)).subscribe(); // 10, 4, 6, 5
+inputObs$.pipe(filterOutOfRange(4, 10)).subscribe(); // 3, 12, 2, 1
 ```
 
 #### Randomness
 
 [![rxjs-random](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-random?label=@rxjs-ninja/rxjs-random)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-random)
 
-- [Full API](https://rxjs.ninja/modules/random.html)
-- [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/random/CHANGELOG.md)
+[Full API](https://rxjs.ninja/modules/random.html)
+|
+[Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/CHANGELOG.md)
 
 `@rxjs-ninja/rxjs-random` Observable for generating random emitters with both numbers and strings.
 
@@ -117,16 +122,18 @@ fromRandomCrypto(0, { bytes: 1, unsigned: true })
      */
     inRange(-64, 64),
     // Flip each value
-    flip()
-).subscribe() // ...false, true, true, false, false, true, false...
+    flip(),
+  )
+  .subscribe(); // ...false, true, true, false, false, true, false...
 ```
 
 #### Strings
 
 [![rxjs-string](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-string?label=@rxjs-ninja/rxjs-string)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-string)
 
-- [Full API](https://rxjs.ninja/modules/string.html)
-- [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/string/CHANGELOG.md)
+[Full API](https://rxjs.ninja/modules/string.html)
+|
+[Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/CHANGELOG.md)
 
 `@rxjs-ninja/rxjs-string` provides operators for querying, filtering and modifying string values, and Observable for generating string emitters.
 
@@ -138,7 +145,7 @@ import { fromString, includes, titleize } from '@rxjs-ninja/rxjs-string';
 
 const inputObs$ = fromNumber(['full power', 'half power', 'quarter power']);
 
-inputObs$.pipe(includes('half')).subscribe() ;// false, true, false
+inputObs$.pipe(includes('half')).subscribe(); // false, true, false
 inputObs$.pipe(titleize()).subscribe(); // Full Power, Half Power, Quarter Power
 ```
 
@@ -147,7 +154,7 @@ inputObs$.pipe(titleize()).subscribe(); // Full Power, Half Power, Quarter Power
 [![rxjs-utility](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-utility?label=@rxjs-ninja/rxjs-utility)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-utility)
 
 - [Full API](https://rxjs.ninja/modules/string.html)
-- [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/string/CHANGELOG.md)
+- [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/CHANGELOG.md)
 
 `@rxjs-ninja/rxjs-utility` provides operators for working with Observable values to view them, and modify them and don't
 all into the other module categories.
@@ -158,14 +165,13 @@ Most operators fall into the `tap*` category:
 import { fromEvent } from 'rxjs';
 import { startWithTap, tapIf, tapOnSubscribe } from '@rxjs-ninja/rxjs-utility';
 
-const inputObs$ = fromEvent(document, 'click')
-  .pipe(
-    startWithTap(() => console.log('This will only fire once')),
-    tapOnSubscribe(() => console.log('This will tab on every subscribe')),
-    tapIf(
-      event => event.target.id === 'some-div', 
-      () => console.log('This will tap if the user clicks on the target element')
-     )
+const inputObs$ = fromEvent(document, 'click').pipe(
+  startWithTap(() => console.log('This will only fire once')),
+  tapOnSubscribe(() => console.log('This will tab on every subscribe')),
+  tapIf(
+    (event) => event.target.id === 'some-div',
+    () => console.log('This will tap if the user clicks on the target element'),
+  ),
 );
 
 inputObs$.subscribe(); // This will only fire once, This will tab on every subscribe
@@ -174,6 +180,6 @@ inputObs$.subscribe(); // This will tab on every subscribe
 
 #### Additional Information
 
-*This library was formally knows as RxJS Primitives published under the `@tinynodes` npm domain.*
+_This library was formally knows as RxJS Primitives published under the `@tinynodes` npm domain._
 
 - Logo created by [DesignEvo logo maker](https://www.designevo.com/logo-maker/)

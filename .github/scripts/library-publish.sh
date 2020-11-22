@@ -37,7 +37,7 @@ function doPublish {
   done <<<"$1 " # leave space on end to generate correct output
 }
 
-AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base=origin/master~1)
+AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base=origin/main~1)
 
 if [[ "$AFFECTED" != "" ]]; then
   cd "$PARENT_DIR"

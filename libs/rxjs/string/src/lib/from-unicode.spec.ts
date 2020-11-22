@@ -1,5 +1,5 @@
 import { reduce, tap } from 'rxjs/operators';
-import { fromUnicode } from '@tinynodes/rxjs-string';
+import { fromUnicode } from '@rxjs-ninja/rxjs-string';
 import { observe } from 'rxjs-marbles/jest';
 
 describe('fromUnicode', () => {

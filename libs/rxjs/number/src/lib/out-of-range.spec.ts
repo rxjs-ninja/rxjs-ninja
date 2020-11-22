@@ -1,4 +1,4 @@
-import { outOfRange } from '@tinynodes/rxjs-number';
+import { outOfRange } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('outOfRange', () => {

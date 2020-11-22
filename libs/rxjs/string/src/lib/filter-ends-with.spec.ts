@@ -1,4 +1,4 @@
-import { filterEndsWith } from '@tinynodes/rxjs-string';
+import { filterEndsWith } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('filterEndsWith', () => {

@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { flip } from '@tinynodes/rxjs-boolean';
+import { flip } from '@rxjs-ninja/rxjs-boolean';
 
 describe('flip', () => {
   it(

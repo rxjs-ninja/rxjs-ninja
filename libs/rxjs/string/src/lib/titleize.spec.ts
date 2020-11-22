@@ -1,4 +1,4 @@
-import { titleize } from '@tinynodes/rxjs-string';
+import { titleize } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('titleize', () => {

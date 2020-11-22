@@ -1,5 +1,5 @@
 {
-  "name": "RxJS Primitives",
+  "name": "RxJS Ninja",
   "mode": "modules",
   "out": "docs",
   "exclude": ["**/*.spec.ts", "tools/**/*"],
@@ -22,11 +22,11 @@
   "links": [
     {
       "label": "Github",
-      "url": "https://github.com/tanepiper/rxjs-primitives"
+      "url": "https://github.com/tanepiper/rxjs-ninja"
     },
     {
       "label": "NPM",
-      "url": "https://www.npmjs.com/org/tinynodes"
+      "url": "https://www.npmjs.com/org/rxjs-ninja"
     }
   ],
   "source": [

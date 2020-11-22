@@ -1,4 +1,4 @@
-import { split } from '@tinynodes/rxjs-string';
+import { split } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('split', () => {

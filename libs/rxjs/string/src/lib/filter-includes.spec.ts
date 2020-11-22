@@ -1,4 +1,4 @@
-import { filterIncludes } from '@tinynodes/rxjs-string';
+import { filterIncludes } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('filterIncludes', () => {

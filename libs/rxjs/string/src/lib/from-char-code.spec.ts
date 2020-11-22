@@ -1,5 +1,5 @@
 import { tap } from 'rxjs/operators';
-import { fromCharCode } from '@tinynodes/rxjs-string';
+import { fromCharCode } from '@rxjs-ninja/rxjs-string';
 import { observe } from 'rxjs-marbles/jest';
 
 describe('fromCharCode', () => {

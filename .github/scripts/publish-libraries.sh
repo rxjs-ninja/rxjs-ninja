@@ -27,10 +27,10 @@ if [[ "$IGNORE" != "" ]]; then
 fi
 
 # Version the parent library
-# npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
+# npm --no-git-tag-version version "$RELEASE_TYPE" -f -m "RxJS Ninja $RELEASE_TYPE"
 # Get the version to set on sub-libraries
 # VERSION="$(awk '/version/{gsub(/("|",)/,"",$2);print $2}' "$ROOT_DIR/package.json")"
-# echo "RxJS Primitives $RELEASE_TYPE - $VERSION."
+# echo "RxJS Ninja $RELEASE_TYPE - $VERSION."
 
 function doBuilds {
   while IFS= read -r -d $' ' lib; do
@@ -40,7 +40,7 @@ function doBuilds {
       echo "Setting version for $lib"
       cd "$PARENT_DIR"
       cd "$ROOT_DIR/libs/${lib/-//}"
-      npm version "$RELEASE_TYPE" -f -m "RxJS Primitives $RELEASE_TYPE"
+      npm version "$RELEASE_TYPE" -f -m "RxJS Ninja $RELEASE_TYPE"
       echo "Building $lib"
       cd "$PARENT_DIR"
       npm run build "$lib" -- --prod --with-deps

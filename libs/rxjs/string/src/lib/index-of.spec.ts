@@ -1,4 +1,4 @@
-import { indexOf } from '@tinynodes/rxjs-string';
+import { indexOf } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('indexOf', () => {

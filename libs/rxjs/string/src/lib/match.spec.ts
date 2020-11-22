@@ -1,4 +1,4 @@
-import { match } from '@tinynodes/rxjs-string';
+import { match } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 import { map } from 'rxjs/operators';
 

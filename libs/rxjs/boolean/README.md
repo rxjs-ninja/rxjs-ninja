@@ -6,7 +6,7 @@
 
 [Website](https://rxjs.ninja)
 |
-[Full API](https://rxjs.ninja/modules/boolean.html)
+[API Documentation](https://rxjs.ninja/modules/boolean.html)
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/boolean/CHANGELOG.md)
 

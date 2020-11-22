@@ -4,7 +4,7 @@
 
 [Website](https://rxjs.ninja)
 |
-[Full API](https://rxjs.ninja/modules/random.html)
+[API Documentation](https://rxjs.ninja/modules/random.html)
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/CHANGELOG.md)
 

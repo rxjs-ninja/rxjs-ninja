@@ -6,7 +6,7 @@
 
 [Website](https://rxjs.ninja)
 |
-[Full API](https://rxjs.ninja/modules/string.html)
+[API Documentation](https://rxjs.ninja/modules/string.html)
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/CHANGELOG.md)
 

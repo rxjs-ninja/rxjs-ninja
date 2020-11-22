@@ -1,119 +1,179 @@
-# RxJS Ninja
+## RxJS Ninja
 
 ![The RXJS Ninja Logo](https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/master/assets/logo.png)
 
-RxJS Ninja is a set of libraries that provide operators for [RxJS](https://rxjs.dev).
+RxJS Ninja is a set of libraries that provide operators and observables for [RxJS](https://rxjs.dev).
 
-This library is open source on [Github](https://github.com/rxjs-ninja/rxjs-ninja) and available to install as an `npm` modules.
-
-[![rxjs-array](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-array?label=rxjs-array)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-array)
-[![rxjs-boolean](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-boolean?label=rxjs-boolean)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-boolean)
-[![rxjs-number](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-number?label=rxjs-number)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-number)
-[![rxjs-random](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-random?label=rxjs-random)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-random)
-[![rxjs-string](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-string?label=rxjs-string)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-string)
-[![rxjs-utility](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-utility?label=rxjs-utility)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-utility)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rxjs-ninja_rxjs-ninja&metric=alert_status)](https://sonarcloud.io/dashboard?id=rxjs-ninja_rxjs-ninja)
-[![Code Coverage](https://codecov.io/gh/tanepiper/rxjs-primitives/branch/master/graph/badge.svg)](https://codecov.io/gh/tanepiper/rxjs-primitives)
+[![codecov](https://codecov.io/gh/rxjs-ninja/rxjs-ninja/branch/master/graph/badge.svg?token=RCNN1XMSN4)](https://codecov.io/gh/rxjs-ninja/rxjs-ninja)
 
-## What are these libraries?
+### Packages
 
-This set of libraries provides some low-level operators for handling different operations with Observable values of primitive types (`string`, `number`, `boolean`, etc).
+RxJS Ninja is composed of libraries separated into sets of functionality, you don't need to install all the operators at one time.
 
-Some of these operators use methods from ECMAScript built-in objects such as `String` and `Number` and it also includes some convenience `Boolean` methods.
+Below is each package npm name and version, once installed you can import any operator or observable into your project.
+You can also check out the source on [GitHub](https://github.com/rxjs-ninja/rxjs-ninja).
 
-While most of these are one-line operators, they allow developers to avoid having to handle their own mapping or logic when it comes to some common used methods.
+#### Arrays
 
-If you are looking for arethmetic operators (add, multiply, etc) then check out [rxmetrics](https://loreanvictor.github.io/rxmetics/)
+[![rxjs-array](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-array?label=@rxjs-ninja/rxjs-array)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-array)
 
-### rxjs-array
-
-A set of utility operators for various method for `Observable` arrays
-
-#### Installation
-
-> `npm install @rxjs-ninja/rxjs-array`
-
-#### Information
-
-- [Documentation](https://rxjs.ninja/modules/array.html)
+- [Full API](https://rxjs.ninja/modules/array.html)
 - [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/array/CHANGELOG.md)
 
-### rxjs-boolean
+`@rxjs-ninja/rxjs-array` provides operators for querying, filtering and modifying arrays.
 
-A set of utility operators for handling equality checking and boolean values from `Observable` values
+For example, you could `sortMap` an array of values from number into boolean and them `flipArray` the values:
 
-#### Installation
+```ts
+import { of } from 'rxjs';
+import { sortMap, flipArray } from '@rxjs-ninja/rxjs-array';
 
-> `npm install @rxjs-ninja/rxjs-boolean`
+of([10, 4, 7, 3, 1, 29, 5])
+  .pipe(
+    /**
+     * Out of the box `sortMap` does a basic sort on an array so the
+     * result will be [1, 3, 4, 5, 7, 10, 29]
+     * Then the map function will be called with the result, here we do a modulus 2 check
+     * so the result is [false, false, true, false, false, true, false]
+     */
+    sortMap(value => value % 2),
+    // Now we flip the array
+    flipArray()
+  ).subscribe() // [true, true, false, true, true, false, true]
+```
 
-#### Information
+#### Booleans
 
-- [Documentation](https://rxjs.ninja/modules/boolean.html)
+[![rxjs-boolean](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-boolean?label=@rxjs-ninja/rxjs-boolean)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-boolean)
+
+- [Full API](https://rxjs.ninja/modules/boolean.html)
 - [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/boolean/CHANGELOG.md)
 
-### rxjs-number
+`@rxjs-ninja/rxjs-boolean` provides operators for querying, filtering and modifying boolean values, and Observable for generating boolean emitters.
 
-A set of operators for working with `Observable` number values. This collection includes operators based on
-[ECMAScript Number](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number).
+For example, you can use the `firstTruthy` or `lastTruthy` value from an array:
 
-Where are method is an equality check (e.g. `isInteger`) there is also a corresponding `fromIsInteger` that returns the value
-rather than a boolean value (the only exception is `isNaN` which does not make sense to have this).
+```ts
+import { from } from 'rxjs';
+import { firstTruthy, lastTruthy } from '@rxjs-ninja/rxjs-array';
 
-There are also operators for formatting numbers as strings such as `toLocaleString` and from strings such as `parseInt`.
+const inputObs$ = from(['', '', 'Hello', 'There', 'RxJS', 'Ninja', '', '']);
 
-#### Installation
+inputObs$.pipe(firstTruthy()).subscribe() // ['Hello']
+inputObs$.pipe(lastTruthy()).subscribe() // ['Ninja']
+```
 
-> `npm install @rxjs-ninja/rxjs-number`
+#### Numbers
 
-#### Information
+[![rxjs-number](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-number?label=@rxjs-ninja/rxjs-number)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-number)
 
-- [Documentation](https://rxjs.ninja/modules/number.html)
+- [Full API](https://rxjs.ninja/modules/number.html)
 - [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/number/CHANGELOG.md)
 
-### rxjs-random
+`@rxjs-ninja/rxjs-number` provides operators for querying, filtering and modifying number values, and Observable for generating number emitters.
 
-A set of operators for generating Observable from random values.
+For example, you can use the `fromNumber` to generate a sequence of numbers and filter out ones
+that are out of range.
 
-#### Installation
+```ts
+import { fromNumber, filterInRange, fitlerOutOfRange } from '@rxjs-ninja/rxjs-number';
 
-> `npm install @rxjs-ninja/rxjs-random`
+const inputObs$ = fromNumber([10, 4, 3, 6, 12, 2, 1, 5]);
 
-#### Information
+inputObs$.pipe(filterInRange(4, 10)).subscribe() ;// 10, 4, 6, 5
+inputObs$.pipe(filterOutOfRange(4, 10)).subscribe(); // 3, 12, 2, 1 
+```
 
-- [Documentation](https://rxjs.ninja/modules/random.html)
+#### Randomness
+
+[![rxjs-random](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-random?label=@rxjs-ninja/rxjs-random)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-random)
+
+- [Full API](https://rxjs.ninja/modules/random.html)
 - [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/random/CHANGELOG.md)
 
-### rxjs-string
+`@rxjs-ninja/rxjs-random` Observable for generating random emitters with both numbers and strings.
 
-A set of operators for working with `Observable` string values. This collection includes operators based on
-[ECMAScript String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String).
+For example, you can use the `fromRandomCrypto` to generate a sequence of random number between `-127` and `127`,
+then use `inRange` from `@rxjs-ninja/rxjs-number` and `flip` from `@rxjs-ninja/rxjs-boolean`.
 
-Where are method is an equality check (e.g. `endsWith`) there is also a corresponding `fromEndWith` that returns the value
-rather than a boolean value.
+```ts
+import { fromRandomCrypto } from '@rxjs-ninja/rxjs-random';
+import { inRange } from '@rxjs-ninja/rxjs-number';
+import { flip } from '@rxjs-ninja/rxjs-boolean';
 
-There are also methods for querying strings, generating substrings, exploding strings or formatting.
+/**
+ * In this example the random crypto might create
+ * values like:
+ * 12, -114, -89, 1, 18, -90, 56....
+ */
+fromRandomCrypto(0, { bytes: 1, unsigned: true })
+  .pipe(
+    /**
+     * Here we check they are in range and return `true` or `false`
+     * instead of the value (use `filterInRange` to do this)
+     * In this example we get:
+     * ...true, false, false, true, true, false, true....
+     */
+    inRange(-64, 64),
+    // Flip each value
+    flip()
+).subscribe() // ...false, true, true, false, false, true, false...
+```
 
-#### Installation
+#### Strings
 
-> `npm install @rxjs-ninja/rxjs-string`
+[![rxjs-string](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-string?label=@rxjs-ninja/rxjs-string)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-string)
 
-#### Information
-
-- [Documentation](https://rxjs.ninja/modules/string.html)
+- [Full API](https://rxjs.ninja/modules/string.html)
 - [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/string/CHANGELOG.md)
 
-### rxjs-utility
+`@rxjs-ninja/rxjs-string` provides operators for querying, filtering and modifying string values, and Observable for generating string emitters.
 
-A set of extra utility operators that provide some useful functionality when dealing with `Observable` values
+For example, you can use the `fromString` to generate a sequence of strings and check they include
+a string using `include`. We can also `titlize` strings.
 
-#### Installation
+```ts
+import { fromString, includes, titleize } from '@rxjs-ninja/rxjs-string';
 
-> `npm install @rxjs-ninja/rxjs-utility`
+const inputObs$ = fromNumber(['full power', 'half power', 'quarter power']);
 
-#### Information
+inputObs$.pipe(includes('half')).subscribe() ;// false, true, false
+inputObs$.pipe(titleize()).subscribe(); // Full Power, Half Power, Quarter Power
+```
+
+#### Utilities
+
+[![rxjs-utility](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-utility?label=@rxjs-ninja/rxjs-utility)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-utility)
+
+- [Full API](https://rxjs.ninja/modules/string.html)
+- [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/string/CHANGELOG.md)
+
+`@rxjs-ninja/rxjs-utility` provides operators for working with Observable values to view them, and modify them and don't
+all into the other module categories.
+
+Most operators fall into the `tap*` category:
+
+```ts
+import { fromEvent } from 'rxjs';
+import { startWithTap, tapIf, tapOnSubscribe } from '@rxjs-ninja/rxjs-utility';
+
+const inputObs$ = fromEvent(document, 'click')
+  .pipe(
+    startWithTap(() => console.log('This will only fire once')),
+    tapOnSubscribe(() => console.log('This will tab on every subscribe')),
+    tapIf(
+      event => event.target.id === 'some-div', 
+      () => console.log('This will tap if the user clicks on the target element')
+     )
+);
+
+inputObs$.subscribe(); // This will only fire once, This will tab on every subscribe
+inputObs$.subscribe(); // This will tab on every subscribe
+```
+
+#### Additional Information
 
 *This library was formally knows as RxJS Primitives published under the `@tinynodes` npm domain.*
 
-- [Documentation](https://rxjs.ninja/utility/boolean.html)
-- [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/master/libs/rxjs/utility/CHANGELOG.md)
 - Logo created by [DesignEvo logo maker](https://www.designevo.com/logo-maker/)

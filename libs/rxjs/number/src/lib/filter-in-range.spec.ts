@@ -1,4 +1,4 @@
-import { filterInRange } from '@tinynodes/rxjs-number';
+import { filterInRange } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('filterInRange', () => {

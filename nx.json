@@ -1,5 +1,5 @@
 {
-  "npmScope": "tinynodes",
+  "npmScope": "rxjs-ninja",
   "affected": {
     "defaultBase": "master"
   },

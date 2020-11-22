@@ -1,4 +1,4 @@
-import { includes } from '@tinynodes/rxjs-string';
+import { includes } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('includes', () => {

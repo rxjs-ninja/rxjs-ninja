@@ -1,5 +1,5 @@
 import { of } from 'rxjs';
-import { binarySearch } from '@tinynodes/rxjs-array';
+import { binarySearch } from '@rxjs-ninja/rxjs-array';
 import { tap } from 'rxjs/operators';
 import { observe } from 'rxjs-marbles/jest';
 

@@ -1,4 +1,4 @@
-import { reverse } from '@tinynodes/rxjs-string';
+import { reverse } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('reverse', () => {

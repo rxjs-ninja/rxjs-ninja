@@ -1,4 +1,4 @@
-import { mapCharCode } from '@tinynodes/rxjs-string';
+import { mapCharCode } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('mapCharCode', () => {

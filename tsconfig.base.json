@@ -20,12 +20,12 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@tinynodes/rxjs-string": ["libs/rxjs/string/src/index.ts"],
-      "@tinynodes/rxjs-number": ["libs/rxjs/number/src/index.ts"],
-      "@tinynodes/rxjs-boolean": ["libs/rxjs/boolean/src/index.ts"],
-      "@tinynodes/rxjs-utility": ["libs/rxjs/utility/src/index.ts"],
-      "@tinynodes/rxjs-array": ["libs/rxjs/array/src/index.ts"],
-      "@tinynodes/rxjs-random": ["libs/rxjs/random/src/index.ts"]
+      "@rxjs-ninja/rxjs-string": ["libs/rxjs/string/src/index.ts"],
+      "@rxjs-ninja/rxjs-number": ["libs/rxjs/number/src/index.ts"],
+      "@rxjs-ninja/rxjs-boolean": ["libs/rxjs/boolean/src/index.ts"],
+      "@rxjs-ninja/rxjs-utility": ["libs/rxjs/utility/src/index.ts"],
+      "@rxjs-ninja/rxjs-array": ["libs/rxjs/array/src/index.ts"],
+      "@rxjs-ninja/rxjs-random": ["libs/rxjs/random/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

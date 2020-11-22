@@ -1,4 +1,4 @@
-import { toExponential } from '@tinynodes/rxjs-number';
+import { toExponential } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('toExponential', () => {

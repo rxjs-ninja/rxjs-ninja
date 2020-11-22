@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { flipArray } from '@tinynodes/rxjs-array';
+import { flipArray } from '@rxjs-ninja/rxjs-array';
 
 describe('flipArray', () => {
   it(

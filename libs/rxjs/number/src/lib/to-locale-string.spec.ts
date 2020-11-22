@@ -1,4 +1,4 @@
-import { toLocaleString } from '@tinynodes/rxjs-number';
+import { toLocaleString } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('toLocaleString', () => {

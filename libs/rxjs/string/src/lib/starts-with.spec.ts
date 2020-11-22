@@ -1,4 +1,4 @@
-import { startsWith } from '@tinynodes/rxjs-string';
+import { startsWith } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('startsWith', () => {

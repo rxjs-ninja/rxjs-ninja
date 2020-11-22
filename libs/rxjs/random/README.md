@@ -1,9 +1,9 @@
-# RxJS Primitives - Random Operators
+# RxJS Ninja - Random Operators
 
-[![rxjs-random](https://img.shields.io/npm/v/@tinynodes/rxjs-string?label=rxjs-string)](https://www.npmjs.com/package/@tinynodes/rxjs-random)
+[![rxjs-random](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-string?label=rxjs-string)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-random)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tanepiper_rxjs-primitives&metric=alert_status)](https://sonarcloud.io/dashboard?id=tanepiper_rxjs-primitives)
 
-This library contains the [RxJS Primitives](https://github.com/tanepiper/rxjs-primitives) for working with generating random numbers and strings.
+This library contains the [RxJS Ninja](https://github.com/tanepiper/rxjs-primitives) for working with generating random numbers and strings.
 
 - [Github](https://github.com/tanepiper/rxjs-primitives)
 - [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/string/CHANGELOG.md)
@@ -11,4 +11,4 @@ This library contains the [RxJS Primitives](https://github.com/tanepiper/rxjs-pr
 
 ## How to install
 
-> `npm install @tinynodes/rxjs-string`
+> `npm install @rxjs-ninja/rxjs-string`

@@ -1,4 +1,4 @@
-import { toLowerCase } from '@tinynodes/rxjs-string';
+import { toLowerCase } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('toLowerCase', () => {

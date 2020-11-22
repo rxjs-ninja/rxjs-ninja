@@ -1,5 +1,5 @@
 import { of } from 'rxjs';
-import { intersectsWith } from '@tinynodes/rxjs-array';
+import { intersectsWith } from '@rxjs-ninja/rxjs-array';
 import { marbles } from 'rxjs-marbles';
 
 describe('intersectsWith', () => {

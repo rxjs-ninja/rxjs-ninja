@@ -1,4 +1,4 @@
-import { startWithTap } from '@tinynodes/rxjs-utility';
+import { startWithTap } from '@rxjs-ninja/rxjs-utility';
 import { observe } from 'rxjs-marbles/jest';
 import { from } from 'rxjs';
 import { finalize } from 'rxjs/operators';

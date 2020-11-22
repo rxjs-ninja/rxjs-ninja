@@ -1,4 +1,4 @@
-import { charAt } from '@tinynodes/rxjs-string';
+import { charAt } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('charAt', () => {

@@ -1,4 +1,4 @@
-import { trimString } from '@tinynodes/rxjs-string';
+import { trimString } from '@rxjs-ninja/rxjs-string';
 import { TrimPosition } from '../types/position';
 import { marbles } from 'rxjs-marbles/jest';
 

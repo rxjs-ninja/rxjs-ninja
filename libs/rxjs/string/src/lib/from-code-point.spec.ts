@@ -1,5 +1,5 @@
 import { tap } from 'rxjs/operators';
-import { fromCodePoint } from '@tinynodes/rxjs-string';
+import { fromCodePoint } from '@rxjs-ninja/rxjs-string';
 import { observe } from 'rxjs-marbles/jest';
 
 describe('fromCodePoint', () => {

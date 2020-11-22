@@ -1,18 +1,20 @@
-# RxJS Primitives
+# RxJS Ninja
 
-RxJS Primitives is a set of libraries that provide operators for [RxJS](https://rxjs-dev.firebaseapp.com/).
+![The RXJS Ninja Logo](https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/master/assets/logo.png)
+
+RxJS Ninja is a set of libraries that provide operators for [RxJS](https://rxjs-dev.firebaseapp.com/).
 
 The libraries included are below, but you can also find full [API Documentation](https://rxjs.ninja) is available with examples.
 
-This library is open source on [Github](https://github.com/tanepiper/rxjs-primitives) and available to install as an `npm` modules.
+This library is open source on [Github](https://github.com/tanepiper/rxjs-ninja) and available to install as an `npm` modules.
 
-[![rxjs-array](https://img.shields.io/npm/v/@tinynodes/rxjs-array?label=rxjs-array)](https://www.npmjs.com/package/@tinynodes/rxjs-array)
-[![rxjs-boolean](https://img.shields.io/npm/v/@tinynodes/rxjs-boolean?label=rxjs-boolean)](https://www.npmjs.com/package/@tinynodes/rxjs-boolean)
-[![rxjs-number](https://img.shields.io/npm/v/@tinynodes/rxjs-number?label=rxjs-number)](https://www.npmjs.com/package/@tinynodes/rxjs-number)
-[![rxjs-random](https://img.shields.io/npm/v/@tinynodes/rxjs-random?label=rxjs-random)](https://www.npmjs.com/package/@tinynodes/rxjs-random)
-[![rxjs-string](https://img.shields.io/npm/v/@tinynodes/rxjs-string?label=rxjs-string)](https://www.npmjs.com/package/@tinynodes/rxjs-string)
-[![rxjs-utility](https://img.shields.io/npm/v/@tinynodes/rxjs-utility?label=rxjs-utility)](https://www.npmjs.com/package/@tinynodes/rxjs-utility)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tanepiper_rxjs-primitives&metric=alert_status)](https://sonarcloud.io/dashboard?id=tanepiper_rxjs-primitives)
+[![rxjs-array](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-array?label=rxjs-array)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-array)
+[![rxjs-boolean](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-boolean?label=rxjs-boolean)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-boolean)
+[![rxjs-number](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-number?label=rxjs-number)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-number)
+[![rxjs-random](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-random?label=rxjs-random)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-random)
+[![rxjs-string](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-string?label=rxjs-string)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-string)
+[![rxjs-utility](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-utility?label=rxjs-utility)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-utility)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tanepiper_rxjs-ninja&metric=alert_status)](https://sonarcloud.io/dashboard?id=tanepiper_rxjs-ninja)
 [![Code Coverage](https://codecov.io/gh/tanepiper/rxjs-primitives/branch/master/graph/badge.svg)](https://codecov.io/gh/tanepiper/rxjs-primitives)
 
 ## What are these libraries?
@@ -31,7 +33,7 @@ A set of utility operators for various method for `Observable` arrays
 
 #### Installation
 
-> `npm install @tinynodes/rxjs-array`
+> `npm install @rxjs-ninja/rxjs-array`
 
 #### Information
 
@@ -44,7 +46,7 @@ A set of utility operators for handling equality checking and boolean values fro
 
 #### Installation
 
-> `npm install @tinynodes/rxjs-boolean`
+> `npm install @rxjs-ninja/rxjs-boolean`
 
 #### Information
 
@@ -63,7 +65,7 @@ There are also operators for formatting numbers as strings such as `toLocaleStri
 
 #### Installation
 
-> `npm install @tinynodes/rxjs-number`
+> `npm install @rxjs-ninja/rxjs-number`
 
 #### Information
 
@@ -76,7 +78,7 @@ A set of operators for generating Observable from random values.
 
 #### Installation
 
-> `npm install @tinynodes/rxjs-random`
+> `npm install @rxjs-ninja/rxjs-random`
 
 #### Information
 
@@ -95,7 +97,7 @@ There are also methods for querying strings, generating substrings, exploding st
 
 #### Installation
 
-> `npm install @tinynodes/rxjs-string`
+> `npm install @rxjs-ninja/rxjs-string`
 
 #### Information
 
@@ -108,9 +110,10 @@ A set of extra utility operators that provide some useful functionality when dea
 
 #### Installation
 
-> `npm install @tinynodes/rxjs-utility`
+> `npm install @rxjs-ninja/rxjs-utility`
 
 #### Information
 
 - [Documentation](https://rxjs.ninja/utility/boolean.html)
 - [Changelog](https://github.com/tanepiper/rxjs-primitives/blob/master/libs/rxjs/utility/CHANGELOG.md)
+- Logo created by [DesignEvo logo maker](https://www.designevo.com/logo-maker/)

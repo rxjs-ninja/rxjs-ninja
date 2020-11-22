@@ -1,4 +1,4 @@
-import { filterTruthy } from '@tinynodes/rxjs-boolean';
+import { filterTruthy } from '@rxjs-ninja/rxjs-boolean';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('filterTruthy', () => {

@@ -1,5 +1,5 @@
 import { filter, map, reduce, tap } from 'rxjs/operators';
-import { fromBoolean } from '@tinynodes/rxjs-boolean';
+import { fromBoolean } from '@rxjs-ninja/rxjs-boolean';
 import { observe } from 'rxjs-marbles/jest';
 
 describe('fromBoolean', () => {

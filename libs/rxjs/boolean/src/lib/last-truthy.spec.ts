@@ -1,4 +1,4 @@
-import { lastTruthy } from '@tinynodes/rxjs-boolean';
+import { lastTruthy } from '@rxjs-ninja/rxjs-boolean';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('lastTruthy', () => {

@@ -1,4 +1,4 @@
-import { filterStartsWith } from '@tinynodes/rxjs-string';
+import { filterStartsWith } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('filterStartsWith', () => {

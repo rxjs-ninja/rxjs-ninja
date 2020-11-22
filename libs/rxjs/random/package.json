@@ -22,7 +22,7 @@
   ],
   "homepage": "https://rxjs.ninja",
   "bugs": {
-    "url": "https://github.com/tanepiper/rxjs-ninja/issues"
+    "url": "https://github.com/rxjs-ninja/rxjs-ninja/issues"
   },
   "license": "MIT",
   "author": {
@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tanepiper/rxjs-ninja.git"
+    "url": "https://github.com/rxjs-ninja/rxjs-ninja.git"
   },
   "peerDependencies": {
     "rxjs": ">=6.5.0"

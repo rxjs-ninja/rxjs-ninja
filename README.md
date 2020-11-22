@@ -12,7 +12,7 @@ This library is open source on [Github](https://github.com/rxjs-ninja/rxjs-ninja
 [![rxjs-random](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-random?label=rxjs-random)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-random)
 [![rxjs-string](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-string?label=rxjs-string)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-string)
 [![rxjs-utility](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-utility?label=rxjs-utility)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-utility)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=tanepiper_rxjs-ninja&metric=alert_status)](https://sonarcloud.io/dashboard?id=tanepiper_rxjs-ninja)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rxjs-ninja_rxjs-ninja&metric=alert_status)](https://sonarcloud.io/dashboard?id=rxjs-ninja_rxjs-ninja)
 [![Code Coverage](https://codecov.io/gh/tanepiper/rxjs-primitives/branch/master/graph/badge.svg)](https://codecov.io/gh/tanepiper/rxjs-primitives)
 
 ## What are these libraries?

@@ -15,6 +15,7 @@ function getBuildType {
 
 PARENT_DIR="$PWD"
 ROOT_DIR="."
+BASE="origin/main~1"
 
 COMMIT_MESSAGE="$(git log -1 --pretty=format:"%s")"
 RELEASE_TYPE=${1:-$(getBuildType "$COMMIT_MESSAGE")}
@@ -37,7 +38,8 @@ function doPublish {
   done <<<"$1 " # leave space on end to generate correct output
 }
 
-AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base=origin/main~1)
+AFFECTED=$(npm run affected:libs -- --plain --base="$BASE")
+echo "Will Publish: $AFFECTED"
 
 if [[ "$AFFECTED" != "" ]]; then
   cd "$PARENT_DIR"

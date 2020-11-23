@@ -16,10 +16,21 @@ import { MapFn } from '../types/array-compare';
  * @returns Array of boolean values flipped from the input
  * @category RxJS Array Query
  */
-export function indexOf<T extends unknown>(input: T | T[], fromIndex = 0, mapFn?: MapFn<T>): OperatorFunction<T[], number | number[]> {
-  return source => source.pipe(map(value =>
-    Array.isArray(input) ?
-      input.map(inputVal => mapFn ? value.map(mapFn).indexOf(inputVal, fromIndex) : value.indexOf(inputVal, fromIndex)) as number[] :
-      mapFn ? value.map(mapFn).indexOf(input, fromIndex) : value.indexOf(input, fromIndex) as number,
-  ));
+export function indexOf<T extends unknown>(
+  input: T | T[],
+  fromIndex = 0,
+  mapFn?: MapFn<T>,
+): OperatorFunction<T[], number | number[]> {
+  return (source) =>
+    source.pipe(
+      map((value) =>
+        Array.isArray(input)
+          ? (input.map((inputVal) =>
+              mapFn ? value.map(mapFn).indexOf(inputVal, fromIndex) : value.indexOf(inputVal, fromIndex),
+            ) as number[])
+          : mapFn
+          ? value.map(mapFn).indexOf(input, fromIndex)
+          : (value.indexOf(input, fromIndex) as number),
+      ),
+    );
 }

@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { indexOf } from './index-of';
+import { indexOf } from '@rxjs-ninja/rxjs-array';
 
 describe('indexOf', () => {
   it(
@@ -52,7 +52,7 @@ describe('indexOf', () => {
       const input = m.hot('-a-b-c-|', { a: ['a', 'b', 'c'], b: ['a', 'c', 'd'], c: ['z', 'y', 'x', 'b'] });
       const subs = '^------!';
       const expected = m.cold('-x-y-z-|', { x: 1, y: -1, z: 3 });
-      m.expect(input.pipe(indexOf('B', 0, value => value.toUpperCase()))).toBeObservable(expected);
+      m.expect(input.pipe(indexOf('B', 0, (value) => value.toUpperCase()))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
@@ -63,7 +63,7 @@ describe('indexOf', () => {
       const input = m.hot('-a-b-c-|', { a: ['a', 'b', 'c'], b: ['a', 'c', 'd'], c: ['z', 'y', 'x', 'b'] });
       const subs = '^------!';
       const expected = m.cold('-x-y-z-|', { x: [1, 2], y: [-1, 1], z: [3, -1] });
-      m.expect(input.pipe(indexOf(['B', 'C'], 0, value => value.toUpperCase()))).toBeObservable(expected);
+      m.expect(input.pipe(indexOf(['B', 'C'], 0, (value) => value.toUpperCase()))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

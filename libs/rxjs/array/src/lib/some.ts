@@ -22,6 +22,6 @@ import { map } from 'rxjs/operators';
  * @returns Boolean value if the array contains a value to matches the predicate
  * @category RxJS Array Query
  */
-export function some<T extends unknown>(predicate: PredicateFn): OperatorFunction<T[], boolean> {
-  return (source) => source.pipe(map((value) => value.some(predicate)));
+export function some<T extends unknown>(predicate: PredicateFn<T>): OperatorFunction<T[], boolean> {
+  return (source) => source.pipe(map((value) => value.some((v) => predicate(v))));
 }

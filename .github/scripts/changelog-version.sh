@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -o errexit -o noclobber -o nounset -o pipefail
+set -o errexit -o nounset -o pipefail
 
 # This script uses the parent version as the version to publish a library with
 
@@ -21,6 +21,9 @@ COMMIT_MESSAGE="$(git log -1 --pretty=format:"%s")"
 RELEASE_TYPE=${1:-$(getBuildType "$COMMIT_MESSAGE")}
 DRY_RUN=${DRY_RUN:-"False"}
 
+DATE=$(date +'%Y-%m-%d')
+echo "$DATE"
+
 IGNORE=$(echo "$COMMIT_MESSAGE" | sed -nE "s/^.*\[ignore:(.+)\]$/\1/p")
 if [[ "$IGNORE" != "" ]]; then
   echo "Ignoring: $IGNORE"
@@ -33,7 +36,13 @@ function doChangelog {
       echo "Updating Changelog: $lib"
       cd "$ROOT_DIR/libs/${lib/-//}"
       local CURRENT_VERSION=$(jq -r '.version' package.json)
-      echo "$CURRENT_VERSION"
+      local CHANGELOG_UPDATE=$(echo ["$CURRENT_VERSION"] - "$DATE")
+
+      sed -i "s/\[Unreleased\]/${CHANGELOG_UPDATE}/" CHANGELOG.md
+
+#       cat "CHANGELOG.md" | sed s/[Unreleased]/["$CURRENT_VERSION"] - "$DATE"/ > "TMP.md"
+
+#        awk '{gsub/[Unreleased]/,["$CURRENT_VERSION"] - "$DATE" }1' "CHANGELOG.md" > "TMP.md"
     else
       echo "Dry Run, not publishing $lib"
     fi

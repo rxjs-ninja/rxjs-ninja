@@ -50,6 +50,10 @@ jobs:
           npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
           ./.github/scripts/library-version.sh
 
+      - name: Changelog
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
+        run: ./.github/scripts/changelog-version.sh
+
       - name: Build
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         env:

@@ -1,3 +1,8 @@
+/**
+ * @packageDocumentation
+ * @module array
+ */
+
 import { PredicateFn } from '../types/array-compare';
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';

@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module array
+ */
 import { PredicateFn } from '../types/array-compare';
 import { MonoTypeOperatorFunction } from 'rxjs';
 import { filter } from 'rxjs/operators';
@@ -20,7 +24,7 @@ import { filter } from 'rxjs/operators';
  * ```
  *
  * @returns Array of values where one value matches the predicate
- * @category RxJS Array Query
+ * @category RxJS Array Filter
  */
 export function filterSome<T extends unknown>(predicate: PredicateFn): MonoTypeOperatorFunction<T[]> {
   return (source) => source.pipe(filter((value) => value.some(predicate)));

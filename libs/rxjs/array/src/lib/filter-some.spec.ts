@@ -1,6 +1,5 @@
 import { marbles } from 'rxjs-marbles';
-import { some } from './some';
-import { filterSome } from './filter-some';
+import { filterSome } from '@rxjs-ninja/rxjs-array';
 
 describe('filterSome', () => {
   it(

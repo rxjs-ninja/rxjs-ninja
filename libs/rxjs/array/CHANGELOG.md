@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- `every` and `filterEvery` operators that take a predicate method and return if every item in the array is truthy. `every` returns a boolean
+value while `filterEvery` returns the array.
+- `some` and `filterSome` operators that take a predicate method and return if one item in the array is truthy. `some` returns a boolean
+value while `filterSome` returns the array.
+- `find` and `findIndex` operators that take a predicate method and return the first value or index of the value that matches
+the predicate.
+- `indexOf` and `lastIndexOf` operators that take a value and return the index of the first or last instance of the value.
+- `join` operator returns a string from a passed array items, with the seperator
+- `reverse` operator that returns a reversed array
 
 ## [2.1.2] - 2020-11-22
 

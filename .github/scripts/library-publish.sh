@@ -38,7 +38,7 @@ function doPublish {
   done <<<"$1 " # leave space on end to generate correct output
 }
 
-AFFECTED=$(npm run affected:libs -- --plain --base="$BASE")
+AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base="$BASE")
 echo "Will Publish: $AFFECTED"
 
 if [[ "$AFFECTED" != "" ]]; then

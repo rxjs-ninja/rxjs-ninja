@@ -9,7 +9,7 @@ echo "Running Linting"
 if [[ "$RUN_ALL" == "True" ]]; then
   npm run affected:lint -- --all
 else
-  AFFECTED=$(npm run affected:libs -- --plain --base="$BASE")
+  AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base="$BASE")
   echo "Will Lint: $AFFECTED"
   npm run affected:lint -- --base="$BASE"
 fi

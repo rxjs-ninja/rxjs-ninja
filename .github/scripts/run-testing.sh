@@ -13,7 +13,7 @@ echo "Running Unit Testing"
 if [[ "$RUN_ALL" == "True" ]]; then
   npm run affected:test -- "$COVERAGE_RULE" --all --skip-nx-cache --parallel --maxParallel=2
 else
-  AFFECTED=$(npm run affected:libs -- --plain --base="$BASE")
+  AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base="$BASE")
   echo "Will test: $AFFECTED"
   npm run affected:test -- --base="$BASE" "$COVERAGE_RULE" --skip-nx-cache --parallel --maxParallel=2
 fi

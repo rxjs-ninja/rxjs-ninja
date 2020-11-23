@@ -7,9 +7,7 @@ import { map } from 'rxjs/operators';
 
 /**
  * The `repeat` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a string that is reversed.
- *
- * This operator is based on [String.prototype.matchAll](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match)
+ * value and returns a string that is repeated several times.
  *
  * @param count The number of times to repeat the string
  * @param separator Separator when concatenating strings

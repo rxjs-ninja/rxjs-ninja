@@ -9,9 +9,6 @@ import { map } from 'rxjs/operators';
  * The `reverse` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns a string that is reversed
  *
- * @remarks
- * This is a custom operator for this library and uses a method found on [1loc](https://1loc.dev/)
- *
  * @example
  * ```ts
  * fromString('emordnilaP')

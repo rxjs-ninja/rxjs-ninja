@@ -23,7 +23,8 @@
  *
  * @returns Value of the modifier function
  */
-export type MapFn<T = unknown, K = T | unknown> = (value: T) => K;
+
+export type MapFn<T = unknown, K = unknown> = (value: T) => K;
 
 /**
  * A predicate function is used with filtering and should return a boolean based on an equality check.
@@ -53,4 +54,4 @@ export type MapFn<T = unknown, K = T | unknown> = (value: T) => K;
  *
  * @returns Boolean value based on the condition of the function
  */
-export type PredicateFn<T extends unknown> = (...args: T[]) => boolean;
+export type PredicateFn<T = unknown> = (...args: T[]) => boolean;

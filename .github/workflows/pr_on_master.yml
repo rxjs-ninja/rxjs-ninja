@@ -17,6 +17,7 @@ jobs:
         # Latest nodes only
         node-version: [15.x]
 
+
     # Define Steps
     steps:
       # Checkout code
@@ -35,7 +36,9 @@ jobs:
         run: git fetch --no-tags --prune --depth=5 origin main
 
       - name: Install environment
-        run: npm ci
+        run: |
+          rm -rf node_modules && rm -rf dist && rm -rf docs && rm -rf coverage
+          npm ci
 
       - name: Run lint
         run: ./.github/scripts/run-linting.sh False

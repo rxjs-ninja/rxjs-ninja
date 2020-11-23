@@ -39,10 +39,6 @@ function doChangelog {
       local CHANGELOG_UPDATE=$(echo ["$CURRENT_VERSION"] - "$DATE")
 
       sed -i "s/\[Unreleased\]/${CHANGELOG_UPDATE}/" CHANGELOG.md
-
-#       cat "CHANGELOG.md" | sed s/[Unreleased]/["$CURRENT_VERSION"] - "$DATE"/ > "TMP.md"
-
-#        awk '{gsub/[Unreleased]/,["$CURRENT_VERSION"] - "$DATE" }1' "CHANGELOG.md" > "TMP.md"
     else
       echo "Dry Run, not publishing $lib"
     fi
@@ -51,7 +47,7 @@ function doChangelog {
 }
 
 AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base="$BASE")
-echo "Will Publish: $AFFECTED"
+echo "Will Update Changelog: $AFFECTED"
 
 if [[ "$AFFECTED" != "" ]]; then
   cd "$PARENT_DIR"

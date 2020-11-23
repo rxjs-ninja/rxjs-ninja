@@ -23,7 +23,7 @@ import { PredicateFn } from '../types/array-compare';
 export function find<T extends unknown>(predicate: PredicateFn<T>): OperatorFunction<T[], T> {
   return (source: Observable<T[]>) =>
     source.pipe(
-      map((value) => value.find((v) => predicate(v))),
+      map((value) => value.find((v) => predicate(v)) as T),
       filter((v) => typeof v !== 'undefined'),
-    ) as Observable<T>;
+    );
 }

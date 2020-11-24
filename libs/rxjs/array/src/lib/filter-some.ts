@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module array
+ * @module Array
  */
 import { PredicateFn } from '../types/array-compare';
 import { MonoTypeOperatorFunction } from 'rxjs';

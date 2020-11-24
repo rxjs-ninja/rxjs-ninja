@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module utility
+ * @module Utility
  */
 import { MapFn, PredicateFn } from '../types/utility';
 import { Observable, OperatorFunction } from 'rxjs';

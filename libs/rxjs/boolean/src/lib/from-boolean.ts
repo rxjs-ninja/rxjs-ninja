@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module boolean
+ * @module Boolean
  */
 import { Observable } from 'rxjs';
 import { subscribeToSingleOrArrayBoolean } from '../utils/from-boolean.utils';

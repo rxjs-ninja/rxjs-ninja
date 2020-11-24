@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module array
+ * @module Array
  */
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';

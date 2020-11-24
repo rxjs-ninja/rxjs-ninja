@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module string
+ * @module String
  */
 import { Observable } from 'rxjs';
 import { FormType } from '../types/normalize';

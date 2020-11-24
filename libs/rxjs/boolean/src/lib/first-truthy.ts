@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module boolean
+ * @module Boolean
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter, first } from 'rxjs/operators';

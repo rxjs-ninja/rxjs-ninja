@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module array
+ * @module Array
  *
  * @ignore
  */

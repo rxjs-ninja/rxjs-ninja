@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module number
+ * @module Number
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';

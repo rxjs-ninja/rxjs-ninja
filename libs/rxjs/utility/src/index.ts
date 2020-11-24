@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module utility
+ * @module Utility
  *
  * @ignore
  */

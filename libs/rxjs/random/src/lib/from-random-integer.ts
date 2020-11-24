@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module random
+ * @module Random
  */
 import { Observable, Subscriber, timer } from 'rxjs';
 import { finalize, map, takeWhile, tap } from 'rxjs/operators';

@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module random
+ * @module Random
  *
  * @ignore
  */

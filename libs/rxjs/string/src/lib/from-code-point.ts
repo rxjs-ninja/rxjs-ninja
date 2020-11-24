@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module string
+ * @module String
  */
 import { Observable } from 'rxjs';
 import { subscribeToCodePoint } from '../utils/from-code-point.utils';

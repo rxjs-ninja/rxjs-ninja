@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module array
+ * @module Array
  */
 import { Observable, OperatorFunction } from 'rxjs';
 import { map, reduce } from 'rxjs/operators';

@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module number
+ * @module Number
  */
 import { Observable } from 'rxjs';
 import { subscribeToSingleOrArrayNumber } from '../utils/from-number';

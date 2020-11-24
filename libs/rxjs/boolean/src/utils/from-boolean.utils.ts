@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module boolean
+ * @module Boolean
  */
 import { Subscriber } from 'rxjs';
 

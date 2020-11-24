@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module string
+ * @module String
  */
 import { Observable } from 'rxjs';
 import { subscribeToSingleOrArrayString } from '../utils/from-string.utils';

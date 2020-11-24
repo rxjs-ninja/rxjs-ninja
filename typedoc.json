@@ -10,11 +10,11 @@
   "readme": "README.md",
   "includes": "libs/rxjs",
   "tsconfig": "tsconfig.base.json",
-  "theme": "./node_modules/typedoc-loopingz-theme/bin/default",
+  "theme": "./node_modules/typedoc-ninja-theme/bin/default",
   "favicon": "assets/favicon.ico",
   "cname": "rxjs.ninja",
   "plugin": [
-    "typedoc-loopingz-theme",
+    "typedoc-ninja-theme",
     "typedoc-plugin-external-module-name",
     "typedoc-plugin-extras",
     "typedoc-plugin-pages",
@@ -38,7 +38,87 @@
   ],
   "pages": {
     "replaceGlobalsPage": true,
-    "groups": [],
-    "output": "pages"
+    "reflectionNavigationTitle": "RxJS Ninja APIs",
+    "enableSearch": false,
+    "groups": [
+      {
+        "title": "Package Docs",
+        "output": "packages",
+        "pages": [
+          {
+            "title": "Array",
+            "source": "libs/rxjs/array/README.md",
+            "output": "array",
+            "children": [
+              {
+                "title": "Changelog",
+                "source": "libs/rxjs/array/CHANGELOG.md",
+                "output": "changelog"
+              }
+            ]
+          },
+          {
+            "title": "Boolean",
+            "source": "libs/rxjs/boolean/README.md",
+            "output": "boolean",
+            "children": [
+              {
+                "title": "Changelog",
+                "source": "libs/rxjs/boolean/CHANGELOG.md",
+                "output": "changelog"
+              }
+            ]
+          },
+          {
+            "title": "Number",
+            "source": "libs/rxjs/number/README.md",
+            "output": "number",
+            "children": [
+              {
+                "title": "Changelog",
+                "source": "libs/rxjs/number/CHANGELOG.md",
+                "output": "changelog"
+              }
+            ]
+          },
+          {
+            "title": "Random",
+            "source": "libs/rxjs/random/README.md",
+            "output": "random",
+            "children": [
+              {
+                "title": "Changelog",
+                "source": "libs/rxjs/random/CHANGELOG.md",
+                "output": "changelog"
+              }
+            ]
+          },
+          {
+            "title": "String",
+            "source": "libs/rxjs/string/README.md",
+            "output": "string",
+            "children": [
+              {
+                "title": "Changelog",
+                "source": "libs/rxjs/string/CHANGELOG.md",
+                "output": "changelog"
+              }
+            ]
+          },
+          {
+            "title": "Utility",
+            "source": "libs/rxjs/utility/README.md",
+            "output": "utility",
+            "children": [
+              {
+                "title": "Changelog",
+                "source": "libs/rxjs/utility/CHANGELOG.md",
+                "output": "changelog"
+              }
+            ]
+          }
+        ]
+      }
+    ]
   }
 }

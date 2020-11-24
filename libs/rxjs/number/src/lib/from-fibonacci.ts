@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module number
+ * @module Number
  */
 
 import { Observable, Subscriber, timer } from 'rxjs';

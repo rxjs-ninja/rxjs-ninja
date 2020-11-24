@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module utility
+ * @module Utility
  */
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Observable, ObservableInput, OperatorFunction } from 'rxjs';

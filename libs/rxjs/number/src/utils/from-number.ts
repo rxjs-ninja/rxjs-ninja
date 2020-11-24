@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module number
+ * @module Number
  */
 import { Subscriber } from 'rxjs';
 

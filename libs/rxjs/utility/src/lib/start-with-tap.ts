@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module utility
+ * @module Utility
  */
 import { MonoTypeOperatorFunction, Observable, of } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';

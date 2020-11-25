@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [15.x]
+        node-version: [14.x]
     steps:
       # Checkout code
       - name: Checkout Code
@@ -28,6 +28,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
+          registry-url: 'https://registry.npmjs.org'
 
       # Run Install
       - name: Install environment
@@ -36,12 +37,14 @@ jobs:
           rm -rf node_modules && rm -rf dist && rm -rf docs && rm -rf coverage
           npm ci
 
+      # Generate Master Test Coverage
       - name: Tests coverage
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         run: ./.github/scripts/run-testing.sh False True $CODECOV_TOKEN
 
+      # Run versioning on affected libraries
       - name: Version
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         env:
@@ -50,10 +53,12 @@ jobs:
           npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
           ./.github/scripts/library-version.sh
 
+      # Version the changelog of any library being released
       - name: Changelog
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         run: ./.github/scripts/changelog-version.sh
 
+      # Build the libraries
       - name: Build
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         env:
@@ -62,18 +67,30 @@ jobs:
           npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
           ./.github/scripts/library-build.sh
 
-      - name: Deploy
+      # Deploy the library to the general NPM repository
+      - name: Deploy To General NPM
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: |
           npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
-          ./.github/scripts/library-publish.sh
+          ./.github/scripts/library-publish.sh "https://registry.npmjs.org"
 
+      # Deploy the library to the Github NPM repository
+      - name: Deploy To Github NPM
+        if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
+        env:
+          NPM_AUTH_TOKEN: ${{ secrets.GH_NPM_PACKAGE_PUBLISHER }}
+        run: |
+          npm config set //npm.pkg.github.com/:_authToken=$NPM_AUTH_TOKEN
+          ./.github/scripts/library-publish.sh "https://npm.pkg.github.com"
+
+      # Build the Typedoc documentation
       - name: Build Docs
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         run: ./.github/scripts/build-docs.sh
 
+      # Commit all files changes including docs
       - name: Commit files
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         run: |
@@ -83,6 +100,7 @@ jobs:
           git add docs -f
           git commit -m "Release [skip-ci]" -a || true
 
+      # Push the changes back to the repo
       - name: Push changes
         if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
         uses: ad-m/github-push-action@master

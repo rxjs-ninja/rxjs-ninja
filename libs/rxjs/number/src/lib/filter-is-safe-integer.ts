@@ -27,7 +27,7 @@ function isSafe(num: number): boolean {
  * ```ts
  * fromNumber([1, 2, Math.pow(2, 53), Math.pow(2, 53) - 1])
  *  .pipe(filterIsSafeInteger())
- *  .subscribe(console.log) // [1, 2, 9007199254740991]
+ *  .subscribe() // [1, 2, 9007199254740991]
  * ```
  *
  * @returns A number value that passes the `Number.isSafeInteger` equality check

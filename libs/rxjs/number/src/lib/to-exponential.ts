@@ -18,7 +18,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromNumber(1.2)
  *  .pipe(toExponential(2))
- *  .subscribe(console.log) // '1.20e+0'
+ *  .subscribe() // '1.20e+0'
  * ```
  *
  * @returns String of the number value raised to the exponential using `Number.prototype.toExponential`

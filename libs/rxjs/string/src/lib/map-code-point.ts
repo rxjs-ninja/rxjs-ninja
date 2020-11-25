@@ -15,14 +15,14 @@ import { map } from 'rxjs/operators';
  * ```ts
  * of(9733)
  *  .pipe(mapCodePoint())
- *  .subscribe(console.log) // '★'
+ *  subscribe(); // '★'
  * ```
  *
  * @example
  * ```ts
  * of([9731, 9733, 9842])
  *  .pipe(mapCodePoint())
- *  .subscribe(console.log) // '☃★♲'
+ *  subscribe(); // '☃★♲'
  *```
  *
  * @returns String from a code point or an array of code points

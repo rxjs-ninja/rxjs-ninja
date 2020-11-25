@@ -19,14 +19,14 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString(['test', 'testing'])
  *  .pipe(endsWith('g'))
- *  .subscribe(console.log) // [false, true]
+ *  subscribe(); // [false, true]
  * ```
  *
  * @example
  * ```ts
  * fromString(['test', 'testing'])
  *  .pipe(endsWith('t', 4))
- *  .subscribe(console.log) // [true, true]
+ *  subscribe(); // [true, true]
  * ```
  *
  * @returns Boolean that passes the equality check of [String.prototype.endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)

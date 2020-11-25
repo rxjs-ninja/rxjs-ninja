@@ -16,7 +16,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString(['☃★♲'])
  *  .pipe(codePointAt(1))
- *  .subscribe(console.log) // 9733
+ *  subscribe(); // 9733
  * ```
  *
  * @returns Number of the code point from the passed string position

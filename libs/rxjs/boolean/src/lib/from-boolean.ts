@@ -20,14 +20,14 @@ import { subscribeToSingleOrArrayBoolean } from '../utils/from-boolean.utils';
  * ```ts
  * fromBoolean(true)
  *  .pipe(map(val => !val))
- *  .subscribe(console.log) // false
+ *  .subscribe() // false
  * ```
  *
  * @example
  * ```ts
  * fromBoolean([false, true, false, true])
  *  .pipe(map(val => !val))
- *  .subscribe(console.log) // [true, false, true, false]
+ *  .subscribe() // [true, false, true, false]
  * ```
  *
  *

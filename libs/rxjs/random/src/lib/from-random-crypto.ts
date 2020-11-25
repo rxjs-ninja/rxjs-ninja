@@ -32,14 +32,12 @@ const DEFAULT_OPTIONS: FromRandomCryptoOpts = {
  * @example
  * ```ts
  * fromRandomCrypto()
- * .pipe(tap(console.log))
  * .subscribe() // 1228475997, 258463200, 850749141, 3060206219...
  * ```
  *
  *  @example
  * ```ts
  * fromRandomCrypto(0, { bytes: 1 })
- * .pipe(tap(console.log))
  * .subscribe() // 15, 8, 234, 12...
  * ```
  *

@@ -17,7 +17,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromNumber([1, 2, NaN, 4])
  *  .pipe(isNotNaN())
- *  .subscribe(console.log) // [true, true, false, true]
+ *  .subscribe() // [true, true, false, true]
  * ```
  *
  * @returns A boolean value of the `Number.isNaN` equality check

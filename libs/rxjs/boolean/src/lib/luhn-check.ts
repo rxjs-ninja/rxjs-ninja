@@ -13,7 +13,7 @@ import { createLuhnModulus, reverseLuhnNumbers } from '../utils/luhn-check.utils
  * @example
  * fromString('4485275742308327')
  *  .pipe(luhnCheck())
- *  .subscribe(console.log) // true
+ *  subscribe(); // true
  *
  *  @returns Boolean value if the passed value passes the Luhn check
  * @category RxJS Boolean Validation

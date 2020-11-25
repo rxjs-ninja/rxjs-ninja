@@ -19,14 +19,14 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString('APPLE')
  *  .pipe(toLowerCase())
- *  .subscribe(console.log) // 'apple'
+ *  subscribe(); // 'apple'
  * ```
  *
  * @example
  * ```ts
  * fromString('ÄPFEL')
  *  .pipe(toLowerCase('de-DE'))
- *  .subscribe(console.log) // 'äpfel'
+ *  subscribe(); // 'äpfel'
  * ```
  *
  * @returns String that is converted to lower case with passed locale

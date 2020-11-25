@@ -25,7 +25,7 @@ import { MapFn } from '../types/array-compare';
  * of([5, 8, 2, 7, 1, 6])
  * .pipe(
  *    sortMap(value => value >= 5 ? true : false)
- *  ).subscribe() // [false, false, true, true, true, true]
+ *  ).subscribe(); // [false, false, true, true, true, true]
  * ```
  *
  * @returns Array of sorted and mapped values

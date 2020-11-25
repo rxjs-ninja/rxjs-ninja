@@ -17,7 +17,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString(['1', '2.8', '3.14'])
  *  .pipe(parseFloat())
- *  .subscribe(console.log) // [1, 2.8, 3.14]
+ *  subscribe(); // [1, 2.8, 3.14]
  * ```
  *
  * @returns A number that is parsed from a string using `Number.parseFloat`

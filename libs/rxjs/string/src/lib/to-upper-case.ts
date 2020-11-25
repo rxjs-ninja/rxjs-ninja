@@ -19,14 +19,14 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString('apple')
  *  .pipe(toUpperCase())
- *  .subscribe(console.log) // 'APPLE'
+ *  subscribe(); // 'APPLE'
  * ```
  *
  * @example
  * ```ts
  * fromString('äpfel')
  *  .pipe(toUpperCase('de-DE'))
- *  .subscribe(console.log) // 'ÄPFEL'
+ *  subscribe(); // 'ÄPFEL'
  * ```
  *
  * @returns String that is converted to upper case with passed locale

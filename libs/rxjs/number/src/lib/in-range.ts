@@ -27,14 +27,14 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromNumber([-1, 0, 1, 2, 10, 11])
  *  .pipe(inRange(0, 10))
- *  .subscribe(console.log) // [false, true, true, true, true, false]
+ *  .subscribe() // [false, true, true, true, true, false]
  * ```
  *
  * @example
  * ```ts
  * fromNumber([-1, 0, 1, 2, 10, 11])
  *  .pipe(inRange(0, 10, true))
- *  .subscribe(console.log) // [false, false, true, true, false, false]
+ *  .subscribe() // [false, false, true, true, false, false]
  * ```
  *
  * @returns Boolean value if the number falls in the `min/max` range

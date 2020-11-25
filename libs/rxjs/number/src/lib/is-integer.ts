@@ -19,7 +19,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromNumber([1, 2, 3.14])
  *  .pipe(isInteger())
- *  .subscribe(console.log) // [true, true, false]
+ *  .subscribe() // [true, true, false]
  * ```
  *
  * @returns A boolean value of the `Number.isInteger` equality check

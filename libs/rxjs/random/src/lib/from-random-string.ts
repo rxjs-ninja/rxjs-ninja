@@ -36,7 +36,6 @@ const DEFAULT_OPTIONS: FromRandomStringOpts = {
  * @example
  * ```ts
  * fromRandomStr(5)
- * .pipe(tap(console.log))
  * .subscribe() // 'AgtYb', 'brYgT', 'TLAvf'...
  * ```
  *

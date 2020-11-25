@@ -19,14 +19,14 @@ import { filter } from 'rxjs/operators';
  * ```ts
  * fromString(['test', 'testing'])
  *  .pipe(filterEndsWith('g'))
- *  .subscribe(console.log) // ['testing']
+ *  subscribe(); // ['testing']
  * ```
  *
  * @example
  * ```ts
  * fromString(['test', 'testing'])
  *  .pipe(filterEndsWith('t', 4))
- *  .subscribe(console.log) // ['test', 'testing']
+ *  subscribe(); // ['test', 'testing']
  * ```
  *
  * @returns String that passes the equality check of [String.prototype.endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)

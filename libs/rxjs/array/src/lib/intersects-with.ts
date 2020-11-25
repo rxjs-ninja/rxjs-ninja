@@ -26,7 +26,7 @@ import { mapIntersectsWith } from '../utils/intersects';
  *
  * of(['a', 'b', 'c', 'd'])
  *  .pipe(intersectsWith(input))
- *  .subscribe(console.log) // ['a']
+ *  subscribe(); // ['a']
  * ```
  *
  * @example
@@ -35,7 +35,7 @@ import { mapIntersectsWith } from '../utils/intersects';
  *
  * of(['a', 'b', 'c', 'd'])
  *  .pipe(intersectsWith(input))
- *  .subscribe(console.log) // ['a']
+ *  subscribe(); // ['a']
  * ```
  *
  * @example
@@ -45,7 +45,7 @@ import { mapIntersectsWith } from '../utils/intersects';
  *
  * of(['a', 'b', 'c', 'd'])
  *  .pipe(intersectsWith(input, predicate))
- *  .subscribe(console.log) // ['a']
+ *  subscribe(); // ['a']
  * ```
  *
  * @example
@@ -55,7 +55,7 @@ import { mapIntersectsWith } from '../utils/intersects';
  *
  * of(['a', 'b', 'c', 'd'])
  *  .pipe(intersectsWith(input, predicate))
- *  .subscribe(console.log) // ['a']
+ *  subscribe(); // ['a']
  * ```
  *
  * @returns Array of values of intersection between the source and input array

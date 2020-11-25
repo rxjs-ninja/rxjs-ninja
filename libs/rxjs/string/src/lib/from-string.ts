@@ -16,12 +16,12 @@ import { subscribeToSingleOrArrayString } from '../utils/from-string.utils';
  *
  * @example
  * ```ts
- * fromString('Foobar')..pipe(reverse()).subscribe(console.log) // 'rabooF'
+ * fromString('Foobar')..pipe(reverse()).subscribe(); // 'rabooF'
  * ```
  *
  * @example
  * ```ts
- * fromString(['Foo', 'Bar'])..pipe(reverse()).subscribe(console.log) // ['ooF', 'raB']
+ * fromString(['Foo', 'Bar'])..pipe(reverse()).subscribe(); // ['ooF', 'raB']
  * ```
  *
  * @returns String from the original string, made Observable

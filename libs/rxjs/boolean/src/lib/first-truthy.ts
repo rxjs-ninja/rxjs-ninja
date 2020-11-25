@@ -18,14 +18,14 @@ import { PredicateFn } from '../types/boolean';
  * ```ts
  * fromBoolean<string | number | boolean>([0, false, '', 1])
  *  .pipe(firstTruthy())
- *  .subscribe(console.log) // [ 1 ]
+ *  subscribe(); // [ 1 ]
  * ```
  *
  * @example
  * ```ts
  * fromNumber([1, 2, 3, 4])
  *  .pipe(firstTruthy((value) => value % 2 === 0))
- *  .subscribe(console.log) // 2
+ *  subscribe(); // 2
  * ```
  *
  * @returns The first truthy boolean value

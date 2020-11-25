@@ -18,7 +18,7 @@ import { PredicateFn } from '../types/boolean';
  * ```ts
  * from(['', 'test1', '', 'test2', ''])
  *  .pipe(filterTruthy())
- *  .subscribe(console.log) // ['test1', 'test2']
+ *  subscribe(); // ['test1', 'test2']
  * ```
  * @example
  * ```ts
@@ -26,7 +26,7 @@ import { PredicateFn } from '../types/boolean';
  *
  * from([0, 1, 2, 3, 4, 5])
  *  .pipe(filterTruthy(item => isEven(item)))
- *  .subscribe(console.log) // [0, 2, 4]
+ *  subscribe(); // [0, 2, 4]
  * ```
  *
  * @returns All values that are truthy only

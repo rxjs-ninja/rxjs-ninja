@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * of([false, true, false])
  *  .pipe(flipArray())
- *  .subscribe() // [true, false, true]
+ *  subscribe(); // [true, false, true]
  * ```
  *
  * @returns Array of boolean values flipped from the input

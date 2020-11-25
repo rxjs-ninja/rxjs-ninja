@@ -21,20 +21,20 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromNumber(1000000)
  *  .pipe(toLocaleString('nl-NL'))
- *  .subscribe(console.log) // '1.000.000'
+ *  .subscribe() // '1.000.000'
  * ```
  * @example
  * ```ts
  * fromNumber(1000000)
  *  .pipe(toLocaleString('en-GB'))
- *  .subscribe(console.log) // '1,000,000'
+ *  .subscribe() // '1,000,000'
  * ```
  *
  * @example
  * ```ts
  * fromNumber(1000000)
  *  .pipe(toLocaleString('en-GB', { currency: 'EUR', style: 'currency' }))
- *  .subscribe(console.log) // '€1,000,000.00'
+ *  .subscribe() // '€1,000,000.00'
  * ```
  *
  * @returns String of the number formatted using `Number.prototype.toLocaleString`

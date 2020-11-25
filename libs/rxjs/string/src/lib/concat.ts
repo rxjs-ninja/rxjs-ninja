@@ -17,7 +17,7 @@ import { map, switchMap } from 'rxjs/operators';
  * // With Fixed Arguments
  * fromString('Mary')
  *  .pipe(concat(' ', 'had a little', ' ', 'lamb'))
- *  .subscribe(console.log) // 'Mary had a little lamb'
+ *  subscribe(); // 'Mary had a little lamb'
  * ```
  *
  * @example
@@ -25,7 +25,7 @@ import { map, switchMap } from 'rxjs/operators';
  * // With Fixed Array
  * fromString('Mary')
  *  .pipe(concat([' ', 'had a little', ' ', 'lamb']))
- *  .subscribe(console.log) // 'Mary had a little lamb'
+ *  subscribe(); // 'Mary had a little lamb'
  * ```
  *
  * @example
@@ -33,7 +33,7 @@ import { map, switchMap } from 'rxjs/operators';
  * // With Observable source
  * fromString('Mary')
  *  .pipe(concat(of([' ', 'had a little', ' ', 'lamb'])))
- *  .subscribe(console.log) // 'Mary had a little lamb'
+ *  subscribe(); // 'Mary had a little lamb'
  * ```
  *
  * @returns String that is a concatenation of the original string and new values

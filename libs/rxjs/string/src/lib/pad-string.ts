@@ -22,14 +22,14 @@ import { PadPosition, PadPositionValue } from '../types/position';
  * ```ts
  * fromString('12345')
  *  .pipe(padString('start', 7))
- *  .subscribe(console.log) // '  12345'
+ *  subscribe(); // '  12345'
  * ```
  *
  * @example
  * ```ts
  * fromString('12345')
  *  .pipe(padString('end', 10, 'X'))
- *  .subscribe(console.log) // '12345XXXXX'
+ *  subscribe(); // '12345XXXXX'
  * ```
  *
  * @returns String that is formatted with padding using the `fillString`
@@ -67,7 +67,7 @@ export function padString(
  * ```ts
  * fromString('12345')
  *  .pipe(padStart(7, '.'))
- *  .subscribe(console.log) // '..12345'
+ *  subscribe(); // '..12345'
  * ```
  *
  * @returns String that is formatted with space padding
@@ -90,7 +90,7 @@ export function padStart(maxLength: number, fillString?: string): MonoTypeOperat
  * ```ts
  * fromString('12345')
  *  .pipe(padEnd(7, '.'))
- *  .subscribe(console.log) // '12345..'
+ *  subscribe(); // '12345..'
  * ```
  *
  * @returns String that is formatted with space padding

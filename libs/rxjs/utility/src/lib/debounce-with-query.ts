@@ -32,7 +32,7 @@ export type QueryMethod<T = unknown> = (query: string) => ObservableInput<T>;
  *
  * fromEvent(input, 'keyup')
  *  .pipe(debounceWithQuery(500, doQuery))
- *  .subscribe(console.log)
+ *  subscribe();
  * ```
  *
  * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T

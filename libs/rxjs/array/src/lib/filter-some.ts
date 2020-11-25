@@ -7,25 +7,26 @@ import { MonoTypeOperatorFunction } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * The `filterSome` operator returns a boolean value if the array from the observable source has at least one
- * member that passes the passed predicate method
+ * Returns an Observable array where one of the values in the array return true to a predicate function.
+ * By default it will return the Observable array if one value is truthy.
  *
- * @param predicate Method used to check if array contains a valid member
+ * @param predicate Optional [[PredicateFn]] used to get a truthy or falsy value of array values
  *
  * @example
  * ```ts
- * fromArray([
+ * const input = [
  *  ['RxJS', 'Rocks']
  *  ['RxJS', 'Ninja'],
  *  ['Foo', 'Bar']
- *]).pipe(
- *  filterSome(v => v === 'RxJS'),
- *).subscribe() // [ ['RxJS', 'Rocks'], ['RxJS', 'Ninja'] ]
+ * ];
+ *
+ * fromArray(input).pipe(filterSome(v => v === 'RxJS')).subscribe()
+ * // ['RxJS', 'Rocks'], ['RxJS', 'Ninja']
  * ```
  *
- * @returns Array of values where one value matches the predicate
+ * @returns Observable array containing all values in source array that return has one truthy value with the [[PredicateFn]]
  * @category RxJS Array Filter
  */
-export function filterSome<T extends unknown>(predicate: PredicateFn): MonoTypeOperatorFunction<T[]> {
-  return (source) => source.pipe(filter((value) => value.some(predicate)));
+export function filterSome<T extends unknown>(predicate?: PredicateFn): MonoTypeOperatorFunction<T[]> {
+  return (source) => source.pipe(filter((value) => value.some((v) => (predicate ? predicate(v) : Boolean(v)))));
 }

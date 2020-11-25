@@ -19,14 +19,14 @@ import { filter } from 'rxjs/operators';
  * ```ts
  * fromString(['test', 'testing', 'foobar'])
  *  .pipe(filterStartsWith('t'))
- *  .subscribe(console.log) // ['test', 'testing']
+ *  subscribe(); // ['test', 'testing']
  * ```
  *
  * @example
  * ```ts
  * fromString(['test', 'testing', 'amazing'])
  *  .pipe(filterStartsWith('i', 4))
- *  .subscribe(console.log) // ['testing', 'amazing']
+ *  subscribe(); // ['testing', 'amazing']
  * ```
  *
  * @returns String that passes the equality check of [String.prototype.startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)

@@ -15,14 +15,14 @@ import { map } from 'rxjs/operators';
  * ```ts
  * of(['Hello', 'RxJS', 'Ninja'])
  * .pipe(join())
- * .subscribe() // 'Hello RxJS Ninja'
+ * subscribe(); // 'Hello RxJS Ninja'
  * ```
  *
  * @example
  * ```ts
  * of(['Name', 'Age', 'Location'])
  * .pipe(join(','))
- * .subscribe() // 'Name,Age,Location'
+ * subscribe(); // 'Name,Age,Location'
  * ```
  *
  * @returns String of the array values joined by the separator

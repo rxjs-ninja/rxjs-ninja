@@ -19,7 +19,7 @@ import { filter } from 'rxjs/operators';
  * ```ts
  * from(['test', 'foobar', 'testing'])
  *  .pipe(filterIncludes('test'))
- *  .subscribe(console.log) // ['test', 'testing']
+ *  subscribe(); // ['test', 'testing']
  * ```
  *
  * @returns String that passes the equality check of [String.prototype.includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)

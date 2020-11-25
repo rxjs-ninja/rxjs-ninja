@@ -23,21 +23,21 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString('Mary had a little lamb')
  *  .pipe(titleize())
- *  .subscribe(console.log) // 'Mary Had A Little Lamb'
+ *  .subscribe() // 'Mary Had A Little Lamb'
  * ```
  *
  * @example
  * ```ts
  * fromString('Mary had ä little lamb')
  *  .pipe(titleize('de-DE'))
- *  .subscribe(console.log) // 'Mary Had Ä Little Lamb'
+ *  .subscribe() // 'Mary Had Ä Little Lamb'
  * ```
  *
  * @example
  * ```ts
  * fromString('john,paul,john,ringo')
  *  .pipe(titleize('en-GB', ','))
- *  .subscribe(console.log) // 'John,Paul,John,Ringo'
+ *  .subscribe() // 'John,Paul,John,Ringo'
  * ```
  *
  * @returns String that is titleized with custom separator

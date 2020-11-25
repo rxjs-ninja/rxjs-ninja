@@ -16,7 +16,6 @@ import { finalize, map, takeWhile, tap } from 'rxjs/operators';
  * @example
  * ```ts
  * fromRandom(0, 10)
- * .pipe(tap(console.log))
  * .subscribe() // 8.332405921423248, 7.9304238877750315, 4.603376889484552...
  * ```
  *

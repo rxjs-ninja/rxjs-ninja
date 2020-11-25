@@ -21,7 +21,7 @@ import { CallbackFn } from '../types/utility';
  * ```ts
  * form.valueChange.pipe(
  *  startWithTap(() => this.onTouch())
- * ).subscribe()
+ * ).subscribe();
  * ```
  *
  * @example
@@ -30,7 +30,7 @@ import { CallbackFn } from '../types/utility';
  *  .pipe(
  *    startWithTap(value => `First value is ${value}`),
  *    reduce((acc, val) => acc + val)
- *  ).subscribe(console.log) // 10
+ *  ).subscribe(); // 10
  * ```
  *
  * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T

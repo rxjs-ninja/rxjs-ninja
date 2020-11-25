@@ -8,18 +8,28 @@ import { map } from 'rxjs/operators';
 import { PredicateFn } from '../types/array-compare';
 
 /**
- * The `findIndex` operator returns the index of the first matching item in an array from an observable
+ * Returns an Observable number of the index in the source array of the first truthy value from the [[PredicateFn]].
+ * By default a `Boolean(value)` check is made.
+ *
+ * @param predicate Optional [[PredicateFn]] used to get a truthy or falsy value of array values
  *
  * @example
  * ```ts
- * of(['Hello', 'RxJS', 'Ninja'])
- * .pipe(findIndex(v => v.length < 5))
- * .subscribe() // 1
+ * const input = [1, 2, 3, 4, 5]
+ * of(input).pipe(findIndex(v => v > 2)).subscribe()
+ * // 2
  * ```
  *
- * @returns Number value of the index of the value that was found via predicate
+ * @example
+ * ```ts
+ * const input = ['Hello', 'RxJS', 'Ninja'];
+ * of(input).pipe(findIndex(v => v.length < 5)).subscribe()
+ * // 1
+ * ```
+ *
+ * @returns Observable number value of the index of first value that was truthy for the predicate
  * @category RxJS Array Filter
  */
-export function findIndex<T extends unknown>(predicate: PredicateFn<T>): OperatorFunction<T[], number> {
-  return (source: Observable<T[]>) => source.pipe(map((value) => value.findIndex((v) => predicate(v))));
+export function findIndex<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], number> {
+  return (source: Observable<T[]>) => source.pipe(map((value) => value.findIndex((v) => predicate ? predicate(v) : Boolean(v))));
 }

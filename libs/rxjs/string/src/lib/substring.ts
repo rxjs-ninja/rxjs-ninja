@@ -18,14 +18,14 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString('Mary had a little lamb')
  *  .pipe(substring(12))
- *  .subscribe(console.log) // 'little lamb'
+ *  subscribe(); // 'little lamb'
  * ```
  *
  * @example
  * ```ts
  * fromString('Mary had a little lamb')
  *  .pipe(substring(0, 4))
- *  .subscribe(console.log) // 'Mary'
+ *  subscribe(); // 'Mary'
  * ```
  *
  * @returns String that is a substring of the original string

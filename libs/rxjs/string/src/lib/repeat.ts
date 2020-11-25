@@ -16,14 +16,14 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString('foobar')
  *  .pipe(repeat(5))
- *  .subscribe(console.log) // 'foobarfoobarfoobarfoobarfoobar'
+ *  .subscribe() // 'foobarfoobarfoobarfoobarfoobar'
  * ```
  *
  * @example
  * ```ts
  * fromString('foobar')
  *  .pipe(repeat(5, ','))
- *  .subscribe(console.log) // 'foobar,foobar,foobar,foobar,foobar'
+ *  .subscribe() // 'foobar,foobar,foobar,foobar,foobar'
  * ```
  *
  * @returns String that is a repeat of the source string with a separator, repeated by the passed count

@@ -19,7 +19,7 @@ import { filter } from 'rxjs/operators';
  * ```ts
  * fromNumber([1, 2, Infinity])
  *  .pipe(filterIsFinite())
- *  .subscribe(console.log) // [1, 2]
+ *  .subscribe() // [1, 2]
  * ```
  *
  * @returns A number value that passes the `Number.isFinite` equality check

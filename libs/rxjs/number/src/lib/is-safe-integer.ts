@@ -19,7 +19,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromNumber([Math.pow(2, 53), Math.pow(2, 53) - 1])
  *  .pipe(isSafeInteger())
- *  .subscribe(console.log) // [true, false]
+ *  subscribe(); // [true, false]
  * ```
  *
  * @returns A boolean value of the `Number.isSafeInteger` equality check

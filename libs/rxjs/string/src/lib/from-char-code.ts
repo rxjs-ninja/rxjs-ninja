@@ -17,12 +17,12 @@ import { subscribeToCharCode } from '../utils/from-char-code.utils';
  *
  * @example
  * ```ts
- * fromCharCode(65).subscribe(console.log) // 'A'
+ * fromCharCode(65).subscribe(); // 'A'
  * ```
  *
  * @example
  * ```ts
- * fromCharCode([65, 66, 67, 68]).subscribe(console.log) // 'ABCD'
+ * fromCharCode([65, 66, 67, 68]).subscribe(); // 'ABCD'
  * ```
  *
  * @returns String from an an array of character codes

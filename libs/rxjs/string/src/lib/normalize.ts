@@ -16,7 +16,7 @@ import { FormType } from '../types/normalize';
  * ```ts
  * fromString('\u0041\u006d\u00e9\u006c\u0069\u0065')
  *  .pipe(normalize(FormType.NFC))
- *  .subscribe(console.log) // Amélie
+ *  subscribe(); // Amélie
  * ```
  *
  * @returns String from the decoded unicode string

@@ -21,21 +21,21 @@ import { TrimPosition, TrimPositionValue } from '../types/position';
  * ```ts
  * fromString('     12345     ')
  *  .pipe(trimString())
- *  .subscribe(console.log) // '12345'
+ *  .subscribe() // '12345'
  * ```
  *
  * @example
  * ```ts
  * fromString('12345     ')
  *  .pipe(trimString('start'))
- *  .subscribe(console.log) // '12345     '
+ *  .subscribe() // '12345     '
  * ```
  *
  * @example
  * ```ts
  * fromString('     12345     ')
  *  .pipe(trimString('end'))
- *  .subscribe(console.log) // '     12345'
+ *  .subscribe() // '     12345'
  * ```
  *
  * @returns String that is trimmed based on the [[TrimPosition]] option
@@ -68,7 +68,7 @@ export function trimString(position: TrimPositionValue = TrimPosition.ALL): Mono
  * ```ts
  * fromString('     12345     ')
  *  .pipe(trimLeft())
- *  .subscribe(console.log) // '12345     '
+ *  .subscribe() // '12345     '
  * ```
  *
  * @returns String that is formatted with white space to the left trimmed
@@ -88,7 +88,7 @@ export function trimLeft(): MonoTypeOperatorFunction<string> {
  * ```ts
  * fromString('     12345     ')
  *  .pipe(trimRight())
- *  .subscribe(console.log) // '     12345'
+ *  .subscribe() // '     12345'
  * ```
  *
  * @returns String that is formatted with white space to the right trimmed
@@ -108,7 +108,7 @@ export function trimRight(): MonoTypeOperatorFunction<string> {
  * ```ts
  * fromString('     12345     ')
  *  .pipe(trim())
- *  .subscribe(console.log) // '12345'
+ *  .subscribe() // '12345'
  * ```
  *
  * @returns String that is formatted with all surrounding white space trimmed

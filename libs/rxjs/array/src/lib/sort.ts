@@ -20,8 +20,8 @@ import { defaultSortFn } from '../utils/binary-search';
  * @example
  * ```ts
  * of([2, 4, 6, 1, 3, 5])
- *  .pipe(sort(), tap(console.log))
- *  .subscribe() [1, 2, 3, 4, 5, 6]
+ *  .pipe(sort())
+ *  subscribe(); [1, 2, 3, 4, 5, 6]
  * ```
  *
  * @example
@@ -33,8 +33,8 @@ import { defaultSortFn } from '../utils/binary-search';
  * }
  *
  * of([ [10, 2], [20, 4], [30, 6], [40, 1], [50, 3], [60, 5] ])
- * .pipe(sort(sortTuple), tap(console.log))
- * .subscribe() // [ [40, 1], [10, 2], [50, 3], [20, 4], [60, 5], [30, 6] ]
+ * .pipe(sort(sortTuple))
+ * subscribe(); // [ [40, 1], [10, 2], [50, 3], [20, 4], [60, 5], [30, 6] ]
  * ```
  *
  * @returns Array of sorted values

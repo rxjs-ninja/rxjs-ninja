@@ -8,24 +8,32 @@ import { OperatorFunction } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * The `filterEvery` operator returns an array of values that have a value in the array that matches the predicate
+ * Returns an Observable array where all the values in the array return true to a predicate function.
+ * By default it will return the Observable array if all values are truthy.
  *
- * @param predicate Method used to check if array contains all valid members
+ * @param predicate Optional [[PredicateFn]] used to get a truthy or falsy value of array values
  *
  * @example
  * ```ts
- * fromArray([
+ * const input = [ ['', '', ''], ['', 'Hello', ''], ['RxJS', 'Ninja', 'Rocks'] ];
+ * fromArray(input).pipe(filterEvery()).subscribe()
+ * // ['RxJS', 'Ninja', 'Rocks']
+ * ```
+ *
+ * @example
+ * ```ts
+ * const input = [
  *  [1, 0, 1, 0, 1, 0]
  *  [1, 0, 2, 1, 0, 2],
  *  [0, 1, 0, 1, 0, 2]
- *]).pipe(
- *  every(v => v < 2),
- *).subscribe() // [1, 0, 1, 0, 1, 0]
+ * ];
+ * fromArray(input).pipe(filterEvery(v => v < 2)).subscribe()
+ * // [1, 0, 1, 0, 1, 0]
  * ```
  *
- * @returns Array of values where every value matches the predicate method
+ * @returns Observable array containing all values in source array that return truthy with the [[PredicateFn]]
  * @category RxJS Array Filter
  */
-export function filterEvery<T extends unknown>(predicate: PredicateFn<T>): OperatorFunction<T[], T[]> {
-  return (source) => source.pipe(filter((value) => value.every((v) => predicate(v))));
+export function filterEvery<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], T[]> {
+  return (source) => source.pipe(filter((value) => value.every((v) => (predicate ? predicate(v) : Boolean(v)))));
 }

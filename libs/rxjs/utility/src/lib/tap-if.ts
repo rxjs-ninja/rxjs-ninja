@@ -24,8 +24,8 @@ import { switchMap } from 'rxjs/operators';
  * const predicate = (value: string) => value === 'test';
  *
  * of('test')
- * .pipe(tapIf(predicate, (value: string) => console.log(`The value is test`)))
- * .subscribe(console.log) // 'test'
+ * .pipe(tapIf(predicate, (value: string) => (`The value is test`)))
+ * subscribe(); // 'test'
  * ```
  *
  * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T

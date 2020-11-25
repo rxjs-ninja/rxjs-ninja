@@ -17,8 +17,7 @@ import { fibonacci } from '../utils/from-fibonacci';
  * @example
  * ```ts
  * fromFibonacci(5)
- *  .pipe(tap(console.log))
- *  .subscribe(console.log) // 0, 1, 1, 2, 3
+ *  .subscribe() // 0, 1, 1, 2, 3
  * ```
  *
  * @returns Observable of a Fibonacci sequence of numbers

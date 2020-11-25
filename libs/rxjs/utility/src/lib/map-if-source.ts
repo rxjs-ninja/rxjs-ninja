@@ -27,7 +27,7 @@ import { map } from 'rxjs/operators';
  *    (value) => 'woof! woof!',
  *    (value) => `meow!`,
  *  ),
- * ).subscribe(console.log) // 'woof! woof!'
+ * ).subscribe(); // 'woof! woof!'
  * ```
  *
  * @example
@@ -38,7 +38,7 @@ import { map } from 'rxjs/operators';
  *    (value) => parseInt(value),
  *    (value) => `${value}: This is not the ultimate answer`,
  *  ),
- * ).subscribe(console.log) // 42
+ * ).subscribe(); // 42
  * ```
  *
  * @returns Any value based on the Truthy or Falsy [[MapFn]] based on the [[PredicateFn]] result

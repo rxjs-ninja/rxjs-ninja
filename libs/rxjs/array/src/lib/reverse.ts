@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * of(['Hello', 'RxJS', 'Ninja'])
  * .pipe(reverse())
- * .subscribe() // ['Ninja', 'RxJS', 'Hello']
+ * subscribe(); // ['Ninja', 'RxJS', 'Hello']
  * ```
  *
  * @returns Array of the input source reversed

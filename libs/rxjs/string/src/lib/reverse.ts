@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString('emordnilaP')
  *  .pipe(reverse())
- *  .subscribe(console.log) // 'Palindrome'
+ *  .subscribe() // 'Palindrome'
  * ```
  *
  * @returns String that is reversed

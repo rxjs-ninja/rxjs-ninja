@@ -17,12 +17,12 @@ import { subscribeToCodePoint } from '../utils/from-code-point.utils';
  *
  * @example
  * ```ts
- * fromCharCode(9733).subscribe(console.log) // '★'
+ * fromCharCode(9733).subscribe(); // '★'
  * ```
  *
  * @example
  * ```ts
- * fromCharCode([9731, 9733, 9842]).subscribe(console.log) // '☃★♲'
+ * fromCharCode([9731, 9733, 9842]).subscribe(); // '☃★♲'
  * ```
  *
  * @returns String from an an array of code points

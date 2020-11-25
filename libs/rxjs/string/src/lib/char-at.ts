@@ -16,7 +16,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString('AbCdE')
  *  .pipe(charAt(4))
- *  .subscribe(console.log) // 'E'
+ *  .subscribe() // 'E'
  * ```
  *
  * @returns String character located at the passed position

@@ -18,7 +18,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString('Hello|World|Foo|Bar')
  *  .pipe(split('|'))
- *  .subscribe(console.log) // ['Hello', 'World', 'Foo', 'Bar']
+ *  subscribe(); // ['Hello', 'World', 'Foo', 'Bar']
  * ```
  *
  *
@@ -26,7 +26,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString('Hello|World|Foo|Bar')
  *  .pipe(split('|', 2))
- *  .subscribe(console.log) // ['Hello', 'World', 'Foo|Bar']
+ *  subscribe(); // ['Hello', 'World', 'Foo|Bar']
  * ```
  *
  * @returns Array of strings based on the original string split by the separator

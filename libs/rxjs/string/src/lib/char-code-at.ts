@@ -16,7 +16,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString('abcde')
  *  .pipe(charCodeAt(4))
- *  .subscribe(console.log) // 101
+ *  subscribe(); // 101
  * ```
  *
  * @returns Number of the character code from the passed string position

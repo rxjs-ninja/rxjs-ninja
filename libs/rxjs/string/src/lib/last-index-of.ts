@@ -17,14 +17,14 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString('foobar barfoo')
  *  .pipe(lastIndexOf('foo'))
- *  .subscribe(console.log) // 10
+ *  .subscribe() // 10
  * ```
  *
  * @example
  * ```ts
  * fromString('foobar barfoo')
  *  .pipe(indexOf('foo', 2))
- *  .subscribe(console.log) // 0
+ *  .subscribe() // 0
  * ```
  *
  * @returns Index of the location where the string starts

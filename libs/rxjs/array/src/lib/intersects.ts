@@ -22,28 +22,28 @@ import { mapIntersection } from '../utils/intersects';
  * ```ts
  * of(['a', 'b', 'd'])
  *  .pipe(intersects(['a', 'c']))
- *  .subscribe(console.log) // ['a']
+ *  subscribe(); // ['a']
  * ```
  *
  * @example
  * ```ts
  * of(['a', 'b', 'd'])
  *  .pipe(intersects(of(['a', 'c'])))
- *  .subscribe(console.log) // ['a']
+ *  subscribe(); // ['a']
  * ```
  *
  * @example
  * ```ts
  * of(['a', 'b', 'd'])
  *  .pipe(intersects(['A', 'C'], (value) => value.toUpperCase()))
- *  .subscribe(console.log) // ['a']
+ *  subscribe(); // ['a']
  * ```
  *
  * @example
  * ```ts
  * of(['a', 'b', 'd'])
  *  .pipe(intersects(of(['A', 'C']), (value) => value.toUpperCase()))
- *  .subscribe(console.log) // ['a']
+ *  subscribe(); // ['a']
  * ```
  *
  * @returns Array of values of intersection between the source and input array

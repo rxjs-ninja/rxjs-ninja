@@ -18,12 +18,9 @@ export function mapDifferenceWith<T = unknown>(input: T[], predicate?: Predicate
   return (value: T[]): T[] =>
     value.filter(
       (sourceValue) =>
-        input.findIndex((checkValue) => {
-          if (predicate) {
-            return predicate(sourceValue, checkValue);
-          }
-          return sourceValue === checkValue;
-        }) === -1,
+        input.findIndex((checkValue) =>
+          predicate ? predicate(sourceValue, checkValue) : sourceValue === checkValue,
+        ) === -1,
     );
 }
 

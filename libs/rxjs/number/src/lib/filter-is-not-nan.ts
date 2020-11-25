@@ -20,7 +20,7 @@ import { filter } from 'rxjs/operators';
  * ```ts
  * fromNumber([1, 2, NaN, 4])
  *  .pipe(filterIsNotNaN())
- *  .subscribe(console.log) // [1, 2, 4]
+ *  .subscribe() // [1, 2, 4]
  * ```
  *
  * @returns Number value that does not passes the `Number.isNaN` equality check

@@ -18,7 +18,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString('Mary had a little lamb')
  *  .pipe(slice(0, 4))
- *  .subscribe(console.log) // 'Mary'
+ *  .subscribe() // 'Mary'
  * ```
  *
  *
@@ -26,7 +26,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString('Mary had a little lamb')
  *  .pipe(slice(11, 17))
- *  .subscribe(console.log) // 'little'
+ *  .subscribe() // 'little'
  * ```
  *
  * @returns String that is a substring of the original string value

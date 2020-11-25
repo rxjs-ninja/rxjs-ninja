@@ -19,8 +19,8 @@ import { CallbackFn } from '../types/utility';
  * @example
  * ```ts
  * fromEvent(element, 'click').pipe(
- *  tapOnSubscribe(() => console.log('New Subscription'))
- * ).subscribe()
+ *  tapOnSubscribe(() => ('New Subscription'))
+ * ).subscribe();
  * ```
  *
  * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T

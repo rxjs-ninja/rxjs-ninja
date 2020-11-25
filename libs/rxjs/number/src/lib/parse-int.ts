@@ -21,14 +21,14 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString(['1', '2.8', '3.14'])
  *  .pipe(parseInt())
- *  .subscribe(console.log) // [1, 2, 3]
+ *  .subscribe() // [1, 2, 3]
  * ```
  *
  * @example
  * ```ts
  * fromString(['1', 'ff', '40'])
  *  .pipe(parseInt(16))
- *  .subscribe(console.log) // [1, 255, 64]
+ *  .subscribe() // [1, 255, 64]
  * ```
  *
  * @returns A number that is parsed from a string using `Number.parseInt` using a radix

@@ -18,14 +18,14 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromString('Mary had a little lamb')
  *  .pipe(replace('lamb', 'dog'))
- *  .subscribe(console.log) // ['Mary had a little dog']
+ *  subscribe(); // ['Mary had a little dog']
  * ```
  *
  * @example
  * ```ts
  * fromString('You get a car, you get a car, YOU GET A CAR')
  *  .pipe(replace(/\b(\w*car\w*)\b/g, 'bee'))
- *  .subscribe(console.log) // 'You get a bee, you get a bee, YOU GET A CAR'
+ *  subscribe(); // 'You get a bee, you get a bee, YOU GET A CAR'
  * ```
  *
  * @returns String with text replaced based on pattern and replacement string

@@ -27,14 +27,14 @@ import { filter } from 'rxjs/operators';
  * ```ts
  * fromNumber([-1, 0, 1, 2, 10, 11])
  *  .pipe(filterOutOfRange(0, 10))
- *  .subscribe(console.log) // [-1, 11]
+ *  subscribe(); // [-1, 11]
  * ```
  *
  * @example
  * ```ts
  * fromNumber([-1, 0, 1, 2, 10, 11])
  *  .pipe(filterOutOfRange(0, 10, true))
- *  .subscribe(console.log) // [-1, 0, 10, 11]
+ *  subscribe(); // [-1, 0, 10, 11]
  * ```
  *
  * @returns Number value if the number falls outside the `min/max` range

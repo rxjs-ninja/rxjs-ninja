@@ -19,7 +19,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * fromNumber([1, 2, 3.14])
  *  .pipe(isFloat())
- *  .subscribe(console.log) // [false, false, true]
+ *  subscribe(); // [false, false, true]
  * ```
  *
  * @returns Boolean if the number is a valid float

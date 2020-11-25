@@ -18,14 +18,14 @@ import { PredicateFn } from '../types/boolean';
  * ```ts
  * fromString(['a', 'b', 'c'])
  *  .pipe(lastTruthy())
- *  .subscribe(console.log) // 'c'
+ *  subscribe(); // 'c'
  * ```
  *
  * @example
  * ```ts
  * fromNumber([1, 2, 3, 4])
  *  .pipe(lastTruthy((value) => value % 2 === 0))
- *  .subscribe(console.log) // 4
+ *  subscribe(); // 4
  * ```
  *
  * @returns The last truthy boolean value

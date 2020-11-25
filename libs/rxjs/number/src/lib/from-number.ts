@@ -19,14 +19,14 @@ import { subscribeToSingleOrArrayNumber } from '../utils/from-number';
  * ```ts
  * fromNumber(6)
  *  .pipe(map(val => val * 7))
- *  .subscribe(console.log) // 42
+ *  subscribe(); // 42
  * ```
  *
  * @example
  * ```ts
  * fromNumber([1, 2, 3])
  *  .pipe(reduce((acc, val) => acc + val))
- *  .subscribe(console.log) // 6
+ *  subscribe(); // 6
  * ```
  *
  * @returns Observable created from the input array of numbers

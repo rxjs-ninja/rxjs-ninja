@@ -18,7 +18,8 @@ ROOT_DIR="."
 BASE="origin/main~1"
 
 COMMIT_MESSAGE="$(git log -1 --pretty=format:"%s")"
-RELEASE_TYPE=${1:-$(getBuildType "$COMMIT_MESSAGE")}
+RELEASE_TYPE=$(getBuildType "$COMMIT_MESSAGE")
+REGISTRY=${1:-""}
 DRY_RUN=${DRY_RUN:-"False"}
 
 IGNORE=$(echo "$COMMIT_MESSAGE" | sed -nE "s/^.*\[ignore:(.+)\]$/\1/p")
@@ -30,7 +31,7 @@ function doPublish {
   while IFS= read -r -d $' ' lib; do
     if [[ "$DRY_RUN" == "False" || "$IGNORE" != *"$lib"* ]]; then
       echo "Publishing $lib"
-      npm publish "$ROOT_DIR/dist/libs/${lib/-//}" --access=public
+      npm publish "$ROOT_DIR/dist/libs/${lib/-//}" --access=public --registry="$REGISTRY"
     else
       echo "Dry Run, not publishing $lib"
     fi

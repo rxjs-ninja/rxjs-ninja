@@ -15,34 +15,36 @@ jobs:
     strategy:
       matrix:
         # Latest nodes only
-        node-version: [15.x]
+        node-version: [14.x]
 
-
-    # Define Steps
+    # Pipeline Steps
     steps:
-      # Checkout code
-      - uses: actions/checkout@v2
+      #1 - Checkout code
+      - name: Checkout Code
+        uses: actions/checkout@v2
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
 
+      #2 - Make sure we have all branches
+      - name: Fetch other branches
+        run: git fetch --no-tags --prune --depth=5 origin main
+
+      #3 - Run initial node setup
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-
-      # Make sure we have all branches
-      - name: Fetch other branches
-        run: git fetch --no-tags --prune --depth=5 origin main
-
+          registry-url: 'https://registry.npmjs.org'
+      #4 - Clean up folders and run a new install
       - name: Install environment
         run: |
           rm -rf node_modules && rm -rf dist && rm -rf docs && rm -rf coverage
           npm ci
-
+      #5 - Run Linting
       - name: Run lint
         run: ./.github/scripts/run-linting.sh False
-
+      #6 - Run tests and submit coverage
       - name: Tests coverage
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

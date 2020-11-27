@@ -6,24 +6,19 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `flipArray` operator for arrays takes a boolean array of values and returns the array with all
- * values flipped to the opposite boolean
+ * Returns an Observable array where the source array contains boolean values, and flips the value to the opposite
+ * boolean.
  *
  * @example
  * ```ts
- * of([false, true, false])
- *  .pipe(flipArray())
- *  subscribe(); // [true, false, true]
+ * const input = [false, true, false];
+ * of(input).pipe(flipArray()).subscribe();
+ * // [true, false, true]
  * ```
  *
- * @returns Array of boolean values flipped from the input
+ * @returns Observable array of boolean values that are flipped from their original value
  * @category RxJS Array Modify
  */
 export function flipArray(): MonoTypeOperatorFunction<boolean[]> {
-  return (source: Observable<boolean[]>) =>
-    source.pipe(
-      map((value) => {
-        return value.map((v) => !v);
-      }),
-    );
+  return (source: Observable<boolean[]>) => source.pipe(map((value) => value.map((v) => !v)));
 }

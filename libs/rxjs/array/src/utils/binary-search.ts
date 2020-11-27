@@ -9,7 +9,7 @@
  * @param searchArray
  * @param property
  * @private
- * @internal
+ * @ignore
  */
 export function binarySearcher<T extends unknown>(
   searchValue: T,
@@ -48,7 +48,7 @@ export function binarySearcher<T extends unknown>(
 /**
  * Default sort method that provides a number value of comparison order
  * @private
- * @internal
+ * @ignore
  * @param first The first comparison parameter
  * @param second The second comparison parameter
  *

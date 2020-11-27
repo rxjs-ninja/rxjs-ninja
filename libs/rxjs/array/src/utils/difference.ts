@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Array
  */
-import { MapFn, PredicateFn } from '../types/array-compare';
+import { MapFn, PredicateFn } from '../types/generic-methods';
 
 /**
  * Filter an array to find intersecting items with optional predicate method, otherwise

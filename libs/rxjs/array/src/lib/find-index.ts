@@ -5,7 +5,7 @@
 
 import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PredicateFn } from '../types/array-compare';
+import { PredicateFn } from '../types/generic-methods';
 
 /**
  * Returns an Observable number of the index in the source array of the first truthy value from the [[PredicateFn]].
@@ -27,7 +27,7 @@ import { PredicateFn } from '../types/array-compare';
  * // 1
  * ```
  *
- * @returns Observable number value of the index of first value that was truthy for the predicate
+ * @returns An Observable that emits a number value, the index of first value where [[PredicateFn]] is true
  * @category RxJS Array Filter
  */
 export function findIndex<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], number> {

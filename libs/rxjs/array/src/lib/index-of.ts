@@ -5,20 +5,47 @@
 
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { MapFn } from '../types/array-compare';
+import { MapFn } from '../types/generic-methods';
 
 /**
- * The `indexOf` operator takes an array from a source observable and returns the index, or array of index values
- * of passed input, which can be a single value or array of values.
+ * Returns an Observable number or Observable array of numbers containing the first index numbers of the input value or array of values.
  *
  * Optionally a start index can be passed for the array and a map function to convert the array value for comparison
  * (for example upper/lower case)
  *
- * @param input The value or array of values to check
- * @param fromIndex The index to start from in the array
- * @param mapFn Function to modify the value for comparison
+ * @param input A single value or array of values to get the last index of in the source array
+ * @param fromIndex The index to start from when searching
+ * @param mapFn Optional [[MapFn]] that can be used to make comparison easier (such as lower casing text)
  *
- * @returns Array of boolean values flipped from the input
+ * @example
+ * ```ts
+ * const input = ['RxJS', 'Ninja', 'RxJS', 'Rocks'];
+ * of(input).pipe(indexOf('RxJS')).subscribe()
+ * // 0
+ * ```
+ *
+ * @example
+ * ```ts
+ * const input = ['RxJS', 'Ninja', 'RxJS', 'Rocks'];
+ * of(input).pipe(indexOf(['RxJS', 'Ninja'])).subscribe()
+ * // [0, 1]
+ * ```
+ *
+ * @example
+ * ```ts
+ * const input = ['RxJS', 'Ninja', 'RxJS', 'Rocks'];
+ * of(input).pipe(indexOf('RxJS', 1)).subscribe()
+ * // 2
+ * ```
+ *
+ * @example
+ * ```ts
+ * const input = ['RxJS', 'Ninja', 'RxJS', 'Rocks'];
+ * of(input).pipe(indexOf('ninja', 0, v => v.toLowerCase())).subscribe()
+ * // 1
+ * ```
+ *
+ * @returns Observable number or array of numbers containing the index of a found input
  * @category RxJS Array Query
  */
 export function indexOf<T extends unknown>(

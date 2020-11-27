@@ -4,7 +4,7 @@
  */
 import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { MapFn } from '../types/array-compare';
+import { MapFn } from '../types/generic-methods';
 import { mapDifference } from '../utils/difference';
 
 /**
@@ -46,7 +46,7 @@ import { mapDifference } from '../utils/difference';
  * of(input).pipe(difference(of(['A', 'C'], , (value) => value.toUpperCase()))).subscribe(); // ['b', 'd']
  * ```
  *
- * @returns An Observable that emits an array containing the difference between source and input array
+ * @returns An Observable that emits an Array which contains the difference between Observable source and input array.
  * @category RxJS Array Difference
  */
 export function difference<T extends unknown>(

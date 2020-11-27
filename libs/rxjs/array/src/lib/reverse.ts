@@ -7,16 +7,16 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `reverse` operator reverses and array from an observable source
+ * Returns an Observable array of the source array reversed in order
  *
  * @example
  * ```ts
- * of(['Hello', 'RxJS', 'Ninja'])
- * .pipe(reverse())
- * subscribe(); // ['Ninja', 'RxJS', 'Hello']
+ * const input = ['Hello', 'RxJS', 'Ninja'];
+ * of(input).pipe(reverse()).subscribe();
+ * // ['Ninja', 'RxJS', 'Hello']
  * ```
  *
- * @returns Array of the input source reversed
+ * @returns Observable array of the source array reversed.
  * @category RxJS Array Modify
  */
 export function reverse<T extends unknown>(): OperatorFunction<T[], T[]> {

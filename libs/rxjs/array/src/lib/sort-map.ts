@@ -4,41 +4,32 @@
  */
 import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { SortFn } from '../types/sort';
 import { defaultSortFn } from '../utils/binary-search';
-import { MapFn } from '../types/array-compare';
+import { MapFn, SortFn } from '../types/generic-methods';
 
 /**
- * The `sortMap` operator takes an array of `T` items and returns a mapped array of items, either T or K
- *
- * For sorting the operator can do basic quality check on `string` and `number` values,
- * and can take an optional method to do more complex searches for items such as array or objects
+ * Returns an Observable array of values where the array has been sorted with `sortFn` and then mapped
+ * to type `K` using the `sortFn`.
  *
  * @typeParam T The type of data in the input array
- * @typeParam K The type of data in the output array, this can be T or any other value type
+ * @typeParam K The type of data in the output array
  *
- * @param mapFn The mapping function to change the value
- * @param fn Optional sorting function
+ * @param mapFn The [[MapFn]] to map the value in the array
+ * @param sortFn Optional [[SortFn]] used to sort the array, if not provided a basic equality check it used.
  *
  * @example
  * ```ts
- * of([5, 8, 2, 7, 1, 6])
- * .pipe(
- *    sortMap(value => value >= 5 ? true : false)
- *  ).subscribe(); // [false, false, true, true, true, true]
+ * const input = [5, 8, 2, 7, 1, 6];
+ * of(input).pipe(sortMap(value => value >= 5 ? true : false)).subscribe();
+ * // [false, false, true, true, true, true]
  * ```
  *
- * @returns Array of sorted and mapped values
+ * @returns Observable array of sorted values of type `K`
  * @category RxJS Array Modify
  */
 export function sortMap<T extends unknown, K extends T | unknown>(
   mapFn: MapFn<T, K>,
-  fn?: SortFn,
+  sortFn?: SortFn,
 ): OperatorFunction<T[], K[]> {
-  const sortFn = fn || defaultSortFn;
-  return (source: Observable<T[]>) =>
-    source.pipe(
-      map((arr) => arr.sort(sortFn)),
-      map((arr) => arr.map(mapFn)),
-    );
+  return (source: Observable<T[]>) => source.pipe(map((arr) => arr.sort(sortFn || defaultSortFn)), map((arr) => arr.map(mapFn)));
 }

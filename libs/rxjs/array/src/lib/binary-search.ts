@@ -6,7 +6,7 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map, reduce } from 'rxjs/operators';
 import { binarySearcher, defaultSortFn } from '../utils/binary-search';
 import { BinarySearchResult } from '../types/binary-search';
-import { SortFn } from '../types/sort';
+import { SortFn } from '../types/generic-methods';
 
 /**
  * Returns an Observable that containers a [[BinarySearchResult]] returns. The source Observable should provide an array
@@ -17,7 +17,7 @@ import { SortFn } from '../types/sort';
  *
  * @param searchValue The value to search for in the source array
  * @param sort Optional sort method for sorting more complex types
- * @param property Optional If
+ * @param property Optional property of them item to return, for Array use an index number and for an object use a string key
  *
  * @remarks
  * When using an additional property, if it's a number the underlying T[] is assumed
@@ -59,7 +59,7 @@ import { SortFn } from '../types/sort';
  * // <BinarySearchResult>[4, 5, [...searchArray], [...sortedArray]]
  * ```
  *
- * @returns An Observable containing a [[BinarySearchResult]]
+ * @returns An Observable that emits a [[BinarySearchResult]]
  * @category RxJS Array Search
  */
 export function binarySearch<T extends unknown, K extends T | unknown>(

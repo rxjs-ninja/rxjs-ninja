@@ -5,7 +5,7 @@
 
 import { Observable, OperatorFunction } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
-import { PredicateFn } from '../types/array-compare';
+import { PredicateFn } from '../types/generic-methods';
 
 /**
  * Returns an Observable value of all truthy values found in a source array using the [[PredicateFn]]. By default
@@ -25,7 +25,7 @@ import { PredicateFn } from '../types/array-compare';
  * // ['Hello', 'Ninja', 'useful']
  * ```
  *
- * @returns Observable of all the [[PredicateFn]] truthy value found value from the array
+ * @returns An Observable that emits all the [[PredicateFn]] truthy value found value from the array
  * @category RxJS Array Filter
  */
 export function findAll<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], T[]> {

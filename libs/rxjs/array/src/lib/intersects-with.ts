@@ -4,7 +4,7 @@
  */
 import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { PredicateFn } from '../types/array-compare';
+import { PredicateFn } from '../types/generic-methods';
 import { mapIntersectsWith } from '../utils/intersects';
 
 /**

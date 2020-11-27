@@ -11,11 +11,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - `fill` operator that returns an Observable array of values where some or all the values have been replaced with the `fillWith` parameter.
 - `findAll` operator that returns an array of values that are all truthy based on a passed function
+- `findLast` operator that returns the last value from an array that is truthy for a passed predicate function
 
 ### Changed
 
 - `binarySearch` improvements, now returns the unsorted and sorted array
-- Lots of documentation improvements 
+- Lots of documentation improvements
 
 ## [2.2.0] - 2020-11-23
 

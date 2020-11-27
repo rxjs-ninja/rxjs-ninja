@@ -4,7 +4,7 @@
  */
 import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { PredicateFn } from '../types/array-compare';
+import { PredicateFn } from '../types/generic-methods';
 import { mapDifferenceWith } from '../utils/difference';
 
 /**
@@ -47,7 +47,7 @@ import { mapDifferenceWith } from '../utils/difference';
  * // ['b', 'd']
  * ```
  *
- * @returns Array of values of difference between the source and input array
+ * @returns An Observable that emits an Array which contains the difference between Observable source and input array.
  * @category RxJS Array Difference
  */
 export function differenceWith<T = unknown>(

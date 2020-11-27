@@ -3,7 +3,7 @@
  * @module Array
  */
 
-import { PredicateFn } from '../types/array-compare';
+import { PredicateFn } from '../types/generic-methods';
 import { OperatorFunction } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
@@ -31,7 +31,7 @@ import { filter } from 'rxjs/operators';
  * // [1, 0, 1, 0, 1, 0]
  * ```
  *
- * @returns Observable array containing all values in source array that return truthy with the [[PredicateFn]]
+ * @returns An Observable that emits an array containing all values in source array that return truthy with the [[PredicateFn]]
  * @category RxJS Array Filter
  */
 export function filterEvery<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], T[]> {

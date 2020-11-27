@@ -4,19 +4,19 @@
  */
 import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
-import { MapFn } from '../types/array-compare';
+import { MapFn } from '../types/generic-methods';
 import { mapIntersection } from '../utils/intersects';
 
 /**
- * The `intersects` can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) array of values
- * of T, passing in an array or Observable array of values to find the intersection between the two.
+ * Returns an Observable array containing values that are intersecting between a Observable source array and the passed input array.
  *
- * An optional method can be used to convert values for comparison (see examples)
+ * An optional [[MapFn]] can be used to convert values for easier comparison - for example when comparing string
+ * you can make them lowercase to ensure comparison regardless of input case.
  *
  * @typeParam T The type of data in the input array
  *
- * @param input Observable Array of items use to get the intersection between two arrays
- * @param inputModifier A function that provide modification of the values to do the comparision with
+ * @param input An Array or Observable array of values to compare the source Observable array against
+ * @param mapFn Optional function that can map the values of array for comparison such as upper/lower case
  *
  * @example
  * ```ts
@@ -46,15 +46,15 @@ import { mapIntersection } from '../utils/intersects';
  *  subscribe(); // ['a']
  * ```
  *
- * @returns Array of values of intersection between the source and input array
+ * @returns An Observable that emits an array containing the intersection between source and input array
  * @category RxJS Array Intersection
  */
 export function intersects<T = unknown>(
   input: T[] | ObservableInput<T[]>,
-  inputModifier?: MapFn<T, T>,
+  mapFn?: MapFn<T>,
 ): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>
     isObservable<T[]>(input)
-      ? input.pipe(switchMap((value) => source.pipe(map(mapIntersection(value, inputModifier)))))
-      : source.pipe(map(mapIntersection(input as T[], inputModifier)));
+      ? input.pipe(switchMap((value) => source.pipe(map(mapIntersection(value, mapFn)))))
+      : source.pipe(map(mapIntersection(input as T[], mapFn)));
 }

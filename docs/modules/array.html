@@ -116,9 +116,6 @@
 					<li class=" tsd-kind-module root">
 						<a href="utility.html" class="tsd-kind-icon">Utility</a>
 					</li>
-					<li class=" tsd-kind-module root">
-						<a href="libs_rxjs_array_src_lib.html" class="tsd-kind-icon">libs/rxjs/array/src/lib</a>
-					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation">
@@ -148,6 +145,9 @@
 						<a href="array.html#every" class="tsd-kind-icon">every</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter root">
+						<a href="array.html#fill" class="tsd-kind-icon">fill</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter root">
 						<a href="array.html#filterevery" class="tsd-kind-icon">filter<wbr>Every</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter root">
@@ -161,6 +161,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter root">
 						<a href="array.html#findindex" class="tsd-kind-icon">find<wbr>Index</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter root">
+						<a href="array.html#findlast" class="tsd-kind-icon">find<wbr>Last</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module root">
 						<a href="array.html#fliparray" class="tsd-kind-icon">flip<wbr>Array</a>
@@ -197,6 +200,14 @@
 		</div>
 		<div class="col-content">
 			<h1>Module Array</h1>
+			<!---->
+			<!--    -->
+			<!--        <section class="tsd-panel tsd-comment"><div class="tsd-comment tsd-typography tsd-comment-tags">
+            <dl class="tsd-comment-tags"><dt class="tds-tag-ignore">ignore</dt>
+                    <dd class="tds-tag-ignore"></dd></dl>
+        </div></section>-->
+			<!--    -->
+			<!---->
 			<section class="tsd-panel-group tsd-index-group">
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
@@ -232,6 +243,9 @@
 								<div class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#every"
 									class="tsd-kind-icon">every</a>
 								</div>
+								<div class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#fill"
+									class="tsd-kind-icon">fill</a>
+								</div>
 								<div class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#filterevery"
 									class="tsd-kind-icon">filterEvery</a>
 								</div>
@@ -246,6 +260,9 @@
 								</div>
 								<div class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#findindex"
 									class="tsd-kind-icon">findIndex</a>
+								</div>
+								<div class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#findlast"
+									class="tsd-kind-icon">findLast</a>
 								</div>
 								<div class="tsd-kind-function tsd-parent-kind-module"><a href="array.html#fliparray"
 									class="tsd-kind-icon">flipArray</a>
@@ -286,10 +303,11 @@
 				<h2>Type aliases</h2>
 				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="binarysearchresult" class="tsd-anchor"></a>
-					<div class="tsd-signature tsd-kind-icon">Binary<wbr>Search<wbr>Result&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">index</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">searchValue</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">searchArray</span><span class="tsd-signature-symbol">]</span></div>
+					<div class="tsd-signature tsd-kind-icon">Binary<wbr>Search<wbr>Result&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">[</span><span class="tsd-signature-type">index</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">searchValue</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">searchArray</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">sortedArray</span><span class="tsd-signature-symbol">]</span></div>
 					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 						<div class="lead">
-							<p>The return tuple for an Array search result, contains the search value, the search array and the index of the search result</p>
+							<p>The return tuple of the <a href="array.html#binarysearch">binarySearch</a> method containing the index of the value in the array,
+							the original search value and a sorted array of the values</p>
 						</div>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -298,15 +316,15 @@
 							<h4>T</h4>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>Type of array items</p>
+									<p>Type of items in the array</p>
 								</div>
 						</div>        </li>
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in
-								<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/types/binary-search.ts#L11">
-									libs/rxjs/array/src/types/binary-search.ts:11
+								<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/types/binary-search.ts#L12">
+									libs/rxjs/array/src/types/binary-search.ts:12
 								</a>
 							</li>
 						</ul>
@@ -316,18 +334,13 @@
 					<div class="tsd-signature tsd-kind-icon">Map<wbr>Fn&lt;T, K&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">function</span></div>
 					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 						<div class="lead">
-							<p>Method used to map one value to another value</p>
+							<p>A function to use with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.prototype.map</a></p>
 						</div>
 						</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-						<dl class="tsd-comment-tags"><dt>param</dt>
-							<dd><p>The value to be modified for comparison</p>
-							</dd><dt>example</dt>
-							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> modify: MapFn&lt;<span class="hljs-built_in">string</span>&gt; = (value: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">string</span> =&gt;</span> value.toUpperCase()</code></pre>
-							</dd><dt>example</dt>
-							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> modify: MapFn&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span>&gt; = (value: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">number</span> =&gt;</span> <span class="hljs-built_in">parseInt</span>(value, <span class="hljs-number">10</span>)</code></pre>
-							</dd><dt>returns</dt>
-							<dd><p>Value of the modifier function</p>
-						</dd></dl>
+						<dl class="tsd-comment-tags"><dt class="tds-tag-param">param</dt>
+							<dd class="tds-tag-param"><p>The value to be passed</p>
+							</dd><dt class="tds-tag-internal">internal</dt>
+						<dd class="tds-tag-internal"></dd></dl>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
@@ -365,8 +378,8 @@
 										<aside class="tsd-sources">
 											<ul>
 												<li>Defined in
-													<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/types/array-compare.ts#L27">
-														libs/rxjs/array/src/types/array-compare.ts:27
+													<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/types/generic-methods.ts#L17">
+														libs/rxjs/array/src/types/generic-methods.ts:17
 													</a>
 												</li>
 											</ul>
@@ -379,8 +392,8 @@
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in
-								<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/types/array-compare.ts#L27">
-									libs/rxjs/array/src/types/array-compare.ts:27
+								<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/types/generic-methods.ts#L17">
+									libs/rxjs/array/src/types/generic-methods.ts:17
 								</a>
 							</li>
 						</ul>
@@ -395,19 +408,8 @@
 						</div><div class="tsd-comment tsd-typography tsd-comment-text">
 						<p>Can be used for more complex conditions</p>
 						</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-						<dl class="tsd-comment-tags"><dt>example</dt>
-							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> isEvenNumber: PredicateFn&lt;<span class="hljs-built_in">number</span>&gt; = (num: <span class="hljs-built_in">number</span>): <span class="hljs-function"><span class="hljs-params">boolean</span> =&gt;</span> num % <span class="hljs-number">2</span> === <span class="hljs-number">0</span></code></pre>
-							</dd><dt>example</dt>
-							<dd><pre><code class="language-ts"><span class="hljs-keyword">interface</span> ObjectType {
-  <span class="hljs-attr">foo</span>: <span class="hljs-built_in">number</span>,
-  <span class="hljs-attr">bar</span>: <span class="hljs-built_in">string</span>
-}
-<span class="hljs-keyword">const</span> isTheUltimateAnswer: PredicateFn&lt;ObjectType&gt; = (obj: ObjectType): <span class="hljs-function"><span class="hljs-params">boolean</span> =&gt;</span> obj.foo === <span class="hljs-number">42</span></code></pre>
-							</dd><dt>example</dt>
-							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> nameIsAfter: PredicateFn&lt;<span class="hljs-built_in">string</span>, <span class="hljs-built_in">string</span>&gt; = (name1: <span class="hljs-built_in">string</span>, <span class="hljs-attr">name2</span>: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">boolean</span> =&gt;</span> name1.localeCompare(name2) === <span class="hljs-number">0</span></code></pre>
-							</dd><dt>returns</dt>
-							<dd><p>Boolean value based on the condition of the function</p>
-						</dd></dl>
+						<dl class="tsd-comment-tags"><dt class="tds-tag-internal">internal</dt>
+						<dd class="tds-tag-internal"></dd></dl>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
@@ -438,8 +440,8 @@
 										<aside class="tsd-sources">
 											<ul>
 												<li>Defined in
-													<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/types/array-compare.ts#L57">
-														libs/rxjs/array/src/types/array-compare.ts:57
+													<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/types/generic-methods.ts#L28">
+														libs/rxjs/array/src/types/generic-methods.ts:28
 													</a>
 												</li>
 											</ul>
@@ -452,8 +454,8 @@
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in
-								<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/types/array-compare.ts#L57">
-									libs/rxjs/array/src/types/array-compare.ts:57
+								<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/types/generic-methods.ts#L28">
+									libs/rxjs/array/src/types/generic-methods.ts:28
 								</a>
 							</li>
 						</ul>
@@ -466,15 +468,8 @@
 							<p>Method used to sort an Array of values</p>
 						</div>
 						</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-						<dl class="tsd-comment-tags"><dt>param</dt>
-							<dd><p>The first value to compare</p>
-							</dd><dt>param</dt>
-							<dd><p>The second value to compare</p>
-							</dd><dt>example</dt>
-							<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> sortFn&lt;<span class="hljs-built_in">string</span>&gt; = (first: <span class="hljs-built_in">string</span>, <span class="hljs-attr">second</span>: <span class="hljs-built_in">string</span>): <span class="hljs-function"><span class="hljs-params">number</span> =&gt;</span> first.localCompare(second)</code></pre>
-							</dd><dt>returns</dt>
-							<dd><p>A number that represents the value match position for sorting</p>
-						</dd></dl>
+						<dl class="tsd-comment-tags"><dt class="tds-tag-internal">internal</dt>
+						<dd class="tds-tag-internal"></dd></dl>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
@@ -508,8 +503,8 @@
 										<aside class="tsd-sources">
 											<ul>
 												<li>Defined in
-													<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/types/sort.ts#L22">
-														libs/rxjs/array/src/types/sort.ts:22
+													<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/types/generic-methods.ts#L38">
+														libs/rxjs/array/src/types/generic-methods.ts:38
 													</a>
 												</li>
 											</ul>
@@ -522,8 +517,8 @@
 					<aside class="tsd-sources">
 						<ul>
 							<li>Defined in
-								<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/types/sort.ts#L22">
-									libs/rxjs/array/src/types/sort.ts:22
+								<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/types/generic-methods.ts#L38">
+									libs/rxjs/array/src/types/generic-methods.ts:38
 								</a>
 							</li>
 						</ul>
@@ -534,7 +529,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="binarysearch" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">binary<wbr>Search&lt;T, K&gt;<span class="tsd-signature-symbol">(</span>searchValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, sort<span class="tsd-signature-symbol">?: </span><a href="array.html#sortfn" class="tsd-signature-type">SortFn</a>, property<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><a href="array.html#binarysearchresult" class="tsd-signature-type">BinarySearchResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">binary<wbr>Search&lt;T, K&gt;<span class="tsd-signature-symbol">(</span>searchValue<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, sort<span class="tsd-signature-symbol">?: </span><a href="array.html#sortfn" class="tsd-signature-type">SortFn</a>, property<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><a href="array.html#binarysearchresult" class="tsd-signature-type">BinarySearchResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -546,16 +541,16 @@
 									of values to search, the array is sorted and searched for the value.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>remarks</dt>
-									<dd><p>When using an additional property, if it&#39;s a number the underlying T[] is assumed
+								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
+									<dd class="tds-tag-remarks"><p>When using an additional property, if it&#39;s a number the underlying T[] is assumed
 											to be an array. If you have an object with a number property, use a string value
 										instead (e.g. <code>&#39;5&#39;</code> instead of <code>5</code>)</p>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">7</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">3</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>, <span class="hljs-number">9</span>];
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">1</span>, <span class="hljs-number">4</span>, <span class="hljs-number">7</span>, <span class="hljs-number">2</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">3</span>, <span class="hljs-number">8</span>, <span class="hljs-number">10</span>, <span class="hljs-number">9</span>];
 <span class="hljs-keyword">of</span>(input).pipe(binarySearch(<span class="hljs-number">5</span>)).subscribe();
-<span class="hljs-comment">// &lt;BinarySearchResult&gt;[4, 5, [1, 2, 3,...]]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [
+<span class="hljs-comment">// &lt;BinarySearchResult&gt;[4, 5, [...searchArray], [...sortedArray]]</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [
  { <span class="hljs-attr">val</span>: <span class="hljs-number">1</span> }, { <span class="hljs-attr">val</span>: <span class="hljs-number">4</span> }, { <span class="hljs-attr">val</span>: <span class="hljs-number">7</span> }, { <span class="hljs-attr">val</span>: <span class="hljs-number">2</span> }, { <span class="hljs-attr">val</span>: <span class="hljs-number">5</span> },
  { <span class="hljs-attr">val</span>: <span class="hljs-number">6</span> }, { <span class="hljs-attr">val</span>: <span class="hljs-number">3</span> }, { <span class="hljs-attr">val</span>: <span class="hljs-number">8</span> }, { <span class="hljs-attr">val</span>: <span class="hljs-number">10</span> }, { <span class="hljs-attr">val</span>: <span class="hljs-number">9</span>}
 ];
@@ -564,9 +559,9 @@
  <span class="hljs-keyword">return</span> a.val &lt; b.val ? -<span class="hljs-number">1</span> : <span class="hljs-number">1</span>;
 };
 <span class="hljs-keyword">of</span>(input).pipe(binarySearch(<span class="hljs-number">5</span>, sortObj, <span class="hljs-string">&#x27;val&#x27;</span>)).subscribe();
-<span class="hljs-comment">// &lt;BinarySearchResult&gt;[4, 5, [{ val: 1 }, { val: 2}, { val: 3 },...]]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [
+<span class="hljs-comment">// &lt;BinarySearchResult&gt;[4, 5, [...searchArray], [...sortedArray]]</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [
  [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">3</span>, <span class="hljs-number">7</span>], [<span class="hljs-number">4</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">5</span>, <span class="hljs-number">5</span>],
  [<span class="hljs-number">6</span>, <span class="hljs-number">6</span>], [<span class="hljs-number">7</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">8</span>, <span class="hljs-number">8</span>], [<span class="hljs-number">9</span>, <span class="hljs-number">10</span>], [<span class="hljs-number">10</span>, <span class="hljs-number">9</span>]
 ];
@@ -575,7 +570,7 @@
  <span class="hljs-keyword">return</span> a[<span class="hljs-number">1</span>] &lt; b[<span class="hljs-number">1</span>] ? -<span class="hljs-number">1</span> : <span class="hljs-number">1</span>;
 };
 <span class="hljs-keyword">from</span>(input).pipe(binarySearch(<span class="hljs-number">5</span>, sortArray, <span class="hljs-number">1</span>)).subscribe();
-<span class="hljs-comment">// &lt;BinarySearchResult&gt;[4, 5, [[1, 1], [4, 2], [7, 3],...]]</span></code></pre>
+<span class="hljs-comment">// &lt;BinarySearchResult&gt;[4, 5, [...searchArray], [...sortedArray]]</span></code></pre>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -608,11 +603,11 @@
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> property: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Optional property to be searched on, use a number for array index and strings for object keys</p>
+										<p>Optional property of them item to return, for Array use an index number and for an object use a string key</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><a href="array.html#binarysearchresult" class="tsd-signature-type">BinarySearchResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><a href="array.html#binarysearchresult" class="tsd-signature-type">BinarySearchResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h4>
 							<p>An Observable containing a <a href="array.html#binarysearchresult">BinarySearchResult</a></p>
 							<aside class="tsd-sources">
 								<ul>
@@ -643,20 +638,20 @@
 								<p>An optional <a href="array.html#mapfn">MapFn</a> can be used to convert values for easier comparison - for example when comparing string
 								you can make them lowercase to ensure comparison regardless of input case.</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
 <span class="hljs-keyword">of</span>(input).pipe(difference([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>])).subscribe();
 <span class="hljs-comment">// [&#x27;b&#x27;, &#x27;d&#x27;]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
 <span class="hljs-keyword">of</span>(input).pipe(difference(<span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>]))).subscribe();
 <span class="hljs-comment">// [&#x27;b&#x27;, &#x27;d&#x27;]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
 <span class="hljs-keyword">of</span>(input).pipe(difference([<span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;C&#x27;</span>], <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> value.toUpperCase())).subscribe();
 <span class="hljs-comment">// [&#x27;b&#x27;, &#x27;d&#x27;]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
 <span class="hljs-keyword">of</span>(input).pipe(difference(<span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;C&#x27;</span>], , <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> value.toUpperCase()))).subscribe(); <span class="hljs-comment">// [&#x27;b&#x27;, &#x27;d&#x27;]</span></code></pre>
 								</dd></dl>
 							</div>
@@ -713,20 +708,20 @@
 								</div><div class="tsd-comment tsd-typography tsd-comment-text">
 								<p>An optional <a href="array.html#predicatefn">PredicateFn</a> can be used to do different boolean comparison with the difference</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
 <span class="hljs-keyword">of</span>(input).pipe(differenceWith([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>])).subscribe();
 <span class="hljs-comment">// [&#x27;b&#x27;, &#x27;d&#x27;]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
 <span class="hljs-keyword">of</span>(input).pipe(differenceWith(<span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>]))).subscribe();
 <span class="hljs-comment">// [&#x27;b&#x27;, &#x27;d&#x27;]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
 <span class="hljs-keyword">of</span>(input).pipe(differenceWith([<span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;C&#x27;</span>], <span class="hljs-function">(<span class="hljs-params">x, y</span>) =&gt;</span> x.toUpperCase() === y))).subscribe();
 <span class="hljs-comment">// [&#x27;b&#x27;, &#x27;d&#x27;]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>];
 <span class="hljs-keyword">of</span>(input).pipe(differenceWith(<span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;C&#x27;</span>]), <span class="hljs-function">(<span class="hljs-params">x, y</span>) =&gt;</span> x.toUpperCase === y))).subscribe();
 <span class="hljs-comment">// [&#x27;b&#x27;, &#x27;d&#x27;]</span></code></pre>
 								</dd></dl>
@@ -782,20 +777,12 @@
 									values are truthy it will return, otherwise pass the predicate to check values.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [
- [<span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>],
- [<span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>],
- [<span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>]
-];
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [ [<span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>, <span class="hljs-literal">false</span>], [<span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>], [<span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>] ];
 fromArray(input).pipe(every()).subscribe();
 <span class="hljs-comment">// [false, false, true]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [
- [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>],
- [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>],
- [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>]
-];
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [ [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>] ];
 fromArray(input).pipe(every(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v &lt; <span class="hljs-number">2</span>)).subscribe();
 <span class="hljs-comment">// [true, false, false]</span></code></pre>
 								</dd></dl>
@@ -811,7 +798,7 @@ fromArray(input).pipe(every(<span class="hljs-function"><span class="hljs-params
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="array.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Optional <a href="array.html#predicatefn">PredicateFn</a> used to get a truthy or falsy value of array values</p>
+										<p>Optional <a href="array.html#predicatefn">PredicateFn</a> used to get a truthy value of array values</p>
 									</div>
 								</li>
 							</ul>
@@ -820,8 +807,83 @@ fromArray(input).pipe(every(<span class="hljs-function"><span class="hljs-params
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/every.ts#L41">
-											libs/rxjs/array/src/lib/every.ts:41
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/every.ts#L33">
+											libs/rxjs/array/src/lib/every.ts:33
+										</a>
+									</li>
+								</ul>
+							</aside>
+						</li>
+					</ul>
+					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="fill" class="tsd-anchor"></a>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">fill&lt;T, K&gt;<span class="tsd-signature-symbol">(</span>fillWith<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span>, start<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, fillTo<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Returns an Observable array of values, the array length is based on the Observable source array, but some or all the
+									values are replaced with the <code>fillWith</code> parameter.</p>
+								</div>
+								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
+								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
+									<dd class="tds-tag-remarks"><p>Optionally a <code>start</code> index from 0 can be passed to fill from, all members before this will be left as their original values.
+										The <code>fillTo</code> value is the index to stop at (e.g. In the array <code>[0, 0, 0, 0, 0]</code> index <code>4</code> will be <code>[ 0, 1, 1, 1, 0 ]</code></p>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;The&#x27;</span>, <span class="hljs-string">&#x27;Cake&#x27;</span>, <span class="hljs-string">&#x27;is&#x27;</span>, <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;lie&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(fill(<span class="hljs-string">&#x27;CAKE!&#x27;</span>)).subscribe();
+<span class="hljs-comment">// [&#x27;CAKE!&#x27;, &#x27;CAKE!&#x27;, &#x27;CAKE!&#x27;, &#x27;CAKE!&#x27;, &#x27;CAKE!&#x27;]</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;The&#x27;</span>, <span class="hljs-string">&#x27;Cake&#x27;</span>, <span class="hljs-string">&#x27;is&#x27;</span>, <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;lie&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(fill(<span class="hljs-string">&#x27;CAKE!&#x27;</span>, <span class="hljs-number">2</span>)).subscribe();
+<span class="hljs-comment">// [&#x27;The&#x27;, &#x27;Cake&#x27;, &#x27;CAKE!&#x27;, &#x27;CAKE!&#x27;, &#x27;CAKE!&#x27;]</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;The&#x27;</span>, <span class="hljs-string">&#x27;Cake&#x27;</span>, <span class="hljs-string">&#x27;is&#x27;</span>, <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;lie&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(fill(<span class="hljs-string">&#x27;CAKE!&#x27;</span>, <span class="hljs-number">2</span>, <span class="hljs-number">4</span>)).subscribe();
+<span class="hljs-comment">// [&#x27;The&#x27;, &#x27;Cake&#x27;, &#x27;CAKE!&#x27;, &#x27;CAKE!&#x27;, &#x27;lie&#x27;]</span></code></pre>
+								</dd></dl>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
+								</li>
+								<li>
+									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">unknown</span></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>fillWith: <span class="tsd-signature-type">K</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">
+										<p>The value to replace the existing value in the source array with</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> start: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">
+										<p>The index to start filling from. Default is 0</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> fillTo: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">
+										<p>The index to stop filling at</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Observable array of values with some or all of the source array values replaces with the <code>fillValue</code></p>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/fill.ts#L45">
+											libs/rxjs/array/src/lib/fill.ts:45
 										</a>
 									</li>
 								</ul>
@@ -843,12 +905,12 @@ fromArray(input).pipe(every(<span class="hljs-function"><span class="hljs-params
 									By default it will return the Observable array if all values are truthy.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [ [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>], [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>], [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;Rocks&#x27;</span>] ];
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [ [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>], [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>], [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;Rocks&#x27;</span>] ];
 fromArray(input).pipe(filterEvery()).subscribe()
 <span class="hljs-comment">// [&#x27;RxJS&#x27;, &#x27;Ninja&#x27;, &#x27;Rocks&#x27;]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [
  [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>]
  [<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>],
  [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">2</span>]
@@ -900,12 +962,8 @@ fromArray(input).pipe(filterEvery(<span class="hljs-function"><span class="hljs-
 									By default it will return the Observable array if one value is truthy.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [
- [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Rocks&#x27;</span>]
- [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>],
- [<span class="hljs-string">&#x27;Foo&#x27;</span>, <span class="hljs-string">&#x27;Bar&#x27;</span>]
-];
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [ [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Rocks&#x27;</span>], [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>], [<span class="hljs-string">&#x27;Foo&#x27;</span>, <span class="hljs-string">&#x27;Bar&#x27;</span>] ];
 
 fromArray(input).pipe(filterSome(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v === <span class="hljs-string">&#x27;RxJS&#x27;</span>)).subscribe()
 <span class="hljs-comment">// [&#x27;RxJS&#x27;, &#x27;Rocks&#x27;], [&#x27;RxJS&#x27;, &#x27;Ninja&#x27;]</span></code></pre>
@@ -931,8 +989,8 @@ fromArray(input).pipe(filterSome(<span class="hljs-function"><span class="hljs-p
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/filter-some.ts#L30">
-											libs/rxjs/array/src/lib/filter-some.ts:30
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/filter-some.ts#L26">
+											libs/rxjs/array/src/lib/filter-some.ts:26
 										</a>
 									</li>
 								</ul>
@@ -956,8 +1014,12 @@ fromArray(input).pipe(filterSome(<span class="hljs-function"><span class="hljs-p
 								</div><div class="tsd-comment tsd-typography tsd-comment-text">
 								<p>If there no value found, <code>undefined</code> will be returned.</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts">const input = [&#x27;Hello&#x27;, &#x27;RxJS&#x27;, &#x27;Ninja&#x27;, &#x27;is&#x27; &#x27;very, &#x27;useful&#x27;];
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Testing&#x27;</span>, <span class="hljs-string">&#x27;One&#x27;</span>, <span class="hljs-string">&#x27;Two&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(find()).subscribe();
+<span class="hljs-comment">// &#x27;Testing&#x27;</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts">const input = [&#x27;Hello&#x27;, &#x27;RxJS&#x27;, &#x27;Ninja&#x27;, &#x27;is&#x27; &#x27;very, &#x27;useful&#x27;];
 of(input).pipe(find(v =&gt; v.length &lt; 5)).subscribe();
 // &#x27;RxJS&#x27;</code></pre>
 								</dd></dl>
@@ -979,8 +1041,8 @@ of(input).pipe(find(v =&gt; v.length &lt; 5)).subscribe();
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/find.ts#L26">
-											libs/rxjs/array/src/lib/find.ts:26
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/find.ts#L33">
+											libs/rxjs/array/src/lib/find.ts:33
 										</a>
 									</li>
 								</ul>
@@ -1002,12 +1064,12 @@ of(input).pipe(find(v =&gt; v.length &lt; 5)).subscribe();
 									a <code>Boolean(value)</code> check is made.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">6</span>, <span class="hljs-number">6</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>];
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">6</span>, <span class="hljs-number">6</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>];
 <span class="hljs-keyword">of</span>(input).pipe(find()).subscribe()
 <span class="hljs-comment">// [10, 1, 6, 6, 1]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts">const input = [&#x27;Hello&#x27;, &#x27;RxJS&#x27;, &#x27;Ninja&#x27;, &#x27;is&#x27; &#x27;very, &#x27;useful&#x27;];
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts">const input = [&#x27;Hello&#x27;, &#x27;RxJS&#x27;, &#x27;Ninja&#x27;, &#x27;is&#x27; &#x27;very, &#x27;useful&#x27;];
 of(input).pipe(find(v =&gt; v.length &gt;= 5)).subscribe()
 // [&#x27;Hello&#x27;, &#x27;Ninja&#x27;, &#x27;useful&#x27;]</code></pre>
 								</dd></dl>
@@ -1040,7 +1102,7 @@ of(input).pipe(find(v =&gt; v.length &gt;= 5)).subscribe()
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="findindex" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">find<wbr>Index&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><a href="array.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">find<wbr>Index&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="array.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1048,13 +1110,18 @@ of(input).pipe(find(v =&gt; v.length &gt;= 5)).subscribe()
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>findIndex</code> operator returns the index of the first matching item in an array from an observable</p>
+									<p>Returns an Observable number of the index in the source array of the first truthy value from the <a href="array.html#predicatefn">PredicateFn</a>.
+									By default a <code>Boolean(value)</code> check is made.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>])
-.pipe(findIndex(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v.length &lt; <span class="hljs-number">5</span>))
-.subscribe() <span class="hljs-comment">// 1</span></code></pre>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]
+<span class="hljs-keyword">of</span>(input).pipe(findIndex(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v &gt; <span class="hljs-number">2</span>)).subscribe()
+<span class="hljs-comment">// 2</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(findIndex(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v.length &lt; <span class="hljs-number">5</span>)).subscribe()
+<span class="hljs-comment">// 1</span></code></pre>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1066,16 +1133,71 @@ of(input).pipe(find(v =&gt; v.length &gt;= 5)).subscribe()
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>predicate: <a href="array.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="array.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">
+										<p>Optional <a href="array.html#predicatefn">PredicateFn</a> used to get a truthy or falsy value of array values</p>
+									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Number value of the index of the value that was found via predicate</p>
+							<p>Observable number value of the index of first value that was truthy for the predicate</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/find-index.ts#L23">
-											libs/rxjs/array/src/lib/find-index.ts:23
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/find-index.ts#L33">
+											libs/rxjs/array/src/lib/find-index.ts:33
+										</a>
+									</li>
+								</ul>
+							</aside>
+						</li>
+					</ul>
+					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="findlast" class="tsd-anchor"></a>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">find<wbr>Last&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="array.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Returns an Observable value of the last truthy value found in a source array using the <a href="array.html#predicatefn">PredicateFn</a>. By default
+									a <code>Boolean(value)</code> check is made.</p>
+								</div>
+								</div><div class="tsd-comment tsd-typography tsd-comment-text">
+								<p>If there no value found, <code>undefined</code> will be returned.</p>
+								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Testing&#x27;</span>, <span class="hljs-string">&#x27;One&#x27;</span>, <span class="hljs-string">&#x27;Two&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(find()).subscribe();
+<span class="hljs-comment">// &#x27;Two&#x27;</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts">const input = [&#x27;Hello&#x27;, &#x27;RxJS&#x27;, &#x27;Ninja&#x27;, &#x27;is&#x27; &#x27;very, &#x27;useful&#x27;];
+of(input).pipe(find(v =&gt; v.length &lt; 5)).subscribe();
+// &#x27;very&#x27;</code></pre>
+								</dd></dl>
+							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
+								</li>
+							</ul>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="array.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Observable of the last found value from the array, or undefined</p>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/find-last.ts#L33">
+											libs/rxjs/array/src/lib/find-last.ts:33
 										</a>
 									</li>
 								</ul>
@@ -1093,18 +1215,18 @@ of(input).pipe(find(v =&gt; v.length &gt;= 5)).subscribe()
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>flipArray</code> operator for arrays takes a boolean array of values and returns the array with all
-									values flipped to the opposite boolean</p>
+									<p>Returns an Observable array where the source array contains boolean values, and flips the value to the opposite
+									boolean.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>])
- .pipe(flipArray())
- subscribe(); <span class="hljs-comment">// [true, false, true]</span></code></pre>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>];
+<span class="hljs-keyword">of</span>(input).pipe(flipArray()).subscribe();
+<span class="hljs-comment">// [true, false, true]</span></code></pre>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Array of boolean values flipped from the input</p>
+							<p>Observable array of boolean values that are flipped from their original value</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
@@ -1127,12 +1249,29 @@ of(input).pipe(find(v =&gt; v.length &gt;= 5)).subscribe()
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>indexOf</code> operator takes an array from a source observable and returns the index, or array of index values
-									of passed input, which can be a single value or array of values.</p>
+									<p>Returns an Observable number or Observable array of numbers containing the first index numbers of the input value or array of values.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-text">
 								<p>Optionally a start index can be passed for the array and a map function to convert the array value for comparison
 								(for example upper/lower case)</p>
+								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Rocks&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(indexOf(<span class="hljs-string">&#x27;RxJS&#x27;</span>)).subscribe()
+<span class="hljs-comment">// 0</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Rocks&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(indexOf([<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>])).subscribe()
+<span class="hljs-comment">// [0, 1]</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Rocks&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(indexOf(<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-number">1</span>)).subscribe()
+<span class="hljs-comment">// 2</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Rocks&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(indexOf(<span class="hljs-string">&#x27;ninja&#x27;</span>, <span class="hljs-number">0</span>, <span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v.toLowerCase())).subscribe()
+<span class="hljs-comment">// 1</span></code></pre>
+								</dd></dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -1145,29 +1284,29 @@ of(input).pipe(find(v =&gt; v.length &gt;= 5)).subscribe()
 								<li>
 									<h5>input: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The value or array of values to check</p>
+										<p>A single value or array of values to get the last index of in the source array</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> fromIndex: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The index to start from in the array</p>
+										<p>The index to start from when searching</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mapFn: <a href="array.html#mapfn" class="tsd-signature-type">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Function to modify the value for comparison</p>
+										<p>Optional <a href="array.html#mapfn">MapFn</a> that can be used to make comparison easier (such as lower casing text)</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Array of boolean values flipped from the input</p>
+							<p>Observable number or array of numbers containing the index of a found input</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/index-of.ts#L24">
-											libs/rxjs/array/src/lib/index-of.ts:24
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/index-of.ts#L51">
+											libs/rxjs/array/src/lib/index-of.ts:51
 										</a>
 									</li>
 								</ul>
@@ -1177,7 +1316,7 @@ of(input).pipe(find(v =&gt; v.length &gt;= 5)).subscribe()
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="intersects" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">intersects&lt;T&gt;<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, inputModifier<span class="tsd-signature-symbol">?: </span><a href="array.html#mapfn" class="tsd-signature-type">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">intersects&lt;T&gt;<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span>, mapFn<span class="tsd-signature-symbol">?: </span><a href="array.html#mapfn" class="tsd-signature-type">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1185,26 +1324,26 @@ of(input).pipe(find(v =&gt; v.length &gt;= 5)).subscribe()
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>intersects</code> can be used with an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> array of values
-									of T, passing in an array or Observable array of values to find the intersection between the two.</p>
+									<p>Returns an Observable array containing values that are intersecting between a Observable source array and the passed input array.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>An optional method can be used to convert values for comparison (see examples)</p>
+								<p>An optional <a href="array.html#mapfn">MapFn</a> can be used to convert values for easier comparison - for example when comparing string
+								you can make them lowercase to ensure comparison regardless of input case.</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>])
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>])
  .pipe(intersects([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>]))
  subscribe(); <span class="hljs-comment">// [&#x27;a&#x27;]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>])
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>])
  .pipe(intersects(<span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>])))
  subscribe(); <span class="hljs-comment">// [&#x27;a&#x27;]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>])
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>])
  .pipe(intersects([<span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;C&#x27;</span>], <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> value.toUpperCase()))
  subscribe(); <span class="hljs-comment">// [&#x27;a&#x27;]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>])
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>])
  .pipe(intersects(<span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;C&#x27;</span>]), <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> value.toUpperCase()))
  subscribe(); <span class="hljs-comment">// [&#x27;a&#x27;]</span></code></pre>
 								</dd></dl>
@@ -1222,18 +1361,18 @@ of(input).pipe(find(v =&gt; v.length &gt;= 5)).subscribe()
 								<li>
 									<h5>input: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Observable Array of items use to get the intersection between two arrays</p>
+										<p>An Array or Observable array of values to compare the source Observable array against</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> inputModifier: <a href="array.html#mapfn" class="tsd-signature-type">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mapFn: <a href="array.html#mapfn" class="tsd-signature-type">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>A function that provide modification of the values to do the comparision with</p>
+										<p>Optional function that can map the values of array for comparison such as upper/lower case</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Array of values of intersection between the source and input array</p>
+							<p>An Observable that emits an array containing the intersection between source and input array</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
@@ -1264,27 +1403,27 @@ of(input).pipe(find(v =&gt; v.length &gt;= 5)).subscribe()
 								<p>An optional <a href="array.html#predicatefn">PredicateFn</a> can be passed for more complex types, if none is passed a simple comparison (<code>===</code>)
 								will be used to determine the intersection</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input: <span class="hljs-built_in">string</span>[] = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>];
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input: <span class="hljs-built_in">string</span>[] = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>];
 
 <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>])
  .pipe(intersectsWith(input))
  subscribe(); <span class="hljs-comment">// [&#x27;a&#x27;]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input: Observable&lt;<span class="hljs-built_in">string</span>[]&gt; = <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>]);
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input: Observable&lt;<span class="hljs-built_in">string</span>[]&gt; = <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;e&#x27;</span>]);
 
 <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>])
  .pipe(intersectsWith(input))
  subscribe(); <span class="hljs-comment">// [&#x27;a&#x27;]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input: <span class="hljs-built_in">string</span>[] = [<span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;E&#x27;</span>];
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input: <span class="hljs-built_in">string</span>[] = [<span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;E&#x27;</span>];
 <span class="hljs-keyword">const</span> predicate: PredicateFn&lt;<span class="hljs-built_in">string</span>&gt; = <span class="hljs-function">(<span class="hljs-params">x, y</span>) =&gt;</span> x === y.toLowerCase();
 
 <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>])
  .pipe(intersectsWith(input, predicate))
  subscribe(); <span class="hljs-comment">// [&#x27;a&#x27;]</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">const</span> input: Observable&lt;<span class="hljs-built_in">string</span>[]&gt; = <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;E&#x27;</span>]);
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input: Observable&lt;<span class="hljs-built_in">string</span>[]&gt; = <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;A&#x27;</span>, <span class="hljs-string">&#x27;E&#x27;</span>]);
 <span class="hljs-keyword">const</span> predicate: PredicateFn&lt;<span class="hljs-built_in">string</span>&gt; = <span class="hljs-function">(<span class="hljs-params">x, y</span>) =&gt;</span> x === y.toLowerCase();
 
 <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>])
@@ -1339,18 +1478,17 @@ of(input).pipe(find(v =&gt; v.length &gt;= 5)).subscribe()
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>join</code> operator takes an array from an observable source and returns a string on the joined
-									array values.</p>
+									<p>Returns an Observable string based on the source array being joined using the <code>separator</code> parameter.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>])
-.pipe(join())
-subscribe(); <span class="hljs-comment">// &#x27;Hello RxJS Ninja&#x27;</span></code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;Name&#x27;</span>, <span class="hljs-string">&#x27;Age&#x27;</span>, <span class="hljs-string">&#x27;Location&#x27;</span>])
-.pipe(join(<span class="hljs-string">&#x27;,&#x27;</span>))
-subscribe(); <span class="hljs-comment">// &#x27;Name,Age,Location&#x27;</span></code></pre>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(join()).subscribe();
+<span class="hljs-comment">// &#x27;Hello RxJS Ninja&#x27;</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;Name&#x27;</span>, <span class="hljs-string">&#x27;Age&#x27;</span>, <span class="hljs-string">&#x27;Location&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(join(<span class="hljs-string">&#x27;,&#x27;</span>)).subscribe();
+<span class="hljs-comment">// &#x27;Name,Age,Location&#x27;</span></code></pre>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1364,17 +1502,17 @@ subscribe(); <span class="hljs-comment">// &#x27;Name,Age,Location&#x27;</span><
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> separator: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot; &quot;</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The separator to pass for strings, by default a space</p>
+										<p>Separator to be used to join strings. Default value is a space character.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>String of the array values joined by the separator</p>
+							<p>Observable string from the joined values in the source Observable array</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/join.ts#L31">
-											libs/rxjs/array/src/lib/join.ts:31
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/join.ts#L30">
+											libs/rxjs/array/src/lib/join.ts:30
 										</a>
 									</li>
 								</ul>
@@ -1392,12 +1530,29 @@ subscribe(); <span class="hljs-comment">// &#x27;Name,Age,Location&#x27;</span><
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>lastIndexOf</code> operator takes an array from a source observable and returns the last index, or array of last index values
-									of passed input, which can be a single value or array of values.</p>
+									<p>Returns an Observable number or Observable array of numbers containing the last index of the input value or array of values.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-text">
 								<p>Optionally a start index can be passed for the array and a map function to convert the array value for comparison
 								(for example upper/lower case)</p>
+								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Rocks&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(lastIndexOf(<span class="hljs-string">&#x27;RxJS&#x27;</span>)).subscribe()
+<span class="hljs-comment">// 2</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Rocks&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(lastIndexOf([<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>])).subscribe()
+<span class="hljs-comment">// [2, 1]</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Rocks&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(lastIndexOf(<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-number">1</span>)).subscribe()
+<span class="hljs-comment">// 0</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Rocks&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(lastIndexOf(<span class="hljs-string">&#x27;ninja&#x27;</span>, input.length - <span class="hljs-number">1</span>, <span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v.toLowerCase())).subscribe()
+<span class="hljs-comment">// 1</span></code></pre>
+								</dd></dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
 							<ul class="tsd-type-parameters">
@@ -1410,29 +1565,29 @@ subscribe(); <span class="hljs-comment">// &#x27;Name,Age,Location&#x27;</span><
 								<li>
 									<h5>input: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The value or array of values to check</p>
+										<p>A single value or array of values to get the last index of in the source array</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> fromIndex: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The index in the array to start the search from</p>
+										<p>The last index in the array to search to</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> mapFn: <a href="array.html#mapfn" class="tsd-signature-type">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Function to modify the value for comparison</p>
+										<p>Optional <a href="array.html#mapfn">MapFn</a> that can be used to make comparison easier (such as lower casing text)</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Array of boolean values flipped from the input</p>
+							<p>Observable number or Observable array of the last index of the input item in the array</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/last-index-of.ts#L23">
-											libs/rxjs/array/src/lib/last-index-of.ts:23
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/last-index-of.ts#L50">
+											libs/rxjs/array/src/lib/last-index-of.ts:50
 										</a>
 									</li>
 								</ul>
@@ -1450,13 +1605,13 @@ subscribe(); <span class="hljs-comment">// &#x27;Name,Age,Location&#x27;</span><
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>reverse</code> operator reverses and array from an observable source</p>
+									<p>Returns an Observable array of the source array reversed in order</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>])
-.pipe(reverse())
-subscribe(); <span class="hljs-comment">// [&#x27;Ninja&#x27;, &#x27;RxJS&#x27;, &#x27;Hello&#x27;]</span></code></pre>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>];
+<span class="hljs-keyword">of</span>(input).pipe(reverse()).subscribe();
+<span class="hljs-comment">// [&#x27;Ninja&#x27;, &#x27;RxJS&#x27;, &#x27;Hello&#x27;]</span></code></pre>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1466,7 +1621,7 @@ subscribe(); <span class="hljs-comment">// [&#x27;Ninja&#x27;, &#x27;RxJS&#x27;,
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Array of the input source reversed</p>
+							<p>Observable array of the source array reversed.</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
@@ -1481,7 +1636,7 @@ subscribe(); <span class="hljs-comment">// [&#x27;Ninja&#x27;, &#x27;RxJS&#x27;,
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="some" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">some&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><a href="array.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">some&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="array.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1489,18 +1644,18 @@ subscribe(); <span class="hljs-comment">// [&#x27;Ninja&#x27;, &#x27;RxJS&#x27;,
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>some</code> operator returns a boolean value if the array from the observable source has at least one
-									member that passes the passed predicate method</p>
+									<p>Returns an Observable boolean value if the source array contains one item that returns truthy for the <a href="array.html#predicatefn">PredicateFn</a>
+									passed.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts">fromArray([
- [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Rocks&#x27;</span>]
- [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>],
- [<span class="hljs-string">&#x27;Foo&#x27;</span>, <span class="hljs-string">&#x27;Bar&#x27;</span>]
-]).pipe(
- some(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v === <span class="hljs-string">&#x27;RxJS&#x27;</span>),
-).subscribe() <span class="hljs-comment">// [true, true, false]</span></code></pre>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [ [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>], [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-number">1</span>] ]
+fromArray(input).pipe(some()).subscribe()
+<span class="hljs-comment">// [false, true, true]</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [ [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Rocks&#x27;</span>], [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>], [<span class="hljs-string">&#x27;Foo&#x27;</span>, <span class="hljs-string">&#x27;Bar&#x27;</span>] ]
+fromArray(input).pipe(some(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v === <span class="hljs-string">&#x27;RxJS&#x27;</span>)).subscribe()
+<span class="hljs-comment">// [true, true, false]</span></code></pre>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1512,19 +1667,19 @@ subscribe(); <span class="hljs-comment">// [&#x27;Ninja&#x27;, &#x27;RxJS&#x27;,
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>predicate: <a href="array.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="array.html#predicatefn" class="tsd-signature-type">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Method used to check if array contains a valid member</p>
+										<p>Optional <a href="array.html#predicatefn">PredicateFn</a> used to get a truthy value of array values</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Boolean value if the array contains a value to matches the predicate</p>
+							<p>Observable boolean value if the source array contains one value that is truthy for the <a href="array.html#predicatefn">PredicateFn</a></p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/some.ts#L30">
-											libs/rxjs/array/src/lib/some.ts:30
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/some.ts#L33">
+											libs/rxjs/array/src/lib/some.ts:33
 										</a>
 									</li>
 								</ul>
@@ -1534,7 +1689,7 @@ subscribe(); <span class="hljs-comment">// [&#x27;Ninja&#x27;, &#x27;RxJS&#x27;,
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="sort" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">sort&lt;T&gt;<span class="tsd-signature-symbol">(</span>fn<span class="tsd-signature-symbol">?: </span><a href="array.html#sortfn" class="tsd-signature-type">SortFn</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">sort&lt;T&gt;<span class="tsd-signature-symbol">(</span>sortFn<span class="tsd-signature-symbol">?: </span><a href="array.html#sortfn" class="tsd-signature-type">SortFn</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1542,26 +1697,27 @@ subscribe(); <span class="hljs-comment">// [&#x27;Ninja&#x27;, &#x27;RxJS&#x27;,
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>sort</code> operator takes an array of <code>T</code> items and returns the array sorted.</p>
+									<p>Returns an Observable array of values based on a source Observable array being sorted using
+										a <a href="array.html#sortfn">SortFn</a>. If no function is passed a basic equality check on <code>string</code>, <code>number</code> and <code>boolean</code> values
+									is used.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>By default the operator can do basic quality check on <code>string</code>, <code>number</code> and <code>boolean</code> values,
-								and can take an optional method to do more complex searches for items such as array or objects</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>])
- .pipe(sort())
- subscribe(); [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>]</code></pre>
-									</dd><dt>example</dt>
-									<dd><pre><code class="language-ts">
-<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">sortTuple</span>(<span class="hljs-params">a, b</span>) </span>{
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">6</span>, <span class="hljs-number">1</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>];
+<span class="hljs-keyword">of</span>(input).pipe(sort()).subscribe();
+<span class="hljs-comment">// [1, 2, 3, 4, 5, 6]</span></code></pre>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [
+ [<span class="hljs-number">10</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">20</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">30</span>, <span class="hljs-number">6</span>],
+ [<span class="hljs-number">40</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">50</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">60</span>, <span class="hljs-number">5</span>]
+];
+<span class="hljs-keyword">const</span> sortTuple = <span class="hljs-function">(<span class="hljs-params">a, b</span>) =&gt;</span> {
    <span class="hljs-keyword">if</span> (a[<span class="hljs-number">1</span>] === b[<span class="hljs-number">1</span>]) <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;
    <span class="hljs-keyword">return</span> a[<span class="hljs-number">1</span>] &lt; b[<span class="hljs-number">1</span>] ? -<span class="hljs-number">1</span> : <span class="hljs-number">1</span>;
 }
 
-<span class="hljs-keyword">of</span>([ [<span class="hljs-number">10</span>, <span class="hljs-number">2</span>], [<span class="hljs-number">20</span>, <span class="hljs-number">4</span>], [<span class="hljs-number">30</span>, <span class="hljs-number">6</span>], [<span class="hljs-number">40</span>, <span class="hljs-number">1</span>], [<span class="hljs-number">50</span>, <span class="hljs-number">3</span>], [<span class="hljs-number">60</span>, <span class="hljs-number">5</span>] ])
-.pipe(sort(sortTuple))
-subscribe(); <span class="hljs-comment">// [ [40, 1], [10, 2], [50, 3], [20, 4], [60, 5], [30, 6] ]</span></code></pre>
+<span class="hljs-keyword">of</span>(input).pipe(sort(sortTuple)).subscribe();
+<span class="hljs-comment">// [ [40, 1], [10, 2], [50, 3], [20, 4], [60, 5], [30, 6] ]</span></code></pre>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1575,19 +1731,19 @@ subscribe(); <span class="hljs-comment">// [ [40, 1], [10, 2], [50, 3], [20, 4],
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> fn: <a href="array.html#sortfn" class="tsd-signature-type">SortFn</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sortFn: <a href="array.html#sortfn" class="tsd-signature-type">SortFn</a></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Optional sorting function</p>
+										<p>Optional <a href="array.html#sortfn">SortFn</a> used to sort the array, if not provided a basic equality check it used.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Array of sorted values</p>
+							<p>Observable array of values from source array sorted via <a href="array.html#sortfn">SortFn</a></p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/sort.ts#L43">
-											libs/rxjs/array/src/lib/sort.ts:43
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/sort.ts#L44">
+											libs/rxjs/array/src/lib/sort.ts:44
 										</a>
 									</li>
 								</ul>
@@ -1597,7 +1753,7 @@ subscribe(); <span class="hljs-comment">// [ [40, 1], [10, 2], [50, 3], [20, 4],
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="sortmap" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">sort<wbr>Map&lt;T, K&gt;<span class="tsd-signature-symbol">(</span>mapFn<span class="tsd-signature-symbol">: </span><a href="array.html#mapfn" class="tsd-signature-type">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span>, fn<span class="tsd-signature-symbol">?: </span><a href="array.html#sortfn" class="tsd-signature-type">SortFn</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">sort<wbr>Map&lt;T, K&gt;<span class="tsd-signature-symbol">(</span>mapFn<span class="tsd-signature-symbol">: </span><a href="array.html#mapfn" class="tsd-signature-type">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span>, sortFn<span class="tsd-signature-symbol">?: </span><a href="array.html#sortfn" class="tsd-signature-type">SortFn</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1605,17 +1761,14 @@ subscribe(); <span class="hljs-comment">// [ [40, 1], [10, 2], [50, 3], [20, 4],
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>sortMap</code> operator takes an array of <code>T</code> items and returns a mapped array of items, either T or K</p>
+									<p>Returns an Observable array of values where the array has been sorted with <code>sortFn</code> and then mapped
+									to type <code>K</code> using the <code>sortFn</code>.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>For sorting the operator can do basic quality check on <code>string</code> and <code>number</code> values,
-								and can take an optional method to do more complex searches for items such as array or objects</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt>example</dt>
-									<dd><pre><code class="language-ts"><span class="hljs-keyword">of</span>([<span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">1</span>, <span class="hljs-number">6</span>])
-.pipe(
-   sortMap(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> value &gt;= <span class="hljs-number">5</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>)
- ).subscribe(); <span class="hljs-comment">// [false, false, true, true, true, true]</span></code></pre>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">5</span>, <span class="hljs-number">8</span>, <span class="hljs-number">2</span>, <span class="hljs-number">7</span>, <span class="hljs-number">1</span>, <span class="hljs-number">6</span>];
+<span class="hljs-keyword">of</span>(input).pipe(sortMap(<span class="hljs-function"><span class="hljs-params">value</span> =&gt;</span> value &gt;= <span class="hljs-number">5</span> ? <span class="hljs-literal">true</span> : <span class="hljs-literal">false</span>)).subscribe();
+<span class="hljs-comment">// [false, false, true, true, true, true]</span></code></pre>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -1628,7 +1781,7 @@ subscribe(); <span class="hljs-comment">// [ [40, 1], [10, 2], [50, 3], [20, 4],
 								<li>
 									<h4>K<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">unknown</span></h4>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The type of data in the output array, this can be T or any other value type</p>
+										<p>The type of data in the output array</p>
 								</div>        </li>
 							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1636,23 +1789,23 @@ subscribe(); <span class="hljs-comment">// [ [40, 1], [10, 2], [50, 3], [20, 4],
 								<li>
 									<h5>mapFn: <a href="array.html#mapfn" class="tsd-signature-type">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The mapping function to change the value</p>
+										<p>The <a href="array.html#mapfn">MapFn</a> to map the value in the array</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> fn: <a href="array.html#sortfn" class="tsd-signature-type">SortFn</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sortFn: <a href="array.html#sortfn" class="tsd-signature-type">SortFn</a></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Optional sorting function</p>
+										<p>Optional <a href="array.html#sortfn">SortFn</a> used to sort the array, if not provided a basic equality check it used.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Array of sorted and mapped values</p>
+							<p>Observable array of sorted values of type <code>K</code></p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/sort-map.ts#L34">
-											libs/rxjs/array/src/lib/sort-map.ts:34
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/src/lib/sort-map.ts#L30">
+											libs/rxjs/array/src/lib/sort-map.ts:30
 										</a>
 									</li>
 								</ul>
@@ -1660,11 +1813,11 @@ subscribe(); <span class="hljs-comment">// [ [40, 1], [10, 2], [50, 3], [20, 4],
 						</li>
 					</ul>
 			</section></section>
-			<!--{&quot;options&quot;:&quot;/Users/tpiper1/work/personal/rxjs-ninja&quot;,&quot;tsconfig&quot;:&quot;tsconfig.base.json&quot;,&quot;inputFiles&quot;:[&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/binary-search.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/difference-with.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/difference.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/every.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/filter-every.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/filter-some.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/find-index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/find.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/flip-array.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/index-of.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/intersects-with.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/intersects.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/join.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/last-index-of.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/reverse.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/some.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/sort-map.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/sort.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/types/array-compare.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/types/binary-search.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/types/sort.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/utils/binary-search.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/utils/difference.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/utils/intersects.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/filter-truthy.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/first-truthy.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/flip.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/from-boolean.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/last-truthy.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/luhn-check.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/types/boolean.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/utils/from-boolean.utils.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/utils/luhn-check.utils.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-in-range.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-is-finite.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-is-float.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-is-integer.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-is-not-nan.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-is-safe-integer.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-out-of-range.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/from-fibonacci.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/from-number.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/in-range.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-finite.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-float.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-integer.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-nan.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-not-nan.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-safe-integer.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/out-of-range.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/parse-float.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/parse-int.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/to-exponential.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/to-locale-string.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/to-precision.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/to-string.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/utils/from-fibonacci.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/utils/from-number.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/lib/from-random-crypto.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/lib/from-random-integer.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/lib/from-random-string.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/lib/from-random.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/types/from-random-crypto.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/types/from-string.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/utils/from-random-crypto.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/char-at.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/char-code-at.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/code-point-at.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/concat.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/ends-with.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/filter-ends-with.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/filter-includes.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/filter-starts-with.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/from-char-code.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/from-code-point.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/from-string.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/from-unicode.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/includes.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/index-of.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/last-index-of.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/map-char-code.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/map-code-point.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/match-all.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/match.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/normalize.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/pad-string.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/repeat.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/replace.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/reverse.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/search.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/slice.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/split.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/starts-with.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/substring.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/titleize.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/to-lower-case.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/to-upper-case.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/trim-string.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/types/normalize.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/types/position.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/utils/from-char-code.utils.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/utils/from-code-point.utils.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/utils/from-string.utils.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/utils/from-unicode.utils.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/utility/index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/utility/lib/debounce-with-query.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/utility/lib/map-if-source.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/utility/lib/start-with-tap.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/utility/lib/tap-if.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/utility/lib/tap-on-subscribe.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/utility/types/utility.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/binary-search.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/binary-search.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/every.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/every.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/fill.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/fill.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-every.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-every.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-some.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-some.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-all.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-all.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-index.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/find.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/find.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/flip-array.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/flip-array.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/index-of.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/index-of.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/join.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/join.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/last-index-of.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/last-index-of.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/reverse.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/reverse.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/some.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/some.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort-map.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort-map.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/types/array-compare.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/types/binary-search.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/types/sort.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/utils/binary-search.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/utils/difference.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/utils/intersects.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/filter-truthy.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/filter-truthy.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/first-truthy.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/first-truthy.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/flip.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/flip.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/from-boolean.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/from-boolean.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/last-truthy.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/last-truthy.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/luhn-check.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/luhn-check.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/types/boolean.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/utils/from-boolean.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/utils/luhn-check.utils.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/utils/luhn-check.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-in-range.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-in-range.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-finite.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-finite.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-float.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-float.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-integer.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-integer.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-not-nan.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-not-nan.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-safe-integer.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-safe-integer.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-out-of-range.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-out-of-range.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-fibonacci.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-fibonacci.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-number.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-number.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/in-range.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/in-range.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-finite.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-finite.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-float.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-float.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-integer.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-integer.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-nan.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-nan.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-not-nan.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-not-nan.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-safe-integer.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-safe-integer.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/out-of-range.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/out-of-range.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-float.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-float.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-int.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-int.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-exponential.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-exponential.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-locale-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-locale-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-precision.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-precision.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/utils/from-fibonacci.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/utils/from-number.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-crypto.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-crypto.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-integer.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-integer.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/types/from-random-crypto.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/types/from-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/utils/from-random-crypto.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-at.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-at.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-code-at.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-code-at.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/code-point-at.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/code-point-at.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/concat.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/concat.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/ends-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/ends-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-ends-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-ends-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-includes.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-includes.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-starts-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-starts-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-char-code.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-char-code.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-code-point.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-code-point.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-unicode.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-unicode.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/includes.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/includes.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/index-of.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/index-of.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/last-index-of.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/last-index-of.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-char-code.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-char-code.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-code-point.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-code-point.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/match-all.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/match-all.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/match.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/match.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/normalize.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/normalize.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/pad-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/pad-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/repeat.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/repeat.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/replace.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/replace.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/reverse.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/reverse.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/search.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/search.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/slice.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/slice.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/split.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/split.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/starts-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/starts-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/substring.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/substring.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/titleize.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/titleize.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-lower-case.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-lower-case.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-upper-case.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-upper-case.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/trim-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/trim-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/types/normalize.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/types/position.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/utils/from-char-code.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/utils/from-code-point.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/utils/from-string.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/utils/from-unicode.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/debounce-with-query.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/debounce-with-query.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/map-if-source.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/map-if-source.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/start-with-tap.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/start-with-tap.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-if.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-if.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-on-subscribe.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-on-subscribe.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/types/utility.ts&quot;],&quot;mode&quot;:1,&quot;includeDeclarations&quot;:false,&quot;entryPoint&quot;:&quot;&quot;,&quot;exclude&quot;:[&quot;**/*.spec.ts&quot;,&quot;tools/**/*&quot;],&quot;externalPattern&quot;:[],&quot;excludeExternals&quot;:true,&quot;excludeNotExported&quot;:true,&quot;excludeNotDocumented&quot;:false,&quot;excludePrivate&quot;:true,&quot;excludeProtected&quot;:false,&quot;ignoreCompilerErrors&quot;:false,&quot;disableSources&quot;:false,&quot;includes&quot;:&quot;libs/rxjs&quot;,&quot;media&quot;:&quot;&quot;,&quot;out&quot;:&quot;docs&quot;,&quot;json&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-ninja-theme/bin/default&quot;,&quot;name&quot;:&quot;RxJS Ninja&quot;,&quot;includeVersion&quot;:false,&quot;excludeTags&quot;:[],&quot;readme&quot;:&quot;README.md&quot;,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;gitRemote&quot;:&quot;origin&quot;,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:false,&quot;toc&quot;:[],&quot;disableOutputCheck&quot;:false,&quot;help&quot;:false,&quot;version&quot;:false,&quot;plugin&quot;:[&quot;typedoc-ninja-theme&quot;,&quot;typedoc-plugin-external-module-name&quot;,&quot;typedoc-plugin-extras&quot;,&quot;typedoc-plugin-pages&quot;,&quot;typedoc-plugin-ghpages-cname&quot;],&quot;logger&quot;:&quot;console&quot;,&quot;listInvalidSymbolLinks&quot;:false,&quot;links&quot;:[{&quot;label&quot;:&quot;Github&quot;,&quot;url&quot;:&quot;https://github.com/rxjs-ninja/rxjs-ninja&quot;},{&quot;label&quot;:&quot;NPM&quot;,&quot;url&quot;:&quot;https://www.npmjs.com/org/rxjs-ninja&quot;}],&quot;outline&quot;:[],&quot;source&quot;:[{&quot;path&quot;:&quot;https://github.com/rxjs-ninja/rxjs-ninja/blob/main/&quot;,&quot;line&quot;:&quot;L&quot;}],&quot;excludeReferences&quot;:false,&quot;disableAutoModuleName&quot;:&quot;false&quot;,&quot;favicon&quot;:&quot;assets/favicon.ico&quot;,&quot;noFavicon&quot;:false,&quot;hideDate&quot;:false,&quot;hideTime&quot;:false,&quot;pages&quot;:{&quot;replaceGlobalsPage&quot;:true,&quot;reflectionNavigationTitle&quot;:&quot;RxJS Ninja APIs&quot;,&quot;enableSearch&quot;:false,&quot;groups&quot;:[{&quot;title&quot;:&quot;Package Docs&quot;,&quot;output&quot;:&quot;packages&quot;,&quot;pages&quot;:[{&quot;title&quot;:&quot;Array&quot;,&quot;source&quot;:&quot;libs/rxjs/array/README.md&quot;,&quot;output&quot;:&quot;array&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/array/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Boolean&quot;,&quot;source&quot;:&quot;libs/rxjs/boolean/README.md&quot;,&quot;output&quot;:&quot;boolean&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/boolean/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Number&quot;,&quot;source&quot;:&quot;libs/rxjs/number/README.md&quot;,&quot;output&quot;:&quot;number&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/number/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Random&quot;,&quot;source&quot;:&quot;libs/rxjs/random/README.md&quot;,&quot;output&quot;:&quot;random&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/random/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;String&quot;,&quot;source&quot;:&quot;libs/rxjs/string/README.md&quot;,&quot;output&quot;:&quot;string&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/string/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Utility&quot;,&quot;source&quot;:&quot;libs/rxjs/utility/README.md&quot;,&quot;output&quot;:&quot;utility&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/utility/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]}]}]},&quot;cname&quot;:&quot;rxjs.ninja&quot;}-->
+			<!--{&quot;options&quot;:&quot;/Users/tpiper1/work/personal/rxjs-ninja&quot;,&quot;tsconfig&quot;:&quot;tsconfig.base.json&quot;,&quot;inputFiles&quot;:[&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/binary-search.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/difference-with.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/difference.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/every.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/filter-every.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/filter-some.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/find-index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/find.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/flip-array.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/index-of.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/intersects-with.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/intersects.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/join.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/last-index-of.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/reverse.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/some.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/sort-map.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/lib/sort.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/types/array-compare.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/types/binary-search.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/types/sort.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/utils/binary-search.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/utils/difference.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/array/utils/intersects.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/filter-truthy.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/first-truthy.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/flip.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/from-boolean.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/last-truthy.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/luhn-check.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/types/boolean.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/utils/from-boolean.utils.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/boolean/utils/luhn-check.utils.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-in-range.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-is-finite.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-is-float.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-is-integer.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-is-not-nan.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-is-safe-integer.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-out-of-range.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/from-fibonacci.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/from-number.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/in-range.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-finite.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-float.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-integer.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-nan.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-not-nan.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-safe-integer.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/out-of-range.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/parse-float.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/parse-int.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/to-exponential.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/to-locale-string.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/to-precision.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/lib/to-string.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/utils/from-fibonacci.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/number/utils/from-number.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/lib/from-random-crypto.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/lib/from-random-integer.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/lib/from-random-string.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/lib/from-random.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/types/from-random-crypto.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/types/from-string.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/random/utils/from-random-crypto.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/char-at.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/char-code-at.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/code-point-at.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/concat.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/ends-with.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/filter-ends-with.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/filter-includes.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/filter-starts-with.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/from-char-code.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/from-code-point.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/from-string.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/from-unicode.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/includes.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/index-of.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/last-index-of.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/map-char-code.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/map-code-point.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/match-all.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/match.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/normalize.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/pad-string.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/repeat.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/replace.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/reverse.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/search.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/slice.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/split.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/starts-with.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/substring.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/titleize.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/to-lower-case.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/to-upper-case.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/lib/trim-string.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/types/normalize.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/types/position.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/utils/from-char-code.utils.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/utils/from-code-point.utils.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/utils/from-string.utils.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/string/utils/from-unicode.utils.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/utility/index.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/utility/lib/debounce-with-query.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/utility/lib/map-if-source.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/utility/lib/start-with-tap.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/utility/lib/tap-if.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/utility/lib/tap-on-subscribe.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/dist/libs/rxjs/utility/types/utility.d.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/binary-search.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/binary-search.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/every.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/every.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/fill.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/fill.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-every.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-every.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-some.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-some.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-all.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-all.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-index.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-last.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-last.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/find.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/find.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/flip-array.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/flip-array.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/index-of.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/index-of.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/join.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/join.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/last-index-of.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/last-index-of.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/reverse.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/reverse.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/some.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/some.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort-map.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort-map.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/types/binary-search.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/types/generic-methods.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/utils/binary-search.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/utils/difference.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/array/src/utils/intersects.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/filter-truthy.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/filter-truthy.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/first-truthy.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/first-truthy.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/flip.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/flip.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/from-boolean.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/from-boolean.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/last-truthy.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/last-truthy.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/luhn-check.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/luhn-check.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/types/boolean.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/utils/from-boolean.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/utils/luhn-check.utils.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/boolean/src/utils/luhn-check.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-in-range.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-in-range.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-finite.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-finite.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-float.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-float.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-integer.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-integer.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-not-nan.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-not-nan.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-safe-integer.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-safe-integer.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-out-of-range.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-out-of-range.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-fibonacci.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-fibonacci.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-number.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-number.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/in-range.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/in-range.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-finite.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-finite.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-float.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-float.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-integer.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-integer.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-nan.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-nan.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-not-nan.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-not-nan.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-safe-integer.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-safe-integer.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/out-of-range.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/out-of-range.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-float.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-float.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-int.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-int.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-exponential.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-exponential.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-locale-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-locale-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-precision.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-precision.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/utils/from-fibonacci.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/number/src/utils/from-number.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-crypto.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-crypto.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-integer.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-integer.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/types/from-random-crypto.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/types/from-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/random/src/utils/from-random-crypto.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-at.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-at.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-code-at.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-code-at.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/code-point-at.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/code-point-at.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/concat.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/concat.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/ends-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/ends-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-ends-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-ends-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-includes.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-includes.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-starts-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-starts-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-char-code.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-char-code.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-code-point.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-code-point.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-unicode.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-unicode.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/includes.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/includes.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/index-of.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/index-of.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/last-index-of.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/last-index-of.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-char-code.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-char-code.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-code-point.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-code-point.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/match-all.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/match-all.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/match.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/match.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/normalize.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/normalize.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/pad-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/pad-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/repeat.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/repeat.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/replace.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/replace.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/reverse.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/reverse.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/search.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/search.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/slice.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/slice.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/split.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/split.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/starts-with.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/starts-with.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/substring.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/substring.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/titleize.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/titleize.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-lower-case.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-lower-case.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-upper-case.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-upper-case.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/trim-string.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/lib/trim-string.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/types/normalize.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/types/position.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/utils/from-char-code.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/utils/from-code-point.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/utils/from-string.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/string/src/utils/from-unicode.utils.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/index.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/debounce-with-query.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/debounce-with-query.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/map-if-source.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/map-if-source.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/start-with-tap.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/start-with-tap.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-if.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-if.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-on-subscribe.spec.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-on-subscribe.ts&quot;,&quot;/Users/tpiper1/work/personal/rxjs-ninja/libs/rxjs/utility/src/types/utility.ts&quot;],&quot;mode&quot;:1,&quot;includeDeclarations&quot;:false,&quot;entryPoint&quot;:&quot;&quot;,&quot;exclude&quot;:[&quot;**/*.spec.ts&quot;,&quot;tools/**/*&quot;],&quot;externalPattern&quot;:[],&quot;excludeExternals&quot;:true,&quot;excludeNotExported&quot;:true,&quot;excludeNotDocumented&quot;:false,&quot;excludePrivate&quot;:true,&quot;excludeProtected&quot;:false,&quot;ignoreCompilerErrors&quot;:false,&quot;disableSources&quot;:false,&quot;includes&quot;:&quot;libs/rxjs&quot;,&quot;media&quot;:&quot;&quot;,&quot;out&quot;:&quot;docs&quot;,&quot;json&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-ninja-theme/bin/default&quot;,&quot;name&quot;:&quot;RxJS Ninja&quot;,&quot;includeVersion&quot;:false,&quot;excludeTags&quot;:[],&quot;readme&quot;:&quot;README.md&quot;,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;gitRemote&quot;:&quot;origin&quot;,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:false,&quot;toc&quot;:[],&quot;disableOutputCheck&quot;:false,&quot;help&quot;:false,&quot;version&quot;:false,&quot;plugin&quot;:[&quot;typedoc-ninja-theme&quot;,&quot;typedoc-plugin-external-module-name&quot;,&quot;typedoc-plugin-extras&quot;,&quot;typedoc-plugin-pages&quot;,&quot;typedoc-plugin-ghpages-cname&quot;],&quot;logger&quot;:&quot;console&quot;,&quot;listInvalidSymbolLinks&quot;:false,&quot;links&quot;:[{&quot;label&quot;:&quot;Github&quot;,&quot;url&quot;:&quot;https://github.com/rxjs-ninja/rxjs-ninja&quot;},{&quot;label&quot;:&quot;NPM&quot;,&quot;url&quot;:&quot;https://www.npmjs.com/org/rxjs-ninja&quot;}],&quot;outline&quot;:[],&quot;source&quot;:[{&quot;path&quot;:&quot;https://github.com/rxjs-ninja/rxjs-ninja/blob/main/&quot;,&quot;line&quot;:&quot;L&quot;}],&quot;excludeReferences&quot;:false,&quot;disableAutoModuleName&quot;:&quot;false&quot;,&quot;favicon&quot;:&quot;assets/favicon.ico&quot;,&quot;noFavicon&quot;:false,&quot;hideDate&quot;:false,&quot;hideTime&quot;:false,&quot;pages&quot;:{&quot;replaceGlobalsPage&quot;:true,&quot;reflectionNavigationTitle&quot;:&quot;RxJS Ninja APIs&quot;,&quot;enableSearch&quot;:false,&quot;groups&quot;:[{&quot;title&quot;:&quot;Package Docs&quot;,&quot;output&quot;:&quot;packages&quot;,&quot;pages&quot;:[{&quot;title&quot;:&quot;Array&quot;,&quot;source&quot;:&quot;libs/rxjs/array/README.md&quot;,&quot;output&quot;:&quot;array&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/array/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Boolean&quot;,&quot;source&quot;:&quot;libs/rxjs/boolean/README.md&quot;,&quot;output&quot;:&quot;boolean&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/boolean/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Number&quot;,&quot;source&quot;:&quot;libs/rxjs/number/README.md&quot;,&quot;output&quot;:&quot;number&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/number/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Random&quot;,&quot;source&quot;:&quot;libs/rxjs/random/README.md&quot;,&quot;output&quot;:&quot;random&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/random/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;String&quot;,&quot;source&quot;:&quot;libs/rxjs/string/README.md&quot;,&quot;output&quot;:&quot;string&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/string/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Utility&quot;,&quot;source&quot;:&quot;libs/rxjs/utility/README.md&quot;,&quot;output&quot;:&quot;utility&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/utility/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]}]}]},&quot;cname&quot;:&quot;rxjs.ninja&quot;}-->
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 11/25/2020 at 6:15:46 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 11/26/2020 at 9:26:10 PM</p>
 			</div>
 		</div>
 	</div>

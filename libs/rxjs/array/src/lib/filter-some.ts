@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Array
  */
-import { PredicateFn } from '../types/array-compare';
+import { PredicateFn } from '../types/generic-methods';
 import { MonoTypeOperatorFunction } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
@@ -14,17 +14,13 @@ import { filter } from 'rxjs/operators';
  *
  * @example
  * ```ts
- * const input = [
- *  ['RxJS', 'Rocks']
- *  ['RxJS', 'Ninja'],
- *  ['Foo', 'Bar']
- * ];
+ * const input = [ ['RxJS', 'Rocks'], ['RxJS', 'Ninja'], ['Foo', 'Bar'] ];
  *
  * fromArray(input).pipe(filterSome(v => v === 'RxJS')).subscribe()
  * // ['RxJS', 'Rocks'], ['RxJS', 'Ninja']
  * ```
  *
- * @returns Observable array containing all values in source array that return has one truthy value with the [[PredicateFn]]
+ * @returns An Observable that emits an array containing all values in source array that has one truthy value with the [[PredicateFn]]
  * @category RxJS Array Filter
  */
 export function filterSome<T extends unknown>(predicate?: PredicateFn): MonoTypeOperatorFunction<T[]> {

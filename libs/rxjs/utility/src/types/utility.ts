@@ -3,10 +3,12 @@
  * @module Utility
  */
 
+import { ObservableInput } from 'rxjs';
+
 /**
  * A simple callback function that can take a value and returns a void
  */
-export type CallbackFn<T = unknown> = (value?: T) => void;
+export type CallbackFn<T extends unknown> = (value?: T) => void;
 
 /**
  * A predicate function is used with filtering and should return a boolean based on an equality check.
@@ -59,3 +61,13 @@ export type PredicateFn<T extends unknown> = (...args: T[]) => boolean;
  * @returns Value of the modifier function
  */
 export type MapFn<T = unknown, K = T | unknown> = (value: T) => K;
+
+/**
+ * A function passed to [[debounceWithQuery]] as the second parameter, takes a string
+ * parameter and returns an Observable value from a server response.
+ *
+ * @typeParam T The response from an API which returns the result of a query
+ *
+ * @param query The string to send to the query method
+ */
+export type QueryMethod<T = unknown> = (query: string) => ObservableInput<T>;

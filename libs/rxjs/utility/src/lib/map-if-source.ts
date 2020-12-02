@@ -7,17 +7,16 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `mapIfSource` operator is used with an [Observable](https://rxjs.dev/api/index/class/Observable) value and takes a predicate
- * function. Based on the result of the predicate it will return a value based on a truthy or falsy result. Each value can be
- * cast to a specific type if required
+ * Returns an Observable value from either the `trueResult` or `falseResult` [[MapFn]] based on the result of the
+ * [[PredicateFn]]. Each method can return it's own type (which will need to be type checked in subsequent operators,
  *
  * @typeParam I The value type for the incoming observable source
  * @typeParam T The type returned from the Truthy result
  * @typeParam F The type returned from the Falsy result, this type is optional and if not included the `T` type will be used
  *
- * @param predicate
- * @param trueResult
- * @param falseResult
+ * @param predicate The method to check the value from the source Observable
+ * @param trueResult The method with return value for a truthy [[PredicateFn]]
+ * @param falseResult The method with return value for a falsy [[PredicateFn]]
  *
  * @example
  * ```ts
@@ -41,7 +40,7 @@ import { map } from 'rxjs/operators';
  * ).subscribe(); // 42
  * ```
  *
- * @returns Any value based on the Truthy or Falsy [[MapFn]] based on the [[PredicateFn]] result
+ * @returns Observable that emits a value from the truthy or falsy [[MapFn]] based on the [[PredicateFn]] result
  * @category RxJS Utility Modifier
  */
 export function mapIfSource<I = unknown, T = unknown, F = unknown>(

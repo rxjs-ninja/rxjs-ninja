@@ -6,27 +6,24 @@ import { MonoTypeOperatorFunction, Observable, defer } from 'rxjs';
 import { CallbackFn } from '../types/utility';
 
 /**
- * Operator that is executed on each subscription to an [Observable](https://rxjs.dev/api/index/class/Observable)
- * The operator is passed a callback which is then executed
+ * Perform a side effect for every subscription to the source Observable, but return an Observable that is identical to the source.
  *
- * @remarks
- * This is similar to the [tap](https://rxjs.dev/api/operators/tap) operator but fires when a subscription occurs
+ * @typeParam T Value type of the source Observable
  *
- * @typeParam T The value type of the [Observable](https://rxjs.dev/api/index/class/Observable)
- *
- * @param callback The callback to be executed when this operator is run
+ * @param callback The [[CallbackFn]] to be called on subscription
  *
  * @example
  * ```ts
- * fromEvent(element, 'click').pipe(
- *  tapOnSubscribe(() => ('New Subscription'))
- * ).subscribe();
+ * const onClick$ = fromEvent(element, 'click').pipe(tapOnSubscribe(() => console.log('New Subscription')));
+ *
+ * onClick$.subscribe();  // New Subscription
+ * onClick$.subscribe();  // New Subscription
  * ```
  *
- * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T
+ * @returns Observable that emits the source observable
  * @category RxJS Observable Utilities
  */
-export function tapOnSubscribe<T extends unknown>(callback: CallbackFn): MonoTypeOperatorFunction<T> {
+export function tapOnSubscribe<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>): Observable<T> =>
     defer(() => {
       callback();

@@ -7,11 +7,7 @@ import { switchMap, tap } from 'rxjs/operators';
 import { CallbackFn } from '../types/utility';
 
 /**
- * Operator that is only executed on the first emission from an [Observable](https://rxjs.dev/api/index/class/Observable)
- * The operator is passed a callback which is then executed
- *
- * @remarks
- * This is similar to the [tap](https://rxjs.dev/api/operators/tap) operator but is only executed once
+ * Perform a side effect for the first subscription to the source Observable, return an Observable that is identical to the source.
  *
  * @typeParam T The value type of the [Observable](https://rxjs.dev/api/index/class/Observable)
  *
@@ -19,21 +15,19 @@ import { CallbackFn } from '../types/utility';
  *
  * @example
  * ```ts
- * form.valueChange.pipe(
- *  startWithTap(() => this.onTouch())
- * ).subscribe();
+ * form.valueChange.pipe(tapOnStart(() => this.onTouch())).subscribe();
  * ```
  *
  * @example
  * ```ts
- * from([1, 2, 3, 4])
- *  .pipe(
- *    startWithTap(value => `First value is ${value}`),
- *    reduce((acc, val) => acc + val)
- *  ).subscribe(); // 10
+ * const input = [1, 2, 3, 4];
+ * const echoValue = value => `First value is ${value}`;
+ *
+ * from(input).pipe(tapOnStart(echoValue),reduce((acc, val) => acc + val, 0)).subscribe();
+ * // 10
  * ```
  *
- * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T
+ * @returns Observable that emits the source observable after performing a side effect
  * @category RxJS Observable Utilities
  */
 export function tapOnStart<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
@@ -45,13 +39,17 @@ export function tapOnStart<T extends unknown>(callback: CallbackFn<T>): MonoType
 }
 
 /**
- * Deprecated method name for [[tapOnFirstEmit]]
+ * Perform a side effect for the first subscription to the source Observable, return an Observable that is identical to the source.
  *
  * @typeParam T The value type of the [Observable](https://rxjs.dev/api/index/class/Observable)
  *
  * @param callback The callback to be executed when this operator is run
  *
  * @deprecated
+ * @see {@link tapOnStart}
+ *
+ * @returns Observable that emits the source observable after performing a side effect
+ * @category RxJS Observable Utilities
  */
 export function startWithTap<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
   return tapOnStart(callback);

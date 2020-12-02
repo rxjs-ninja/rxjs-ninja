@@ -16,7 +16,7 @@ import { SortFn } from '../types/generic-methods';
  * @typeParam K The type of value in array item to search for
  *
  * @param searchValue The value to search for in the source array
- * @param sort Optional sort method for sorting more complex types
+ * @param sortFn Optional sort method for sorting more complex types
  * @param property Optional property of them item to return, for Array use an index number and for an object use a string key
  *
  * @remarks
@@ -62,23 +62,19 @@ import { SortFn } from '../types/generic-methods';
  * @returns An Observable that emits a [[BinarySearchResult]]
  * @category RxJS Array Search
  */
-export function binarySearch<T extends unknown, K extends unknown>(
+export function binarySearch<T extends unknown, K extends T | unknown>(
   searchValue: T,
-  sort?: SortFn<K>,
+  sortFn?: SortFn<K>,
   property?: string | number,
 ): OperatorFunction<K[], BinarySearchResult<T, K>> {
-  const sortFn = sort ? sort : defaultSortFn;
   return (source: Observable<K[]>) =>
     source.pipe(
-      map((accArray: K[]) => [accArray, [...accArray].sort(sortFn)] as [K[], K[]]),
-      map(
-        ([searchArray, sortedArray]: [K[], K[]]) =>
-          [
-            binarySearcher(searchValue, sortedArray, property),
-            searchValue,
-            searchArray,
-            sortedArray,
-          ] as BinarySearchResult<T, K>,
-      ),
+      map((accArray) => [accArray, [...accArray].sort(sortFn || defaultSortFn)]),
+      map(([searchArray, sortedArray]) => [
+        binarySearcher(searchValue, sortedArray, property),
+        searchValue,
+        searchArray,
+        sortedArray,
+      ]),
     );
 }

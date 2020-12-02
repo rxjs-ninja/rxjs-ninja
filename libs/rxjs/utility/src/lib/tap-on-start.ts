@@ -36,10 +36,23 @@ import { CallbackFn } from '../types/utility';
  * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T
  * @category RxJS Observable Utilities
  */
-export function startWithTap<T extends unknown>(callback: CallbackFn): MonoTypeOperatorFunction<T> {
+export function tapOnStart<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>) =>
     of(undefined).pipe(
       tap(callback),
       switchMap(() => source),
     );
+}
+
+/**
+ * Deprecated method name for [[tapOnFirstEmit]]
+ *
+ * @typeParam T The value type of the [Observable](https://rxjs.dev/api/index/class/Observable)
+ *
+ * @param callback The callback to be executed when this operator is run
+ *
+ * @deprecated
+ */
+export function startWithTap<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
+  return tapOnStart(callback);
 }

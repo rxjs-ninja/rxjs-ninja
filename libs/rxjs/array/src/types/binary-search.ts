@@ -9,4 +9,9 @@
  *
  * @typeParam T Type of items in the array
  */
-export type BinarySearchResult<T = unknown> = [index: number, searchValue: T, searchArray: T[], sortedArray: T[]];
+export type BinarySearchResult<T extends unknown, K extends unknown> = [
+  index: number,
+  searchValue: T,
+  searchArray: K[],
+  sortedArray: K[],
+];

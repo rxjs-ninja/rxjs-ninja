@@ -31,5 +31,6 @@ import { PredicateFn } from '../types/generic-methods';
  * @category RxJS Array Filter
  */
 export function findIndex<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], number> {
-  return (source: Observable<T[]>) => source.pipe(map((value) => value.findIndex((v) => predicate ? predicate(v) : Boolean(v))));
+  return (source: Observable<T[]>) =>
+    source.pipe(map((value) => value.findIndex((v) => (predicate ? predicate(v) : Boolean(v)))));
 }

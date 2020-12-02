@@ -25,7 +25,7 @@ export type MapFn<T = unknown, K = unknown> = (value: T) => K;
  *
  * @internal
  */
-export type PredicateFn<T = unknown> = (...args: T[]) => boolean;
+export type PredicateFn<T extends unknown> = (...args: T[]) => boolean;
 
 /**
  * Method used to sort an Array of values
@@ -35,4 +35,4 @@ export type PredicateFn<T = unknown> = (...args: T[]) => boolean;
  * @internal
  */
 
-export type SortFn<T = unknown> = (first: T, second: T) => number;
+export type SortFn<T extends unknown> = (first: T, second: T) => number;

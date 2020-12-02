@@ -11,7 +11,7 @@ describe('binarySearch', () => {
     return a.val < b.val ? -1 : 1;
   };
 
-  const sortArray = (a: [number, number], b: [number, number]) => {
+  const sortArray = (a: number[], b: number[]) => {
     if (a[1] === b[1]) return 0;
     return a[1] < b[1] ? -1 : 1;
   };

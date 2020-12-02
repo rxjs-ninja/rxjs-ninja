@@ -3,7 +3,7 @@
  * @module Array
  */
 import { Observable, OperatorFunction } from 'rxjs';
-import { map, reduce } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { binarySearcher, defaultSortFn } from '../utils/binary-search';
 import { BinarySearchResult } from '../types/binary-search';
 import { SortFn } from '../types/generic-methods';
@@ -62,17 +62,23 @@ import { SortFn } from '../types/generic-methods';
  * @returns An Observable that emits a [[BinarySearchResult]]
  * @category RxJS Array Search
  */
-export function binarySearch<T extends unknown, K extends T | unknown>(
-  searchValue: K,
-  sort?: SortFn,
+export function binarySearch<T extends unknown, K extends unknown>(
+  searchValue: T,
+  sort?: SortFn<K>,
   property?: string | number,
-): OperatorFunction<T[], BinarySearchResult<T>> {
+): OperatorFunction<K[], BinarySearchResult<T, K>> {
   const sortFn = sort ? sort : defaultSortFn;
-  return (source: Observable<T[]>) =>
+  return (source: Observable<K[]>) =>
     source.pipe(
-      reduce<T[], K[]>((acc, val) => [...acc, ...val] as K[], []),
       map((accArray: K[]) => [accArray, [...accArray].sort(sortFn)] as [K[], K[]]),
-      map(([searchArray, sortedArray]: [K[], K[]]) =>
-        [binarySearcher(searchValue, sortedArray, property), searchValue, searchArray, sortedArray] as BinarySearchResult<T>),
+      map(
+        ([searchArray, sortedArray]: [K[], K[]]) =>
+          [
+            binarySearcher(searchValue, sortedArray, property),
+            searchValue,
+            searchArray,
+            sortedArray,
+          ] as BinarySearchResult<T, K>,
+      ),
     );
 }

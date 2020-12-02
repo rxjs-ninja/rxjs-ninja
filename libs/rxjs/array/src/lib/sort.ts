@@ -41,6 +41,6 @@ import { SortFn } from '../types/generic-methods';
  * @returns Observable array of values from source array sorted via [[SortFn]]
  * @category RxJS Array Modify
  */
-export function sort<T extends unknown>(sortFn?: SortFn): MonoTypeOperatorFunction<T[]> {
+export function sort<T extends unknown>(sortFn?: SortFn<T>): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) => source.pipe(map((arr) => arr.sort(sortFn || defaultSortFn)));
 }

@@ -11,9 +11,9 @@
  * @private
  * @ignore
  */
-export function binarySearcher<T extends unknown>(
+export function binarySearcher<T extends unknown, K extends T | unknown>(
   searchValue: T,
-  searchArray: T[],
+  searchArray: K[],
   property?: string | number,
 ): number {
   let first = 0; //left endpoint

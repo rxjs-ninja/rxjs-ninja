@@ -29,7 +29,11 @@ import { MapFn, SortFn } from '../types/generic-methods';
  */
 export function sortMap<T extends unknown, K extends T | unknown>(
   mapFn: MapFn<T, K>,
-  sortFn?: SortFn,
+  sortFn?: SortFn<T>,
 ): OperatorFunction<T[], K[]> {
-  return (source: Observable<T[]>) => source.pipe(map((arr) => arr.sort(sortFn || defaultSortFn)), map((arr) => arr.map(mapFn)));
+  return (source: Observable<T[]>) =>
+    source.pipe(
+      map((arr) => arr.sort(sortFn || defaultSortFn)),
+      map((arr) => arr.map(mapFn)),
+    );
 }

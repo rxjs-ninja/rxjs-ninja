@@ -9,11 +9,11 @@ describe('tapOnSubscribe', () => {
     observe(() => {
       const mock = jest.fn();
 
-      const input = from([1, 2, 3]).pipe(tapOnSubscribe(() => mock()));
-      input.pipe(take(1)).subscribe();
-      input.pipe(take(1)).subscribe();
+      const input = from([1, 2, 3]).pipe(tapOnSubscribe((val) => mock(val)));
+      input.pipe(take(2)).subscribe();
+      input.pipe(take(3)).subscribe();
 
-      return input.pipe(finalize(() => expect(mock).toHaveBeenCalledTimes(3)));
+      return input.pipe(finalize(() => expect(mock).toHaveBeenNthCalledWith(3, 1)));
     }),
   );
 });

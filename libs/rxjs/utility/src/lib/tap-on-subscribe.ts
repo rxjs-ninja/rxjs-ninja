@@ -2,11 +2,12 @@
  * @packageDocumentation
  * @module Utility
  */
-import { MonoTypeOperatorFunction, Observable, defer } from 'rxjs';
+import { defer, MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { CallbackFn } from '../types/utility';
+import { switchMap, take, tap } from 'rxjs/operators';
 
 /**
- * Perform a side effect for every subscription to the source Observable, but return an Observable that is identical to the source.
+ * Perform a side effect for every subscription to the source Observable and return an Observable that is identical to the source.
  *
  * @typeParam T Value type of the source Observable
  *
@@ -14,7 +15,7 @@ import { CallbackFn } from '../types/utility';
  *
  * @example
  * ```ts
- * const onClick$ = fromEvent(element, 'click').pipe(tapOnSubscribe(() => console.log('New Subscription')));
+ * const onClick$ = fromEvent(element, 'click').pipe(tapOnSubscribe(( ) => console.log('New Subscription')));
  *
  * onClick$.subscribe();  // New Subscription
  * onClick$.subscribe();  // New Subscription
@@ -25,8 +26,11 @@ import { CallbackFn } from '../types/utility';
  */
 export function tapOnSubscribe<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>): Observable<T> =>
-    defer(() => {
-      callback();
-      return source;
-    });
+    defer(() =>
+      source.pipe(
+        take(1),
+        tap(callback),
+        switchMap(() => source),
+      ),
+    );
 }

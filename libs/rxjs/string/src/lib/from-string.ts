@@ -2,17 +2,12 @@
  * @packageDocumentation
  * @module String
  */
-import { Observable } from 'rxjs';
-import { subscribeToSingleOrArrayString } from '../utils/from-string.utils';
+import { Observable, Subscriber } from 'rxjs';
 
 /**
- * The `fromString` operator is used to create an [Observable](https://rxjs.dev/api/index/class/Observable) string from a passed
- * string value or array of string values.
+ * Returns an Observable that takes string arguments or an array of strings and emits string
  *
- * When using fromString with an array, this acts like the [from](https://rxjs.dev/api/index/function/from)
- * operator and emits for each array item
- *
- * @param input The string to create the Observable source from
+ * @param args Strings or an Array of strings to emit
  *
  * @example
  * ```ts
@@ -21,12 +16,23 @@ import { subscribeToSingleOrArrayString } from '../utils/from-string.utils';
  *
  * @example
  * ```ts
+ * fromString('Foo', 'Bar')..pipe(reverse()).subscribe(); // ['ooF', 'raB']
+ * ```
+ *
+ * @example
+ * ```ts
  * fromString(['Foo', 'Bar'])..pipe(reverse()).subscribe(); // ['ooF', 'raB']
  * ```
  *
- * @returns String from the original string, made Observable
+ * @returns Observable that emits a string
  * @category RxJS String Creation
  */
-export function fromString(input: string | string[]): Observable<string> {
-  return new Observable<string>(subscribeToSingleOrArrayString(input));
+export function fromString<T extends string | string[]>(...args: T[]): Observable<string> {
+  const value = Array.isArray(args[0]) ? (args[0] as string[]) : ([...args] as string[]);
+  return new Observable<string>((subscriber: Subscriber<string>): void => {
+    for (let i = 0; i < value.length; i++) {
+      subscriber.next(value[i]);
+    }
+    subscriber.complete();
+  });
 }

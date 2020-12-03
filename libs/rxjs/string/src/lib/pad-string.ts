@@ -97,5 +97,5 @@ export function padStart(maxLength: number, fillString?: string): MonoTypeOperat
  * @category RxJS String Formatting
  */
 export function padEnd(maxLength: number, fillString?: string): MonoTypeOperatorFunction<string> {
-  return padString(PadPosition.START, maxLength, fillString);
+  return padString(PadPosition.END, maxLength, fillString);
 }

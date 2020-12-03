@@ -95,7 +95,7 @@ export function trimLeft(): MonoTypeOperatorFunction<string> {
  * @category RxJS String Formatting
  */
 export function trimRight(): MonoTypeOperatorFunction<string> {
-  return trimString(TrimPosition.START);
+  return trimString(TrimPosition.END);
 }
 
 /**

@@ -2,32 +2,40 @@
  * @packageDocumentation
  * @module String
  */
-import { Observable } from 'rxjs';
-import { subscribeToCodePoint } from '../utils/from-code-point.utils';
+import { Observable, Subscriber } from 'rxjs';
 
 /**
- * The `fromCodePoint` operator is used to create an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * from a number or number array of code points using
+ * Returns an Observable string of ASCII and Unicode characters from passed code points codes, can be an array or arguments or values. Uses
  * [String.fromCodePoint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint)
+ * to generate the string
  *
- * Unlike the [from](https://rxjs.dev/api/index/function/from) operator when passing an array of numbers to
- * this operator it will generate a single string from the passed arguments
- *
- * @param input A code point number to turn into a string
+ * @param args Character codes or an Array of character codes to create the Observable from
  *
  * @example
  * ```ts
- * fromCharCode(9733).subscribe(); // '★'
+ * fromCharCode(9733).subscribe();
+ * // '★'
  * ```
  *
  * @example
  * ```ts
- * fromCharCode([9731, 9733, 9842]).subscribe(); // '☃★♲'
+ * fromCharCode(9731, 9733, 9842).subscribe();
+ * // '☃★♲'
  * ```
  *
- * @returns String from an an array of code points
+ * @example
+ * ```ts
+ * fromCharCode([9731, 9733, 9842]).subscribe();
+ * // '☃★♲'
+ * ```
+ *
+ * @returns Observable that emits an ASCII/Unicode string from passed code points
  * @category RxJS String Creation
  */
-export function fromCodePoint(input: number | number[]): Observable<string> {
-  return new Observable<string>(subscribeToCodePoint(input));
+export function fromCodePoint<T extends number | number[]>(...args: T[]): Observable<string> {
+  const value = Array.isArray(args[0]) ? (args[0] as number[]) : ([...args] as number[]);
+  return new Observable<string>((subscriber: Subscriber<string>): void => {
+    subscriber.next(String.fromCodePoint(...value));
+    subscriber.complete();
+  });
 }

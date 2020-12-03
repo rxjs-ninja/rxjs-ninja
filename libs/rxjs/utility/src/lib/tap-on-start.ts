@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Utility
  */
-import { MonoTypeOperatorFunction, Observable, of } from 'rxjs';
+import { EMPTY, MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { switchMap, tap } from 'rxjs/operators';
 import { CallbackFn } from '../types/utility';
 
@@ -32,7 +32,7 @@ import { CallbackFn } from '../types/utility';
  */
 export function tapOnStart<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>) =>
-    of(undefined).pipe(
+    EMPTY.pipe(
       tap(callback),
       switchMap(() => source),
     );

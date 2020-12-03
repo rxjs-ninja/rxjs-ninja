@@ -5,7 +5,7 @@
 import { Observable, Subscriber } from 'rxjs';
 
 /**
- * Returns an Observable that takes string arguments or an array of strings and emits string
+ * Returns an Observable from string arguments or an array of strings and emits string
  *
  * @param args Strings or an Array of strings to emit
  *

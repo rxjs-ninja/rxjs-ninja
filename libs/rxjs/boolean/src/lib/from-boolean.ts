@@ -2,19 +2,17 @@
  * @packageDocumentation
  * @module Boolean
  */
-import { Observable } from 'rxjs';
-import { subscribeToSingleOrArrayBoolean } from '../utils/from-boolean.utils';
+import { Observable, Subscriber } from 'rxjs';
 
 /**
- * The `fromBoolean` operator is used to create an [Observable](https://rxjs.dev/api/index/class/Observable) boolean from a passed
- * value or array of values. The operator can be overloaded with types to be used with strings, number or mixed sources
+ * Returns an Observable that emits boolean values from passed parameters or an array of values
  *
  * Using `fromBoolean` with an array of booleans is the same as using the [from](https://rxjs.dev/api/index/function/from) operator from RxJS
  *
  * @typeParam T The type or types to be used to create boolean values from
  * @default boolean
  *
- * @param source Boolean input to create an Observable<boolean> from
+ * @param args Boolean input to create an Observable<boolean> from
  *
  * @example
  * ```ts
@@ -30,10 +28,17 @@ import { subscribeToSingleOrArrayBoolean } from '../utils/from-boolean.utils';
  *  .subscribe() // [true, false, true, false]
  * ```
  *
- *
  * @returns Boolean value from the initial parameters
  * @category RxJS Boolean Observables
  */
-export function fromBoolean(source: boolean | boolean[]): Observable<boolean> {
-  return new Observable<boolean>(subscribeToSingleOrArrayBoolean(source));
+export function fromBoolean<T extends unknown | unknown[]>(...args: T[]): Observable<boolean> {
+  let value = Array.isArray(args[0]) ? (args[0] as unknown[]) : ([...args] as unknown[]);
+  value = value.map(Boolean);
+
+  return new Observable<boolean>((subscriber: Subscriber<unknown>): void => {
+    for (let i = 0; i < value.length; i++) {
+      subscriber.next(value[i]);
+    }
+    subscriber.complete();
+  });
 }

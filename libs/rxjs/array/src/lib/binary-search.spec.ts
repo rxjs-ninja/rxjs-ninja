@@ -27,6 +27,16 @@ describe('binarySearch', () => {
   );
 
   it(
+    'should binary search values that have some duplicates',
+    observe(() =>
+      of([1, 4, 7, 2, 5, 6, 3, 4, 10, 4]).pipe(
+        binarySearch(5),
+        tap((value) => expect(value[0]).toBe(6)),
+      ),
+    ),
+  );
+
+  it(
     'should binary search a single array of strings',
     observe(() =>
       of(['b', 'c', 'd', 'a', 'g', 'f', '34', '2']).pipe(

@@ -7,37 +7,35 @@ import { filter, takeLast } from 'rxjs/operators';
 import { PredicateFn } from '../types/boolean';
 
 /**
- * The `lastTruthy` operator is used to get only the first truthy value from an
- * [Observable](https://rxjs.dev/api/index/class/Observable) stream of values
+ /**
+ * Returns an Observable that emits only the last truthy value from a source Observable with `Boolean`, An optional [[PredicateFn]]
+ * can be passed to return values that pass it's equality check
  *
- * @typeParam T Observable value
+ * @typeParam T The value contained in the source Observable
  *
- * If a predicate function is passed, this will be used to do the equality check
+ * @param predicate Optional [[PredicateFn]] to return the truthy value
  *
  * @example
  * ```ts
- * fromString(['a', 'b', 'c'])
- *  .pipe(lastTruthy())
- *  subscribe(); // 'c'
+ * const input = ['a', 'b', '', 'c', ''];
+ * from(input).pipe(lastTruthy()).subscribe();
+ * // 'c'
  * ```
  *
  * @example
  * ```ts
- * fromNumber([1, 2, 3, 4])
- *  .pipe(lastTruthy((value) => value % 2 === 0))
- *  subscribe(); // 4
+ * const input = [1, 2, 3, 4];
+ * fromNumber(input).pipe(lastTruthy((value) => value % 2 === 0)).subscribe();
+ * // 4
  * ```
  *
- * @returns The last truthy boolean value
+ * @returns Observable that emits the last Boolean truthy value or value that pass the optional [[PredicateFn]] equality check
  * @category RxJS Boolean Filters
  */
-export function lastTruthy<T = unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
-  if (predicate) {
-    return (source: Observable<T>) =>
-      source.pipe(
-        filter((val) => predicate(val)),
-        takeLast(1),
-      );
-  }
-  return (source: Observable<T>) => source.pipe(filter<T>(Boolean), takeLast(1));
+export function lastTruthy<T extends unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
+  return (source: Observable<T>) =>
+    source.pipe(
+      filter((val) => (predicate ? predicate(val) : Boolean(val))),
+      takeLast(1),
+    );
 }

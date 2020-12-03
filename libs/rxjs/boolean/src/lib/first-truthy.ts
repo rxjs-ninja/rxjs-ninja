@@ -7,39 +7,34 @@ import { filter, first } from 'rxjs/operators';
 import { PredicateFn } from '../types/boolean';
 
 /**
- * The `firstTruthy` operator is used to get only the first truthy value from an
- * [Observable](https://rxjs.dev/api/index/class/Observable) stream of values
+ * Returns an Observable that emits the first truthy value from a source Observable with `Boolean`, An optional [[PredicateFn]]
+ * can be passed to return values that pass it's equality check.
  *
- * @typeParam T Observable value
+ * @typeParam T The value contained in the source Observable
  *
- * @param predicate Function to do filtering with
+ * @param predicate Optional [[PredicateFn]] to return the truthy value
  *
  * @example
  * ```ts
- * fromBoolean<string | number | boolean>([0, false, '', 1])
- *  .pipe(firstTruthy())
- *  subscribe(); // [ 1 ]
+ * const input = ['', '', 'Hello', 'RxJS', 'Ninja'];
+ * from(input).pipe(firstTruthy()).subscribe();
+ * // 'Hello'
  * ```
  *
  * @example
  * ```ts
- * fromNumber([1, 2, 3, 4])
- *  .pipe(firstTruthy((value) => value % 2 === 0))
- *  subscribe(); // 2
+ * const input = [1, 2, 3, 4];
+ * from(input).pipe(firstTruthy((value) => value % 2 === 0)).subscribe();
+ * // 2
  * ```
  *
- * @returns The first truthy boolean value
+ * @returns Observable that emits the first Boolean truthy value or value that pass the optional [[PredicateFn]] equality check
  * @category RxJS Boolean Filters
  */
-function firstTruthy<T = unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
-  if (predicate) {
-    return (source: Observable<T>) =>
-      source.pipe(
-        filter((val) => predicate(val)),
-        first(),
-      );
-  }
-  return (source: Observable<T>) => source.pipe(filter<T>(Boolean), first());
+export function firstTruthy<T extends unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
+  return (source: Observable<T>) =>
+    source.pipe(
+      filter((val) => (predicate ? predicate(val) : Boolean(val))),
+      first(),
+    );
 }
-
-export { firstTruthy };

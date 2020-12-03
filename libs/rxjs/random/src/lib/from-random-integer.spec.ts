@@ -4,13 +4,27 @@ import { fromRandomInt } from '@rxjs-ninja/rxjs-random';
 
 describe('fromRandomInt', () => {
   it(
-    'should create an array of random integer numbers',
+    'should emit random numbers between 0 and 100',
     observe(() =>
-      fromRandomInt(0, 10).pipe(
+      fromRandomInt().pipe(
         take(5),
         reduce<number, number[]>((acc, val) => [...acc, val], [] as number[]),
         tap((value) => {
-          const check = value.filter((v) => typeof v === 'number' && Number.isInteger(v) && v >= 0 && v <= 10);
+          const check = value.filter((v) => typeof v === 'number' && Number.isInteger(v) && v >= 0 && v <= 100);
+          expect(check.length).toBe(5);
+        }),
+      ),
+    ),
+  );
+
+  it(
+    'should create an array of random integer numbers between the passed max and min',
+    observe(() =>
+      fromRandomInt(5, 10).pipe(
+        take(5),
+        reduce<number, number[]>((acc, val) => [...acc, val], [] as number[]),
+        tap((value) => {
+          const check = value.filter((v) => typeof v === 'number' && Number.isInteger(v) && v >= 5 && v <= 10);
           expect(check.length).toBe(5);
         }),
       ),

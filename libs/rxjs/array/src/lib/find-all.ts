@@ -4,7 +4,7 @@
  */
 
 import { Observable, OperatorFunction } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { PredicateFn } from '../types/generic-methods';
 
 /**

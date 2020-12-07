@@ -29,7 +29,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns String with text replaced based on pattern and replacement string
- * @category RxJS String Formatting
+ * @category String Formatting
  */
 export function replace(pattern: string | RegExp, replacement: string): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(map((value) => value.replace(pattern, replacement)));

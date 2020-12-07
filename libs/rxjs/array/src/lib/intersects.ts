@@ -47,7 +47,7 @@ import { mapIntersection } from '../utils/intersects';
  * ```
  *
  * @returns An Observable that emits an array containing the intersection between source and input array
- * @category RxJS Array Intersection
+ * @category Array Intersection
  */
 export function intersects<T = unknown>(
   input: T[] | ObservableInput<T[]>,

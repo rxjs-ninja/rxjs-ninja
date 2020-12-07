@@ -22,7 +22,7 @@ import { QueryMethod } from '../types/utility';
  * ```
  *
  * @returns An Observable that emits a value from a server request
- * @category RxJS Observable Utilities
+ * @category Observable Utilities
  */
 export function debounceWithQuery<T = unknown>(time: number, queryMethod: QueryMethod<T>): OperatorFunction<string, T> {
   return (source: Observable<string>) =>

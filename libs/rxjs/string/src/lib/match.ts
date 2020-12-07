@@ -28,7 +28,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns RegExpMatchArray that contains one or more results from the match
- * @category RxJS String Query
+ * @category String Query
  */
 export function match(pattern: string | RegExp): OperatorFunction<string, RegExpMatchArray | null> {
   return (source: Observable<string>) => source.pipe(map((value) => value.match(pattern)));

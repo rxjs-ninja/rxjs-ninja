@@ -30,7 +30,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Boolean that passes the equality check of [String.prototype.endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
- * @category RxJS String Query
+ * @category String Query
  */
 export function endsWith(character: string, length?: number): OperatorFunction<string, boolean> {
   return (source: Observable<string>) => source.pipe(map((value) => value.endsWith(character, length)));

@@ -23,7 +23,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Boolean value if the string passes the equality check of [String.prototype.includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)
- * @category RxJS String Query
+ * @category String Query
  */
 export function includes(searchStr: string): OperatorFunction<string, boolean> {
   return (source: Observable<string>) => source.pipe(map((value) => value.includes(searchStr)));

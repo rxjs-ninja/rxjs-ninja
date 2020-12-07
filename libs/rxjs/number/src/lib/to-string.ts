@@ -6,32 +6,26 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `toString` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs.dev/api/index/class/Observable) number.
+ * Returns an Observable that emits a formatted string value from a source number using Number.toString.
  *
- * The operator will return a string value using
- * [Number.prototype.toString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString)
+ * @param radix The base number to format to. Default is `10`.
  *
- * A number can be formatted to a different base, such as base2 (boolean) or * base16 (hexadecimal)
- *
- * @param radix The base number to format to. Default is 10
- *
- * @example
+ * @example Return string values of numbers using base `10` conversion
  * ```ts
- * fromNumber(42)
- *  .pipe(toString())
- *  subscribe(); // '42'
+ * const input = [1, 2, 3.14, 42];
+ * from(input).pipe(toString()).subscribe();
  * ```
+ * Output: `'1', '2', '3.14', '42'`
  *
- * @example
+ * @example Return string values of numbers using base `16` conversion
  * ```ts
- * fromNumber(42)
- *  .pipe(toString('2'))
- *  subscribe(); // "101010"
+ * const input = [8, 16, 32, 64];
+ * from(input).pipe(toString(16)).subscribe();
  * ```
+ * Output: `'8', '10', '20', '40'`
  *
- * @returns A number that is parsed from a string using `Number.parseInt` with radix
- * @category RxJS Number Parsing
+ * @returns Observable that emits a formatted string from a source number and passed `radix` value
+ * @category Number Parsing
  */
 export function toString(radix = 10): OperatorFunction<number, string> {
   return (source: Observable<number>) => source.pipe(map((number) => number.toString(radix)));

@@ -28,7 +28,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Observable boolean value if the source array contains one value that is truthy for the [[PredicateFn]]
- * @category RxJS Array Query
+ * @category Array Query
  */
 export function some<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], boolean> {
   return (source) => source.pipe(map((value) => value.some((v) => (predicate ? predicate(v) : Boolean(v)))));

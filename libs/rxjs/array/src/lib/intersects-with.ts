@@ -59,7 +59,7 @@ import { mapIntersectsWith } from '../utils/intersects';
  * ```
  *
  * @returns Array of values of intersection between the source and input array
- * @category RxJS Array Intersection
+ * @category Array Intersection
  */
 export function intersectsWith<T = unknown>(
   input: T[] | ObservableInput<T[]>,

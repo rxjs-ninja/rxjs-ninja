@@ -26,7 +26,7 @@ import { subscribeToSingleOrArrayUnicode } from '../utils/from-unicode.utils';
  * ```
  *
  * @returns String from the decoded unicode string
- * @category RxJS String Creation
+ * @category String Creation
  */
 export function fromUnicode(input: string | string[], form?: FormType): Observable<string> {
   return new Observable<string>(subscribeToSingleOrArrayUnicode(input, form));

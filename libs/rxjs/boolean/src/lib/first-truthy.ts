@@ -29,7 +29,7 @@ import { PredicateFn } from '../types/boolean';
  * ```
  *
  * @returns Observable that emits the first Boolean truthy value or value that pass the optional [[PredicateFn]] equality check
- * @category RxJS Boolean Filters
+ * @category Boolean Filters
  */
 export function firstTruthy<T extends unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>) =>

@@ -6,25 +6,21 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * The `filterIsNotNaN` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs.dev/api/index/class/Observable) number.
+ * Returns an Observable that emits number values from a source filtering out any `NaN` values.
  *
- * The operator will return the number value based on the number not being a NaN using the
- * [Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
- * equality check
+ * @category Number Filter
  *
- * @remarks
- * If you want the boolean value instead of the number value use the [[isNotNaN]] operator instead
+ * @see The [[isNotNaN]] operator returns a boolean value instead of the number
  *
  * @example
+ * Returns only valid numbers where the source may contain `NaN` values
  * ```ts
- * fromNumber([1, 2, NaN, 4])
- *  .pipe(filterIsNotNaN())
- *  .subscribe() // [1, 2, 4]
+ * const input = [NaN, -2.3, 0, NaN, 2, 3.14, 4.2, NaN, 11, 42];
+ * from(input).pipe(filterIsNotNaN()).subscribe()
  * ```
+ * Output: `-2.3, 0, 2, 3.14, 4.2, 11, 42`
  *
- * @returns Number value that does not passes the `Number.isNaN` equality check
- * @category RxJS Number Filter
+ * @returns Observable that emits valid numbers and excludes `NaN` values
  */
 export function filterIsNotNaN(): MonoTypeOperatorFunction<number> {
   return (source: Observable<number>) => source.pipe(filter((value) => !Number.isNaN(value)));

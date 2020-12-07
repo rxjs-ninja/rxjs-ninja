@@ -20,7 +20,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns String character located at the passed position
- * @category RxJS String Query
+ * @category String Query
  */
 export function charAt(position: number): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(map((value) => value.charAt(position)));

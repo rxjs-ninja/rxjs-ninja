@@ -28,7 +28,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Index of the location where the string starts
- * @category RxJS String Query
+ * @category String Query
  */
 export function lastIndexOf(searchStr: string, fromIndex?: number): OperatorFunction<string, number> {
   return (source: Observable<string>) => source.pipe(map((value) => value.lastIndexOf(searchStr, fromIndex)));

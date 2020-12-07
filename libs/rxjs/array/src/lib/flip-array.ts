@@ -17,7 +17,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Observable array of boolean values that are flipped from their original value
- * @category RxJS Array Modify
+ * @category Array Modify
  */
 export function flipArray(): MonoTypeOperatorFunction<boolean[]> {
   return (source: Observable<boolean[]>) => source.pipe(map((value) => value.map((v) => !v)));

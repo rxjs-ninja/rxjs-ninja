@@ -25,7 +25,7 @@ import { MapFn, SortFn } from '../types/generic-methods';
  * ```
  *
  * @returns Observable array of sorted values of type `K`
- * @category RxJS Array Modify
+ * @category Array Modify
  */
 export function sortMap<T extends unknown, K extends T | unknown>(
   mapFn: MapFn<T, K>,

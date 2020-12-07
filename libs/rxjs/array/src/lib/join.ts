@@ -25,7 +25,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Observable string from the joined values in the source Observable array
- * @category RxJS Array Modify
+ * @category Array Modify
  */
 export function join<T extends unknown>(separator = ' '): OperatorFunction<T[], string> {
   return (source: Observable<T[]>) => source.pipe(map((value) => value.join(separator)));

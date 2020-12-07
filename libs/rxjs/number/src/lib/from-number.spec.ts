@@ -14,7 +14,17 @@ describe('fromNumber', () => {
   );
 
   it(
-    'should create observable from array of value',
+    'should create observable from argument list of number values',
+    observe(() =>
+      fromNumber(1, 2, 3, 4).pipe(
+        reduce((acc, val) => acc + val),
+        tap((value) => expect(value).toBe(10)),
+      ),
+    ),
+  );
+
+  it(
+    'should create observable from array of values',
     observe(() =>
       fromNumber([1, 2, 3, 4]).pipe(
         reduce((acc, val) => acc + val),

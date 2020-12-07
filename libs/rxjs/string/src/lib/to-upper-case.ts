@@ -30,7 +30,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns String that is converted to upper case with passed locale
- * @category RxJS String Formatting
+ * @category String Formatting
  */
 export function toUpperCase(locales?: string | string[]): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(map((value) => value.toLocaleUpperCase(locales)));

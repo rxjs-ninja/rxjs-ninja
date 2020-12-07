@@ -21,7 +21,7 @@ import { filter } from 'rxjs/operators';
  * ```
  *
  * @returns An Observable that emits an array containing all values in source array that has one truthy value with the [[PredicateFn]]
- * @category RxJS Array Filter
+ * @category Array Filter
  */
 export function filterSome<T extends unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T[]> {
   return (source) => source.pipe(filter((value) => value.some((v) => (predicate ? predicate(v) : Boolean(v)))));

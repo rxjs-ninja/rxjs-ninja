@@ -30,7 +30,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns String that is a substring of the original string value
- * @category RxJS String Creation
+ * @category String Creation
  */
 export function slice(startIndex: number, endIndex?: number): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(map((value) => value.slice(startIndex, endIndex)));

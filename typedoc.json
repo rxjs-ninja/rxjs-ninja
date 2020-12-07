@@ -18,7 +18,8 @@
     "typedoc-plugin-external-module-name",
     "typedoc-plugin-extras",
     "typedoc-plugin-pages",
-    "typedoc-plugin-ghpages-cname"
+    "typedoc-plugin-ghpages-cname",
+    "typedoc-plugin-replace-in-comments"
   ],
   "links": [
     {
@@ -120,5 +121,32 @@
         ]
       }
     ]
-  }
+  },
+  "replace-in-comments-config": [
+    {
+      "pattern": "(Observables?)",
+      "flags": "g",
+      "replace": "[$1](https://rxjs.dev/api/index/class/Observable)"
+    },
+    {
+      "pattern": "RxJS",
+      "flags": "g",
+      "replace": "[RxJS](https://rxjs.dev)"
+    },
+    {
+      "pattern": "(Intl\\.(\\w+))",
+      "flags": "gm",
+      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/$2)"
+    },
+    {
+      "pattern": "(Number\\.(\\w+))",
+      "flags": "gm",
+      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/$2)"
+    },
+    {
+      "pattern": "(String\\.(\\w+))",
+      "flags": "gm",
+      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/$2)"
+    }
+  ]
 }

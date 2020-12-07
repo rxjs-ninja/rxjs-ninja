@@ -37,7 +37,7 @@ import { map, switchMap } from 'rxjs/operators';
  * ```
  *
  * @returns String that is a concatenation of the original string and new values
- * @category RxJS String Creation
+ * @category String Creation
  */
 export function concat<T extends string | string[] | Observable<string | string[]>>(
   ...args: T[]

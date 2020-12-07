@@ -20,7 +20,7 @@ import { finalize, map, takeWhile, tap } from 'rxjs/operators';
  * ```
  *
  * @returns Observable with a stream of random numbers
- * @category RxJS Random Observables
+ * @category Random Observables
  */
 export function fromRandom(min = 0, max = 1, emitDelay = 0): Observable<number> {
   return new Observable((subscriber: Subscriber<number>) => {

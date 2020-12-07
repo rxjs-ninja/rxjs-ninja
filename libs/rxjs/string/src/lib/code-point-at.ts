@@ -20,7 +20,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Number of the code point from the passed string position
- * @category RxJS String Query
+ * @category String Query
  */
 export function codePointAt(position: number): OperatorFunction<string, number | undefined> {
   return (source: Observable<string>) => source.pipe(map((value) => value.codePointAt(position)));

@@ -6,24 +6,21 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `isFinite` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs.dev/api/index/class/Observable) number.
+ * Returns an Observable that emits a boolean value when a source number is a finite number using Number.isFinite
  *
- * The operator will return the boolean value based on it passing
- * [Number.isFinite](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite)
+ * @category Number Query
  *
- * @remarks
- * If you want the number value instead of the boolean value use the [[filterIsFinite]] operator instead
+ * @see The [[filterIsFinite]] operator returns the number value
  *
  * @example
+ * Return boolean for finite values
  * ```ts
- * fromNumber([1, 2, Infinity])
- *  .pipe(isFinite())
- *  .subscribe() // [true, true, false]
+ * const input = [-Infinity, -2.3, 0, 1, Infinity, 3.14, 4.2, 10, 11, Number.MAX_VALUE * 2];
+ * from(input).pipe(isFinite()).subscribe();
  * ```
+ * Output: `false, true, true, true, false, true, true, true, true, false`
  *
- * @returns A boolean value of the `Number.isFinite` equality check
- * @category RxJS Number Query
+ * @returns Observable that emits a boolean of a source number being finite
  */
 export function isFinite(): OperatorFunction<number, boolean> {
   return (source: Observable<number>) => source.pipe(map((value) => Number.isFinite(value)));

@@ -41,7 +41,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Observable that emits a value from the truthy or falsy [[MapFn]] based on the [[PredicateFn]] result
- * @category RxJS Utility Modifier
+ * @category Utility Modifier
  */
 export function mapIfSource<I = unknown, T = unknown, F = unknown>(
   predicate: PredicateFn<I>,

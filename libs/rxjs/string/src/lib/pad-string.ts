@@ -33,7 +33,7 @@ import { PadPosition, PadPositionValue } from '../types/position';
  * ```
  *
  * @returns String that is formatted with padding using the `fillString`
- * @category RxJS String Formatting
+ * @category String Formatting
  */
 export function padString(
   padPosition: PadPositionValue,
@@ -71,7 +71,7 @@ export function padString(
  * ```
  *
  * @returns String that is formatted with space padding
- * @category RxJS String Formatting
+ * @category String Formatting
  */
 export function padStart(maxLength: number, fillString?: string): MonoTypeOperatorFunction<string> {
   return padString(PadPosition.START, maxLength, fillString);
@@ -94,7 +94,7 @@ export function padStart(maxLength: number, fillString?: string): MonoTypeOperat
  * ```
  *
  * @returns String that is formatted with space padding
- * @category RxJS String Formatting
+ * @category String Formatting
  */
 export function padEnd(maxLength: number, fillString?: string): MonoTypeOperatorFunction<string> {
   return padString(PadPosition.END, maxLength, fillString);

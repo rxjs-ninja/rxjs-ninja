@@ -2,7 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "rootDir": ".",
-    "removeComments": true,
+    "removeComments": false,
     "preserveConstEnums": true,
     "downlevelIteration": true,
     "sourceMap": true,

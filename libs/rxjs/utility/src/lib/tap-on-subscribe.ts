@@ -22,7 +22,7 @@ import { switchMap, take, tap } from 'rxjs/operators';
  * ```
  *
  * @returns Observable that emits the source observable
- * @category RxJS Observable Utilities
+ * @category Observable Utilities
  */
 export function tapOnSubscribe<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>): Observable<T> =>

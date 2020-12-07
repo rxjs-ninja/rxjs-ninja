@@ -28,7 +28,7 @@ import { PredicateFn } from '../types/generic-methods';
  * ```
  *
  * @returns An Observable that emits a number value, the index of first value where [[PredicateFn]] is true
- * @category RxJS Array Filter
+ * @category Array Filter
  */
 export function findIndex<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], number> {
   return (source: Observable<T[]>) =>

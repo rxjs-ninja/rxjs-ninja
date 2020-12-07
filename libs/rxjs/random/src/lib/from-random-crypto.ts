@@ -42,7 +42,7 @@ const DEFAULT_OPTIONS: FromRandomCryptoOpts = {
  * ```
  *
  * @returns Observable with a stream of random numbers
- * @category RxJS Random Observables
+ * @category Random Observables
  */
 export function fromRandomCrypto(emitDelay = 0, opts: FromRandomCryptoOpts = DEFAULT_OPTIONS): Observable<number> {
   return new Observable((subscriber: Subscriber<number>) => {

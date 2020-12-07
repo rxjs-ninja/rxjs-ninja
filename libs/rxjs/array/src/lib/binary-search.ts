@@ -60,7 +60,7 @@ import { SortFn } from '../types/generic-methods';
  * ```
  *
  * @returns An Observable that emits a [[BinarySearchResult]]
- * @category RxJS Array Search
+ * @category Array Search
  */
 export function binarySearch<T extends unknown, K extends T | unknown>(
   searchValue: T,

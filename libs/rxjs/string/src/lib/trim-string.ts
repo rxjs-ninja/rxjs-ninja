@@ -39,7 +39,7 @@ import { TrimPosition, TrimPositionValue } from '../types/position';
  * ```
  *
  * @returns String that is trimmed based on the [[TrimPosition]] option
- * @category RxJS String Formatting
+ * @category String Formatting
  */
 export function trimString(position: TrimPositionValue = TrimPosition.ALL): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) =>
@@ -72,7 +72,7 @@ export function trimString(position: TrimPositionValue = TrimPosition.ALL): Mono
  * ```
  *
  * @returns String that is formatted with white space to the left trimmed
- * @category RxJS String Formatting
+ * @category String Formatting
  */
 export function trimLeft(): MonoTypeOperatorFunction<string> {
   return trimString(TrimPosition.START);
@@ -92,7 +92,7 @@ export function trimLeft(): MonoTypeOperatorFunction<string> {
  * ```
  *
  * @returns String that is formatted with white space to the right trimmed
- * @category RxJS String Formatting
+ * @category String Formatting
  */
 export function trimRight(): MonoTypeOperatorFunction<string> {
   return trimString(TrimPosition.END);
@@ -112,7 +112,7 @@ export function trimRight(): MonoTypeOperatorFunction<string> {
  * ```
  *
  * @returns String that is formatted with all surrounding white space trimmed
- * @category RxJS String Formatting
+ * @category String Formatting
  */
 export function trim(): MonoTypeOperatorFunction<string> {
   return trimString(TrimPosition.ALL);

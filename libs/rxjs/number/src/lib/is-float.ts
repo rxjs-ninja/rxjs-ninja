@@ -6,24 +6,21 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `isFloat` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs.dev/api/index/class/Observable) number.
+ * Returns an Observable that emits a boolean value when a source number is a a valid finite floating point
  *
- * The operator will return the boolean value based on it passing
- * [Number.isInteger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger)
+ * @category Number Query
  *
- * @remarks
- * If you want the number value instead of the boolean value use the [[filterIsInteger]] operator instead
+ * @see The [[filterIsFloat]] operator returns the number value
  *
  * @example
+ * Return boolean for floating point numbers
  * ```ts
- * fromNumber([1, 2, 3.14])
- *  .pipe(isFloat())
- *  subscribe(); // [false, false, true]
+ * const input = [-10, -2.3, 0, 1, 2, 3.14, 4.2, 10, 11, 42];
+ * from(input).pipe(isFloat()).subscribe();
  * ```
+ * Output: `false, true, false, false, false, true, true, false, false, false`
  *
- * @returns Boolean if the number is a valid float
- * @category RxJS Number Query
+ * @returns Observable that emits a boolean of a source number is a valid finite floating point
  */
 export function isFloat(): OperatorFunction<number, boolean> {
   return (source: Observable<number>) =>

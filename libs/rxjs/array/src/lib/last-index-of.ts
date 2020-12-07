@@ -45,7 +45,7 @@ import { MapFn } from '../types/generic-methods';
  * ```
  *
  * @returns Observable number or Observable array of the last index of the input item in the array
- * @category RxJS Array Query
+ * @category Array Query
  */
 export function lastIndexOf<T extends unknown>(
   input: T | T[],

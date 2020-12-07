@@ -26,7 +26,7 @@ import { PredicateFn } from '../types/generic-methods';
  * ```
  *
  * @returns An Observable that emits all the [[PredicateFn]] truthy value found value from the array
- * @category RxJS Array Filter
+ * @category Array Filter
  */
 export function findAll<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], T[]> {
   return (source: Observable<T[]>) =>

@@ -19,7 +19,7 @@ import { createLuhnModulus, reverseLuhnNumbers } from '../utils/luhn-check.utils
  *```
  *
  * @returns Observable that emits an boolean if the source Observable value passes the Luhn check
- * @category RxJS Boolean Validation
+ * @category Boolean Validation
  */
 export function luhnCheck<T extends string | number>(): OperatorFunction<T, boolean> {
   return (source: Observable<T>) =>

@@ -27,7 +27,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns String from an array of character codes
- * @category RxJS String Map
+ * @category String Map
  */
 export function mapCharCode(): OperatorFunction<number | number[], string> {
   return (source: Observable<number | number[]>) =>

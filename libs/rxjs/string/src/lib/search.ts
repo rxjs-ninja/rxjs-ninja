@@ -21,7 +21,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns RegExpMatchArray that contains one or more results from the match
- * @category RxJS String Query
+ * @category String Query
  */
 
 export function search(pattern: string | RegExp): OperatorFunction<string, number> {

@@ -25,7 +25,7 @@ import { Observable, Subscriber } from 'rxjs';
  * ```
  *
  * @returns Observable that emits a string
- * @category RxJS String Creation
+ * @category String Creation
  */
 export function fromString<T extends string | string[]>(...args: T[]): Observable<string> {
   const value = Array.isArray(args[0]) ? (args[0] as string[]) : ([...args] as string[]);

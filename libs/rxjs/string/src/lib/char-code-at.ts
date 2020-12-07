@@ -20,7 +20,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Number of the character code from the passed string position
- * @category RxJS String Query
+ * @category String Query
  */
 export function charCodeAt(position: number): OperatorFunction<string, number> {
   return (source: Observable<string>) => source.pipe(map((value) => value.charCodeAt(position)));

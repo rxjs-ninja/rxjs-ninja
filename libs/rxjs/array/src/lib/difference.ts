@@ -47,7 +47,7 @@ import { mapDifference } from '../utils/difference';
  * ```
  *
  * @returns An Observable that emits an Array which contains the difference between Observable source and input array.
- * @category RxJS Array Difference
+ * @category Array Difference
  */
 export function difference<T extends unknown>(
   input: T[] | ObservableInput<T[]>,

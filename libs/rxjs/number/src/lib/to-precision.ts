@@ -6,24 +6,19 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `toPrecision` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs.dev/api/index/class/Observable) number.
+ * Returns an Observable that emits a formatted string value from a source number using Number.toPrecision.
  *
- * The operator will return a string value formatted to the precision value passed
- * [Number.prototype.toPrecision](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision)
+ * @param precision The number of decimal places to format the precision to.
  *
- * @param precision The precision value to format the number to
- *
- * @example
+ * @example Return a string of numbers formatted to a precision of 4 places
  * ```ts
- * from([123.456, 0.004, 1.23e5]).pipe(toPrecision(4), reduce((acc, val) => {
- *   acc.push(val);
- *   return acc;
- * }, [])).subscribe() // ['123.5', '0.004000', '1.230e+5']
+ * const input = [123.456, 0.004, 1.23e5];
+ * from(input).pipe(toPrecision(4)).subscribe();
  * ```
+ * Output: `'123.5', '0.004000', '1.230e+5'`
  *
- * @returns String of the number value formatted using `Number.prototype.toPrecision`
- * @category RxJS Number Formatting
+ * @returns Observable that emits a formatted string from a source number
+ * @category Number Formatting
  */
 export function toPrecision(precision: number): OperatorFunction<number, string> {
   return (source: Observable<number>) => source.pipe(map((value) => value.toPrecision(precision)));

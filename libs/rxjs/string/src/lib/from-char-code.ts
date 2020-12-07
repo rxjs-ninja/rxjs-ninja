@@ -30,7 +30,7 @@ import { Observable, Subscriber } from 'rxjs';
  * ```
  *
  * @returns Observable that emits an ASCII string from passed character codes
- * @category RxJS String Creation
+ * @category String Creation
  */
 export function fromCharCode<T extends number | number[]>(...args: T[]): Observable<string> {
   const value = Array.isArray(args[0]) ? (args[0] as number[]) : ([...args] as number[]);

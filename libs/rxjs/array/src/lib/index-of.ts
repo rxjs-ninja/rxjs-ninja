@@ -46,7 +46,7 @@ import { MapFn } from '../types/generic-methods';
  * ```
  *
  * @returns Observable number or array of numbers containing the index of a found input
- * @category RxJS Array Query
+ * @category Array Query
  */
 export function indexOf<T extends unknown>(
   input: T | T[],

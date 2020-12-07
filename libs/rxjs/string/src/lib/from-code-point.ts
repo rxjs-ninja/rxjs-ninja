@@ -30,7 +30,7 @@ import { Observable, Subscriber } from 'rxjs';
  * ```
  *
  * @returns Observable that emits an ASCII/Unicode string from passed code points
- * @category RxJS String Creation
+ * @category String Creation
  */
 export function fromCodePoint<T extends number | number[]>(...args: T[]): Observable<string> {
   const value = Array.isArray(args[0]) ? (args[0] as number[]) : ([...args] as number[]);

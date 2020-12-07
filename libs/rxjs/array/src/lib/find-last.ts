@@ -28,7 +28,7 @@ import { PredicateFn } from '../types/generic-methods';
  * ```
  *
  * @returns Observable of the last found value from the array, or undefined
- * @category RxJS Array Filter
+ * @category Array Filter
  */
 export function findLast<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], T | undefined> {
   return (source: Observable<T[]>) =>

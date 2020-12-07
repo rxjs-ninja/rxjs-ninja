@@ -40,7 +40,7 @@ const DEFAULT_OPTIONS: FromRandomStringOpts = {
  * ```
  *
  * @returns Observable with a stream of random strings
- * @category RxJS Random Observables
+ * @category Random Observables
  */
 export function fromRandomStr(length = 10, emitDelay = 0, opts = DEFAULT_OPTIONS): Observable<string> {
   let seedArray: string[] = [];

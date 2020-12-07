@@ -27,7 +27,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns String that is a repeat of the source string with a separator, repeated by the passed count
- * @category RxJS String Formatting
+ * @category String Formatting
  */
 export function repeat(count: number, separator?: string): MonoTypeOperatorFunction<string> {
   if (separator) {

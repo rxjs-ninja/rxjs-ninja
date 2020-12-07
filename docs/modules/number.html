@@ -144,7 +144,7 @@
 					<li class=" tsd-kind-function tsd-parent-kind-module root">
 						<a href="number.html#fromfibonacci" class="tsd-kind-icon">from<wbr>Fibonacci</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module root">
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter root">
 						<a href="number.html#fromnumber" class="tsd-kind-icon">from<wbr>Number</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module root">
@@ -194,7 +194,12 @@
 		</div>
 		<div class="col-content">
 			<h1>Module Number</h1>
-			<section class="tsd-panel tsd-comment"><div class="tsd-comment tsd-typography tsd-comment-tags">
+			<section class="tsd-panel tsd-comment"><div class="tsd-comment tsd-typography tsd-comment-shorttext">
+					<div class="lead">
+						<p>Package containing various operators for generating <a href="https://rxjs.dev/api/index/class/Observable">Observables</a> with numbers and filtering, querying and parsing
+						numbers in <a href="https://rxjs.dev">RxJS</a></p>
+					</div>
+					</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 					<dl class="tsd-comment-tags"><dt class="tds-tag-ignore">ignore</dt>
 					<dd class="tds-tag-ignore"></dd></dl>
 			</div></section>
@@ -202,7 +207,7 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Functions</h3>
+							<h3>Number Filter Functions</h3>
 							<div class="tsd-index-list">
 								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#filterinrange"
 									class="tsd-kind-icon">filterInRange</a>
@@ -225,12 +230,42 @@
 								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#filteroutofrange"
 									class="tsd-kind-icon">filterOutOfRange</a>
 								</div>
+							</div>
+							<h3>Number Formatting Functions</h3>
+							<div class="tsd-index-list">
+								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#toexponential"
+									class="tsd-kind-icon">toExponential</a>
+								</div>
+								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#tolocalestring"
+									class="tsd-kind-icon">toLocaleString</a>
+								</div>
+								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#toprecision"
+									class="tsd-kind-icon">toPrecision</a>
+								</div>
+							</div>
+							<h3>Number Observable Generators Functions</h3>
+							<div class="tsd-index-list">
 								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#fromfibonacci"
 									class="tsd-kind-icon">fromFibonacci</a>
 								</div>
-								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#fromnumber"
+								<div class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="number.html#fromnumber"
 									class="tsd-kind-icon">fromNumber</a>
 								</div>
+							</div>
+							<h3>Number Parsing Functions</h3>
+							<div class="tsd-index-list">
+								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#parsefloat"
+									class="tsd-kind-icon">parseFloat</a>
+								</div>
+								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#parseint"
+									class="tsd-kind-icon">parseInt</a>
+								</div>
+								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#tostring"
+									class="tsd-kind-icon">toString</a>
+								</div>
+							</div>
+							<h3>Number Query Functions</h3>
+							<div class="tsd-index-list">
 								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#inrange"
 									class="tsd-kind-icon">inRange</a>
 								</div>
@@ -255,24 +290,6 @@
 								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#outofrange"
 									class="tsd-kind-icon">outOfRange</a>
 								</div>
-								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#parsefloat"
-									class="tsd-kind-icon">parseFloat</a>
-								</div>
-								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#parseint"
-									class="tsd-kind-icon">parseInt</a>
-								</div>
-								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#toexponential"
-									class="tsd-kind-icon">toExponential</a>
-								</div>
-								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#tolocalestring"
-									class="tsd-kind-icon">toLocaleString</a>
-								</div>
-								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#toprecision"
-									class="tsd-kind-icon">toPrecision</a>
-								</div>
-								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#tostring"
-									class="tsd-kind-icon">toString</a>
-								</div>
 							</div>
 						</section>
 					</div>
@@ -291,29 +308,24 @@
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>filterInRange</code> operator can be used with an RxJS <code>pipe</code> where the source value
-										is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number and will return the number
-										value if the number is within a min/max value range. The optional <code>excludeBoundingValues</code> parameter allows
-									the min and max values to be excluded.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits numbers, where that number falls between the provided <code>min</code> and <code>max</code> values.
+									When filtering in range, the range numbers are included in the filter - to exclude them set <code>excludeBoundingValues</code> to <code>true</code>.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<ul>
-									<li>If you want to get the boolean value of a number being outside a range of min/max use <a href="number.html#inrange">inRange</a> operator instead</li>
-									<li>If you want the number value being outside a range of min/max use the <a href="number.html#filterinrange">filterInRange</a> operator instead</li>
-								</ul>
-								<p>If <code>excludeBoundingValues</code> is set to <code>true</code>, the range will not include the actual <code>min</code> and <code>max</code> values
-								by using <code>&gt; &amp;&amp; &lt;</code> as it&#39;s equality match</p>
-								<p>The default value is <code>false</code> and will use a <code>&gt;= &amp;&amp; &lt;=</code> equality match</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-comment">// Exluding the bounding number</span>
-fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
- .pipe(filterInRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>))
- subscribe(); <span class="hljs-comment">// [0, 1, 2, 10]</span></code></pre>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The <a href="number.html#inrange">inRange</a> operator returns a boolean value instead of the number</p>
+									</dd><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The <a href="number.html#filteroutofrange">filterOutOfRange</a> can be used to get numbers that fall outside the <code>min</code> and <code>max</code> range</p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
- .pipe(filterInRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">true</span>))
- subscribe(); <span class="hljs-comment">// [1, 2]</span></code></pre>
+									<dd class="tds-tag-example"><p>Return only numbers in and including the range of <code>0</code> to <code>10</code></p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-number">10</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
+<span class="hljs-keyword">from</span>(input).pipe(filterInRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)).subscribe();</code></pre>
+										<p>Output: <code>0, 1, 2, 3.4, 4.2, 10</code></p>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Return only numbers in the range of <code>0</code> to <code>10</code> and also filter the <code>min</code> and <code>max</code></p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-number">10</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
+<span class="hljs-keyword">from</span>(input).pipe(filterInRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">true</span>)).subscribe();</code></pre>
+										<p>Output: <code>1, 2, 3.14, 4.2</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -321,29 +333,29 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 								<li>
 									<h5>min: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The minimum number for the range</p>
+										<p>The minimum range value</p>
 									</div>
 								</li>
 								<li>
 									<h5>max: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The maximum number for the range</p>
+										<p>The maximum range value</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> excludeBoundingValues: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>If bounding values should be excluded</p>
+										<p>Also filter the <code>min</code> and <code>max</code> values from the <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Number value if the number falls in the <code>min/max</code> range</p>
+							<p>Observable that emits a number that falls within the passed <code>min</code> and <code>max</code> range</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-in-range.ts#L44">
-											libs/rxjs/number/src/lib/filter-in-range.ts:44
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-in-range.ts#L39">
+											libs/rxjs/number/src/lib/filter-in-range.ts:39
 										</a>
 									</li>
 								</ul>
@@ -361,28 +373,27 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>filterIsFinite</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits numbers from a source where they pass the check of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite">Number.isFinite</a>.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will return the number value based on it passing
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite">Number.isFinite</a></p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
-									<dd class="tds-tag-remarks"><p>If you want the boolean value instead of the number value use the <a href="number.html#isfinite">isFinite</a> operator instead</p>
+									<dd class="tds-tag-remarks"><p>Certain operations such as dividing by zero or multiplying passed Number.MAX_VALUE in JavaScript can cause <code>Infinity</code> to be generated, this operator can help avoid those values</p>
+									</dd><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The <a href="number.html#isfinite">isFinite</a> operator returns a boolean value instead of the number</p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">Infinity</span>])
- .pipe(filterIsFinite())
- .subscribe() <span class="hljs-comment">// [1, 2]</span></code></pre>
+									<dd class="tds-tag-example"><p>Return only finite values</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-literal">Infinity</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">Infinity</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-built_in">Number</span>.MAX_VALUE * <span class="hljs-number">2</span>];
+<span class="hljs-keyword">from</span>(input).pipe(filterIsFinite()).subscribe();</code></pre>
+										<p>Output: <code>-2.3, 0, 2, 3.14, 4.2, 10, 11</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A number value that passes the <code>Number.isFinite</code> equality check</p>
+							<p>Observable that emits numbers that are finite</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-is-finite.ts#L28">
-											libs/rxjs/number/src/lib/filter-is-finite.ts:28
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-is-finite.ts#L27">
+											libs/rxjs/number/src/lib/filter-is-finite.ts:27
 										</a>
 									</li>
 								</ul>
@@ -400,28 +411,25 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>filterIsFloat</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits only valid finite floating point numbers from a source</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will return the number value based on it passing
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">Number.isInteger</a></p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
-									<dd class="tds-tag-remarks"><p>If you want the boolean value instead of the number value use the <a href="number.html#isinteger">isInteger</a> operator instead</p>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The <a href="number.html#isfloat">isFloat</a> operator returns a boolean value instead of the number</p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>])
- .pipe(filterIsFloat())
- .subscribe() <span class="hljs-comment">// [1, 2]</span></code></pre>
+									<dd class="tds-tag-example"><p>Return only values that are floating point numbers</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-number">10</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
+<span class="hljs-keyword">from</span>(input).pipe(filterIsFloat()).subscribe();</code></pre>
+										<p>Output: <code>-2.3, 3.14, 4.2</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A number value that passes the <code>Number.isInteger</code> equality check</p>
+							<p>Observable that emits valid finite floating point numbers</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-is-float.ts#L28">
-											libs/rxjs/number/src/lib/filter-is-float.ts:28
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-is-float.ts#L25">
+											libs/rxjs/number/src/lib/filter-is-float.ts:25
 										</a>
 									</li>
 								</ul>
@@ -439,28 +447,25 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>filterIsInteger</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits only integer numbers from a source that pass the check of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">Number.isInteger</a>.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will return the number value based on it passing
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">Number.isInteger</a></p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
-									<dd class="tds-tag-remarks"><p>If you want the boolean value instead of the number value use the <a href="number.html#isinteger">isInteger</a> operator instead</p>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The <a href="number.html#isinteger">isInteger</a> operator returns a boolean value instead of the number</p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>])
- .pipe(filterIsInteger())
- .subscribe() <span class="hljs-comment">// [1, 2]</span></code></pre>
+									<dd class="tds-tag-example"><p>Return only values that are integer values</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-number">10</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
+<span class="hljs-keyword">from</span>(input).pipe(filterIsInteger()).subscribe()</code></pre>
+										<p>Output: <code>-10, 0, 1, 2, 10, 11, 42</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A number value that passes the <code>Number.isInteger</code> equality check</p>
+							<p>Observable that emits integer numbers</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-is-integer.ts#L28">
-											libs/rxjs/number/src/lib/filter-is-integer.ts:28
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-is-integer.ts#L25">
+											libs/rxjs/number/src/lib/filter-is-integer.ts:25
 										</a>
 									</li>
 								</ul>
@@ -478,29 +483,25 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>filterIsNotNaN</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits number values from a source filtering out any <code>NaN</code> values.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will return the number value based on the number not being a NaN using the
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN</a>
-								equality check</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
-									<dd class="tds-tag-remarks"><p>If you want the boolean value instead of the number value use the <a href="number.html#isnotnan">isNotNaN</a> operator instead</p>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The <a href="number.html#isnotnan">isNotNaN</a> operator returns a boolean value instead of the number</p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">4</span>])
- .pipe(filterIsNotNaN())
- .subscribe() <span class="hljs-comment">// [1, 2, 4]</span></code></pre>
+									<dd class="tds-tag-example"><p>Returns only valid numbers where the source may contain <code>NaN</code> values</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-literal">NaN</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
+<span class="hljs-keyword">from</span>(input).pipe(filterIsNotNaN()).subscribe()</code></pre>
+										<p>Output: <code>-2.3, 0, 2, 3.14, 4.2, 11, 42</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Number value that does not passes the <code>Number.isNaN</code> equality check</p>
+							<p>Observable that emits valid numbers and excludes <code>NaN</code> values</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-is-not-nan.ts#L29">
-											libs/rxjs/number/src/lib/filter-is-not-nan.ts:29
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-is-not-nan.ts#L25">
+											libs/rxjs/number/src/lib/filter-is-not-nan.ts:25
 										</a>
 									</li>
 								</ul>
@@ -518,28 +519,27 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>filterIsSafeInteger</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits numbers that are within the safe number range for JavaScript number precision using
+									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger">Number.isSafeInteger</a></p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will return the number value based on it passing
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger">Number.isSafeInteger</a></p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
-									<dd class="tds-tag-remarks"><p>If you want the boolean value instead of the number value use the <a href="number.html#issafeinteger">isSafeInteger</a> operator instead</p>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The <a href="number.html#issafeinteger">isSafeInteger</a> operator returns a boolean value instead of the number</p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>), <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>) - <span class="hljs-number">1</span>])
- .pipe(filterIsSafeInteger())
- .subscribe() <span class="hljs-comment">// [1, 2, 9007199254740991]</span></code></pre>
+									<dd class="tds-tag-example"><p>Returns only integers within safe precision range</p>
+										<pre><code class="language-ts"><span class="hljs-comment">// `Math.pow(2, 53)` is not within the safe integer range</span>
+<span class="hljs-keyword">const</span> input = [-<span class="hljs-number">10</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>) - <span class="hljs-number">1</span>, <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>), <span class="hljs-literal">Infinity</span>];
+<span class="hljs-keyword">from</span>(input).pipe(filterIsSafeInteger()).subscribe()</code></pre>
+										<p>Output: <code>-10, 0, 1, 2, 9007199254740991</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A number value that passes the <code>Number.isSafeInteger</code> equality check</p>
+							<p>Observable that emits integer numbers within <code>Number.isSafeInteger</code> equality check</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-is-safe-integer.ts#L36">
-											libs/rxjs/number/src/lib/filter-is-safe-integer.ts:36
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-is-safe-integer.ts#L27">
+											libs/rxjs/number/src/lib/filter-is-safe-integer.ts:27
 										</a>
 									</li>
 								</ul>
@@ -549,7 +549,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="filteroutofrange" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">filter<wbr>Out<wbr>OfRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, includeBoundingParameters<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">filter<wbr>Out<wbr>OfRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, includeBounds<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -557,28 +557,24 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>filterOutOfRange</code> operator can be used with an RxJS <code>pipe</code> where the source value
-										is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number and will return the number
-										value if the number is outside a min/max value range. The optional <code>includeBoundingParameters</code> parameter allows
-									the min and max values to be excluded.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits numbers, where that number falls outside the provided <code>min</code> and <code>max</code> values.
+									When filtering in range, the range numbers are excluded in the filter - to include them set <code>includeBounds</code> to <code>true</code>.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<ul>
-									<li>If you want to get the boolean value of a number being inside a range of min/max use <a href="number.html#inrange">inRange</a> operator instead</li>
-									<li>If you want the number value being outside a range of min/max use the <a href="number.html#filteroutofrange">filterOutOfRange</a> operator instead</li>
-								</ul>
-								<p>If <code>includeBoundingParameters</code> is set to <code>true</code>, the range will include the actual <code>min</code> and <code>max</code> values
-								by using <code>&gt;= || &lt;=</code> as it&#39;s equality match</p>
-								<p>The default value is <code>false</code> and will use a <code>&gt; || &lt;</code> equality match</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
- .pipe(filterOutOfRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>))
- subscribe(); <span class="hljs-comment">// [-1, 11]</span></code></pre>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The <a href="number.html#inrange">inRange</a> operator returns a boolean value instead of the number</p>
+									</dd><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The <a href="number.html#filteroutofrange">filterOutOfRange</a> can be used to get numbers that fall outside the <code>min</code> and <code>max</code> range</p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
- .pipe(filterOutOfRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">true</span>))
- subscribe(); <span class="hljs-comment">// [-1, 0, 10, 11]</span></code></pre>
+									<dd class="tds-tag-example"><p>Returns values outside the <code>min</code> and <code>max</code> range</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-number">10</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
+<span class="hljs-keyword">from</span>(input).pipe(filterOutOfRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)).subscribe();</code></pre>
+										<p>Output: <code>-10, -2.3, 11, 42</code></p>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Returns values outside and including the <code>min</code> and <code>max</code> range</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-number">10</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
+<span class="hljs-keyword">from</span>(input).pipe(filterOutOfRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">true</span>)).subscribe();</code></pre>
+										<p>Output: <code>-10, -2.3, 0, 10, 11, 42</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -586,29 +582,29 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 								<li>
 									<h5>min: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The minimum number for the range</p>
+										<p>The minimum range value</p>
 									</div>
 								</li>
 								<li>
 									<h5>max: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The maximum number for the range</p>
+										<p>The maximum range value</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> includeBoundingParameters: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> includeBounds: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>If bounding values should be excluded</p>
+										<p>Optionally include the <code>min</code> and <code>max</code> values in the <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Number value if the number falls outside the <code>min/max</code> range</p>
+							<p>Observable that emits a number that falls outside the <code>min</code> and <code>max</code> ranges</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-out-of-range.ts#L43">
-											libs/rxjs/number/src/lib/filter-out-of-range.ts:43
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-out-of-range.ts#L39">
+											libs/rxjs/number/src/lib/filter-out-of-range.ts:39
 										</a>
 									</li>
 								</ul>
@@ -626,13 +622,17 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>fromFibonacci</code> operator is used to create an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> sequence of
-									Fibonacci numbers</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a sequence of numbers in the Fibonacci sequence, starting from <code>0</code></p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromFibonacci(<span class="hljs-number">5</span>)
- .subscribe() <span class="hljs-comment">// 0, 1, 1, 2, 3</span></code></pre>
+									<dd class="tds-tag-example"><p>Emit the first 5 numbers of the Fibonacci sequence immediately</p>
+										<pre><code class="language-ts">fromFibonacci(<span class="hljs-number">5</span>).subscribe();</code></pre>
+										<p>Output: <code>0, 1, 1, 2, 3</code></p>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Emit the first 10 numbers of the Fibonacci sequence once per second, and skip <code>0</code></p>
+										<pre><code class="language-ts">fromFibonacci(<span class="hljs-number">10</span>, <span class="hljs-number">1000</span>).pipe(skip(<span class="hljs-number">1</span>)).subscribe();</code></pre>
+										<p>Output: <code>1, 1, 2, 3, 5, 8, 13, 21, 34</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -640,7 +640,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 								<li>
 									<h5>iterations: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The number of iterations to do</p>
+										<p>The number of iterations to do, must be greater than <code>0</code></p>
 									</div>
 								</li>
 								<li>
@@ -651,22 +651,22 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Observable of a Fibonacci sequence of numbers</p>
+							<p>Observable of a Fibonacci sequence of numbers starting from <code>0</code></p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/from-fibonacci.ts#L26">
-											libs/rxjs/number/src/lib/from-fibonacci.ts:26
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/from-fibonacci.ts#L32">
+											libs/rxjs/number/src/lib/from-fibonacci.ts:32
 										</a>
 									</li>
 								</ul>
 							</aside>
 						</li>
 					</ul>
-					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="fromnumber" class="tsd-anchor"></a>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Number<span class="tsd-signature-symbol">(</span>source<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Number&lt;T&gt;<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>numbers<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -674,40 +674,48 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>fromNumber</code> operator is used to create an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> using a number
-									or array of numbers. The Observable can be subscribed to, which will emit one or more numbers.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits numbers from an an arguments list or array of number values</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>Using <code>fromNumber</code> with an array of numbers is functionally similar to the RxSJ
-									<a href="https://rxjs.dev/api/index/function/from">from</a> operator - each number in the array will emit a value
-								to the subscription</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber(<span class="hljs-number">6</span>)
- .pipe(map(<span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> val * <span class="hljs-number">7</span>))
- subscribe(); <span class="hljs-comment">// 42</span></code></pre>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
+									<dd class="tds-tag-remarks"><p>This is a type-safe version of the RxJS <a href="https://rxjs.dev/api/index/function/from" class="external">from</a> operator that only accepts numbers as input</p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>])
- .pipe(reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> acc + val))
- subscribe(); <span class="hljs-comment">// 6</span></code></pre>
+									<dd class="tds-tag-example"><p>Returns an observable from a single number and multiply the value</p>
+										<pre><code class="language-ts">fromNumber(<span class="hljs-number">6</span>).pipe(map(<span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> val * <span class="hljs-number">7</span>)).subscribe();</code></pre>
+										<p>Output: <code>42</code></p>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Returns an Observable from an argument list of numbers and reduce the values</p>
+										<pre><code class="language-ts">fromNumber(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>).pipe(reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> acc + val)).subscribe();</code></pre>
+										<p>Output: <code>10</code></p>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Returns an Observable from an array of numbers and reduce the values</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
+fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> acc + val)).subscribe();</code></pre>
+										<p>Output: <code>10</code></p>
 								</dd></dl>
 							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h4>
+								</li>
+							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>source: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>numbers: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The number or array or numbers to start from</p>
+										<p>Numbers to emit from the <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> as arguments or an array</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Observable created from the input array of numbers</p>
+							<p>Observable that emits numbers passed from arguments or array</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/from-number.ts#L35">
-											libs/rxjs/number/src/lib/from-number.ts:35
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/from-number.ts#L41">
+											libs/rxjs/number/src/lib/from-number.ts:41
 										</a>
 									</li>
 								</ul>
@@ -725,28 +733,22 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>inRange</code> operator can be used with an RxJS <code>pipe</code> where the source value
-										is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number and will return a boolean
-										value if the number is within a min/max value range. The optional <code>excludeBoundingValues</code> parameter allows
-									the min and max values to be excluded.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits booleans about values from a source that fall within the passed <code>min</code> and <code>max</code> range,
+									including the range numbers.  To emit a boolean for numbers only between the <code>min</code> and <code>max</code> set <code>excludeBoundingValues</code> to <code>true</code>.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<ul>
-									<li>If you want to get the boolean value of a number being outside a range of min/max use <a href="number.html#outofrange">outOfRange</a> operator instead</li>
-									<li>If you want the number value instead of the boolean value use the <a href="number.html#filterinrange">filterInRange</a> operator instead</li>
-								</ul>
-								<p>If <code>excludeBoundingValues</code> is set to <code>true</code>, the range will not include the actual <code>min</code> and <code>max</code> values
-								by using <code>&gt; &amp;&amp; &lt;</code> as it&#39;s equality match</p>
-								<p>The default value is <code>false</code> and will use a <code>&gt;= &amp;&amp; &lt;=</code> equality match</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
- .pipe(inRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>))
- .subscribe() <span class="hljs-comment">// [false, true, true, true, true, false]</span></code></pre>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The <a href="number.html#filterinrange">filterInRange</a> operator returns the number value</p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
- .pipe(inRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">true</span>))
- .subscribe() <span class="hljs-comment">// [false, false, true, true, false, false]</span></code></pre>
+									<dd class="tds-tag-example"><p>Returns a boolean value if the number is in the range</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-number">10</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
+<span class="hljs-keyword">from</span>(input).pipe(inRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)).subscribe();</code></pre>
+										<p>Output: <code>false, false, true, true, true, true, true, true, false, false</code></p>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Returns a boolean value if the number is in the range excluding the <code>min</code> and <code>max</code></p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-number">10</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
+<span class="hljs-keyword">from</span>(input).pipe(inRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">true</span>)).subscribe();</code></pre>
+										<p>Output: <code>false, false, false, true, true, true, true, false, false, false</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -766,17 +768,17 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> excludeBoundingValues: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>If bounding values should be excluded</p>
+										<p>Optionally filter the <code>min</code> and <code>max</code> values from the <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Boolean value if the number falls in the <code>min/max</code> range</p>
+							<p>Observable that emits a boolean if the source number falls within the passed <code>min</code> and <code>max</code> range</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/in-range.ts#L43">
-											libs/rxjs/number/src/lib/in-range.ts:43
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/in-range.ts#L38">
+											libs/rxjs/number/src/lib/in-range.ts:38
 										</a>
 									</li>
 								</ul>
@@ -794,28 +796,25 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>isFinite</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean value when a source number is a finite number using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite">Number.isFinite</a></p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will return the boolean value based on it passing
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite">Number.isFinite</a></p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
-									<dd class="tds-tag-remarks"><p>If you want the number value instead of the boolean value use the <a href="number.html#filterisfinite">filterIsFinite</a> operator instead</p>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The <a href="number.html#filterisfinite">filterIsFinite</a> operator returns the number value</p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">Infinity</span>])
- .pipe(<span class="hljs-built_in">isFinite</span>())
- .subscribe() <span class="hljs-comment">// [true, true, false]</span></code></pre>
+									<dd class="tds-tag-example"><p>Return boolean for finite values</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-literal">Infinity</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-literal">Infinity</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-built_in">Number</span>.MAX_VALUE * <span class="hljs-number">2</span>];
+<span class="hljs-keyword">from</span>(input).pipe(<span class="hljs-built_in">isFinite</span>()).subscribe();</code></pre>
+										<p>Output: <code>false, true, true, true, false, true, true, true, true, false</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A boolean value of the <code>Number.isFinite</code> equality check</p>
+							<p>Observable that emits a boolean of a source number being finite</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/is-finite.ts#L28">
-											libs/rxjs/number/src/lib/is-finite.ts:28
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/is-finite.ts#L25">
+											libs/rxjs/number/src/lib/is-finite.ts:25
 										</a>
 									</li>
 								</ul>
@@ -833,28 +832,25 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>isFloat</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean value when a source number is a a valid finite floating point</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will return the boolean value based on it passing
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">Number.isInteger</a></p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
-									<dd class="tds-tag-remarks"><p>If you want the number value instead of the boolean value use the <a href="number.html#filterisinteger">filterIsInteger</a> operator instead</p>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The <a href="number.html#filterisfloat">filterIsFloat</a> operator returns the number value</p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>])
- .pipe(isFloat())
- subscribe(); <span class="hljs-comment">// [false, false, true]</span></code></pre>
+									<dd class="tds-tag-example"><p>Return boolean for floating point numbers</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-number">10</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
+<span class="hljs-keyword">from</span>(input).pipe(isFloat()).subscribe();</code></pre>
+										<p>Output: <code>false, true, false, false, false, true, true, false, false, false</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Boolean if the number is a valid float</p>
+							<p>Observable that emits a boolean of a source number is a valid finite floating point</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/is-float.ts#L28">
-											libs/rxjs/number/src/lib/is-float.ts:28
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/is-float.ts#L25">
+											libs/rxjs/number/src/lib/is-float.ts:25
 										</a>
 									</li>
 								</ul>
@@ -872,28 +868,25 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>isInteger</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean value when a source number is an integer checked with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">Number.isInteger</a></p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will return the boolean value based on it passing
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger">Number.isInteger</a></p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
-									<dd class="tds-tag-remarks"><p>If you want the number value instead of the boolean value use the <a href="number.html#filterisinteger">filterIsInteger</a> operator instead</p>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The <a href="number.html#filterisinteger">filterIsInteger</a> operator returns the number value</p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>])
- .pipe(isInteger())
- .subscribe() <span class="hljs-comment">// [true, true, false]</span></code></pre>
+									<dd class="tds-tag-example"><p>Return booleans for values that are integer values</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-number">10</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
+<span class="hljs-keyword">from</span>(input).pipe(filterIsInteger()).subscribe()</code></pre>
+										<p>Output: <code>true, false, true, true, true, false, false, true, true, true</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A boolean value of the <code>Number.isInteger</code> equality check</p>
+							<p>Observable that emits a boolean of a source number being an integer</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/is-integer.ts#L28">
-											libs/rxjs/number/src/lib/is-integer.ts:28
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/is-integer.ts#L25">
+											libs/rxjs/number/src/lib/is-integer.ts:25
 										</a>
 									</li>
 								</ul>
@@ -911,21 +904,20 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>isNaN</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean value when a source number is a <code>NaN</code> value from <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN</a>.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will return the boolean value based on it passing
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN</a></p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">4</span>])
- .pipe(<span class="hljs-built_in">isNaN</span>())
- .subscribe() <span class="hljs-comment">// [false, false, true, false]</span></code></pre>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The [[filterInNotNaN]] operator returns the number value</p>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Return a boolean if a number is a <code>NaN</code> value</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">3.14</span>, <span class="hljs-literal">undefined</span>];
+<span class="hljs-keyword">from</span>(input).pipe(<span class="hljs-built_in">isNaN</span>()).subscribe();</code></pre>
+										<p>Output: <code>true, false, false, true, false, true</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A boolean value of the <code>Number.isNaN</code> equality check</p>
+							<p>Observable that emits a boolean value of a number being valid or <code>NaN</code></p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
@@ -948,27 +940,27 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>isNaN</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean value when a source number is valid and not <code>NaN</code>, checked using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN</a></p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will return the boolean value based on it using
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN</a>
-								to check a number is valid</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">4</span>])
- .pipe(isNotNaN())
- .subscribe() <span class="hljs-comment">// [true, true, false, true]</span></code></pre>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
+									<dd class="tds-tag-remarks"><p>This is mostly for convenience of getting truthy values that are valid for numbers without flipping the value os <code>isNaN</code></p>
+									</dd><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The [[filterInNotNaN]] operator returns the number value</p>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Return a boolean if a number is not <code>NaN</code> value</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">3.14</span>, <span class="hljs-literal">undefined</span>];
+<span class="hljs-keyword">from</span>(input).pipe(isNotNaN()).subscribe();</code></pre>
+										<p>Output: <code>false, true, true, false, true, false</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A boolean value of the <code>Number.isNaN</code> equality check</p>
+							<p>Observable that emits a boolean value of a number being valid or <code>NaN</code></p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/is-not-nan.ts#L26">
-											libs/rxjs/number/src/lib/is-not-nan.ts:26
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/is-not-nan.ts#L27">
+											libs/rxjs/number/src/lib/is-not-nan.ts:27
 										</a>
 									</li>
 								</ul>
@@ -986,28 +978,26 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>isSafeInteger</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean value when a source number has precision safety using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger">Number.isSafeInteger</a></p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will return the boolean value based on it passing
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger">Number.isSafeInteger</a></p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
-									<dd class="tds-tag-remarks"><p>If you want to return the numbers from the check use the <a href="number.html#filterissafeinteger">filterIsSafeInteger</a> operator instead</p>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The <a href="number.html#filterissafeinteger">filterIsSafeInteger</a> operator returns the number value</p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([<span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>), <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>) - <span class="hljs-number">1</span>])
- .pipe(isSafeInteger())
- subscribe(); <span class="hljs-comment">// [true, false]</span></code></pre>
+									<dd class="tds-tag-example"><p>Return a boolean if a number does not have percision safety</p>
+										<pre><code class="language-ts"><span class="hljs-comment">// `Math.pow(2, 53)` is not within the safe integer range</span>
+<span class="hljs-keyword">const</span> input = [-<span class="hljs-number">10</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>) - <span class="hljs-number">1</span>, <span class="hljs-built_in">Math</span>.pow(<span class="hljs-number">2</span>, <span class="hljs-number">53</span>), <span class="hljs-literal">Infinity</span>];
+<span class="hljs-keyword">from</span>(input).pipe(isSafeInteger()).subscribe()</code></pre>
+										<p>Output: <code>true, false, true, true, true, false, true, false, false</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A boolean value of the <code>Number.isSafeInteger</code> equality check</p>
+							<p>Observable that emits a boolean value of a number has precision safety</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/is-safe-integer.ts#L28">
-											libs/rxjs/number/src/lib/is-safe-integer.ts:28
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/is-safe-integer.ts#L26">
+											libs/rxjs/number/src/lib/is-safe-integer.ts:26
 										</a>
 									</li>
 								</ul>
@@ -1025,59 +1015,52 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>outOfRange</code> operator can be used with an RxJS <code>pipe</code> where the source value
-										is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number and will return a boolean
-										value if the number is outside a min/max value range. The optional <code>includeBoundingParameters</code> parameter allows
-									the min and max values to be included.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits booleans about values from a source that fall outside the passed <code>min</code> and <code>max</code> range,
+									excluding the range numbers.  To emit a boolean for numbers including the <code>min</code> and <code>max</code> set <code>includeBoundingParameters</code> to <code>true</code>.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<ul>
-									<li>If you want to get the boolean value of a number being inside a range of min/max use <a href="number.html#inrange">inRange</a> operator instead</li>
-									<li>If you want the number value instead of the boolean value use the <a href="number.html#filteroutofrange">filterOutOfRange</a> operator instead</li>
-								</ul>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
- .pipe(outOfRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>))
- .subscribe() <span class="hljs-comment">// [true, false, false, false, false, true]</span></code></pre>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>To get numbers outside of a range use <a href="number.html#filteroutofrange">filterOutOfRange</a></p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>])
- .pipe(outOfRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">true</span>))
- .subscribe() <span class="hljs-comment">// [true, true, false, false, true, true]</span></code></pre>
+									<dd class="tds-tag-example"><p>Returns a boolean value if the number is out the range including the <code>min</code> and <code>max</code></p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-number">10</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
+<span class="hljs-keyword">from</span>(input).pipe(outOfRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>)).subscribe();</code></pre>
+										<p>Output: <code>true, true, true, false, false, false, false, true, true, true</code></p>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Returns a boolean value if the number is out the range excluding the <code>min</code> and <code>max</code></p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-number">10</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
+<span class="hljs-keyword">from</span>(input).pipe(outOfRange(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-literal">true</span>)).subscribe();</code></pre>
+										<p>Output: <code>true, true, false, false, false, false, false, false, true, true</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
 									<h5>min: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-										<div class="lead">
-											<p>The minimum number for the range</p>
-										</div>
+									<div class="tsd-comment tsd-typography tsd-comment-text">
+										<p>The minimum number for the range</p>
 									</div>
 								</li>
 								<li>
 									<h5>max: <span class="tsd-signature-type">number</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-										<div class="lead">
-											<p>The maximum number for the range</p>
-										</div>
+									<div class="tsd-comment tsd-typography tsd-comment-text">
+										<p>The maximum number for the range</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> includeBoundingParameters: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>If bounding values should be excluded</p>
+										<p>Optionally include the <code>min</code> and <code>max</code> values in the <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Boolean value if the number falls outside the <code>min/max</code> range</p>
+							<p>Observable that emits a boolean if the source number falls outside the passed <code>min</code> and <code>max</code> range</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/out-of-range.ts#L46">
-											libs/rxjs/number/src/lib/out-of-range.ts:46
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/out-of-range.ts#L35">
+											libs/rxjs/number/src/lib/out-of-range.ts:35
 										</a>
 									</li>
 								</ul>
@@ -1087,7 +1070,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="parsefloat" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">parse<wbr>Float<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Float<span class="tsd-signature-symbol">(</span>returnNaN<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1095,26 +1078,38 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>parseFloat</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> string.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a number from a source string using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat">Number.parseFloat</a>.
+									By default this operator removes <code>NaN</code> values but can optionally be set to return them</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will attempt to convert the string value to a floating point number using
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat">Number.parseFloat</a></p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromString([<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2.8&#x27;</span>, <span class="hljs-string">&#x27;3.14&#x27;</span>])
- .pipe(<span class="hljs-built_in">parseFloat</span>())
- subscribe(); <span class="hljs-comment">// [1, 2.8, 3.14]</span></code></pre>
+									<dd class="tds-tag-example"><p>Return only parsed number values using base <code>10</code></p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;-2.3&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;3.14&#x27;</span>, <span class="hljs-string">&#x27;Infinity&#x27;</span>];
+<span class="hljs-keyword">from</span>(input).pipe(<span class="hljs-built_in">parseFloat</span>()).subscribe();</code></pre>
+										<p>Output: <code>-2.3, 0, 1, 2, 3.14</code></p>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Return parsed number values and <code>NaN</code> values using base <code>10</code></p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;-2.3&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;3.14&#x27;</span>, <span class="hljs-string">&#x27;Infinity&#x27;</span>];
+<span class="hljs-keyword">from</span>(input).pipe(<span class="hljs-built_in">parseFloat</span>(<span class="hljs-number">10</span>, <span class="hljs-literal">true</span>)).subscribe();</code></pre>
+										<p>Output: <code>NaN, -2.3, 0, 1, 2, 3.14, NaN</code></p>
 								</dd></dl>
 							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> returnNaN: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">
+										<p>Optionally return <code>NaN</code> values instead of filtering</p>
+									</div>
+								</li>
+							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A number that is parsed from a string using <code>Number.parseFloat</code></p>
+							<p>Observable that emits a number from source parsed string, optionally returns <code>NaN</code> values</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/parse-float.ts#L26">
-											libs/rxjs/number/src/lib/parse-float.ts:26
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/parse-float.ts#L31">
+											libs/rxjs/number/src/lib/parse-float.ts:31
 										</a>
 									</li>
 								</ul>
@@ -1124,7 +1119,7 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="parseint" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">parse<wbr>Int<span class="tsd-signature-symbol">(</span>radix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Int<span class="tsd-signature-symbol">(</span>radix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, returnNaN<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1132,19 +1127,25 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>parseInt</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> string.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a number from a source string using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a>.
+									By default this operator removes <code>NaN</code> values but can optionally be set to return them</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will attempt to convert the string value to a integer number using
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a></p>
-								<p>An integer can be parsed to a different base, such as base2 (boolean) or
-								base16 (hexadecimal)</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromString([<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;ff&#x27;</span>, <span class="hljs-string">&#x27;40&#x27;</span>])
- .pipe(<span class="hljs-built_in">parseInt</span>(<span class="hljs-number">16</span>))
- .subscribe() <span class="hljs-comment">// [1, 255, 64]</span></code></pre>
+									<dd class="tds-tag-example"><p>Return only parsed integer values using base <code>10</code></p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;-2.3&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;3.14&#x27;</span>, <span class="hljs-string">&#x27;Infinity&#x27;</span>];
+<span class="hljs-keyword">from</span>(input).pipe(<span class="hljs-built_in">parseInt</span>()).subscribe();</code></pre>
+										<p>Output: <code>-2, 0, 1, 2, 3</code></p>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Return parsed integer values and <code>NaN</code> values using base <code>10</code></p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;-2.3&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;3.14&#x27;</span>, <span class="hljs-string">&#x27;Infinity&#x27;</span>];
+<span class="hljs-keyword">from</span>(input).pipe(<span class="hljs-built_in">parseInt</span>(<span class="hljs-number">10</span>, <span class="hljs-literal">true</span>)).subscribe();</code></pre>
+										<p>Output: <code>NaN, -2, 0, 1, 2, 3, NaN</code></p>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Return parsed integer values using base <code>16</code></p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;ff&#x27;</span>, <span class="hljs-string">&#x27;40&#x27;</span>];
+<span class="hljs-keyword">from</span>(input).pipe(<span class="hljs-built_in">parseInt</span>(<span class="hljs-number">16</span>)).subscribe();</code></pre>
+										<p>Output: <code>1, 255, 64</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1152,23 +1153,23 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> radix: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The base number to parse to with a default of 10 already set</p>
-										<ul>
-											<li>@example<pre><code class="language-ts">fromString([<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2.8&#x27;</span>, <span class="hljs-string">&#x27;3.14&#x27;</span>])
-.pipe(<span class="hljs-built_in">parseInt</span>())
-.subscribe() <span class="hljs-comment">// [1, 2, 3]</span></code></pre>
-											</li>
-										</ul>
+										<p>The number base to convert from. Default is base <code>10</code></p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> returnNaN: <span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> = false</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">
+										<p>Optionally return <code>NaN</code> values instead of filtering</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A number that is parsed from a string using <code>Number.parseInt</code> using a radix</p>
+							<p>Observable that emits a number from source parsed string, optionally returns <code>NaN</code> values</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/parse-int.ts#L37">
-											libs/rxjs/number/src/lib/parse-int.ts:37
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/parse-int.ts#L39">
+											libs/rxjs/number/src/lib/parse-int.ts:39
 										</a>
 									</li>
 								</ul>
@@ -1186,17 +1187,14 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>toExponential</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a formatted string of a number raised to an exponential power using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential">Number.toExponential</a>.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will return a string value of the number raised to the power passed as a parameter using
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential">Number.prototype.toExponential</a></p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber(<span class="hljs-number">1.2</span>)
- .pipe(toExponential(<span class="hljs-number">2</span>))
- .subscribe() <span class="hljs-comment">// &#x27;1.20e+0&#x27;</span></code></pre>
+									<dd class="tds-tag-example"><p>Return a string passed numbers to the exponential of <code>2</code></p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.4</span>];
+<span class="hljs-keyword">from</span>(input).pipe(toExponential(<span class="hljs-number">2</span>)).subscribe();</code></pre>
+										<p>Output: <code>&#39;-1.00e+0&#39;, &#39;0.00e+0&#39;, &#39;1.00e+0&#39;, &#39;2.30e+0&#39;, &#39;3.14e+0&#39;</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1209,12 +1207,12 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>String of the number value raised to the exponential using <code>Number.prototype.toExponential</code></p>
+							<p>Observable that emits a formatted string of the exponential number</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-exponential.ts#L27">
-											libs/rxjs/number/src/lib/to-exponential.ts:27
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-exponential.ts#L23">
+											libs/rxjs/number/src/lib/to-exponential.ts:23
 										</a>
 									</li>
 								</ul>
@@ -1232,27 +1230,22 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>toLocaleString</code> operator can be used with an RxJS <code>pipe</code> where the source value
-										is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number for formats it using
-										<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">Number.prototype.toLocaleString</a>
-									and the passed locale option.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a formatted string value from a source number using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">Number.toLocaleString</a> with optional
+									formatting options provided by <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a>.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The <code>toLocaleString</code> uses locale options in <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a>
-								to provide additional formatting for values types such as currency</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber(<span class="hljs-number">1000000</span>)
- .pipe(toLocaleString(<span class="hljs-string">&#x27;nl-NL&#x27;</span>))
- .subscribe() <span class="hljs-comment">// &#x27;1.000.000&#x27;</span></code></pre>
+									<dd class="tds-tag-example"><p>Return a string with Dutch number formatting</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">of</span>(<span class="hljs-number">1000000</span>).pipe(toLocaleString(<span class="hljs-string">&#x27;nl-NL&#x27;</span>)).subscribe();</code></pre>
+										<p>Output: <code>&#39;1.000.000&#39;</code></p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber(<span class="hljs-number">1000000</span>)
- .pipe(toLocaleString(<span class="hljs-string">&#x27;en-GB&#x27;</span>))
- .subscribe() <span class="hljs-comment">// &#x27;1,000,000&#x27;</span></code></pre>
+									<dd class="tds-tag-example"><p>Return a string with UK English number formatting</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">of</span>(<span class="hljs-number">1000000</span>).pipe(toLocaleString(<span class="hljs-string">&#x27;en-GB&#x27;</span>)).subscribe();</code></pre>
+										<p>Output: <code>&#39;1,000,000&#39;</code></p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber(<span class="hljs-number">1000000</span>)
- .pipe(toLocaleString(<span class="hljs-string">&#x27;en-GB&#x27;</span>, { <span class="hljs-attr">currency</span>: <span class="hljs-string">&#x27;EUR&#x27;</span>, <span class="hljs-attr">style</span>: <span class="hljs-string">&#x27;currency&#x27;</span> }))
- .subscribe() <span class="hljs-comment">// &#x27;€1,000,000.00&#x27;</span></code></pre>
+									<dd class="tds-tag-example"><p>Return a string with UK English number formatting and Euro currency style</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">of</span>(<span class="hljs-number">1000000</span>).pipe(toLocaleString(<span class="hljs-string">&#x27;en-GB&#x27;</span>, { <span class="hljs-attr">currency</span>: <span class="hljs-string">&#x27;EUR&#x27;</span>, <span class="hljs-attr">style</span>: <span class="hljs-string">&#x27;currency&#x27;</span> })).subscribe();</code></pre>
+										<p>Output: <code>&#39;€1,000,000.00&#39;</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1266,17 +1259,17 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 								<li>
 									<h5><span class="tsd-flag ts-flagOptional">Optional</span> format: <span class="tsd-signature-type">Intl.NumberFormatOptions</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Formatting of the string based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a></p>
+										<p>Formatting of the string based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a></a></p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>String of the number formatted using <code>Number.prototype.toLocaleString</code></p>
+							<p>Observable that emits a formatted string from a source number</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-locale-string.ts#L43">
-											libs/rxjs/number/src/lib/to-locale-string.ts:43
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-locale-string.ts#L36">
+											libs/rxjs/number/src/lib/to-locale-string.ts:36
 										</a>
 									</li>
 								</ul>
@@ -1294,18 +1287,14 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>toPrecision</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a formatted string value from a source number using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision">Number.toPrecision</a>.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will return a string value formatted to the precision value passed
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toPrecision">Number.prototype.toPrecision</a></p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-number">123.456</span>, <span class="hljs-number">0.004</span>, <span class="hljs-number">1.23e5</span>]).pipe(toPrecision(<span class="hljs-number">4</span>), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> {
-  acc.push(val);
-  <span class="hljs-keyword">return</span> acc;
-}, [])).subscribe() <span class="hljs-comment">// [&#x27;123.5&#x27;, &#x27;0.004000&#x27;, &#x27;1.230e+5&#x27;]</span></code></pre>
+									<dd class="tds-tag-example"><p>Return a string of numbers formatted to a precision of 4 places</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">123.456</span>, <span class="hljs-number">0.004</span>, <span class="hljs-number">1.23e5</span>];
+<span class="hljs-keyword">from</span>(input).pipe(toPrecision(<span class="hljs-number">4</span>)).subscribe();</code></pre>
+										<p>Output: <code>&#39;123.5&#39;, &#39;0.004000&#39;, &#39;1.230e+5&#39;</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1313,17 +1302,17 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 								<li>
 									<h5>precision: <span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The precision value to format the number to</p>
+										<p>The number of decimal places to format the precision to.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>String of the number value formatted using <code>Number.prototype.toPrecision</code></p>
+							<p>Observable that emits a formatted string from a source number</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-precision.ts#L28">
-											libs/rxjs/number/src/lib/to-precision.ts:28
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-precision.ts#L23">
+											libs/rxjs/number/src/lib/to-precision.ts:23
 										</a>
 									</li>
 								</ul>
@@ -1341,22 +1330,19 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>toString</code> operator can be used with an RxJS <code>pipe</code> where the source value
-									is an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a formatted string value from a source number using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString">Number.toString</a>.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>The operator will return a string value using
-								<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString">Number.prototype.toString</a></p>
-								<p>A number can be formatted to a different base, such as base2 (boolean) or * base16 (hexadecimal)</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber(<span class="hljs-number">42</span>)
- .pipe(toString())
- subscribe(); <span class="hljs-comment">// &#x27;42&#x27;</span></code></pre>
+									<dd class="tds-tag-example"><p>Return string values of numbers using base <code>10</code> conversion</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">42</span>];
+<span class="hljs-keyword">from</span>(input).pipe(toString()).subscribe();</code></pre>
+										<p>Output: <code>&#39;1&#39;, &#39;2&#39;, &#39;3.14&#39;, &#39;42&#39;</code></p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromNumber(<span class="hljs-number">42</span>)
- .pipe(toString(<span class="hljs-string">&#x27;2&#x27;</span>))
- subscribe(); <span class="hljs-comment">// &quot;101010&quot;</span></code></pre>
+									<dd class="tds-tag-example"><p>Return string values of numbers using base <code>16</code> conversion</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">8</span>, <span class="hljs-number">16</span>, <span class="hljs-number">32</span>, <span class="hljs-number">64</span>];
+<span class="hljs-keyword">from</span>(input).pipe(toString(<span class="hljs-number">16</span>)).subscribe();</code></pre>
+										<p>Output: <code>&#39;8&#39;, &#39;10&#39;, &#39;20&#39;, &#39;40&#39;</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -1364,17 +1350,17 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> radix: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The base number to format to. Default is 10</p>
+										<p>The base number to format to. Default is <code>10</code>.</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>A number that is parsed from a string using <code>Number.parseInt</code> with radix</p>
+							<p>Observable that emits a formatted string from a source number and passed <code>radix</code> value</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-string.ts#L36">
-											libs/rxjs/number/src/lib/to-string.ts:36
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-string.ts#L30">
+											libs/rxjs/number/src/lib/to-string.ts:30
 										</a>
 									</li>
 								</ul>
@@ -1382,11 +1368,11 @@ fromNumber([-<span class="hljs-number">1</span>, <span class="hljs-number">0</sp
 						</li>
 					</ul>
 			</section></section>
-			<!--{&quot;options&quot;:&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja&quot;,&quot;tsconfig&quot;:&quot;tsconfig.base.json&quot;,&quot;inputFiles&quot;:[&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/index.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/binary-search.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/binary-search.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference-with.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference-with.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/every.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/every.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/fill.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/fill.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-every.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-every.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-some.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-some.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-all.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-all.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-index.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-index.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-last.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-last.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/flip-array.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/flip-array.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/index-of.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/index-of.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects-with.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects-with.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/join.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/join.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/last-index-of.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/last-index-of.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/reverse.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/reverse.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/some.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/some.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort-map.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort-map.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/types/binary-search.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/types/generic-methods.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/utils/binary-search.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/utils/difference.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/utils/intersects.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/index.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/filter-truthy.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/filter-truthy.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/first-truthy.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/first-truthy.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/flip.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/flip.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/from-boolean.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/from-boolean.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/last-truthy.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/last-truthy.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/luhn-check.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/luhn-check.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/types/boolean.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/utils/from-boolean.utils.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/utils/luhn-check.utils.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/utils/luhn-check.utils.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/index.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-in-range.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-in-range.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-finite.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-finite.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-float.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-float.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-integer.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-integer.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-not-nan.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-not-nan.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-safe-integer.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-safe-integer.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-out-of-range.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-out-of-range.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-fibonacci.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-fibonacci.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-number.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-number.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/in-range.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/in-range.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-finite.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-finite.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-float.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-float.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-integer.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-integer.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-nan.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-nan.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-not-nan.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-not-nan.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-safe-integer.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-safe-integer.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/out-of-range.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/out-of-range.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-float.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-float.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-int.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-int.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-exponential.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-exponential.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-locale-string.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-locale-string.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-precision.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-precision.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-string.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-string.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/utils/from-fibonacci.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/utils/from-number.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/index.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-crypto.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-crypto.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-integer.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-integer.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-string.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-string.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/types/from-random-crypto.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/types/from-string.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/utils/from-random-crypto.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/index.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-at.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-at.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-code-at.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-code-at.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/code-point-at.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/code-point-at.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/concat.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/concat.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/ends-with.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/ends-with.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-ends-with.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-ends-with.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-includes.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-includes.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-starts-with.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-starts-with.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-char-code.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-char-code.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-code-point.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-code-point.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-string.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-string.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-unicode.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-unicode.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/includes.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/includes.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/index-of.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/index-of.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/last-index-of.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/last-index-of.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-char-code.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-char-code.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-code-point.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-code-point.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/match-all.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/match-all.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/match.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/match.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/normalize.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/normalize.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/pad-string.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/pad-string.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/repeat.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/repeat.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/replace.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/replace.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/reverse.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/reverse.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/search.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/search.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/slice.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/slice.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/split.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/split.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/starts-with.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/starts-with.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/substring.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/substring.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/titleize.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/titleize.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-lower-case.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-lower-case.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-upper-case.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-upper-case.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/trim-string.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/trim-string.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/types/normalize.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/types/position.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/utils/from-char-code.utils.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/utils/from-code-point.utils.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/utils/from-string.utils.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/utils/from-unicode.utils.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/index.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/debounce-with-query.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/debounce-with-query.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/map-if-source.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/map-if-source.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-if.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-if.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-on-start.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-on-start.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-on-subscribe.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-on-subscribe.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/types/utility.ts&quot;],&quot;mode&quot;:1,&quot;includeDeclarations&quot;:false,&quot;entryPoint&quot;:&quot;&quot;,&quot;exclude&quot;:[&quot;**/*.spec.ts&quot;,&quot;tools/**/*&quot;],&quot;externalPattern&quot;:[],&quot;excludeExternals&quot;:true,&quot;excludeNotExported&quot;:true,&quot;excludeNotDocumented&quot;:false,&quot;excludePrivate&quot;:true,&quot;excludeProtected&quot;:false,&quot;ignoreCompilerErrors&quot;:false,&quot;disableSources&quot;:false,&quot;includes&quot;:&quot;libs/rxjs&quot;,&quot;media&quot;:&quot;&quot;,&quot;out&quot;:&quot;docs&quot;,&quot;json&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-ninja-theme/bin/default&quot;,&quot;name&quot;:&quot;RxJS Ninja&quot;,&quot;includeVersion&quot;:false,&quot;excludeTags&quot;:[],&quot;readme&quot;:&quot;README.md&quot;,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;gitRemote&quot;:&quot;origin&quot;,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:false,&quot;toc&quot;:[],&quot;disableOutputCheck&quot;:false,&quot;help&quot;:false,&quot;version&quot;:false,&quot;plugin&quot;:[&quot;typedoc-ninja-theme&quot;,&quot;typedoc-plugin-external-module-name&quot;,&quot;typedoc-plugin-extras&quot;,&quot;typedoc-plugin-pages&quot;,&quot;typedoc-plugin-ghpages-cname&quot;],&quot;logger&quot;:&quot;console&quot;,&quot;listInvalidSymbolLinks&quot;:false,&quot;links&quot;:[{&quot;label&quot;:&quot;Github&quot;,&quot;url&quot;:&quot;https://github.com/rxjs-ninja/rxjs-ninja&quot;},{&quot;label&quot;:&quot;NPM&quot;,&quot;url&quot;:&quot;https://www.npmjs.com/org/rxjs-ninja&quot;}],&quot;outline&quot;:[],&quot;source&quot;:[{&quot;path&quot;:&quot;https://github.com/rxjs-ninja/rxjs-ninja/blob/main/&quot;,&quot;line&quot;:&quot;L&quot;}],&quot;excludeReferences&quot;:false,&quot;disableAutoModuleName&quot;:&quot;false&quot;,&quot;favicon&quot;:&quot;assets/favicon.ico&quot;,&quot;noFavicon&quot;:false,&quot;hideDate&quot;:false,&quot;hideTime&quot;:false,&quot;pages&quot;:{&quot;replaceGlobalsPage&quot;:true,&quot;reflectionNavigationTitle&quot;:&quot;RxJS Ninja APIs&quot;,&quot;enableSearch&quot;:false,&quot;groups&quot;:[{&quot;title&quot;:&quot;Package Docs&quot;,&quot;output&quot;:&quot;packages&quot;,&quot;pages&quot;:[{&quot;title&quot;:&quot;Array&quot;,&quot;source&quot;:&quot;libs/rxjs/array/README.md&quot;,&quot;output&quot;:&quot;array&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/array/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Boolean&quot;,&quot;source&quot;:&quot;libs/rxjs/boolean/README.md&quot;,&quot;output&quot;:&quot;boolean&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/boolean/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Number&quot;,&quot;source&quot;:&quot;libs/rxjs/number/README.md&quot;,&quot;output&quot;:&quot;number&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/number/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Random&quot;,&quot;source&quot;:&quot;libs/rxjs/random/README.md&quot;,&quot;output&quot;:&quot;random&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/random/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;String&quot;,&quot;source&quot;:&quot;libs/rxjs/string/README.md&quot;,&quot;output&quot;:&quot;string&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/string/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Utility&quot;,&quot;source&quot;:&quot;libs/rxjs/utility/README.md&quot;,&quot;output&quot;:&quot;utility&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/utility/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]}]}]},&quot;cname&quot;:&quot;rxjs.ninja&quot;}-->
+			<!--{&quot;options&quot;:&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja&quot;,&quot;tsconfig&quot;:&quot;tsconfig.base.json&quot;,&quot;inputFiles&quot;:[&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/index.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/binary-search.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/difference-with.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/difference.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/every.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/fill.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/filter-every.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/filter-some.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/find-all.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/find-index.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/find-last.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/find.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/flip-array.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/index-of.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/intersects-with.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/intersects.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/join.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/last-index-of.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/reverse.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/some.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/sort-map.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/lib/sort.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/types/binary-search.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/types/generic-methods.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/utils/binary-search.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/utils/difference.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/array/utils/intersects.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/boolean/index.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/filter-truthy.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/first-truthy.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/flip.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/from-boolean.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/last-truthy.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/boolean/lib/luhn-check.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/boolean/types/boolean.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/boolean/utils/luhn-check.utils.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/index.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-in-range.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-is-finite.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-is-float.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-is-integer.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-is-not-nan.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-is-safe-integer.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/filter-out-of-range.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/from-fibonacci.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/from-number.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/in-range.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-finite.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-float.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-integer.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-nan.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-not-nan.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/is-safe-integer.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/out-of-range.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/parse-float.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/parse-int.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/to-exponential.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/to-locale-string.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/to-precision.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/lib/to-string.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/utils/from-fibonacci.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/number/utils/from-number.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/random/index.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/random/lib/from-random-crypto.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/random/lib/from-random-integer.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/random/lib/from-random-string.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/random/lib/from-random.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/random/types/from-random-crypto.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/random/types/from-string.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/random/utils/from-random-crypto.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/index.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/char-at.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/char-code-at.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/code-point-at.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/concat.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/ends-with.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/filter-ends-with.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/filter-includes.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/filter-starts-with.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/from-char-code.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/from-code-point.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/from-string.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/from-unicode.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/includes.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/index-of.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/last-index-of.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/map-char-code.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/map-code-point.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/match-all.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/match.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/normalize.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/pad-string.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/repeat.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/replace.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/reverse.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/search.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/slice.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/split.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/starts-with.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/substring.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/titleize.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/to-lower-case.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/to-upper-case.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/lib/trim-string.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/types/normalize.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/types/position.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/string/utils/from-unicode.utils.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/utility/index.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/utility/lib/debounce-with-query.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/utility/lib/map-if-source.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/utility/lib/tap-if.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/utility/lib/tap-on-start.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/utility/lib/tap-on-subscribe.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/dist/libs/rxjs/utility/types/utility.d.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/index.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/binary-search.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/binary-search.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference-with.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference-with.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/difference.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/every.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/every.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/fill.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/fill.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-every.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-every.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-some.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/filter-some.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-all.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-all.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-index.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-index.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-last.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find-last.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/find.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/flip-array.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/flip-array.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/index-of.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/index-of.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects-with.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects-with.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/intersects.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/join.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/join.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/last-index-of.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/last-index-of.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/reverse.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/reverse.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/some.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/some.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort-map.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort-map.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/lib/sort.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/types/binary-search.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/types/generic-methods.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/utils/binary-search.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/utils/difference.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/array/src/utils/intersects.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/index.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/filter-truthy.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/filter-truthy.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/first-truthy.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/first-truthy.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/flip.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/flip.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/from-boolean.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/from-boolean.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/last-truthy.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/last-truthy.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/luhn-check.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/lib/luhn-check.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/types/boolean.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/utils/luhn-check.utils.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/boolean/src/utils/luhn-check.utils.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/index.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-in-range.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-in-range.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-finite.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-finite.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-float.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-float.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-integer.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-integer.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-not-nan.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-not-nan.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-safe-integer.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-is-safe-integer.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-out-of-range.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/filter-out-of-range.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-fibonacci.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-fibonacci.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-number.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/from-number.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/in-range.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/in-range.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-finite.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-finite.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-float.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-float.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-integer.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-integer.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-nan.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-nan.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-not-nan.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-not-nan.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-safe-integer.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/is-safe-integer.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/out-of-range.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/out-of-range.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-float.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-float.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-int.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/parse-int.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-exponential.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-exponential.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-locale-string.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-locale-string.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-precision.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-precision.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-string.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/lib/to-string.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/utils/from-fibonacci.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/number/src/utils/from-number.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/index.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-crypto.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-crypto.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-integer.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-integer.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-string.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random-string.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/lib/from-random.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/types/from-random-crypto.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/types/from-string.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/random/src/utils/from-random-crypto.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/index.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-at.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-at.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-code-at.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/char-code-at.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/code-point-at.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/code-point-at.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/concat.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/concat.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/ends-with.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/ends-with.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-ends-with.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-ends-with.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-includes.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-includes.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-starts-with.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/filter-starts-with.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-char-code.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-char-code.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-code-point.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-code-point.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-string.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-string.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-unicode.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/from-unicode.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/includes.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/includes.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/index-of.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/index-of.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/last-index-of.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/last-index-of.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-char-code.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-char-code.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-code-point.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/map-code-point.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/match-all.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/match-all.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/match.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/match.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/normalize.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/normalize.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/pad-string.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/pad-string.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/repeat.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/repeat.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/replace.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/replace.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/reverse.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/reverse.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/search.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/search.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/slice.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/slice.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/split.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/split.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/starts-with.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/starts-with.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/substring.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/substring.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/titleize.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/titleize.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-lower-case.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-lower-case.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-upper-case.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/to-upper-case.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/trim-string.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/lib/trim-string.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/types/normalize.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/types/position.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/string/src/utils/from-unicode.utils.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/index.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/debounce-with-query.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/debounce-with-query.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/map-if-source.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/map-if-source.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-if.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-if.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-on-start.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-on-start.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-on-subscribe.spec.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/lib/tap-on-subscribe.ts&quot;,&quot;/Users/tpiper1/IdeaProjects/personal/rxjs-ninja/libs/rxjs/utility/src/types/utility.ts&quot;],&quot;mode&quot;:1,&quot;includeDeclarations&quot;:false,&quot;entryPoint&quot;:&quot;&quot;,&quot;exclude&quot;:[&quot;**/*.spec.ts&quot;,&quot;tools/**/*&quot;],&quot;externalPattern&quot;:[],&quot;excludeExternals&quot;:true,&quot;excludeNotExported&quot;:true,&quot;excludeNotDocumented&quot;:false,&quot;excludePrivate&quot;:true,&quot;excludeProtected&quot;:false,&quot;ignoreCompilerErrors&quot;:false,&quot;disableSources&quot;:false,&quot;includes&quot;:&quot;libs/rxjs&quot;,&quot;media&quot;:&quot;&quot;,&quot;out&quot;:&quot;docs&quot;,&quot;json&quot;:&quot;&quot;,&quot;theme&quot;:&quot;./node_modules/typedoc-ninja-theme/bin/default&quot;,&quot;name&quot;:&quot;RxJS Ninja&quot;,&quot;includeVersion&quot;:false,&quot;excludeTags&quot;:[],&quot;readme&quot;:&quot;README.md&quot;,&quot;defaultCategory&quot;:&quot;Other&quot;,&quot;categoryOrder&quot;:[],&quot;categorizeByGroup&quot;:true,&quot;gitRevision&quot;:&quot;&quot;,&quot;gitRemote&quot;:&quot;origin&quot;,&quot;gaID&quot;:&quot;&quot;,&quot;gaSite&quot;:&quot;auto&quot;,&quot;hideGenerator&quot;:false,&quot;toc&quot;:[],&quot;disableOutputCheck&quot;:false,&quot;help&quot;:false,&quot;version&quot;:false,&quot;plugin&quot;:[&quot;typedoc-ninja-theme&quot;,&quot;typedoc-plugin-external-module-name&quot;,&quot;typedoc-plugin-extras&quot;,&quot;typedoc-plugin-pages&quot;,&quot;typedoc-plugin-ghpages-cname&quot;,&quot;typedoc-plugin-replace-in-comments&quot;],&quot;logger&quot;:&quot;console&quot;,&quot;listInvalidSymbolLinks&quot;:false,&quot;links&quot;:[{&quot;label&quot;:&quot;Github&quot;,&quot;url&quot;:&quot;https://github.com/rxjs-ninja/rxjs-ninja&quot;},{&quot;label&quot;:&quot;NPM&quot;,&quot;url&quot;:&quot;https://www.npmjs.com/org/rxjs-ninja&quot;}],&quot;outline&quot;:[],&quot;source&quot;:[{&quot;path&quot;:&quot;https://github.com/rxjs-ninja/rxjs-ninja/blob/main/&quot;,&quot;line&quot;:&quot;L&quot;}],&quot;excludeReferences&quot;:false,&quot;disableAutoModuleName&quot;:&quot;false&quot;,&quot;favicon&quot;:&quot;assets/favicon.ico&quot;,&quot;noFavicon&quot;:false,&quot;hideDate&quot;:false,&quot;hideTime&quot;:false,&quot;pages&quot;:{&quot;replaceGlobalsPage&quot;:true,&quot;reflectionNavigationTitle&quot;:&quot;RxJS Ninja APIs&quot;,&quot;enableSearch&quot;:false,&quot;groups&quot;:[{&quot;title&quot;:&quot;Package Docs&quot;,&quot;output&quot;:&quot;packages&quot;,&quot;pages&quot;:[{&quot;title&quot;:&quot;Array&quot;,&quot;source&quot;:&quot;libs/rxjs/array/README.md&quot;,&quot;output&quot;:&quot;array&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/array/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Boolean&quot;,&quot;source&quot;:&quot;libs/rxjs/boolean/README.md&quot;,&quot;output&quot;:&quot;boolean&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/boolean/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Number&quot;,&quot;source&quot;:&quot;libs/rxjs/number/README.md&quot;,&quot;output&quot;:&quot;number&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/number/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Random&quot;,&quot;source&quot;:&quot;libs/rxjs/random/README.md&quot;,&quot;output&quot;:&quot;random&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/random/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;String&quot;,&quot;source&quot;:&quot;libs/rxjs/string/README.md&quot;,&quot;output&quot;:&quot;string&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/string/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]},{&quot;title&quot;:&quot;Utility&quot;,&quot;source&quot;:&quot;libs/rxjs/utility/README.md&quot;,&quot;output&quot;:&quot;utility&quot;,&quot;children&quot;:[{&quot;title&quot;:&quot;Changelog&quot;,&quot;source&quot;:&quot;libs/rxjs/utility/CHANGELOG.md&quot;,&quot;output&quot;:&quot;changelog&quot;}]}]}]},&quot;cname&quot;:&quot;rxjs.ninja&quot;,&quot;replace-in-comments-config&quot;:[{&quot;pattern&quot;:&quot;(Observables?)&quot;,&quot;flags&quot;:&quot;g&quot;,&quot;replace&quot;:&quot;[$1](https://rxjs.dev/api/index/class/Observable)&quot;},{&quot;pattern&quot;:&quot;RxJS&quot;,&quot;flags&quot;:&quot;g&quot;,&quot;replace&quot;:&quot;[RxJS](https://rxjs.dev)&quot;},{&quot;pattern&quot;:&quot;(Intl\\.(\\w+))&quot;,&quot;flags&quot;:&quot;gm&quot;,&quot;replace&quot;:&quot;[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/$2)&quot;},{&quot;pattern&quot;:&quot;(Number\\.(\\w+))&quot;,&quot;flags&quot;:&quot;gm&quot;,&quot;replace&quot;:&quot;[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/$2)&quot;},{&quot;pattern&quot;:&quot;(String\\.(\\w+))&quot;,&quot;flags&quot;:&quot;gm&quot;,&quot;replace&quot;:&quot;[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/$2)&quot;}]}-->
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 12/3/2020 at 12:54:28 AM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 12/7/2020 at 11:48:22 PM</p>
 			</div>
 		</div>
 	</div>

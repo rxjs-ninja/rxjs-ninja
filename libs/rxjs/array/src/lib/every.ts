@@ -28,7 +28,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns An Observable that emits a boolean when all values in source array return truthy with the [[PredicateFn]]
- * @category RxJS Array Query
+ * @category Array Query
  */
 export function every<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], boolean> {
   return (source) => source.pipe(map((value) => value.every((v) => (predicate ? predicate(v) : Boolean(v)))));

@@ -6,33 +6,24 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * @private
- * @param num
- */
-function isSafe(num: number): boolean {
-  return Number.isSafeInteger(num);
-}
-
-/**
- * The `filterIsSafeInteger` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs.dev/api/index/class/Observable) number.
+ * Returns an Observable that emits numbers that are within the safe number range for JavaScript number precision using
+ * Number.isSafeInteger
  *
- * The operator will return the number value based on it passing
- * [Number.isSafeInteger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger)
+ * @category Number Filter
  *
- * @remarks
- * If you want the boolean value instead of the number value use the [[isSafeInteger]] operator instead
+ * @see The [[isSafeInteger]] operator returns a boolean value instead of the number
  *
  * @example
+ * Returns only integers within safe precision range
  * ```ts
- * fromNumber([1, 2, Math.pow(2, 53), Math.pow(2, 53) - 1])
- *  .pipe(filterIsSafeInteger())
- *  .subscribe() // [1, 2, 9007199254740991]
+ * // `Math.pow(2, 53)` is not within the safe integer range
+ * const input = [-10, -2.3, 0, 1, 2, 3.14, Math.pow(2, 53) - 1, Math.pow(2, 53), Infinity];
+ * from(input).pipe(filterIsSafeInteger()).subscribe()
  * ```
+ * Output: `-10, 0, 1, 2, 9007199254740991`
  *
- * @returns A number value that passes the `Number.isSafeInteger` equality check
- * @category RxJS Number Filter
+ * @returns Observable that emits integer numbers within `Number.isSafeInteger` equality check
  */
 export function filterIsSafeInteger(): MonoTypeOperatorFunction<number> {
-  return (source: Observable<number>) => source.pipe(filter(isSafe));
+  return (source: Observable<number>) => source.pipe(filter((num) => Number.isSafeInteger(num)));
 }

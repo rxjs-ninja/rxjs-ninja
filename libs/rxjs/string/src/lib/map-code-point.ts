@@ -26,7 +26,7 @@ import { map } from 'rxjs/operators';
  *```
  *
  * @returns String from a code point or an array of code points
- * @category RxJS String Map
+ * @category String Map
  */
 export function mapCodePoint(): OperatorFunction<number | number[], string> {
   return (source: Observable<number | number[]>) =>

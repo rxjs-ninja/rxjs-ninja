@@ -28,7 +28,7 @@ import { CallbackFn } from '../types/utility';
  * ```
  *
  * @returns Observable that emits the source observable after performing a side effect
- * @category RxJS Observable Utilities
+ * @category Observable Utilities
  */
 export function tapOnStart<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>) =>
@@ -51,7 +51,7 @@ export function tapOnStart<T extends unknown>(callback: CallbackFn<T>): MonoType
  * @see {@link tapOnStart}
  *
  * @returns Observable that emits the source observable after performing a side effect
- * @category RxJS Observable Utilities
+ * @category Observable Utilities
  */
 export function startWithTap<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
   return tapOnStart(callback);

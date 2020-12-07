@@ -6,42 +6,31 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `outOfRange` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs.dev/api/index/class/Observable) number and will return a boolean
- * value if the number is outside a min/max value range. The optional `includeBoundingParameters` parameter allows
- * the min and max values to be included.
+ * Returns an Observable that emits booleans about values from a source that fall outside the passed `min` and `max` range,
+ * excluding the range numbers.  To emit a boolean for numbers including the `min` and `max` set `includeBoundingParameters` to `true`.
  *
- * * If you want to get the boolean value of a number being inside a range of min/max use [[inRange]] operator instead
- * * If you want the number value instead of the boolean value use the [[filterOutOfRange]] operator instead
+ * @see To get numbers outside of a range use [[filterOutOfRange]]
  *
  * @param min The minimum number for the range
  * @param max The maximum number for the range
+ * @param includeBoundingParameters Optionally include the `min` and `max` values in the Observable
  *
- * If `includeBoundingParameters` is set to `true`, the range will include the actual `min` and `max` values
- * by using `>= || <=` as it's equality match
- *
- * The default value is `false` and will use a `> || <` equality match
- *
- * @param min The minimum number for the range
- * @param max The maximum number for the range
- * @param includeBoundingParameters If bounding values should be excluded
- *
- * @example
+ * @example Returns a boolean value if the number is out the range including the `min` and `max`
  * ```ts
- * fromNumber([-1, 0, 1, 2, 10, 11])
- *  .pipe(outOfRange(0, 10))
- *  .subscribe() // [true, false, false, false, false, true]
+ * const input = [-10, -2.3, 0, 1, 2, 3.14, 4.2, 10, 11, 42];
+ * from(input).pipe(outOfRange(0, 10)).subscribe();
  * ```
+ * Output: `true, true, true, false, false, false, false, true, true, true`
  *
- * @example
+ * @example Returns a boolean value if the number is out the range excluding the `min` and `max`
  * ```ts
- * fromNumber([-1, 0, 1, 2, 10, 11])
- *  .pipe(outOfRange(0, 10, true))
- *  .subscribe() // [true, true, false, false, true, true]
+ * const input = [-10, -2.3, 0, 1, 2, 3.14, 4.2, 10, 11, 42];
+ * from(input).pipe(outOfRange(0, 10, true)).subscribe();
  * ```
+ * Output: `true, true, false, false, false, false, false, false, true, true`
  *
- * @returns Boolean value if the number falls outside the `min/max` range
- * @category RxJS Number Query
+ * @returns Observable that emits a boolean if the source number falls outside the passed `min` and `max` range
+ * @category Number Query
  */
 export function outOfRange(
   min: number,

@@ -26,7 +26,7 @@ import { switchMap, tap } from 'rxjs/operators';
  * ```
  *
  * @returns Observable that emits the source observable after performing a side effect
- * @category RxJS Observable Utilities
+ * @category Observable Utilities
  */
 export function tapIf<T extends unknown>(
   predicate: PredicateFn<T>,

@@ -17,7 +17,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns String that is reversed
- * @category RxJS String Formatting
+ * @category String Formatting
  */
 export function reverse(): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(map((value) => [...value].reverse().join('')));

@@ -20,7 +20,7 @@ import { FormType } from '../types/normalize';
  * ```
  *
  * @returns String from the decoded unicode string
- * @category RxJS String Map
+ * @category String Map
  */
 export function normalize(form?: FormType): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(map((value) => value.normalize(form)));

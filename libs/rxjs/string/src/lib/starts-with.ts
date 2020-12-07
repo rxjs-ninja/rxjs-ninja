@@ -32,7 +32,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns Boolean value if the string passes the equality check of [String.prototype.startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
- * @category RxJS String Query
+ * @category String Query
  */
 export function startsWith(character: string, length?: number): OperatorFunction<string, boolean> {
   return (source: Observable<string>) => source.pipe(map((value) => value.startsWith(character, length)));

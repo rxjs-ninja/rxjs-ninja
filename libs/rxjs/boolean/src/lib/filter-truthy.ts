@@ -29,7 +29,7 @@ import { PredicateFn } from '../types/boolean';
  * ```
  *
  * @returns Observable that emits only truthy values or values that pass the optional [[PredicateFn]] equality check
- * @category RxJS Boolean Filters
+ * @category Boolean Filters
  */
 export function filterTruthy<T extends unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>) => source.pipe(filter((value) => (predicate ? predicate(value) : Boolean(value))));

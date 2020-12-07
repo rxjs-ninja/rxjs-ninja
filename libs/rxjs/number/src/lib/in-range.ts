@@ -6,39 +6,34 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `inRange` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs.dev/api/index/class/Observable) number and will return a boolean
- * value if the number is within a min/max value range. The optional `excludeBoundingValues` parameter allows
- * the min and max values to be excluded.
+ * Returns an Observable that emits booleans about values from a source that fall within the passed `min` and `max` range,
+ * including the range numbers.  To emit a boolean for numbers only between the `min` and `max` set `excludeBoundingValues` to `true`.
  *
- * - If you want to get the boolean value of a number being outside a range of min/max use [[outOfRange]] operator instead
- * - If you want the number value instead of the boolean value use the [[filterInRange]] operator instead
+ * @category Number Query
  *
- * If `excludeBoundingValues` is set to `true`, the range will not include the actual `min` and `max` values
- * by using `> && <` as it's equality match
- *
- * The default value is `false` and will use a `>= && <=` equality match
+ * @see The [[filterInRange]] operator returns the number value
  *
  * @param min The minimum number for the range
  * @param max The maximum number for the range
- * @param excludeBoundingValues If bounding values should be excluded
+ * @param excludeBoundingValues Optionally filter the `min` and `max` values from the Observable
  *
  * @example
+ * Returns a boolean value if the number is in the range
  * ```ts
- * fromNumber([-1, 0, 1, 2, 10, 11])
- *  .pipe(inRange(0, 10))
- *  .subscribe() // [false, true, true, true, true, false]
+ * const input = [-10, -2.3, 0, 1, 2, 3.14, 4.2, 10, 11, 42];
+ * from(input).pipe(inRange(0, 10)).subscribe();
  * ```
+ * Output: `false, false, true, true, true, true, true, true, false, false`
  *
  * @example
+ * Returns a boolean value if the number is in the range excluding the `min` and `max`
  * ```ts
- * fromNumber([-1, 0, 1, 2, 10, 11])
- *  .pipe(inRange(0, 10, true))
- *  .subscribe() // [false, false, true, true, false, false]
+ * const input = [-10, -2.3, 0, 1, 2, 3.14, 4.2, 10, 11, 42];
+ * from(input).pipe(inRange(0, 10, true)).subscribe();
  * ```
+ * Output: `false, false, false, true, true, true, true, false, false, false`
  *
- * @returns Boolean value if the number falls in the `min/max` range
- * @category RxJS Number Query
+ * @returns Observable that emits a boolean if the source number falls within the passed `min` and `max` range
  */
 export function inRange(min: number, max: number, excludeBoundingValues?: boolean): OperatorFunction<number, boolean> {
   return (source: Observable<number>) =>

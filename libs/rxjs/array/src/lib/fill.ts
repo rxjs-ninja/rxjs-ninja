@@ -40,7 +40,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns An Observable that emits an array of values where some or all of the source array values are replaced with the `fillValue`
- * @category RxJS Array Modify
+ * @category Array Modify
  */
 export function fill<T extends unknown, K extends T | unknown>(
   fillWith: K,

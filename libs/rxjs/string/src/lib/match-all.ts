@@ -22,7 +22,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns RegExpMatchArray that contains one or more results from the match
- * @category RxJS String Query
+ * @category String Query
  */
 export function matchAll(pattern: RegExp): OperatorFunction<string, RegExpMatchArray[]> {
   return (source: Observable<string>) => source.pipe(map((value) => [...value.matchAll(pattern)]));

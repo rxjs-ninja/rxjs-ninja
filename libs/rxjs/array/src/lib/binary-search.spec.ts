@@ -1,90 +1,187 @@
-import { of } from 'rxjs';
-import { binarySearch } from '@rxjs-ninja/rxjs-array';
-import { tap } from 'rxjs/operators';
-import { observe } from 'rxjs-marbles/jest';
+import { binarySearch, BinarySearchResult } from '@rxjs-ninja/rxjs-array';
+import { marbles } from 'rxjs-marbles/jest';
 
 describe('binarySearch', () => {
-  type TestObj = { val: number };
-
-  const sortObj = (a: TestObj, b: TestObj) => {
-    if (a.val === b.val) return 0;
-    return a.val < b.val ? -1 : 1;
-  };
-
-  const sortArray = (a: number[], b: number[]) => {
-    if (a[1] === b[1]) return 0;
-    return a[1] < b[1] ? -1 : 1;
-  };
-
   it(
-    'should binary search a single array of numbers',
-    observe(() =>
-      of([1, 4, 7, 2, 5, 6, 3, 8, 10, 9]).pipe(
-        binarySearch(5),
-        tap((value) => expect(value[0]).toBe(4)),
-      ),
-    ),
+    'should binary search an array of strings',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', {
+        a: ['c', 'b', 'a'],
+        b: ['b', 'a', 'e'],
+        c: ['z', 'y', 'x'],
+      });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', {
+        x: [1, 'b', ['a', 'b', 'c'], ['c', 'b', 'a']] as BinarySearchResult<string, string>,
+        y: [1, 'b', ['a', 'b', 'e'], ['b', 'a', 'e']] as BinarySearchResult<string, string>,
+        z: [-1, 'b', ['x', 'y', 'z'], ['z', 'y', 'x']] as BinarySearchResult<string, string>,
+      });
+      m.expect(input.pipe(binarySearch('b'))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
   );
 
   it(
-    'should binary search values that have some duplicates',
-    observe(() =>
-      of([1, 4, 7, 2, 5, 6, 3, 4, 10, 4]).pipe(
-        binarySearch(5),
-        tap((value) => expect(value[0]).toBe(6)),
-      ),
-    ),
+    'should binary search an array of numbers',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: [10, 20, 0], b: [20, 0, 10], c: [25, 15, 5] });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', {
+        x: [1, 10, [0, 10, 20], [10, 20, 0]] as BinarySearchResult<number, number>,
+        y: [1, 10, [0, 10, 20], [20, 0, 10]] as BinarySearchResult<number, number>,
+        z: [-1, 10, [5, 15, 25], [25, 15, 5]] as BinarySearchResult<number, number>,
+      });
+      m.expect(input.pipe(binarySearch(10))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
   );
 
   it(
-    'should binary search a single array of strings',
-    observe(() =>
-      of(['b', 'c', 'd', 'a', 'g', 'f', '34', '2']).pipe(
-        binarySearch('d'),
-        tap((value) => expect(value[0]).toBe(5)),
-      ),
-    ),
+    'should binary search an array of objects',
+    marbles((m) => {
+      const sortObj = (a: any, b: any) => {
+        if (a.index === b.index) return 0;
+        return a.index < b.index ? -1 : 1;
+      };
+      const input = m.hot('-a-b-c-|', {
+        a: [
+          { index: 2, word: 'Rocks' },
+          { index: 0, word: 'RxJS' },
+          { index: 1, word: 'Ninja' },
+        ],
+        b: [
+          { index: 1, word: 'Ninja' },
+          { index: 2, word: 'Rocks' },
+          { index: 0, word: 'RxJS' },
+        ],
+        c: [
+          { index: 2, word: 'Rules' },
+          { index: 0, word: 'RxJS' },
+          { index: 1, word: 'Ninja' },
+        ],
+      });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', {
+        x: [
+          2,
+          'Rocks',
+          [
+            { index: 0, word: 'RxJS' },
+            { index: 1, word: 'Ninja' },
+            { index: 2, word: 'Rocks' },
+          ],
+          [
+            { index: 2, word: 'Rocks' },
+            { index: 0, word: 'RxJS' },
+            { index: 1, word: 'Ninja' },
+          ],
+        ] as BinarySearchResult<string, any>,
+        y: [
+          2,
+          'Rocks',
+          [
+            { index: 0, word: 'RxJS' },
+            { index: 1, word: 'Ninja' },
+            { index: 2, word: 'Rocks' },
+          ],
+          [
+            { index: 1, word: 'Ninja' },
+            { index: 2, word: 'Rocks' },
+            { index: 0, word: 'RxJS' },
+          ],
+        ] as BinarySearchResult<string, any>,
+        z: [
+          -1,
+          'Rocks',
+          [
+            { index: 0, word: 'RxJS' },
+            { index: 1, word: 'Ninja' },
+            { index: 2, word: 'Rules' },
+          ],
+          [
+            { index: 2, word: 'Rules' },
+            { index: 0, word: 'RxJS' },
+            { index: 1, word: 'Ninja' },
+          ],
+        ] as BinarySearchResult<string, any>,
+      });
+      m.expect(input.pipe(binarySearch('Rocks', sortObj, 'word'))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
   );
 
   it(
-    'should binary search a single array of objects',
-    observe(() =>
-      of([
-        { val: 1 },
-        { val: 4 },
-        { val: 7 },
-        { val: 2 },
-        { val: 5 },
-        { val: 6 },
-        { val: 3 },
-        { val: 8 },
-        { val: 10 },
-        { val: 9 },
-      ]).pipe(
-        binarySearch(5, sortObj, 'val'),
-        tap((value) => expect(value[0]).toBe(4)),
-      ),
-    ),
-  );
+    'should binary search a tuple',
+    marbles((m) => {
+      const sortTuple = (a: any, b: any) => {
+        if (a[1] === b[1]) return 0;
+        return a[1] < b[1] ? -1 : 1;
+      };
 
-  it(
-    'should binary search a single array of tuples',
-    observe(() =>
-      of([
-        [10, 1],
-        [9, 4],
-        [7, 7],
-        [8, 2],
-        [5, 5],
-        [6, 6],
-        [4, 3],
-        [3, 8],
-        [2, 10],
-        [1, 9],
-      ]).pipe(
-        binarySearch(4, sortArray, 0),
-        tap((value) => expect(value[0]).toBe(2)),
-      ),
-    ),
+      const input = m.hot('-a-b-c-|', {
+        a: [
+          [2, 1],
+          [10, 5],
+          [6, 3],
+        ],
+        b: [
+          [6, 3],
+          [10, 5],
+          [2, 1],
+        ],
+        c: [
+          [8, 4],
+          [10, 5],
+          [2, 1],
+        ],
+      });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', {
+        x: [
+          1,
+          6,
+          [
+            [2, 1],
+            [6, 3],
+            [10, 5],
+          ],
+          [
+            [2, 1],
+            [10, 5],
+            [6, 3],
+          ],
+        ] as BinarySearchResult<number, [number, number]>,
+        y: [
+          1,
+          6,
+          [
+            [2, 1],
+            [6, 3],
+            [10, 5],
+          ],
+          [
+            [6, 3],
+            [10, 5],
+            [2, 1],
+          ],
+        ] as BinarySearchResult<number, [number, number]>,
+        z: [
+          -1,
+          6,
+          [
+            [2, 1],
+            [8, 4],
+            [10, 5],
+          ],
+          [
+            [8, 4],
+            [10, 5],
+            [2, 1],
+          ],
+        ] as BinarySearchResult<number, [number, number]>,
+      });
+      m.expect(input.pipe(binarySearch(6, sortTuple, 0))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
   );
 });

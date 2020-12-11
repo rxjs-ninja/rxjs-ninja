@@ -4,14 +4,26 @@
  */
 
 /**
- * The return tuple of the [[binarySearch]] method containing the index of the value in the array,
- * the original search value and a sorted array of the values
+ * The return value of the [[binarySearch]] operator.
  *
- * @typeParam T Type of items in the array
+ * @typeParam T The type of the value being searched for
+ * @typeParam K The type of value in the search array
  */
 export type BinarySearchResult<T extends unknown, K extends unknown> = [
+  /**
+   * Index of the first found result in the sorted array
+   */
   index: number,
+  /**
+   * The value that was searched for in the array
+   */
   searchValue: T,
-  searchArray: K[],
+  /**
+   * The sorted array of values
+   */
   sortedArray: K[],
+  /**
+   * The original unsorted array
+   */
+  searchArray: K[],
 ];

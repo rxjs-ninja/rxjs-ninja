@@ -3,7 +3,7 @@
  * @module String
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { concatMap, map, switchMap } from 'rxjs/operators';
 
 /**
  * The `concat` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
@@ -48,7 +48,7 @@ export function concat<T extends string | string[] | Observable<string | string[
   } else if (values[0] instanceof Observable) {
     return (source: Observable<string>) =>
       (values[0] as Observable<string[]>).pipe(
-        switchMap((strings: string[]) => source.pipe(map((value) => value.concat(...strings)))),
+        concatMap((strings: string[]) => source.pipe(map((value) => value.concat(...strings)))),
       );
   } else {
     return (source: Observable<string>) => source.pipe(map((value) => value.concat(...(values as string[]))));

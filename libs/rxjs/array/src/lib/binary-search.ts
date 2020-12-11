@@ -9,43 +9,55 @@ import { BinarySearchResult } from '../types/binary-search';
 import { SortFn } from '../types/generic-methods';
 
 /**
- * Returns an Observable that containers a [[BinarySearchResult]] returns. The source Observable should provide an array
- * of values to search, the array is sorted and searched for the value.
+ * Returns an Observable that emits a [[BinarySearchResult]]. It take a source array and runs a [[SortFn]] over it. Then it tries to
+ * find the the `searchValue` in the array. The `BinarySearchResult` contains the index in the sorted array, the value
+ * searched and the sorted and unsorted array. If not found the index is `-1`.
  *
- * @typeParam T The type in the incoming Observable array
- * @typeParam K The type of value in array item to search for
+ * @category Array Query
  *
- * @param searchValue The value to search for in the source array
- * @param sortFn Optional sort method for sorting more complex types
- * @param property Optional property of them item to return, for Array use an index number and for an object use a string key
+ * @see {@link https://en.wikipedia.org/wiki/Binary_search_algorithm|Binary search algorithm}
  *
- * @remarks
- * When using an additional property, if it's a number the underlying T[] is assumed
- * to be an array. If you have an object with a number property, use a string value
- * instead (e.g. `'5'` instead of `5`)
+ * @typeParam T The type of the value to search for
+ * @typeParam K The type of the value in the array
+ *
+ * @param searchValue The value to search for in the array
+ * @param sortFn Optional [[SortFn]] for sorting more complex types
+ * @param property Optional property for searching tuples and objects - if an tuple use a `number` if an `Object` use a `string`
  *
  * @example
+ * Return the index of the word `bravo` in the sorted array from a source array
  * ```ts
- * const input = [1, 4, 7, 2, 5, 6, 3, 8, 10, 9];
- * of(input).pipe(binarySearch(5)).subscribe();
- * // <BinarySearchResult>[4, 5, [...searchArray], [...sortedArray]]
+ * const input = ['bravo', 'delta', 'alpha', 'echo', 'charlie'];
+ * of(input).pipe(binarySearch('bravo')).subscribe();
  * ```
+ * Output: `<BinarySearchResult>[1, 'bravo', [...sortedArray], [...searchArray]]`
  *
  * @example
+ * Return the index of the number `30` in the sorted array from the source array
+ * ```ts
+ * const input = [100, 90, 10, 20, 40, 80, 30, 25];
+ * of(input).pipe(binarySearch(30)).subscribe();
+ * ```
+ * Output: `<BinarySearchResult>[3, 30, [...sortedArray], [...searchArray]]`
+ *
+ * @example
+ * Return the index of the object that has `label` of `Baz`, sorted using an `index` value
  * ```ts
  * const input = [
- *  { val: 1 }, { val: 4 }, { val: 7 }, { val: 2 }, { val: 5 },
- *  { val: 6 }, { val: 3 }, { val: 8 }, { val: 10 }, { val: 9}
+ *  { index: 5, label: 'Angular' }, { index: 7, label: 'RxJS' },
+ *  { index: 8, label: 'Ninja' }, { index: 10, label: 'TypeScript' },
+ *  { index: 1, label: 'JavaScript' }, { index: 4, label: 'ECMAScript' },
  * ];
  * const sortObj = (a:, b) => {
- *  if (a.val === b.val) return 0;
- *  return a.val < b.val ? -1 : 1;
+ *  if (a.index === b.index) return 0;
+ *  return a.index < b.index ? -1 : 1;
  * };
- * of(input).pipe(binarySearch(5, sortObj, 'val')).subscribe();
- * // <BinarySearchResult>[4, 5, [...searchArray], [...sortedArray]]
+ * of(input).pipe(binarySearch('Ninja', sortObj, 'label')).subscribe();
  * ```
+ * Output: `<BinarySearchResult>[4, 'Ninja', [...sortedArray], [...searchArray]]`
  *
  * @example
+ * Return the index of the tuple in the array where the value at index `0` is `2`, sorted by the index `1`
  * ```ts
  * const input = [
  *  [1, 1], [2, 4], [3, 7], [4, 2], [5, 5],
@@ -55,12 +67,11 @@ import { SortFn } from '../types/generic-methods';
  *  if (a[1] === b[1]) return 0;
  *  return a[1] < b[1] ? -1 : 1;
  * };
- * from(input).pipe(binarySearch(5, sortArray, 1)).subscribe();
- * // <BinarySearchResult>[4, 5, [...searchArray], [...sortedArray]]
+ * from(input).pipe(binarySearch(2, sortArray, 0)).subscribe();
  * ```
+ * Output: `<BinarySearchResult>[4, 2, [...sortedArray], [...searchArray]]`
  *
  * @returns An Observable that emits a [[BinarySearchResult]]
- * @category Array Search
  */
 export function binarySearch<T extends unknown, K extends T | unknown>(
   searchValue: T,
@@ -73,8 +84,8 @@ export function binarySearch<T extends unknown, K extends T | unknown>(
       map(([searchArray, sortedArray]) => [
         binarySearcher(searchValue, sortedArray, property),
         searchValue,
-        searchArray,
         sortedArray,
+        searchArray,
       ]),
     );
 }

@@ -14,7 +14,14 @@ describe('isSafeInteger', () => {
         f: 3.14,
       });
       const subs = '^------------!';
-      const expected = m.cold('-a-b-c-d-e-f-|', { a: false, b: true, c: true, d: false, e: true, f: false });
+      const expected = m.cold('-a-b-c-d-e-f-|', {
+        a: false,
+        b: true,
+        c: true,
+        d: false,
+        e: true,
+        f: false,
+      });
       m.expect(input.pipe(isSafeInteger())).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),

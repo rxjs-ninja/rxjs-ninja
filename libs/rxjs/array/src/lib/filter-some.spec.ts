@@ -14,12 +14,34 @@ describe('filterSome', () => {
   );
 
   it(
-    'should return an array that contains all values where one value passed the predicate',
+    'should return true if the array contains some truthy string',
     marbles((m) => {
-      const input = m.hot('-a-b-c-|', { a: ['RxJS', 'Ninja'], b: ['RxJS', 'Rocks'], c: ['Fizz', 'Buzz'] });
+      const input = m.hot('-a-b-c-|', {
+        a: ['', '', ''],
+        b: ['', 'Hello', 'RxJS'],
+        c: ['Hello', 'RxJS', 'Ninja'],
+      });
       const subs = '^------!';
-      const expected = m.cold('-x-y---|', { x: ['RxJS', 'Ninja'], y: ['RxJS', 'Rocks'] });
-      m.expect(input.pipe(filterSome((v) => v === 'RxJS'))).toBeObservable(expected);
+      const expected = m.cold('---y-z-|', {
+        y: ['', 'Hello', 'RxJS'],
+        z: ['Hello', 'RxJS', 'Ninja'],
+      });
+      m.expect(input.pipe(filterSome())).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
+    'should return true if the array contains some truthy string with predicate',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', {
+        a: ['', '', ''],
+        b: ['', 'Foo', 'Bar'],
+        c: ['Foo', 'Bar', 'Baz'],
+      });
+      const subs = '^------!';
+      const expected = m.cold('---y-z-|', { y: ['', 'Foo', 'Bar'], z: ['Foo', 'Bar', 'Baz'] });
+      m.expect(input.pipe(filterSome((v) => v.length < 4))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

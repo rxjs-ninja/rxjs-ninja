@@ -1,4 +1,6 @@
 /**
+ * Package containing various operators for filtering, querying and parsing arrays in RxJS
+ *
  * @packageDocumentation
  * @module Array
  *
@@ -23,6 +25,7 @@ export { intersectsWith } from './lib/intersects-with';
 export { join } from './lib/join';
 export { lastIndexOf } from './lib/last-index-of';
 export { reverse } from './lib/reverse';
+export { shuffle } from './lib/shuffle';
 export { some } from './lib/some';
 export { sort } from './lib/sort';
 export { sortMap } from './lib/sort-map';

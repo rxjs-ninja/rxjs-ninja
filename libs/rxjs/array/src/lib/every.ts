@@ -8,28 +8,50 @@ import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * Returns an Observable array of values when all values in the array return truthy for a predicate. By default if all
- * values are truthy it will return, otherwise pass the predicate to check values.
+ * Returns an Observable that emits a boolean when all values in the source array return truthy using Array.every
+ *
+ * @category Array Query
+ *
+ * @see The [[filterEvery]] operator returns the array value instead of boolean
  *
  * @param predicate Optional [[PredicateFn]] used to get a truthy value of array values
  *
  * @example
+ * Returns a boolean where every string item in the array is truthy
  * ```ts
- * const input = [ [false, false, false], [false, true, true], [true, true, true] ];
- * fromArray(input).pipe(every()).subscribe();
- * // [false, false, true]
+ * const input = [ ['', '', ''], ['', 'Hello', 'RxJS'], ['Hello', 'RxJS', 'Ninja'] ];
+ * from(input).pipe(every()).subscribe();
  * ```
+ * Output: `false, false, true`
  *
  * @example
+ * Returns a boolean where every string item in the array length `< 4`
+ * ```ts
+ * const input = [ ['', '', ''], ['', 'Foo', 'Bar'], ['Foo', 'Bar', 'Baz'] ];
+ * from(input).pipe(every(v => v.length < 4)).subscribe();
+ * ```
+ * Output: `false, false, true`
+ *
+ * @example
+ * Returns a boolean where every number in the array is less than `2`
  * ```ts
  * const input = [ [1, 0, 1, 0, 1, 0], [1, 0, 2, 1, 0, 2], [0, 1, 0, 1, 0, 2] ];
- * fromArray(input).pipe(every(v => v < 2)).subscribe();
- * // [true, false, false]
+ * from(input).pipe(every(v => v < 2)).subscribe();
  * ```
+ * Output: `true, false, false`
  *
- * @returns An Observable that emits a boolean when all values in source array return truthy with the [[PredicateFn]]
- * @category Array Query
+ * @returns An Observable that emits a boolean when all values in source array return truthy
  */
 export function every<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], boolean> {
-  return (source) => source.pipe(map((value) => value.every((v) => (predicate ? predicate(v) : Boolean(v)))));
+  return (source) =>
+    source.pipe(
+      map((value) =>
+        value.every((v) => {
+          if (predicate && typeof v === 'number') {
+            return predicate(v);
+          }
+          return predicate ? Boolean(v) && predicate(v) : Boolean(v);
+        }),
+      ),
+    );
 }

@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module Number
  */
-import {Observable, OperatorFunction} from 'rxjs';
-import {map} from 'rxjs/operators';
+import { Observable, OperatorFunction } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a boolean value when a source number is valid and not `NaN`, checked using Number.isNaN

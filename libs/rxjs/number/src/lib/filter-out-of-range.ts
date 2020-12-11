@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module Number
  */
-import {MonoTypeOperatorFunction, Observable} from 'rxjs';
-import {filter} from 'rxjs/operators';
+import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits numbers, where that number falls outside the provided `min` and `max` values.

@@ -16,8 +16,8 @@ export function binarySearcher<T extends unknown, K extends T | unknown>(
   searchArray: K[],
   property?: string | number,
 ): number {
-  let first = 0; //left endpoint
-  let last = searchArray.length - 1; //right endpoint
+  let first = 0;
+  let last = searchArray.length - 1;
   let position = -1;
   let found = false;
   let middle;
@@ -25,12 +25,9 @@ export function binarySearcher<T extends unknown, K extends T | unknown>(
   while (!found && first <= last) {
     middle = Math.round((first + last) / 2);
 
-    let checkValue;
-    if (typeof property === 'number' || property) {
-      checkValue = (searchArray as never)[middle][property];
-    } else {
-      checkValue = searchArray[middle];
-    }
+    const checkValue =
+      typeof property === 'number' || property ? (searchArray as never)[middle][property] : searchArray[middle];
+
     if (checkValue == searchValue) {
       found = true;
       position = middle;

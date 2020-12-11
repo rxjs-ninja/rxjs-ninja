@@ -38,7 +38,7 @@ export function mapDifference<T = unknown, K = unknown>(
   mutate?: MapFn<T, T | K>,
 ): (value: T[]) => T[] {
   if (mutate) {
-    const checkSet = new Set(checkArray.map<T | K>(mutate));
+    const checkSet = new Set<T | K>(checkArray);
     return (value: T[]) => [...new Set<T>(value)].filter((x) => !checkSet.has(mutate(x)));
   } else {
     const checkSet = new Set(checkArray);

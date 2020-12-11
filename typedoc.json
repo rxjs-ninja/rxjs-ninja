@@ -147,6 +147,11 @@
       "pattern": "(String\\.(\\w+))",
       "flags": "gm",
       "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/$2)"
+    },
+    {
+      "pattern": "(Array\\.(\\w+))",
+      "flags": "gm",
+      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/$2)"
     }
   ]
 }

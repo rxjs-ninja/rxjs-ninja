@@ -7,6 +7,17 @@
  * A map function is used to convert values, usually using Array.map - the values can be of the same type (such as multiplying
  * and number or using String.toUpperCase) or it can change to a different value (using Number.parseInt or Number.toString)
  *
+ * **Example map functions:**
+ * ```ts
+ * function mapToUpperCase(str: string): string {
+ *  return str.toUpperCase();
+ * }
+ *
+ * function mapToInteger (str: string): number {
+ *  return parseInt(str, 10);
+ * }
+ *```
+ *
  * @internal
  *
  * @typeParam T The type of the value from the input source
@@ -22,6 +33,13 @@ export type MapFn<T = unknown, K = T | unknown> = (value: T) => K;
 /**
  * A predicate function is used when you need a boolean check of a value, usually with Array.filter or Array.find
  *
+ * **Default predicate function:**
+ * ```ts
+ * function defaultPredicateFn(item: unknown): boolean {
+ *  return Boolean(item);
+ * }
+ * ```
+ *
  * @internal
  *
  * @typeParam T The type of the value being checked
@@ -36,6 +54,17 @@ export type PredicateFn<T extends unknown> = (...args: T[]) => boolean;
 /**
  * A sort function is used with Array.sort to order array items and returns a number for the sorting position order
  * of an item. Usually is provided when working with more complex objects or tuples
+ *
+ * **Default sort function:**
+ * ```ts
+ * function defaultSortFn<T extends unknown>(first: T, second: T): number {
+ *  if (typeof first === 'string') {
+ *    return first.localeCompare(second as string);
+ *  }
+ *  if (first === second) return 0;
+ *  return first < second ? -1 : 1;
+ *}
+ * ```
  *
  * @internal
  *

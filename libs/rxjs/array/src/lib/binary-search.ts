@@ -4,7 +4,7 @@
  */
 import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { binarySearcher, defaultSortFn } from '../utils/binary-search';
+import { binarySearcher, defaultSortFn } from '../utils/search';
 import { BinarySearchResult } from '../types/binary-search';
 import { SortFn } from '../types/generic-methods';
 

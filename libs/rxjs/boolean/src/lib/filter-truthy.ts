@@ -7,8 +7,7 @@ import { filter } from 'rxjs/operators';
 import { PredicateFn } from '../types/boolean';
 
 /**
- * Returns an Observable that emits only truthy values from a source Observable with `Boolean`, An optional [[PredicateFn]]
- * can be passed to return values that pass it's equality check
+ * Returns an Observable that emits only truthy values from a source
  *
  * @typeParam T The value contained in the source Observable
  *
@@ -32,5 +31,13 @@ import { PredicateFn } from '../types/boolean';
  * @category Boolean Filters
  */
 export function filterTruthy<T extends unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
-  return (source: Observable<T>) => source.pipe(filter((value) => (predicate ? predicate(value) : Boolean(value))));
+  return (source: Observable<T>) =>
+    source.pipe(
+      filter((value) => {
+        if (predicate && typeof value === 'number') {
+          return predicate(value);
+        }
+        return predicate ? Boolean(value) && predicate(value) : Boolean(value);
+      }),
+    );
 }

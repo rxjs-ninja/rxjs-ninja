@@ -4,7 +4,7 @@
  */
 import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { defaultSortFn } from '../utils/search';
+import { defaultSortFn } from '../utils/sort';
 import { MapFn, SortFn } from '../types/generic-methods';
 
 /**

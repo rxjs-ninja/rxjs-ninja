@@ -32,6 +32,17 @@ describe('filterSome', () => {
   );
 
   it(
+    'should return an array that contains truthy numbers with predicate',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: [0, 0, 0, 0], b: [0, 0, 0, 1], c: [1, 0, 1, 2] });
+      const subs = '^------!';
+      const expected = m.cold('-----z-|', { z: [1, 0, 1, 2] });
+      m.expect(input.pipe(filterSome((v) => v > 1))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
     'should return true if the array contains some truthy string with predicate',
     marbles((m) => {
       const input = m.hot('-a-b-c-|', {

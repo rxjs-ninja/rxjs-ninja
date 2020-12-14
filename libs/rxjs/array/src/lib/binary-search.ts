@@ -4,14 +4,15 @@
  */
 import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { binarySearcher, defaultSortFn } from '../utils/search';
+import { binarySearcher } from '../utils/search';
+import { defaultSortFn } from '../utils/sort';
 import { BinarySearchResult } from '../types/binary-search';
 import { SortFn } from '../types/generic-methods';
 
 /**
- * Returns an Observable that emits a [[BinarySearchResult]]. It take a source array and runs a [[SortFn]] over it. Then it tries to
- * find the the `searchValue` in the array. The `BinarySearchResult` contains the index in the sorted array, the value
- * searched and the sorted and unsorted array. If not found the index is `-1`.
+ * Returns an Observable that emits a [[BinarySearchResult]]. It take a source array and runs a [[SortFn]] over it.
+ * Then it tries to find the the `searchValue` in the array. The `BinarySearchResult` contains the index in the sorted
+ * array, the value searched and the sorted and unsorted array. If not found the index is `-1`.
  *
  * @category Array Query
  *
@@ -22,7 +23,8 @@ import { SortFn } from '../types/generic-methods';
  *
  * @param searchValue The value to search for in the array
  * @param sortFn Optional [[SortFn]] for sorting more complex types
- * @param property Optional property for searching tuples and objects - if an tuple use a `number` if an `Object` use a `string`
+ * @param property Optional property for searching tuples and objects - if an tuple use a `number` if an `Object` use a
+ *   `string`
  *
  * @example
  * Return the index of the word `bravo` in the sorted array from a source array

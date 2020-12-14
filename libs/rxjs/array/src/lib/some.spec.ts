@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles';
-import { every, some } from '@rxjs-ninja/rxjs-array';
+import { some } from '@rxjs-ninja/rxjs-array';
 
 describe('some', () => {
   it(
@@ -28,6 +28,21 @@ describe('some', () => {
       const subs = '^------!';
       const expected = m.cold('-x-y-z-|', { x: true, y: true, z: false });
       m.expect(input.pipe(some((v) => v === 'RxJS'))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
+    'should return true if the array contains numbers that pass the predicate',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', {
+        a: [0, 0, 0],
+        b: [0, 0, 1],
+        c: [0, 1, 2],
+      });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: false, y: false, z: true });
+      m.expect(input.pipe(some((v) => v > 1))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

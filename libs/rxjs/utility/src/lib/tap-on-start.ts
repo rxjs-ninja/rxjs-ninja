@@ -7,11 +7,14 @@ import { switchMap, take, tap } from 'rxjs/operators';
 import { CallbackFn } from '../types/utility';
 
 /**
- * Perform a side effect for the first subscription to the source Observable, return an Observable that is identical to the source.
+ * Perform a side effect for the first subscription to the source Observable, return an Observable that is identical to
+ * the source.
  *
- * @typeParam T The value type of the [Observable](https://rxjs.dev/api/index/class/Observable)
+ * @category Side Effects
  *
- * @param callback The callback to be executed when this operator is run
+ * @typeParam T The value type of the source
+ *
+ * @param callback [[CallbackFn]] to be executed when this operator is run
  *
  * @example
  * ```ts
@@ -19,16 +22,16 @@ import { CallbackFn } from '../types/utility';
  * ```
  *
  * @example
+ * Perform a side effect on first subscription to the source
  * ```ts
- * const input = [1, 2, 3, 4];
+ * const input = ['Hello', 'RxJS', 'Ninja'];
  * const echoValue = value => `First value is ${value}`;
  *
- * from(input).pipe(tapOnStart(echoValue),reduce((acc, val) => acc + val, 0)).subscribe();
- * // 10
+ * from(input).pipe(tapOnStart(echoValue)).subscribe();
  * ```
+ * Output: `Hello`
  *
  * @returns Observable that emits the source observable after performing a side effect
- * @category Observable Utilities
  */
 export function tapOnStart<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>) =>
@@ -37,22 +40,4 @@ export function tapOnStart<T extends unknown>(callback: CallbackFn<T>): MonoType
       tap(callback),
       switchMap(() => source),
     );
-}
-
-/* istanbul ignore next */
-/**
- * Perform a side effect for the first subscription to the source Observable, return an Observable that is identical to the source.
- *
- * @typeParam T The value type of the [Observable](https://rxjs.dev/api/index/class/Observable)
- *
- * @param callback The callback to be executed when this operator is run
- *
- * @deprecated
- * @see {@link tapOnStart}
- *
- * @returns Observable that emits the source observable after performing a side effect
- * @category Observable Utilities
- */
-export function startWithTap<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
-  return tapOnStart(callback);
 }

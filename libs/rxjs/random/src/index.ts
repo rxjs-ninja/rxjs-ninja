@@ -1,4 +1,6 @@
 /**
+ * Package containing various operators for generating Observables with random values in RxJS
+ *
  * @packageDocumentation
  * @module Random
  *

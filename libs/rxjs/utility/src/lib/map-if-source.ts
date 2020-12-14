@@ -7,41 +7,37 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * Returns an Observable value from either the `trueResult` or `falseResult` [[MapFn]] based on the result of the
- * [[PredicateFn]]. Each method can return it's own type (which will need to be type checked in subsequent operators,
+ * Returns an Observable that emits the value from either the `trueResult` or `falseResult` based on the result from
+ * the source with a [[PredicateFn]].
  *
- * @typeParam I The value type for the incoming observable source
+ * @category Observable Modify
+ *
+ * @remarks Each method can return it's own type which you should handle in later operators
+ *
+ * @typeParam I The type of value from the source
  * @typeParam T The type returned from the Truthy result
- * @typeParam F The type returned from the Falsy result, this type is optional and if not included the `T` type will be used
+ * @typeParam F The type returned from the Falsy result, this type is optional and if not included the `T` type will be
+ *   used
  *
  * @param predicate The method to check the value from the source Observable
  * @param trueResult The method with return value for a truthy [[PredicateFn]]
  * @param falseResult The method with return value for a falsy [[PredicateFn]]
  *
  * @example
+ * Returns a FizzBuzz based on the input value
  * ```ts
- * of('dog').pipe(
- *  mapIfSource<string, string>(
- *    (value) => value === 'dog',
- *    (value) => 'woof! woof!',
- *    (value) => `meow!`,
+ * const input = [ 1, 2, 3, 4, 5, 6, 10, 15, 16 ];
+ * from(input).pipe(
+ *  mapIfSource<number, string, number>(
+ *    (value) => value % 15 == 0 || value % 3 == 0 || value % 5 == 0,
+ *    (value) => (value % 15 == 0 ? `FizzBuzz` : value % 3 === 0 ? 'Fizz' : 'Buzz'),
+ *    (value) => value,
  *  ),
- * ).subscribe(); // 'woof! woof!'
+ * ).subscribe();
  * ```
- *
- * @example
- * ```ts
- * of('42').pipe(
- *  mapIfSource<string, number, string>(
- *    (value) => value === '42',
- *    (value) => parseInt(value),
- *    (value) => `${value}: This is not the ultimate answer`,
- *  ),
- * ).subscribe(); // 42
- * ```
+ * Output: `1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 10, 'FizzBuzz', 16`
  *
  * @returns Observable that emits a value from the truthy or falsy [[MapFn]] based on the [[PredicateFn]] result
- * @category Utility Modifier
  */
 export function mapIfSource<I = unknown, T = unknown, F = unknown>(
   predicate: PredicateFn<I>,

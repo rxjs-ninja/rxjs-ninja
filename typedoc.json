@@ -152,6 +152,16 @@
       "pattern": "(Array\\.(\\w+))",
       "flags": "gm",
       "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/$2)"
+    },
+    {
+      "pattern": "(Math\\.(\\w+))",
+      "flags": "gm",
+      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/$2)"
+    },
+    {
+      "pattern": "(Crypto\\.(\\w+))",
+      "flags": "gm",
+      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Crypto/$2)"
     }
   ]
 }

@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles';
-import {every, some} from '@rxjs-ninja/rxjs-array';
+import { every, some } from '@rxjs-ninja/rxjs-array';
 
 describe('some', () => {
   it(

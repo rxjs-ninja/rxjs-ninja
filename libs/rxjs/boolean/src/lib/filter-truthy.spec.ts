@@ -19,7 +19,7 @@ describe('filterTruthy', () => {
       const predicate = (num: number): boolean => num % 2 === 0;
       const input = m.hot('-a-b-c-d-(e|)', { a: 0, b: 1, c: 2, d: 3, e: 4 });
       const subs = '^--------!';
-      const expected = m.cold('-a---c---(e|)', { a: 0, c: 2, e: 4 });
+      const expected = m.cold('-----c---(e|)', { c: 2, e: 4 });
       m.expect(input.pipe(filterTruthy(predicate))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),

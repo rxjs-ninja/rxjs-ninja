@@ -15,10 +15,11 @@ import { map, scan, takeUntil, takeWhile } from 'rxjs/operators';
  *
  * @category Observable Utilities
  *
- * @param input A `string` url or {@link https://developer.mozilla.org/en-US/docs/Web/API/Request/Request|Request} object
+ * @param input A `string` url or {@link https://developer.mozilla.org/en-US/docs/Web/API/Request/Request|Request}
+ *   object
  * @param init Optional `RequestInit` dictionary
- * @param controller Optional {@link https://developer.mozilla.org/en-US/docs/Web/API/AbortController|AbortController} used to cancel
- * any outstanding requests
+ * @param controller Optional {@link https://developer.mozilla.org/en-US/docs/Web/API/AbortController|AbortController}
+ *   used to cancel any outstanding requests
  */
 export function fromFetchWithProgress(
   input: RequestInfo,
@@ -35,7 +36,7 @@ export function fromFetchWithProgress(
           throw new Error('Response body is empty');
         }
         if (!ok) {
-          throw new Error(statusText);
+          throw new Error(`${status}: ${statusText}`);
         }
 
         const reader = body.getReader();

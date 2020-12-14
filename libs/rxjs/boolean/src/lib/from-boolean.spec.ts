@@ -1,12 +1,33 @@
 import { filter, map, reduce, tap } from 'rxjs/operators';
 import { fromBoolean } from '@rxjs-ninja/rxjs-boolean';
 import { observe } from 'rxjs-marbles/jest';
+import { of } from 'rxjs';
 
 describe('fromBoolean', () => {
   it(
     'should create an Observable from a single boolean argument',
     observe(() =>
       fromBoolean(false).pipe(
+        map((val) => !val),
+        tap((value) => expect(value).toBeTruthy()),
+      ),
+    ),
+  );
+
+  it(
+    'should create an Observable from a promise',
+    observe(() =>
+      fromBoolean(Promise.resolve(false)).pipe(
+        map((val) => !val),
+        tap((value) => expect(value).toBeTruthy()),
+      ),
+    ),
+  );
+
+  it(
+    'should create an Observable from a Observable',
+    observe(() =>
+      fromBoolean(of(false)).pipe(
         map((val) => !val),
         tap((value) => expect(value).toBeTruthy()),
       ),

@@ -5,54 +5,46 @@
 import { Observable, Subscriber, timer } from 'rxjs';
 import { finalize, map, takeWhile, tap } from 'rxjs/operators';
 import { FromRandomCryptoOpts } from '../types/from-random-crypto';
-import { getIntTypedArray } from '../utils/from-random-crypto';
-import TypedArray = NodeJS.TypedArray;
+import { RND_CRYPTO_DEFAULTS, getIntTypedArray } from '../utils/from-random-crypto';
 
 /**
- * Default options for `fromRandomCrypto`
- * @type FromRandomCryptoOpts
- */
-const DEFAULT_OPTIONS: FromRandomCryptoOpts = {
-  bytes: 4,
-  unsigned: false,
-};
-
-/**
- * An Observable string value generator that generates random numbers using [Crypto.getRandomValues](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues)
- * to generate a number. Pass an optional emit time to use as a timer.
+ * Returns an Observable that emits a number generated using Crypto.getRandomValues, and using Math.random selects one
+ * random number value from the `TypedArray`.
  *
- * By default this will generate an unsigned 4-byte value `Int32Array`, pass additional options
- * to instead generate a 1-byte or 2-byte signed or unsigned, or 4bit signed value.
+ * By default this Observable will generate `4-bit signed` values
  *
- * [Typed Array Views](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays#Typed_array_views)
+ * @category Random Numbers
  *
- * @param emitDelay If set the observable will emit per millisecond set, by default this is 0
- * @param opts opts Options for different byte length of arrays, and unsigned and float values
+ * @see {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays#Typed_array_views|Typed Array Views}
+ *
+ * @param emitDelay Optionally emit each value at the set delay, otherwise emit immediately
+ * @param opts Optional options for the Observable to generate different byte lengths and signed numbers
  *
  * @example
+ * Emits a stream of random `4-byte` numbers
  * ```ts
- * fromRandomCrypto()
- * .subscribe() // 1228475997, 258463200, 850749141, 3060206219...
+ * fromRandomCrypto().subscribe();
  * ```
+ * Output: `1228475997, 258463200, 850749141, 3060206219...`
  *
  *  @example
+ *  Emits a stream of random `1-byte` every second
  * ```ts
- * fromRandomCrypto(0, { bytes: 1 })
- * .subscribe() // 15, 8, 234, 12...
+ * fromRandomCrypto(1000, { bytes: 1 }).subscribe();
  * ```
+ * Output: `15, 8, 234, 12...`
  *
  * @returns Observable with a stream of random numbers
- * @category Random Observables
  */
-export function fromRandomCrypto(emitDelay = 0, opts: FromRandomCryptoOpts = DEFAULT_OPTIONS): Observable<number> {
+export function fromRandomCrypto(emitDelay = 0, opts: FromRandomCryptoOpts = RND_CRYPTO_DEFAULTS): Observable<number> {
   return new Observable((subscriber: Subscriber<number>) => {
     const sourceArray = getIntTypedArray(opts.bytes, opts.unsigned);
 
     timer(0, emitDelay)
       .pipe(
         takeWhile(() => !subscriber.closed),
-        tap(() => window.crypto.getRandomValues(sourceArray as TypedArray)),
-        map(() => (sourceArray as TypedArray)[0]),
+        tap(() => window.crypto.getRandomValues(sourceArray)),
+        map(() => sourceArray[(sourceArray.length * Math.random()) | 0]),
         tap((value) => subscriber.next(value)),
         finalize(() => subscriber.complete()),
       )

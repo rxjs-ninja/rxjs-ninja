@@ -10,7 +10,7 @@ import { mapDifferenceWith } from '../utils/difference';
 /**
  * Returns an Observable array containing values that are difference between a Observable source array and the passed input array.
  *
- * @category Array Difference
+ * @category Array Compare
  *
  * @remarks This operator will return duplicate items in arrays
  *

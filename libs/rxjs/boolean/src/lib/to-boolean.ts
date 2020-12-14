@@ -9,7 +9,7 @@ import { PredicateFn } from '../types/boolean';
 /**
  * Returns an Observable that emits a boolean value from a source value of any type
  *
- * @category Boolean Modify
+ * @category Boolean Observables
  *
  * @typeParam T The value contained in the source Observable
  *

@@ -3,7 +3,7 @@
  * @module Array
  */
 import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
-import { concatMap, map, switchMap } from 'rxjs/operators';
+import { concatMap, map } from 'rxjs/operators';
 import { MapFn } from '../types/generic-methods';
 import { mapIntersection } from '../utils/intersects';
 
@@ -11,7 +11,7 @@ import { mapIntersection } from '../utils/intersects';
  * Returns an Observable array containing values that are intersecting between a Observable source
  * array and the passed input array.
  *
- * @category Array Intersection
+ * @category Array Compare
  *
  * @remarks This uses `Set` to do comparisons with and will remove duplicates
  *

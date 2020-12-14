@@ -3,12 +3,13 @@
  * @module String
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { concatMap, map, switchMap } from 'rxjs/operators';
+import { concatMap, map } from 'rxjs/operators';
 
 /**
  * The `concat` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
  * value and returns string concatenated with one or more strings passed as arguments
- * This operator is based on [String.prototype.concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat)
+ * This operator is based on
+ * [String.prototype.concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat)
  *
  * @param args Additional strings as list of arguments
  *

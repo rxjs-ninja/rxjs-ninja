@@ -15,13 +15,15 @@ import { fibonacci } from '../utils/from-fibonacci';
  * @param iterations The number of iterations to do, must be greater than `0`
  * @param emitDelay If set the observable will emit per millisecond set, by default this is 0
  *
- * @example Emit the first 5 numbers of the Fibonacci sequence immediately
+ * @example
+ * Emit the first 5 numbers of the Fibonacci sequence immediately
  * ```ts
  * fromFibonacci(5).subscribe();
  * ```
  * Output: `0, 1, 1, 2, 3`
  *
- * @example Emit the first 10 numbers of the Fibonacci sequence once per second, and skip `0`
+ * @example
+ * Emit the first 10 numbers of the Fibonacci sequence once per second, and skip `0`
  * ```ts
  * fromFibonacci(10, 1000).pipe(skip(1)).subscribe();
  * ```

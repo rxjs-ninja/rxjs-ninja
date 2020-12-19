@@ -6,21 +6,21 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `codePointAt` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns the code point of a character at the passed position.
- * Based on [String.prototype.codePointAt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/codePointAt)
+ * Returns an Observable that emits a number, the character code of a character at the passed position in a source
+ * string using String.codePointAt
  *
- * @param position The character position to get a code point from, starts from 0
+ * @category String Query
+ *
+ * @param position The index of the character to return in the source string
  *
  * @example
+ * Return the code point of the character at index `1`
  * ```ts
- * fromString(['☃★♲'])
- *  .pipe(codePointAt(1))
- *  subscribe(); // 9733
+ * fromString(['☃★♲']).pipe(codePointAt(1)).subscribe();
  * ```
+ * Output: `9733`
  *
- * @returns Number of the code point from the passed string position
- * @category String Query
+ * @returns Observable that emits a number that is a code point
  */
 export function codePointAt(position: number): OperatorFunction<string, number | undefined> {
   return (source: Observable<string>) => source.pipe(map((value) => value.codePointAt(position)));

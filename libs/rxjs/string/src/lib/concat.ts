@@ -6,39 +6,35 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { concatMap, map } from 'rxjs/operators';
 
 /**
- * The `concat` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns string concatenated with one or more strings passed as arguments
- * This operator is based on
- * [String.prototype.concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat)
+ * Returns an Observable that emits a string that is the source string concatenated with the passed input to the
+ * operator using Sting.concat
  *
- * @param args Additional strings as list of arguments
- *
- * @example
- * ```ts
- * // With Fixed Arguments
- * fromString('Mary')
- *  .pipe(concat(' ', 'had a little', ' ', 'lamb'))
- *  subscribe(); // 'Mary had a little lamb'
- * ```
- *
- * @example
- * ```ts
- * // With Fixed Array
- * fromString('Mary')
- *  .pipe(concat([' ', 'had a little', ' ', 'lamb']))
- *  subscribe(); // 'Mary had a little lamb'
- * ```
- *
- * @example
- * ```ts
- * // With Observable source
- * fromString('Mary')
- *  .pipe(concat(of([' ', 'had a little', ' ', 'lamb'])))
- *  subscribe(); // 'Mary had a little lamb'
- * ```
- *
- * @returns String that is a concatenation of the original string and new values
  * @category String Creation
+ *
+ * @param args Observable string source, array of strings or argument list of strings
+ *
+ * @example
+ * Return a string that is a source appended with a list of strings
+ * ```ts
+ * fromString('RxJS').pipe(concat(' ', 'Ninja')).subscribe();
+ * ```
+ * Output: `RxJS Ninja`
+ *
+ * @example
+ * Return a string that is a source appended with a array of strings
+ * ```ts
+ * fromString('RxJS').pipe(concat([' ', 'Ninja'])).subscribe();
+ * ```
+ * Output: `RxJS Ninja`
+ *
+ * @example
+ * Return a string that is a source appended with an Observable string
+ * ```ts
+ * fromString('RxJS').pipe(concat(of([' ', 'Ninja']))).subscribe();
+ * ```
+ * Output: `RxJS Ninja`
+ *
+ * @returns Observable that emits a string
  */
 export function concat<T extends string | string[] | Observable<string | string[]>>(
   ...args: T[]

@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
  *
  * @category Number Query
  *
- * @see The [[filterInNotNaN]] operator returns the number value
+ * @see The [[filterIsNotNaN]] operator returns the number value
  *
  * @example
  * Return a boolean if a number is a `NaN` value

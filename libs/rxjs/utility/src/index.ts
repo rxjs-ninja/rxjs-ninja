@@ -1,4 +1,6 @@
 /**
+ * Package containing utility methods for use with RxJS
+ *
  * @packageDocumentation
  * @module Utility
  *

@@ -32,13 +32,13 @@ export function fromUnicode<T extends ObservableInput<string[]> | PromiseLike<st
   form?: FormType,
 ): Observable<string> {
   if (isObservable(input)) {
-    return ((input as never) as Observable<number[]>).pipe(map((input) => String.fromCodePoint(...input)));
+    return ((input as never) as Observable<number[]>).pipe(map((value) => String.fromCodePoint(...value)));
   } else if (isPromise(input)) {
     return new Observable<string>((subscriber: Subscriber<unknown>): void => {
       ((input as never) as Promise<number[]>).then(
-        (input) => {
+        (value) => {
           if (!subscriber.closed) {
-            subscriber.next(String.fromCodePoint(...input));
+            subscriber.next(String.fromCodePoint(...value));
             subscriber.complete();
           }
         },

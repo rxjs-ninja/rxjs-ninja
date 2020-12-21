@@ -2,40 +2,64 @@
  * @packageDocumentation
  * @module String
  */
-import { Observable, Subscriber } from 'rxjs';
+import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { isPromise } from 'rxjs/internal-compatibility';
 
 /**
- * Returns an Observable string of ASCII and Unicode characters from passed code points codes, can be an array or arguments or values. Uses
- * [String.fromCodePoint](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCodePoint)
- * to generate the string
+ * Returns an Observable that emits a string made from code points using String.fromCodePoint
  *
- * @param args Character codes or an Array of character codes to create the Observable from
+ * @remarks This operator will emit a single string for all input passed including arrays
  *
- * @example
- * ```ts
- * fromCharCode(9733).subscribe();
- * // '★'
- * ```
+ * @category String Observables
+ *
+ * @param charCodes Observable input, Promise, Array or argument list of code points
  *
  * @example
+ * Return a string from code points arguments
  * ```ts
- * fromCharCode(9731, 9733, 9842).subscribe();
- * // '☃★♲'
+ * fromCodePoint(9731, 9733, 9842).subscribe();
  * ```
+ * Output: `☃★♲`
  *
  * @example
+ * Return a string from code points array
  * ```ts
- * fromCharCode([9731, 9733, 9842]).subscribe();
- * // '☃★♲'
+ * fromCodePoint([9731, 9733, 9842]).subscribe();
  * ```
+ * Output: `☃★♲`
  *
- * @returns Observable that emits an ASCII/Unicode string from passed code points
- * @category String Creation
+ * @example
+ * Return a string from code points Observable
+ * ```ts
+ * fromCodePoint(of([9731, 9733, 9842]).subscribe();
+ * ```
+ * Output: `☃★♲`
+ *
+ * @returns Observable that emits a string
  */
-export function fromCodePoint<T extends number | number[]>(...args: T[]): Observable<string> {
-  const value = Array.isArray(args[0]) ? (args[0] as number[]) : ([...args] as number[]);
-  return new Observable<string>((subscriber: Subscriber<string>): void => {
-    subscriber.next(String.fromCodePoint(...value));
-    subscriber.complete();
-  });
+export function fromCodePoint<
+  T extends ObservableInput<number | number[]> | PromiseLike<number | number[]> | number | number[]
+>(...charCodes: T[]): Observable<string> {
+  if (isObservable(charCodes[0])) {
+    return ((charCodes[0] as never) as Observable<number[]>).pipe(map((input) => String.fromCodePoint(...input)));
+  } else if (isPromise(charCodes[0])) {
+    return new Observable<string>((subscriber: Subscriber<unknown>): void => {
+      ((charCodes[0] as never) as Promise<number[]>).then(
+        (input) => {
+          if (!subscriber.closed) {
+            subscriber.next(String.fromCodePoint(...input));
+            subscriber.complete();
+          }
+        },
+        (err) => subscriber.error(err),
+      );
+    });
+  } else {
+    const value = Array.isArray(charCodes[0]) ? (charCodes[0] as number[]) : ([...charCodes] as number[]);
+    return new Observable<string>((subscriber: Subscriber<string>): void => {
+      subscriber.next(String.fromCodePoint(...value));
+      subscriber.complete();
+    });
+  }
 }

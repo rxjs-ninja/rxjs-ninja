@@ -16,7 +16,7 @@ import { map } from 'rxjs/operators';
  * @example
  * Return the character at index `1`
  * ```ts
- * fromString('RxJS Ninja').pipe(charAt(1)).subscribe();
+ * of('RxJS Ninja').pipe(charAt(1)).subscribe();
  * ```
  * Output: `x`
  *

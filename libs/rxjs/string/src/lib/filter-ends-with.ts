@@ -6,32 +6,31 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * The `filterEndsWith` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a string value if the string of length ends with the passed character using
- * [String.prototype.endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
+ * Returns an Observable that emits a string where the source string ends with the passed ending using String.endsWith
  *
- * * If you need to get the boolean value instead of value use [[endsWith]]
+ * @category String Filter
  *
- * @param character The character to check the string ends with
+ * @see The [[endsWith]] operator returns the boolean value
+ *
+ * @param ending The string to check the source ends with
  * @param length Optional length of the string to check
  *
  * @example
+ * Return a string where the source string ends with the `S` character
  * ```ts
- * fromString(['test', 'testing'])
- *  .pipe(filterEndsWith('g'))
- *  subscribe(); // ['testing']
+ * from(['RxJS', 'Ninja', 'Tests']).pipe(filterEndsWith('S')).subscribe();
  * ```
+ * Output: `RxJS`
  *
  * @example
+ * Return a string where the source string at up to length `4` ends with the `t` character
  * ```ts
- * fromString(['test', 'testing'])
- *  .pipe(filterEndsWith('t', 4))
- *  subscribe(); // ['test', 'testing']
+ * from(['RxJS', 'Ninja', 'Tests']).pipe(filterEndsWith('t', 4)).subscribe();
  * ```
+ * Output: `Tests`
  *
- * @returns String that passes the equality check of [String.prototype.endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
- * @category String Filter
+ * @returns Observable that emits a string
  */
-export function filterEndsWith(character: string, length?: number): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(filter((value) => value.endsWith(character, length)));
+export function filterEndsWith(ending: string, length?: number): MonoTypeOperatorFunction<string> {
+  return (source: Observable<string>) => source.pipe(filter((value) => value.endsWith(ending, length)));
 }

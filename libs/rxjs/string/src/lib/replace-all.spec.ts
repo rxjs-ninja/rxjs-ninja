@@ -1,14 +1,14 @@
-import { replace } from '@rxjs-ninja/rxjs-string';
+import { replaceAll } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
-describe('replace', () => {
+xdescribe('replaceAll', () => {
   it(
     'should replace a string with the passed string pattern',
     marbles((m) => {
       const input = m.hot('-a-|', { a: 'RxJS Hero, Angular Hero' });
       const subs = '^--!';
-      const expected = m.cold('-z-|', { z: 'RxJS Ninja, Angular Hero' });
-      m.expect(input.pipe(replace('Hero', 'Ninja'))).toBeObservable(expected);
+      const expected = m.cold('-z-|', { z: 'RxJS Ninja, Angular Ninja' });
+      m.expect(input.pipe(replaceAll('Hero', 'Ninja'))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
@@ -18,8 +18,8 @@ describe('replace', () => {
     marbles((m) => {
       const input = m.hot('-a-|', { a: 'RxJS Hero, Angular Hero' });
       const subs = '^--!';
-      const expected = m.cold('-z-|', { z: 'RxJS Ninja, Angular Hero' });
-      m.expect(input.pipe(replace(/(?!\w+\s)(\w+)/, 'Ninja'))).toBeObservable(expected);
+      const expected = m.cold('-z-|', { z: 'RxJS Ninja, Angular Ninja' });
+      m.expect(input.pipe(replaceAll(/(?!\w+\s)(\w+)/g, 'Ninja'))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

@@ -6,28 +6,21 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `mapCharCode` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) a number or
- * array of numbers that represent character codes, and returns a string value
+ * Returns an Observable that emits a string from a source of character codes using String.fromCharCode
  *
- * @remarks
- * Based on [String.fromCharCode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode)
+ * @category String Mapping
  *
- * @example
- * ```ts
- * of(65)
- *  .pipe(mapCharCode())
- *  subscribe(); // 'A'
- * ```
+ * @see The [[fromCharCode]] Observable can be used to generate a string source from character codes
  *
  * @example
+ * Returns a string `RxJS` from a source array of character codes
  * ```ts
- * of([65, 66, 67, 68])
- *  .pipe(mapCharCode())
- *  subscribe(); // 'ABCD'
+ * of([82, 120, 74, 83]).pipe(mapCharCode()).subscribe()
  * ```
+ * Output: `RxJS`
  *
- * @returns String from an array of character codes
- * @category String Map
+ *
+ * @returns Observable that emits a string from source character codes
  */
 export function mapCharCode(): OperatorFunction<number | number[], string> {
   return (source: Observable<number | number[]>) =>

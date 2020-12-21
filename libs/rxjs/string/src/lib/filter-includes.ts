@@ -6,24 +6,23 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * The `filterIncludes` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a string value if the string contains the includes parameter
+ * Returns an Observable that emits a string where the source string contains with the passed search string using
+ * String.includes
  *
- * @param searchStr The value to check the string includes
+ * @category String Filter
  *
- * @remarks
- * Based on [String.prototype.includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)
- * If you need to get the boolean quality instead of value use [[includes]]
+ * @see The [[includes]] operator returns the boolean value
+ *
+ * @param searchStr The string to check the source ends with
  *
  * @example
+ * Return a string where the source string includes 'JS'
  * ```ts
- * from(['test', 'foobar', 'testing'])
- *  .pipe(filterIncludes('test'))
- *  subscribe(); // ['test', 'testing']
+ * from(['RxJS', 'Ninja', 'Tests']).pipe(filterIncludes('JS')).subscribe();
  * ```
+ * Output: `RxJS`
  *
- * @returns String that passes the equality check of [String.prototype.includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)
- * @category String Filter
+ * @returns Observable that emits a string
  */
 export function filterIncludes(searchStr: string): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(filter((value) => value.includes(searchStr)));

@@ -5,10 +5,10 @@ describe('slice', () => {
   it(
     'should return a sliced string from the start index',
     marbles((m) => {
-      const input = m.hot('-a-|', { a: 'Mary had a little lamb' });
+      const input = m.hot('-a-|', { a: 'RxJS Ninja' });
       const subs = '^--!';
-      const expected = m.cold('-z-|', { z: 'had a little lamb' });
-      m.expect(input.pipe(slice(5))).toBeObservable(expected);
+      const expected = m.cold('-z-|', { z: 'RxJS' });
+      m.expect(input.pipe(slice(0, 4))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
@@ -16,10 +16,10 @@ describe('slice', () => {
   it(
     'should return a sliced string from the start index to the length value',
     marbles((m) => {
-      const input = m.hot('-a-|', { a: 'Mary had a little lamb' });
+      const input = m.hot('-a-|', { a: 'RxJS Ninja' });
       const subs = '^--!';
-      const expected = m.cold('-z-|', { z: 'little' });
-      m.expect(input.pipe(slice(11, 17))).toBeObservable(expected);
+      const expected = m.cold('-z-|', { z: 'Ninja' });
+      m.expect(input.pipe(slice(5))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

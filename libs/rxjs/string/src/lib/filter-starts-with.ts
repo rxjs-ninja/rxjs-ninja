@@ -6,32 +6,32 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * The `filterStartsWith` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a string value if the string of length starts with the passed character using
- * [String.prototype.startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
+ * Returns an Observable that emits a string where the source string starts with the passed string using
+ * String.startsWith
  *
- * - If you need to get the boolean value instead of value use [[startsWith]]
- *
- * @param character The character to check the string starts with
- * @param length Optional length of the string to check
- *
- * @example
- * ```ts
- * fromString(['test', 'testing', 'foobar'])
- *  .pipe(filterStartsWith('t'))
- *  subscribe(); // ['test', 'testing']
- * ```
- *
- * @example
- * ```ts
- * fromString(['test', 'testing', 'amazing'])
- *  .pipe(filterStartsWith('i', 4))
- *  subscribe(); // ['testing', 'amazing']
- * ```
- *
- * @returns String that passes the equality check of [String.prototype.startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
  * @category String Filter
+ *
+ * @see The [[startsWith]] operator returns the boolean value
+ *
+ * @param start The string to check the source starts with
+ * @param startFrom Optional index to start the check from
+ *
+ * @example
+ * Return a string where the source string starts with the `N` character
+ * ```ts
+ * from(['RxJS', 'Ninja', 'Tests']).pipe(filterStartsWith('N')).subscribe();
+ * ```
+ * Output: `Ninja`
+ *
+ * @example
+ * Return a string where the source string starts with `t` character from index `3`
+ * ```ts
+ * from(['RxJS', 'Ninja', 'Tests']).pipe(filterStartsWith('t', 3)).subscribe();
+ * ```
+ * Output: `Tests`
+ *
+ * @returns Observable that emits a string
  */
-export function filterStartsWith(character: string, length?: number): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(filter((value) => value.startsWith(character, length)));
+export function filterStartsWith(start: string, startFrom?: number): MonoTypeOperatorFunction<string> {
+  return (source: Observable<string>) => source.pipe(filter((value) => value.startsWith(start, startFrom)));
 }

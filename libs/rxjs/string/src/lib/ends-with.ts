@@ -6,32 +6,32 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `endsWith` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a boolean value if the string of length ends with the passed character using
- * [String.prototype.endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
+ * Returns an Observable that emits a boolean value where the source string ends with the passed string parameter using
+ * String.endsWith
  *
- * - If you need to get the string value instead of value use [[filterEndsWith]]
+ * @category String Query
  *
- * @param character The character to check the string ends with
+ * @see The [[filterEndsWith]] operator returns the string value
+ *
+ * @param ending The string to check the source ends with
  * @param length Optional length of the string to check
  *
  * @example
+ * Return if the source string ends with the `S` character
  * ```ts
- * fromString(['test', 'testing'])
- *  .pipe(endsWith('g'))
- *  subscribe(); // [false, true]
+ * from(['RxJS', 'Ninja', 'Tests']).pipe(endsWith('S')).subscribe();
  * ```
+ * Output: `true, false, false`
  *
  * @example
+ * Return if the source string at up to length `4` ends with the `t` character
  * ```ts
- * fromString(['test', 'testing'])
- *  .pipe(endsWith('t', 4))
- *  subscribe(); // [true, true]
+ * from(['RxJS', 'Ninja', 'Tests']).pipe(endsWith('t', 4)).subscribe();
  * ```
+ * Output: `false, false, true`
  *
- * @returns Boolean that passes the equality check of [String.prototype.endsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith)
- * @category String Query
+ * @returns Observable that emits a boolean of the source string ending with the passed input
  */
-export function endsWith(character: string, length?: number): OperatorFunction<string, boolean> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.endsWith(character, length)));
+export function endsWith(ending: string, length?: number): OperatorFunction<string, boolean> {
+  return (source: Observable<string>) => source.pipe(map((value) => value.endsWith(ending, length)));
 }

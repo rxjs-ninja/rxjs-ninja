@@ -41,7 +41,7 @@ import { map } from 'rxjs/operators';
  * ```
  *
  * @returns String that is titleized with custom separator
- * @category String Formatting
+ * @category String Modify
  */
 export function titleize(locales?: string | string[], separator = ' '): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) =>

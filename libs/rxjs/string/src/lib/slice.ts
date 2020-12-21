@@ -6,31 +6,30 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `slice` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a substring of the original string.
+ * Returns an Observable that emits a string that is a partial slice of the source string using String.slice
  *
- * This operator is based on [String.prototype.slice](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/slice)
+ * @category String Modify
+ *
+ * @remarks For creating substrings use [[substring]] as a better alternative to `slice`
  *
  * @param startIndex The start index for the substring
- * @param endIndex Optional end index for the length of substring
+ * @param endIndex Optional end index for the length of substring, if not passed slice will use `str.length -1`
  *
  * @example
+ * Return a string from index `0` to `4`
  * ```ts
- * fromString('Mary had a little lamb')
- *  .pipe(slice(0, 4))
- *  .subscribe() // 'Mary'
+ * of('RxJS Ninja').pipe(slice(0, 4)).subscribe();
  * ```
- *
+ * Output: `RxJS`
  *
  * @example
+ * Return a string from index `5` to the end of the string
  * ```ts
- * fromString('Mary had a little lamb')
- *  .pipe(slice(11, 17))
- *  .subscribe() // 'little'
+ * of('RxJS Ninja').pipe(slice(5)).subscribe();
  * ```
+ * Output: `Ninja`
  *
- * @returns String that is a substring of the original string value
- * @category String Creation
+ * @returns Observable that emits a string that is a slice of the source string
  */
 export function slice(startIndex: number, endIndex?: number): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(map((value) => value.slice(startIndex, endIndex)));

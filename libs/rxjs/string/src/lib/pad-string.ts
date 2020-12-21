@@ -4,98 +4,65 @@
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { PadPosition, PadPositionValue } from '../types/position';
 
 /**
- * The `padString` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a padded string based on the passed position and length
+ * Returns an Observable that emits a string where the source string has been padded using String.padStart
  *
- * This operator is based on both [String.prototype.padStart](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) and
- * [String.prototype.padStart](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart) but
- * provide a single API via [[PadPosition]] option
+ * @category String Modify
  *
- * @param padPosition The position to pad the string at, either 'start' or 'end'
- * @param maxLength Pads the string to this length
- * @param fillString Character or character to use for padding
+ * @alias `padLeft`
+ *
+ * @param maxLength The maximum length to pad the string to
+ * @param fillString Optional string to use as the string padding
  *
  * @example
+ * Returns a string padded to a length of `12` with default fill string
  * ```ts
- * fromString('12345')
- *  .pipe(padString('start', 7))
- *  subscribe(); // '  12345'
+ * of('RxJS Ninja').pipe(padStart(12)).subscribe();
  * ```
+ * Output: `'  RxJS Ninja'`
+ *
  *
  * @example
+ * Returns a string padded to a length of `12` with `.` fill string
  * ```ts
- * fromString('12345')
- *  .pipe(padString('end', 10, 'X'))
- *  subscribe(); // '12345XXXXX'
+ * of('12345').pipe(padStart(12, '.')).subscribe();
  * ```
+ * Output: `'..RxJS Ninja'`
  *
- * @returns String that is formatted with padding using the `fillString`
- * @category String Formatting
- */
-export function padString(
-  padPosition: PadPositionValue,
-  maxLength: number,
-  fillString?: string,
-): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) =>
-    source.pipe(
-      map((value) => {
-        switch (padPosition) {
-          case PadPosition.END: {
-            return value.padEnd(maxLength, fillString);
-          }
-          case PadPosition.START:
-          default:
-            return value.padStart(maxLength, fillString);
-        }
-      }),
-    );
-}
-
-/**
- * The `padStart` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a string with it's start padded
- * This operator is based on [String.prototype.padStart](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padStart)
- *
- * @param maxLength Pads the string to this length
- * @param fillString Optional string to fill in the padding
- *
- * @example
- * ```ts
- * fromString('12345')
- *  .pipe(padStart(7, '.'))
- *  subscribe(); // '..12345'
- * ```
- *
- * @returns String that is formatted with space padding
- * @category String Formatting
+ * @returns Observable that emits a string that is padded to the passed length
  */
 export function padStart(maxLength: number, fillString?: string): MonoTypeOperatorFunction<string> {
-  return padString(PadPosition.START, maxLength, fillString);
+  return (source: Observable<string>) => source.pipe(map((value) => value.padStart(maxLength, fillString)));
 }
 
 /**
- * The `padEnd` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a string with it's end padded
+ * Returns an Observable that emits a string where the source string has been padded using String.padEnd
  *
- * This operator is based on [String.prototype.padEnd](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/padEnd)
+ * @category String Modify
  *
- * @param maxLength Pads the string to this length
- * @param fillString Optional string to fill in the padding
+ * @alias `padRight`
+ *
+ * @param maxLength The maximum length to pad the string to
+ * @param fillString Optional string to use as the string padding
  *
  * @example
+ * Returns a string padded to a length of `12` with default fill string
  * ```ts
- * fromString('12345')
- *  .pipe(padEnd(7, '.'))
- *  subscribe(); // '12345..'
+ * of('RxJS Ninja').pipe(padEnd(12)).subscribe();
  * ```
+ * Output: `'RxJS Ninja  '`
  *
- * @returns String that is formatted with space padding
- * @category String Formatting
+ *
+ * @example
+ * Returns a string padded to a length of `12` with `.` fill string
+ * ```ts
+ * of('12345').pipe(padEnd(12, '.')).subscribe();
+ * ```
+ * Output: `'RxJS Ninja..'`
+ *
+ * @returns Observable that emits a string that is padded to the passed length
  */
 export function padEnd(maxLength: number, fillString?: string): MonoTypeOperatorFunction<string> {
-  return padString(PadPosition.END, maxLength, fillString);
+  return (source: Observable<string>) => source.pipe(map((value) => value.padEnd(maxLength, fillString)));
 }

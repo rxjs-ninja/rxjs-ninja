@@ -125,13 +125,18 @@
   "replace-in-comments-config": [
     {
       "pattern": "(Observables?)",
-      "flags": "g",
+      "flags": "gm",
       "replace": "[$1](https://rxjs.dev/api/index/class/Observable)"
     },
     {
       "pattern": "RxJS",
-      "flags": "g",
+      "flags": "gm",
       "replace": "[RxJS](https://rxjs.dev)"
+    },
+    {
+      "pattern": "RegExp",
+      "flags": "gm",
+      "replace": "[RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)"
     },
     {
       "pattern": "(Intl\\.(\\w+))",

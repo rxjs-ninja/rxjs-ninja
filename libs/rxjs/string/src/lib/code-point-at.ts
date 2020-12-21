@@ -16,7 +16,7 @@ import { map } from 'rxjs/operators';
  * @example
  * Return the code point of the character at index `1`
  * ```ts
- * fromString(['☃★♲']).pipe(codePointAt(1)).subscribe();
+ * of('☃★♲').pipe(codePointAt(1)).subscribe();
  * ```
  * Output: `9733`
  *

@@ -4,116 +4,64 @@
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { TrimPosition, TrimPositionValue } from '../types/position';
 
 /**
- * The `trimString` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a trimmed string
+ * Returns an Observable that emits a string where the source string has any white space at the start removed using
+ * String.trimStart
  *
- * This operator is based on [String.prototype.trim](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/Trim),
- * [trimStart](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimStart) and
- * [trimEnd](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimEnd) but
- * provide a single API via [[TrimPosition]] option
+ * @category String Modify
  *
- * @param position The position to trim the string from, either 'start', 'end' or 'all'
+ * @alias `trimLeft`
  *
  * @example
+ * Returns the source string with any whitespace at the start removed
  * ```ts
- * fromString('     12345     ')
- *  .pipe(trimString())
- *  .subscribe() // '12345'
+ * of('  RxJS Ninja  ').pipe(trimStart()).subscribe();
  * ```
+ * Output: `'RxJS Ninja  '`
  *
- * @example
- * ```ts
- * fromString('12345     ')
- *  .pipe(trimString('start'))
- *  .subscribe() // '12345     '
- * ```
- *
- * @example
- * ```ts
- * fromString('     12345     ')
- *  .pipe(trimString('end'))
- *  .subscribe() // '     12345'
- * ```
- *
- * @returns String that is trimmed based on the [[TrimPosition]] option
- * @category String Formatting
+ * @returns Observable that emits a trimmed string
  */
-export function trimString(position: TrimPositionValue = TrimPosition.ALL): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) =>
-    source.pipe(
-      map((value) => {
-        switch (position) {
-          case TrimPosition.START:
-            return value.trimLeft();
-          case TrimPosition.END:
-            return value.trimRight();
-          case TrimPosition.ALL:
-          default:
-            return value.trim();
-        }
-      }),
-    );
+export function trimStart(): MonoTypeOperatorFunction<string> {
+  return (source: Observable<string>) => source.pipe(map((value) => value.trimStart()));
 }
 
 /**
- * The `trimLeft` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a string trimmed on the left
+ * Returns an Observable that emits a string where the source string has any white space at the end removed using
+ * String.trimEnd
  *
- * This operator is based on [String.prototype.trimLeft](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimLeft)
+ * @category String Modify
+ *
+ * @alias `trimRight`
  *
  * @example
+ * Returns the source string with any whitespace at the end removed
  * ```ts
- * fromString('     12345     ')
- *  .pipe(trimLeft())
- *  .subscribe() // '12345     '
+ * of('  RxJS Ninja  ').pipe(trimStart()).subscribe();
  * ```
+ * Output: `'  RxJS Ninja'`
  *
- * @returns String that is formatted with white space to the left trimmed
- * @category String Formatting
+ * @returns Observable that emits a trimmed string
  */
-export function trimLeft(): MonoTypeOperatorFunction<string> {
-  return trimString(TrimPosition.START);
+export function trimEnd(): MonoTypeOperatorFunction<string> {
+  return (source: Observable<string>) => source.pipe(map((value) => value.trimEnd()));
 }
 
 /**
- * The `trimRight` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a string trimmed on the right
+ * Returns an Observable that emits a string where the source string has any white space at the ends removed using
+ * String.trim
  *
- * This operator is based on [String.prototype.trimRight](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimLeft)
- *
- * @example
- * ```ts
- * fromString('     12345     ')
- *  .pipe(trimRight())
- *  .subscribe() // '     12345'
- * ```
- *
- * @returns String that is formatted with white space to the right trimmed
- * @category String Formatting
- */
-export function trimRight(): MonoTypeOperatorFunction<string> {
-  return trimString(TrimPosition.END);
-}
-
-/**
- * The `trimRight` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a string trimmed on the right
- *
- * This operator is based on [String.prototype.trimRight](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/trimLeft)
+ * @category String Modify
  *
  * @example
+ * Returns the source string with any whitespace at both ends removed
  * ```ts
- * fromString('     12345     ')
- *  .pipe(trim())
- *  .subscribe() // '12345'
+ * of('  RxJS Ninja  ').pipe(trimStart()).subscribe();
  * ```
+ * Output: `'RxJS Ninja'`
  *
- * @returns String that is formatted with all surrounding white space trimmed
- * @category String Formatting
+ * @returns Observable that emits a trimmed string
  */
 export function trim(): MonoTypeOperatorFunction<string> {
-  return trimString(TrimPosition.ALL);
+  return (source: Observable<string>) => source.pipe(map((value) => value.trim()));
 }

@@ -6,29 +6,28 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `match` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns an array-like [RegExpMatchArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#Return_value)
+ * Returns an Observable that emits a `RegExpMatchArray` where a source string returns a valid result using using
+ * String.match. If no result is found, `null` is emitted.
  *
- * This operator is based on [String.prototype.match](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match)
- *
- * @param pattern A string value to match in the string
- *
- * @example
- * ```ts
- * fromString('Mary had a little lamb')
- *  .pipe(match('little'))
- *  .subscribe(result => console.log(Array.from(result))) // ['little']
- * ```
- *
- * @example
- * ```ts
- * fromString('Mary had a Little Lamb')
- *  .pipe(match(/[A-Z]/g))
- *  .subscribe(result => console.log(Array.from(result))) // ['M', 'L', 'L']
- * ```
- *
- * @returns RegExpMatchArray that contains one or more results from the match
  * @category String Query
+ *
+ * @param pattern A string or RegExp to match
+ *
+ * @example
+ * Returns a single match for the string `RxJS` in the source string
+ * ```ts
+ * of('Hello RxJS Ninja, RxJS Rocks').pipe(match('RxJS')).subscribe();
+ * ```
+ * Output: `['RxJS', index: 6, input: 'Hello RxJS Ninja, RxJS Rocks', groups: undefined]`
+ *
+ * @example
+ * Returns a match with a RegExp with global `/g` for `RxJS`
+ * ```ts
+ * of('Hello RxJS Ninja, RxJS Rocks').pipe(match(/RxJS/g)).subscribe();
+ * ```
+ * Output: `['RxJS', 'RxJS']`
+ *
+ * @returns Observable that emits a RegExpMatchArray
  */
 export function match(pattern: string | RegExp): OperatorFunction<string, RegExpMatchArray | null> {
   return (source: Observable<string>) => source.pipe(map((value) => value.match(pattern)));

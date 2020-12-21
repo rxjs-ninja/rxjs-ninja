@@ -123,6 +123,9 @@
 					<li class=" tsd-kind-enum tsd-parent-kind-module root">
 						<a href="../enums/string.formtype.html" class="tsd-kind-icon">Form<wbr>Type</a>
 					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-module root">
+						<a href="string.html#no_cap_words" class="tsd-kind-icon">NO_<wbr>CAP_<wbr>WORDS</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module root">
 						<a href="string.html#charat" class="tsd-kind-icon">char<wbr>At</a>
 					</li>
@@ -247,6 +250,14 @@
 							<div class="tsd-index-list">
 								<div class="tsd-kind-enum tsd-parent-kind-module"><a href="../enums/string.formtype.html"
 									class="tsd-kind-icon">FormType</a>
+								</div>
+							</div>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<div class="tsd-index-list">
+								<div class="tsd-kind-variable tsd-parent-kind-module"><a href="string.html#no_cap_words"
+									class="tsd-kind-icon">NO_CAP_WORDS</a>
 								</div>
 							</div>
 						</section>
@@ -384,6 +395,26 @@
 					</div>
 				</section>
 			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
+					<a name="no_cap_words" class="tsd-anchor"></a>
+					<div class="tsd-signature tsd-kind-icon">NO_<wbr>CAP_<wbr>WORDS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = [&#x27;a&#x27;, &#x27;and&#x27;, &#x27;but&#x27;, &#x27;is&#x27;, &#x27;or&#x27;, &#x27;over&#x27;, &#x27;the&#x27;, &#x27;to&#x27;, &#x27;too&#x27;]</span></div>
+					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+						<div class="lead">
+							<p>Default words to exclude when using the <a href="string.html#titleize">titleize</a> operator</p>
+						</div>
+					</div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in
+								<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/src/lib/titleize.ts#L12">
+									libs/rxjs/string/src/lib/titleize.ts:12
+								</a>
+							</li>
+						</ul>
+					</aside>
+			</section></section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
@@ -1831,7 +1862,7 @@
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="startswith" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">starts<wbr>With<span class="tsd-signature-symbol">(</span>character<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, length<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">starts<wbr>With<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, startIndex<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1839,46 +1870,44 @@
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>startsWith</code> operator can be used with an <a href="https://rxjs.dev/api/index/class/%5BObservable%5D(https://rxjs.dev/api/index/class/Observable)"><a href="https://rxjs.dev/api/index/class/Observable">Observable</a></a> string
-									value and returns a boolean value if the string of length starts with the passed character</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean when the source string contains the input string at the start of the
+									source string using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith">String.startsWith</a></p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>Based on <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype">String.prototype</a>.startsWith</a></p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
 									<dd class="tds-tag-remarks"><p>If you need to get the string value instead of boolean use <a href="string.html#filterstartswith">filterStartsWith</a></p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">&#x27;test&#x27;</span>, <span class="hljs-string">&#x27;testing&#x27;</span>, <span class="hljs-string">&#x27;foobar&#x27;</span>])
- .pipe(endsWith(<span class="hljs-string">&#x27;t&#x27;</span>))
- subscribe(); <span class="hljs-comment">// [true, true, false]</span></code></pre>
+									<dd class="tds-tag-example"><p>Return a boolean if the source string starts with the passed input</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;Hero&#x27;</span>]).pipe(startsWith(<span class="hljs-string">&#x27;R&#x27;</span>)).subscribe();</code></pre>
+										<p>Output: <code>true, false, false</code></p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">&#x27;test&#x27;</span>, <span class="hljs-string">&#x27;testing&#x27;</span>, <span class="hljs-string">&#x27;toast&#x27;</span>])
- .pipe(endsWith(<span class="hljs-string">&#x27;t&#x27;</span>, <span class="hljs-number">3</span>))
- subscribe(); <span class="hljs-comment">// [true, true, false]</span></code></pre>
+									<dd class="tds-tag-example"><p>Return a boolean if the source string starts with the passed input from index <code>1</code></p>
+										<pre><code class="language-ts"><span class="hljs-keyword">from</span>([<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;Hero&#x27;</span>]).pipe(startsWith(<span class="hljs-string">&#x27;x&#x27;</span>, <span class="hljs-number">1</span>)).subscribe();</code></pre>
+										<p>Output: <code>true, false, false</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>character: <span class="tsd-signature-type">string</span></h5>
+									<h5>input: <span class="tsd-signature-type">string</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>The character to check the string ends with</p>
+										<p>The string to check the source string start with</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> length: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> startIndex: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Index to use as start of string</p>
+										<p>Optional start index to being searching the string from</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Boolean value if the string passes the equality check of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith">String.prototype.startsWith</a></p>
+							<p>Observable that emits a boolean if the source string start with the input string</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/src/lib/starts-with.ts#L37">
-											libs/rxjs/string/src/lib/starts-with.ts:37
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/src/lib/starts-with.ts#L36">
+											libs/rxjs/string/src/lib/starts-with.ts:36
 										</a>
 									</li>
 								</ul>
@@ -1940,7 +1969,7 @@
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="titleize" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">titleize<span class="tsd-signature-symbol">(</span>locales<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, separator<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">titleize<span class="tsd-signature-symbol">(</span>noTitleWords<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, separator<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span>, locales<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1948,51 +1977,61 @@
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>titleize</code> operator can be used with an <a href="https://rxjs.dev/api/index/class/%5BObservable%5D(https://rxjs.dev/api/index/class/Observable)"><a href="https://rxjs.dev/api/index/class/Observable">Observable</a></a> string
-									value and returns a string that is titleized (first letter of each word uppercase)</p>
+									<p>Return an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a string where the source string is titleized (first letter of each word uppercase).
+									The operator uses <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleUpperCase">String.toLocaleUpperCase</a> so can support locale strings</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleUpperCase"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype">String.prototype</a>.toLocaleUpperCase</a> to handle
-								upper case so supports locales.</p>
+								<p>By default is uses the <a href="string.html#no_cap_words">NO_CAP_WORDS</a> to skip some words (unless they are the first word in the string).
+									To disable this pass an empty array, and to extend you can use the default with a spread operator to extend:
+								<code>[...NO_CAP_WORDS, &#39;foo&#39;, &#39;bar&#39;]</code>. When using a separator, if no change in default pass <code>undefined</code></p>
+								<p>It will also skip words already starting with a capital (e.g. <code>[RxJS](https://rxjs.dev)</code>)</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
-									<dd class="tds-tag-remarks"><p>This is a custom operator for this library and uses a method found on <a href="https://1loc.dev/">1loc</a>, it uses</p>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Returns a string titilzed with default no caps words</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">of</span>(<span class="hljs-string">&#x27;the RxJS ninja&#x27;</span>).pipe(titleize()).subscribe();</code></pre>
+										<p>Output: <code>The RxJS Ninja</code></p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromString(<span class="hljs-string">&#x27;Mary had a little lamb&#x27;</span>)
- .pipe(titleize())
- .subscribe() <span class="hljs-comment">// &#x27;Mary Had A Little Lamb&#x27;</span></code></pre>
+									<dd class="tds-tag-example"><p>Returns a string titilzed with additional no cap words</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">of</span>(<span class="hljs-string">&#x27;the RxJS ninja&#x27;</span>).pipe(titleize([...NO_CAP_WORDS, <span class="hljs-string">&#x27;ninja&#x27;</span>])).subscribe();</code></pre>
+										<p>Output: <code>The RxJS ninja</code></p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromString(<span class="hljs-string">&#x27;Mary had ä little lamb&#x27;</span>)
- .pipe(titleize(<span class="hljs-string">&#x27;de-DE&#x27;</span>))
- .subscribe() <span class="hljs-comment">// &#x27;Mary Had Ä Little Lamb&#x27;</span></code></pre>
+									<dd class="tds-tag-example"><p>Returns a string titilzed with a separator</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">of</span>(<span class="hljs-string">&#x27;angular,RxJS,typescript,ninja&#x27;</span>).pipe(titleize(<span class="hljs-literal">undefined</span>, <span class="hljs-string">&#x27;,&#x27;</span>)).subscribe();</code></pre>
+										<p>Output: <code>Angular,RxJS,Typescript,Ninja</code></p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromString(<span class="hljs-string">&#x27;john,paul,john,ringo&#x27;</span>)
- .pipe(titleize(<span class="hljs-string">&#x27;en-GB&#x27;</span>, <span class="hljs-string">&#x27;,&#x27;</span>))
- .subscribe() <span class="hljs-comment">// &#x27;John,Paul,John,Ringo&#x27;</span></code></pre>
+									<dd class="tds-tag-example"><p>Returns a string titilzed with a different locale</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">of</span>(<span class="hljs-string">&#x27;ängulär,RxJS,typescript,ninjä&#x27;</span>).pipe(titleize(<span class="hljs-literal">undefined</span>, <span class="hljs-literal">undefined</span>, <span class="hljs-string">&#x27;de-DE&#x27;</span>)).subscribe();</code></pre>
+										<p>Output: <code>Ängulär,RxJS,Typescript,Ninjä</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> locales: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> noTitleWords: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> = NO_CAP_WORDS</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Locales to pass for string formatting</p>
+										<p>A list of words to exclude from making a title word</p>
 									</div>
 								</li>
 								<li>
 									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> separator: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = &quot; &quot;</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Separator if the string isn&#39;t using space characters</p>
+										<p>Optional separator to use when joining each word</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> locales: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">
+										<p>Locales for string formatting</p>
 									</div>
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>String that is titleized with custom separator</p>
+							<p>Observable that emits a titilzed string</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/src/lib/titleize.ts#L46">
-											libs/rxjs/string/src/lib/titleize.ts:46
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/src/lib/titleize.ts#L60">
+											libs/rxjs/string/src/lib/titleize.ts:60
 										</a>
 									</li>
 								</ul>
@@ -2010,22 +2049,18 @@
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>toLowerCase</code> operator can be used with an <a href="https://rxjs.dev/api/index/class/%5BObservable%5D(https://rxjs.dev/api/index/class/Observable)"><a href="https://rxjs.dev/api/index/class/Observable">Observable</a></a> string
-									value and returns a string changed to all lower case characters</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a string where the source string is passed through <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase">String.toLocaleLowerCase</a></p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>This operator is based on both <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype">String.prototype</a>.toLocaleLowerCase</a>
-									rather than <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase">toLowerCase</a> as this provides support
-								for localisation of string</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromString(<span class="hljs-string">&#x27;APPLE&#x27;</span>)
- .pipe(toLowerCase())
- subscribe(); <span class="hljs-comment">// &#x27;apple&#x27;</span></code></pre>
+									<dd class="tds-tag-example"><p>Returns an lower case string</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">of</span>(<span class="hljs-string">&#x27;APPLE&#x27;</span>).pipe(toLowerCase()).subscribe();</code></pre>
+										<p>Output: <code>&#39;apple&#39;</code></p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromString(<span class="hljs-string">&#x27;ÄPFEL&#x27;</span>)
- .pipe(toLowerCase(<span class="hljs-string">&#x27;de-DE&#x27;</span>))
- subscribe(); <span class="hljs-comment">// &#x27;äpfel&#x27;</span></code></pre>
+									<dd class="tds-tag-example"><ul>
+											<li>Returns an lower case string with locale<pre><code class="language-ts"><span class="hljs-keyword">of</span>(<span class="hljs-string">&#x27;ÄPFEL&#x27;</span>).pipe(toLowerCase(<span class="hljs-string">&#x27;de-DE&#x27;</span>)).subscribe();</code></pre>
+											Output: <code>&#39;äpfel&#39;</code></li>
+										</ul>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2038,12 +2073,12 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>String that is converted to lower case with passed locale</p>
+							<p>Observable that emits a lower case string</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/src/lib/to-lower-case.ts#L35">
-											libs/rxjs/string/src/lib/to-lower-case.ts:35
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/src/lib/to-lower-case.ts#L31">
+											libs/rxjs/string/src/lib/to-lower-case.ts:31
 										</a>
 									</li>
 								</ul>
@@ -2061,22 +2096,17 @@
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>The <code>toUpperCase</code> operator can be used with an <a href="https://rxjs.dev/api/index/class/%5BObservable%5D(https://rxjs.dev/api/index/class/Observable)"><a href="https://rxjs.dev/api/index/class/Observable">Observable</a></a> string
-									value and returns a string changed to all upper case characters</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a string where the source string is passed through <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleLowerCase">String.toLocaleLowerCase</a></p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
-								<p>This operator is based on both <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLocaleUpperCase"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype">String.prototype</a>.toLocaleUpperCase</a>
-									rather than <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase">toUpperCase</a> as this provides support
-								for localisation of string</p>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromString(<span class="hljs-string">&#x27;apple&#x27;</span>)
- .pipe(toUpperCase())
- subscribe(); <span class="hljs-comment">// &#x27;APPLE&#x27;</span></code></pre>
+									<dd class="tds-tag-example"><p>Returns an upper case string</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">of</span>(<span class="hljs-string">&#x27;apple&#x27;</span>).pipe(toUpperCase()).subscribe();</code></pre>
+										<p>Output: <code>&#39;APPLE&#39;</code></p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><pre><code class="language-ts">fromString(<span class="hljs-string">&#x27;äpfel&#x27;</span>)
- .pipe(toUpperCase(<span class="hljs-string">&#x27;de-DE&#x27;</span>))
- subscribe(); <span class="hljs-comment">// &#x27;ÄPFEL&#x27;</span></code></pre>
+									<dd class="tds-tag-example"><p>Returns an lower case string with locale</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">of</span>(<span class="hljs-string">&#x27;äpfel&#x27;</span>).pipe(toUpperCase(<span class="hljs-string">&#x27;de-DE&#x27;</span>)).subscribe();</code></pre>
+										<p>Output: <code>&#39;ÄPFEL&#39;</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -2089,12 +2119,12 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>String that is converted to upper case with passed locale</p>
+							<p>Observable that emits a lower case string</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/src/lib/to-upper-case.ts#L35">
-											libs/rxjs/string/src/lib/to-upper-case.ts:35
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/src/lib/to-upper-case.ts#L31">
+											libs/rxjs/string/src/lib/to-upper-case.ts:31
 										</a>
 									</li>
 								</ul>
@@ -2212,7 +2242,7 @@
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 12/21/2020 at 2:11:25 AM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 12/21/2020 at 12:16:05 PM</p>
 			</div>
 		</div>
 	</div>

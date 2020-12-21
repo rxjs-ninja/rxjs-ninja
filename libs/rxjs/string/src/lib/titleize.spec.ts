@@ -1,5 +1,6 @@
 import { titleize } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
+import { NO_CAP_WORDS } from 'libs/rxjs/string/src/lib/titleize';
 
 describe('titleize', () => {
   it(
@@ -7,7 +8,7 @@ describe('titleize', () => {
     marbles((m) => {
       const input = m.hot('-a-|', { a: 'Mary had a little lamb' });
       const subs = '^--!';
-      const expected = m.cold('-z-|', { z: 'Mary Had A Little Lamb' });
+      const expected = m.cold('-z-|', { z: 'Mary Had a Little Lamb' });
       m.expect(input.pipe(titleize())).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
@@ -18,8 +19,8 @@ describe('titleize', () => {
     marbles((m) => {
       const input = m.hot('-a-|', { a: 'Mary had ä little lamb' });
       const subs = '^--!';
-      const expected = m.cold('-z-|', { z: 'Mary Had Ä Little Lamb' });
-      m.expect(input.pipe(titleize('de-DE'))).toBeObservable(expected);
+      const expected = m.cold('-z-|', { z: 'Mary Had ä Little Lamb' });
+      m.expect(input.pipe(titleize([...NO_CAP_WORDS, 'ä'], undefined, 'de-DE'))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
@@ -29,8 +30,8 @@ describe('titleize', () => {
     marbles((m) => {
       const input = m.hot('-a-|', { a: 'Mary-had-ä-little-lamb' });
       const subs = '^--!';
-      const expected = m.cold('-z-|', { z: 'Mary-Had-Ä-Little-Lamb' });
-      m.expect(input.pipe(titleize('de-DE', '-'))).toBeObservable(expected);
+      const expected = m.cold('-z-|', { z: 'Mary-Had-ä-Little-Lamb' });
+      m.expect(input.pipe(titleize([...NO_CAP_WORDS, 'ä'], '-', 'de-DE'))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

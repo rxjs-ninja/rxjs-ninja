@@ -38,7 +38,7 @@ export { slice } from './lib/slice';
 export { split } from './lib/split';
 export { startsWith } from './lib/starts-with';
 export { substring } from './lib/substring';
-export { titleize } from './lib/titleize';
+export { titleize, NO_CAP_WORDS } from './lib/titleize';
 export { toLowerCase } from './lib/to-lower-case';
 export { toUpperCase } from './lib/to-upper-case';
 export { trim, trimStart, trimEnd, trimStart as trimLeft, trimEnd as trimRight } from './lib/trim-string';

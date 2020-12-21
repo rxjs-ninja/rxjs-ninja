@@ -1,6 +1,5 @@
-import { titleize } from '@rxjs-ninja/rxjs-string';
+import { titleize, NO_CAP_WORDS } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
-import { NO_CAP_WORDS } from 'libs/rxjs/string/src/lib/titleize';
 
 describe('titleize', () => {
   it(

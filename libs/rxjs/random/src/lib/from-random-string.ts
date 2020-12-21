@@ -42,7 +42,7 @@ export function fromRandomStr(length = 10, emitDelay = 0, opts = RND_STR_DEFAULT
     timer(0, emitDelay)
       .pipe(
         takeWhile(() => !subscriber.closed),
-        map((value) => [...Array(length)].map(() => seedArray[(Math.random() * seedArray.length) | 0]).join('')),
+        map(() => [...Array(length)].map(() => seedArray[(Math.random() * seedArray.length) | 0]).join('')),
         tap((value) => subscriber.next(value)),
         finalize(() => subscriber.complete()),
       )

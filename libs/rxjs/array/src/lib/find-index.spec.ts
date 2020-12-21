@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles';
-import { find, findIndex } from '@rxjs-ninja/rxjs-array';
+import { findIndex } from '@rxjs-ninja/rxjs-array';
 
 describe('findIndex', () => {
   it(

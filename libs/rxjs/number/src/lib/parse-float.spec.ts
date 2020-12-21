@@ -1,4 +1,4 @@
-import { parseFloat, parseInt } from '@rxjs-ninja/rxjs-number';
+import { parseFloat } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('parseFloat', () => {

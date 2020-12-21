@@ -4,7 +4,7 @@
  */
 import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { CallbackFn, PredicateFn } from '../types/utility';
-import { switchMap, tap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 /**
  * Perform a side effect for every emit from the source Observable that passes the [[PredicateFn]], return an Observable

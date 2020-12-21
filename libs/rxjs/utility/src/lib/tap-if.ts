@@ -36,7 +36,9 @@ export function tapIf<T extends unknown>(
 ): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>) =>
     source.pipe(
-      tap((value) => predicate(value) && callback(value)),
-      switchMap(() => source),
+      switchMap((value) => {
+        predicate(value) && callback(value);
+        return source;
+      }),
     );
 }

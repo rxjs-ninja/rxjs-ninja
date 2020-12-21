@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Utility
  */
-
+/* istanbul ignore file */
 import { fromEvent, Observable, Subject } from 'rxjs';
 import { map, scan, takeUntil, takeWhile } from 'rxjs/operators';
 

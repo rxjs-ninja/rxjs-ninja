@@ -18,7 +18,7 @@ import { CallbackFn } from '../types/utility';
  *
  * @example
  * ```ts
- * form.valueChange.pipe(tapOnStart(() => this.onTouch())).subscribe();
+ * form.valueChange.pipe(tapOnFirstEmit(() => this.onTouch())).subscribe();
  * ```
  *
  * @example
@@ -27,13 +27,13 @@ import { CallbackFn } from '../types/utility';
  * const input = ['Hello', 'RxJS', 'Ninja'];
  * const echoValue = value => `First value is ${value}`;
  *
- * from(input).pipe(tapOnStart(echoValue)).subscribe();
+ * from(input).pipe(tapOnFirstEmit(echoValue)).subscribe();
  * ```
  * Output: `Hello`
  *
  * @returns Observable that emits the source observable after performing a side effect
  */
-export function tapOnStart<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
+export function tapOnFirstEmit<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>) =>
     source.pipe(
       take(1),

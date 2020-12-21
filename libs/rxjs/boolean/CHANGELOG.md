@@ -7,10 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Updated
+
+This release contains a major update to documentation and examples on [rxjs.ninja](https://rxjs.ninja) and improved test
+coverage that provided various bug fixes.
+
+### Added
+
+- `toBoolean` operator that will try to convert a source value to a boolean
+
 ### Changed
 
-- `fromBoolean` accepts any value type again that casts to a `Boolean` true or false
-- Various bug fixes and documentation improvements
+- `fromBoolean` accepts any value type again that casts to a `Boolean` true or false and also now accepts Observable and Promise-based values.
+- `filterTruthy` `firstTruthy` and `lastTruthy` now only return truthy values when using a predicate
 
 ## [2.1.2] - 2020-11-22
 

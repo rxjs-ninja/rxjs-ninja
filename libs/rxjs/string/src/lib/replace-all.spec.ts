@@ -1,7 +1,7 @@
 import { replaceAll } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
 
-xdescribe('replaceAll', () => {
+describe('replaceAll', () => {
   it(
     'should replace a string with the passed string pattern',
     marbles((m) => {

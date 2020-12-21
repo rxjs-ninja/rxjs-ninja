@@ -7,34 +7,50 @@ import { filter } from 'rxjs/operators';
 import { PredicateFn } from '../types/boolean';
 
 /**
- * The `filterTruthy` operator is used to only return truthy values from an
- * [Observable](https://rxjs.dev/api/index/class/Observable) stream of values
+ * Returns an Observable that emits only truthy values from a source
  *
- * @typeParam T Observable value
+ * @category Boolean Filters
  *
- * @param predicate Optional predicate method to provide to filter
+ * @typeParam T The value contained in the source Observable
+ *
+ * @param predicate Optional [[PredicateFn]] function to compared the values against
  *
  * @example
+ * Returns a string value from a source where the string is truthy
  * ```ts
- * from(['', 'test1', '', 'test2', ''])
- *  .pipe(filterTruthy())
- *  .subscribe(console.log) // ['test1', 'test2']
+ * const input = ['', 'RxJS', '', 'Ninja', ''];
+ * from(input).pipe(filterTruthy()).subscribe();
  * ```
+ * Output: `'RxJS', 'Ninja'`
+ *
  * @example
+ * Returns a string value from a source where the string passes the predicate
  * ```ts
- * const isEven = (num: number) => num % 2 === 0
- *
- * from([0, 1, 2, 3, 4, 5])
- *  .pipe(filterTruthy(item => isEven(item)))
- *  .subscribe(console.log) // [0, 2, 4]
+ * const input = ['', 'RxJS', '', 'Ninja', ''];
+ * from(input).pipe(filterTruthy(v => v.length < 5 )).subscribe();
  * ```
+ * Output: `'RxJS'`
  *
- * @returns All values that are truthy only
- * @category RxJS Boolean Filters
+ * @example
+ * Returns a number value from a source where the number is truthy
+ * ```ts
+ * const input = [0, 1, 2, 3, 4, 5, 6];
+ * from(input).pipe(filterTruthy()).subscribe();
+ * ```
+ * Output: `2, 4`
+ *
+ * @example
+ * Returns a number value from a source where the number passes the predicate
+ * ```ts
+ * const mod3 = (num: number) => num % 3 === 0
+ * const input = [0, 1, 2, 3, 4, 5, 6];
+ * from(input).pipe(filterTruthy(mod3)).subscribe();
+ * ```
+ * Output: `3, 6`
+ *
+ * @returns Observable that emits only truthy values or values that pass the optional [[PredicateFn]]
  */
-export function filterTruthy<T = unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
-  if (predicate) {
-    return (source: Observable<T>) => source.pipe(filter((value) => predicate(value)));
-  }
-  return (source: Observable<T>) => source.pipe(filter<T>(Boolean));
+export function filterTruthy<T extends unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
+  return (source: Observable<T>) =>
+    source.pipe(filter((value) => (predicate ? Boolean(value) && predicate(value) : Boolean(value))));
 }

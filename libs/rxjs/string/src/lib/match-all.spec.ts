@@ -12,7 +12,13 @@ describe('matchAll', () => {
       m.expect(
         input.pipe(
           matchAll(/t(e)(st(\d?))/g),
-          map((val) => (val ? val.toString() : null)),
+          map((value) => {
+            const result = [];
+            for (const v of value) {
+              result.push(v);
+            }
+            return result.toString();
+          }),
         ),
       ).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);

@@ -2,34 +2,39 @@
  * @packageDocumentation
  * @module Utility
  */
-import { MonoTypeOperatorFunction, Observable, defer } from 'rxjs';
+import { defer, MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { CallbackFn } from '../types/utility';
+import { switchMap, take, tap } from 'rxjs/operators';
 
 /**
- * Operator that is executed on each subscription to an [Observable](https://rxjs.dev/api/index/class/Observable)
- * The operator is passed a callback which is then executed
+ * Perform a side effect for every subscription to the source Observable and return an Observable that is identical to
+ * the source.
  *
- * @remarks
- * This is similar to the [tap](https://rxjs.dev/api/operators/tap) operator but fires when a subscription occurs
+ * @category Side Effects
  *
- * @typeParam T The value type of the [Observable](https://rxjs.dev/api/index/class/Observable)
+ * @typeParam T The value type of the source
  *
- * @param callback The callback to be executed when this operator is run
+ * @param callback [[CallbackFn]] to be executed when this operator is run
  *
  * @example
+ * Perform a side effect on every new subscription to a source
  * ```ts
- * fromEvent(element, 'click').pipe(
- *  tapOnSubscribe(() => console.log('New Subscription'))
- * ).subscribe()
- * ```
+ * const onClick$ = fromEvent(element, 'click').pipe(tapOnSubscribe(( ) => console.log('New Subscription')));
  *
- * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T
- * @category RxJS Observable Utilities
+ * onClick$.subscribe();
+ * onClick$.subscribe();
+ * ```
+ * Output: `'New Subscription', 'New Subscription'`
+ *
+ * @returns Observable that emits the source observable after performing a side effect
  */
-export function tapOnSubscribe<T extends unknown>(callback: CallbackFn): MonoTypeOperatorFunction<T> {
+export function tapOnSubscribe<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>): Observable<T> =>
-    defer(() => {
-      callback();
-      return source;
-    });
+    defer(() =>
+      source.pipe(
+        take(1),
+        tap(callback),
+        switchMap(() => source),
+      ),
+    );
 }

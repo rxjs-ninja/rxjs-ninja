@@ -2,32 +2,66 @@
  * @packageDocumentation
  * @module String
  */
-import { Observable } from 'rxjs';
-import { subscribeToCharCode } from '../utils/from-char-code.utils';
+import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { isPromise } from 'rxjs/internal-compatibility';
 
 /**
- * The `fromCharCode` operator is used to create an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * from a number or number array of code points using
- * [String.fromCharCode](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/fromCharCode)
+ * Returns an Observable that emits a string made from character codes using String.fromCharCode
  *
- * Unlike the [from](https://rxjs.dev/api/index/function/from) operator when passing an array of numbers to
- * this operator it will generate a single string from the passed arguments
+ * @remarks This operator will emit a single string for all input passed including arrays
  *
- * @param input A char code number to turn into a string
+ * @see The [[mapCharCode]] operator can be used to map an Observable source of char codes to strings
  *
- * @example
- * ```ts
- * fromCharCode(65).subscribe(console.log) // 'A'
- * ```
+ * @category String Observables
+ *
+ * @param charCodes Observable input, Promise, Array or argument list of character codes
  *
  * @example
+ * Return a string from character code arguments
  * ```ts
- * fromCharCode([65, 66, 67, 68]).subscribe(console.log) // 'ABCD'
+ * fromCharCode(82, 120, 74, 83).subscribe();
  * ```
+ * Output: `RxJS`
  *
- * @returns String from an an array of character codes
- * @category RxJS String Creation
+ * @example
+ * Return a string from character code array
+ * ```ts
+ * fromCharCode([82, 120, 74, 83]).subscribe();
+ * ```
+ * Output: `RxJS`
+ *
+ * @example
+ * Return a string from character code Observable
+ * ```ts
+ * fromCharCode(of([82, 120, 74, 83]).subscribe();
+ * ```
+ * Output: `RxJS`
+ *
+ * @returns Observable that emits a string
  */
-export function fromCharCode(input: number | number[]): Observable<string> {
-  return new Observable<string>(subscribeToCharCode(input));
+export function fromCharCode<
+  T extends ObservableInput<number | number[]> | PromiseLike<number | number[]> | number | number[]
+>(...charCodes: T[]): Observable<string> {
+  if (isObservable(charCodes[0])) {
+    return ((charCodes[0] as never) as Observable<number[]>).pipe(map((input) => String.fromCharCode(...input)));
+  } else if (isPromise(charCodes[0])) {
+    return new Observable<string>((subscriber: Subscriber<unknown>): void => {
+      ((charCodes[0] as never) as Promise<number[]>).then(
+        (input) => {
+          if (!subscriber.closed) {
+            subscriber.next(String.fromCharCode(...input));
+            subscriber.complete();
+          }
+        },
+        (err) => subscriber.error(err),
+      );
+    });
+  } else {
+    const value = Array.isArray(charCodes[0]) ? (charCodes[0] as number[]) : ([...charCodes] as number[]);
+    return new Observable<string>((subscriber: Subscriber<string>): void => {
+      subscriber.next(String.fromCharCode(...value));
+      subscriber.complete();
+    });
+  }
 }

@@ -6,47 +6,37 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * The `filterOutOfRange` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs.dev/api/index/class/Observable) number and will return the number
- * value if the number is outside a min/max value range. The optional `includeBoundingParameters` parameter allows
- * the min and max values to be excluded.
+ * Returns an Observable that emits numbers, where that number falls outside the provided `min` and `max` values.
+ * When filtering in range, the range numbers are excluded in the filter - to include them set `includeBounds` to `true`.
  *
- * - If you want to get the boolean value of a number being inside a range of min/max use [[inRange]] operator instead
- * - If you want the number value being outside a range of min/max use the [[filterOutOfRange]] operator instead
+ * @category Number Filter
  *
- * If `includeBoundingParameters` is set to `true`, the range will include the actual `min` and `max` values
- * by using `>= || <=` as it's equality match
+ * @see The [[inRange]] operator returns a boolean value instead of the number
+ * @see The [[filterOutOfRange]] can be used to get numbers that fall outside the `min` and `max` range
  *
- * The default value is `false` and will use a `> || <` equality match
- *
- * @param min The minimum number for the range
- * @param max The maximum number for the range
- * @param includeBoundingParameters If bounding values should be excluded
+ * @param min The minimum range value
+ * @param max The maximum range value
+ * @param includeBounds Optionally include the `min` and `max` values in the Observable
  *
  * @example
+ * Returns values outside the `min` and `max` range
  * ```ts
- * fromNumber([-1, 0, 1, 2, 10, 11])
- *  .pipe(filterOutOfRange(0, 10))
- *  .subscribe(console.log) // [-1, 11]
+ * const input = [-10, -2.3, 0, 1, 2, 3.14, 4.2, 10, 11, 42];
+ * from(input).pipe(filterOutOfRange(0, 10)).subscribe();
  * ```
+ * Output: `-10, -2.3, 11, 42`
  *
  * @example
+ * Returns values outside and including the `min` and `max` range
  * ```ts
- * fromNumber([-1, 0, 1, 2, 10, 11])
- *  .pipe(filterOutOfRange(0, 10, true))
- *  .subscribe(console.log) // [-1, 0, 10, 11]
+ * const input = [-10, -2.3, 0, 1, 2, 3.14, 4.2, 10, 11, 42];
+ * from(input).pipe(filterOutOfRange(0, 10, true)).subscribe();
  * ```
+ * Output: `-10, -2.3, 0, 10, 11, 42`
  *
- * @returns Number value if the number falls outside the `min/max` range
- * @category RxJS Number Filter
+ * @returns Observable that emits a number that falls outside the `min` and `max` ranges
  */
-export function filterOutOfRange(
-  min: number,
-  max: number,
-  includeBoundingParameters?: boolean,
-): MonoTypeOperatorFunction<number> {
+export function filterOutOfRange(min: number, max: number, includeBounds?: boolean): MonoTypeOperatorFunction<number> {
   return (source: Observable<number>) =>
-    source.pipe(
-      filter((value) => (includeBoundingParameters ? value <= min || value >= max : value < min || value > max)),
-    );
+    source.pipe(filter((value) => (includeBounds ? value <= min || value >= max : value < min || value > max)));
 }

@@ -180,6 +180,4 @@ inputObs$.subscribe(); // This will tab on every subscribe
 
 #### Additional Information
 
-_This library was formally knows as RxJS Primitives published under the `@tinynodes` npm domain._
-
 - Logo created by [DesignEvo logo maker](https://www.designevo.com/logo-maker/)

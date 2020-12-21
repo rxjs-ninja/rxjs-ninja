@@ -6,30 +6,30 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `lastIndexOf` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns the index number of the string passed, with optional from index
- * Based on [String.prototype.lastIndexOf](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/lastIndexOf)
+ * Returns an Observable that emits a number of the last index from the source string where the search string begins
+ * using String.lastIndexOf
  *
- * @param searchStr The value to search for in the string
- * @param fromIndex The index of the last character in the string to be considered as the beginning of a match.
+ * @category String Query
  *
- * @example
- * ```ts
- * fromString('foobar barfoo')
- *  .pipe(lastIndexOf('foo'))
- *  .subscribe(console.log) // 10
- * ```
+ * @param searchStr The string to search in the source string
+ * @param lastIndex The index of the last character in the string to search up to
  *
  * @example
+ * Returns the first index of `RxJS` in the string
  * ```ts
- * fromString('foobar barfoo')
- *  .pipe(indexOf('foo', 2))
- *  .subscribe(console.log) // 0
+ * of('Hello RxJS Ninja, RxJS Rocks').pipe(lastIndexOf('RxJS')).subscribe();
  * ```
+ * Output: `18`
  *
- * @returns Index of the location where the string starts
- * @category RxJS String Query
+ * @example
+ * Returns the first index of `RxJS` in the string, ending at index `15`
+ * ```ts
+ * of('Hello RxJS Ninja, RxJS Rocks').pipe(lastIndexOf('RxJS', 15)).subscribe();
+ * ```
+ * Output: `6`
+ *
+ * @returns Observable that emits a number that is the last index of the search string in the source string
  */
-export function lastIndexOf(searchStr: string, fromIndex?: number): OperatorFunction<string, number> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.lastIndexOf(searchStr, fromIndex)));
+export function lastIndexOf(searchStr: string, lastIndex?: number): OperatorFunction<string, number> {
+  return (source: Observable<string>) => source.pipe(map((value) => value.lastIndexOf(searchStr, lastIndex)));
 }

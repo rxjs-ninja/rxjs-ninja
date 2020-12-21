@@ -5,6 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Updated
+
+This release contains a major update to documentation and examples on [rxjs.ninja](https://rxjs.ninja) and improved test
+coverage that provided various bug fixes.
+
+### Changed
+
+- `fromRandomCrypto` now returns a random result from the array of randomly generated numbers
+- `fromRandomString` now only excludes special characters from it's default settings
+
 ## [1.1.1] - 2020-11-22
 
 ### Changed
@@ -15,7 +27,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - This package is now released under `@rxjs-ninja/rxjs-random`
 - `fromRandomCrypto` now takes an additional third parameter with `FromRandomCryptoOpts` which allows
-for `1 & 2 byte` values and unsigned values. 
+  for `1 & 2 byte` values and unsigned values.
 
 ## [1.0.1] - 2020-11-20
 

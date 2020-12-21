@@ -2,36 +2,68 @@
  * @packageDocumentation
  * @module Number
  */
-import { Observable } from 'rxjs';
-import { subscribeToSingleOrArrayNumber } from '../utils/from-number';
+import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
+import { isPromise } from 'rxjs/internal-compatibility';
 
 /**
- * The `fromNumber` operator is used to create an [Observable](https://rxjs.dev/api/index/class/Observable) using a number
- * or array of numbers. The Observable can be subscribed to, which will emit one or more numbers.
+ * Returns an Observable that emits numbers from an an arguments list or array of number values
  *
- * Using `fromNumber` with an array of numbers is functionally similar to the RxSJ
- * [from](https://rxjs.dev/api/index/function/from) operator - each number in the array will emit a value
- * to the subscription
+ * @category Number Observables
  *
- * @param source The number or array or numbers to start from
+ * @remarks This is a type-safe version of the RxJS {@link https://rxjs.dev/api/index/function/from|from} operator that
+ *   only accepts numbers as input
  *
- * @example
- * ```ts
- * fromNumber(6)
- *  .pipe(map(val => val * 7))
- *  .subscribe(console.log) // 42
- * ```
+ * @param args Numbers to emit from the Observable as arguments or an array
  *
  * @example
+ * Returns an observable from a single number and multiply the value
  * ```ts
- * fromNumber([1, 2, 3])
- *  .pipe(reduce((acc, val) => acc + val))
- *  .subscribe(console.log) // 6
+ * fromNumber(6).pipe(map(val => val * 7)).subscribe();
  * ```
+ * Output: `42`
  *
- * @returns Observable created from the input array of numbers
- * @category RxJS Number Observables
+ * @example
+ * Returns an Observable from an argument list of numbers and reduce the values
+ * ```ts
+ * fromNumber(1, 2, 3, 4).pipe(reduce((acc, val) => acc + val)).subscribe();
+ * ```
+ * Output: `10`
+ *
+ * @example
+ * Returns an Observable from an array of numbers and reduce the values
+ * ```ts
+ * const input = [1, 2, 3, 4];
+ * fromNumber(input).pipe(reduce((acc, val) => acc + val)).subscribe();
+ * ```
+ * Output: `10`
+ *
+ * @returns Observable that emits numbers passed from arguments or array
  */
-export function fromNumber(source: number | number[]): Observable<number> {
-  return new Observable<number>(subscribeToSingleOrArrayNumber(source));
+export function fromNumber<T extends ObservableInput<number> | PromiseLike<number> | number | number[]>(
+  ...args: T[]
+): Observable<number> {
+  if (isObservable(args[0])) {
+    return (args[0] as never) as Observable<number>;
+  } else if (isPromise(args[0])) {
+    return new Observable<number>((subscriber: Subscriber<unknown>): void => {
+      ((args[0] as never) as Promise<T>).then(
+        (value) => {
+          if (!subscriber.closed) {
+            subscriber.next(value);
+            subscriber.complete();
+          }
+        },
+        (err) => subscriber.error(err),
+      );
+    });
+  } else {
+    const value = Array.isArray(args[0]) ? (args[0] as number[]) : ([...args] as number[]);
+
+    return new Observable<number>((subscriber: Subscriber<number>): void => {
+      for (let i = 0; i < value.length; i++) {
+        subscriber.next(value[i]);
+      }
+      subscriber.complete();
+    });
+  }
 }

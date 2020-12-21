@@ -7,40 +7,38 @@ import { CallbackFn, PredicateFn } from '../types/utility';
 import { switchMap } from 'rxjs/operators';
 
 /**
- * Operator that calls the passed callback when the value of an [Observable](https://rxjs.dev/api/index/class/Observable)
- * provides a truthy value for the passed predicate,
+ * Perform a side effect for every emit from the source Observable that passes the [[PredicateFn]], return an Observable
+ * that is identical to the source.
  *
- * @remarks
- * This is similar to the [tap](https://rxjs.dev/api/operators/tap) operator but only executes
- * when the predicate result is truthy
+ * @category Side Effects
  *
- * @typeParam T The value type of the [Observable](https://rxjs.dev/api/index/class/Observable)
+ * @typeParam T The value type of the source
  *
- * @param predicate Function that provides an equality a boolean result for the passed value
- * @param callback The callback to be executed when this operator is run
+ * @param predicate [[PredicateFn]] function to compared the values against
+ * @param callback [[CallbackFn]] to be executed when this operator is run
  *
  * @example
+ * Perform a side effect when the value is `mod2`
  * ```ts
- * const predicate = (value: string) => value === 'test';
+ * const predicateFn = (value: number) => value % 2 === 0;
+ * const callbackFn = (value: number) => `${value} is mod2`)
  *
- * of('test')
- * .pipe(tapIf(predicate, (value: string) => console.log(`The value is test`)))
- * .subscribe(console.log) // 'test'
+ * const input = [1, 2, 3, 4, 5, 6];
+ * from(input).pipe(tapIf(predicateFn, callbackFn).subscribe();
  * ```
+ * Output: `'2 is mod2', '4 is mod2', '6 is mod2'`
  *
- * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T
- * @category RxJS Observable Utilities
+ * @returns Observable that emits the source observable after performing a side effect
  */
-function tapIf<T extends unknown>(predicate: PredicateFn<T>, callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
+export function tapIf<T extends unknown>(
+  predicate: PredicateFn<T>,
+  callback: CallbackFn<T>,
+): MonoTypeOperatorFunction<T> {
   return (source: Observable<T>) =>
     source.pipe(
       switchMap((value) => {
-        if (predicate(value)) {
-          callback(value);
-        }
+        predicate(value) && callback(value);
         return source;
       }),
     );
 }
-
-export { tapIf };

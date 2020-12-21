@@ -6,24 +6,22 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `isSafeInteger` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs.dev/api/index/class/Observable) number.
+ * Returns an Observable that emits a boolean value when a source number has precision safety using Number.isSafeInteger
  *
- * The operator will return the boolean value based on it passing
- * [Number.isSafeInteger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isSafeInteger)
+ * @category Number Query
  *
- * @remarks
- * If you want to return the numbers from the check use the [[filterIsSafeInteger]] operator instead
+ * @see The [[filterIsSafeInteger]] operator returns the number value
  *
  * @example
+ * Return a boolean if a number does not have percision safety
  * ```ts
- * fromNumber([Math.pow(2, 53), Math.pow(2, 53) - 1])
- *  .pipe(isSafeInteger())
- *  .subscribe(console.log) // [true, false]
+ * // `Math.pow(2, 53)` is not within the safe integer range
+ * const input = [-10, -2.3, 0, 1, 2, 3.14, Math.pow(2, 53) - 1, Math.pow(2, 53), Infinity];
+ * from(input).pipe(isSafeInteger()).subscribe()
  * ```
+ * Output: `true, false, true, true, true, false, true, false, false`
  *
- * @returns A boolean value of the `Number.isSafeInteger` equality check
- * @category RxJS Number Query
+ * @returns Observable that emits a boolean value of a number has precision safety
  */
 export function isSafeInteger(): OperatorFunction<number, boolean> {
   return (source: Observable<number>) => source.pipe(map((value) => Number.isSafeInteger(value)));

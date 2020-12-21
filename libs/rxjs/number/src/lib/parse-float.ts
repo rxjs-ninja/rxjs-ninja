@@ -3,26 +3,34 @@
  * @module Number
  */
 import { Observable, OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 
 /**
- * The `parseFloat` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs.dev/api/index/class/Observable) string.
+ * Returns an Observable that emits a number from a source string using Number.parseFloat.
+ * By default this operator removes `NaN` values but can optionally be set to return them
  *
- * The operator will attempt to convert the string value to a floating point number using
- * [Number.parseFloat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat)
+ * @param returnNaN Optionally return `NaN` values instead of filtering
  *
- *
- * @example
+ * @example Return only parsed number values using base `10`
  * ```ts
- * fromString(['1', '2.8', '3.14'])
- *  .pipe(parseFloat())
- *  .subscribe(console.log) // [1, 2.8, 3.14]
+ * const input = ['RxJS', '-2.3', '0', '1', '2', '3.14', 'Infinity'];
+ * from(input).pipe(parseFloat()).subscribe();
  * ```
+ * Output: `-2.3, 0, 1, 2, 3.14`
  *
- * @returns A number that is parsed from a string using `Number.parseFloat`
- * @category RxJS Number Parsing
+ * @example Return parsed number values and `NaN` values using base `10`
+ * ```ts
+ * const input = ['RxJS', '-2.3', '0', '1', '2', '3.14', 'Infinity'];
+ * from(input).pipe(parseFloat(10, true)).subscribe();
+ * ```
+ * Output: `NaN, -2.3, 0, 1, 2, 3.14, NaN`
+ *
+ * @returns Observable that emits a number from source parsed string, optionally returns `NaN` values
+ * @category Number Parsing
  */
-export function parseFloat(): OperatorFunction<string, number> {
-  return (source: Observable<string>) => source.pipe(map((value) => Number.parseFloat(value)));
+export function parseFloat(returnNaN = false): OperatorFunction<string, number> {
+  return (source: Observable<string>) => {
+    const result$ = source.pipe(map((value) => Number.parseFloat(value)));
+    return returnNaN ? result$ : result$.pipe(filter((value) => !isNaN(value)));
+  };
 }

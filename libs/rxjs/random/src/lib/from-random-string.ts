@@ -4,57 +4,45 @@
  */
 import { Observable, Subscriber, timer } from 'rxjs';
 import { finalize, map, takeWhile, tap } from 'rxjs/operators';
-import { FromRandomStringOpts } from '../types/from-string';
-
-const allUpperCase: string[] = [...'ABCDEFGHIJKLMNOPQRSTUVWXYZ'];
-const allLowerCase: string[] = [...'abcdefghijklmnopqrstuvwxyz'];
-const allSpecialChars: string[] = [...'~!@#$%^&*()_+-=[]{}|;:\'",./<>?'];
-const allNumbers: string[] = [...'0123456789'];
+import { createSeedArray, RND_STR_DEFAULTS } from '../utils/from-random-string';
 
 /**
- * The default options for `fromRandomStr`
- * @type FromRandomStringOpts
- */
-const DEFAULT_OPTIONS: FromRandomStringOpts = {
-  caps: true,
-  lower: true,
-  number: false,
-  special: false,
-};
-
-/**
- * An Observable string value generator that generates random strings of the passed length, if an emit delay is passed
- * it will emit the value once per the time passed
+ * Returns an Observable that emits a string generated at random.
  *
- * By default the string will be made up of upper and lower case characters, to include numbers and special characters
- * pass a [[FromRandomStringOpts]] options object
+ * By default the string will be made up of upper and lower case characters, and numbers.
+ * For special characters pass a [[FromRandomStringOpts]] options object
+ *
+ * @category Random Strings
  *
  * @param length The length of the string to produce
- * @param emitDelay If set the observable will emit per millisecond set, by default this is 0
+ * @param emitDelay Optionally emit each value at the set delay, otherwise emit immediately
  * @param opts Additional options to include other characters and numbers
  *
  * @example
+ * Emit a random string of length `8`
  * ```ts
- * fromRandomStr(5)
- * .pipe(tap(console.log))
- * .subscribe() // 'AgtYb', 'brYgT', 'TLAvf'...
+ * fromRandomStr(5).subscribe();
  * ```
+ * Output: `'A3gtYb76', '0br2YgT6', 'TL184Avf'...`
  *
- * @returns Observable with a stream of random strings
- * @category RxJS Random Observables
+ * @example
+ * Emit a random string of length `8` with special characters every second
+ * ```ts
+ * const options = { caps: true, lower: true, number: true, special: true };
+ * fromRandomStr(8, 1000, options).subscribe();
+ * ```
+ * Output: `'A3g!^b76', '0br2£gT6', 'TL1!4Av$'...`
+ *
+ * @returns Observable that emits a string
  */
-export function fromRandomStr(length = 10, emitDelay = 0, opts = DEFAULT_OPTIONS): Observable<string> {
-  let seedArray: string[] = [];
-  if (opts.caps) seedArray = [...seedArray, ...allUpperCase];
-  if (opts.lower) seedArray = [...seedArray, ...allLowerCase];
-  if (opts.number) seedArray = [...seedArray, ...allNumbers];
-  if (opts.special) seedArray = [...seedArray, ...allSpecialChars];
+export function fromRandomStr(length = 10, emitDelay = 0, opts = RND_STR_DEFAULTS): Observable<string> {
+  const seedArray = createSeedArray(opts);
 
   return new Observable((subscriber: Subscriber<string>) => {
     timer(0, emitDelay)
       .pipe(
         takeWhile(() => !subscriber.closed),
-        map((value) => [...Array(length)].map(() => seedArray[(Math.random() * seedArray.length) | 0]).join('')),
+        map(() => [...Array(length)].map(() => seedArray[(Math.random() * seedArray.length) | 0]).join('')),
         tap((value) => subscriber.next(value)),
         finalize(() => subscriber.complete()),
       )

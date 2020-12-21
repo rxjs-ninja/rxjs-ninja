@@ -4,31 +4,22 @@
  */
 
 /**
- * A predicate function is used with filtering and should return a boolean based on an equality check.
+ * A predicate function is used when you need a boolean check of a value, usually with Array.filter or Array.find
  *
- * Can be used for more complex conditions
- *
- * @typeParam T The type of the value to do an equality check with
- *
- * @example
+ * **Default predicate function:**
  * ```ts
- * const isEvenNumber: PredicateFn<number> = (num: number): boolean => num % 2 === 0
- * ```
- *
- * @example
- * ```ts
- * interface ObjectType {
- *   foo: number,
- *   bar: string
+ * function defaultPredicateFn(item: unknown): boolean {
+ *  return Boolean(item);
  * }
- * const isTheUltimateAnswer: PredicateFn<ObjectType> = (obj: ObjectType): boolean => obj.foo === 42
  * ```
  *
- * @example
- * ```ts
- * const nameIsAfter: PredicateFn<string, string> = (name1: string, name2: string): boolean => name1.localeCompare(name2) === 0
- * ```
+ * @internal
  *
- * @returns Boolean value based on the condition of the function
+ * @typeParam T The type of the value being checked
+ *
+ * @param args The arguments for the function
+ *
+ * @returns A boolean value from the value being checked in the predicate
+ *
  */
 export type PredicateFn<T extends unknown> = (...args: T[]) => boolean;

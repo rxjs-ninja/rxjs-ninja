@@ -6,21 +6,22 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `charCodeAt` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a number of the ASCII code for the character
- * Based on [String.prototype.charCodeAt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charCodeAt)
+ * Returns an Observable that emits a number, the character code of a character at the passed position in a source
+ * string using String.charCodeAt
  *
- * @param position The character position to get a character code from, starts from 0
+ * @category String Query
+ *
+ * @param position The index of the character to return in the source string
+ *
  *
  * @example
+ * Return the character code of the character at index `1`
  * ```ts
- * fromString('abcde')
- *  .pipe(charCodeAt(4))
- *  .subscribe(console.log) // 101
+ * of('RxJS Ninja').pipe(charCodeAt(1)).subscribe();
  * ```
+ * Output: `120`
  *
- * @returns Number of the character code from the passed string position
- * @category RxJS String Query
+ * @returns Observable that emits a number that is a character code
  */
 export function charCodeAt(position: number): OperatorFunction<string, number> {
   return (source: Observable<string>) => source.pipe(map((value) => value.charCodeAt(position)));

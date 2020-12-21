@@ -4,7 +4,7 @@
  */
 
 /**
- * The type of form to normalize a unicode string with, default is 'NFC'
+ * The type of form to normalize a unicode string with String.normalize, default is 'NFC'
  */
 export enum FormType {
   /**

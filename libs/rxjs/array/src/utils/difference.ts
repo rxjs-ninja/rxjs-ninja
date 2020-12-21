@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Array
  */
-import { MapFn, PredicateFn } from '../types/array-compare';
+import { MapFn, PredicateFn } from '../types/generic-methods';
 
 /**
  * Filter an array to find intersecting items with optional predicate method, otherwise
@@ -18,12 +18,9 @@ export function mapDifferenceWith<T = unknown>(input: T[], predicate?: Predicate
   return (value: T[]): T[] =>
     value.filter(
       (sourceValue) =>
-        input.findIndex((checkValue) => {
-          if (predicate) {
-            return predicate(sourceValue, checkValue);
-          }
-          return sourceValue === checkValue;
-        }) === -1,
+        input.findIndex((checkValue) =>
+          predicate ? predicate(sourceValue, checkValue) : sourceValue === checkValue,
+        ) === -1,
     );
 }
 
@@ -41,7 +38,7 @@ export function mapDifference<T = unknown, K = unknown>(
   mutate?: MapFn<T, T | K>,
 ): (value: T[]) => T[] {
   if (mutate) {
-    const checkSet = new Set(checkArray.map<T | K>(mutate));
+    const checkSet = new Set<T | K>(checkArray);
     return (value: T[]) => [...new Set<T>(value)].filter((x) => !checkSet.has(mutate(x)));
   } else {
     const checkSet = new Set(checkArray);

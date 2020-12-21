@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module Utility
+
  */
 import { luhnCheck } from '@rxjs-ninja/rxjs-boolean';
 import { marbles } from 'rxjs-marbles/jest';

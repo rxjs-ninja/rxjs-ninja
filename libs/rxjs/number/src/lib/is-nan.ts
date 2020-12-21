@@ -6,21 +6,21 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `isNaN` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs.dev/api/index/class/Observable) number.
+ * Returns an Observable that emits a boolean value when a source number is a `NaN` value from Number.isNaN.
  *
- * The operator will return the boolean value based on it passing
- * [Number.isNaN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN)
+ * @category Number Query
+ *
+ * @see The [[filterIsNotNaN]] operator returns the number value
  *
  * @example
+ * Return a boolean if a number is a `NaN` value
  * ```ts
- * fromNumber([1, 2, NaN, 4])
- *  .pipe(isNaN())
- *  .subscribe(console.log) // [false, false, true, false]
+ * const input = ['Ninja', 1, 2, NaN, 3.14, undefined];
+ * from(input).pipe(isNaN()).subscribe();
  * ```
+ * Output: `true, false, false, true, false, true`
  *
- * @returns A boolean value of the `Number.isNaN` equality check
- * @category RxJS Number Query
+ * @returns Observable that emits a boolean value of a number being valid or `NaN`
  */
 export function isNaN(): OperatorFunction<number, boolean> {
   return (source: Observable<number>) => source.pipe(map((value) => Number.isNaN(value)));

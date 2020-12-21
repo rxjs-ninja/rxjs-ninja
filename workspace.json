@@ -18,7 +18,8 @@
           "options": {
             "jestConfig": "libs/rxjs/array/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/rxjs/array"]
         },
         "build": {
           "builder": "@nrwl/web:package",
@@ -41,7 +42,8 @@
                 "output": "."
               }
             ]
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         }
       }
     },
@@ -62,7 +64,8 @@
           "options": {
             "jestConfig": "libs/rxjs/boolean/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/rxjs/boolean"]
         },
         "build": {
           "builder": "@nrwl/web:package",
@@ -85,7 +88,8 @@
                 "output": "."
               }
             ]
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         }
       }
     },
@@ -106,7 +110,8 @@
           "options": {
             "jestConfig": "libs/rxjs/number/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/rxjs/number"]
         },
         "build": {
           "builder": "@nrwl/web:package",
@@ -129,7 +134,8 @@
                 "output": "."
               }
             ]
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         }
       }
     },
@@ -150,7 +156,8 @@
           "options": {
             "jestConfig": "libs/rxjs/string/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/rxjs/string"]
         },
         "build": {
           "builder": "@nrwl/web:package",
@@ -173,7 +180,8 @@
                 "output": "."
               }
             ]
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         }
       }
     },
@@ -194,7 +202,8 @@
           "options": {
             "jestConfig": "libs/rxjs/utility/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/rxjs/utility"]
         },
         "build": {
           "builder": "@nrwl/web:package",
@@ -217,7 +226,8 @@
                 "output": "."
               }
             ]
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         }
       }
     },
@@ -238,7 +248,8 @@
           "options": {
             "jestConfig": "libs/rxjs/random/jest.config.js",
             "passWithNoTests": true
-          }
+          },
+          "outputs": ["coverage/libs/rxjs/random"]
         },
         "build": {
           "builder": "@nrwl/web:package",
@@ -261,7 +272,8 @@
                 "output": "."
               }
             ]
-          }
+          },
+          "outputs": ["{options.outputPath}"]
         }
       }
     }

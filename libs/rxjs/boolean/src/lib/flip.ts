@@ -6,17 +6,19 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `flip` operator simply flips a boolean value
+ * Returns an Observable that emits a flipped boolean value from the source value
+ *
+ * @category Boolean Modify
  *
  * @example
+ * Returns flipped boolean values
  * ```ts
- * fromBoolean([false, true, false])
- *  .pipe(flip())
- *  .subscribe() // true, false, true
+ * const input = [false, true, false];
+ * from(input).pipe(flip()).subscribe()
  * ```
+ * Output: `true, false, true`
  *
- * @returns Boolean value flipped from the input
- * @category RxJS Boolean Modify
+ * @returns Observable that emits a boolean where the source Observable value have been flipped
  */
 export function flip(): MonoTypeOperatorFunction<boolean> {
   return (source: Observable<boolean>) => source.pipe(map((value) => !value));

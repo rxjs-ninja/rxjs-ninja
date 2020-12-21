@@ -2,42 +2,39 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { isObservable, MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { concatMap, map } from 'rxjs/operators';
 
 /**
- * The `concat` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns string concatenated with one or more strings passed as arguments
- * This operator is based on [String.prototype.concat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/concat)
+ * Returns an Observable that emits a string that is the source string concatenated with the passed input to the
+ * operator using Sting.concat
  *
- * @param args Additional strings as list of arguments
+ * @category String Modify
  *
- * @example
- * ```ts
- * // With Fixed Arguments
- * fromString('Mary')
- *  .pipe(concat(' ', 'had a little', ' ', 'lamb'))
- *  .subscribe(console.log) // 'Mary had a little lamb'
- * ```
+ * @param args Observable string source, array of strings or argument list of strings
  *
  * @example
+ * Return a string that is a source appended with a list of strings
  * ```ts
- * // With Fixed Array
- * fromString('Mary')
- *  .pipe(concat([' ', 'had a little', ' ', 'lamb']))
- *  .subscribe(console.log) // 'Mary had a little lamb'
+ * of('RxJS').pipe(concat(' ', 'Ninja')).subscribe();
  * ```
+ * Output: `RxJS Ninja`
  *
  * @example
+ * Return a string that is a source appended with a array of strings
  * ```ts
- * // With Observable source
- * fromString('Mary')
- *  .pipe(concat(of([' ', 'had a little', ' ', 'lamb'])))
- *  .subscribe(console.log) // 'Mary had a little lamb'
+ * of('RxJS').pipe(concat([' ', 'Ninja'])).subscribe();
  * ```
+ * Output: `RxJS Ninja`
  *
- * @returns String that is a concatenation of the original string and new values
- * @category RxJS String Creation
+ * @example
+ * Return a string that is a source appended with an Observable string
+ * ```ts
+ * of('RxJS').pipe(concat(of([' ', 'Ninja']))).subscribe();
+ * ```
+ * Output: `RxJS Ninja`
+ *
+ * @returns Observable that emits a string
  */
 export function concat<T extends string | string[] | Observable<string | string[]>>(
   ...args: T[]
@@ -45,10 +42,10 @@ export function concat<T extends string | string[] | Observable<string | string[
   const values: unknown[] = [...args];
   if (values[0] instanceof Array) {
     return (source: Observable<string>) => source.pipe(map((value) => value.concat(...(values[0] as string[]))));
-  } else if (values[0] instanceof Observable) {
+  } else if (isObservable(values[0])) {
     return (source: Observable<string>) =>
       (values[0] as Observable<string[]>).pipe(
-        switchMap((strings: string[]) => source.pipe(map((value) => value.concat(...strings)))),
+        concatMap((strings: string[]) => source.pipe(map((value) => value.concat(...strings)))),
       );
   } else {
     return (source: Observable<string>) => source.pipe(map((value) => value.concat(...(values as string[]))));

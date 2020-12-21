@@ -6,34 +6,33 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `startsWith` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a boolean value if the string of length starts with the passed character
+ * Returns an Observable that emits a boolean when the source string contains the input string at the start of the
+ * source string using String.startsWith
  *
- * Based on [String.prototype.startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
+ * @category String Query
  *
- * @param character The character to check the string ends with
- * @param length Index to use as start of string
+ * @param input The string to check the source string start with
+ * @param startIndex Optional start index to being searching the string from
  *
  * @remarks
  * If you need to get the string value instead of boolean use [[filterStartsWith]]
  *
  * @example
+ * Return a boolean if the source string starts with the passed input
  * ```ts
- * from(['test', 'testing', 'foobar'])
- *  .pipe(endsWith('t'))
- *  .subscribe(console.log) // [true, true, false]
+ * from(['RxJS', 'Ninja', 'Hero']).pipe(startsWith('R')).subscribe();
  * ```
+ * Output: `true, false, false`
  *
  * @example
+ * Return a boolean if the source string starts with the passed input from index `1`
  * ```ts
- * from(['test', 'testing', 'toast'])
- *  .pipe(endsWith('t', 3))
- *  .subscribe(console.log) // [true, true, false]
+ * from(['RxJS', 'Ninja', 'Hero']).pipe(startsWith('x', 1)).subscribe();
  * ```
+ * Output: `true, false, false`
  *
- * @returns Boolean value if the string passes the equality check of [String.prototype.startsWith](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith)
- * @category RxJS String Query
+ * @returns Observable that emits a boolean if the source string start with the input string
  */
-export function startsWith(character: string, length?: number): OperatorFunction<string, boolean> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.startsWith(character, length)));
+export function startsWith(input: string, startIndex?: number): OperatorFunction<string, boolean> {
+  return (source: Observable<string>) => source.pipe(map((value) => value.startsWith(input, startIndex)));
 }

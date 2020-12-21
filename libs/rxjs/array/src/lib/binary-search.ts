@@ -3,96 +3,91 @@
  * @module Array
  */
 import { Observable, OperatorFunction } from 'rxjs';
-import { map, reduce } from 'rxjs/operators';
-import { binarySearcher, defaultSortFn } from '../utils/binary-search';
+import { map } from 'rxjs/operators';
+import { binarySearcher } from '../utils/search';
+import { defaultSortFn } from '../utils/sort';
 import { BinarySearchResult } from '../types/binary-search';
-import { SortFn } from '../types/sort';
+import { SortFn } from '../types/generic-methods';
 
 /**
- * The `binarySearch` operator takes an Observable array of values T and returns a [[BinarySearchResult]]
- * containing the sorted array, search value and index of the search value.
+ * Returns an Observable that emits a [[BinarySearchResult]]. It take a source array and runs a [[SortFn]] over it.
+ * Then it tries to find the the `searchValue` in the array. The `BinarySearchResult` contains the index in the sorted
+ * array, the value searched and the sorted and unsorted array. If not found the index is `-1`.
  *
- * The default sorting method for this search is a basic quality check, if you need more complex sorting such as
- * objects you can pass a sorting method and additional property to search on
+ * @category Array Query
  *
- * @typeParam T The type in the array to search over
- * @typeParam K The type of the value in array item to search
+ * @see {@link https://en.wikipedia.org/wiki/Binary_search_algorithm|Binary search algorithm}
  *
- * @param searchValue The value to search for in the source array
- * @param sort Optional sort method for sorting more complex types
- * @param property Optional property to be searched on, use a number for array index and strings for object keys
+ * @typeParam T The type of the value to search for
+ * @typeParam K The type of the value in the array
  *
- * @remarks
- * When using an additional property, if it's a number the underlying T[] is assumed
- * to be an array. If you have an object with a number property, use a string value
- * instead (e.g. `'5'` instead of `5`)
+ * @param searchValue The value to search for in the array
+ * @param sortFn Optional [[SortFn]] for sorting more complex types
+ * @param property Optional property for searching tuples and objects - if an tuple use a `number` if an `Object` use a
+ *   `string`
  *
  * @example
+ * Return the index of the word `bravo` in the sorted array from a source array
  * ```ts
- * of([1, 4, 7, 2, 5, 6, 3, 8, 10, 9])
- *  .pipe(binarySearch(5), take(1))
- *  .subscribe(console.log) // [4, 5, [1, 2, 3,...]]
+ * const input = ['bravo', 'delta', 'alpha', 'echo', 'charlie'];
+ * of(input).pipe(binarySearch('bravo')).subscribe();
  * ```
+ * Output: `<BinarySearchResult>[1, 'bravo', [...sortedArray], [...searchArray]]`
  *
  * @example
+ * Return the index of the number `30` in the sorted array from the source array
  * ```ts
- * const sort = (a: { val: number }, b: { val: number }) => {
- *  if (a.val === b.val) return 0;
- *  return a.val < b.val ? -1 : 1;
+ * const input = [100, 90, 10, 20, 40, 80, 30, 25];
+ * of(input).pipe(binarySearch(30)).subscribe();
+ * ```
+ * Output: `<BinarySearchResult>[3, 30, [...sortedArray], [...searchArray]]`
+ *
+ * @example
+ * Return the index of the object that has `label` of `Baz`, sorted using an `index` value
+ * ```ts
+ * const input = [
+ *  { index: 5, label: 'Angular' }, { index: 7, label: 'RxJS' },
+ *  { index: 8, label: 'Ninja' }, { index: 10, label: 'TypeScript' },
+ *  { index: 1, label: 'JavaScript' }, { index: 4, label: 'ECMAScript' },
+ * ];
+ * const sortObj = (a:, b) => {
+ *  if (a.index === b.index) return 0;
+ *  return a.index < b.index ? -1 : 1;
  * };
- *
- * of([
- *  { val: 1 }, { val: 4 }, { val: 7 }, { val: 2 }, { val: 5 },
- *  { val: 6 }, { val: 3 }, { val: 8 }, { val: 10 }, { val: 9}
- * ])
- *  .pipe(binarySearch<{ val: number }, number>(5, sort, 'val'), take(1))
- *  .subscribe(console.log)
- *  // [4, 5, [{ val: 1 }, { val: 2}, { val: 3 },...]]
+ * of(input).pipe(binarySearch('Ninja', sortObj, 'label')).subscribe();
  * ```
+ * Output: `<BinarySearchResult>[4, 'Ninja', [...sortedArray], [...searchArray]]`
  *
  * @example
+ * Return the index of the tuple in the array where the value at index `0` is `2`, sorted by the index `1`
  * ```ts
- * from([1, 4, 7, 2, 5, 6, 3, 8, 10, 9])
- *  .pipe(binarySearch(5), take(1))
- *  .subscribe(console.log) // [4, 5, [1, 2, 3,...]]
- * ```
- *
- * @example
- * ```ts
- * const sort = (a: [number, number], b: [number, number]) => {
+ * const input = [
+ *  [1, 1], [2, 4], [3, 7], [4, 2], [5, 5],
+ *  [6, 6], [7, 3], [8, 8], [9, 10], [10, 9]
+ * ];
+ * const sortArray = (a: [number, number], b: [number, number]) => {
  *  if (a[1] === b[1]) return 0;
  *  return a[1] < b[1] ? -1 : 1;
  * };
- *
- * from<[number, number][]>([
- *  [1, 1], [2, 4], [3, 7], [4, 2], [5, 5],
- *  [6, 6], [7, 3], [8, 8], [9, 10], [10, 9]
- * ])
- *  .pipe(binarySearch<[number, number], number>(5, sort, 1), take(1))
- *  .subscribe(console.log)
- *  // [4, 5, [[1, 1], [4, 2], [7, 3],...]]
+ * from(input).pipe(binarySearch(2, sortArray, 0)).subscribe();
  * ```
+ * Output: `<BinarySearchResult>[4, 2, [...sortedArray], [...searchArray]]`
  *
- * @returns [[BinarySearchResult]] containing the sorted array, search value and index
- * @category RxJS Array Search
+ * @returns An Observable that emits a [[BinarySearchResult]]
  */
-export function binarySearch<T = unknown, K = unknown>(
-  searchValue: K | K[],
-  sort?: SortFn,
+export function binarySearch<T extends unknown, K extends T | unknown>(
+  searchValue: T,
+  sortFn?: SortFn<K>,
   property?: string | number,
-): OperatorFunction<T | T[], BinarySearchResult> {
-  const sortFn = sort ? sort : defaultSortFn;
-
-  return (source: Observable<T | T[]>) =>
+): OperatorFunction<K[], BinarySearchResult<T, K>> {
+  return (source: Observable<K[]>) =>
     source.pipe(
-      reduce((acc, val) => {
-        if (Array.isArray(val)) {
-          return [...acc, ...val] as K[];
-        } else {
-          return [...acc, val] as K[];
-        }
-      }, [] as K[]),
-      map((accArray: K[]) => [...accArray].sort(sortFn)),
-      map((sortedArray: K[]) => [binarySearcher(searchValue, sortedArray, property), searchValue, sortedArray]),
+      map((accArray) => [accArray, [...accArray].sort(sortFn || defaultSortFn)]),
+      map(([searchArray, sortedArray]) => [
+        binarySearcher(searchValue, sortedArray, property),
+        searchValue,
+        sortedArray,
+        searchArray,
+      ]),
     );
 }

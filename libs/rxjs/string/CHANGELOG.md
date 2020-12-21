@@ -23,7 +23,6 @@ coverage that provided various bug fixes.
 - `titlize` arguments have changed, now accepts a list of words to exclude first as an array of strings. Ignores this for the first word or capitalised words
 - `concat` now uses `concatMap` instead of `switchMap` when passed an Observable value
 - `fromCharCode`, `fromCodePoint`, `fromString` and `fromUnicode` now accept Observable or Promise-like values
--
 
 ## [3.1.2] - 2020-11-22
 

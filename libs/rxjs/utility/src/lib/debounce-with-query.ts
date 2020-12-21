@@ -10,7 +10,7 @@ import { QueryMethod } from '../types/utility';
  * Returns an Observable value from a remote source where the [[QueryMethod]] returns a result such as a search from
  * a remote location
  *
- * @category Observable Modify
+ * @category General Utility
  *
  * @param time The debounce time before the query method is executed
  * @param queryMethod The method that returns the search

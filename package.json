@@ -63,7 +63,7 @@
     "tslint": "6.1.3",
     "typedoc": "^0.19.2",
     "typedoc-loopingz-theme": "^1.1.0",
-    "typedoc-ninja-theme": "1.0.0-rc.9",
+    "typedoc-ninja-theme": "1.0.0-rc.11",
     "typedoc-plugin-external-module-name": "^4.0.3",
     "typedoc-plugin-extras": "^1.1.7",
     "typedoc-plugin-ghpages-cname": "^1.0.1",

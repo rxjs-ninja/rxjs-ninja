@@ -10,7 +10,7 @@ import { fibonacci } from '../utils/from-fibonacci';
 /**
  * Returns an Observable that emits a sequence of numbers in the Fibonacci sequence, starting from `0`
  *
- * @category Number Observable Generators
+ * @category Number Observables
  *
  * @param iterations The number of iterations to do, must be greater than `0`
  * @param emitDelay If set the observable will emit per millisecond set, by default this is 0

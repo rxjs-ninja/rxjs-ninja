@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
  * Returns an Observable that emits the value from either the `trueResult` or `falseResult` based on the result from
  * the source with a [[PredicateFn]].
  *
- * @category Observable Modify
+ * @category Observable Mapping
  *
  * @remarks Each method can return it's own type which you should handle in later operators
  *

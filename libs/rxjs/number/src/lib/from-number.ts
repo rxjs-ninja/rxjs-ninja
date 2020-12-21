@@ -8,7 +8,7 @@ import { isPromise } from 'rxjs/internal-compatibility';
 /**
  * Returns an Observable that emits numbers from an an arguments list or array of number values
  *
- * @category Number Observable Generators
+ * @category Number Observables
  *
  * @remarks This is a type-safe version of the RxJS {@link https://rxjs.dev/api/index/function/from|from} operator that
  *   only accepts numbers as input

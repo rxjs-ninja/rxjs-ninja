@@ -1,4 +1,7 @@
 /**
+ * Package containing various operators for generating Observables with numbers and filtering, querying and parsing
+ * strings in RxJS
+ *
  * @packageDocumentation
  * @module String
  *
@@ -25,19 +28,19 @@ export { mapCodePoint } from './lib/map-code-point';
 export { match } from './lib/match';
 export { matchAll } from './lib/match-all';
 export { normalize } from './lib/normalize';
-export { padString, padEnd, padStart } from './lib/pad-string';
+export { padEnd, padStart, padStart as padLeft, padEnd as padRight } from './lib/pad-string';
 export { repeat } from './lib/repeat';
 export { replace } from './lib/replace';
+export { replaceAll } from './lib/replace-all';
 export { reverse } from './lib/reverse';
 export { search } from './lib/search';
 export { slice } from './lib/slice';
 export { split } from './lib/split';
 export { startsWith } from './lib/starts-with';
 export { substring } from './lib/substring';
-export { titleize } from './lib/titleize';
+export { titleize, NO_CAP_WORDS } from './lib/titleize';
 export { toLowerCase } from './lib/to-lower-case';
 export { toUpperCase } from './lib/to-upper-case';
-export { trimString, trim, trimLeft, trimRight } from './lib/trim-string';
+export { trim, trimStart, trimEnd, trimStart as trimLeft, trimEnd as trimRight } from './lib/trim-string';
 
-export { PadPosition, TrimPosition } from './types/position';
 export { FormType } from './types/normalize';

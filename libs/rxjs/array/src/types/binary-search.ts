@@ -4,8 +4,26 @@
  */
 
 /**
- * The return tuple for an Array search result, contains the search value, the search array and the index of the search result
+ * The return value of the [[binarySearch]] operator.
  *
- * @typeParam T Type of array items
+ * @typeParam T The type of the value being searched for
+ * @typeParam K The type of value in the search array
  */
-export type BinarySearchResult<T = any> = [index: number, searchValue: T, searchArray: T[]]; // eslint-disable-line
+export type BinarySearchResult<T extends unknown, K extends unknown> = [
+  /**
+   * Index of the first found result in the sorted array
+   */
+  index: number,
+  /**
+   * The value that was searched for in the array
+   */
+  searchValue: T,
+  /**
+   * The sorted array of values
+   */
+  sortedArray: K[],
+  /**
+   * The original unsorted array
+   */
+  searchArray: K[],
+];

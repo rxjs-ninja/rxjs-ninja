@@ -6,31 +6,29 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `substring` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a substring based on the passed start and end value
+ * Returns an Observable that emits a string that is a partial slice of the source string using String.substring
  *
- * This operator is based on [String.prototype.substring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substring)
-
- * @param start Index of the string where to start the substring
- * @param end Optional end index of the substring, if not passed it will use the string length
+ * @category String Modify
  *
- * @example
- * ```ts
- * fromString('Mary had a little lamb')
- *  .pipe(substring(12))
- *  .subscribe(console.log) // 'little lamb'
- * ```
+ * @param indexStart The index of the first character to include in the returned substring.
+ * @param indexEnd Optional The index of the first character to exclude from the returned substring.
  *
  * @example
+ * Return a string from index `0` to `4`
  * ```ts
- * fromString('Mary had a little lamb')
- *  .pipe(substring(0, 4))
- *  .subscribe(console.log) // 'Mary'
+ * of('RxJS Ninja').pipe(substring(0, 4)).subscribe();
  * ```
+ * Output: `RxJS`
  *
- * @returns String that is a substring of the original string
- * @category RxJS String Creation
+ * @example
+ * Return a string from index `5` to the end of the string
+ * ```ts
+ * of('RxJS Ninja').pipe(substring(5)).subscribe();
+ * ```
+ * Output: `Ninja`
+ *
+ * @returns Observable that emits a string that is a substring of the source string
  */
-export function substring(start: number, end?: number): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.substring(start, end)));
+export function substring(indexStart: number, indexEnd?: number): MonoTypeOperatorFunction<string> {
+  return (source: Observable<string>) => source.pipe(map((value) => value.substring(indexStart, indexEnd)));
 }

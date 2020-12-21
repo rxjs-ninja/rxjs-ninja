@@ -3,62 +3,64 @@
  * @module Array
  */
 import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
-import { PredicateFn } from '../types/array-compare';
+import { concatMap, map } from 'rxjs/operators';
+import { PredicateFn } from '../types/generic-methods';
 import { mapDifferenceWith } from '../utils/difference';
 
 /**
- * The `differenceWith` can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) array of values
- * of T, passing in an array or Observable array of values to find the difference between the two. The returned array of
- * values only contains values from the source Observable
+ * Returns an Observable array containing values that are difference between a Observable source array and the passed input array.
  *
- * An optional [[PredicateFn]] can be passed for more complex types, if none is passed a simple comparison (`===`)
- * will be used to determine the difference
+ * @category Array Compare
+ *
+ * @remarks This operator will return duplicate items in arrays
+ *
+ * @see The [[difference]] operator can be used with a mapping method instead of a predicate method
  *
  * @typeParam T Type of item in the input array
  *
- * @param input Observable Array of items use to get the difference between two arrays
- * @param predicate Function for comparison of arrays
+ * @param input An Array or Observable array of values to compare the source Observable array against
+ * @param predicate Optional [[PredicateFn]] function to compared the values against
  *
  * @example
+ * Returns the difference between the source array and the passed static array
  * ```ts
- * of(['a', 'b', 'c', 'd'])
- *  .pipe(differenceWith(['a', 'c']))
- *  .subscribe(console.log) // ['b', 'd']
+ * const input = ['a', 'b', 'd', 'a', 'b'];
+ * of(input).pipe(differenceWith(['a', 'c'])).subscribe();
  * ```
+ * Output: `'b', 'd', 'b'`
  *
  * @example
+ * Returns the difference between the source array and the passed Observable array
  * ```ts
- * of(['a', 'b', 'c', 'd'])
- *  .pipe(differenceWith(of(['a', 'c'])))
- *  .subscribe(console.log) // ['b', 'd']
+ * const input = ['a', 'b', 'd', 'a', 'b'];
+ * of(input).pipe(differenceWith(of(['a', 'c']))).subscribe();
  * ```
+ * Output: `'b', 'd', 'b'`
  *
  * @example
+ * Returns the compared difference between the source array and the passed static array
  * ```ts
- * of(['a', 'b', 'c', 'd'])
- *  .pipe(differenceWith(['A', 'C'], (x, y) => x === y.toLowerCase()))
- *  .subscribe(console.log) // ['b', 'd']
+ * const input = ['a', 'b', 'd', 'a', 'b'];
+ * of(input).pipe(differenceWith(['A', 'C'], (x, y) => x.toUpperCase() === y))).subscribe();
  * ```
+ * Output: `'b', 'd', 'b'`
  *
  * @example
+ * Returns the compared difference between the source array and the passed Observable array
  * ```ts
- * of(['a', 'b', 'c', 'd'])
- *  .pipe(differenceWith(of(['A', 'C']), (x, y) => x === y.toLowerCase()))
- *  .subscribe(console.log) // ['b', 'd']
+ * const input = ['a', 'b', 'd', 'a', 'b'];
+ * of(input).pipe(differenceWith(of(['A', 'C']), (x, y) => x.toUpperCase === y))).subscribe();
  * ```
+ * Output: `'b', 'd', 'b'`
  *
- * @returns Array of values of difference between the source and input array
- * @category RxJS Array Difference
+ * @returns An Observable that emits an Array which contains the difference between Observable source and input array.
  */
-function differenceWith<T = unknown>(
+export function differenceWith<T = unknown>(
   input: T[] | ObservableInput<T[]>,
   predicate?: PredicateFn<T>,
 ): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>
     isObservable<T[]>(input)
-      ? input.pipe(switchMap((inputFromSource) => source.pipe(map(mapDifferenceWith(inputFromSource, predicate)))))
+      ? input.pipe(concatMap((inputFromSource) => source.pipe(map(mapDifferenceWith(inputFromSource, predicate)))))
       : source.pipe(map(mapDifferenceWith(input as T[], predicate)));
 }
-
-export { differenceWith };

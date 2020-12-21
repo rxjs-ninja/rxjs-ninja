@@ -2,30 +2,55 @@
  * @packageDocumentation
  * @module Array
  */
-import { PredicateFn } from '../types/array-compare';
+import { PredicateFn } from '../types/generic-methods';
 import { MonoTypeOperatorFunction } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * The `filterSome` operator returns a boolean value if the array from the observable source has at least one
- * member that passes the passed predicate method
+ * Returns an Observable that emits an array when one of the values in the source array return truthy using Array.some
  *
- * @param predicate Method used to check if array contains a valid member
+ * @category Array Filter
+ *
+ * @see The [[some]] operator returns the boolean value instead of the array
+ *
+ * @param predicate Optional [[PredicateFn]] used to get a truthy value of array values
  *
  * @example
+ * Returns a array where at least one string item in the array is truthy
  * ```ts
- * fromArray([
- *  ['RxJS', 'Rocks']
- *  ['RxJS', 'Ninja'],
- *  ['Foo', 'Bar']
- *]).pipe(
- *  filterSome(v => v === 'RxJS'),
- *).subscribe() // [ ['RxJS', 'Rocks'], ['RxJS', 'Ninja'] ]
+ * const input = [ ['', '', ''], ['', 'Hello', 'RxJS'], ['Hello', 'RxJS', 'Ninja'] ];
+ * from(input).pipe(filterSome()).subscribe();
  * ```
+ * Output: `['', 'Hello', 'RxJS'], ['Hello', 'RxJS', 'Ninja']`
  *
- * @returns Array of values where one value matches the predicate
- * @category RxJS Array Filter
+ * @example
+ * Returns a array where at least string item in the array length `< 4`
+ * ```ts
+ * const input = [ ['', '', ''], ['', 'Foo', 'Bar'], ['Foo', 'Bar', 'Baz'] ];
+ * from(input).pipe(filterEvery(v => v.length < 4)).subscribe();
+ * ```
+ * Output: `['', 'Foo', 'Bar'], ['Foo', 'Bar', 'Baz']`
+ *
+ * @example
+ * Returns a array where at least one number in the array is less than `2`
+ * ```ts
+ * const input = [ [1, 0, 1, 0, 1, 0], [1, 0, 2, 1, 0, 2], [0, 1, 0, 1, 0, 2] ];
+ * from(input).pipe(filterSome(v => v < 2)).subscribe();
+ * ```
+ * Output: `[1, 0, 1, 0, 1, 0], [1, 0, 2, 1, 0, 2], [0, 1, 0, 1, 0, 2]`
+ *
+ * @returns An Observable that emits a boolean when all values in source array return truthy with the [[PredicateFn]]
  */
-export function filterSome<T extends unknown>(predicate: PredicateFn): MonoTypeOperatorFunction<T[]> {
-  return (source) => source.pipe(filter((value) => value.some(predicate)));
+export function filterSome<T extends unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T[]> {
+  return (source) =>
+    source.pipe(
+      filter((value) =>
+        value.some((v) => {
+          if (predicate && typeof v === 'number') {
+            return predicate(v);
+          }
+          return predicate ? Boolean(v) && predicate(v) : Boolean(v);
+        }),
+      ),
+    );
 }

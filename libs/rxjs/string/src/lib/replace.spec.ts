@@ -5,10 +5,10 @@ describe('replace', () => {
   it(
     'should replace a string with the passed string pattern',
     marbles((m) => {
-      const input = m.hot('-a-|', { a: 'Mary had a little lamb' });
+      const input = m.hot('-a-|', { a: 'RxJS Hero, Angular Hero' });
       const subs = '^--!';
-      const expected = m.cold('-z-|', { z: 'Mary had a little dog' });
-      m.expect(input.pipe(replace('lamb', 'dog'))).toBeObservable(expected);
+      const expected = m.cold('-z-|', { z: 'RxJS Ninja, Angular Hero' });
+      m.expect(input.pipe(replace('Hero', 'Ninja'))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
@@ -16,10 +16,10 @@ describe('replace', () => {
   it(
     'should replace a regex pattern with the passed string pattern',
     marbles((m) => {
-      const input = m.hot('-a-|', { a: 'Mary had a little LAMB' });
+      const input = m.hot('-a-|', { a: 'RxJS Hero, Angular Hero' });
       const subs = '^--!';
-      const expected = m.cold('-z-|', { z: 'Mary had a little dog' });
-      m.expect(input.pipe(replace(/lamb/gi, 'dog'))).toBeObservable(expected);
+      const expected = m.cold('-z-|', { z: 'RxJS Ninja, Angular Hero' });
+      m.expect(input.pipe(replace(/(?!\w+\s)(\w+)/, 'Ninja'))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

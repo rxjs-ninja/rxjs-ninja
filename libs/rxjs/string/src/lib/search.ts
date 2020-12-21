@@ -6,24 +6,28 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `search` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns the start index of a search result
+ * Returns an Observable that emits a number that is the first index of where the value is found using String.search
  *
- * This operator is based on [String.prototype.matchAll](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match)
+ * @category String Query
  *
- * @param pattern A RegExp to match in the string
+ * @param pattern A string or RegExp to match in the string
  *
  * @example
+ * Return the first index of `Ninja`
  * ```ts
- * fromString('table football, foosball')
- *  .pipe(matchAll(new RegExp('foo[a-z]*', 'g'))
- *  .subscribe(result => console.log(Array.from(result))) // [ 'football', 'foosball' ]
+ * of('RxJS Ninja, Angular Ninja').pipe(search('Ninja')).subscribe();
  * ```
+ * Output: `5`
  *
- * @returns RegExpMatchArray that contains one or more results from the match
- * @category RxJS String Query
+ * @example
+ * Return the first index of the first found group from the RegExp
+ * ```ts
+ * of('RxJS Ninja, Angular Ninja').pipe(search(/(?!\w+\s)(\w+)/g)).subscribe();
+ * ```
+ * Output: `5`
+ *
+ * @returns Observable that emits an number that is the start index of the first found value
  */
-
 export function search(pattern: string | RegExp): OperatorFunction<string, number> {
   return (source: Observable<string>) => source.pipe(map((value) => value.search(pattern)));
 }

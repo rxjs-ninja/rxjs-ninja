@@ -6,24 +6,21 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * The `filterIsInteger` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs.dev/api/index/class/Observable) number.
+ * Returns an Observable that emits only integer numbers from a source that pass the check of Number.isInteger.
  *
- * The operator will return the number value based on it passing
- * [Number.isInteger](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isInteger)
+ * @category Number Filter
  *
- * @remarks
- * If you want the boolean value instead of the number value use the [[isInteger]] operator instead
+ * @see The [[isInteger]] operator returns a boolean value instead of the number
  *
  * @example
+ * Return only values that are integer values
  * ```ts
- * fromNumber([1, 2, 3.14])
- *  .pipe(filterIsInteger())
- *  .subscribe(console.log) // [1, 2]
+ * const input = [-10, -2.3, 0, 1, 2, 3.14, 4.2, 10, 11, 42];
+ * from(input).pipe(filterIsInteger()).subscribe()
  * ```
+ * Output: `-10, 0, 1, 2, 10, 11, 42`
  *
- * @returns A number value that passes the `Number.isInteger` equality check
- * @category RxJS Number Filter
+ * @returns Observable that emits integer numbers
  */
 export function filterIsInteger(): MonoTypeOperatorFunction<number> {
   return (source: Observable<number>) => source.pipe(filter((value) => Number.isInteger(value)));

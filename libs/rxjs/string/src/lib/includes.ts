@@ -6,24 +6,23 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `includes` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a boolean value if the string includes the passed value string.
- * Based on [String.prototype.includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)
+ * Returns an Observable that emits a boolean where the source string contains with the passed search string using
+ * String.includes
  *
- * @param searchStr The value to check if the string includes this
+ * @category String Query
  *
- * @remarks
- * If you need to get the string value instead of boolean use [[filterIncludes]]
+ * @see The [[filterIncludes]] operator returns the string value
+ *
+ * @param searchStr The string to check the source ends with
  *
  * @example
+ * Return a boolean where the source string includes 'JS'
  * ```ts
- * fromString(['test', 'testing', 'foobar'])
- *  .pipe(includes('test'))
- *  .subscribe(console.log) // [true, true, false]
+ * from(['RxJS', 'Ninja', 'Tests']).pipe(includes('JS')).subscribe();
  * ```
+ * Output: `true, false, false`
  *
- * @returns Boolean value if the string passes the equality check of [String.prototype.includes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes)
- * @category RxJS String Query
+ * @returns Observable that emits a boolean
  */
 export function includes(searchStr: string): OperatorFunction<string, boolean> {
   return (source: Observable<string>) => source.pipe(map((value) => value.includes(searchStr)));

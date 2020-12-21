@@ -7,39 +7,44 @@ import { filter, first } from 'rxjs/operators';
 import { PredicateFn } from '../types/boolean';
 
 /**
- * The `firstTruthy` operator is used to get only the first truthy value from an
- * [Observable](https://rxjs.dev/api/index/class/Observable) stream of values
+ * Returns an Observable that emits the first truthy value from a source.
  *
- * @typeParam T Observable value
+ * @category Boolean Filters
  *
- * @param predicate Function to do filtering with
+ * @typeParam T The value contained in the source Observable
  *
- * @example
- * ```ts
- * fromBoolean<string | number | boolean>([0, false, '', 1])
- *  .pipe(firstTruthy())
- *  .subscribe(console.log) // [ 1 ]
- * ```
+ * @param predicate Optional [[PredicateFn]] function to compared the values against
  *
  * @example
+ * Return the first truthy string
  * ```ts
- * fromNumber([1, 2, 3, 4])
- *  .pipe(firstTruthy((value) => value % 2 === 0))
- *  .subscribe(console.log) // 2
+ * const input = ['', '', 'Hello', 'RxJS', 'Ninja'];
+ * from(input).pipe(firstTruthy()).subscribe();
  * ```
+ * Output: `'Hello'`
  *
- * @returns The first truthy boolean value
- * @category RxJS Boolean Filters
+ * @example
+ * Return the first truthy number
+ * ```ts
+ * const input = [0, 1, 2, 3, 4, 5, 6];
+ * from(input).pipe(firstTruthy()).subscribe();
+ * ```
+ * Output: `1`
+ *
+ * @example
+ * Return the first truthy number with predicate
+ * ```ts
+ * const input = [0, 1, 2, 3, 4, 5, 6];
+ * from(input).pipe(firstTruthy((value) => value % 2 === 0)).subscribe();
+ * ```
+ * Output: `2`
+ *
+ * @returns Observable that emits the first truthy value
  */
-function firstTruthy<T = unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
-  if (predicate) {
-    return (source: Observable<T>) =>
-      source.pipe(
-        filter((val) => predicate(val)),
-        first(),
-      );
-  }
-  return (source: Observable<T>) => source.pipe(filter<T>(Boolean), first());
+export function firstTruthy<T extends unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
+  return (source: Observable<T>) =>
+    source.pipe(
+      filter((value) => (predicate ? Boolean(value) && predicate(value) : Boolean(value))),
+      first(),
+    );
 }
-
-export { firstTruthy };

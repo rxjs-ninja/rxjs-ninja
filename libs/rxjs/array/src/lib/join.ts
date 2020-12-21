@@ -6,27 +6,29 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `join` operator takes an array from an observable source and returns a string on the joined
- * array values.
+ * Returns an Observable that emits a joining the values of the array using the `separator` character using Array.join
  *
- * @param separator The separator to pass for strings, by default a space
+ * @category Array Modify
  *
- * @example
- * ```ts
- * of(['Hello', 'RxJS', 'Ninja'])
- * .pipe(join())
- * .subscribe() // 'Hello RxJS Ninja'
- * ```
+ * @param separator Separator to be used to join strings. Default value is a space (` `) character.
  *
  * @example
+ * Returns a string of an array joined with spaces
  * ```ts
- * of(['Name', 'Age', 'Location'])
- * .pipe(join(','))
- * .subscribe() // 'Name,Age,Location'
+ * const input = ['Hello', 'RxJS', 'Ninja'];
+ * of(input).pipe(join()).subscribe();
  * ```
+ * Output: `'Hello RxJS Ninja'`
  *
- * @returns String of the array values joined by the separator
- * @category RxJS Array Modify
+ * @example
+ * Returns a string of an array joined with a comma and space
+ * ```ts
+ * const input = ['Name', 'Age', 'Location'];
+ * of(input).pipe(join(', ')).subscribe();
+ * ```
+ * Output: `'Name, Age, Location'`
+ *
+ * @returns Observable string from the joined values in the source array
  */
 export function join<T extends unknown>(separator = ' '): OperatorFunction<T[], string> {
   return (source: Observable<T[]>) => source.pipe(map((value) => value.join(separator)));

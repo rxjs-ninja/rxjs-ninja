@@ -25,6 +25,17 @@ describe('sort', () => {
   );
 
   it(
+    'should return an sorted array with duplicate numbers',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: [3, 1, 3], b: [2, 0, 2], c: [9, 8, 9] });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: [1, 3, 3], y: [0, 2, 2], z: [8, 9, 9] });
+      m.expect(input.pipe(sort())).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
     'should return an sorted array of numbers tuples',
     marbles((m) => {
       const input = m.hot('-a-|', {

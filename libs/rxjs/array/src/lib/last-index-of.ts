@@ -4,21 +4,51 @@
  */
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { MapFn } from '../types/array-compare';
+import { MapFn } from '../types/generic-methods';
 
 /**
- * The `lastIndexOf` operator takes an array from a source observable and returns the last index, or array of last index values
- * of passed input, which can be a single value or array of values.
+ * Returns an Observable number or array of numbers. These are the index numbers of first truthy value in the source array
+ * using Array.lastIndexOf
  *
- * Optionally a start index can be passed for the array and a map function to convert the array value for comparison
- * (for example upper/lower case)
+ * @category Array Query
  *
- * @param input The value or array of values to check
- * @param fromIndex The index in the array to start the search from
- * @param mapFn Function to modify the value for comparison
+ * @param input A value or array of values to get the index of in the source array
+ * @param fromIndex Optional index to start searching from in the array
+ * @param mapFn Optional [[MapFn]] that can be used to make comparison easier (such as lower casing text)
  *
- * @returns Array of boolean values flipped from the input
- * @category RxJS Array Query
+ * @example
+ * Returns the last index of the word `RxJS` in the array
+ * ```ts
+ * const input = [ ['RxJS', 'Ninja', 'RxJS' ], ['Learn', 'RxJS'], ['Foo', 'Bar'] ];
+ * from(input).pipe(lastIndexOf('RxJS')).subscribe();
+ * ```
+ * Output: `2, 1, -1`
+ *
+ * @example
+ * Returns an array of the last index of the words `RxJS` and `Ninja` in the array
+ * ```ts
+ * const input = [ ['RxJS', 'Ninja', 'RxJS' ], ['Ninja', 'Learn', 'RxJS'], ['Foo', 'Bar'] ];
+ * of(input).pipe(lastIndexOf(['RxJS', 'Ninja'])).subscribe()
+ * ```
+ * Output: `[2, 1], [0, 2], [-1, -1]`
+ *
+ * @example
+ * Returns the last index of the word `RxJS` in the array starting from index `1`
+ * ```ts
+ * const input = [ ['RxJS', 'Ninja', 'RxJS', 'Ninja', 'Ninja' ], ['Learn', 'RxJS'], ['Foo', 'Bar'] ];
+ * of(input).pipe(lastIndexOf('RxJS', 1)).subscribe()
+ * ```
+ * Output: `2, 1, -1`
+ *
+ * @example
+ * Returns the last index of the word `RxJS` in the array comparing with lower case
+ * ```ts
+ * const input = [ ['RxJS', 'Ninja', 'RxJS'], ['Learn', 'RxJS'], ['Foo', 'Bar'] ];
+ * of(input).pipe(lastIndexOf('rxjs', 0, v => v.toLowerCase())).subscribe()
+ * ```
+ * Output: `2, 1, -1`
+ *
+ * @returns Observable number or array of numbers containing the index of the last found value
  */
 export function lastIndexOf<T extends unknown>(
   input: T | T[],

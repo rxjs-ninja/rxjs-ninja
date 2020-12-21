@@ -6,24 +6,23 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
- * The `filterIsFinite` operator can be used with an RxJS `pipe` where the source value
- * is an [Observable](https://rxjs.dev/api/index/class/Observable) number.
+ * Returns an Observable that emits numbers from a source where they pass the check of Number.isFinite.
  *
- * The operator will return the number value based on it passing
- * [Number.isFinite](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isFinite)
+ * @category Number Filter
  *
- * @remarks
- * If you want the boolean value instead of the number value use the [[isFinite]] operator instead
+ * @remarks Certain operations such as dividing by zero or multiplying passed Number.MAX_VALUE in JavaScript can cause `Infinity` to be generated, this operator can help avoid those values
  *
+ * @see The [[isFinite]] operator returns a boolean value instead of the number
+
  * @example
+ * Return only finite values
  * ```ts
- * fromNumber([1, 2, Infinity])
- *  .pipe(filterIsFinite())
- *  .subscribe(console.log) // [1, 2]
+ * const input = [-Infinity, -2.3, 0, 1, Infinity, 3.14, 4.2, 10, 11, Number.MAX_VALUE * 2];
+ * from(input).pipe(filterIsFinite()).subscribe();
  * ```
+ * Output: `-2.3, 0, 2, 3.14, 4.2, 10, 11`
  *
- * @returns A number value that passes the `Number.isFinite` equality check
- * @category RxJS Number Filter
+ * @returns Observable that emits numbers that are finite
  */
 export function filterIsFinite(): MonoTypeOperatorFunction<number> {
   return (source: Observable<number>) => source.pipe(filter((value) => Number.isFinite(value)));

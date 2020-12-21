@@ -3,40 +3,29 @@
  * @module Utility
  */
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { Observable, ObservableInput, OperatorFunction } from 'rxjs';
+import { Observable, OperatorFunction } from 'rxjs';
+import { QueryMethod } from '../types/utility';
 
 /**
- * A function passed to [[debounceWithQuery]] as the second parameter, takes a string
- * from an [Observable](https://rxjs.dev/api/index/class/Observable) source and returns an
- * observable result of T
+ * Returns an Observable value from a remote source where the [[QueryMethod]] returns a result such as a search from
+ * a remote location
  *
- * @typeParam T The response from an API which returns the result of a query
+ * @category General Utility
  *
- * @param query The string to send to the query method
- */
-export type QueryMethod<T = unknown> = (query: string) => ObservableInput<T>;
-
-/**
- * Operator that takes an [Observable](https://rxjs.dev/api/index/class/Observable) string value
- * and debounces it by the `time` parameter, and checks that the value changes.
- * When the debounce completes the `queryMethod` is called and the result returned.
- *
- * @param time The time to debounce the query by
+ * @param time The debounce time before the query method is executed
  * @param queryMethod The method that returns the search
  *
  * @typeParam T The response from an API which returns the result of a query
  *
  * @example
+ * On keypress of an input pass value and debounce for `500ms` before sending to remote server request
  * ```ts
- * const doQuery = (query: string) => http.get(`/search?query=${query}`)
- *
- * fromEvent(input, 'keyup')
- *  .pipe(debounceWithQuery(500, doQuery))
- *  .subscribe(console.log)
+ * const doQuery = (query: string) => http.get(`/search?query=${query}`);
+ * fromEvent(input, 'keyup').pipe(map(event => event.target.value), debounceWithQuery(500, doQuery)).subscribe();
  * ```
+ * Output: `A valid server response containing search results`
  *
- * @returns An [Observable](https://rxjs.dev/api/index/class/Observable) value of T
- * @category RxJS Observable Utilities
+ * @returns An Observable that emits a value from a server request
  */
 export function debounceWithQuery<T = unknown>(time: number, queryMethod: QueryMethod<T>): OperatorFunction<string, T> {
   return (source: Observable<string>) =>

@@ -6,41 +6,34 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `repeat` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a string that is repeated several times.
+ * Returns an Observable that emits a string where the source string is repeated with String.repeat.
+ *
+ * @remarks If a separator is passed it uses an array and will join the result using the separator instead, as
+ *   `String.repeat` does not support it
+ *
+ * @category String Modify
  *
  * @param count The number of times to repeat the string
- * @param separator Separator when concatenating strings
+ * @param separator Optional separator for joining strings
  *
  * @example
+ * Returns a string with the word `Ninja` repeated 5 times
  * ```ts
- * fromString('foobar')
- *  .pipe(repeat(5))
- *  .subscribe(console.log) // 'foobarfoobarfoobarfoobarfoobar'
+ * of('Ninja').pipe(repeat(5)).subscribe();
  * ```
+ * Output: `NinjaNinjaNinjaNinjaNinja`
  *
  * @example
+ * Returns a string with the word `Ninja` repeated 5 times with a `,` separator
  * ```ts
- * fromString('foobar')
- *  .pipe(repeat(5, ','))
- *  .subscribe(console.log) // 'foobar,foobar,foobar,foobar,foobar'
+ * of('Ninja').pipe(repeat(5, ', ')).subscribe();
  * ```
+ * Output: `Ninja, Ninja, Ninja, Ninja, Ninja`
  *
- * @returns String that is a repeat of the source string with a separator, repeated by the passed count
- * @category RxJS String Formatting
+ * @returns Observable that emits a string of the source string repeated
  */
 export function repeat(count: number, separator?: string): MonoTypeOperatorFunction<string> {
-  if (separator) {
-    return (source: Observable<string>) =>
-      source.pipe(
-        map((value) => {
-          const output = [];
-          for (let i = 0; i < count; i++) {
-            output.push(`${value}`);
-          }
-          return output.join(separator);
-        }),
-      );
-  }
-  return (source: Observable<string>) => source.pipe(map((value) => value.repeat(count)));
+  return separator
+    ? (source: Observable<string>) => source.pipe(map((value) => new Array(count).fill(value).join(separator)))
+    : (source: Observable<string>) => source.pipe(map((value) => value.repeat(count)));
 }

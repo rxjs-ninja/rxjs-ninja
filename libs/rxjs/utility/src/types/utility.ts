@@ -3,59 +3,76 @@
  * @module Utility
  */
 
-/**
- * A simple callback function that can take a value and returns a void
- */
-export type CallbackFn<T = unknown> = (value?: T) => void;
+import { ObservableInput } from 'rxjs';
 
 /**
- * A predicate function is used with filtering and should return a boolean based on an equality check.
+ * A callback function that is called with `0...n` arguments
  *
- * Can be used for more complex conditions
+ * @internal
  *
- * @typeParam T The type of the value to do an equality check with
+ * @typeParam T The type of the value from a source
  *
- * @example
+ * @params args Arguments passed to the callback
+ *
+ * @returns void
+ */
+export type CallbackFn<T extends unknown> = (...args: T[]) => void;
+
+/**
+ * A predicate function is used when you need a boolean check of a value, usually with Array.filter or Array.find
+ *
+ * **Example predicate function:**
  * ```ts
- * const isEvenNumber: PredicateFn<number> = (num: number): boolean => num % 2 === 0
- * ```
- *
- * @example
- * ```ts
- * interface ObjectType {
- *   foo: number,
- *   bar: string
+ * function isGreaterThan5(item: unknown): boolean {
+ *  return typeof item === 'number' && item > 5
  * }
- * const isTheUltimateAnswer: PredicateFn<ObjectType> = (obj: ObjectType): boolean => obj.foo === 42
  * ```
  *
- * @example
- * ```ts
- * const nameIsAfter: PredicateFn<string, string> = (name1: string, name2: string): boolean => name1.localeCompare(name2) === 0
- * ```
+ * @internal
  *
- * @returns Boolean value based on the condition of the function
+ * @typeParam T The type of the value being checked
+ *
+ * @param args The arguments for the function
+ *
+ * @returns A boolean value from the value being checked in the predicate
+ *
  */
 export type PredicateFn<T extends unknown> = (...args: T[]) => boolean;
 
 /**
- * Method used to map one value to another value
+ * A map function is used to convert values, usually using Array.map - the values can be of the same type (such as multiplying
+ * and number or using String.toUpperCase) or it can change to a different value (using Number.parseInt or Number.toString)
  *
- * @typeParam T The type of the value to be modified for comparison
- * @typeParam K The type of the value returned by the function
- *
- * @param value The value to be modified for comparison
- *
- * @example
+ * **Example map functions:**
  * ```ts
- * const modify: MapFn<string> = (value: string): string => value.toUpperCase()
- * ```
+ * function mapToUpperCase(str: string): string {
+ *  return str.toUpperCase();
+ * }
  *
- * @example
- * ```ts
- * const modify: MapFn<string, number> = (value: string): number => parseInt(value, 10)
- * ```
+ * function mapToInteger (str: string): number {
+ *  return parseInt(str, 10);
+ * }
+ *```
  *
- * @returns Value of the modifier function
+ * @internal
+ *
+ * @typeParam T The type of the value from the input source
+ * @typeParam K The type of the returned from the new Observable source
+ *
+ * @param value The value to be converted
+ *
+ * @returns A value that has been mapped to a new value
  */
+
 export type MapFn<T = unknown, K = T | unknown> = (value: T) => K;
+
+/**
+ * A function passed to [[debounceWithQuery]] as the second parameter, takes a string and returns an Observable source
+ *
+ * @internal
+ *
+ * @typeParam T The response from an API which returns the result of a query
+ *
+ * @param query The string to send to the query method
+ */
+export type QueryMethod<T = unknown> = (query: string) => ObservableInput<T>;

@@ -7,19 +7,24 @@ import { map } from 'rxjs/operators';
 import { createLuhnModulus, reverseLuhnNumbers } from '../utils/luhn-check.utils';
 
 /**
- * The `luhnCheck` operator is used to validate identification numbers such as bank cards,
- * IMEI numbers using the [Luhn Algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm)
+ * Returns an Observable that emits a boolean value.  The source should emit a number or string that can be checked
+ * with the {@link https://en.wikipedia.org/wiki/Luhn_algorithm|Luhn Algorithm} used to validate identification numbers
+ * such as bank cards and IMEI numbers.
+ *
+ * @category Boolean Validation
  *
  * @example
- * fromString('4485275742308327')
- *  .pipe(luhnCheck())
- *  .subscribe(console.log) // true
+ * Returns if the value passes the Luhn check.
+ * ```ts
+ * const input = ['4485275742308327', '1111222233334444', '111133332224444'];
+ * from(input).pipe(luhnCheck()).subscribe();
+ *```
+ * Output: `[true, true, false]`
  *
- *  @returns Boolean value if the passed value passes the Luhn check
- * @category RxJS Boolean Validation
+ * @returns Observable that emits an boolean if the source value passes the Luhn check
  */
-export function luhnCheck(): OperatorFunction<string | number, boolean> {
-  return (source: Observable<string | number>) =>
+export function luhnCheck<T extends string | number>(): OperatorFunction<T, boolean> {
+  return (source: Observable<T>) =>
     source.pipe(
       map(reverseLuhnNumbers),
       map(createLuhnModulus),

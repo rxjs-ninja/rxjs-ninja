@@ -2,32 +2,56 @@
  * @packageDocumentation
  * @module String
  */
-import { Observable } from 'rxjs';
+import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
 import { FormType } from '../types/normalize';
-import { subscribeToSingleOrArrayUnicode } from '../utils/from-unicode.utils';
+import { map } from 'rxjs/operators';
+import { isPromise } from 'rxjs/internal-compatibility';
 
 /**
- * Takes a string containing the Unicode Normalization Form and uses [String.prototype.normalize](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize)
- * to convert it to a string with unicode characters
+ * Returns an Observable that emits a string made from a source unicode string using String.normalize
  *
- * @param input A string of unicode characters
+ * @category String Observables
+ *
+ * @remarks This operator is a type-safe {@link https://rxjs.dev/api/index/function/from|from} and will emit only
+ * strings, also unlike `from` a single string is not converted into an array-like.
+ *
+ * @param input A string or array of string unicode characters
  * @param form The Unicode Normalization Form to decode the string with
  *
  * @example
+ * Returns a string from Unicode characters
  * ```ts
- * fromUnicode('\u0041\u006d\u00e9\u006c\u0069\u0065')
- *  .subscribe(console.log) // Amélie
+ * fromUnicode('\u0041\u006d\u00e9\u006c\u0069\u0065').subscribe();
  * ```
+ * Output: `Amélie`
  *
- * @example
- * ```ts
- * fromUnicode(['\u0041\u006d\u00e9\u006c\u0069\u0065', '\u0041\u006d\u0065\u0301\u006c\u0069\u0065'])
- *  .subscribe(console.log) // ['Amélie', 'Amélie']
- * ```
- *
- * @returns String from the decoded unicode string
- * @category RxJS String Creation
+ * @returns Observable that emits a string
  */
-export function fromUnicode(input: string | string[], form?: FormType): Observable<string> {
-  return new Observable<string>(subscribeToSingleOrArrayUnicode(input, form));
+export function fromUnicode<T extends ObservableInput<string[]> | PromiseLike<string[]> | string | string[]>(
+  input: T,
+  form?: FormType,
+): Observable<string> {
+  if (isObservable(input)) {
+    return ((input as never) as Observable<number[]>).pipe(map((value) => String.fromCodePoint(...value)));
+  } else if (isPromise(input)) {
+    return new Observable<string>((subscriber: Subscriber<unknown>): void => {
+      ((input as never) as Promise<number[]>).then(
+        (value) => {
+          if (!subscriber.closed) {
+            subscriber.next(String.fromCodePoint(...value));
+            subscriber.complete();
+          }
+        },
+        (err) => subscriber.error(err),
+      );
+    });
+  } else {
+    const value = Array.isArray(input) ? input : [input];
+    return new Observable<string>((subscriber: Subscriber<string>): void => {
+      for (let i = 0; i < value.length; i++) {
+        subscriber.next(value[i].normalize(form));
+      }
+      subscriber.complete();
+    });
+  }
 }

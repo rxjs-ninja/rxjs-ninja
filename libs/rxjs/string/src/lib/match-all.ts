@@ -6,23 +6,25 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `matchAll` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns an array-like [RegExpMatchArray](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match#Return_value)
- * including capturing groups
+ * Returns an Observable that emits an array of results from String.matchAll
  *
- * This operator is based on [String.prototype.matchAll](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match)
+ * @category String Query
  *
- * @param pattern A RegExp to match in the string
+ * @remarks This operator converts the `IterableIterator<RegExpMatchArray>` to `RegExpMatchArray[]` to avoid dealing
+ *   with iterators.
+ *
+ * @param pattern A RegExp regular expression to match in the string
  *
  * @example
+ * Returns all matching groups in the source string
  * ```ts
- * fromString('table football, foosball')
- *  .pipe(matchAll(new RegExp('foo[a-z]*', 'g'))
- *  .subscribe(result => console.log(Array.from(result))) // [ 'football', 'foosball' ]
+ * of('RxJS Ninja,Hello Ninja').pipe(matchAll(/([A-Za-z\s]*)Ninja/g).subscribe();
  * ```
  *
- * @returns RegExpMatchArray that contains one or more results from the match
- * @category RxJS String Query
+ * Output:`["RxJS Ninja", index: 0, input: "RxJS Ninja,Hello Ninja"], ["Hello Ninja", index: 11, input: "RxJS
+ *   Ninja,Hello Ninja"]`
+ *
+ * @returns Observable that emits an array of RegExpMatchArray
  */
 export function matchAll(pattern: RegExp): OperatorFunction<string, RegExpMatchArray[]> {
   return (source: Observable<string>) => source.pipe(map((value) => [...value.matchAll(pattern)]));

@@ -6,21 +6,21 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `charAt` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns the ASCII character at the passed position.
- * Based on [String.prototype.charAt](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/charAt)
+ * Returns an Observable that emits a string character that is at the passed position in a source string using
+ * String.charAt
  *
- * @param position The character position to get a character from, starts from 0
+ * @category String Query
+ *
+ * @param position The index of the character to return in the source string
  *
  * @example
+ * Return the character at index `1`
  * ```ts
- * fromString('AbCdE')
- *  .pipe(charAt(4))
- *  .subscribe(console.log) // 'E'
+ * of('RxJS Ninja').pipe(charAt(1)).subscribe();
  * ```
+ * Output: `x`
  *
- * @returns String character located at the passed position
- * @category RxJS String Query
+ * @returns Observable that emits a string character
  */
 export function charAt(position: number): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(map((value) => value.charAt(position)));

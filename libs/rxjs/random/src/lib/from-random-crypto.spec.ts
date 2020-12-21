@@ -9,7 +9,7 @@ describe('fromRandomCrypto', () => {
   });
 
   it(
-    'should create an array of random 4 bit numbers by default',
+    'should create an array of random 4-byte numbers by default',
     observe(() => {
       return fromRandomCrypto().pipe(
         take(5),
@@ -23,7 +23,7 @@ describe('fromRandomCrypto', () => {
   );
 
   it(
-    'should create an array of random 1 bit integer',
+    'should create an array of random 1-byte integer',
     observe(() =>
       fromRandomCrypto(0, { bytes: 1 }).pipe(
         take(5),
@@ -37,7 +37,7 @@ describe('fromRandomCrypto', () => {
   );
 
   it(
-    'should create an array of random 1 bit unsigned integer',
+    'should create an array of random 1-byte unsigned integer',
     observe(() =>
       fromRandomCrypto(0, { bytes: 1, unsigned: true }).pipe(
         take(5),
@@ -51,7 +51,7 @@ describe('fromRandomCrypto', () => {
   );
 
   it(
-    'should create an array of random 2 bit integer',
+    'should create an array of random 2-byte integer',
     observe(() =>
       fromRandomCrypto(0, { bytes: 2 }).pipe(
         take(5),
@@ -65,7 +65,7 @@ describe('fromRandomCrypto', () => {
   );
 
   it(
-    'should create an array of random 2 bit unsigned integer',
+    'should create an array of random 2-byte unsigned integer',
     observe(() =>
       fromRandomCrypto(0, { bytes: 2, unsigned: true }).pipe(
         take(5),
@@ -79,7 +79,7 @@ describe('fromRandomCrypto', () => {
   );
 
   it(
-    'should create an array of random 4 bit integer',
+    'should create an array of random 4-byte integer',
     observe(() =>
       fromRandomCrypto(0, { bytes: 4 }).pipe(
         take(5),
@@ -93,7 +93,7 @@ describe('fromRandomCrypto', () => {
   );
 
   it(
-    'should create an array of random 4 bit unsigned integer',
+    'should create an array of random 4-byte unsigned integer',
     observe(() =>
       fromRandomCrypto(0, { bytes: 4, unsigned: true }).pipe(
         take(5),

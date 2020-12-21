@@ -6,30 +6,29 @@ import { MonoTypeOperatorFunction, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * The `replace` operator can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) string
- * value and returns a string with the text replaced via the passed pattern
+ * Returns an Observable that emits a string, replacing text in the source string with the replacement text if the
+ * pattern is found using String.replace
  *
- * This operator is based on [String.prototype.replace](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace)
+ * @category String Modify
  *
- * @param pattern A string to find in the Observable string to replace
+ * @param pattern A string or RegExp to find in the Observable string to replace
  * @param replacement The replacement string
  *
  * @example
+ * Return a string with first instance `Hero` replaced with `Ninja`
  * ```ts
- * fromString('Mary had a little lamb')
- *  .pipe(replace('lamb', 'dog'))
- *  .subscribe(console.log) // ['Mary had a little dog']
+ * of('RxJS Hero, Angular Hero').pipe(replace('Hero', 'Ninja')).subscribe();
  * ```
+ * Output: `RxJS Ninja, Angular Hero`
  *
  * @example
+ * Return a string where `Hero` is replaced with `Ninja` using a RegExp
  * ```ts
- * fromString('You get a car, you get a car, YOU GET A CAR')
- *  .pipe(replace(/\b(\w*car\w*)\b/g, 'bee'))
- *  .subscribe(console.log) // 'You get a bee, you get a bee, YOU GET A CAR'
+ * of('RxJS Hero, Angular Hero').pipe(replace(/(?!\w+\s)(\w+)/, 'Ninja')).subscribe();
  * ```
+ * Output: `RxJS Ninja, Angular Hero`
  *
- * @returns String with text replaced based on pattern and replacement string
- * @category RxJS String Formatting
+ * @returns Observable that emits a string
  */
 export function replace(pattern: string | RegExp, replacement: string): MonoTypeOperatorFunction<string> {
   return (source: Observable<string>) => source.pipe(map((value) => value.replace(pattern, replacement)));

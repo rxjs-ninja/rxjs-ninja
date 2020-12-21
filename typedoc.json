@@ -6,7 +6,7 @@
   "excludeExternals": true,
   "excludeNotExported": true,
   "excludePrivate": true,
-  "stripInternal": true,
+  "stripInternal": false,
   "readme": "README.md",
   "includes": "libs/rxjs",
   "tsconfig": "tsconfig.base.json",
@@ -18,7 +18,8 @@
     "typedoc-plugin-external-module-name",
     "typedoc-plugin-extras",
     "typedoc-plugin-pages",
-    "typedoc-plugin-ghpages-cname"
+    "typedoc-plugin-ghpages-cname",
+    "typedoc-plugin-replace-in-comments"
   ],
   "links": [
     {
@@ -120,5 +121,52 @@
         ]
       }
     ]
-  }
+  },
+  "replace-in-comments-config": [
+    {
+      "pattern": "(Observables?)",
+      "flags": "gm",
+      "replace": "[$1](https://rxjs.dev/api/index/class/Observable)"
+    },
+    {
+      "pattern": "RxJS",
+      "flags": "gm",
+      "replace": "[RxJS](https://rxjs.dev)"
+    },
+    {
+      "pattern": "RegExp",
+      "flags": "gm",
+      "replace": "[RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)"
+    },
+    {
+      "pattern": "(Intl\\.(\\w+))",
+      "flags": "gm",
+      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/$2)"
+    },
+    {
+      "pattern": "(Number\\.(\\w+))",
+      "flags": "gm",
+      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/$2)"
+    },
+    {
+      "pattern": "(String\\.(\\w+))",
+      "flags": "gm",
+      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/$2)"
+    },
+    {
+      "pattern": "(Array\\.(\\w+))",
+      "flags": "gm",
+      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/$2)"
+    },
+    {
+      "pattern": "(Math\\.(\\w+))",
+      "flags": "gm",
+      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/$2)"
+    },
+    {
+      "pattern": "(Crypto\\.(\\w+))",
+      "flags": "gm",
+      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Crypto/$2)"
+    }
+  ]
 }

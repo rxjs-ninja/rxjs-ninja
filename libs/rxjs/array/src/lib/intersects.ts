@@ -3,58 +3,65 @@
  * @module Array
  */
 import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
-import { MapFn } from '../types/array-compare';
+import { concatMap, map } from 'rxjs/operators';
+import { MapFn } from '../types/generic-methods';
 import { mapIntersection } from '../utils/intersects';
 
 /**
- * The `intersects` can be used with an [Observable](https://rxjs.dev/api/index/class/Observable) array of values
- * of T, passing in an array or Observable array of values to find the intersection between the two.
+ * Returns an Observable array containing values that are intersecting between a Observable source
+ * array and the passed input array.
  *
- * An optional method can be used to convert values for comparison (see examples)
+ * @category Array Compare
+ *
+ * @remarks This uses `Set` to do comparisons with and will remove duplicates
+ *
+ * @see The [[intersectsWith]] operator can be used with a predicate method instead of a mapping method
  *
  * @typeParam T The type of data in the input array
  *
- * @param input Observable Array of items use to get the intersection between two arrays
- * @param inputModifier A function that provide modification of the values to do the comparision with
+ * @param input An Array or Observable array of values to compare the source Observable array against
+ * @param mapFn Optional [[MapFn]] function that can map the values of array for comparison such as upper/lower case
  *
  * @example
+ * Returns the intersection between the source array and the passed static array
  * ```ts
- * of(['a', 'b', 'd'])
- *  .pipe(intersects(['a', 'c']))
- *  .subscribe(console.log) // ['a']
+ * const input = ['a', 'b', 'd', 'a', 'b'];
+ * of(input).pipe(intersects(['a', 'd'])).subscribe();
  * ```
+ * Output: `'a', 'd'`
  *
  * @example
+ * Returns the intersection between the source array and the passed Observable array
  * ```ts
- * of(['a', 'b', 'd'])
- *  .pipe(intersects(of(['a', 'c'])))
- *  .subscribe(console.log) // ['a']
+ * const input = ['a', 'b', 'd', 'a', 'b'];
+ * of(input).pipe(intersects(of(['a', 'd']))).subscribe();
  * ```
+ * Output: `'a', 'd'`
  *
  * @example
+ * Returns the compared intersection between the source array and the passed static array
  * ```ts
- * of(['a', 'b', 'd'])
- *  .pipe(intersects(['A', 'C'], (value) => value.toUpperCase()))
- *  .subscribe(console.log) // ['a']
+ * const input = ['a', 'b', 'd', 'a', 'b'];
+ * of(input).pipe(intersects(['A', 'D'], (value) => value.toUpperCase())).subscribe();
  * ```
+ * Output: `'a', 'd'`
  *
  * @example
+ * Returns the compared intersection between the source array and the passed Observable array
  * ```ts
- * of(['a', 'b', 'd'])
- *  .pipe(intersects(of(['A', 'C']), (value) => value.toUpperCase()))
- *  .subscribe(console.log) // ['a']
+ * const input = ['a', 'b', 'd', 'a', 'b'];
+ * of(input).pipe(intersects(of(['A', 'D'], , (value) => value.toUpperCase()))).subscribe();
  * ```
+ * Output: `'a', 'd'`
  *
- * @returns Array of values of intersection between the source and input array
- * @category RxJS Array Intersection
+ * @returns An Observable that emits an array of the intersection of input and source arrays.
  */
 export function intersects<T = unknown>(
   input: T[] | ObservableInput<T[]>,
-  inputModifier?: MapFn<T, T>,
+  mapFn?: MapFn<T>,
 ): MonoTypeOperatorFunction<T[]> {
   return (source: Observable<T[]>) =>
     isObservable<T[]>(input)
-      ? input.pipe(switchMap((value) => source.pipe(map(mapIntersection(value, inputModifier)))))
-      : source.pipe(map(mapIntersection(input as T[], inputModifier)));
+      ? input.pipe(concatMap((value) => source.pipe(map(mapIntersection(value, mapFn)))))
+      : source.pipe(map(mapIntersection(input as T[], mapFn)));
 }

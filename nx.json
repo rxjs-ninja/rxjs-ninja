@@ -38,6 +38,9 @@
     },
     "rxjs-random": {
       "tags": []
+    },
+    "rxjs-math": {
+      "tags": []
     }
   }
 }

@@ -276,6 +276,38 @@
           "outputs": ["{options.outputPath}"]
         }
       }
+    },
+    "rxjs-math": {
+      "root": "libs/rxjs/math",
+      "sourceRoot": "libs/rxjs/math/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/rxjs/math/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/rxjs/math"],
+          "options": {
+            "jestConfig": "libs/rxjs/math/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "outputs": ["{options.outputPath}"],
+          "options": {
+            "outputPath": "dist/libs/rxjs/math",
+            "tsConfig": "libs/rxjs/math/tsconfig.lib.json",
+            "packageJson": "libs/rxjs/math/package.json",
+            "main": "libs/rxjs/math/src/index.ts",
+            "assets": ["libs/rxjs/math/*.md"]
+          }
+        }
+      }
     }
   },
   "cli": {

@@ -25,7 +25,8 @@
       "@rxjs-ninja/rxjs-boolean": ["libs/rxjs/boolean/src/index.ts"],
       "@rxjs-ninja/rxjs-utility": ["libs/rxjs/utility/src/index.ts"],
       "@rxjs-ninja/rxjs-array": ["libs/rxjs/array/src/index.ts"],
-      "@rxjs-ninja/rxjs-random": ["libs/rxjs/random/src/index.ts"]
+      "@rxjs-ninja/rxjs-random": ["libs/rxjs/random/src/index.ts"],
+      "@rxjs-ninja/rxjs-math": ["libs/rxjs/math/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

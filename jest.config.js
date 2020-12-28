@@ -6,5 +6,6 @@ module.exports = {
     '<rootDir>/libs/rxjs/string',
     '<rootDir>/libs/rxjs/utility',
     '<rootDir>/libs/rxjs/random',
+    '<rootDir>/libs/rxjs/math',
   ],
 };

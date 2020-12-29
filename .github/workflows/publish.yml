@@ -3,15 +3,15 @@ on:
   pull_request:
     branches:
       - main
-    types: [closed]
+    types: [ closed ]
 
 jobs:
   build:
-    if: github.event.pull_request.merged == true && contains(github.event.commits[0].message, '[skip-ci]') == false
+    if: "!contains(toJSON(github.event.commits.*.message), '[skip-ci]')"
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [15.x]
+        node-version: [ 15.x ]
     steps:
       # Checkout code
       - name: Checkout Code

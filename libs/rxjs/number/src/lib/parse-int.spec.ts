@@ -1,5 +1,6 @@
 import { parseInt } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
+import { of } from 'rxjs';
 
 describe('parseInt', () => {
   it(
@@ -42,6 +43,28 @@ describe('parseInt', () => {
       const subs = '^--------!';
       const expected = m.cold('-w-x-y-z-|', { w: 0, x: 96, y: 255, z: NaN });
       m.expect(input.pipe(parseInt(16, true))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
+    'should return parsed integer values with radix as Observable',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-|', { a: '0', b: '60', c: 'ff', d: 'Ninja' });
+      const subs = '^--------!';
+      const expected = m.cold('-w-x-y---|', { w: 0, x: 96, y: 255 });
+      m.expect(input.pipe(parseInt(of(16)))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
+    'should return parsed integer values with radix and filter NaN values as observable',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-|', { a: '0', b: '60', c: 'ff', d: 'Ninja' });
+      const subs = '^--------!';
+      const expected = m.cold('-w-x-y-z-|', { w: 0, x: 96, y: 255, z: NaN });
+      m.expect(input.pipe(parseInt(of(16), true))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

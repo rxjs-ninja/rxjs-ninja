@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module Number
  */
-import { Observable, OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, OperatorFunction } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a formatted string value from a source number using Number.toString.
@@ -25,8 +25,15 @@ import { map } from 'rxjs/operators';
  * Output: `'8', '10', '20', '40'`
  *
  * @returns Observable that emits a formatted string from a source number and passed `radix` value
- * @category Number Parsing
+ * @category Number Formatting
  */
-export function toString(radix = 10): OperatorFunction<number, string> {
-  return (source: Observable<number>) => source.pipe(map((number) => number.toString(radix)));
+export function toString(radix: number | ObservableInput<number> = 10): OperatorFunction<number, string> {
+  if (isObservable(radix)) {
+    return (source: Observable<number>) =>
+      source.pipe(
+        withLatestFrom(radix),
+        map(([value, _radix]) => (value as number).toString(_radix as number)),
+      );
+  }
+  return (source: Observable<number>) => source.pipe(map((number) => number.toString(radix as number)));
 }

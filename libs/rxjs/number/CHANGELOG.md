@@ -2,8 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
+to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+
+- `toFixed` operator that returns a string from a number to fixed decimal places
+- `toHex` / `parseHex` operators users to convert numbers to their hex value, and parse hex to number
+- `raiseBy` operator that will raise a source Observable number by a passed value
+- `mod` operator that returns the remainder of a number from a passed modulus
 
 ## [4.0.0] - 2020-12-21
 
@@ -21,7 +30,8 @@ coverage that provided various bug fixes.
 
 ### Changed
 
-- Package is now published under `@rxjs-ninja/rxjs-number` (this also includes previous version for migration from `@tinynodes/rxjs-number`)
+- Package is now published under `@rxjs-ninja/rxjs-number` (this also includes previous version for migration
+  from `@tinynodes/rxjs-number`)
 - Documentation updates
 
 ## [3.1.1] - 2020-11-20
@@ -38,8 +48,8 @@ coverage that provided various bug fixes.
 
 ### Added
 
-- `fromFiboanacci` operator, generates a sequence of Fibonacci numbers, optionally can be passed a delay property to use as a timer, otherwise
-  it emits them immediately.
+- `fromFiboanacci` operator, generates a sequence of Fibonacci numbers, optionally can be passed a delay property to use
+  as a timer, otherwise it emits them immediately.
 
 ## [3.0.0] - 2020-11-17
 
@@ -87,8 +97,8 @@ coverage that provided various bug fixes.
 
 ### Changed
 
-- `fromNumber` now accepts both a single number value, or an array of number values. When passing an array
-  it acts the same as the [from](https://rxjs.dev/api/index/function/from) operator and also accept a scheduler.
+- `fromNumber` now accepts both a single number value, or an array of number values. When passing an array it acts the
+  same as the [from](https://rxjs.dev/api/index/function/from) operator and also accept a scheduler.
 - Tests refactored and improved
 - Improved documentation
 
@@ -96,7 +106,8 @@ coverage that provided various bug fixes.
 
 ### Changed
 
-- The current operators that begin with `from*` are being changed to `filter*` as using `from` has a specific context in RxJS with creating Observable values.
+- The current operators that begin with `from*` are being changed to `filter*` as using `from` has a specific context in
+  RxJS with creating Observable values.
 
 The following operators are affected:
 
@@ -122,7 +133,8 @@ Initial Release of the rxjs-number library
 
 - `filterIsFinite` - Returns a number value from an Observable number if the `Number.isFinite` equality check it true
 - `fromIsInteger` - Returns a number value from an Observable number if the `Number.isInteger` equality check it true
-- `fromIsSafeInteger` - Returns a number value from an Observable number if the `Number.isSafeInteger` equality check it true
+- `fromIsSafeInteger` - Returns a number value from an Observable number if the `Number.isSafeInteger` equality check it
+  true
 - `isFinite` - Returns a boolean value from an Observable number `Number.isFinite` equality check
 - `isInteger` - Returns a boolean value from an Observable number `Number.isInteger` equality check
 - `isNaN` - Returns a boolean value from an Observable number `Number.isNaN` equality check

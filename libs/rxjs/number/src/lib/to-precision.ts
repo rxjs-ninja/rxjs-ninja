@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module Number
  */
-import { Observable, OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, OperatorFunction } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a formatted string value from a source number using Number.toPrecision.
@@ -20,6 +20,13 @@ import { map } from 'rxjs/operators';
  * @returns Observable that emits a formatted string from a source number
  * @category Number Formatting
  */
-export function toPrecision(precision: number): OperatorFunction<number, string> {
-  return (source: Observable<number>) => source.pipe(map((value) => value.toPrecision(precision)));
+export function toPrecision(precision: number | ObservableInput<number>): OperatorFunction<number, string> {
+  if (isObservable(precision)) {
+    return (source) =>
+      source.pipe(
+        withLatestFrom(precision),
+        map(([value, _precision]) => value.toPrecision(_precision as number)),
+      );
+  }
+  return (source: Observable<number>) => source.pipe(map((value) => value.toPrecision(precision as number)));
 }

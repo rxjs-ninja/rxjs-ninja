@@ -14,6 +14,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `raiseBy` operator that will raise a source Observable number by a passed value
 - `mod` operator that returns the remainder of a number from a passed modulus
 
+### Changed
+
+- Operators that accept a number parameter can now be passed an Observable value
+
 ## [4.0.0] - 2020-12-21
 
 ### Updated

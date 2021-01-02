@@ -27,6 +27,7 @@ export { outOfRange } from './lib/out-of-range';
 export { parseFloat } from './lib/parse-float';
 export { parseInt } from './lib/parse-int';
 export { toExponential } from './lib/to-exponential';
+export { toFixed } from './lib/to-fixed'
 export { toLocaleString } from './lib/to-locale-string';
 export { toPrecision } from './lib/to-precision';
 export { toString } from './lib/to-string';

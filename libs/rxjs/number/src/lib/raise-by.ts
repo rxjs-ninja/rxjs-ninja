@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Number
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
+import { combineLatest, isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
 import { filter, map, withLatestFrom } from 'rxjs/operators';
 
 /**
@@ -23,11 +23,7 @@ import { filter, map, withLatestFrom } from 'rxjs/operators';
  */
 export function raiseBy(power: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
   if (isObservable(power)) {
-    return (source) =>
-      source.pipe(
-        withLatestFrom(power),
-        map(([value, pow]) => value ** (pow as number)),
-      );
+    return (source) => combineLatest([source, power]).pipe(map(([value, pow]) => value ** (pow as number)));
   }
   return (source) => source.pipe(map((value) => value ** (power as number)));
 }

@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Number
  */
-import { isObservable, Observable, ObservableInput, OperatorFunction } from 'rxjs';
+import { combineLatest, isObservable, Observable, ObservableInput, OperatorFunction } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
@@ -30,10 +30,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
 export function toString(radix: number | ObservableInput<number> = 10): OperatorFunction<number, string> {
   if (isObservable(radix)) {
     return (source: Observable<number>) =>
-      source.pipe(
-        withLatestFrom(radix),
-        map(([value, _radix]) => (value as number).toString(_radix as number)),
-      );
+      combineLatest([source, radix]).pipe(map(([value, _radix]) => value.toString(_radix as number)));
   }
   return (source: Observable<number>) => source.pipe(map((number) => number.toString(radix as number)));
 }

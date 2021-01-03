@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Number
  */
-import { isObservable, Observable, ObservableInput, OperatorFunction } from 'rxjs';
+import { combineLatest, isObservable, Observable, ObservableInput, OperatorFunction } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
@@ -23,10 +23,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
 export function toFixed(digits?: number | ObservableInput<number>): OperatorFunction<number, string> {
   if (isObservable(digits)) {
     return (source: Observable<number>) =>
-      source.pipe(
-        withLatestFrom(digits),
-        map(([value, _digits]) => value.toFixed(_digits as number)),
-      );
+      combineLatest([source, digits]).pipe(map(([value, _digits]) => value.toFixed(_digits as number)));
   }
   return (source: Observable<number>) => source.pipe(map((number) => number.toFixed(digits as number)));
 }

@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Number
  */
-import { isObservable, Observable, ObservableInput, OperatorFunction } from 'rxjs';
+import { combineLatest, isObservable, Observable, ObservableInput, OperatorFunction } from 'rxjs';
 import { filter, map, withLatestFrom } from 'rxjs/operators';
 
 /**
@@ -42,8 +42,7 @@ export function parseInt(
 ): OperatorFunction<string, number> {
   if (isObservable(radix)) {
     return (source: Observable<string>) => {
-      const result$ = source.pipe(
-        withLatestFrom(radix),
+      const result$ = combineLatest([source, radix]).pipe(
         map(([value, _radix]) => Number.parseInt(value, _radix as number)),
       );
       return returnNaN ? result$ : result$.pipe(filter((value) => !isNaN(value)));

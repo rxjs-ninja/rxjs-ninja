@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Number
  */
-import { isObservable, Observable, ObservableInput, OperatorFunction } from 'rxjs';
+import { combineLatest, isObservable, Observable, ObservableInput, OperatorFunction } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
@@ -23,10 +23,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
 export function toPrecision(precision: number | ObservableInput<number>): OperatorFunction<number, string> {
   if (isObservable(precision)) {
     return (source) =>
-      source.pipe(
-        withLatestFrom(precision),
-        map(([value, _precision]) => value.toPrecision(_precision as number)),
-      );
+      combineLatest([source, precision]).pipe(map(([value, _precision]) => value.toPrecision(_precision as number)));
   }
   return (source: Observable<number>) => source.pipe(map((value) => value.toPrecision(precision as number)));
 }

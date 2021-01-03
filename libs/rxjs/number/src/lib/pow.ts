@@ -19,9 +19,9 @@ import { map } from 'rxjs/operators';
  * Output: `4, 25, 100, 256, 655356`
  *
  * @returns Observable that emits a number that is the raised source value by the power
- * @category Number Modify
+ * @category Number Math
  */
-export function raiseBy(power: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
+export function pow(power: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
   if (isObservable(power)) {
     return (source) => combineLatest([source, power]).pipe(map(([value, pow]) => value ** (pow as number)));
   }

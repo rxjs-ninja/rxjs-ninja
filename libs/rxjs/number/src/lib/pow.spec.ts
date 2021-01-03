@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { raiseBy } from '@rxjs-ninja/rxjs-number';
+import { pow } from '@rxjs-ninja/rxjs-number';
 import { of } from 'rxjs';
 
 describe('raiseBy', () => {
@@ -9,7 +9,7 @@ describe('raiseBy', () => {
       const input = m.hot('-a-b-c-d-e-|', { a: 2, b: 5, c: 10, d: 16, e: 256 });
       const subs = '^----------!';
       const expected = m.cold('-w-v-x-y-z-|', { w: 4, v: 25, x: 100, y: 256, z: 65536 });
-      m.expect(input.pipe(raiseBy(2))).toBeObservable(expected);
+      m.expect(input.pipe(pow(2))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
@@ -20,7 +20,7 @@ describe('raiseBy', () => {
       const input = m.hot('-a-b-c-d-e-|', { a: 2, b: 5, c: 10, d: 16, e: 256 });
       const subs = '^----------!';
       const expected = m.cold('-w-v-x-y-z-|', { w: 4, v: 25, x: 100, y: 256, z: 65536 });
-      m.expect(input.pipe(raiseBy(of(2)))).toBeObservable(expected);
+      m.expect(input.pipe(pow(of(2)))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

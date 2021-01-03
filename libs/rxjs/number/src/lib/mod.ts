@@ -19,7 +19,7 @@ import { map } from 'rxjs/operators';
  * Output: `2, 0, 1, 2, 6`
  *
  * @returns Observable that emits a number that is reminder of a Modulo operation
- * @category Number Modify
+ * @category Number Math
  */
 export function mod(modulus: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
   if (isObservable(modulus)) {

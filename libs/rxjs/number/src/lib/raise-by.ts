@@ -3,7 +3,7 @@
  * @module Number
  */
 import { combineLatest, isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
-import { filter, map, withLatestFrom } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a number from a source number that is raised by the passed power using the

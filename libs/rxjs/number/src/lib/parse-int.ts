@@ -3,7 +3,7 @@
  * @module Number
  */
 import { combineLatest, isObservable, Observable, ObservableInput, OperatorFunction } from 'rxjs';
-import { filter, map, withLatestFrom } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a number from a source string using Number.parseInt.

@@ -1,4 +1,4 @@
-import { toFixed, toString } from '@rxjs-ninja/rxjs-number';
+import { toFixed } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('toFixed', () => {

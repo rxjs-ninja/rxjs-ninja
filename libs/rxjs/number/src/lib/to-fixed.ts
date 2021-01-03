@@ -3,7 +3,7 @@
  * @module Number
  */
 import { combineLatest, isObservable, Observable, ObservableInput, OperatorFunction } from 'rxjs';
-import { map, withLatestFrom } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a formatted string value from a source number using Number.toFixed.

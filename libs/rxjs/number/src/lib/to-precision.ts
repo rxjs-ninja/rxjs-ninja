@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Number
  */
-import { Observable, OperatorFunction } from 'rxjs';
+import { combineLatest, isObservable, Observable, ObservableInput, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
@@ -20,6 +20,10 @@ import { map } from 'rxjs/operators';
  * @returns Observable that emits a formatted string from a source number
  * @category Number Formatting
  */
-export function toPrecision(precision: number): OperatorFunction<number, string> {
-  return (source: Observable<number>) => source.pipe(map((value) => value.toPrecision(precision)));
+export function toPrecision(precision: number | ObservableInput<number>): OperatorFunction<number, string> {
+  if (isObservable(precision)) {
+    return (source) =>
+      combineLatest([source, precision]).pipe(map(([value, _precision]) => value.toPrecision(_precision as number)));
+  }
+  return (source: Observable<number>) => source.pipe(map((value) => value.toPrecision(precision as number)));
 }

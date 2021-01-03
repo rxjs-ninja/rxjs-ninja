@@ -1,5 +1,6 @@
 import { toString } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
+import { of } from 'rxjs';
 
 describe('toString', () => {
   it(
@@ -30,6 +31,21 @@ describe('toString', () => {
         z: 'ff',
       });
       m.expect(input.pipe(toString(16))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
+    'should return string of number with radix as Observable',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: 0, b: 96, c: 255 });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', {
+        x: '0',
+        y: '60',
+        z: 'ff',
+      });
+      m.expect(input.pipe(toString(of(16)))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

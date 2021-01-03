@@ -28,7 +28,7 @@ import { filter, map } from 'rxjs/operators';
  * @returns Observable that emits a number from source parsed string, optionally returns `NaN` values
  * @category Number Parsing
  */
-export function parseFloat(returnNaN = false): OperatorFunction<string, number> {
+export function parseFloat(returnNaN?: boolean): OperatorFunction<string, number> {
   return (source: Observable<string>) => {
     const result$ = source.pipe(map((value) => Number.parseFloat(value)));
     return returnNaN ? result$ : result$.pipe(filter((value) => !isNaN(value)));

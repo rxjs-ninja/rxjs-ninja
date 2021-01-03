@@ -23,7 +23,7 @@ import { map } from 'rxjs/operators';
  */
 export function mod(modulus: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
   if (isObservable(modulus)) {
-    return (source) => combineLatest([source, modulus]).pipe(map(([value, mod]) => value % (mod as number)));
+    return (source) => combineLatest([source, modulus]).pipe(map(([value, _modulus]) => value % (_modulus as number)));
   } else {
     return (source: Observable<number>) => source.pipe(map((value) => value % (modulus as number)));
   }

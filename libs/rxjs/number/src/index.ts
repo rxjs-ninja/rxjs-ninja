@@ -9,6 +9,7 @@
  */
 /* istanbul ignore file */
 export { add } from './lib/add';
+export { div } from './lib/div';
 export { filterInRange } from './lib/filter-in-range';
 export { filterIsFinite } from './lib/filter-is-finite';
 export { filterIsFloat } from './lib/filter-is-float';
@@ -31,6 +32,7 @@ export { parseFloat } from './lib/parse-float';
 export { parseHex } from './lib/parse-hex';
 export { parseInt } from './lib/parse-int';
 export { pow } from './lib/pow';
+export { sub } from './lib/sub';
 export { toExponential } from './lib/to-exponential';
 export { toFixed } from './lib/to-fixed';
 export { toHex } from './lib/to-hex';

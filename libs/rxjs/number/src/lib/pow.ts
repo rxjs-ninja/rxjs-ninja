@@ -23,7 +23,7 @@ import { map } from 'rxjs/operators';
  */
 export function pow(power: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
   if (isObservable(power)) {
-    return (source) => combineLatest([source, power]).pipe(map(([value, pow]) => value ** (pow as number)));
+    return (source) => combineLatest([source, power]).pipe(map(([value, _power]) => value ** (_power as number)));
   }
   return (source) => source.pipe(map((value) => value ** (power as number)));
 }

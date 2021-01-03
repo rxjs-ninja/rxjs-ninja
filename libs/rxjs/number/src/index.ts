@@ -27,6 +27,7 @@ export { isNaN } from './lib/is-nan';
 export { isNotNaN } from './lib/is-not-nan';
 export { isSafeInteger } from './lib/is-safe-integer';
 export { mod } from './lib/mod';
+export { mul } from './lib/mul';
 export { outOfRange } from './lib/out-of-range';
 export { parseFloat } from './lib/parse-float';
 export { parseHex } from './lib/parse-hex';

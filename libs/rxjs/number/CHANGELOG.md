@@ -11,9 +11,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - `toFixed` operator that returns a string from a number to fixed decimal places
 - `toHex` / `parseHex` operators users to convert numbers to their hex value, and parse hex to number
+- `add` operator that returns the addition of a source and input number
+- `sub` operator that returns the subtraction of a source and input number
+- `mul` operator that returns the multiplication of a source and input number
+- `div` operator that returns the division of a source and input number, does not accept `0` and will throw an error
 - `pow` operator that will raise a source Observable number by a passed value
 - `mod` operator that returns the remainder of a number from a passed modulus
-- `add` operator that returns thr addition of a source and input number
 
 ### Changed
 

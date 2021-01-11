@@ -31,15 +31,16 @@ import { catchError, finalize, switchMap, tap } from 'rxjs/operators';
  */
 export function toWritableStream<T extends unknown>(stream: WritableStream<T>): MonoTypeOperatorFunction<T> {
   const writer = stream.getWriter();
+  let isError = false;
 
   return (source) =>
     source.pipe(
       tap((value) => writer.write(value)),
       catchError((error) => {
-        writer.abort(error);
-        return throwError(error);
+        isError = true;
+        return writer.abort(error).then(() => throwError(error));
       }),
-      finalize(() => writer.close()),
+      finalize(() => !isError && writer.close()),
       switchMap(() => source),
     );
 }

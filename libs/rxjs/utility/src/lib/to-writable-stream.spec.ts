@@ -1,9 +1,9 @@
 import { observe } from 'rxjs-marbles/jest';
 import { fromReadableStream, toWritableStream } from '@rxjs-ninja/rxjs-utility';
-import { finalize, reduce, tap } from 'rxjs/operators';
-import { from } from 'rxjs';
+import { finalize, map, reduce, switchMap, take, tap } from 'rxjs/operators';
+import { from, of, throwError } from 'rxjs';
 
-describe('fromReadableSource', () => {
+describe('toWritableStream', () => {
   let inner: any;
 
   beforeAll(() => {
@@ -31,6 +31,45 @@ describe('fromReadableSource', () => {
         toWritableStream(stream),
         finalize(() => {
           expect(inner.write).toHaveBeenCalledTimes(5);
+        }),
+      );
+    }),
+  );
+
+  it(
+    'should end writing to the writable stream on subscription end',
+    observe(() => {
+      const stream = (global as any).WritableStream();
+      spyOn(inner, 'write');
+
+      return from([1, 2, 3, 4, 5]).pipe(
+        take(3),
+        toWritableStream(stream),
+        finalize(() => {
+          expect(inner.write).toHaveBeenCalledTimes(3);
+        }),
+      );
+    }),
+  );
+
+  xit(
+    'should end writing to the writable stream on error',
+    observe(() => {
+      const stream = (global as any).WritableStream();
+      spyOn(inner, 'write');
+
+      return from([1, 2, 3, 4, 5]).pipe(
+        switchMap((val) => {
+          console.log(val, val < 4);
+          if (val < 4) {
+            return of(val);
+          } else {
+            return throwError('Number is 4');
+          }
+        }),
+        toWritableStream(stream),
+        finalize(() => {
+          expect(inner.write).toHaveBeenCalledTimes(3);
         }),
       );
     }),

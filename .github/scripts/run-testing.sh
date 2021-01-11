@@ -4,7 +4,7 @@ set -o errexit -o noclobber -o nounset -o pipefail
 RUN_ALL=${1:-"False"}
 WITH_COVERAGE=${2:-"True"}
 CODECOV_TOKEN_INPUT=${3:-""}
-BASE="origin/main~1"
+BASE=${4:-"origin/main"}
 
 
 COVERAGE_RULE=$([[ "$WITH_COVERAGE" == 'True' ]] && echo "--codeCoverage" || echo "")

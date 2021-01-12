@@ -1,6 +1,6 @@
 import { observe } from 'rxjs-marbles/jest';
 import { toWritableStream } from '@rxjs-ninja/rxjs-utility';
-import { catchError, switchMap, take } from 'rxjs/operators';
+import { catchError, reduce, switchMap, take, tap } from 'rxjs/operators';
 import { from, of, throwError } from 'rxjs';
 import { WritableStream } from 'web-streams-polyfill/ponyfill';
 
@@ -21,7 +21,7 @@ describe('toWritableStream', () => {
   );
 
   it(
-    'should write to a  WritableStreamDefaultWriter passed as parameter',
+    'should write to a WritableStreamDefaultWriter passed as parameter',
     observe(() => {
       let output = '';
       const stream = new WritableStream({
@@ -53,8 +53,12 @@ describe('toWritableStream', () => {
   it(
     'should end writing to the writable stream on error',
     observe(() => {
+      let output = '';
       const stream = new WritableStream({
-        abort: (reason) => expect(reason).toBe('Number is 4'),
+        write: (val) => {
+          output += val;
+        },
+        close: () => expect(output).toBe('123'),
       });
 
       return from([1, 2, 3, 4, 5]).pipe(
@@ -67,6 +71,30 @@ describe('toWritableStream', () => {
         }),
         toWritableStream(stream),
         catchError(() => of(true)),
+      );
+    }),
+  );
+
+  xit(
+    'should no longer write when stream is closed',
+    observe(() => {
+      let output = '';
+      const stream = new WritableStream({
+        write: (val) => {
+          output += val;
+        },
+        close: () => expect(output).toBe('123'),
+      });
+
+      return from([1, 2, 3, 4, 5]).pipe(
+        tap(async (val) => {
+          if (val === 4) {
+            await stream.close();
+          }
+        }),
+        toWritableStream(stream),
+        reduce((a, b) => a + b, 0),
+        tap((val) => expect(val).toBe(10)),
       );
     }),
   );

@@ -7,12 +7,13 @@ import { catchError, finalize, switchMap, takeUntil, tap } from 'rxjs/operators'
 
 /**
  * Returns the source Observable, emitting it through the passed
- * {@link https://developer.mozilla.org/en-US/docs/Web/API/WritableStream|WritableStream} source, with error
- * and subscription end handing
+ * {@link https://developer.mozilla.org/en-US/docs/Web/API/WritableStream|WritableStream} and handling the internal
+ * subscription state and error handling
  *
  * @category Streams
  *
- * @param stream The writer object to write too from the source object
+ * @param stream The Writer object to emit the data to
+ * @params abortWriterOnError Optional On RxJS call abort instead of close on the writer
  *
  * @example Write an array of Observable values to a `WritableStream`
  * ```ts
@@ -31,11 +32,11 @@ import { catchError, finalize, switchMap, takeUntil, tap } from 'rxjs/operators'
  */
 export function toWritableStream<T extends unknown>(
   stream: WritableStream<T> | WritableStreamDefaultWriter<T>,
+  abortWriterOnError = false,
 ): MonoTypeOperatorFunction<T> {
   // Here we check if there is a getWriter method to support WritableStreamDefaultWriter
-  const writer = (stream as any)?.getWriter ? (stream as any).getWriter() : stream;
+  const writer: WritableStreamDefaultWriter = (stream as any)?.getWriter ? (stream as any).getWriter() : stream;
 
-  let isError = false;
   let closed = false;
 
   // We want to really make sure we clean up
@@ -44,21 +45,41 @@ export function toWritableStream<T extends unknown>(
   // Sets up a listener on the closed getter, when fired this sets the closed value to true and fires the writerClosed$
   // subject to ensure the subscription ends
   if (writer.closed) {
-    writer.closed.then(() => {
-      closed = true;
-      writerClosed$.next();
-    });
+    writer.closed
+      .then(() => {
+        closed = true;
+        writerClosed$.next();
+      })
+      .catch(() => {
+        closed = true;
+        writerClosed$.next();
+      });
   }
 
   return (source) =>
     source.pipe(
-      tap((value) => writer.write(value)),
-      catchError((error) => {
-        isError = true;
-        return writer.abort(error).then(() => throwError(error));
-      }),
       takeUntil(writerClosed$),
-      finalize(() => !isError && !closed && writer.close()),
+      tap((value) => writer.write(value)),
+      catchError(async (error) => {
+        closed = true;
+        try {
+          if (abortWriterOnError) {
+            await writer.abort(error);
+          } else {
+            await writer.close();
+          }
+        } catch {
+          // Do nothing
+        }
+        return throwError(error);
+      }),
+      finalize(async () => {
+        try {
+          !closed && (await writer.close());
+        } catch {
+          // Do nothing
+        }
+      }),
       switchMap(() => source),
     );
 }

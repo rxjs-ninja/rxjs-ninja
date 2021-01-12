@@ -54,7 +54,7 @@ export function fromReadableStream<T extends unknown>(
         ),
         { signal },
       )
-      .then(() => subscriber.complete());
+      .then(() => !subscriber.closed && subscriber.complete());
 
     return () => !stream.locked && stream.cancel();
   });

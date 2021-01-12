@@ -4,6 +4,7 @@
  */
 import { MonoTypeOperatorFunction, Subject, throwError } from 'rxjs';
 import { catchError, finalize, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { WritableStreamDefaultWriter } from 'web-streams-polyfill';
 
 /**
  * Returns the source Observable, emitting it through the passed
@@ -29,8 +30,14 @@ import { catchError, finalize, switchMap, takeUntil, tap } from 'rxjs/operators'
  *
  * @returns Observable that emits the source observable after performing a write to the WritableStream
  */
-export function toWritableStream<T extends unknown>(stream: WritableStream<T>): MonoTypeOperatorFunction<T> {
-  const writer = stream.getWriter();
+export function toWritableStream<T extends unknown>(stream: WritableStream<T> |  WritableStreamDefaultWriter<T>): MonoTypeOperatorFunction<T> {
+  let writer:  WritableStreamDefaultWriter;
+  if (stream instanceof  WritableStreamDefaultWriter) {
+    writer = stream;
+  } else {
+    writer = stream.getWriter();
+  }
+
   let isError = false;
   let closed = false;
 

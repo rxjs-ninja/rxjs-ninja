@@ -1,7 +1,8 @@
 import { observe } from 'rxjs-marbles/jest';
-import { fromReadableStream, toWritableStream } from '@rxjs-ninja/rxjs-utility';
-import { finalize, map, reduce, switchMap, take, tap } from 'rxjs/operators';
+import { toWritableStream } from '@rxjs-ninja/rxjs-utility';
+import { catchError, switchMap, take } from 'rxjs/operators';
 import { from, of, throwError } from 'rxjs';
+import { WritableStream } from 'web-streams-polyfill/ponyfill';
 
 describe('toWritableStream', () => {
   let inner: any;
@@ -29,52 +30,46 @@ describe('toWritableStream', () => {
         isClosed = true;
       },
     };
-
-    (global as any).WritableStream = jest.fn(() => ({
-      getWriter: () => inner,
-    }));
   });
 
   it(
     'should create an Observable from a readable source',
     observe(() => {
-      const stream = (global as any).WritableStream();
-      spyOn(inner, 'write');
+      let output = '';
+      const stream = new WritableStream({
+        write: (val) => {
+          output += val;
+        },
+        close: () => expect(output).toBe('12345'),
+      });
 
-      return from([1, 2, 3, 4, 5]).pipe(
-        toWritableStream(stream),
-        finalize(() => {
-          expect(inner.write).toHaveBeenCalledTimes(5);
-        }),
-      );
+      return from([1, 2, 3, 4, 5]).pipe(toWritableStream(stream));
     }),
   );
 
   it(
     'should end writing to the writable stream on subscription end',
     observe(() => {
-      const stream = (global as any).WritableStream();
-      spyOn(inner, 'write');
-
-      return from([1, 2, 3, 4, 5]).pipe(
-        take(3),
-        toWritableStream(stream),
-        finalize(() => {
-          expect(inner.write).toHaveBeenCalledTimes(3);
-        }),
-      );
+      let output = '';
+      const stream = new WritableStream({
+        write: (val) => {
+          output += val;
+        },
+        close: () => expect(output).toBe('123'),
+      });
+      return from([1, 2, 3, 4, 5]).pipe(take(3), toWritableStream(stream));
     }),
   );
 
-  xit(
+  it(
     'should end writing to the writable stream on error',
     observe(() => {
-      const stream = (global as any).WritableStream();
-      spyOn(inner, 'write');
+      const stream = new WritableStream({
+        abort: (reason) => expect(reason).toBe('Number is 4'),
+      });
 
       return from([1, 2, 3, 4, 5]).pipe(
         switchMap((val) => {
-          console.log(val, val < 4);
           if (val < 4) {
             return of(val);
           } else {
@@ -82,9 +77,7 @@ describe('toWritableStream', () => {
           }
         }),
         toWritableStream(stream),
-        finalize(() => {
-          expect(inner.write).toHaveBeenCalledTimes(3);
-        }),
+        catchError(() => of(true)),
       );
     }),
   );

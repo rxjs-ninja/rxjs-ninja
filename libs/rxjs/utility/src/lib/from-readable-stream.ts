@@ -14,6 +14,7 @@ import { Observable } from 'rxjs';
  * @param signal Optional {@link https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal|AbortSignal} to provide
  *   to the underlying stream
  * @param queueStrategy Optional strategy for backpressure queueing
+ * @param throwAbortAsError Optional boolean to throw an `AbortController` signal as an error instead of just completing
  *
  * @example Create a ReadableStream of `0` to `100` and convert to an Observable
  * ```ts
@@ -36,6 +37,7 @@ export function fromReadableStream<T extends unknown>(
   stream: ReadableStream<T>,
   signal?: AbortSignal,
   queueStrategy?: QueuingStrategy,
+  throwAbortAsError = false,
 ): Observable<T> {
   return new Observable<T>((subscriber) => {
     stream
@@ -43,8 +45,10 @@ export function fromReadableStream<T extends unknown>(
         new WritableStream<T>(
           {
             write: (value) => subscriber.next(value),
-            abort: () => {
-              if (!subscriber.closed) {
+            abort: (error) => {
+              if (throwAbortAsError) {
+                subscriber.error(error);
+              } else if (!subscriber.closed) {
                 subscriber.complete();
               }
             },
@@ -58,7 +62,8 @@ export function fromReadableStream<T extends unknown>(
         ),
         { signal },
       )
-      .then(() => !subscriber.closed && subscriber.complete());
+      .then(() => !subscriber.closed && subscriber.complete())
+      .catch((error) => subscriber.error(error));
 
     return () => !stream.locked && stream.cancel();
   });

@@ -9,11 +9,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- `fromFetchWithProgress` provides a `fetch` interface that returns a number during a fetch of a file, and a `Uint8Array` when finished (which can be converted to binary data)
+- `fromFetchWithProgress` provides a `fetch` interface that returns a number during a fetch of a file, and
+  a `Uint8Array` when finished (which can be converted to binary data)
 
 ### Changed
 
-- `fromReadableStream` calls `subscriber.complete` and not `subscriber.error` when using `AbortController`
+- `fromReadableStream` calls `subscriber.complete` and not `subscriber.error` when using `AbortController` by default
+  but can accept a parameter to throw as error
 - `toWritableStream` now accepts `WritableStreamDefaultWriter` object
 - Tests now use property `ReadableStream` and `WritableStream` polyfills instead of custom implementation
 

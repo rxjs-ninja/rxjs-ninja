@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module Utility
  */
-import { MonoTypeOperatorFunction, throwError } from 'rxjs';
-import { catchError, finalize, switchMap, tap } from 'rxjs/operators';
+import { MonoTypeOperatorFunction, Subject, throwError } from 'rxjs';
+import { catchError, finalize, switchMap, takeUntil, tap } from 'rxjs/operators';
 
 /**
  * Returns the source Observable, emitting it through the passed
@@ -12,7 +12,7 @@ import { catchError, finalize, switchMap, tap } from 'rxjs/operators';
  *
  * @category Streams
  *
- * @param stream The writable stream to emit to
+ * @param stream The `WritableStream` to emit to
  *
  * @example Write an array of Observable values to a `WritableStream`
  * ```ts
@@ -32,6 +32,14 @@ import { catchError, finalize, switchMap, tap } from 'rxjs/operators';
 export function toWritableStream<T extends unknown>(stream: WritableStream<T>): MonoTypeOperatorFunction<T> {
   const writer = stream.getWriter();
   let isError = false;
+  let closed = false;
+
+  const writerClosed$ = new Subject();
+
+  writer.closed.then(() => {
+    closed = true;
+    writerClosed$.next();
+  });
 
   return (source) =>
     source.pipe(
@@ -40,7 +48,8 @@ export function toWritableStream<T extends unknown>(stream: WritableStream<T>): 
         isError = true;
         return writer.abort(error).then(() => throwError(error));
       }),
-      finalize(() => !isError && writer.close()),
+      takeUntil(writerClosed$),
+      finalize(() => !isError && !closed && writer.close()),
       switchMap(() => source),
     );
 }

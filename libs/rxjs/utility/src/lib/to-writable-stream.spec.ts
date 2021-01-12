@@ -33,7 +33,7 @@ describe('toWritableStream', () => {
   });
 
   it(
-    'should create an Observable from a readable source',
+    'should write to a WritableStream passed as parameter',
     observe(() => {
       let output = '';
       const stream = new WritableStream({
@@ -44,6 +44,22 @@ describe('toWritableStream', () => {
       });
 
       return from([1, 2, 3, 4, 5]).pipe(toWritableStream(stream));
+    }),
+  );
+
+  it(
+    'should write to a  WritableStreamDefaultWriter passed as parameter',
+    observe(() => {
+      let output = '';
+      const stream = new WritableStream({
+        write: (val) => {
+          output += val;
+        },
+        close: () => expect(output).toBe('12345'),
+      });
+      const writer = stream.getWriter();
+
+      return from([1, 2, 3, 4, 5]).pipe(toWritableStream(writer));
     }),
   );
 

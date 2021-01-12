@@ -4,7 +4,6 @@
  */
 import { MonoTypeOperatorFunction, Subject, throwError } from 'rxjs';
 import { catchError, finalize, switchMap, takeUntil, tap } from 'rxjs/operators';
-import { WritableStreamDefaultWriter } from 'web-streams-polyfill';
 
 /**
  * Returns the source Observable, emitting it through the passed
@@ -30,23 +29,26 @@ import { WritableStreamDefaultWriter } from 'web-streams-polyfill';
  *
  * @returns Observable that emits the source observable after performing a write to the WritableStream
  */
-export function toWritableStream<T extends unknown>(stream: WritableStream<T> |  WritableStreamDefaultWriter<T>): MonoTypeOperatorFunction<T> {
-  let writer:  WritableStreamDefaultWriter;
-  if (stream instanceof  WritableStreamDefaultWriter) {
-    writer = stream;
-  } else {
-    writer = stream.getWriter();
-  }
+export function toWritableStream<T extends unknown>(
+  stream: WritableStream<T> | WritableStreamDefaultWriter<T>,
+): MonoTypeOperatorFunction<T> {
+  // Here we check if there is a getWriter method to support WritableStreamDefaultWriter
+  const writer = (stream as any)?.getWriter ? (stream as any).getWriter() : stream;
 
   let isError = false;
   let closed = false;
 
+  // We want to really make sure we clean up
   const writerClosed$ = new Subject();
 
-  writer.closed.then(() => {
-    closed = true;
-    writerClosed$.next();
-  });
+  // Sets up a listener on the closed getter, when fired this sets the closed value to true and fires the writerClosed$
+  // subject to ensure the subscription ends
+  if (writer.closed) {
+    writer.closed.then(() => {
+      closed = true;
+      writerClosed$.next();
+    });
+  }
 
   return (source) =>
     source.pipe(

@@ -1,5 +1,5 @@
 import { observe } from 'rxjs-marbles/jest';
-import { ɵfromFetchWithProgress } from '@rxjs-ninja/rxjs-utility';
+import { fromFetchWithProgress } from '@rxjs-ninja/rxjs-utility';
 import { finalize, tap } from 'rxjs/operators';
 
 describe('fromFetchWithProgress', () => {
@@ -43,7 +43,7 @@ describe('fromFetchWithProgress', () => {
       const addedPercent: number[] = [];
       let finalResult: Uint8Array;
 
-      return ɵfromFetchWithProgress('http://example.com/foo.jpg').pipe(
+      return fromFetchWithProgress('http://example.com/foo.jpg').pipe(
         tap((value) => (typeof value === 'number' ? addedPercent.push(value) : (finalResult = value))),
         finalize(() => {
           expect(addedPercent).toStrictEqual([0.2, 0.4, 0.6, 0.8, 1]);

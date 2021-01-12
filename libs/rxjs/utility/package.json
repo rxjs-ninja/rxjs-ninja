@@ -1,7 +1,7 @@
 {
   "name": "@rxjs-ninja/rxjs-utility",
   "description": "Useful utilities for RxJS",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "keywords": [
     "Rx",
     "RxJS",

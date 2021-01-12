@@ -43,7 +43,11 @@ export function fromReadableStream<T extends unknown>(
         new WritableStream<T>(
           {
             write: (value) => subscriber.next(value),
-            abort: (error) => subscriber.error(error),
+            abort: () => {
+              if (!subscriber.closed) {
+                subscriber.complete();
+              }
+            },
             close: () => {
               if (!subscriber.closed) {
                 subscriber.complete();

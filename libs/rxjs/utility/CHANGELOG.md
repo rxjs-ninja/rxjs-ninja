@@ -5,12 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- `fromFetchWithProgress` provides a `fetch` interface that returns a number during a fetch of a file, and a `Uint8Array` when finished (which can be converted to binary data)
+
+### Changed
+
+- `fromReadableStream` calls `subscriber.complete` and not `subscriber.error` when using `AbortController`
+- `toWritableStream` now accepts `WritableStreamDefaultWriter` object
+- Tests now use property `ReadableStream` and `WritableStream` polyfills instead of custom implementation
+
 ## [3.1.0] - 2021-01-12
 
 ### Added
 
 - `fromReadableStream` takes a [ReadableStream](https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream) and
-  converts it into a Observable source
+  converts it into an Observable source
 - `toWritableStream` operator takes a [WritableStream](https://developer.mozilla.org/en-US/docs/Web/API/WritableStream)
   and emits the value from the source Observable to it.
 

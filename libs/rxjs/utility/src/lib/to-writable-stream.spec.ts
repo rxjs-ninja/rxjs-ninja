@@ -5,33 +5,6 @@ import { from, of, throwError } from 'rxjs';
 import { WritableStream } from 'web-streams-polyfill/ponyfill';
 
 describe('toWritableStream', () => {
-  let inner: any;
-
-  beforeAll(() => {
-    let isClosed = false;
-    let interval: any;
-
-    inner = {
-      get closed() {
-        return new Promise((resolve) => {
-          interval = setInterval(() => {
-            if (isClosed) {
-              resolve();
-            }
-          }, 1000);
-        }).finally(() => clearInterval(interval));
-      },
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      write: () => {},
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      abort: () => {},
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      close: () => {
-        isClosed = true;
-      },
-    };
-  });
-
   it(
     'should write to a WritableStream passed as parameter',
     observe(() => {

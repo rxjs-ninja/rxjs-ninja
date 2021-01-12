@@ -12,7 +12,7 @@ import { catchError, finalize, switchMap, takeUntil, tap } from 'rxjs/operators'
  *
  * @category Streams
  *
- * @param stream The `WritableStream` to emit to
+ * @param stream The writer object to write too from the source object
  *
  * @example Write an array of Observable values to a `WritableStream`
  * ```ts

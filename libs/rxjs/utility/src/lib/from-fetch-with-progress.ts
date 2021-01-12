@@ -10,7 +10,7 @@ import { map, scan, takeUntil, takeWhile } from 'rxjs/operators';
  * a number during the progress of the file download and once finished emits a
  * {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array|Uint8Array}
  *
- * @category Observable Utilities
+ * @category Fetch
  *
  * @see {@link https://stackblitz.com/edit/fetch-with-progress|Demo Image Loader}
  *

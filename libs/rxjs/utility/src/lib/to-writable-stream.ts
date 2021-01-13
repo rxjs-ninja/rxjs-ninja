@@ -2,18 +2,20 @@
  * @packageDocumentation
  * @module Utility
  */
-import { MonoTypeOperatorFunction, Subject, throwError } from 'rxjs';
-import { catchError, finalize, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { MonoTypeOperatorFunction } from 'rxjs';
+import { finalize, switchMap, tap } from 'rxjs/operators';
+import { fromPromise } from 'rxjs/internal-compatibility';
 
 /**
  * Returns the source Observable, emitting it through the passed
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/WritableStream|WritableStream} and handling the internal
- * subscription state and error handling
+ * subscription state and error handling.
  *
  * @category Streams
  *
  * @param stream The Writer object to emit the data to
- * @params abortWriterOnError Optional On RxJS call abort instead of close on the writer
+ * @param skipCloseWriter Optional By default the operator will close the writer when the subscription ends, set this
+ *   to true to disable and provide your own close handler.
  *
  * @example Write an array of Observable values to a `WritableStream`
  * ```ts
@@ -32,52 +34,26 @@ import { catchError, finalize, switchMap, takeUntil, tap } from 'rxjs/operators'
  */
 export function toWritableStream<T extends unknown>(
   stream: WritableStream<T> | WritableStreamDefaultWriter<T>,
-  abortWriterOnError = false,
+  skipCloseWriter = false,
 ): MonoTypeOperatorFunction<T> {
   // Here we check if there is a getWriter method to support WritableStreamDefaultWriter
+  // eslint-disable-next-line
   const writer: WritableStreamDefaultWriter = (stream as any)?.getWriter ? (stream as any).getWriter() : stream;
 
   let closed = false;
 
-  // We want to really make sure we clean up
-  const writerClosed$ = new Subject();
-
   // Sets up a listener on the closed getter, when fired this sets the closed value to true and fires the writerClosed$
   // subject to ensure the subscription ends
-  if (writer.closed) {
-    writer.closed
-      .then(() => {
-        closed = true;
-        writerClosed$.next();
-      })
-      .catch(() => {
-        closed = true;
-        writerClosed$.next();
-      });
-  }
+  fromPromise(writer.closed)
+    .pipe(tap(() => (closed = true)))
+    .subscribe();
 
   return (source) =>
     source.pipe(
-      takeUntil(writerClosed$),
-      tap((value) => writer.write(value)),
-      catchError(async (error) => {
-        closed = true;
-        try {
-          if (abortWriterOnError) {
-            await writer.abort(error);
-          } else {
-            await writer.close();
-          }
-        } catch {
-          // Do nothing
-        }
-        return throwError(error);
-      }),
+      tap(async (value) => !closed && (await writer.write(value))),
       finalize(async () => {
-        try {
-          !closed && (await writer.close());
-        } catch {
-          // Do nothing
+        if (!closed && !skipCloseWriter) {
+          await writer.close();
         }
       }),
       switchMap(() => source),

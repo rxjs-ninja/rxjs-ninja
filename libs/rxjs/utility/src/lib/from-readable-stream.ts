@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 
 /**
  * Creates an Observable source from a
- * {@link https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream|ReadableStream} source
+ * {@link https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream|ReadableStream} source that will emit any values
+ * emitted by the stream.
  *
  * @category Streams
  *

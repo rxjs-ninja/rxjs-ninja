@@ -16,7 +16,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - `fromReadableStream` calls `subscriber.complete` and not `subscriber.error` when using `AbortController` by default
   but can accept a parameter to throw as error
+- `toWritableStream` internal improvements on how it handles errors.
 - `toWritableStream` now accepts `WritableStreamDefaultWriter` object
+- `toWritableStream` now accepts `AbordSignal` object to cancel the stream without ending the subscription
 - Tests now use property `ReadableStream` and `WritableStream` polyfills instead of custom implementation
 
 ## [3.1.0] - 2021-01-12

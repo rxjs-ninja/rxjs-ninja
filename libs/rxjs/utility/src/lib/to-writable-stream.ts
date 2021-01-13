@@ -2,20 +2,20 @@
  * @packageDocumentation
  * @module Utility
  */
-import { MonoTypeOperatorFunction } from 'rxjs';
-import { finalize, switchMap, tap } from 'rxjs/operators';
-import { fromPromise } from 'rxjs/internal-compatibility';
+import { from, MonoTypeOperatorFunction, of, throwError } from 'rxjs';
+import { catchError, finalize, mergeMap, switchMap } from 'rxjs/operators';
 
 /**
  * Returns the source Observable, emitting it through the passed
  * {@link https://developer.mozilla.org/en-US/docs/Web/API/WritableStream|WritableStream} and handling the internal
- * subscription state and error handling.
+ * subscription state and error handling. If passed an
+ * {@link https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal|AbortSignal} the `WritableStream` can be ended
+ * early without ending the entire subscription
  *
  * @category Streams
  *
  * @param stream The Writer object to emit the data to
- * @param skipCloseWriter Optional By default the operator will close the writer when the subscription ends, set this
- *   to true to disable and provide your own close handler.
+ * @param signal Optional signal used to end the writer without ending the rest of the stream
  *
  * @example Write an array of Observable values to a `WritableStream`
  * ```ts
@@ -34,28 +34,48 @@ import { fromPromise } from 'rxjs/internal-compatibility';
  */
 export function toWritableStream<T extends unknown>(
   stream: WritableStream<T> | WritableStreamDefaultWriter<T>,
-  skipCloseWriter = false,
+  signal?: AbortSignal,
 ): MonoTypeOperatorFunction<T> {
   // Here we check if there is a getWriter method to support WritableStreamDefaultWriter
   // eslint-disable-next-line
   const writer: WritableStreamDefaultWriter = (stream as any)?.getWriter ? (stream as any).getWriter() : stream;
 
-  let closed = false;
-
-  // Sets up a listener on the closed getter, when fired this sets the closed value to true and fires the writerClosed$
-  // subject to ensure the subscription ends
-  fromPromise(writer.closed)
-    .pipe(tap(() => (closed = true)))
-    .subscribe();
+  // If there is a signal passed add a handler for the abort method and attempt to close the writer
+  if (signal) {
+    signal.onabort = () => {
+      from(writer.close())
+        .pipe(catchError(() => of(true)))
+        .subscribe();
+    };
+  }
 
   return (source) =>
     source.pipe(
-      tap(async (value) => !closed && (await writer.write(value))),
-      finalize(async () => {
-        if (!closed && !skipCloseWriter) {
-          await writer.close();
-        }
-      }),
+      switchMap((value) =>
+        // Attempt to write to the writer and always return the value
+        from(writer.ready).pipe(
+          mergeMap(() =>
+            from(writer.write(value)).pipe(
+              catchError(() => of(value)),
+              switchMap(() => of(value)),
+            ),
+          ),
+        ),
+      ),
+      catchError((error) =>
+        // Attempt to close the writer then always return the original error
+        from(writer.close()).pipe(
+          catchError(() => throwError(error)),
+          switchMap(() => throwError(error)),
+        ),
+      ),
+      finalize(() =>
+        // Attempt to close any open writer
+        from(writer.close())
+          .pipe(catchError(() => of(true)))
+          .subscribe(),
+      ),
+      // Return the original source to the next subscriber
       switchMap(() => source),
     );
 }

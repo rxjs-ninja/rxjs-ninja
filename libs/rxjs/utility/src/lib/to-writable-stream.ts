@@ -2,17 +2,20 @@
  * @packageDocumentation
  * @module Utility
  */
-import { MonoTypeOperatorFunction, Subject, throwError } from 'rxjs';
-import { catchError, finalize, switchMap, takeUntil, tap } from 'rxjs/operators';
+import { from, MonoTypeOperatorFunction, of, throwError } from 'rxjs';
+import { catchError, finalize, mergeMap, switchMap } from 'rxjs/operators';
 
 /**
  * Returns the source Observable, emitting it through the passed
- * {@link https://developer.mozilla.org/en-US/docs/Web/API/WritableStream|WritableStream} source, with error
- * and subscription end handing
+ * {@link https://developer.mozilla.org/en-US/docs/Web/API/WritableStream|WritableStream} and handling the internal
+ * subscription state and error handling. If passed an
+ * {@link https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal|AbortSignal} the `WritableStream` can be ended
+ * early without ending the entire subscription
  *
  * @category Streams
  *
- * @param stream The `WritableStream` to emit to
+ * @param stream The Writer object to emit the data to
+ * @param signal Optional signal used to end the writer without ending the rest of the stream
  *
  * @example Write an array of Observable values to a `WritableStream`
  * ```ts
@@ -29,27 +32,50 @@ import { catchError, finalize, switchMap, takeUntil, tap } from 'rxjs/operators'
  *
  * @returns Observable that emits the source observable after performing a write to the WritableStream
  */
-export function toWritableStream<T extends unknown>(stream: WritableStream<T>): MonoTypeOperatorFunction<T> {
-  const writer = stream.getWriter();
-  let isError = false;
-  let closed = false;
+export function toWritableStream<T extends unknown>(
+  stream: WritableStream<T> | WritableStreamDefaultWriter<T>,
+  signal?: AbortSignal,
+): MonoTypeOperatorFunction<T> {
+  // Here we check if there is a getWriter method to support WritableStreamDefaultWriter
+  // eslint-disable-next-line
+  const writer: WritableStreamDefaultWriter = (stream as any)?.getWriter ? (stream as any).getWriter() : stream;
 
-  const writerClosed$ = new Subject();
-
-  writer.closed.then(() => {
-    closed = true;
-    writerClosed$.next();
-  });
+  // If there is a signal passed add a handler for the abort method and attempt to close the writer
+  if (signal) {
+    signal.onabort = () => {
+      from(writer.close())
+        .pipe(catchError(() => of(true)))
+        .subscribe();
+    };
+  }
 
   return (source) =>
     source.pipe(
-      tap((value) => writer.write(value)),
-      catchError((error) => {
-        isError = true;
-        return writer.abort(error).then(() => throwError(error));
-      }),
-      takeUntil(writerClosed$),
-      finalize(() => !isError && !closed && writer.close()),
+      switchMap((value) =>
+        // Attempt to write to the writer and always return the value
+        from(writer.ready).pipe(
+          mergeMap(() =>
+            from(writer.write(value)).pipe(
+              catchError(() => of(value)),
+              switchMap(() => of(value)),
+            ),
+          ),
+        ),
+      ),
+      catchError((error) =>
+        // Attempt to close the writer then always return the original error
+        from(writer.close()).pipe(
+          catchError(() => throwError(error)),
+          switchMap(() => throwError(error)),
+        ),
+      ),
+      finalize(() =>
+        // Attempt to close any open writer
+        from(writer.close())
+          .pipe(catchError(() => of(true)))
+          .subscribe(),
+      ),
+      // Return the original source to the next subscriber
       switchMap(() => source),
     );
 }

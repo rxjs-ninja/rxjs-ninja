@@ -1,90 +1,98 @@
 import { observe } from 'rxjs-marbles/jest';
-import { fromReadableStream, toWritableStream } from '@rxjs-ninja/rxjs-utility';
-import { finalize, map, reduce, switchMap, take, tap } from 'rxjs/operators';
+import { toWritableStream } from '@rxjs-ninja/rxjs-utility';
+import { catchError, map, reduce, take, tap } from 'rxjs/operators';
 import { from, of, throwError } from 'rxjs';
+import { WritableStream } from 'web-streams-polyfill/ponyfill';
 
 describe('toWritableStream', () => {
-  let inner: any;
+  it(
+    'should write to a WritableStream passed as parameter',
+    observe(() => {
+      let output = '';
+      const stream = new WritableStream({
+        write: (val) => {
+          output += val;
+        },
+        close: () => expect(output).toBe('12345'),
+      });
 
-  beforeAll(() => {
-    let isClosed = false;
-    let interval: any;
-
-    inner = {
-      get closed() {
-        return new Promise((resolve) => {
-          interval = setInterval(() => {
-            if (isClosed) {
-              resolve();
-            }
-          }, 1000);
-        }).finally(() => clearInterval(interval));
-      },
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      write: () => {},
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      abort: () => {},
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
-      close: () => {
-        isClosed = true;
-      },
-    };
-
-    (global as any).WritableStream = jest.fn(() => ({
-      getWriter: () => inner,
-    }));
-  });
+      return from([1, 2, 3, 4, 5]).pipe(toWritableStream(stream));
+    }),
+  );
 
   it(
-    'should create an Observable from a readable source',
+    'should write to a WritableStreamDefaultWriter passed as parameter',
     observe(() => {
-      const stream = (global as any).WritableStream();
-      spyOn(inner, 'write');
+      let output = '';
+      const stream = new WritableStream({
+        write: (val) => {
+          output += val;
+        },
+        close: () => expect(output).toBe('12345'),
+      });
+      const writer = stream.getWriter();
 
-      return from([1, 2, 3, 4, 5]).pipe(
-        toWritableStream(stream),
-        finalize(() => {
-          expect(inner.write).toHaveBeenCalledTimes(5);
-        }),
-      );
+      return from([1, 2, 3, 4, 5]).pipe(toWritableStream(writer));
     }),
   );
 
   it(
     'should end writing to the writable stream on subscription end',
     observe(() => {
-      const stream = (global as any).WritableStream();
-      spyOn(inner, 'write');
-
-      return from([1, 2, 3, 4, 5]).pipe(
-        take(3),
-        toWritableStream(stream),
-        finalize(() => {
-          expect(inner.write).toHaveBeenCalledTimes(3);
-        }),
-      );
+      let output = '';
+      const stream = new WritableStream({
+        write: (val) => {
+          output += val;
+        },
+        close: () => expect(output).toBe('123'),
+      });
+      return from([1, 2, 3, 4, 5]).pipe(take(3), toWritableStream(stream));
     }),
   );
 
-  xit(
+  it(
     'should end writing to the writable stream on error',
     observe(() => {
-      const stream = (global as any).WritableStream();
-      spyOn(inner, 'write');
+      let output = '';
+      const stream = new WritableStream({
+        write: (val) => {
+          output += val;
+        },
+        close: () => expect(output).toBe('123'),
+      });
 
       return from([1, 2, 3, 4, 5]).pipe(
-        switchMap((val) => {
-          console.log(val, val < 4);
+        map((val) => {
           if (val < 4) {
-            return of(val);
+            return val;
           } else {
             return throwError('Number is 4');
           }
         }),
         toWritableStream(stream),
-        finalize(() => {
-          expect(inner.write).toHaveBeenCalledTimes(3);
-        }),
+        catchError(() => of(true)),
+      );
+    }),
+  );
+
+  it(
+    'should no longer write when stream is closed',
+    observe(() => {
+      const ctrl = new AbortController();
+
+      let output = '';
+      const stream = new WritableStream({
+        write: (val) => {
+          output += val;
+        },
+        close: () => expect(output).toBe('123'),
+      });
+
+      return from([1, 2, 3, 4, 5]).pipe(
+        tap((val) => val === 4 && ctrl.abort()),
+        toWritableStream(stream, ctrl.signal),
+        reduce((a, b) => a + b, 0),
+        tap((val) => expect(val).toBe(15)),
       );
     }),
   );

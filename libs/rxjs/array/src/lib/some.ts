@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 /**
  * Returns an Observable that emits a boolean when all values in the source array return truthy using Array.some
  *
- * @category Array Query
+ * @category Query
  *
  * @see The [[filterSome]] operator returns the array value instead of boolean
  *

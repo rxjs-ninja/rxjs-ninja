@@ -10,7 +10,7 @@ import { PredicateFn } from '../types/generic-methods';
 /**
  * Returns an Observable number which is the index of the first value found in an array using Array.findIndex
  *
- * @category Array Query
+ * @category Query
  *
  * @param predicate Optional [[PredicateFn]] used to get a truthy or falsy value of array values
  *

@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 /**
  * Returns an Observable that emits a joining the values of the array using the `separator` character using Array.join
  *
- * @category Array Modify
+ * @category Modify
  *
  * @param separator Separator to be used to join strings. Default value is a space (` `) character.
  *

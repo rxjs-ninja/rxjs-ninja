@@ -167,6 +167,11 @@
       "pattern": "(Crypto\\.(\\w+))",
       "flags": "gm",
       "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Crypto/$2)"
+    },
+    {
+      "pattern": "(Object\\.(\\w+))",
+      "flags": "gm",
+      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/$2)"
     }
   ]
 }

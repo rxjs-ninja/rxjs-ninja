@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
 /**
  * Returns an Observable that emits a boolean when all values in the source array return truthy using Array.every
  *
- * @category Array Query
+ * @category Query
  *
  * @see The [[filterEvery]] operator returns the array value instead of boolean
  *

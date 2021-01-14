@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 /**
  * Returns an Observable that emits an array taking a source array and randomly shuffling the elements
  *
- * @category Array Modify
+ * @category Modify
  *
  * @typeParam T The type of data in the input array
  *

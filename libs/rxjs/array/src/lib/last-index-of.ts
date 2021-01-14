@@ -10,7 +10,7 @@ import { MapFn } from '../types/generic-methods';
  * Returns an Observable number or array of numbers. These are the index numbers of first truthy value in the source array
  * using Array.lastIndexOf
  *
- * @category Array Query
+ * @category Query
  *
  * @param input A value or array of values to get the index of in the source array
  * @param fromIndex Optional index to start searching from in the array

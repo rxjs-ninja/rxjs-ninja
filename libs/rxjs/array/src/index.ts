@@ -19,6 +19,8 @@ export { findAll } from './lib/find-all';
 export { findLast } from './lib/find-last';
 export { findIndex } from './lib/find-index';
 export { flipArray } from './lib/flip-array';
+export { fromMap } from './lib/from-map';
+export { fromSet } from './lib/from-set';
 export { indexOf } from './lib/index-of';
 export { intersects } from './lib/intersects';
 export { intersectsWith } from './lib/intersects-with';
@@ -29,5 +31,6 @@ export { shuffle } from './lib/shuffle';
 export { some } from './lib/some';
 export { sort } from './lib/sort';
 export { sortMap } from './lib/sort-map';
+export { toSet } from './lib/to-set';
 
 export { BinarySearchResult } from './types/binary-search';

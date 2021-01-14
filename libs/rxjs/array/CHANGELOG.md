@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- `toSet` converts a source Array
+  to [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+- `fromSet` converts a [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) to
+  Array
+
 ## [3.0.0] - 2020-12-21
 
 ### Updated
@@ -14,8 +23,8 @@ coverage that provided various bug fixes.
 
 ### Added
 
-- `fill` operator that returns an Observable array of values where some or all the values have been replaced with
-  the passed value.
+- `fill` operator that returns an Observable array of values where some or all the values have been replaced with the
+  passed value.
 - `findAll` operator that returns an array of values that are all truthy based on a passed function
 - `findLast` operator that returns the last value from an array that is truthy for a passed predicate function
 - `shuffle` operator that takes a source array and returns it shuffled randomly

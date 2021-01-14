@@ -667,7 +667,11 @@ fromFetchWithProgress(<span class="hljs-string">&quot;https://example.com/large-
 									values emitted by the stream.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p><a href="https://stackblitz.com/edit/rxjs-readable-stream" class="external">StreamAPI Number Stream</a></p>
+									</dd><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p><a href="https://stackblitz.com/edit/rxjs-readable-stream-fetch" class="external">Fetch + StreamAPI Demo</a></p>
+									</dd><dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Create a ReadableStream of <code>0</code> to <code>100</code> and convert to an Observable</p>
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> stream = <span class="hljs-keyword">new</span> ReadableStream({
   <span class="hljs-attr">start</span>: <span class="hljs-function">(<span class="hljs-params">controller</span>) =&gt;</span> {
@@ -721,8 +725,8 @@ fromReadableStream(stream).pipe(reduce(<span class="hljs-function">(<span class=
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/utility/src/lib/from-readable-stream.ts#L37">
-											libs/rxjs/utility/src/lib/from-readable-stream.ts:37
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/utility/src/lib/from-readable-stream.ts#L40">
+											libs/rxjs/utility/src/lib/from-readable-stream.ts:40
 										</a>
 									</li>
 								</ul>
@@ -1001,7 +1005,9 @@ onClick$.subscribe();</code></pre>
 									early without ending the entire subscription</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p><a href="https://stackblitz.com/edit/rxjs-writable-stream" class="external">Writable Stream Demo</a></p>
+									</dd><dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Write an array of Observable values to a <code>WritableStream</code></p>
 										<pre><code class="language-ts"><span class="hljs-keyword">let</span> result = <span class="hljs-string">&#x27;&#x27;</span>
 <span class="hljs-keyword">const</span> stream = <span class="hljs-keyword">new</span> WritableStream({
@@ -1040,8 +1046,8 @@ onClick$.subscribe();</code></pre>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/utility/src/lib/to-writable-stream.ts#L35">
-											libs/rxjs/utility/src/lib/to-writable-stream.ts:35
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/utility/src/lib/to-writable-stream.ts#L37">
+											libs/rxjs/utility/src/lib/to-writable-stream.ts:37
 										</a>
 									</li>
 								</ul>
@@ -1053,7 +1059,7 @@ onClick$.subscribe();</code></pre>
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/14/2021 at 1:20:47 AM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/14/2021 at 1:13:27 PM</p>
 			</div>
 		</div>
 	</div>

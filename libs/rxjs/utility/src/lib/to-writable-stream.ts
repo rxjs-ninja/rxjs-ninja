@@ -14,6 +14,8 @@ import { catchError, finalize, mergeMap, switchMap } from 'rxjs/operators';
  *
  * @category Streams
  *
+ * @see {@link https://stackblitz.com/edit/rxjs-writable-stream|Writable Stream Demo}
+ *
  * @param stream The Writer object to emit the data to
  * @param signal Optional signal used to end the writer without ending the rest of the stream
  *

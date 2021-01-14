@@ -11,6 +11,9 @@ import { Observable, Subscriber } from 'rxjs';
  *
  * @category Streams
  *
+ * @see {@link https://stackblitz.com/edit/rxjs-readable-stream|StreamAPI Number Stream}
+ * @see {@link https://stackblitz.com/edit/rxjs-readable-stream-fetch|Fetch + StreamAPI Demo}
+ *
  * @param stream The `ReadableStream` to subscribe to
  * @param signal Optional {@link https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal|AbortSignal} to provide
  *   to the underlying stream

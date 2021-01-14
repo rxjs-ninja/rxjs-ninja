@@ -14,14 +14,14 @@ import { filter, map } from 'rxjs/operators';
  * @example Return only parsed hex values
  * ```ts
  * const input = ['RxJS', 'ff', '00', '1b', '23', 'c89bb'];
- * from(input).pipe(parseInt()).subscribe();
+ * from(input).pipe(parseHex()).subscribe();
  * ```
  * Output: `255, 0, 27, 25, 821691`
  *
  * @example Return parsed integer values and `NaN` values using base `10`
  * ```ts
  * const input = ['RxJS', 'ff', '00', '1b', '23', 'c89bb'];
- * from(input).pipe(parseInt(true)).subscribe();
+ * from(input).pipe(parseHex(true)).subscribe();
  * ```
  * Output: `NaN, 255, 0, 27, 25, 821691`
  *

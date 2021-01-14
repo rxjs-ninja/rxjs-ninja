@@ -2,9 +2,8 @@
  * @packageDocumentation
  * @module Array
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
+import { isObservable, ObservableInput, OperatorFunction } from 'rxjs';
 import { concatMap, map } from 'rxjs/operators';
-import { MapFn } from '../types/generic-methods';
 import { mapIntersection } from '../utils/intersects';
 
 /**
@@ -56,12 +55,11 @@ import { mapIntersection } from '../utils/intersects';
  *
  * @returns An Observable that emits an array of the intersection of input and source arrays.
  */
-export function intersects<T = unknown>(
-  input: T[] | ObservableInput<T[]>,
-  mapFn?: MapFn<T>,
-): MonoTypeOperatorFunction<T[]> {
-  return (source: Observable<T[]>) =>
-    isObservable<T[]>(input)
-      ? input.pipe(concatMap((value) => source.pipe(map(mapIntersection(value, mapFn)))))
-      : source.pipe(map(mapIntersection(input as T[], mapFn)));
+export function intersects<T extends unknown>(
+  input: T[] | Set<T> | ObservableInput<T[] | Set<T>>,
+): OperatorFunction<T[] | Set<T>, T[]> {
+  return (source) =>
+    isObservable<T[] | Set<T>>(input)
+      ? input.pipe(concatMap(([...inputValue]) => source.pipe(map(([...value]) => mapIntersection(inputValue)(value)))))
+      : source.pipe(map(([...value]) => mapIntersection(input as T[])(value)));
 }

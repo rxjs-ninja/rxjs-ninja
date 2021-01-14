@@ -6,9 +6,12 @@ import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * Returns an Observable that emits a joining the values of the array using the `separator` character using Array.join
+ * Returns an Observable that emits a joining the values of the Array or Set using the `separator` character using
+ * Array.join
  *
  * @category Modify
+ *
+ * @typeParam T The input type of the source Array or Set
  *
  * @param separator Separator to be used to join strings. Default value is a space (` `) character.
  *
@@ -30,6 +33,6 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable string from the joined values in the source array
  */
-export function join<T extends unknown>(separator = ' '): OperatorFunction<T[], string> {
-  return (source: Observable<T[]>) => source.pipe(map((value) => value.join(separator)));
+export function join<T extends unknown>(separator = ' '): OperatorFunction<T[] | Set<T>, string> {
+  return (source: Observable<T[] | Set<T>>) => source.pipe(map((value) => [...value].join(separator)));
 }

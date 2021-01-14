@@ -11,6 +11,8 @@ import { map } from 'rxjs/operators';
  *
  * @category Modify
  *
+ * @typeParam T The input type of the source Array or Set
+ *
  * @example
  * Reverse an array of values
  * ```ts
@@ -21,6 +23,6 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits an array which is reversed from the source array
  */
-export function reverse<T extends unknown>(): OperatorFunction<T[], T[]> {
-  return (source: Observable<T[]>) => source.pipe(map((value) => [...value].reverse()));
+export function reverse<T extends unknown>(): OperatorFunction<T[] | Set<T>, T[]> {
+  return (source) => source.pipe(map(([...value]) => value.reverse()));
 }

@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Array
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { Observable, OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
  *
  * @category Modify
  *
- * @typeParam T The type of data in the input array
+ * @typeParam T The input type of the source Array or Set
  *
  * @example
  * Return a randomly shuffled array
@@ -22,8 +22,8 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits an array of values shuffled from the source array
  */
-export function shuffle<T extends unknown>(): MonoTypeOperatorFunction<T[]> {
-  return (source: Observable<T[]>) =>
+export function shuffle<T extends unknown>(): OperatorFunction<T[] | Set<T>, T[]> {
+  return (source) =>
     source.pipe(
       map(([...arr]) => {
         for (let i = arr.length - 1; i > 0; i--) {

@@ -13,7 +13,7 @@ import { MapFn, SortFn } from '../types/generic-methods';
  *
  * @category Modify
  *
- * @typeParam T The type of data in the source array
+ * @typeParam T The input type of the source Array or Set
  * @typeParam K The type of data in the emitted array
  *
  * @param mapFn The [[MapFn]] to map the value in the array
@@ -51,10 +51,10 @@ import { MapFn, SortFn } from '../types/generic-methods';
 export function sortMap<T extends unknown, K extends T | unknown>(
   mapFn: MapFn<T, K>,
   sortFn?: SortFn<T>,
-): OperatorFunction<T[], K[]> {
-  return (source: Observable<T[]>) =>
+): OperatorFunction<T[] | Set<T>, K[]> {
+  return (source) =>
     source.pipe(
-      map((arr) => arr.sort(sortFn || defaultSortFn)),
-      map((arr) => arr.map(mapFn)),
+      map(([...value]) => value.sort(sortFn || defaultSortFn)),
+      map((value) => value.map(mapFn)),
     );
 }

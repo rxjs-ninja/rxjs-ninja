@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Array
  */
-import { MapFn, PredicateFn } from '../types/generic-methods';
+import { PredicateFn } from '../types/generic-methods';
 
 /**
  * Filter an array to find intersecting items with optional predicate method, otherwise
@@ -30,19 +30,10 @@ export function mapIntersectsWith<T = unknown>(input: T[], predicate?: Predicate
  * takes an optional method that allows methods to be mutated
  *
  * @param checkArray
- * @param mutate
  * @private
  * @internal
  */
-export function mapIntersection<T = unknown, K = unknown>(
-  checkArray: T[],
-  mutate?: MapFn<T, T | K>,
-): (value: T[]) => T[] {
-  if (mutate) {
-    const checkSet = new Set(checkArray.map<T | K>(mutate));
-    return (value: T[]) => [...new Set<T>(value)].filter((x) => checkSet.has(mutate(x)));
-  } else {
-    const checkSet = new Set(checkArray);
-    return (value: T[]) => [...new Set<T>(value)].filter((x) => checkSet.has(x));
-  }
+export function mapIntersection<T extends unknown>(checkArray: T[]): (value: T[]) => T[] {
+  const checkSet = new Set<T>(checkArray);
+  return (value: T[]) => [...new Set<T>(value)].filter((x) => checkSet.has(x));
 }

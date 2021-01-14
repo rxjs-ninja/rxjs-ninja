@@ -79,10 +79,10 @@ export function binarySearch<T extends unknown, K extends T | unknown>(
   searchValue: T,
   sortFn?: SortFn<K>,
   property?: string | number,
-): OperatorFunction<K[], BinarySearchResult<T, K>> {
-  return (source: Observable<K[]>) =>
+): OperatorFunction<K[] | Set<K>, BinarySearchResult<T, K>> {
+  return (source: Observable<K[] | Set<K>>) =>
     source.pipe(
-      map((accArray) => [accArray, [...accArray].sort(sortFn || defaultSortFn)]),
+      map<K[] | Set<K>, [K[], K[]]>((accArray) => [[...accArray], [...accArray].sort(sortFn || defaultSortFn)]),
       map(([searchArray, sortedArray]) => [
         binarySearcher(searchValue, sortedArray, property),
         searchValue,

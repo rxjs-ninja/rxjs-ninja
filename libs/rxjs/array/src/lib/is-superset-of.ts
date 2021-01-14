@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
  *
  * @remarks The source set (A) is superset of the input set (B) when A contains all elements of B. (`A ⊇ B`)
  *
- * @typeDef T The type contained in the Array or Set
+ * @typeParam T The input type of the source Array or Set
  *
  * @param input The Array or Set to check if the value is a subset of it
  *

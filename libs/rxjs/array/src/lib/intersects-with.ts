@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Array
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
+import { isObservable, ObservableInput, OperatorFunction } from 'rxjs';
 import { concatMap, map } from 'rxjs/operators';
 import { PredicateFn } from '../types/generic-methods';
 import { mapIntersectsWith } from '../utils/intersects';
@@ -17,7 +17,7 @@ import { mapIntersectsWith } from '../utils/intersects';
  *
  * @see The [[intersects]] operator can be used with a mapping method instead of a predicate method
  *
- * @typeParam T Type of item in the input array
+ * @typeParam T The input type of the source Array or Set
  *
  * @param input An Array or Observable array of values to compare the source Observable array against
  * @param predicate Optional [[PredicateFn]] function to compared the values against
@@ -56,12 +56,16 @@ import { mapIntersectsWith } from '../utils/intersects';
  *
  * @returns An Observable that emits an array of the intersection of input and source arrays.
  */
-export function intersectsWith<T = unknown>(
-  input: T[] | ObservableInput<T[]>,
+export function intersectsWith<T extends unknown>(
+  input: T[] | Set<T> | ObservableInput<T[] | Set<T>>,
   predicate?: PredicateFn<T>,
-): MonoTypeOperatorFunction<T[]> {
-  return (source: Observable<T[]>) =>
-    isObservable<T[]>(input)
-      ? input.pipe(concatMap((inputFromSource) => source.pipe(map(mapIntersectsWith(inputFromSource, predicate)))))
-      : source.pipe(map(mapIntersectsWith(input as T[], predicate)));
+): OperatorFunction<T[] | Set<T>, T[]> {
+  return (source) =>
+    isObservable<T[] | Set<T>>(input)
+      ? input.pipe(
+          concatMap(([...inputValue]) =>
+            source.pipe(map(([...value]) => mapIntersectsWith(inputValue, predicate)(value))),
+          ),
+        )
+      : source.pipe(map(([...value]) => mapIntersectsWith([...(input as T[])], predicate)(value)));
 }

@@ -19,7 +19,7 @@ import { map } from 'rxjs/operators';
  * const input = { 1: 'a', 2: 'b', 3: 'c' };
  * of(input).pipe(fromObjectEntries()).subscribe();
  * ```
- * Output: `[ ['1', 'a'], ['2', 'b'], ['3', 'c] ]`
+ * Output: `[ ['1', 'a'], ['2', 'b'], ['3', 'c'] ]`
  *
  * @returns Observable that emits a Array from a source Object entries
  */

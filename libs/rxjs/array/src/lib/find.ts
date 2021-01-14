@@ -10,7 +10,7 @@ import { PredicateFn } from '../types/generic-methods';
 /**
  * Returns an Observable value of the first truthy value found in a source array, or `undefined` using Array.find
  *
- * @category Array Filter
+ * @category Filter
  *
  * @param predicate Optional [[PredicateFn]] used to get a truthy value of array values
  *

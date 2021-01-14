@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 /**
  * Returns an Observable array where the source array contains boolean values, and flips the value to the opposite boolean.
  *
- * @category Array Modify
+ * @category Modify
  *
  * @example
  * Returns an array of all binary values flipped

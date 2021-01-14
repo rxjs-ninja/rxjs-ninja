@@ -10,7 +10,7 @@ import { SortFn } from '../types/generic-methods';
 /**
  * Returns an Observable that emits an array of sorted values from the source array using the [[SortFn]]
  *
- * @category Array Modify
+ * @category Modify
  *
  * @typeParam T The type of data in the source array
  *

@@ -11,7 +11,7 @@ import { MapFn, SortFn } from '../types/generic-methods';
  * Returns an Observable that emits an array of sorted mapped values from a source array where values are mapped to
  * type `K` using a [[MapFn]].
  *
- * @category Array Modify
+ * @category Modify
  *
  * @typeParam T The type of data in the source array
  * @typeParam K The type of data in the emitted array

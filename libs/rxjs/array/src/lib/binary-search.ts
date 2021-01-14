@@ -14,7 +14,7 @@ import { SortFn } from '../types/generic-methods';
  * Then it tries to find the the `searchValue` in the array. The `BinarySearchResult` contains the index in the sorted
  * array, the value searched and the sorted and unsorted array. If not found the index is `-1`.
  *
- * @category Array Query
+ * @category Query
  *
  * @see {@link https://en.wikipedia.org/wiki/Binary_search_algorithm|Binary search algorithm}
  *

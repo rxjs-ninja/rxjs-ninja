@@ -20,6 +20,8 @@ export { findLast } from './lib/find-last';
 export { findIndex } from './lib/find-index';
 export { flipArray } from './lib/flip-array';
 export { fromMap } from './lib/from-map';
+export { fromObjectEntries } from './lib/from-object-entries';
+export { fromObjectKeys } from './lib/from-object-keys';
 export { fromSet } from './lib/from-set';
 export { indexOf } from './lib/index-of';
 export { intersects } from './lib/intersects';

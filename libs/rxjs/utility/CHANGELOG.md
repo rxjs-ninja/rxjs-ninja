@@ -10,7 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Fixed
 
 - `toWritableStream` now correctly returns the value to any operators after it and captures write errors when there is no
-active stream
+  active stream
 
 ## [3.2.0] - 2021-01-13
 

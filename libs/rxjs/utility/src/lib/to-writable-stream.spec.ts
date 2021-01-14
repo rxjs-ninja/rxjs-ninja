@@ -70,7 +70,10 @@ describe('toWritableStream', () => {
           }
         }),
         toWritableStream(stream),
-        catchError(() => of(true)),
+        catchError((e) => {
+          expect(e.message).toBe('Number is 4');
+          return of(true);
+        }),
       );
     }),
   );

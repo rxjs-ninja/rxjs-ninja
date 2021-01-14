@@ -10,7 +10,7 @@ import { PredicateFn } from '../types/generic-methods';
 /**
  * Returns an Observable array of truthy values from a source array
  *
- * @category Array Filter
+ * @category Filter
  *
  * @param predicate Optional [[PredicateFn]] used to get a truthy value of array values
  *

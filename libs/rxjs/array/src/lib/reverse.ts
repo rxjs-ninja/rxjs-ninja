@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 /**
  * Returns an Observable that emits array taking the source and running the result of Array.reverse
  *
- * @category Array Modify
+ * @category Modify
  *
  * @example
  * Reverse an array of values

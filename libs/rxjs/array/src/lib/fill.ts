@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
 /**
  * Returns an Observable array of values filled with Array.fill. Using the source array length, some or all the values are replaced with the `fillWith` parameter.
  *
- * @category Array Modify
+ * @category Modify
  *
  * @param fillWith The value to fill the array with
  * @param start Optional start index to fill the array from

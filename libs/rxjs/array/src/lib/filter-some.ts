@@ -9,7 +9,7 @@ import { filter } from 'rxjs/operators';
 /**
  * Returns an Observable that emits an array when one of the values in the source array return truthy using Array.some
  *
- * @category Array Filter
+ * @category Filter
  *
  * @see The [[some]] operator returns the boolean value instead of the array
  *

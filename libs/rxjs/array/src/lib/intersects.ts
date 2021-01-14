@@ -11,7 +11,7 @@ import { mapIntersection } from '../utils/intersects';
  * Returns an Observable array containing values that are intersecting between a Observable source
  * array and the passed input array.
  *
- * @category Array Compare
+ * @category Compare
  *
  * @remarks This uses `Set` to do comparisons with and will remove duplicates
  *

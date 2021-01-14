@@ -10,7 +10,7 @@ import { filter } from 'rxjs/operators';
 /**
  * Returns an Observable that emits an array when all values in the source array return truthy using Array.every
  *
- * @category Array Filter
+ * @category Filter
  *
  * @see The [[every]] operator returns the boolean value instead of the array
  *

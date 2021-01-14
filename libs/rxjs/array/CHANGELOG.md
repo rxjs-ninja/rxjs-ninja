@@ -16,6 +16,9 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `fromMap` operator converts
   a [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
   into an Array
+- `fromObjectEntries` operator that converts an Object to an array of tuples containing the string key, and value of
+  each property
+- `fromObjectKeys` operator that converts and Object into an array of string keys
 
 ## [3.0.0] - 2020-12-21
 

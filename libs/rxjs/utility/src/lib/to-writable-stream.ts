@@ -3,7 +3,7 @@
  * @module Utility
  */
 import { from, MonoTypeOperatorFunction, of, throwError } from 'rxjs';
-import { catchError, finalize, mergeMap, switchMap } from 'rxjs/operators';
+import { catchError, finalize, mergeMap, switchMap, tap } from 'rxjs/operators';
 
 /**
  * Returns the source Observable, emitting it through the passed
@@ -42,9 +42,12 @@ export function toWritableStream<T extends unknown>(
   // eslint-disable-next-line
   const writer: WritableStreamDefaultWriter = (stream as any)?.getWriter ? (stream as any).getWriter() : stream;
 
+  let closed = false;
+
   // If there is a signal passed add a handler for the abort method and attempt to close the writer
   if (signal) {
     signal.onabort = () => {
+      closed = true;
       from(writer.close())
         .pipe(catchError(() => of(true)))
         .subscribe();
@@ -53,31 +56,28 @@ export function toWritableStream<T extends unknown>(
 
   return (source) =>
     source.pipe(
-      switchMap((value) =>
-        // Attempt to write to the writer and always return the value
-        from(writer.ready).pipe(
-          mergeMap(() =>
-            from(writer.write(value)).pipe(
-              catchError(() => of(value)),
-              switchMap(() => of(value)),
-            ),
-          ),
-        ),
-      ),
-      catchError((error) =>
+      tap((value) => {
+        // Attempt to write to the writer is not closed, if there is an error don't pass it on
+        if (!closed) {
+          from(writer.ready)
+            .pipe(mergeMap(() => from(writer.write(value)).pipe(catchError(() => of(value)))))
+            .subscribe();
+        }
+      }),
+      catchError((error) => {
+        closed = true;
         // Attempt to close the writer then always return the original error
-        from(writer.close()).pipe(
+        return from(writer.close()).pipe(
           catchError(() => throwError(error)),
           switchMap(() => throwError(error)),
-        ),
-      ),
-      finalize(() =>
-        // Attempt to close any open writer
+        );
+      }),
+      finalize(() => {
+        closed = true;
+        // Attempt to close any open writer, don't emit any error
         from(writer.close())
           .pipe(catchError(() => of(true)))
-          .subscribe(),
-      ),
-      // Return the original source to the next subscriber
-      switchMap(() => source),
+          .subscribe();
+      }),
     );
 }

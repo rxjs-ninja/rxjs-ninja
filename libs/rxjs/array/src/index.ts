@@ -26,6 +26,8 @@ export { fromSet } from './lib/from-set';
 export { indexOf } from './lib/index-of';
 export { intersects } from './lib/intersects';
 export { intersectsWith } from './lib/intersects-with';
+export { isSubsetOf } from './lib/is-subset-of';
+export { isSupersetOf } from './lib/is-superset-of';
 export { join } from './lib/join';
 export { lastIndexOf } from './lib/last-index-of';
 export { reverse } from './lib/reverse';

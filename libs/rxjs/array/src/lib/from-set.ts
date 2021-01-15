@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
  * Returns an Observable that emits an array from a source
  * {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set|Set} object.
  *
- * @category Set
+ * @category Create
  *
  * @typeParam T The input type of the source Set
  *

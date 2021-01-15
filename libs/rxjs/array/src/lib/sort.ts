@@ -2,17 +2,17 @@
  * @packageDocumentation
  * @module Array
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { defaultSortFn } from '../utils/sort';
 import { SortFn } from '../types/generic-methods';
 
 /**
- * Returns an Observable that emits an array of sorted values from the source array using the [[SortFn]]
+ * Returns an Observable that emits an array of sorted values from the source Array or Set using the [[SortFn]]
  *
  * @category Modify
  *
- * @typeParam T The type of data in the source array
+ * @typeParam T Item type contained in the Array/Set
  *
  * @param sortFn Optional [[SortFn]] used to sort the array, if not provided the `defaultSortFn` is used.
  *
@@ -42,6 +42,6 @@ import { SortFn } from '../types/generic-methods';
  *
  * @returns Observable array of values from source array sorted via [[SortFn]]
  */
-export function sort<T extends unknown>(sortFn?: SortFn<T>): MonoTypeOperatorFunction<T[]> {
-  return (source: Observable<T[]>) => source.pipe(map((arr) => arr.sort(sortFn || defaultSortFn)));
+export function sort<T extends unknown>(sortFn?: SortFn<T>): OperatorFunction<T[] | Set<T>, T[]> {
+  return (source) => source.pipe(map((value) => [...value].sort(sortFn || defaultSortFn)));
 }

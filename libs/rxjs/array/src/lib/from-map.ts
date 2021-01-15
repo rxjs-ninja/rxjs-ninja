@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
  * Returns an Observable that emits an array from a source
  * {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map|Map} object.
  *
- * @category Map
+ * @category Create
  *
  * @typeParam K The key type of the source Map
  * @typeParam T The value type of the source Map
@@ -19,7 +19,7 @@ import { map } from 'rxjs/operators';
  * const input = new Map([ [1, 'a'], [2, 'b'], [3, 'c'] ]);
  * of(input).pipe(fromMap()).subscribe();
  * ```
- * Output: `[ [1, 'a'], [2, 'b'], [3, 'c] ]`
+ * Output: `[ [1, 'a'], [2, 'b'], [3, 'c'] ]`
  *
  * @returns Observable that emits a Array from a source Map
  */

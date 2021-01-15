@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
  *
  * @category Query
  *
- * @see The [[filterEvery]] operator returns the array value instead of boolean
+ * @typeParam T Item type contained in the Array/Set
  *
  * @param predicate Optional [[PredicateFn]] used to get a truthy value of array values
  *

@@ -6,11 +6,11 @@ import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 
 import { map, switchMap } from 'rxjs/operators';
 
 /**
- * Returns an Observable Array containing unique values that are not in the provided input Array or Set
+ * Returns an Observable Array containing filtered values that are not in the provided input Array or Set
  *
  * @category Filter
  *
- * @see [[filterDifference]] operator for an Array containing potential duplicate differences
+ * @see [[difference]] operator for an Array of unique differences
  *
  * @typeParam T Item type contained in the Array/Set
  *
@@ -20,32 +20,31 @@ import { map, switchMap } from 'rxjs/operators';
  * Returns the difference between the source array and the passed static array
  * ```ts
  * const input = ['a', 'b', 'd', 'a', 'b'];
- * of(input).pipe(difference(['a', 'c'])).subscribe();
+ * of(input).pipe(filterDifference(['a', 'c'])).subscribe();
  * ```
- * Output: `['b', 'd']`
+ * Output: `'b', 'd', 'b'`
  *
  * @example
  * Returns the difference between the source array and the passed Observable array
  * ```ts
  * const input = ['a', 'b', 'd', 'a', 'b'];
- * of(input).pipe(difference(of(['a', 'c']))).subscribe();
+ * of(input).pipe(filterDifference(of(['a', 'c']))).subscribe();
  * ```
- * Output: `['b', 'd']`
+ * Output: `'b', 'd', 'b'`
  *
- * @returns An Observable that emits an Array containing a subset of the source value
+ * @returns An Observable that emits an Array with the difference between source and input
  */
-export function difference<T extends unknown>(
+export function filterDifference<T extends unknown>(
   input: T[] | Set<T> | ObservableInput<T[] | Set<T>>,
 ): OperatorFunction<T[] | Set<T>, T[]> {
   return (source) =>
     ((isObservable(input) ? input : of(input)) as Observable<T[] | Set<T>>).pipe(
-      map((val) => new Set(val)),
-      switchMap((inputValue: Set<T>) =>
-        source.pipe(
-          map((value) => {
-            return [...new Set<T>(value)].filter((x) => !inputValue.has(x));
-          }),
-        ),
-      ),
+      map((value) => new Set(value)),
+      switchMap((inputValue) => {
+        return source.pipe(
+          map((value) => [...value]),
+          map((value) => value.filter((v) => !inputValue.has(v))),
+        );
+      }),
     );
 }

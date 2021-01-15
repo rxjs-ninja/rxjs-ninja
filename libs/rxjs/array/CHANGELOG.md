@@ -5,12 +5,32 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+This release contains a few breaking changes and renaming of operators, also all operators now accept a source that is
+an [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) or
+[Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) but will always return an
+`Array` (except for specific `Set` operators that will be provided later)
+
+### Added
+
+- `isSubsetOf` operator that takes an `Array` or `Set` and checks if the source `Array` or `Set` is a subset of it
+- `isSupersetOf` operator that takes an `Array` or `Set` and checks if the source `Array` or `Set` is a superset of it
+
+### Changed
+
+- All operators now accept Set where they also currently accept an Array, either as a source or as an input value
+- The `difference` and `intersection` no longer accept a mapping method and only accepts an `Array` or `Set` value to
+  return the pure difference between the two
+- `differenceWith` has been renamed `filterDifference` and `intersectionWith` is now `filterIntersection` - both no
+  longer accepts a predicate method
+- Documentation updated and reorganised categories
+
 ## [3.1.0] - 2021-01-14
 
 ### Added
 
-- `toSet` converts a source Array
-  to [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+- `toSet` converts a source Array to `Set`
 - `fromSet` converts a [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) to
   Array
 - `fromMap` operator converts
@@ -37,7 +57,7 @@ coverage that provided various bug fixes.
 
 ### Changed
 
-- `difference`, `differenceWith`, `intersection` and `intersectionWith` now use `concatMap` instead of `switchMap`
+- `difference`, `filterDifference`, `intersection` and `intersectionWith` now use `concatMap` instead of `switchMap`
 - `binarySearch` improvements, now returns the unsorted and sorted array
 - Functions that return only truthy values (e.g. `filter*`, `find`, `every`, etc) with predicates treat `0` as truthy
   but `''` as falsy
@@ -110,6 +130,6 @@ coverage that provided various bug fixes.
 
 - `binarySearch` operator that provides a way to search for a value within an Observable array
 - `difference` operator that returns the difference between two arrays with optional modifier method
-- `differenceWith` operator that returns the difference between two arrays with optional predicate method
+- `filterDifference` operator that returns the difference between two arrays with optional predicate method
 - `intersects` operator that returns the intersection between two arrays with optional modifier method
-- `intersectsWith` operator that returns the intersection between two arrays with optional predicate method
+- `filterIntersects` operator that returns the intersection between two arrays with optional predicate method

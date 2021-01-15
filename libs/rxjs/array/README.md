@@ -10,7 +10,19 @@
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/CHANGELOG.md)
 
-`@rxjs-ninja/rxjs-array` provides operators for querying, filtering and modifying arrays.
+`@rxjs-ninja/rxjs-array` provides operators for RxJS for creating Observables of Array values, and for querying,
+filtering and modifying [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+and
+[Sets](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) with all results returned
+as Arrays where the operator provides them.
+
+### Function and Operator categories
+
+- Create - Functions that create Observable arrays from `Set`, `Map` and `Object` items
+- Filter - Operators that return source Arrays, or items from arrays using filtering functions or properties
+- Modify - Operators that modify Arrays or their values
+- Query - Operators that return non-Array values based on querying an arrays values
+- Set - Operators for working with `Set` objects (currently only `toSet` but more operators to come!)
 
 For example, you could `sortMap` an array of values from number into boolean and them `flipArray` the values:
 

@@ -10,7 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 This release contains a few breaking changes and renaming of operators, also all operators now accept a source that is
 an [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) or
 [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) but will always return an
-`Array` (except for `toSet`)
+`Array` (except for specific `Set` operators that will be provided later)
 
 ### Added
 
@@ -24,6 +24,7 @@ an [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Glo
   return the pure difference between the two
 - `differenceWith` has been renamed `filterDifference` and `intersectionWith` is now `filterIntersection` - both no
   longer accepts a predicate method
+- Documentation updated and reorganised categories
 
 ## [3.1.0] - 2021-01-14
 

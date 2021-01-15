@@ -15,6 +15,9 @@ import { map } from 'rxjs/operators';
  * @param start Optional start index to fill the array from
  * @param fillTo Optional index of the item to stop filling at, the last item filled is `fillTo - 1`
  *
+ * @typeParam T Item type contained in the input Array/Set
+ * @typeParam K Item type container in the output Array/Set
+ *
  * @example
  * Return an array with all values replaced
  * ```ts

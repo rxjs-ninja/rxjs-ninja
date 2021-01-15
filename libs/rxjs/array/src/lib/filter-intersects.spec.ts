@@ -1,5 +1,5 @@
 import { of } from 'rxjs';
-import { intersectsWith } from '@rxjs-ninja/rxjs-array';
+import { filterIntersects } from '@rxjs-ninja/rxjs-array';
 import { marbles } from 'rxjs-marbles';
 
 describe('intersectsWith', () => {
@@ -9,7 +9,7 @@ describe('intersectsWith', () => {
       const input = m.hot('-a-b-c-|', { a: ['a', 'b', 'c'], b: ['a', 'd', 'e'], c: ['x', 'y', 'z'] });
       const subs = '^------!';
       const expected = m.cold('-x-y-z-|', { x: ['a', 'c'], y: ['a'], z: [] });
-      m.expect(input.pipe(intersectsWith(['a', 'c']))).toBeObservable(expected);
+      m.expect(input.pipe(filterIntersects(['a', 'c']))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
@@ -19,7 +19,7 @@ describe('intersectsWith', () => {
       const input = m.hot('-a-b-c-|', { a: ['a', 'b', 'c'], b: ['a', 'd', 'e'], c: ['x', 'y', 'z'] });
       const subs = '^------!';
       const expected = m.cold('-x-y-z-|', { x: ['a', 'c'], y: ['a'], z: [] });
-      m.expect(input.pipe(intersectsWith(['A', 'C'], (x, y) => x === y.toLowerCase()))).toBeObservable(expected);
+      m.expect(input.pipe(filterIntersects(['A', 'C'], (x, y) => x === y.toLowerCase()))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
@@ -30,7 +30,7 @@ describe('intersectsWith', () => {
       const input = m.hot('-a-b-c-|', { a: [1, 2, 3], b: [1, 4, 5], c: [10, 11, 12] });
       const subs = '^------!';
       const expected = m.cold('-x-y-z-|', { x: [1, 2], y: [1], z: [] });
-      m.expect(input.pipe(intersectsWith([1, 2]))).toBeObservable(expected);
+      m.expect(input.pipe(filterIntersects([1, 2]))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
@@ -41,7 +41,7 @@ describe('intersectsWith', () => {
       const input = m.hot('-a-b-c-|', { a: [1.1, 1.9, 3.5], b: [1.1, 2.7, 3.5], c: [10.12, 11.12, 12.12] });
       const subs = '^------!';
       const expected = m.cold('-x-y-z-|', { x: [1.1, 1.9], y: [1.1], z: [] });
-      m.expect(input.pipe(intersectsWith([1, 2], (x, y) => x <= y))).toBeObservable(expected);
+      m.expect(input.pipe(filterIntersects([1, 2], (x, y) => x <= y))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
@@ -52,7 +52,7 @@ describe('intersectsWith', () => {
       const input = m.hot('-a-b-c-|', { a: ['a', 'b', 'c'], b: ['a', 'd', 'e'], c: ['x', 'y', 'z'] });
       const subs = '^------!';
       const expected = m.cold('-x-y-z-|', { x: ['a', 'c'], y: ['a'], z: [] });
-      m.expect(input.pipe(intersectsWith(of(['a', 'c'])))).toBeObservable(expected);
+      m.expect(input.pipe(filterIntersects(of(['a', 'c'])))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
@@ -62,7 +62,7 @@ describe('intersectsWith', () => {
       const input = m.hot('-a-b-c-|', { a: ['a', 'b', 'c'], b: ['a', 'd', 'e'], c: ['x', 'y', 'z'] });
       const subs = '^------!';
       const expected = m.cold('-x-y-z-|', { x: ['a', 'c'], y: ['a'], z: [] });
-      m.expect(input.pipe(intersectsWith(of(['A', 'C']), (x, y) => x === y.toLowerCase()))).toBeObservable(expected);
+      m.expect(input.pipe(filterIntersects(of(['A', 'C']), (x, y) => x === y.toLowerCase()))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

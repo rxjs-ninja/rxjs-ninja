@@ -9,6 +9,8 @@ import { map } from 'rxjs/operators';
  * Returns an Observable that emits a boolean value if the source Observable Array or Set is a subset of
  * the input Array or Set
  *
+ * @category Query
+ *
  * @remarks The source set (A) is subset of the input set (B) when B contains all elements of A (`A ⊆ B`)
  *
  * @typeParam T The input type of the source Array or Set

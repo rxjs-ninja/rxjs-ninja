@@ -9,6 +9,8 @@ import { map } from 'rxjs/operators';
  * Returns an Observable that emits a boolean value if the source Observable Array or Set is a superset of
  * the input Array or Set
  *
+ * @category Query
+ *
  * @remarks The source set (A) is superset of the input set (B) when A contains all elements of B. (`A ⊇ B`)
  *
  * @typeParam T The input type of the source Array or Set

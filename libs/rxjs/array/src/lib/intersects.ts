@@ -8,7 +8,7 @@ import { map, switchMap } from 'rxjs/operators';
 /**
  * Returns an Observable Array containing unique values that are in both the source and provided input Array or Set
  *
- * @category Compare
+ * @category Filter
  *
  * @see [[filterIntersects]] operator for an Array containing potential duplicate intersections
  *

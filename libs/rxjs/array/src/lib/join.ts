@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Array
  */
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**

@@ -9,9 +9,10 @@ import { isPromise } from 'rxjs/internal-compatibility';
 /**
  * Returns an Observable that emits boolean values from passed source of values.
  *
- * @category Boolean Observables
+ * @category Create
  *
- * @typeParam T The type or types to be used to create boolean values from
+ * @typeParam T Type of the value from the source Observable
+ * @typeParam A Input types accepted to convert to boolean
  *
  * @param args Input values to create the Observable source from
  *
@@ -32,8 +33,8 @@ import { isPromise } from 'rxjs/internal-compatibility';
  * @returns Observable that emits boolean values of the source value
 
  */
-export function fromBoolean<T extends ObservableInput<unknown> | PromiseLike<unknown> | unknown | unknown[]>(
-  ...args: T[]
+export function fromBoolean<T extends unknown, A extends ObservableInput<T> | PromiseLike<T> | T | T[]>(
+  ...args: A[]
 ): Observable<boolean> {
   if (isObservable(args[0])) {
     return (args[0] as Observable<T>).pipe(map(Boolean));
@@ -41,6 +42,7 @@ export function fromBoolean<T extends ObservableInput<unknown> | PromiseLike<unk
     return new Observable<boolean>((subscriber: Subscriber<unknown>): void => {
       (args[0] as Promise<T>).then(
         (value) => {
+          /* istanbul ignore next-line */
           if (!subscriber.closed) {
             subscriber.next(value);
             subscriber.complete();
@@ -50,9 +52,7 @@ export function fromBoolean<T extends ObservableInput<unknown> | PromiseLike<unk
       );
     });
   } else {
-    let value = Array.isArray(args[0]) ? (args[0] as unknown[]) : ([...args] as unknown[]);
-    value = value.map(Boolean);
-
+    const value = (Array.isArray(args[0]) ? (args[0] as T[]) : ([...args] as T[])).map(Boolean);
     return new Observable<boolean>((subscriber: Subscriber<unknown>): void => {
       for (let i = 0; i < value.length; i++) {
         subscriber.next(value[i]);

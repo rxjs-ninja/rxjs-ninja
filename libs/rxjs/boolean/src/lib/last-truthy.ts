@@ -2,16 +2,17 @@
  * @packageDocumentation
  * @module Boolean
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { filter, takeLast } from 'rxjs/operators';
 import { PredicateFn } from '../types/boolean';
 
 /**
- * Returns an Observable that emits the last truthy value from a source.
+ * Returns an Observable that emits the last truthy value from a source, with optional function to further filter the
+ * truthy values with a stricter check
  *
- * @category Boolean Filters
+ * @category Filter
  *
- * @typeParam T The value contained in the source Observable
+ * @typeParam T Type of the value from the source Observable
  *
  * @param predicate Optional [[PredicateFn]] function to compared the values against
  *
@@ -42,7 +43,7 @@ import { PredicateFn } from '../types/boolean';
  * @returns Observable that emits the last truthy value
  */
 export function lastTruthy<T extends unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
-  return (source: Observable<T>) =>
+  return (source) =>
     source.pipe(
       filter((value) => (predicate ? Boolean(value) && predicate(value) : Boolean(value))),
       takeLast(1),

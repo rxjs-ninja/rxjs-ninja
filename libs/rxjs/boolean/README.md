@@ -12,6 +12,13 @@
 
 `@rxjs-ninja/rxjs-boolean` provides operators for querying, filtering and modifying boolean values, and Observable for generating boolean emitters.
 
+### Function and Operator categories
+
+- Create - Functions and Operators for creating Observable boolean values
+- Filter - Operators for filtering Observable sources for truthy values
+- Modify - Operators for modifying boolean values
+- Validation - Operators that provide boolean output based on checks against source values
+
 For example, you can use the `firstTruthy` or `lastTruthy` value from an array:
 
 ```ts

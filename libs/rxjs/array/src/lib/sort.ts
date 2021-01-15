@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Array
  */
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { defaultSortFn } from '../utils/sort';
 import { SortFn } from '../types/generic-methods';
@@ -43,5 +43,5 @@ import { SortFn } from '../types/generic-methods';
  * @returns Observable array of values from source array sorted via [[SortFn]]
  */
 export function sort<T extends unknown>(sortFn?: SortFn<T>): OperatorFunction<T[] | Set<T>, T[]> {
-  return (source) => source.pipe(map(([...value]) => value.sort(sortFn || defaultSortFn)));
+  return (source) => source.pipe(map((value) => [...value].sort(sortFn || defaultSortFn)));
 }

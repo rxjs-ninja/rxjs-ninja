@@ -51,8 +51,8 @@ export function indexOf<T extends unknown>(
     source.pipe(
       map(([...value]) =>
         Array.isArray(input)
-          ? (input.map((inputVal) => value.indexOf(inputVal, startIndex)) as number[])
-          : (value.indexOf(input as T, startIndex) as number),
+          ? input.map((inputVal) => value.indexOf(inputVal, startIndex))
+          : value.indexOf(input as T, startIndex),
       ),
     );
 }

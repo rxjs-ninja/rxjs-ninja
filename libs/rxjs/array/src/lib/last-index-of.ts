@@ -59,8 +59,8 @@ export function lastIndexOf<T extends unknown>(
       map(([...value]) => {
         fromIndex = fromIndex || value.length - 1;
         return Array.isArray(input) || input instanceof Set
-          ? ([...(input as T[])].map((inputVal) => value.lastIndexOf(inputVal, fromIndex)) as number[])
-          : (value.lastIndexOf(input as T, fromIndex) as number);
+          ? [...(input as T[])].map((inputVal) => value.lastIndexOf(inputVal, fromIndex))
+          : value.lastIndexOf(input as T, fromIndex);
       }),
     );
 }

@@ -18,11 +18,11 @@ as Arrays where the operator provides them.
 
 ### Function and Operator categories
 
-* Create - Functions that create Observable arrays from `Set`, `Map` and `Object` items
-* Filter - Operators that return source Arrays, or items from arrays using filtering functions or properties
-* Modify - Operators that modify Arrays or their values
-* Query - Operators that return non-Array values based on querying an arrays values
-* Set - Operators for working with `Set` objects (currently only `toSet` but more operators to come!)
+- Create - Functions that create Observable arrays from `Set`, `Map` and `Object` items
+- Filter - Operators that return source Arrays, or items from arrays using filtering functions or properties
+- Modify - Operators that modify Arrays or their values
+- Query - Operators that return non-Array values based on querying an arrays values
+- Set - Operators for working with `Set` objects (currently only `toSet` but more operators to come!)
 
 For example, you could `sortMap` an array of values from number into boolean and them `flipArray` the values:
 

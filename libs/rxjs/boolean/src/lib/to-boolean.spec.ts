@@ -18,8 +18,8 @@ describe('toBoolean', () => {
     marbles((m) => {
       const input = m.hot('-a-b-c-|', { a: '', b: 'RxJS', c: 'Ninja' });
       const subs = '^------!';
-      const expected = m.cold('-x-y-z-|', { x: true, y: true, z: false });
-      m.expect(input.pipe(toBoolean((v) => v.length < 5))).toBeObservable(expected);
+      const expected = m.cold('-x-y-z-|', { x: false, y: true, z: false });
+      m.expect(input.pipe(toBoolean((v) => Boolean(v) && v.length < 5))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

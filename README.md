@@ -9,7 +9,8 @@ RxJS Ninja is a set of libraries that provide operators and observables for [RxJ
 
 ### Packages
 
-RxJS Ninja is composed of libraries separated into sets of functionality, you don't need to install all the operators at one time.
+RxJS Ninja is composed of libraries separated into sets of functionality, you don't need to install all the operators at
+one time.
 
 Below is each package npm name and version, once installed you can import any operator or observable into your project.
 You can also check out the source on [GitHub](https://github.com/rxjs-ninja/rxjs-ninja).
@@ -22,7 +23,18 @@ You can also check out the source on [GitHub](https://github.com/rxjs-ninja/rxjs
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/CHANGELOG.md)
 
-`@rxjs-ninja/rxjs-array` provides operators for querying, filtering and modifying arrays.
+`@rxjs-ninja/rxjs-array` provides operators for RxJS for creating Observables of Array values, and for querying,
+filtering and modifying [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+and [Sets](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) with all results
+returned as Arrays where the operator provides them.
+
+### Function and Operator categories
+
+- Create - Functions that create Observable arrays from `Set`, `Map` and `Object` items
+- Filter - Operators that return source Arrays, or items from arrays using filtering functions or properties
+- Modify - Operators that modify Arrays or their values
+- Query - Operators that return non-Array values based on querying an arrays values
+- Set - Operators for working with `Set` objects (currently only `toSet` but more operators to come!)
 
 For example, you could `sortMap` an array of values from number into boolean and them `flipArray` the values:
 
@@ -53,7 +65,8 @@ of([10, 4, 7, 3, 1, 29, 5])
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/boolean/CHANGELOG.md)
 
-`@rxjs-ninja/rxjs-boolean` provides operators for querying, filtering and modifying boolean values, and Observable for generating boolean emitters.
+`@rxjs-ninja/rxjs-boolean` provides operators for querying, filtering and modifying boolean values, and Observable for
+generating boolean emitters.
 
 For example, you can use the `firstTruthy` or `lastTruthy` value from an array:
 
@@ -75,10 +88,10 @@ inputObs$.pipe(lastTruthy()).subscribe(); // ['Ninja']
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/CHANGELOG.md)
 
-`@rxjs-ninja/rxjs-number` provides operators for querying, filtering and modifying number values, and Observable for generating number emitters.
+`@rxjs-ninja/rxjs-number` provides operators for querying, filtering and modifying number values, and Observable for
+generating number emitters.
 
-For example, you can use the `fromNumber` to generate a sequence of numbers and filter out ones
-that are out of range.
+For example, you can use the `fromNumber` to generate a sequence of numbers and filter out ones that are out of range.
 
 ```ts
 import { fromNumber, filterInRange, fitlerOutOfRange } from '@rxjs-ninja/rxjs-number';
@@ -99,8 +112,8 @@ inputObs$.pipe(filterOutOfRange(4, 10)).subscribe(); // 3, 12, 2, 1
 
 `@rxjs-ninja/rxjs-random` Observable for generating random emitters with both numbers and strings.
 
-For example, you can use the `fromRandomCrypto` to generate a sequence of random number between `-127` and `127`,
-then use `inRange` from `@rxjs-ninja/rxjs-number` and `flip` from `@rxjs-ninja/rxjs-boolean`.
+For example, you can use the `fromRandomCrypto` to generate a sequence of random number between `-127` and `127`, then
+use `inRange` from `@rxjs-ninja/rxjs-number` and `flip` from `@rxjs-ninja/rxjs-boolean`.
 
 ```ts
 import { fromRandomCrypto } from '@rxjs-ninja/rxjs-random';
@@ -135,10 +148,11 @@ fromRandomCrypto(0, { bytes: 1, unsigned: true })
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/CHANGELOG.md)
 
-`@rxjs-ninja/rxjs-string` provides operators for querying, filtering and modifying string values, and Observable for generating string emitters.
+`@rxjs-ninja/rxjs-string` provides operators for querying, filtering and modifying string values, and Observable for
+generating string emitters.
 
-For example, you can use the `fromString` to generate a sequence of strings and check they include
-a string using `include`. We can also `titlize` strings.
+For example, you can use the `fromString` to generate a sequence of strings and check they include a string
+using `include`. We can also `titlize` strings.
 
 ```ts
 import { fromString, includes, titleize } from '@rxjs-ninja/rxjs-string';

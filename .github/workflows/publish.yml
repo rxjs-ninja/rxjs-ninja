@@ -38,7 +38,7 @@ jobs:
       - name: Tests coverage
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-        run: ./.github/scripts/run-testing.sh False True $CODECOV_TOKEN origin/main~1
+        run: ./.github/scripts/run-testing.sh True True $CODECOV_TOKEN origin/main~1
 
       # Run versioning on affected libraries
       - name: Version

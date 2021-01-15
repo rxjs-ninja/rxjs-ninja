@@ -2,13 +2,13 @@
  * @packageDocumentation
  * @module Boolean
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a flipped boolean value from the source value
  *
- * @category Boolean Modify
+ * @category Modify
  *
  * @example
  * Returns flipped boolean values
@@ -21,5 +21,5 @@ import { map } from 'rxjs/operators';
  * @returns Observable that emits a boolean where the source Observable value have been flipped
  */
 export function flip(): MonoTypeOperatorFunction<boolean> {
-  return (source: Observable<boolean>) => source.pipe(map((value) => !value));
+  return (source) => source.pipe(map((value) => !value));
 }

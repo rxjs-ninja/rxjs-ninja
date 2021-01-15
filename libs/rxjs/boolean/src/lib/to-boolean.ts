@@ -2,16 +2,17 @@
  * @packageDocumentation
  * @module Boolean
  */
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PredicateFn } from '../types/boolean';
 
 /**
- * Returns an Observable that emits a boolean value from a source value of any type
+ * Returns an Observable that emits a boolean based on the input value - if no predicate method, the value will be
+ * converted to it's `Boolean` value, otherwise the predicate method is used to convert the boolean
  *
- * @category Boolean Observables
+ * @category Create
  *
- * @typeParam T The value contained in the source Observable
+ * @typeParam T Type of the value from the source Observable
  *
  * @param predicateFn Optional [[PredicateFn]] function to compared the values against
  *
@@ -34,5 +35,5 @@ import { PredicateFn } from '../types/boolean';
  * @returns Observable that emits a boolean value of a source value
  */
 export function toBoolean<T extends unknown>(predicateFn?: PredicateFn<T>): OperatorFunction<T, boolean> {
-  return (source: Observable<T>) => source.pipe(map((value) => (predicateFn ? predicateFn(value) : Boolean(value))));
+  return (source) => source.pipe(map((value) => (predicateFn ? predicateFn(value) : Boolean(value))));
 }

@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- `firstFalsy` operator that takes a required predicate and returns the first falsy value to the next operator
+- `lastFalsy` operator that takes a required predicate and returns the last falsy value to the next operator
+- `filterFalsy` operator that takes a required predicate and returns only values that don't pass the predicate
+
+### Changed
+
+- Documentation updates and reorganising categories
+- Internal improvements to `fromBoolean`
+
 ## [3.0.0] - 2020-12-21
 
 ### Updated

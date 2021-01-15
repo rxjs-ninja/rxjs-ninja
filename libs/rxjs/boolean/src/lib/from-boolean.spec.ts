@@ -1,4 +1,4 @@
-import { filter, map, reduce, tap } from 'rxjs/operators';
+import { catchError, filter, map, reduce, tap } from 'rxjs/operators';
 import { fromBoolean } from '@rxjs-ninja/rxjs-boolean';
 import { observe } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
@@ -20,6 +20,19 @@ describe('fromBoolean', () => {
       fromBoolean(Promise.resolve(false)).pipe(
         map((val) => !val),
         tap((value) => expect(value).toBeTruthy()),
+      ),
+    ),
+  );
+
+  it(
+    'should create an Error from a failed promise',
+    observe(() =>
+      fromBoolean(Promise.reject('RxJS Ninja')).pipe(
+        map((val) => !val),
+        catchError((error) => {
+          expect(error).toBe('RxJS Ninja');
+          return of(true);
+        }),
       ),
     ),
   );

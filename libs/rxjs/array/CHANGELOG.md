@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- `isEqualSet` operator that returns a boolean value if the source Array/Set contains the same content as the passed
+  Array/Set
+
+### Fixed
+
+- Improved internals of `isSupersetOf` and `isSubsetOf`
+
 ## [4.0.0] - 2021-01-15
 
 This release contains a few breaking changes and renaming of operators, also all operators now accept a source that is

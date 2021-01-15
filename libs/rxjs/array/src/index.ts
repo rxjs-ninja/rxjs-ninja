@@ -9,7 +9,7 @@
 /* istanbul ignore file */
 export { binarySearch } from './lib/binary-search';
 export { difference } from './lib/difference';
-export { filterDifference } from 'libs/rxjs/array/src/lib/filter-difference';
+export { filterDifference } from './lib/filter-difference';
 export { every } from './lib/every';
 export { fill } from './lib/fill';
 export { filterEvery } from './lib/filter-every';
@@ -25,7 +25,8 @@ export { fromObjectKeys } from './lib/from-object-keys';
 export { fromSet } from './lib/from-set';
 export { indexOf } from './lib/index-of';
 export { intersects } from './lib/intersects';
-export { filterIntersects } from 'libs/rxjs/array/src/lib/filter-intersects';
+export { filterIntersects } from './lib/filter-intersects';
+export { isEqualSet } from './lib/is-equal-set';
 export { isSubsetOf } from './lib/is-subset-of';
 export { isSupersetOf } from './lib/is-superset-of';
 export { join } from './lib/join';

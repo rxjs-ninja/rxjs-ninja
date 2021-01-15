@@ -30,13 +30,6 @@ export function isSupersetOf<T extends unknown>(input: T[] | Set<T>): OperatorFu
   return (source) =>
     source.pipe(
       map((value) => [new Set(value), new Set(input)]),
-      map(([value, set]) => {
-        for (const elem of set) {
-          if (!value.has(elem)) {
-            return false;
-          }
-        }
-        return true;
-      }),
+      map(([value, inputValue]) => [...inputValue].filter((e) => [...value].includes(e)).length === inputValue.size),
     );
 }

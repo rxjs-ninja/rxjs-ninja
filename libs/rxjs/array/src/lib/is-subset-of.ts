@@ -30,13 +30,6 @@ export function isSubsetOf<T extends unknown>(input: T[] | Set<T>): OperatorFunc
   return (source) =>
     source.pipe(
       map((value) => [new Set(input), new Set(value)]),
-      map(([value, set]) => {
-        for (const elem of set) {
-          if (!value.has(elem)) {
-            return false;
-          }
-        }
-        return true;
-      }),
+      map(([inputValue, value]) => [...value].filter((e) => [...inputValue].includes(e)).length === value.size),
     );
 }

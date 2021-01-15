@@ -10,7 +10,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 This release contains a few breaking changes and renaming of operators, also all operators now accept a source that is
 an [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) or
 [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) but will always return an
-array (except for `toSet`)
+`Array` (except for `toSet`)
 
 ### Added
 

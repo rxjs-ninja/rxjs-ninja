@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
  * Returns an Observable that emits an array from a source
  * {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map|Map} object.
  *
- * @category Map
+ * @category Create
  *
  * @typeParam K The key type of the source Map
  * @typeParam T The value type of the source Map

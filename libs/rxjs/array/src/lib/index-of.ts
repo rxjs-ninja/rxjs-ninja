@@ -5,17 +5,17 @@
 
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { MapFn } from '../types/generic-methods';
 
 /**
- * Returns an Observable number or array of numbers. These are the index numbers of first truthy value in the source array
- * using Array.indexOf
+ * Returns an Observable Number if the input is a single value, or Array of numbers in the input is an Array.
+ * These are the index numbers of first truthy value in the source array using Array.indexOf
  *
  * @category Query
  *
+ * @typeParam T Item type contained in the Array/Set
+ *
  * @param input A value or array of values to get the index of in the source array
- * @param fromIndex Optional index to start searching from in the array
- * @param mapFn Optional [[MapFn]] that can be used to make comparison easier (such as lower casing text)
+ * @param startIndex Optional index to start searching from in the array, starts from `0`
  *
  * @example
  * Returns the first index of the word `RxJS` in the array
@@ -41,31 +41,18 @@ import { MapFn } from '../types/generic-methods';
  * ```
  * Output: `-1, 1, -1`
  *
- * @example
- * Returns the first index of the word `RxJS` in the array comparing with lower case
- * ```ts
- * const input = [ ['RxJS', 'Ninja' ], ['Learn', 'RxJS'], ['Foo', 'Bar'] ];
- * of(input).pipe(indexOf('rxjs', 0, v => v.toLowerCase())).subscribe()
- * ```
- * Output: `0, 1, -1`
- *
  * @returns Observable number or array of numbers containing the index of the first found value
  */
 export function indexOf<T extends unknown>(
-  input: T | T[],
-  fromIndex = 0,
-  mapFn?: MapFn<T>,
-): OperatorFunction<T[], number | number[]> {
+  input: T | T[] | Set<T>,
+  startIndex = 0,
+): OperatorFunction<T[] | Set<T>, number | number[]> {
   return (source) =>
     source.pipe(
-      map((value) =>
+      map(([...value]) =>
         Array.isArray(input)
-          ? (input.map((inputVal) =>
-              mapFn ? value.map(mapFn).indexOf(inputVal, fromIndex) : value.indexOf(inputVal, fromIndex),
-            ) as number[])
-          : mapFn
-          ? value.map(mapFn).indexOf(input, fromIndex)
-          : (value.indexOf(input, fromIndex) as number),
+          ? input.map((inputVal) => value.indexOf(inputVal, startIndex))
+          : value.indexOf(input as T, startIndex),
       ),
     );
 }

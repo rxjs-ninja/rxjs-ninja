@@ -45,26 +45,4 @@ describe('lastIndexOf', () => {
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
-
-  it(
-    'should return the last index of the item in the array or -1 with mapped values',
-    marbles((m) => {
-      const input = m.hot('-a-b-c-|', { a: ['a', 'b', 'a'], b: ['a', 'c', 'd'], c: ['z', 'y', 'x', 'b'] });
-      const subs = '^------!';
-      const expected = m.cold('-x-y-z-|', { x: 2, y: 0, z: -1 });
-      m.expect(input.pipe(lastIndexOf('A', 2, (value) => value.toUpperCase()))).toBeObservable(expected);
-      m.expect(input).toHaveSubscriptions(subs);
-    }),
-  );
-
-  it(
-    'should return an array of the last index of the item in the array or -1 with mapped values',
-    marbles((m) => {
-      const input = m.hot('-a-b-c-|', { a: ['a', 'b', 'a', 'c'], b: ['a', 'c', 'd', 'd'], c: ['z', 'y', 'x', 'b'] });
-      const subs = '^------!';
-      const expected = m.cold('-x-y-z-|', { x: [2, 1], y: [0, -1], z: [-1, 3] });
-      m.expect(input.pipe(lastIndexOf(['A', 'B'], 4, (value) => value.toUpperCase()))).toBeObservable(expected);
-      m.expect(input).toHaveSubscriptions(subs);
-    }),
-  );
 });

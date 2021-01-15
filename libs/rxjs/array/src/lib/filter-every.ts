@@ -5,7 +5,7 @@
 
 import { PredicateFn } from '../types/generic-methods';
 import { OperatorFunction } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits an array when all values in the source array return truthy using Array.every
@@ -13,6 +13,8 @@ import { filter } from 'rxjs/operators';
  * @category Filter
  *
  * @see The [[every]] operator returns the boolean value instead of the array
+ *
+ * @typeParam T Item type contained in the Array/Set
  *
  * @param predicate Optional [[PredicateFn]] used to get a truthy value of array values
  *
@@ -42,9 +44,10 @@ import { filter } from 'rxjs/operators';
  *
  * @returns An Observable that emits a boolean when all values in source array return truthy with the [[PredicateFn]]
  */
-export function filterEvery<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], T[]> {
+export function filterEvery<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[] | Set<T>, T[]> {
   return (source) =>
     source.pipe(
+      map((value) => [...value]),
       filter((value) =>
         value.every((v) => {
           if (predicate && typeof v === 'number') {

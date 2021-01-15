@@ -8,11 +8,13 @@ import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * Returns an Observable that emits a boolean when all values in the source array return truthy using Array.some
+ * Returns an Observable that emits a boolean when all values in the source Array or Set return truthy using Array.some
  *
  * @category Query
  *
  * @see The [[filterSome]] operator returns the array value instead of boolean
+ *
+ * @typeParam T Item type contained in the Array/Set
  *
  * @param predicate Optional [[PredicateFn]] used to get a truthy value of array values
  *
@@ -34,10 +36,10 @@ import { map } from 'rxjs/operators';
  *
  * @returns An Observable that emits a boolean when all values in source array return truthy
  */
-export function some<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], boolean> {
+export function some<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[] | Set<T>, boolean> {
   return (source) =>
     source.pipe(
-      map((value) =>
+      map(([...value]) =>
         value.some((v) => {
           if (predicate && typeof v === 'number') {
             return predicate(v);

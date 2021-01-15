@@ -1,5 +1,5 @@
 /**
- * Package containing various operators for filtering, querying and parsing arrays in RxJS
+ * Package containing various operators for filtering, querying and parsing Arrays and Sets in RxJS
  *
  * @packageDocumentation
  * @module Array
@@ -9,7 +9,7 @@
 /* istanbul ignore file */
 export { binarySearch } from './lib/binary-search';
 export { difference } from './lib/difference';
-export { differenceWith } from './lib/difference-with';
+export { filterDifference } from 'libs/rxjs/array/src/lib/filter-difference';
 export { every } from './lib/every';
 export { fill } from './lib/fill';
 export { filterEvery } from './lib/filter-every';
@@ -25,7 +25,9 @@ export { fromObjectKeys } from './lib/from-object-keys';
 export { fromSet } from './lib/from-set';
 export { indexOf } from './lib/index-of';
 export { intersects } from './lib/intersects';
-export { intersectsWith } from './lib/intersects-with';
+export { filterIntersects } from 'libs/rxjs/array/src/lib/filter-intersects';
+export { isSubsetOf } from './lib/is-subset-of';
+export { isSupersetOf } from './lib/is-superset-of';
 export { join } from './lib/join';
 export { lastIndexOf } from './lib/last-index-of';
 export { reverse } from './lib/reverse';

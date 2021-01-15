@@ -12,7 +12,7 @@ import { map } from 'rxjs/operators';
  *
  * @category Set
  *
- * @typeParam T The input type of the source array
+ * @typeParam T The input type of the source Array or Set
  *
  * @example Convert an Array into a Set
  * ```ts

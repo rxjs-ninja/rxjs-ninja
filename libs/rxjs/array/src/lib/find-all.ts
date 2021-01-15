@@ -3,7 +3,7 @@
  * @module Array
  */
 
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PredicateFn } from '../types/generic-methods';
 
@@ -32,10 +32,10 @@ import { PredicateFn } from '../types/generic-methods';
  *
  * @returns An Observable that emits an array containing all truthy values from a source array
  */
-export function findAll<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], T[]> {
-  return (source: Observable<T[]>) =>
+export function findAll<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[] | Set<T>, T[]> {
+  return (source) =>
     source.pipe(
-      map((value) =>
+      map(([...value]) =>
         value.filter((v) => {
           if (predicate && typeof v === 'number') {
             return predicate(v);

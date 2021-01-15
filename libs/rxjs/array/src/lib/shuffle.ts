@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
  *
  * @category Modify
  *
- * @typeParam T The input type of the source Array or Set
+ * @typeParam T Item type contained in the Array/Set
  *
  * @example
  * Return a randomly shuffled array

@@ -3,8 +3,8 @@
  * @module Array
  */
 import { PredicateFn } from '../types/generic-methods';
-import { MonoTypeOperatorFunction } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { OperatorFunction } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits an array when one of the values in the source array return truthy using Array.some
@@ -12,6 +12,8 @@ import { filter } from 'rxjs/operators';
  * @category Filter
  *
  * @see The [[some]] operator returns the boolean value instead of the array
+ *
+ * @typeParam T Item type contained in the Array/Set
  *
  * @param predicate Optional [[PredicateFn]] used to get a truthy value of array values
  *
@@ -41,9 +43,10 @@ import { filter } from 'rxjs/operators';
  *
  * @returns An Observable that emits a boolean when all values in source array return truthy with the [[PredicateFn]]
  */
-export function filterSome<T extends unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T[]> {
+export function filterSome<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[] | Set<T>, T[]> {
   return (source) =>
     source.pipe(
+      map((value) => [...value]),
       filter((value) =>
         value.some((v) => {
           if (predicate && typeof v === 'number') {

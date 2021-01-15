@@ -12,7 +12,7 @@ import { SortFn } from '../types/generic-methods';
  *
  * @category Modify
  *
- * @typeParam T The input type of the source Array or Set
+ * @typeParam T Item type contained in the Array/Set
  *
  * @param sortFn Optional [[SortFn]] used to sort the array, if not provided the `defaultSortFn` is used.
  *

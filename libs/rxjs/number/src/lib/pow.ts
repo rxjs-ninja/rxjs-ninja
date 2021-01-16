@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Number
  */
-import { combineLatest, isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
 /**

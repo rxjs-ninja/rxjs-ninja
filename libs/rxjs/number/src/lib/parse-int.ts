@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module Number
  */
-import { combineLatest, isObservable, Observable, ObservableInput, OperatorFunction } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { combineLatest, isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { filter, map, switchMap } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a number from a source string using Number.parseInt.
@@ -40,17 +40,11 @@ export function parseInt(
   radix: number | ObservableInput<number> = 10,
   returnNaN?: boolean,
 ): OperatorFunction<string, number> {
-  if (isObservable(radix)) {
-    return (source: Observable<string>) => {
-      const result$ = combineLatest([source, radix]).pipe(
-        map(([value, _radix]) => Number.parseInt(value, _radix as number)),
-      );
-      return returnNaN ? result$ : result$.pipe(filter((value) => !isNaN(value)));
-    };
-  }
-
-  return (source: Observable<string>) => {
-    const result$ = source.pipe(map((value) => Number.parseInt(value, radix as number)));
-    return returnNaN ? result$ : result$.pipe(filter((value) => !isNaN(value)));
-  };
+  return (source) =>
+    ((isObservable(radix) ? radix : of(radix)) as Observable<number | undefined>).pipe(
+      switchMap((inputValue) => {
+        const result$ = source.pipe(map((value) => Number.parseInt(value, inputValue)));
+        return returnNaN ? result$ : result$.pipe(filter((value) => !isNaN(value)));
+      }),
+    );
 }

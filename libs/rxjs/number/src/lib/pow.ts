@@ -2,12 +2,14 @@
  * @packageDocumentation
  * @module Number
  */
-import { combineLatest, isObservable, MonoTypeOperatorFunction, ObservableInput } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { combineLatest, isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a number from a source number that is raised by the passed power using the
  * exponentiation operator `**`
+ *
+ * @category Math
  *
  * @param power The number to raise the value by
  *
@@ -19,11 +21,10 @@ import { map } from 'rxjs/operators';
  * Output: `4, 25, 100, 256, 655356`
  *
  * @returns Observable that emits a number that is the raised source value by the power
- * @category Number Math
  */
 export function pow(power: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
-  if (isObservable(power)) {
-    return (source) => combineLatest([source, power]).pipe(map(([value, _power]) => value ** (_power as number)));
-  }
-  return (source) => source.pipe(map((value) => value ** (power as number)));
+  return (source) =>
+    ((isObservable(power) ? power : of(power)) as Observable<number>).pipe(
+      switchMap((inputValue) => source.pipe(map((value) => value ** inputValue))),
+    );
 }

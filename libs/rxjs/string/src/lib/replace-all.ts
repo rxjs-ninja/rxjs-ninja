@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a string, replacing text in the source string with the replacement text if the
@@ -30,6 +30,16 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a string
  */
-export function replaceAll(pattern: string | RegExp, replacement: string): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.replaceAll(pattern, replacement)));
+export function replaceAll(
+  pattern: string | RegExp | ObservableInput<string | RegExp>,
+  replacement: string | ObservableInput<string>,
+): MonoTypeOperatorFunction<string> {
+  return (source: Observable<string>) =>
+    source.pipe(
+      withLatestFrom(
+        (isObservable(pattern) ? pattern : of(pattern)) as Observable<string | RegExp>,
+        (isObservable(replacement) ? replacement : of(replacement)) as Observable<string>,
+      ),
+      map(([value, patternInput, replacementInput]) => value.replaceAll(patternInput, replacementInput)),
+    );
 }

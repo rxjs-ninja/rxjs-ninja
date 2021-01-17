@@ -5,6 +5,8 @@
 
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
+import { isArrayOrSet } from '../utils/array-set';
 
 /**
  * Returns an Observable Number if the input is a single value, or Array of numbers in the input is an Array.
@@ -44,15 +46,15 @@ import { map } from 'rxjs/operators';
  * @returns Observable number or array of numbers containing the index of the first found value
  */
 export function indexOf<T extends unknown>(
-  input: T | T[] | Set<T>,
+  input: T | ArrayOrSet<T>,
   startIndex = 0,
-): OperatorFunction<T[] | Set<T>, number | number[]> {
+): OperatorFunction<ArrayOrSet<T>, number | number[]> {
   return (source) =>
     source.pipe(
-      map(([...value]) =>
-        Array.isArray(input)
-          ? input.map((inputVal) => value.indexOf(inputVal, startIndex))
-          : value.indexOf(input as T, startIndex),
+      map((value) =>
+        isArrayOrSet(input)
+          ? input.map((inputVal) => [...value].indexOf(inputVal, startIndex))
+          : [...value].indexOf(input as T, startIndex),
       ),
     );
 }

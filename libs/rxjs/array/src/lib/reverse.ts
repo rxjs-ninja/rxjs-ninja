@@ -5,6 +5,7 @@
 
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable that emits array taking the source and running the result of Array.reverse
@@ -23,6 +24,6 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits an array which is reversed from the source array
  */
-export function reverse<T extends unknown>(): OperatorFunction<T[] | Set<T>, T[]> {
+export function reverse<T extends unknown>(): OperatorFunction<ArrayOrSet<T>, T[]> {
   return (source) => source.pipe(map((value) => [...value].reverse()));
 }

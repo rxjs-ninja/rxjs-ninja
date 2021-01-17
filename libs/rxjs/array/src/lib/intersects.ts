@@ -3,7 +3,8 @@
  * @module Array
  */
 import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, withLatestFrom } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable Array containing unique values that are in both the source and provided input Array or Set
@@ -35,17 +36,12 @@ import { map, switchMap } from 'rxjs/operators';
  * @returns An Observable that emits an array of the intersection of input and source arrays.
  */
 export function intersects<T extends unknown>(
-  input: T[] | Set<T> | ObservableInput<T[] | Set<T>>,
-): OperatorFunction<T[] | Set<T>, T[]> {
+  input: ArrayOrSet<T> | ObservableInput<ArrayOrSet<T>>,
+): OperatorFunction<ArrayOrSet<T>, T[]> {
   return (source) =>
-    ((isObservable(input) ? input : of(input)) as Observable<T[] | Set<T>>).pipe(
-      map((val) => new Set(val)),
-      switchMap((inputValue: Set<T>) =>
-        source.pipe(
-          map((value) => {
-            return [...new Set<T>(value)].filter((x) => inputValue.has(x));
-          }),
-        ),
-      ),
+    source.pipe(
+      withLatestFrom((isObservable(input) ? input : of(input)) as Observable<ArrayOrSet<T>>),
+      map(([value, inputValue]) => [new Set(value), new Set(inputValue)]),
+      map(([value, inputValue]) => [...value].filter((x) => inputValue.has(x))),
     );
 }

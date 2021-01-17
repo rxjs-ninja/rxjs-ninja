@@ -30,7 +30,7 @@ describe('difference', () => {
   );
 
   it(
-    'should return an array of the differences between the observable source and the difference of strings',
+    'should return an array of the differences between the source and the observable difference of strings',
     marbles((m) => {
       const input = m.hot('-a-b-c-|', {
         a: ['a', 'b', 'c', 'b'],

@@ -128,4 +128,19 @@ describe('fromBoolean', () => {
       ),
     ),
   );
+
+  it(
+    'should create an Observable from an Observable single Observable value',
+    observe(() => fromBoolean(of('foobar')).pipe(tap((value) => expect(value).toStrictEqual(true)))),
+  );
+
+  it(
+    'should create an Observable from an Observable array of numbers',
+    observe(() =>
+      fromBoolean(of([0, 1, 2, 3])).pipe(
+        reduce<boolean, boolean[]>((acc, val) => [...acc, val], []),
+        tap((value) => expect(value).toStrictEqual([false, true, true, true])),
+      ),
+    ),
+  );
 });

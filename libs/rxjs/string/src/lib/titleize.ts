@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { split } from './split';
 import { map } from 'rxjs/operators';
 
@@ -62,7 +62,7 @@ export function titleize(
   separator = ' ',
   locales?: string | string[],
 ): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) =>
+  return (source) =>
     source.pipe(
       split(separator),
       map((values) =>

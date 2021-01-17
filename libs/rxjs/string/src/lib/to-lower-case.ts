@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
@@ -29,5 +29,5 @@ import { map } from 'rxjs/operators';
  * @returns Observable that emits a lower case string
  */
 export function toLowerCase(locales?: string | string[]): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.toLocaleLowerCase(locales)));
+  return (source) => source.pipe(map((value) => value.toLocaleLowerCase(locales)));
 }

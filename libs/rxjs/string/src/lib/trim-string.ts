@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
@@ -23,7 +23,7 @@ import { map } from 'rxjs/operators';
  * @returns Observable that emits a trimmed string
  */
 export function trimStart(): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.trimStart()));
+  return (source) => source.pipe(map((value) => value.trimStart()));
 }
 
 /**
@@ -44,7 +44,7 @@ export function trimStart(): MonoTypeOperatorFunction<string> {
  * @returns Observable that emits a trimmed string
  */
 export function trimEnd(): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.trimEnd()));
+  return (source) => source.pipe(map((value) => value.trimEnd()));
 }
 
 /**
@@ -63,5 +63,5 @@ export function trimEnd(): MonoTypeOperatorFunction<string> {
  * @returns Observable that emits a trimmed string
  */
 export function trim(): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.trim()));
+  return (source) => source.pipe(map((value) => value.trim()));
 }

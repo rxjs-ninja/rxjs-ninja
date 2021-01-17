@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module String
  */
-import { Observable, OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a number, the character code of a character at the passed position in a source
@@ -22,6 +22,10 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a number that is a code point
  */
-export function codePointAt(position: number): OperatorFunction<string, number | undefined> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.codePointAt(position)));
+export function codePointAt(position: number | ObservableInput<number>): OperatorFunction<string, number | undefined> {
+  return (source) =>
+    source.pipe(
+      withLatestFrom((isObservable(position) ? position : of(position)) as Observable<number>),
+      map<[string, number], number | undefined>(([value, inputValue]) => value.codePointAt(inputValue)),
+    );
 }

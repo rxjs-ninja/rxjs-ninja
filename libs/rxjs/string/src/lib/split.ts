@@ -30,5 +30,5 @@ import { map } from 'rxjs/operators';
  * @returns Observable that emits an array of strings from the source string split on the separator
  */
 export function split(separator: string, limit?: number): OperatorFunction<string, string[]> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.split(separator, limit)));
+  return (source) => source.pipe(map((value) => value.split(separator, limit)));
 }

@@ -5,7 +5,7 @@
 import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 import { isPromise } from 'rxjs/internal-compatibility';
-import { ArrayOrSet } from '@rxjs-ninja/rxjs-array';
+import { ArrayOrSet } from '../types/array-set';
 import { isArrayOrSet } from '../utils/array-set';
 
 /**

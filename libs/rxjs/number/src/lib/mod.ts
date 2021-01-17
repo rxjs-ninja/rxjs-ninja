@@ -3,7 +3,7 @@
  * @module Number
  */
 import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a number that is the remainder of the Modulo operation of the source number
@@ -24,7 +24,8 @@ import { map, switchMap } from 'rxjs/operators';
  */
 export function mod(modulus: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
   return (source) =>
-    ((isObservable(modulus) ? modulus : of(modulus)) as Observable<number>).pipe(
-      switchMap((inputValue) => source.pipe(map((value) => value % inputValue))),
+    source.pipe(
+      withLatestFrom((isObservable(modulus) ? modulus : of(modulus)) as Observable<number>),
+      map(([value, inputValue]) => value % inputValue),
     );
 }

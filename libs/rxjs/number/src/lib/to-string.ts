@@ -3,7 +3,7 @@
  * @module Number
  */
 import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a formatted string value from a source number using Number.toString.
@@ -29,7 +29,8 @@ import { map, switchMap } from 'rxjs/operators';
  */
 export function toString(radix: number | ObservableInput<number> = 10): OperatorFunction<number, string> {
   return (source) =>
-    ((isObservable(radix) ? radix : of(radix)) as Observable<number | undefined>).pipe(
-      switchMap((inputValue) => source.pipe(map((value) => value.toString(inputValue)))),
+    source.pipe(
+      withLatestFrom((isObservable(radix) ? radix : of(radix)) as Observable<number>),
+      map<[number, number], string>(([value, inputValue]) => value.toString(inputValue)),
     );
 }

@@ -3,7 +3,7 @@
  * @module Number
  */
 import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, switchMap, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a number that is the subtraction of the source number with input number
@@ -23,7 +23,8 @@ import { map, switchMap } from 'rxjs/operators';
  */
 export function sub(input: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
   return (source) =>
-    ((isObservable(input) ? input : of(input)) as Observable<number>).pipe(
-      switchMap((inputValue) => source.pipe(map((value) => value - inputValue))),
+    source.pipe(
+      withLatestFrom((isObservable(input) ? input : of(input)) as Observable<number>),
+      map(([value, inputValue]) => value - inputValue),
     );
 }

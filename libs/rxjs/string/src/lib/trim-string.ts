@@ -2,14 +2,14 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a string where the source string has any white space at the start removed using
  * String.trimStart
  *
- * @category String Modify
+ * @category Modify
  *
  * @alias `trimLeft`
  *
@@ -23,14 +23,14 @@ import { map } from 'rxjs/operators';
  * @returns Observable that emits a trimmed string
  */
 export function trimStart(): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.trimStart()));
+  return (source) => source.pipe(map((value) => value.trimStart()));
 }
 
 /**
  * Returns an Observable that emits a string where the source string has any white space at the end removed using
  * String.trimEnd
  *
- * @category String Modify
+ * @category Modify
  *
  * @alias `trimRight`
  *
@@ -44,14 +44,14 @@ export function trimStart(): MonoTypeOperatorFunction<string> {
  * @returns Observable that emits a trimmed string
  */
 export function trimEnd(): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.trimEnd()));
+  return (source) => source.pipe(map((value) => value.trimEnd()));
 }
 
 /**
  * Returns an Observable that emits a string where the source string has any white space at the ends removed using
  * String.trim
  *
- * @category String Modify
+ * @category Modify
  *
  * @example
  * Returns the source string with any whitespace at both ends removed
@@ -63,5 +63,5 @@ export function trimEnd(): MonoTypeOperatorFunction<string> {
  * @returns Observable that emits a trimmed string
  */
 export function trim(): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.trim()));
+  return (source) => source.pipe(map((value) => value.trim()));
 }

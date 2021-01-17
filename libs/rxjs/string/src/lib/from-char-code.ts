@@ -5,6 +5,8 @@
 import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { isPromise } from 'rxjs/internal-compatibility';
+import { isArrayOrSet } from '../utils/array-set';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable that emits a string made from character codes using String.fromCharCode
@@ -13,9 +15,9 @@ import { isPromise } from 'rxjs/internal-compatibility';
  *
  * @see The [[mapCharCode]] operator can be used to map an Observable source of char codes to strings
  *
- * @category String Observables
+ * @category Create
  *
- * @param charCodes Observable input, Promise, Array or argument list of character codes
+ * @param args Observable input, Promise, Array or argument list of character codes
  *
  * @example
  * Return a string from character code arguments
@@ -40,26 +42,38 @@ import { isPromise } from 'rxjs/internal-compatibility';
  *
  * @returns Observable that emits a string
  */
+
 export function fromCharCode<
-  T extends ObservableInput<number | number[]> | PromiseLike<number | number[]> | number | number[]
->(...charCodes: T[]): Observable<string> {
-  if (isObservable(charCodes[0])) {
-    return ((charCodes[0] as never) as Observable<number[]>).pipe(map((input) => String.fromCharCode(...input)));
-  } else if (isPromise(charCodes[0])) {
+  A extends
+    | ObservableInput<ArrayOrSet<number> | number>
+    | PromiseLike<ArrayOrSet<number> | number>
+    | ArrayOrSet<number>
+    | number
+>(...args: A[]): Observable<string> {
+  if (isObservable(args[0])) {
+    return ((args[0] as unknown) as Observable<ArrayOrSet<number> | number>).pipe(
+      map((value) => (isArrayOrSet(value) ? [...value] : [value]) as number[]),
+      map((value) => String.fromCharCode(...value)),
+    );
+  } else if (isPromise(args[0])) {
     return new Observable<string>((subscriber: Subscriber<unknown>): void => {
-      ((charCodes[0] as never) as Promise<number[]>).then(
-        (input) => {
-          if (!subscriber.closed) {
-            subscriber.next(String.fromCharCode(...input));
-            subscriber.complete();
-          }
-        },
+      function callSubscriber(value: ArrayOrSet<number> | number) {
+        /* istanbul ignore next-line */
+        if (!subscriber.closed) {
+          const output = isArrayOrSet(value) ? [...value] : [value];
+          subscriber.next(String.fromCharCode(...output));
+          subscriber.complete();
+        }
+      }
+
+      ((args[0] as never) as Promise<ArrayOrSet<number> | number>).then(
+        (value) => callSubscriber(value),
         (err) => subscriber.error(err),
       );
     });
   } else {
-    const value = Array.isArray(charCodes[0]) ? (charCodes[0] as number[]) : ([...charCodes] as number[]);
-    return new Observable<string>((subscriber: Subscriber<string>): void => {
+    const value = isArrayOrSet(args[0]) ? [...(args[0] as number[])] : ([...args] as number[]);
+    return new Observable<string>((subscriber: Subscriber<unknown>): void => {
       subscriber.next(String.fromCharCode(...value));
       subscriber.complete();
     });

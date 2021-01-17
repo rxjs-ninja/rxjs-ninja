@@ -2,13 +2,13 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { isObservable, MonoTypeOperatorFunction, Observable, of } from 'rxjs';
+import { filter, map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a string where the source string ends with the passed ending using String.endsWith
  *
- * @category String Filter
+ * @category Filter
  *
  * @see The [[endsWith]] operator returns the boolean value
  *
@@ -31,6 +31,16 @@ import { filter } from 'rxjs/operators';
  *
  * @returns Observable that emits a string
  */
-export function filterEndsWith(ending: string, length?: number): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(filter((value) => value.endsWith(ending, length)));
+export function filterEndsWith(
+  ending: string | Observable<string>,
+  length?: number | Observable<number>,
+): MonoTypeOperatorFunction<string> {
+  const ending$ = (isObservable(ending) ? ending : of(ending)) as Observable<string>;
+  const length$ = (isObservable(length) ? length : of(length)) as Observable<number>;
+  return (source: Observable<string>) =>
+    source.pipe(
+      withLatestFrom(ending$, length$),
+      map(([value, endingInput, lengthInput]) => (value.endsWith(endingInput, lengthInput) ? value : '')),
+      filter((val) => Boolean(val)),
+    );
 }

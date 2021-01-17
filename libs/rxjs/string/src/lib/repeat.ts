@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a string where the source string is repeated with String.repeat.
@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
  * @remarks If a separator is passed it uses an array and will join the result using the separator instead, as
  *   `String.repeat` does not support it
  *
- * @category String Modify
+ * @category Modify
  *
  * @param count The number of times to repeat the string
  * @param separator Optional separator for joining strings
@@ -32,8 +32,17 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a string of the source string repeated
  */
-export function repeat(count: number, separator?: string): MonoTypeOperatorFunction<string> {
-  return separator
-    ? (source: Observable<string>) => source.pipe(map((value) => new Array(count).fill(value).join(separator)))
-    : (source: Observable<string>) => source.pipe(map((value) => value.repeat(count)));
+export function repeat(
+  count: number | ObservableInput<number>,
+  separator?: string | ObservableInput<string>,
+): MonoTypeOperatorFunction<string> {
+  const count$ = (isObservable(count) ? count : of(count)) as Observable<number>;
+  const separator$ = (isObservable(separator) ? separator : of(separator)) as Observable<string>;
+  return (source) =>
+    source.pipe(
+      withLatestFrom(count$, separator$),
+      map(([value, countInput, separatorInput]) =>
+        separatorInput ? new Array(countInput).fill(value).join(separatorInput) : value.repeat(countInput),
+      ),
+    );
 }

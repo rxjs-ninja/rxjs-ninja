@@ -2,14 +2,14 @@
  * @packageDocumentation
  * @module String
  */
-import { Observable, OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a number, the character code of a character at the passed position in a source
  * string using String.charCodeAt
  *
- * @category String Query
+ * @category Query
  *
  * @param position The index of the character to return in the source string
  *
@@ -23,6 +23,11 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a number that is a character code
  */
-export function charCodeAt(position: number): OperatorFunction<string, number> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.charCodeAt(position)));
+export function charCodeAt(position: number | ObservableInput<number>): OperatorFunction<string, number> {
+  const position$ = (isObservable(position) ? position : of(position)) as Observable<number>;
+  return (source) =>
+    source.pipe(
+      withLatestFrom(position$),
+      map(([value, inputValue]) => value.charCodeAt(inputValue)),
+    );
 }

@@ -1,6 +1,5 @@
 /**
- * Package containing various operators for generating Observables with numbers and filtering, querying and parsing
- * strings in RxJS
+ * Package with operators for generating Observables, filtering, querying and parsing strings in RxJS
  *
  * @packageDocumentation
  * @module String

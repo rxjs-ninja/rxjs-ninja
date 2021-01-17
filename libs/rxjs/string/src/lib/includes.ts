@@ -2,18 +2,18 @@
  * @packageDocumentation
  * @module String
  */
-import { Observable, OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a boolean where the source string contains with the passed search string using
  * String.includes
  *
- * @category String Query
+ * @category Query
  *
  * @see The [[filterIncludes]] operator returns the string value
  *
- * @param searchStr The string to check the source ends with
+ * @param search The string to check the source ends with
  *
  * @example
  * Return a boolean where the source string includes 'JS'
@@ -24,6 +24,11 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a boolean
  */
-export function includes(searchStr: string): OperatorFunction<string, boolean> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.includes(searchStr)));
+export function includes(search: string | ObservableInput<string>): OperatorFunction<string, boolean> {
+  const search$ = (isObservable(search) ? search : of(search)) as Observable<string>;
+  return (source) =>
+    source.pipe(
+      withLatestFrom(search$),
+      map(([value, searchInput]) => value.includes(searchInput)),
+    );
 }

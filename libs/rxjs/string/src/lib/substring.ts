@@ -2,13 +2,13 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a string that is a partial slice of the source string using String.substring
  *
- * @category String Modify
+ * @category Modify
  *
  * @param indexStart The index of the first character to include in the returned substring.
  * @param indexEnd Optional The index of the first character to exclude from the returned substring.
@@ -29,6 +29,15 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a string that is a substring of the source string
  */
-export function substring(indexStart: number, indexEnd?: number): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.substring(indexStart, indexEnd)));
+export function substring(
+  indexStart: number | ObservableInput<number>,
+  indexEnd?: number | ObservableInput<number>,
+): MonoTypeOperatorFunction<string> {
+  const indexStart$ = (isObservable(indexStart) ? indexStart : of(indexStart)) as Observable<number>;
+  const indexEnd$ = (isObservable(indexEnd) ? indexEnd : of(indexEnd)) as Observable<number>;
+  return (source) =>
+    source.pipe(
+      withLatestFrom(indexStart$, indexEnd$),
+      map(([value, start, end]) => value.substring(start, end)),
+    );
 }

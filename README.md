@@ -4,8 +4,8 @@
 
 RxJS Ninja is a set of libraries that provide operators and observables for [RxJS](https://rxjs.dev).
 
-There are **121** functions provided as operators or Observable generators, split down into separate modules
-for each domain.
+There are **121** functions provided as operators or Observable generators, split down into separate modules for each
+domain.
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rxjs-ninja_rxjs-ninja&metric=alert_status)](https://sonarcloud.io/dashboard?id=rxjs-ninja_rxjs-ninja)
 [![codecov](https://codecov.io/gh/rxjs-ninja/rxjs-ninja/branch/main/graph/badge.svg?token=RCNN1XMSN4)](https://codecov.io/gh/rxjs-ninja/rxjs-ninja)
@@ -68,7 +68,8 @@ of([10, 4, 7, 3, 1, 29, 5])
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/boolean/CHANGELOG.md)
 
-`@rxjs-ninja/rxjs-boolean` provides operators for querying, filtering and modifying boolean values, and Observable for generating boolean emitters.
+`@rxjs-ninja/rxjs-boolean` provides operators for querying, filtering and modifying boolean values, and Observable for
+generating boolean emitters.
 
 ### Function and Operator categories
 
@@ -173,6 +174,15 @@ fromRandomCrypto(0, { bytes: 1, unsigned: true })
 
 `@rxjs-ninja/rxjs-string` provides operators for querying, filtering and modifying string values, and Observable for
 generating string emitters.
+
+### Function and Operator categories
+
+- Create - Functions and Operators for creating Observable string values
+- Convert - Operators to convert strings to other types
+- Filter - Operators for filtering Observable string sources for truthy values
+- Mapping - Operators that provide mapping to strings from other value types
+- Modify - Operators for modifying string values
+- Query - Operators that return non-string values based on querying string values
 
 For example, you can use the `fromString` to generate a sequence of strings and check they include a string
 using `include`. We can also `titlize` strings.

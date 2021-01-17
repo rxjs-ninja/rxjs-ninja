@@ -2,16 +2,16 @@
  * @packageDocumentation
  * @module String
  */
-import { Observable, OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a number of the last index from the source string where the search string begins
  * using String.lastIndexOf
  *
- * @category String Query
+ * @category Query
  *
- * @param searchStr The string to search in the source string
+ * @param search The string to search in the source string
  * @param lastIndex The index of the last character in the string to search up to
  *
  * @example
@@ -30,6 +30,15 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a number that is the last index of the search string in the source string
  */
-export function lastIndexOf(searchStr: string, lastIndex?: number): OperatorFunction<string, number> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.lastIndexOf(searchStr, lastIndex)));
+export function lastIndexOf(
+  search: string | ObservableInput<string>,
+  lastIndex?: number | ObservableInput<number>,
+): OperatorFunction<string, number> {
+  const search$ = (isObservable(search) ? search : of(search)) as Observable<string>;
+  const lastIndex$ = (isObservable(lastIndex) ? lastIndex : of(lastIndex)) as Observable<number>;
+  return (source) =>
+    source.pipe(
+      withLatestFrom(search$, lastIndex$),
+      map(([value, searchInput, lastIndexInput]) => value.lastIndexOf(searchInput, lastIndexInput)),
+    );
 }

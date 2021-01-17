@@ -35,12 +35,11 @@ export function slice(
   startIndex: number | ObservableInput<number>,
   endIndex?: number | ObservableInput<number>,
 ): MonoTypeOperatorFunction<string> {
+  const startIndex$ = (isObservable(startIndex) ? startIndex : of(startIndex)) as Observable<number>;
+  const endIndex$ = (isObservable(endIndex) ? endIndex : of(endIndex)) as Observable<number>;
   return (source: Observable<string>) =>
     source.pipe(
-      withLatestFrom(
-        (isObservable(startIndex) ? startIndex : of(startIndex)) as Observable<number>,
-        (isObservable(endIndex) ? endIndex : of(endIndex)) as Observable<number>,
-      ),
+      withLatestFrom(startIndex$, endIndex$),
       map(([value, startInput, endInput]) => value.slice(startInput, endInput)),
     );
 }

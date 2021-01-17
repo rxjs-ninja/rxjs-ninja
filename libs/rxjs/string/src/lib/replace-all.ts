@@ -34,12 +34,11 @@ export function replaceAll(
   pattern: string | RegExp | ObservableInput<string | RegExp>,
   replacement: string | ObservableInput<string>,
 ): MonoTypeOperatorFunction<string> {
+  const pattern$ = (isObservable(pattern) ? pattern : of(pattern)) as Observable<string | RegExp>;
+  const replacement$ = (isObservable(replacement) ? replacement : of(replacement)) as Observable<string>;
   return (source: Observable<string>) =>
     source.pipe(
-      withLatestFrom(
-        (isObservable(pattern) ? pattern : of(pattern)) as Observable<string | RegExp>,
-        (isObservable(replacement) ? replacement : of(replacement)) as Observable<string>,
-      ),
+      withLatestFrom(pattern$, replacement$),
       map(([value, patternInput, replacementInput]) => value.replaceAll(patternInput, replacementInput)),
     );
 }

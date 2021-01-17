@@ -29,9 +29,10 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits an number that is the start index of the first found value
  */
 export function search(pattern: string | RegExp | ObservableInput<string | RegExp>): OperatorFunction<string, number> {
+  const pattern$ = (isObservable(pattern) ? pattern : of(pattern)) as Observable<string | RegExp>;
   return (source: Observable<string>) =>
     source.pipe(
-      withLatestFrom((isObservable(pattern) ? pattern : of(pattern)) as Observable<string | RegExp>),
+      withLatestFrom(pattern$),
       map(([value, pattenInput]) => value.search(pattenInput)),
     );
 }

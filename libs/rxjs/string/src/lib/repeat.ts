@@ -36,18 +36,13 @@ export function repeat(
   count: number | ObservableInput<number>,
   separator?: string | ObservableInput<string>,
 ): MonoTypeOperatorFunction<string> {
+  const count$ = (isObservable(count) ? count : of(count)) as Observable<number>;
+  const separator$ = (isObservable(separator) ? separator : of(separator)) as Observable<string>;
   return (source) =>
     source.pipe(
-      withLatestFrom(
-        (isObservable(count) ? count : of(count)) as Observable<number>,
-        (isObservable(separator) ? separator : of(separator)) as Observable<string>,
-      ),
+      withLatestFrom(count$, separator$),
       map(([value, countInput, separatorInput]) =>
         separatorInput ? new Array(countInput).fill(value).join(separatorInput) : value.repeat(countInput),
       ),
     );
-
-  // return separator
-  //   ? (source: Observable<string>) => source.pipe(map((value) => new Array(count).fill(value).join(separator)))
-  //   : (source: Observable<string>) => source.pipe(map((value) => value.repeat(count)));
 }

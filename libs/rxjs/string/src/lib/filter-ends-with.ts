@@ -35,12 +35,11 @@ export function filterEndsWith(
   ending: string | Observable<string>,
   length?: number | Observable<number>,
 ): MonoTypeOperatorFunction<string> {
+  const ending$ = (isObservable(ending) ? ending : of(ending)) as Observable<string>;
+  const length$ = (isObservable(length) ? length : of(length)) as Observable<number>;
   return (source: Observable<string>) =>
     source.pipe(
-      withLatestFrom(
-        (isObservable(ending) ? ending : of(ending)) as Observable<string>,
-        (isObservable(length) ? length : of(length)) as Observable<number>,
-      ),
+      withLatestFrom(ending$, length$),
       map(([value, endingInput, lengthInput]) => (value.endsWith(endingInput, lengthInput) ? value : '')),
       filter((val) => Boolean(val)),
     );

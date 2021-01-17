@@ -33,12 +33,11 @@ export function substring(
   indexStart: number | ObservableInput<number>,
   indexEnd?: number | ObservableInput<number>,
 ): MonoTypeOperatorFunction<string> {
+  const indexStart$ = (isObservable(indexStart) ? indexStart : of(indexStart)) as Observable<number>;
+  const indexEnd$ = (isObservable(indexEnd) ? indexEnd : of(indexEnd)) as Observable<number>;
   return (source) =>
     source.pipe(
-      withLatestFrom(
-        (isObservable(indexStart) ? indexStart : of(indexStart)) as Observable<number>,
-        (isObservable(indexEnd) ? indexEnd : of(indexEnd)) as Observable<number>,
-      ),
+      withLatestFrom(indexStart$, indexEnd$),
       map(([value, start, end]) => value.substring(start, end)),
     );
 }

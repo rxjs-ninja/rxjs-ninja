@@ -11,7 +11,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
  *
  * @category String Query
  *
- * @param input The string to check the source string start with
+ * @param search The string to check the source string start with
  * @param startIndex Optional start index to being searching the string from
  *
  * @remarks
@@ -34,15 +34,14 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a boolean if the source string start with the input string
  */
 export function startsWith(
-  input: string | ObservableInput<string>,
+  search: string | ObservableInput<string>,
   startIndex?: number | ObservableInput<number>,
 ): OperatorFunction<string, boolean> {
+  const search$ = (isObservable(search) ? search : of(search)) as Observable<string>;
+  const startIndex$ = (isObservable(startIndex) ? startIndex : of(startIndex)) as Observable<number>;
   return (source) =>
     source.pipe(
-      withLatestFrom(
-        (isObservable(input) ? input : of(input)) as Observable<string>,
-        (isObservable(startIndex) ? startIndex : of(startIndex)) as Observable<number>,
-      ),
+      withLatestFrom(search$, startIndex$),
       map(([value, inputValue, index]) => value.startsWith(inputValue, index)),
     );
 }

@@ -1,5 +1,6 @@
 import { titleize, NO_CAP_WORDS } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
+import { of } from 'rxjs';
 
 describe('titleize', () => {
   it(
@@ -31,6 +32,17 @@ describe('titleize', () => {
       const subs = '^--!';
       const expected = m.cold('-z-|', { z: 'Mary-Had-ä-Little-Lamb' });
       m.expect(input.pipe(titleize([...NO_CAP_WORDS, 'ä'], '-', 'de-DE'))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
+    'should return a locale titlized string with locale and separator',
+    marbles((m) => {
+      const input = m.hot('-a-|', { a: 'Mary-had-ä-little-lamb' });
+      const subs = '^--!';
+      const expected = m.cold('-z-|', { z: 'Mary-Had-ä-Little-Lamb' });
+      m.expect(input.pipe(titleize(of([...NO_CAP_WORDS, 'ä']), of('-'), of('de-DE')))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

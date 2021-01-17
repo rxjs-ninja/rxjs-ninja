@@ -68,7 +68,7 @@ export function fromUnicode<
       );
     });
   } else {
-    const value = Array.isArray(input) ? (input as string[]) : ([input] as string[]);
+    const value = isArrayOrSet(input) ? ([...input] as string[]) : ([input] as string[]);
 
     return new Observable<string>((subscriber: Subscriber<unknown>): void => {
       for (let i = 0; i < value.length; i++) {

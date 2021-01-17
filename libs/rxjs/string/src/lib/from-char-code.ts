@@ -72,7 +72,7 @@ export function fromCharCode<
       );
     });
   } else {
-    const value = Array.isArray(args[0]) ? (args[0] as number[]) : ([...args] as number[]);
+    const value = isArrayOrSet(args[0]) ? [...(args[0] as number[])] : ([...args] as number[]);
     return new Observable<string>((subscriber: Subscriber<unknown>): void => {
       subscriber.next(String.fromCharCode(...value));
       subscriber.complete();

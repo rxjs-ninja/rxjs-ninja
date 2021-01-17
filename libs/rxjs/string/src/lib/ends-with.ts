@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, of, OperatorFunction } from 'rxjs';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
@@ -33,12 +33,14 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a boolean of the source string ending with the passed input
  */
 export function endsWith(
-  ending: string | Observable<string>,
-  length?: number | Observable<number>,
+  ending: string | ObservableInput<string>,
+  length?: number | ObservableInput<number>,
 ): OperatorFunction<string, boolean> {
-  return (source: Observable<string>) =>
+  const ending$ = (isObservable(ending) ? ending : of(ending)) as Observable<string>;
+  const length$ = (isObservable(length) ? length : of(length)) as Observable<number>;
+  return (source) =>
     source.pipe(
-      withLatestFrom(isObservable(ending) ? ending : of(ending), isObservable(length) ? length : of(length)),
+      withLatestFrom(ending$, length$),
       map(([value, endingInput, lengthInput]) => value.endsWith(endingInput, lengthInput)),
     );
 }

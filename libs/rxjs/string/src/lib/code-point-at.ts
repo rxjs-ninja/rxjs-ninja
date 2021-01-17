@@ -23,9 +23,10 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a number that is a code point
  */
 export function codePointAt(position: number | ObservableInput<number>): OperatorFunction<string, number | undefined> {
+  const position$ = (isObservable(position) ? position : of(position)) as Observable<number>;
   return (source) =>
     source.pipe(
-      withLatestFrom((isObservable(position) ? position : of(position)) as Observable<number>),
-      map<[string, number], number | undefined>(([value, inputValue]) => value.codePointAt(inputValue)),
+      withLatestFrom(position$),
+      map(([value, inputValue]) => value.codePointAt(inputValue)),
     );
 }

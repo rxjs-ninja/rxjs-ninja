@@ -24,9 +24,10 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a number that is a character code
  */
 export function charCodeAt(position: number | ObservableInput<number>): OperatorFunction<string, number> {
+  const position$ = (isObservable(position) ? position : of(position)) as Observable<number>;
   return (source) =>
     source.pipe(
-      withLatestFrom((isObservable(position) ? position : of(position)) as Observable<number>),
-      map<[string, number], number>(([value, inputValue]) => value.charCodeAt(inputValue)),
+      withLatestFrom(position$),
+      map(([value, inputValue]) => value.charCodeAt(inputValue)),
     );
 }

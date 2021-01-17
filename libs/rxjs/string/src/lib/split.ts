@@ -33,12 +33,11 @@ export function split(
   separator: string | ObservableInput<string>,
   limit?: number | ObservableInput<number>,
 ): OperatorFunction<string, string[]> {
+  const separator$ = (isObservable(separator) ? separator : of(separator)) as Observable<string>;
+  const limit$ = (isObservable(limit) ? limit : of(limit)) as Observable<number>;
   return (source) =>
     source.pipe(
-      withLatestFrom(
-        (isObservable(separator) ? separator : of(separator)) as Observable<string>,
-        (isObservable(limit) ? limit : of(limit)) as Observable<number>,
-      ),
+      withLatestFrom(separator$, limit$),
       map(([value, separatorInput, limitInput]) => value.split(separatorInput, limitInput)),
     );
 }

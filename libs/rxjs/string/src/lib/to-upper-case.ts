@@ -33,9 +33,10 @@ import { isArrayOrSet } from '../utils/array-set';
 export function toUpperCase(
   locales?: ArrayOrSet<string> | string | Observable<ArrayOrSet<string> | string>,
 ): MonoTypeOperatorFunction<string> {
+  const locales$ = (isObservable(locales) ? locales : of(locales)) as Observable<ArrayOrSet<string> | string>;
   return (source: Observable<string>) =>
     source.pipe(
-      withLatestFrom((isObservable(locales) ? locales : of(locales)) as Observable<ArrayOrSet<string> | string>),
+      withLatestFrom(locales$),
       map(([value, inputValue]) =>
         isArrayOrSet(locales)
           ? value.toLocaleUpperCase([...inputValue])

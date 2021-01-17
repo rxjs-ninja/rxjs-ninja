@@ -81,7 +81,7 @@ export function fromString<
       );
     });
   } else {
-    const value = Array.isArray(args[0]) ? (args[0] as string[]) : ([...args] as string[]);
+    const value = isArrayOrSet(args[0]) ? [...(args[0] as string[])] : ([...args] as string[]);
 
     return new Observable<string>((subscriber: Subscriber<unknown>): void => {
       for (let i = 0; i < value.length; i++) {

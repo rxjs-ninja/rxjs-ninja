@@ -2,9 +2,10 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction } from 'rxjs';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
 import { split } from './split';
-import { map } from 'rxjs/operators';
+import { map, withLatestFrom } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Default words to exclude when using the [[titleize]] operator
@@ -58,24 +59,29 @@ export const NO_CAP_WORDS = ['a', 'and', 'but', 'is', 'or', 'over', 'the', 'to',
  * @returns Observable that emits a titilzed string
  */
 export function titleize(
-  noTitleWords = NO_CAP_WORDS,
-  separator = ' ',
-  locales?: string | string[],
+  noTitleWords: ArrayOrSet<string> | ObservableInput<ArrayOrSet<string>> = NO_CAP_WORDS,
+  separator: string | ObservableInput<string> = ' ',
+  locales?: string | ObservableInput<string>,
 ): MonoTypeOperatorFunction<string> {
+  const noTitleWords$ = (isObservable(noTitleWords) ? noTitleWords : of(noTitleWords)) as Observable<string[]>;
+  const separator$ = (isObservable(separator) ? separator : of(separator)) as Observable<string>;
+  const locales$ = (isObservable(locales) ? locales : of(locales)) as Observable<string>;
+
   return (source) =>
     source.pipe(
       split(separator),
-      map((values) =>
-        values
+      withLatestFrom(noTitleWords$, separator$, locales$),
+      map(([values, noTitleInput, separatorInput, localesInput]) =>
+        [...values]
           .map((word, index) => {
-            if (index && noTitleWords.includes(word)) {
+            if (index && [...noTitleInput].includes(word)) {
               return word;
             }
             return word.charCodeAt(0) >= 65 && word.charCodeAt(0) <= 90
               ? word
-              : `${word.charAt(0).toLocaleUpperCase(locales)}${word.slice(1)}`;
+              : `${word.charAt(0).toLocaleUpperCase(localesInput)}${word.slice(1)}`;
           })
-          .join(separator),
+          .join(separatorInput),
       ),
     );
 }

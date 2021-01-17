@@ -13,7 +13,7 @@ import { filter, map, withLatestFrom } from 'rxjs/operators';
  *
  * @see The [[includes]] operator returns the boolean value
  *
- * @param searchStr The string to check the source ends with
+ * @param search The string to check the source ends with
  *
  * @example
  * Return a string where the source string includes 'JS'
@@ -24,10 +24,11 @@ import { filter, map, withLatestFrom } from 'rxjs/operators';
  *
  * @returns Observable that emits a string
  */
-export function filterIncludes(searchStr: string | ObservableInput<string>): MonoTypeOperatorFunction<string> {
+export function filterIncludes(search: string | ObservableInput<string>): MonoTypeOperatorFunction<string> {
+  const search$ = (isObservable(search) ? search : of(search)) as Observable<string>;
   return (source: Observable<string>) =>
     source.pipe(
-      withLatestFrom((isObservable(searchStr) ? searchStr : of(searchStr)) as Observable<string>),
+      withLatestFrom(search$),
       map(([value, inputValue]) => (value.includes(inputValue) ? value : '')),
       filter((value) => Boolean(value)),
     );

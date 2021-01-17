@@ -36,12 +36,11 @@ export function filterStartsWith(
   start: string | ObservableInput<string>,
   startFrom?: number | ObservableInput<number>,
 ): MonoTypeOperatorFunction<string> {
+  const start$ = (isObservable(start) ? start : of(start)) as Observable<string>;
+  const startFrom$ = (isObservable(startFrom) ? startFrom : of(startFrom)) as Observable<number>;
   return (source) =>
     source.pipe(
-      withLatestFrom(
-        (isObservable(start) ? start : of(start)) as Observable<string>,
-        (isObservable(startFrom) ? startFrom : of(startFrom)) as Observable<number>,
-      ),
+      withLatestFrom(start$, startFrom$),
       map(([value, startInput, startFromInput]) => (value.startsWith(startInput, startFromInput) ? value : '')),
       filter((value) => Boolean(value)),
     );

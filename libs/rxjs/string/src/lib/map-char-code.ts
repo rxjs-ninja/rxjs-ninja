@@ -24,7 +24,7 @@ import { isArrayOrSet } from '../utils/array-set';
  *
  * @returns Observable that emits a string from source character codes
  */
-export function mapCharCode(): OperatorFunction<ArrayOrSet<number>, string> {
+export function mapCharCode(): OperatorFunction<ArrayOrSet<number> | number, string> {
   return (source) =>
     source.pipe(map((values) => (isArrayOrSet(values) ? String.fromCharCode(...values) : String.fromCharCode(values))));
 }

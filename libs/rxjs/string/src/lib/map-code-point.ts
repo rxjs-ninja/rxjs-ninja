@@ -23,7 +23,7 @@ import { isArrayOrSet } from '../utils/array-set';
  *
  * @returns Observable that emits a string from source code points
  */
-export function mapCodePoint(): OperatorFunction<ArrayOrSet<number>, string> {
+export function mapCodePoint(): OperatorFunction<ArrayOrSet<number> | number, string> {
   return (source) =>
     source.pipe(
       map((values) => (isArrayOrSet(values) ? String.fromCodePoint(...values) : String.fromCodePoint(values))),

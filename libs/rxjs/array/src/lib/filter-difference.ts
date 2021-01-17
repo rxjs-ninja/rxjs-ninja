@@ -4,7 +4,7 @@
  */
 import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
-import { ArrayOrSet } from 'libs/rxjs/array/src/types/array-set';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable Array containing filtered values that are not in the provided input Array or Set

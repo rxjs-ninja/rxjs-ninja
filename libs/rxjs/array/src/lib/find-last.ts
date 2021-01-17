@@ -6,7 +6,7 @@
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PredicateFn } from '../types/generic-methods';
-import { ArrayOrSet } from 'libs/rxjs/array/src/types/array-set';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable value of the last truthy value found in a source array, or `undefined` using Array.find

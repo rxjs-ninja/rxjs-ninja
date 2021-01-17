@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module Array
+ * @module Number
  */
 
 import { ArrayOrSetNumbers } from '../types/array-set';

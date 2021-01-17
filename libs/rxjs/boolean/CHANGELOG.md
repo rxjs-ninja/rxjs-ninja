@@ -2,8 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
+to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+## Added
+
+- `ArrayOrSet` type for `forBoolean` allowing support for `Set` and `Array` seed values
+
+### Changed
+
+- Improved internals of `fromBoolean` and now accepts both `Set` and `Array` seed values
 
 ## [3.1.0] - 2021-01-15
 
@@ -31,14 +41,16 @@ coverage that provided various bug fixes.
 
 ### Changed
 
-- `fromBoolean` accepts any value type again that casts to a `Boolean` true or false and also now accepts Observable and Promise-based values.
+- `fromBoolean` accepts any value type again that casts to a `Boolean` true or false and also now accepts Observable and
+  Promise-based values.
 - `filterTruthy` `firstTruthy` and `lastTruthy` now only return truthy values when using a predicate
 
 ## [2.1.2] - 2020-11-22
 
 ### Changed
 
-- Package is now published under `@rxjs-ninja/rxjs-boolean` (this also includes previous version for migration from `@tinynodes/rxjs-boolean`)
+- Package is now published under `@rxjs-ninja/rxjs-boolean` (this also includes previous version for migration
+  from `@tinynodes/rxjs-boolean`)
 - Documentation updates
 
 ## [2.1.1] - 2020-11-20
@@ -76,7 +88,8 @@ coverage that provided various bug fixes.
 
 ### Added
 
-- Added `luhnCheck` operator for checking value is a valid [Luhn Algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) value
+- Added `luhnCheck` operator for checking value is a
+  valid [Luhn Algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) value
 
 ### Changed
 
@@ -109,10 +122,11 @@ coverage that provided various bug fixes.
 
 ### Added
 
-- `fromBoolean` added that accepts both a single value, or an array of values.
-  By default, these values are boolean (e.g. `fromBoolean([true, false])`) however the type of this method can be overriden
-  and any value converted to boolean (e.g. `fromBoolean<number>([0, 1, 0, 1, 0, 0 ,1])`)
-  When passing an array it acts the same as the [from](https://rxjs.dev/api/index/function/from) operator and also accept a scheduler.
+- `fromBoolean` added that accepts both a single value, or an array of values. By default, these values are boolean (
+  e.g. `fromBoolean([true, false])`) however the type of this method can be overriden and any value converted to
+  boolean (e.g. `fromBoolean<number>([0, 1, 0, 1, 0, 0 ,1])`)
+  When passing an array it acts the same as the [from](https://rxjs.dev/api/index/function/from) operator and also
+  accept a scheduler.
 
 ### Changed
 

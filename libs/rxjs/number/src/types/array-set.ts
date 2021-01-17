@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module Boolean
+ * @module Number
  */
 
 /**

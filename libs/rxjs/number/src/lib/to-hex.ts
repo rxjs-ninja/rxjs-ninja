@@ -16,7 +16,7 @@ import { map } from 'rxjs/operators';
  * Output: `'2', '10', '20', '4b', 'ff'`
  *
  * @returns Observable that emits the hex value of a source number
- * @category Number Formatting
+ * @category Formatting
  */
 export function toHex(): OperatorFunction<number, string> {
   return (source: Observable<number>) => source.pipe(map((number) => number.toString(16)));

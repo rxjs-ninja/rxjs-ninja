@@ -2,13 +2,13 @@
  * @packageDocumentation
  * @module Number
  */
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a boolean value when a source number is a a valid finite floating point
  *
- * @category Number Query
+ * @category Query
  *
  * @see The [[filterIsFloat]] operator returns the number value
  *
@@ -23,6 +23,6 @@ import { map } from 'rxjs/operators';
  * @returns Observable that emits a boolean of a source number is a valid finite floating point
  */
 export function isFloat(): OperatorFunction<number, boolean> {
-  return (source: Observable<number>) =>
+  return (source) =>
     source.pipe(map((value) => !Number.isNaN(value) && Number.isFinite(value) && !Number.isInteger(value)));
 }

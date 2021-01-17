@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Number
  */
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
 
 /**
@@ -26,11 +26,12 @@ import { filter, map } from 'rxjs/operators';
  * Output: `NaN, 255, 0, 27, 25, 821691`
  *
  * @returns Observable that emits a number from source hex value, optionally returns `NaN` values
- * @category Number Parsing
+ * @category Parsing
  */
 export function parseHex(returnNaN?: boolean): OperatorFunction<string, number> {
-  return (source: Observable<string>) => {
-    const result$ = source.pipe(map((value) => Number.parseInt(value, 16)));
-    return returnNaN ? result$ : result$.pipe(filter((value) => !isNaN(value)));
-  };
+  return (source) =>
+    source.pipe(
+      map((value) => Number.parseInt(value, 16)),
+      filter((value) => returnNaN || !isNaN(value)),
+    );
 }

@@ -3,7 +3,7 @@
  * @module Number
  */
 import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
-import { filter, map, switchMap } from 'rxjs/operators';
+import { filter, map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a number from a source string using Number.parseInt.
@@ -34,17 +34,16 @@ import { filter, map, switchMap } from 'rxjs/operators';
  * Output: `1, 255, 64`
  *
  * @returns Observable that emits a number from source parsed string, optionally returns `NaN` values
- * @category Number Parsing
+ * @category Parsing
  */
 export function parseInt(
   radix: number | ObservableInput<number> = 10,
   returnNaN?: boolean,
 ): OperatorFunction<string, number> {
   return (source) =>
-    ((isObservable(radix) ? radix : of(radix)) as Observable<number | undefined>).pipe(
-      switchMap((inputValue) => {
-        const result$ = source.pipe(map((value) => Number.parseInt(value, inputValue)));
-        return returnNaN ? result$ : result$.pipe(filter((value) => !isNaN(value)));
-      }),
+    source.pipe(
+      withLatestFrom((isObservable(radix) ? radix : of(radix)) as Observable<number>),
+      map(([value, inputValue]) => Number.parseInt(value, inputValue)),
+      filter((value) => returnNaN || !isNaN(value)),
     );
 }

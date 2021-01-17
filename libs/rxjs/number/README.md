@@ -10,10 +10,19 @@
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/CHANGELOG.md)
 
-`@rxjs-ninja/rxjs-number` provides operators for querying, filtering and modifying number values, and Observable for generating number emitters.
+`@rxjs-ninja/rxjs-number` provides operators for querying, filtering and modifying number values, and Observable for
+generating number emitters.
 
-For example, you can use the `fromNumber` to generate a sequence of numbers and filter out ones
-that are out of range.
+### Function and Operator categories
+
+- Create - Functions and Operators for creating Observable number values
+- Filter - Operators for filtering Observable number sources for truthy queries
+- Formatting - Operators for formatting numbers to strings
+- Math - Operators for some math operations such as add, subtract, multiply and raise by power
+- Parsing - Operators for parsing strings to numbers
+- Query - Operators for generating number sources and getting boolean values
+
+For example, you can use the `fromNumber` to generate a sequence of numbers and filter out ones that are out of range.
 
 ```ts
 import { fromNumber, filterInRange, fitlerOutOfRange } from '@rxjs-ninja/rxjs-number';

@@ -3,7 +3,7 @@
  * @module Number
  */
 import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of, throwError } from 'rxjs';
-import { map, switchMap, withLatestFrom } from 'rxjs/operators';
+import { switchMap, withLatestFrom } from 'rxjs/operators';
 
 /**
  * @private
@@ -35,7 +35,7 @@ export function div(input: number | ObservableInput<number>): MonoTypeOperatorFu
       withLatestFrom((isObservable(input) ? input : of(input)) as Observable<number>),
       switchMap(([value, inputValue]) => {
         if (inputValue === 0) {
-          return throwError('Cannot divide by 0');
+          return throwError(ERROR_MESSAGE);
         }
         return of(value / inputValue);
       }),

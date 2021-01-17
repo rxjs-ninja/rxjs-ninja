@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module Array
+ * @module Boolean
  */
 
 import { ArrayOrSet } from '../types/array-set';

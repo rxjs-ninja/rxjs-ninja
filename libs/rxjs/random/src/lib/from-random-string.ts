@@ -3,7 +3,7 @@
  * @module Random
  */
 import { Observable, Subscriber, timer } from 'rxjs';
-import { finalize, map, takeWhile, tap } from 'rxjs/operators';
+import { map, takeWhile, tap } from 'rxjs/operators';
 import { createSeedArray, RND_STR_DEFAULTS } from '../utils/from-random-string';
 
 /**
@@ -44,7 +44,6 @@ export function fromRandomStr(length = 10, emitDelay = 0, opts = RND_STR_DEFAULT
         takeWhile(() => !subscriber.closed),
         map(() => [...Array(length)].map(() => seedArray[(Math.random() * seedArray.length) | 0]).join('')),
         tap((value) => subscriber.next(value)),
-        finalize(() => subscriber.complete()),
       )
       .subscribe();
   });

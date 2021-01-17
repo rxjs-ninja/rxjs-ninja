@@ -5,7 +5,7 @@
 import { Observable, Subscriber, timer } from 'rxjs';
 import { finalize, map, takeWhile, tap } from 'rxjs/operators';
 import { FromRandomCryptoOpts } from '../types/from-random-crypto';
-import { RND_CRYPTO_DEFAULTS, getIntTypedArray } from '../utils/from-random-crypto';
+import { getIntTypedArray, RND_CRYPTO_DEFAULTS } from '../utils/from-random-crypto';
 
 /**
  * Returns an Observable that emits a number generated using Crypto.getRandomValues, and using Math.random selects one
@@ -46,7 +46,6 @@ export function fromRandomCrypto(emitDelay = 0, opts: FromRandomCryptoOpts = RND
         tap(() => window.crypto.getRandomValues(sourceArray)),
         map(() => sourceArray[(sourceArray.length * Math.random()) | 0]),
         tap((value) => subscriber.next(value)),
-        finalize(() => subscriber.complete()),
       )
       .subscribe();
   });

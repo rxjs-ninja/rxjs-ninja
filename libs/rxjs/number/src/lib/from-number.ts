@@ -4,11 +4,14 @@
  */
 import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
 import { isPromise } from 'rxjs/internal-compatibility';
+import { ArrayOrSetNumbers } from '../types/array-set';
+import { map, switchMap } from 'rxjs/operators';
+import { isArrayOrSet } from '../utils/array-set';
 
 /**
  * Returns an Observable that emits numbers from an an arguments list or array of number values
  *
- * @category Number Observables
+ * @category Create
  *
  * @remarks This is a type-safe version of the RxJS {@link https://rxjs.dev/api/index/function/from|from} operator that
  *   only accepts numbers as input
@@ -39,27 +42,47 @@ import { isPromise } from 'rxjs/internal-compatibility';
  *
  * @returns Observable that emits numbers passed from arguments or array
  */
-export function fromNumber<T extends ObservableInput<number> | PromiseLike<number> | number | number[]>(
-  ...args: T[]
-): Observable<number> {
+export function fromNumber<
+  A extends
+    | ObservableInput<ArrayOrSetNumbers | number>
+    | PromiseLike<ArrayOrSetNumbers | number>
+    | ArrayOrSetNumbers
+    | number
+>(...args: A[]): Observable<number> {
   if (isObservable(args[0])) {
-    return (args[0] as never) as Observable<number>;
+    return ((args[0] as unknown) as Observable<ArrayOrSetNumbers | number>).pipe(
+      map((value) => (isArrayOrSet(value) ? [...value] : [value]) as number[]),
+      switchMap((value) => {
+        return new Observable<number>((subscriber: Subscriber<unknown>): void => {
+          for (let i = 0; i < value.length; i++) {
+            subscriber.next(value[i]);
+          }
+          subscriber.complete();
+        });
+      }),
+    );
   } else if (isPromise(args[0])) {
     return new Observable<number>((subscriber: Subscriber<unknown>): void => {
-      ((args[0] as never) as Promise<T>).then(
-        (value) => {
-          if (!subscriber.closed) {
-            subscriber.next(value);
-            subscriber.complete();
+      function callSubscriber(value: ArrayOrSetNumbers | number) {
+        /* istanbul ignore next-line */
+        if (!subscriber.closed) {
+          const output = isArrayOrSet(value) ? [...value] : [value];
+          for (let i = 0; i < output.length; i++) {
+            subscriber.next(output[i]);
           }
-        },
+          subscriber.complete();
+        }
+      }
+
+      ((args[0] as never) as Promise<ArrayOrSetNumbers | number>).then(
+        (value) => callSubscriber(value),
         (err) => subscriber.error(err),
       );
     });
   } else {
     const value = Array.isArray(args[0]) ? (args[0] as number[]) : ([...args] as number[]);
 
-    return new Observable<number>((subscriber: Subscriber<number>): void => {
+    return new Observable<number>((subscriber: Subscriber<unknown>): void => {
       for (let i = 0; i < value.length; i++) {
         subscriber.next(value[i]);
       }

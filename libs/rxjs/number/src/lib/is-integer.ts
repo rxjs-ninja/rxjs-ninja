@@ -2,13 +2,13 @@
  * @packageDocumentation
  * @module Number
  */
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a boolean value when a source number is an integer checked with Number.isInteger
  *
- * @category Number Query
+ * @category Query
  *
  * @see The [[filterIsInteger]] operator returns the number value
  *
@@ -23,5 +23,5 @@ import { map } from 'rxjs/operators';
  * @returns Observable that emits a boolean of a source number being an integer
  */
 export function isInteger(): OperatorFunction<number, boolean> {
-  return (source: Observable<number>) => source.pipe(map((value) => Number.isInteger(value)));
+  return (source) => source.pipe(map((value) => Number.isInteger(value)));
 }

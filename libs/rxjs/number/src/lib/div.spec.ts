@@ -25,12 +25,12 @@ describe('div', () => {
     }),
   );
 
-  xit(
+  it(
     'should return an error when 0 is passed',
     marbles((m) => {
       const input = m.hot('-a-b-c-d-e-|', { a: 2, b: 6, c: 10, d: 18, e: 20 });
-      const subs = '^-!';
-      const expected = m.cold('-#|', {});
+      const subs = '^!';
+      const expected = m.cold('-#', {}, 'div operator cannot divide by 0');
       m.expect(input.pipe(div(0))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),

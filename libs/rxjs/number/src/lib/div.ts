@@ -2,17 +2,19 @@
  * @packageDocumentation
  * @module Number
  */
-import { combineLatest, isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of, throwError } from 'rxjs';
+import { switchMap, withLatestFrom } from 'rxjs/operators';
 
 /**
  * @private
  * @internal
  */
-const ERROR_MESSAGE = `'div' operator cannot divide by 0`;
+const ERROR_MESSAGE = `div operator cannot divide by 0`;
 
 /**
  * Returns an Observable that emits a number that is the division of the source number with input number
+ *
+ * @category Math
  *
  * @param input The number to divide to the source value
  *
@@ -26,22 +28,16 @@ const ERROR_MESSAGE = `'div' operator cannot divide by 0`;
  * Output: `2, 5, 6, 9, 10`
  *
  * @returns Observable that emits a number that is the division of source and input
- * @category Number Math
  */
 export function div(input: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
-  if (isObservable(input)) {
-    return (source: Observable<number>) =>
-      combineLatest([source, input]).pipe(
-        map(([value, _input]) => {
-          if (_input === 0) {
-            throw new Error(ERROR_MESSAGE);
-          }
-          return value / (_input as number);
-        }),
-      );
-  }
-  if (input === 0) {
-    throw new Error(ERROR_MESSAGE);
-  }
-  return (source: Observable<number>) => source.pipe(map((value) => value / (input as number)));
+  return (source) =>
+    source.pipe(
+      withLatestFrom((isObservable(input) ? input : of(input)) as Observable<number>),
+      switchMap(([value, inputValue]) => {
+        if (inputValue === 0) {
+          return throwError(ERROR_MESSAGE);
+        }
+        return of(value / inputValue);
+      }),
+    );
 }

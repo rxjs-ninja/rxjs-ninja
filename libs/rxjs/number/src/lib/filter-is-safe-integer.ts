@@ -2,14 +2,14 @@
  * @packageDocumentation
  * @module Number
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits numbers that are within the safe number range for JavaScript number precision using
  * Number.isSafeInteger
  *
- * @category Number Filter
+ * @category Filter
  *
  * @see The [[isSafeInteger]] operator returns a boolean value instead of the number
  *
@@ -25,5 +25,5 @@ import { filter } from 'rxjs/operators';
  * @returns Observable that emits integer numbers within `Number.isSafeInteger` equality check
  */
 export function filterIsSafeInteger(): MonoTypeOperatorFunction<number> {
-  return (source: Observable<number>) => source.pipe(filter((num) => Number.isSafeInteger(num)));
+  return (source) => source.pipe(filter((num) => Number.isSafeInteger(num)));
 }

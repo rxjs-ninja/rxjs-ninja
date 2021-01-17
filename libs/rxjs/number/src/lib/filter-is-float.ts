@@ -2,13 +2,13 @@
  * @packageDocumentation
  * @module Number
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits only valid finite floating point numbers from a source
  *
- * @category Number Filter
+ * @category Filter
  *
  * @see The [[isFloat]] operator returns a boolean value instead of the number
  *
@@ -23,6 +23,6 @@ import { filter } from 'rxjs/operators';
  * @returns Observable that emits valid finite floating point numbers
  */
 export function filterIsFloat(): MonoTypeOperatorFunction<number> {
-  return (source: Observable<number>) =>
+  return (source) =>
     source.pipe(filter((value) => !Number.isNaN(value) && Number.isFinite(value) && !Number.isInteger(value)));
 }

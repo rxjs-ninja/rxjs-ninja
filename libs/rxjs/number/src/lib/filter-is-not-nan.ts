@@ -2,13 +2,13 @@
  * @packageDocumentation
  * @module Number
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits number values from a source filtering out any `NaN` values.
  *
- * @category Number Filter
+ * @category Filter
  *
  * @see The [[isNotNaN]] operator returns a boolean value instead of the number
  *
@@ -23,5 +23,5 @@ import { filter } from 'rxjs/operators';
  * @returns Observable that emits valid numbers and excludes `NaN` values
  */
 export function filterIsNotNaN(): MonoTypeOperatorFunction<number> {
-  return (source: Observable<number>) => source.pipe(filter((value) => !Number.isNaN(value)));
+  return (source) => source.pipe(filter((value) => !Number.isNaN(value)));
 }

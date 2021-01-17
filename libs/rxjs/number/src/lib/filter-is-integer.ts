@@ -2,13 +2,13 @@
  * @packageDocumentation
  * @module Number
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits only integer numbers from a source that pass the check of Number.isInteger.
  *
- * @category Number Filter
+ * @category Filter
  *
  * @see The [[isInteger]] operator returns a boolean value instead of the number
  *
@@ -23,5 +23,5 @@ import { filter } from 'rxjs/operators';
  * @returns Observable that emits integer numbers
  */
 export function filterIsInteger(): MonoTypeOperatorFunction<number> {
-  return (source: Observable<number>) => source.pipe(filter((value) => Number.isInteger(value)));
+  return (source) => source.pipe(filter((value) => Number.isInteger(value)));
 }

@@ -7,6 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+Some internal refactoring, however there should be no breaking changes from `4.1.0`
+
 ### Added
 
 - New `ArrayOrSet<T>` type for all inputs and sources in this library

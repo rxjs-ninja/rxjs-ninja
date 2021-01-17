@@ -6,7 +6,7 @@ import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
 import { FormType } from '../types/normalize';
 import { map, switchMap } from 'rxjs/operators';
 import { isPromise } from 'rxjs/internal-compatibility';
-import { ArrayOrSet } from '@rxjs-ninja/rxjs-array';
+import { ArrayOrSet } from '../types/array-set';
 import { isArrayOrSet } from '../utils/array-set';
 
 /**
@@ -78,34 +78,3 @@ export function fromUnicode<
     });
   }
 }
-
-//
-//
-// export function fromUnicode<T extends ObservableInput<string[]> | PromiseLike<string[]> | string | string[]>(
-//   input: T,
-//   form?: FormType,
-// ): Observable<string> {
-//   if (isObservable(input)) {
-//     return ((input as never) as Observable<number[]>).pipe(map((value) => String.fromCodePoint(...value)));
-//   } else if (isPromise(input)) {
-//     return new Observable<string>((subscriber: Subscriber<unknown>): void => {
-//       ((input as never) as Promise<number[]>).then(
-//         (value) => {
-//           if (!subscriber.closed) {
-//             subscriber.next(String.fromCodePoint(...value));
-//             subscriber.complete();
-//           }
-//         },
-//         (err) => subscriber.error(err),
-//       );
-//     });
-//   } else {
-//     const value = Array.isArray(input) ? input : [input];
-//     return new Observable<string>((subscriber: Subscriber<string>): void => {
-//       for (let i = 0; i < value.length; i++) {
-//         subscriber.next(value[i].normalize(form));
-//       }
-//       subscriber.complete();
-//     });
-//   }
-// }

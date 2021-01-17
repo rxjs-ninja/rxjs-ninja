@@ -5,8 +5,8 @@
 import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { isPromise } from 'rxjs/internal-compatibility';
-import { ArrayOrSet } from 'libs/rxjs/string/src/types/array-set';
-import { isArrayOrSet } from 'libs/rxjs/string/src/utils/array-set';
+import { ArrayOrSet } from '../types/array-set';
+import { isArrayOrSet } from '../utils/array-set';
 
 /**
  * Returns an Observable that emits a string made from code points using String.fromCodePoint

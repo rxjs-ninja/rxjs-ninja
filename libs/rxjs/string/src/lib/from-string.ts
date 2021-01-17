@@ -4,10 +4,9 @@
  */
 import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
 import { isPromise } from 'rxjs/internal-compatibility';
-import { ArrayOrSetNumbers } from 'libs/rxjs/number/src/types/array-set';
 import { map, switchMap } from 'rxjs/operators';
-import { isArrayOrSet } from 'libs/rxjs/number/src/utils/array-set';
-import { ArrayOrSet } from '@rxjs-ninja/rxjs-array';
+import { isArrayOrSet } from '../utils/array-set';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable that emits strings from any an argument list of strings or  supported Observable, Promise or

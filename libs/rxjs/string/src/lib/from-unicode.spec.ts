@@ -1,4 +1,4 @@
-import { catchError, map, reduce, tap } from 'rxjs/operators';
+import { catchError, reduce, tap } from 'rxjs/operators';
 import { fromUnicode } from '@rxjs-ninja/rxjs-string';
 import { observe } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';

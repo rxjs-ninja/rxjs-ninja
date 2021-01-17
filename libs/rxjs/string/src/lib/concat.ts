@@ -2,10 +2,10 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
-import { concatMap, map, withLatestFrom } from 'rxjs/operators';
-import { ArrayOrSet } from '@rxjs-ninja/rxjs-array';
-import { isArrayOrSet } from 'libs/rxjs/string/src/utils/array-set';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
+import { isArrayOrSet } from '../utils/array-set';
 
 /**
  * Returns an Observable that emits a string that is the source string concatenated with the passed input to the

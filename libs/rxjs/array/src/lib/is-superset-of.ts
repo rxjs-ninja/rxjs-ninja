@@ -4,6 +4,7 @@
  */
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable that emits a boolean value if the source Observable Array or Set is a superset of
@@ -26,7 +27,7 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a boolean of the source array being a superset of the input array
  */
-export function isSupersetOf<T extends unknown>(input: T[] | Set<T>): OperatorFunction<T[] | Set<T>, boolean> {
+export function isSupersetOf<T extends unknown>(input: ArrayOrSet<T>): OperatorFunction<ArrayOrSet<T>, boolean> {
   return (source) =>
     source.pipe(
       map((value) => [new Set(value), new Set(input)]),

@@ -4,6 +4,7 @@
  */
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable that emits a boolean value if the source Observable Array or Set has equal non-duplicate
@@ -26,7 +27,7 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a boolean of the source array has equal content to the input array
  */
-export function isEqualSet<T extends unknown>(input: T[] | Set<T>): OperatorFunction<T[] | Set<T>, boolean> {
+export function isEqualSet<T extends unknown>(input: ArrayOrSet<T>): OperatorFunction<ArrayOrSet<T>, boolean> {
   return (source) =>
     source.pipe(
       map((value) => [new Set(input), new Set(value)]),

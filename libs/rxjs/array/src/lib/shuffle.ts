@@ -4,6 +4,7 @@
  */
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable that emits an array taking a source array and randomly shuffling the elements
@@ -22,7 +23,7 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits an array of values shuffled from the source array
  */
-export function shuffle<T extends unknown>(): OperatorFunction<T[] | Set<T>, T[]> {
+export function shuffle<T extends unknown>(): OperatorFunction<ArrayOrSet<T>, T[]> {
   return (source) =>
     source.pipe(
       map(([...arr]) => {

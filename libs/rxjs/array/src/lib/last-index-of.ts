@@ -4,6 +4,8 @@
  */
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
+import { isArrayOrSet } from '../utils/array-set';
 
 /**
  * Returns an Observable number or array of numbers. These are the index numbers of first truthy value in the source
@@ -51,16 +53,16 @@ import { map } from 'rxjs/operators';
  * @returns Observable number or array of numbers containing the index of the last found value
  */
 export function lastIndexOf<T extends unknown>(
-  input: T | T[] | Set<T>,
+  input: T | ArrayOrSet<T>,
   fromIndex?: number,
-): OperatorFunction<T[] | Set<T>, number | number[]> {
+): OperatorFunction<ArrayOrSet<T>, number | number[]> {
   return (source) =>
     source.pipe(
       map(([...value]) => {
         fromIndex = fromIndex || value.length - 1;
-        return Array.isArray(input) || input instanceof Set
+        return isArrayOrSet(input)
           ? [...input].map((inputVal) => value.lastIndexOf(inputVal, fromIndex))
-          : value.lastIndexOf(input, fromIndex);
+          : value.lastIndexOf(input as T, fromIndex);
       }),
     );
 }

@@ -3,7 +3,8 @@
  * @module Array
  */
 import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { map, withLatestFrom } from 'rxjs/operators';
+import { ArrayOrSet } from 'libs/rxjs/array/src/types/array-set';
 
 /**
  * Returns an Observable Array containing filtered values that are not in the provided input Array or Set
@@ -35,16 +36,12 @@ import { map, switchMap } from 'rxjs/operators';
  * @returns An Observable that emits an Array with the difference between source and input
  */
 export function filterDifference<T extends unknown>(
-  input: T[] | Set<T> | ObservableInput<T[] | Set<T>>,
-): OperatorFunction<T[] | Set<T>, T[]> {
+  input: ArrayOrSet<T> | ObservableInput<ArrayOrSet<T>>,
+): OperatorFunction<ArrayOrSet<T>, T[]> {
   return (source) =>
-    ((isObservable(input) ? input : of(input)) as Observable<T[] | Set<T>>).pipe(
-      map((value) => new Set(value)),
-      switchMap((inputValue) => {
-        return source.pipe(
-          map((value) => [...value]),
-          map((value) => value.filter((v) => !inputValue.has(v))),
-        );
-      }),
+    source.pipe(
+      withLatestFrom((isObservable(input) ? input : of(input)) as Observable<ArrayOrSet<T>>),
+      map<[ArrayOrSet<T>, ArrayOrSet<T>], [T[], Set<T>]>(([value, inputValue]) => [[...value], new Set(inputValue)]),
+      map(([value, inputValue]) => value.filter((x) => !inputValue.has(x))),
     );
 }

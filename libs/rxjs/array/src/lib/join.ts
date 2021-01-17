@@ -4,6 +4,7 @@
  */
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable that emits a joining the values of the Array or Set using the `separator` character using
@@ -33,6 +34,6 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable string from the joined values in the source array
  */
-export function join<T extends unknown>(separator = ' '): OperatorFunction<T[] | Set<T>, string> {
+export function join<T extends unknown>(separator = ' '): OperatorFunction<ArrayOrSet<T>, string> {
   return (source) => source.pipe(map((value) => [...value].join(separator)));
 }

@@ -2,12 +2,13 @@
  * @packageDocumentation
  * @module Array
  */
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { binarySearcher } from '../utils/search';
 import { defaultSortFn } from '../utils/sort';
 import { BinarySearchResult } from '../types/binary-search';
 import { SortFn } from '../types/generic-methods';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable that emits a [[BinarySearchResult]]. It take a source array and runs a [[SortFn]] over it.
@@ -79,10 +80,10 @@ export function binarySearch<T extends unknown, K extends T | unknown>(
   searchValue: T,
   sortFn?: SortFn<K>,
   property?: string | number,
-): OperatorFunction<K[] | Set<K>, BinarySearchResult<T, K>> {
-  return (source: Observable<K[] | Set<K>>) =>
+): OperatorFunction<ArrayOrSet<K>, BinarySearchResult<T, K>> {
+  return (source) =>
     source.pipe(
-      map<K[] | Set<K>, [K[], K[]]>((accArray) => [[...accArray], [...accArray].sort(sortFn || defaultSortFn)]),
+      map<ArrayOrSet<K>, [K[], K[]]>((accArray) => [[...accArray], [...accArray].sort(sortFn || defaultSortFn)]),
       map(([searchArray, sortedArray]) => [
         binarySearcher(searchValue, sortedArray, property),
         searchValue,

@@ -5,6 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- New `ArrayOrSet<T>` type for all inputs and sources in this library
+
+### Changed
+
+- All operators now accept the `ArrayOrSet<T>` as a source, and some also allow as a static or Observable input value
+- Fixed some internals where source was not being piped first, and causing issues with error flow
+
 ## [4.1.0] - 2021-01-15
 
 ### Added

@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module String
  */
-import { Observable, OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, Observable, of, OperatorFunction } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a boolean value where the source string ends with the passed string parameter using
@@ -32,6 +32,13 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a boolean of the source string ending with the passed input
  */
-export function endsWith(ending: string, length?: number): OperatorFunction<string, boolean> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.endsWith(ending, length)));
+export function endsWith(
+  ending: string | Observable<string>,
+  length?: number | Observable<number>,
+): OperatorFunction<string, boolean> {
+  return (source: Observable<string>) =>
+    source.pipe(
+      withLatestFrom(isObservable(ending) ? ending : of(ending), isObservable(length) ? length : of(length)),
+      map(([value, endingInput, lengthInput]) => value.endsWith(endingInput, lengthInput)),
+    );
 }

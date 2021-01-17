@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { filter, map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a string where the source string starts with the passed string using
@@ -32,6 +32,17 @@ import { filter } from 'rxjs/operators';
  *
  * @returns Observable that emits a string
  */
-export function filterStartsWith(start: string, startFrom?: number): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(filter((value) => value.startsWith(start, startFrom)));
+export function filterStartsWith(
+  start: string | ObservableInput<string>,
+  startFrom?: number | ObservableInput<number>,
+): MonoTypeOperatorFunction<string> {
+  return (source) =>
+    source.pipe(
+      withLatestFrom(
+        (isObservable(start) ? start : of(start)) as Observable<string>,
+        (isObservable(startFrom) ? startFrom : of(startFrom)) as Observable<number>,
+      ),
+      map(([value, startInput, startFromInput]) => (value.startsWith(startInput, startFromInput) ? value : '')),
+      filter((value) => Boolean(value)),
+    );
 }

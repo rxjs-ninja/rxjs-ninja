@@ -2,14 +2,16 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { concatMap, map } from 'rxjs/operators';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
+import { isArrayOrSet } from '../utils/array-set';
 
 /**
  * Returns an Observable that emits a string that is the source string concatenated with the passed input to the
  * operator using Sting.concat
  *
- * @category String Modify
+ * @category Modify
  *
  * @param args Observable string source, array of strings or argument list of strings
  *
@@ -36,16 +38,19 @@ import { concatMap, map } from 'rxjs/operators';
  *
  * @returns Observable that emits a string
  */
-export function concat<T extends string | string[] | Observable<string | string[]>>(
-  ...args: T[]
+export function concat(
+  ...args: ObservableInput<string | string[]>[] | ArrayOrSet<string>[] | string[]
 ): MonoTypeOperatorFunction<string> {
   const values: unknown[] = [...args];
-  if (values[0] instanceof Array) {
-    return (source: Observable<string>) => source.pipe(map((value) => value.concat(...(values[0] as string[]))));
+  if (isArrayOrSet(values[0])) {
+    return (source) => source.pipe(map((value) => value.concat(...(values[0] as string[]))));
   } else if (isObservable(values[0])) {
-    return (source: Observable<string>) =>
-      (values[0] as Observable<string[]>).pipe(
-        concatMap((strings: string[]) => source.pipe(map((value) => value.concat(...strings)))),
+    return (source) =>
+      source.pipe(
+        withLatestFrom(values[0] as Observable<string | string[]>),
+        map(([value, inputValue]) =>
+          isArrayOrSet(inputValue) ? value.concat(...inputValue) : value.concat(inputValue),
+        ),
       );
   } else {
     return (source: Observable<string>) => source.pipe(map((value) => value.concat(...(values as string[]))));

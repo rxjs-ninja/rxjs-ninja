@@ -2,13 +2,13 @@
  * @packageDocumentation
  * @module String
  */
-import { Observable, OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a number that is the first index of where the value is found using String.search
  *
- * @category String Query
+ * @category Query
  *
  * @param pattern A string or RegExp to match in the string
  *
@@ -28,6 +28,11 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits an number that is the start index of the first found value
  */
-export function search(pattern: string | RegExp): OperatorFunction<string, number> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.search(pattern)));
+export function search(pattern: string | RegExp | ObservableInput<string | RegExp>): OperatorFunction<string, number> {
+  const pattern$ = (isObservable(pattern) ? pattern : of(pattern)) as Observable<string | RegExp>;
+  return (source: Observable<string>) =>
+    source.pipe(
+      withLatestFrom(pattern$),
+      map(([value, pattenInput]) => value.search(pattenInput)),
+    );
 }

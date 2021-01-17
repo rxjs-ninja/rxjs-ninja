@@ -2,13 +2,15 @@
  * @packageDocumentation
  * @module String
  */
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
+import { isArrayOrSet } from '../utils/array-set';
 
 /**
  * Returns an Observable that emits a string from a source of character codes using String.fromCharCode
  *
- * @category String Mapping
+ * @category Mapping
  *
  * @see The [[fromCharCode]] Observable can be used to generate a string source from character codes
  *
@@ -22,9 +24,7 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a string from source character codes
  */
-export function mapCharCode(): OperatorFunction<number | number[], string> {
-  return (source: Observable<number | number[]>) =>
-    source.pipe(
-      map((values) => (Array.isArray(values) ? String.fromCharCode(...values) : String.fromCharCode(values))),
-    );
+export function mapCharCode(): OperatorFunction<ArrayOrSet<number> | number, string> {
+  return (source) =>
+    source.pipe(map((values) => (isArrayOrSet(values) ? String.fromCharCode(...values) : String.fromCharCode(values))));
 }

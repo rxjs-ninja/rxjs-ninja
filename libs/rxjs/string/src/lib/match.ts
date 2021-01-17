@@ -2,14 +2,14 @@
  * @packageDocumentation
  * @module String
  */
-import { Observable, OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a `RegExpMatchArray` where a source string returns a valid result using using
  * String.match. If no result is found, `null` is emitted.
  *
- * @category String Query
+ * @category Query
  *
  * @param pattern A string or RegExp to match
  *
@@ -29,6 +29,13 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a RegExpMatchArray
  */
-export function match(pattern: string | RegExp): OperatorFunction<string, RegExpMatchArray | null> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.match(pattern)));
+export function match(
+  pattern: string | RegExp | ObservableInput<string | RegExp>,
+): OperatorFunction<string, RegExpMatchArray | null> {
+  const pattern$ = (isObservable(pattern) ? pattern : of(pattern)) as Observable<string | RegExp>;
+  return (source) =>
+    source.pipe(
+      withLatestFrom(pattern$),
+      map(([value, patternInput]) => value.match(patternInput)),
+    );
 }

@@ -9,7 +9,7 @@ import { FormType } from '../types/normalize';
 /**
  * Returns an Observable that emits a string made from a source unicode string using String.normalize
  *
- * @category String Mapping
+ * @category Mapping
  *
  * @param form The Unicode Normalization Form to decode the string with
  *

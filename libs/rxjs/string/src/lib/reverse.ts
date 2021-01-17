@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 /**
  * Returns an Observable that emits a string where the source string is reversed.
  *
- * @category String Modify
+ * @category Modify
  *
  * @remarks This operator turns a string into an array and uses Array.reverse and Array.join to create
  * a new string

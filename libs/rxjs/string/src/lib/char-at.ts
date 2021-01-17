@@ -2,14 +2,14 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a string character that is at the passed position in a source string using
  * String.charAt
  *
- * @category String Query
+ * @category Filter
  *
  * @param position The index of the character to return in the source string
  *
@@ -22,6 +22,11 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a string character
  */
-export function charAt(position: number): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.charAt(position)));
+export function charAt(position: number | ObservableInput<number>): MonoTypeOperatorFunction<string> {
+  const position$ = (isObservable(position) ? position : of(position)) as Observable<number>;
+  return (source) =>
+    source.pipe(
+      withLatestFrom(position$),
+      map(([value, inputValue]) => value.charAt(inputValue)),
+    );
 }

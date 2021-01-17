@@ -130,6 +130,11 @@ inputObs$.pipe(filterOutOfRange(4, 10)).subscribe(); // 3, 12, 2, 1
 
 `@rxjs-ninja/rxjs-random` Observable for generating random emitters with both numbers and strings.
 
+### Function and Operator categories
+
+- Random Numbers - Generates random number streams
+- Random Strings - Generates random string streams
+
 For example, you can use the `fromRandomCrypto` to generate a sequence of random number between `-127` and `127`, then
 use `inRange` from `@rxjs-ninja/rxjs-number` and `flip` from `@rxjs-ninja/rxjs-boolean`.
 

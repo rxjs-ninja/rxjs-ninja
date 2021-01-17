@@ -3,7 +3,7 @@
  * @module Random
  */
 import { Observable, Subscriber, timer } from 'rxjs';
-import { finalize, map, takeWhile, tap } from 'rxjs/operators';
+import { map, takeWhile, tap } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits random integer numbers generated using Math.random. The values are generated
@@ -34,7 +34,6 @@ export function fromRandomInt(min = 0, max = 100, emitDelay = 0): Observable<num
         takeWhile(() => !subscriber.closed),
         map(() => Math.floor(Math.random() * (max - min + 1) + min)),
         tap((value) => subscriber.next(value)),
-        finalize(() => subscriber.complete()),
       )
       .subscribe();
   });

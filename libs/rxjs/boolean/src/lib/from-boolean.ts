@@ -3,8 +3,10 @@
  * @module Boolean
  */
 import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
 import { isPromise } from 'rxjs/internal-compatibility';
+import { ArrayOrSet } from '@rxjs-ninja/rxjs-array';
+import { isArrayOrSet } from '../utils/array-set';
 
 /**
  * Returns an Observable that emits boolean values from passed source of values.
@@ -33,11 +35,23 @@ import { isPromise } from 'rxjs/internal-compatibility';
  * @returns Observable that emits boolean values of the source value
 
  */
-export function fromBoolean<T extends unknown, A extends ObservableInput<T> | PromiseLike<T> | T | T[]>(
-  ...args: A[]
-): Observable<boolean> {
+export function fromBoolean<
+  T extends unknown,
+  A extends ObservableInput<ArrayOrSet<T> | T> | PromiseLike<ArrayOrSet<T> | T> | ArrayOrSet<T> | T
+>(...args: A[]): Observable<boolean> {
   if (isObservable(args[0])) {
-    return (args[0] as Observable<T>).pipe(map(Boolean));
+    return (args[0] as Observable<ArrayOrSet<T> | T>).pipe(
+      map((value) => (isArrayOrSet(value) ? [...value] : [value])),
+      map((value) => value.map(Boolean)),
+      switchMap((value) => {
+        return new Observable<boolean>((subscriber: Subscriber<unknown>): void => {
+          for (let i = 0; i < value.length; i++) {
+            subscriber.next(value[i]);
+          }
+          subscriber.complete();
+        });
+      }),
+    );
   } else if (isPromise(args[0])) {
     return new Observable<boolean>((subscriber: Subscriber<unknown>): void => {
       (args[0] as Promise<T>).then(

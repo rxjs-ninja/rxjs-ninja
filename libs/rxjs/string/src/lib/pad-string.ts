@@ -8,7 +8,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
 /**
  * Returns an Observable that emits a string where the source string has been padded using String.padStart
  *
- * @category String Modify
+ * @category Modify
  *
  * @alias `padLeft`
  *
@@ -49,7 +49,7 @@ export function padStart(
 /**
  * Returns an Observable that emits a string where the source string has been padded using String.padEnd
  *
- * @category String Modify
+ * @category Modify
  *
  * @alias `padRight`
  *

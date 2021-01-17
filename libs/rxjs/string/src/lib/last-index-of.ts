@@ -9,7 +9,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * Returns an Observable that emits a number of the last index from the source string where the search string begins
  * using String.lastIndexOf
  *
- * @category String Query
+ * @category Query
  *
  * @param search The string to search in the source string
  * @param lastIndex The index of the last character in the string to search up to

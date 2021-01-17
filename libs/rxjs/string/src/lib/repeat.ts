@@ -11,7 +11,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @remarks If a separator is passed it uses an array and will join the result using the separator instead, as
  *   `String.repeat` does not support it
  *
- * @category String Modify
+ * @category Modify
  *
  * @param count The number of times to repeat the string
  * @param separator Optional separator for joining strings

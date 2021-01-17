@@ -15,7 +15,7 @@ import { ArrayOrSet } from '../types/array-set';
  *
  * @see The [[mapCharCode]] operator can be used to map an Observable source of char codes to strings
  *
- * @category String Observables
+ * @category Create
  *
  * @param args Observable input, Promise, Array or argument list of character codes
  *

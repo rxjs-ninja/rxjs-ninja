@@ -8,7 +8,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
 /**
  * Returns an Observable that emits an array from a source string split by the separator using String.split
  *
- * @category String to Array
+ * @category Convert
  *
  * @param separator The character to split the string at
  * @param limit Optional limit for the number of times to split

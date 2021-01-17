@@ -8,7 +8,7 @@ import { filter, map, withLatestFrom } from 'rxjs/operators';
 /**
  * Returns an Observable that emits a string where the source string ends with the passed ending using String.endsWith
  *
- * @category String Filter
+ * @category Filter
  *
  * @see The [[endsWith]] operator returns the boolean value
  *

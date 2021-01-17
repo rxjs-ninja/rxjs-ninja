@@ -9,7 +9,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * Returns an Observable that emits a string, replacing text in the source string with the replacement text if the
  * pattern is found using String.replace
  *
- * @category String Modify
+ * @category Modify
  *
  * @param pattern A string or RegExp to find in the Observable string to replace
  * @param replacement The replacement string

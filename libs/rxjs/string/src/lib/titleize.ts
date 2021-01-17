@@ -22,7 +22,7 @@ export const NO_CAP_WORDS = ['a', 'and', 'but', 'is', 'or', 'over', 'the', 'to',
  *
  * It will also skip words already starting with a capital (e.g. `RxJS`)
  *
- * @category String Modify
+ * @category Modify
  *
  * @param noTitleWords A list of words to exclude from making a title word
  * @param separator Optional separator to use when joining each word

@@ -8,7 +8,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
 /**
  * Returns an Observable that emits a string that is a partial slice of the source string using String.slice
  *
- * @category String Modify
+ * @category Modify
  *
  * @remarks For creating substrings use [[substring]] as a better alternative to `slice`
  *

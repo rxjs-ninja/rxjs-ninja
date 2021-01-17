@@ -10,7 +10,7 @@ import { isArrayOrSet } from '../utils/array-set';
 /**
  * Returns an Observable that emits a string where the source string is passed through String.toLocaleLowerCase
  *
- * @category String Modify
+ * @category Modify
  *
  * @param locales Optional locales to pass for string formatting
  *

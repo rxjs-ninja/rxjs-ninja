@@ -9,7 +9,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * Returns an Observable that emits a boolean when the source string contains the input string at the start of the
  * source string using String.startsWith
  *
- * @category String Query
+ * @category Query
  *
  * @param search The string to check the source string start with
  * @param startIndex Optional start index to being searching the string from

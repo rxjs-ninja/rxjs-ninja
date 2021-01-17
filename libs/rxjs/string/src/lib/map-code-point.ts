@@ -10,7 +10,7 @@ import { isArrayOrSet } from '../utils/array-set';
 /**
  * Returns an Observable that emits a string from a source of character codes using String.fromCodePoint
  *
- * @category String Mapping
+ * @category Mapping
  *
  * @see The [[fromCodePoint]] Observable can be used to generate a string source from character codes
  *

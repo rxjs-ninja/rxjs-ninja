@@ -9,7 +9,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * Returns an Observable that emits a boolean value where the source string ends with the passed string parameter using
  * String.endsWith
  *
- * @category String Query
+ * @category Query
  *
  * @see The [[filterEndsWith]] operator returns the string value
  *

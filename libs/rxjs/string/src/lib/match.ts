@@ -9,7 +9,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * Returns an Observable that emits a `RegExpMatchArray` where a source string returns a valid result using using
  * String.match. If no result is found, `null` is emitted.
  *
- * @category String Query
+ * @category Query
  *
  * @param pattern A string or RegExp to match
  *

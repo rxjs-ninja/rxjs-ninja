@@ -8,7 +8,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
 /**
  * Returns an Observable that emits an array of results from String.matchAll
  *
- * @category String Query
+ * @category Query
  *
  * @remarks This operator converts the `IterableIterator<RegExpMatchArray>` to `RegExpMatchArray[]` to avoid dealing
  *   with iterators.

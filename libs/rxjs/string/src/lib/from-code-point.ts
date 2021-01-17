@@ -13,7 +13,7 @@ import { isArrayOrSet } from '../utils/array-set';
  *
  * @remarks This operator will emit a single string for all input passed including arrays
  *
- * @category String Observables
+ * @category Create
  *
  * @param args Observable input, Promise, Array or argument list of code points
  *

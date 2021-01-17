@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
  * Returns an Observable that emits a string where the source string has any white space at the start removed using
  * String.trimStart
  *
- * @category String Modify
+ * @category Modify
  *
  * @alias `trimLeft`
  *
@@ -30,7 +30,7 @@ export function trimStart(): MonoTypeOperatorFunction<string> {
  * Returns an Observable that emits a string where the source string has any white space at the end removed using
  * String.trimEnd
  *
- * @category String Modify
+ * @category Modify
  *
  * @alias `trimRight`
  *
@@ -51,7 +51,7 @@ export function trimEnd(): MonoTypeOperatorFunction<string> {
  * Returns an Observable that emits a string where the source string has any white space at the ends removed using
  * String.trim
  *
- * @category String Modify
+ * @category Modify
  *
  * @example
  * Returns the source string with any whitespace at both ends removed

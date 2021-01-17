@@ -9,7 +9,7 @@ import { filter, map, withLatestFrom } from 'rxjs/operators';
  * Returns an Observable that emits a string where the source string contains with the passed search string using
  * String.includes
  *
- * @category String Filter
+ * @category Filter
  *
  * @see The [[includes]] operator returns the boolean value
  *

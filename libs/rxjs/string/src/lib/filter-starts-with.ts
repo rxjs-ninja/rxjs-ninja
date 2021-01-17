@@ -9,7 +9,7 @@ import { filter, map, withLatestFrom } from 'rxjs/operators';
  * Returns an Observable that emits a string where the source string starts with the passed string using
  * String.startsWith
  *
- * @category String Filter
+ * @category Filter
  *
  * @see The [[startsWith]] operator returns the boolean value
  *

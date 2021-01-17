@@ -12,7 +12,7 @@ import { isArrayOrSet } from '../utils/array-set';
 /**
  * Returns an Observable that emits a string made from a source unicode string using String.normalize
  *
- * @category String Observables
+ * @category Create
  *
  * @remarks This operator is a type-safe {@link https://rxjs.dev/api/index/function/from|from} and will emit only
  * strings, also unlike `from` a single string is not converted into an array-like.

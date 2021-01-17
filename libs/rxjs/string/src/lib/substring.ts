@@ -8,7 +8,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
 /**
  * Returns an Observable that emits a string that is a partial slice of the source string using String.substring
  *
- * @category String Modify
+ * @category Modify
  *
  * @param indexStart The index of the first character to include in the returned substring.
  * @param indexEnd Optional The index of the first character to exclude from the returned substring.

@@ -9,7 +9,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * Returns an Observable that emits a string character that is at the passed position in a source string using
  * String.charAt
  *
- * @category String Query
+ * @category Filter
  *
  * @param position The index of the character to return in the source string
  *

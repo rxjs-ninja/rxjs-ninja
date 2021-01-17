@@ -11,7 +11,7 @@ import { isArrayOrSet } from '../utils/array-set';
  * Returns an Observable that emits a string that is the source string concatenated with the passed input to the
  * operator using Sting.concat
  *
- * @category String Modify
+ * @category Modify
  *
  * @param args Observable string source, array of strings or argument list of strings
  *

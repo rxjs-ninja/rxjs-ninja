@@ -8,7 +8,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
 /**
  * Returns an Observable that emits a number that is the first index of where the value is found using String.search
  *
- * @category String Query
+ * @category Query
  *
  * @param pattern A string or RegExp to match in the string
  *

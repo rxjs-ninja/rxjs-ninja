@@ -2,8 +2,10 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, MonoTypeOperatorFunction, Observable, of } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
+import { isArrayOrSet } from '../utils/array-set';
 
 /**
  * Returns an Observable that emits a string where the source string is passed through String.toLocaleLowerCase
@@ -28,6 +30,16 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a lower case string
  */
-export function toLowerCase(locales?: string | string[]): MonoTypeOperatorFunction<string> {
-  return (source) => source.pipe(map((value) => value.toLocaleLowerCase(locales)));
+export function toLowerCase(
+  locales?: ArrayOrSet<string> | string | Observable<ArrayOrSet<string> | string>,
+): MonoTypeOperatorFunction<string> {
+  return (source: Observable<string>) =>
+    source.pipe(
+      withLatestFrom((isObservable(locales) ? locales : of(locales)) as Observable<ArrayOrSet<string> | string>),
+      map(([value, inputValue]) =>
+        isArrayOrSet(locales)
+          ? value.toLocaleLowerCase([...inputValue])
+          : value.toLocaleLowerCase(inputValue as string),
+      ),
+    );
 }

@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a string that is a partial slice of the source string using String.slice
@@ -31,6 +31,16 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a string that is a slice of the source string
  */
-export function slice(startIndex: number, endIndex?: number): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.slice(startIndex, endIndex)));
+export function slice(
+  startIndex: number | ObservableInput<number>,
+  endIndex?: number | ObservableInput<number>,
+): MonoTypeOperatorFunction<string> {
+  return (source: Observable<string>) =>
+    source.pipe(
+      withLatestFrom(
+        (isObservable(startIndex) ? startIndex : of(startIndex)) as Observable<number>,
+        (isObservable(endIndex) ? endIndex : of(endIndex)) as Observable<number>,
+      ),
+      map(([value, startInput, endInput]) => value.slice(startInput, endInput)),
+    );
 }

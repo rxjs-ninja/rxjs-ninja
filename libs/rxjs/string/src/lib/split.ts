@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module String
  */
-import { OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits an array from a source string split by the separator using String.split
@@ -29,6 +29,16 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits an array of strings from the source string split on the separator
  */
-export function split(separator: string, limit?: number): OperatorFunction<string, string[]> {
-  return (source) => source.pipe(map((value) => value.split(separator, limit)));
+export function split(
+  separator: string | ObservableInput<string>,
+  limit?: number | ObservableInput<number>,
+): OperatorFunction<string, string[]> {
+  return (source) =>
+    source.pipe(
+      withLatestFrom(
+        (isObservable(separator) ? separator : of(separator)) as Observable<string>,
+        (isObservable(limit) ? limit : of(limit)) as Observable<number>,
+      ),
+      map(([value, separatorInput, limitInput]) => value.split(separatorInput, limitInput)),
+    );
 }

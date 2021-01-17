@@ -3,7 +3,7 @@
  * @module Random
  */
 import { Observable, Subscriber, timer } from 'rxjs';
-import { finalize, map, takeWhile, tap } from 'rxjs/operators';
+import { map, takeWhile, tap } from 'rxjs/operators';
 import { FromRandomCryptoOpts } from '../types/from-random-crypto';
 import { getIntTypedArray, RND_CRYPTO_DEFAULTS } from '../utils/from-random-crypto';
 

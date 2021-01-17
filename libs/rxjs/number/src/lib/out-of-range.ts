@@ -2,12 +2,13 @@
  * @packageDocumentation
  * @module Number
  */
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * Returns an Observable that emits booleans about values from a source that fall outside the passed `min` and `max` range,
- * excluding the range numbers.  To emit a boolean for numbers including the `min` and `max` set `includeBoundingParameters` to `true`.
+ * Returns an Observable that emits booleans about values from a source that fall outside the passed `min` and `max`
+ * range, excluding the range numbers.  To emit a boolean for numbers including the `min` and `max` set
+ * `includeBoundingParameters` to `true`.
  *
  * @see To get numbers outside of a range use [[filterOutOfRange]]
  *
@@ -30,14 +31,14 @@ import { map } from 'rxjs/operators';
  * Output: `true, true, false, false, false, false, false, false, true, true`
  *
  * @returns Observable that emits a boolean if the source number falls outside the passed `min` and `max` range
- * @category Number Query
+ * @category Query
  */
 export function outOfRange(
   min: number,
   max: number,
   includeBoundingParameters?: boolean,
 ): OperatorFunction<number, boolean> {
-  return (source: Observable<number>) =>
+  return (source) =>
     source.pipe(
       map((value) => (includeBoundingParameters ? value <= min || value >= max : value < min || value > max)),
     );

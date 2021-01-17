@@ -31,7 +31,7 @@ import { map } from 'rxjs/operators';
  * Output: `'€1,000,000.00'`
  *
  * @returns Observable that emits a formatted string from a source number
- * @category Number Formatting
+ * @category Formatting
  */
 export function toLocaleString(
   locales: string | string[],

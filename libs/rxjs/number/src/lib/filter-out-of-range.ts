@@ -2,14 +2,15 @@
  * @packageDocumentation
  * @module Number
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits numbers, where that number falls outside the provided `min` and `max` values.
- * When filtering in range, the range numbers are excluded in the filter - to include them set `includeBounds` to `true`.
+ * When filtering in range, the range numbers are excluded in the filter - to include them set `includeBounds` to
+ * `true`.
  *
- * @category Number Filter
+ * @category Filter
  *
  * @see The [[inRange]] operator returns a boolean value instead of the number
  * @see The [[filterOutOfRange]] can be used to get numbers that fall outside the `min` and `max` range
@@ -37,6 +38,6 @@ import { filter } from 'rxjs/operators';
  * @returns Observable that emits a number that falls outside the `min` and `max` ranges
  */
 export function filterOutOfRange(min: number, max: number, includeBounds?: boolean): MonoTypeOperatorFunction<number> {
-  return (source: Observable<number>) =>
+  return (source) =>
     source.pipe(filter((value) => (includeBounds ? value <= min || value >= max : value < min || value > max)));
 }

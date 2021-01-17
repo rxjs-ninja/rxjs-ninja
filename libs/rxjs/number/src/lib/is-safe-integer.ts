@@ -2,13 +2,13 @@
  * @packageDocumentation
  * @module Number
  */
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a boolean value when a source number has precision safety using Number.isSafeInteger
  *
- * @category Number Query
+ * @category Query
  *
  * @see The [[filterIsSafeInteger]] operator returns the number value
  *
@@ -24,5 +24,5 @@ import { map } from 'rxjs/operators';
  * @returns Observable that emits a boolean value of a number has precision safety
  */
 export function isSafeInteger(): OperatorFunction<number, boolean> {
-  return (source: Observable<number>) => source.pipe(map((value) => Number.isSafeInteger(value)));
+  return (source) => source.pipe(map((value) => Number.isSafeInteger(value)));
 }

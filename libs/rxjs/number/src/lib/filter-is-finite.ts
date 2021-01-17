@@ -2,18 +2,18 @@
  * @packageDocumentation
  * @module Number
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits numbers from a source where they pass the check of Number.isFinite.
  *
- * @category Number Filter
+ * @category Filter
  *
- * @remarks Certain operations such as dividing by zero or multiplying passed Number.MAX_VALUE in JavaScript can cause `Infinity` to be generated, this operator can help avoid those values
+ * @remarks Certain operations such as dividing by zero or multiplying passed Number.MAX_VALUE in JavaScript can cause
+ *   `Infinity` to be generated, this operator can help avoid those values
  *
  * @see The [[isFinite]] operator returns a boolean value instead of the number
-
  * @example
  * Return only finite values
  * ```ts
@@ -25,5 +25,5 @@ import { filter } from 'rxjs/operators';
  * @returns Observable that emits numbers that are finite
  */
 export function filterIsFinite(): MonoTypeOperatorFunction<number> {
-  return (source: Observable<number>) => source.pipe(filter((value) => Number.isFinite(value)));
+  return (source) => source.pipe(filter((value) => Number.isFinite(value)));
 }

@@ -2,13 +2,13 @@
  * @packageDocumentation
  * @module Number
  */
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a boolean value when a source number is a `NaN` value from Number.isNaN.
  *
- * @category Number Query
+ * @category Query
  *
  * @see The [[filterIsNotNaN]] operator returns the number value
  *
@@ -23,5 +23,5 @@ import { map } from 'rxjs/operators';
  * @returns Observable that emits a boolean value of a number being valid or `NaN`
  */
 export function isNaN(): OperatorFunction<number, boolean> {
-  return (source: Observable<number>) => source.pipe(map((value) => Number.isNaN(value)));
+  return (source) => source.pipe(map((value) => Number.isNaN(value)));
 }

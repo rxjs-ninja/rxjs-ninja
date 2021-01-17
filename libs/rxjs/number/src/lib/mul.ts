@@ -2,11 +2,13 @@
  * @packageDocumentation
  * @module Number
  */
-import { combineLatest, isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a number that is the multiplication of the source number with input number
+ *
+ * @category Math
  *
  * @param input The number to multiply to the source value
  *
@@ -18,13 +20,11 @@ import { map } from 'rxjs/operators';
  * Output: `4, 6, 8, 10, 12`
  *
  * @returns Observable that emits a number that is the multiplication of source and input
- * @category Number Math
  */
 export function mul(input: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
-  if (isObservable(input)) {
-    return (source: Observable<number>) =>
-      combineLatest([source, input]).pipe(map(([value, _input]) => value * (_input as number)));
-  } else {
-    return (source: Observable<number>) => source.pipe(map((value) => value * (input as number)));
-  }
+  return (source) =>
+    source.pipe(
+      withLatestFrom((isObservable(input) ? input : of(input)) as Observable<number>),
+      map(([value, inputValue]) => value * inputValue),
+    );
 }

@@ -3,11 +3,13 @@
  * @module Array
  */
 
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
- * Returns an Observable array of values filled with Array.fill. Using the source array length, some or all the values are replaced with the `fillWith` parameter.
+ * Returns an Observable array of values filled with Array.fill. Using the source array length, some or all the values
+ * are replaced with the `fillWith` parameter.
  *
  * @category Modify
  *
@@ -42,13 +44,13 @@ import { map } from 'rxjs/operators';
  * ```
  * Output: `'The', 'Cake', 'CAKE!', 'CAKE!', 'lie'`
  *
- * @returns An Observable that emits an array of values where some or all of the source array values are replaced with the `fillValue`
+ * @returns An Observable that emits an array of values where some or all of the source array values are replaced with
+ *   the `fillValue`
  */
 export function fill<T extends unknown, K extends T | unknown>(
   fillWith: K,
   start = 0,
   fillTo?: number,
-): OperatorFunction<T[], K[]> {
-  return (source: Observable<T[]>) =>
-    source.pipe(map((value: T[]) => value.fill(fillWith as never, start, fillTo) as K[]));
+): OperatorFunction<ArrayOrSet<T>, K[]> {
+  return (source) => source.pipe(map((value) => [...value].fill(fillWith as never, start, fillTo) as K[]));
 }

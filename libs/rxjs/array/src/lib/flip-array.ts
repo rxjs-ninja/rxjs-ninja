@@ -2,11 +2,13 @@
  * @packageDocumentation
  * @module Array
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
- * Returns an Observable array where the source array contains boolean values, and flips the value to the opposite boolean.
+ * Returns an Observable array where the source array contains boolean values, and flips the value to the opposite
+ * boolean.
  *
  * @category Modify
  *
@@ -20,6 +22,6 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable array of boolean values that are flipped from their original value
  */
-export function flipArray(): MonoTypeOperatorFunction<boolean[]> {
-  return (source: Observable<boolean[]>) => source.pipe(map((value) => value.map((v) => !v)));
+export function flipArray(): OperatorFunction<ArrayOrSet<boolean>, boolean[]> {
+  return (source) => source.pipe(map((value) => [...value].map((v) => !v)));
 }

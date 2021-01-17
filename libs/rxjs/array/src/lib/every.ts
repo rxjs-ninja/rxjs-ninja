@@ -6,6 +6,7 @@
 import { PredicateFn } from '../types/generic-methods';
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable that emits a boolean when all values in the source array return truthy using Array.every
@@ -42,11 +43,11 @@ import { map } from 'rxjs/operators';
  *
  * @returns An Observable that emits a boolean when all values in source array return truthy
  */
-export function every<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[], boolean> {
+export function every<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<ArrayOrSet<T>, boolean> {
   return (source) =>
     source.pipe(
       map((value) =>
-        value.every((v) => {
+        [...value].every((v) => {
           if (predicate && typeof v === 'number') {
             return predicate(v);
           }

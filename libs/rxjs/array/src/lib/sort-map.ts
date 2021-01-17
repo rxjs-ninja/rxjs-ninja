@@ -6,6 +6,7 @@ import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { defaultSortFn } from '../utils/sort';
 import { MapFn, SortFn } from '../types/generic-methods';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable that emits an array of sorted mapped values from a source array where values are mapped to
@@ -51,7 +52,7 @@ import { MapFn, SortFn } from '../types/generic-methods';
 export function sortMap<T extends unknown, K extends T | unknown>(
   mapFn: MapFn<T, K>,
   sortFn?: SortFn<T>,
-): OperatorFunction<T[] | Set<T>, K[]> {
+): OperatorFunction<ArrayOrSet<T>, K[]> {
   return (source) =>
     source.pipe(
       map((value) => [...value].sort(sortFn || defaultSortFn)),

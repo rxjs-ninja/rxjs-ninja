@@ -39,3 +39,4 @@ export { sortMap } from './lib/sort-map';
 export { toSet } from './lib/to-set';
 
 export { BinarySearchResult } from './types/binary-search';
+export { ArrayOrSet } from './types/array-set';

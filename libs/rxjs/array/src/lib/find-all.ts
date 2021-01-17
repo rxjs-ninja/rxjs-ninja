@@ -6,6 +6,7 @@
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PredicateFn } from '../types/generic-methods';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable array of truthy values from a source array
@@ -32,11 +33,11 @@ import { PredicateFn } from '../types/generic-methods';
  *
  * @returns An Observable that emits an array containing all truthy values from a source array
  */
-export function findAll<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[] | Set<T>, T[]> {
+export function findAll<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<ArrayOrSet<T>, T[]> {
   return (source) =>
     source.pipe(
-      map(([...value]) =>
-        value.filter((v) => {
+      map((value) =>
+        [...value].filter((v) => {
           if (predicate && typeof v === 'number') {
             return predicate(v);
           }

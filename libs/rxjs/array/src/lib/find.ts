@@ -6,6 +6,7 @@
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PredicateFn } from '../types/generic-methods';
+import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable value of the first truthy value found in a source array, or `undefined` using Array.find
@@ -34,11 +35,11 @@ import { PredicateFn } from '../types/generic-methods';
  *
  * @returns An Observable that emits the first found value from the array, or `undefined`
  */
-export function find<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<T[] | Set<T>, T | undefined> {
+export function find<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<ArrayOrSet<T>, T | undefined> {
   return (source) =>
     source.pipe(
-      map(([...value]) =>
-        value.find((v) => {
+      map((value) =>
+        [...value].find((v) => {
           if (predicate && typeof v === 'number') {
             return predicate(v);
           }

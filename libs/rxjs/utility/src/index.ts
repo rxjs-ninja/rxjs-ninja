@@ -8,6 +8,7 @@
  */
 /* istanbul ignore file */
 export { debounceWithQuery } from './lib/debounce-with-query';
+export { decodeJWT } from './lib/decode-jwt';
 export { fromReadableStream } from './lib/from-readable-stream';
 export { fromFetchWithProgress } from './lib/from-fetch-with-progress';
 export { mapIf } from './lib/map-if';

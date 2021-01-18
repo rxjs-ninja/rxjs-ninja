@@ -2,9 +2,9 @@
  * @packageDocumentation
  * @module Boolean
  */
-import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
-import { isPromise } from 'rxjs/internal-compatibility';
+import { isObservable, Observable, ObservableInput, throwError } from 'rxjs';
+import { catchError, finalize, map, takeWhile, tap } from 'rxjs/operators';
+import { fromPromise, isPromise } from 'rxjs/internal-compatibility';
 import { ArrayOrSet } from '../types/array-set';
 import { isArrayOrSet } from '../utils/array-set';
 
@@ -35,43 +35,49 @@ import { isArrayOrSet } from '../utils/array-set';
  * @returns Observable that emits boolean values of the source value
 
  */
-export function fromBoolean<
-  T extends unknown,
-  A extends ObservableInput<ArrayOrSet<T> | T> | PromiseLike<ArrayOrSet<T> | T> | ArrayOrSet<T> | T
->(...args: A[]): Observable<boolean> {
-  if (isObservable(args[0])) {
-    return (args[0] as Observable<ArrayOrSet<T> | T>).pipe(
-      map((value) => (isArrayOrSet(value) ? [...value] : [value])),
-      map((value) => value.map(Boolean)),
-      switchMap((value) => {
-        return new Observable<boolean>((subscriber: Subscriber<unknown>): void => {
-          for (let i = 0; i < value.length; i++) {
-            subscriber.next(value[i]);
-          }
-          subscriber.complete();
-        });
-      }),
-    );
-  } else if (isPromise(args[0])) {
-    return new Observable<boolean>((subscriber: Subscriber<unknown>): void => {
-      (args[0] as Promise<T>).then(
-        (value) => {
-          /* istanbul ignore next-line */
-          if (!subscriber.closed) {
-            subscriber.next(value);
-            subscriber.complete();
-          }
-        },
-        (err) => subscriber.error(err),
-      );
-    });
-  } else {
-    const value = (Array.isArray(args[0]) ? (args[0] as T[]) : ([...args] as T[])).map(Boolean);
-    return new Observable<boolean>((subscriber: Subscriber<unknown>): void => {
+export function fromBoolean<T extends unknown, A extends ObservableInput<ArrayOrSet<T> | T> | ArrayOrSet<T> | T>(
+  ...args: A[]
+): Observable<boolean> {
+  return new Observable<boolean>((subscriber) => {
+    if (isObservable(args[0])) {
+      (args[0] as Observable<ArrayOrSet<T> | T>)
+        .pipe(
+          takeWhile(() => !subscriber.closed),
+          map((value) => (isArrayOrSet(value) ? [...value] : [value]).map(Boolean)),
+          tap((value) => {
+            for (let i = 0; i < value.length; i++) {
+              subscriber.next(value[i]);
+            }
+            !subscriber.closed && subscriber.complete();
+          }),
+        )
+        .subscribe();
+    } else if (isPromise(args[0])) {
+      fromPromise(args[0] as Promise<ArrayOrSet<T> | T>)
+        .pipe(
+          map<ArrayOrSet<T> | T, boolean[]>((value) =>
+            (Array.isArray(value) ? (value as T[]) : ([value] as T[])).map(Boolean),
+          ),
+          tap((value) => {
+            for (let i = 0; i < value.length; i++) {
+              subscriber.next(value[i]);
+            }
+          }),
+          catchError((error) => {
+            subscriber.error(error);
+            return throwError(error);
+          }),
+          finalize(() => !subscriber.closed && subscriber.complete()),
+        )
+        .subscribe();
+    } else {
+      const value = (Array.isArray(args[0]) ? (args[0] as T[]) : ([...args] as T[])).map(Boolean);
       for (let i = 0; i < value.length; i++) {
         subscriber.next(value[i]);
       }
-      subscriber.complete();
-    });
-  }
+      !subscriber.closed && subscriber.complete();
+    }
+    /* istanbul ignore next-line */
+    return () => !subscriber.closed && subscriber.complete();
+  });
 }

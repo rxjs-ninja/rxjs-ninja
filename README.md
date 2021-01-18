@@ -4,7 +4,7 @@
 
 RxJS Ninja is a set of libraries that provide operators and observables for [RxJS](https://rxjs.dev).
 
-There are **121** functions provided as operators or Observable generators, split down into separate modules for each
+There are **122** functions provided as operators or Observable generators, split down into separate modules for each
 domain.
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rxjs-ninja_rxjs-ninja&metric=alert_status)](https://sonarcloud.io/dashboard?id=rxjs-ninja_rxjs-ninja)
@@ -206,7 +206,14 @@ inputObs$.pipe(titleize()).subscribe(); // Full Power, Half Power, Quarter Power
 `@rxjs-ninja/rxjs-utility` provides operators for working with Observable values to view them, and modify them and don't
 all into the other module categories.
 
-Most operators fall into the `tap*` category:
+### Function and Operator categories
+
+- HTTP - Functions for working with HTTP Observables
+- Mapping - Operators use for mapping to different values
+- Side Effects - Operators for handling side effects
+- Streams - Operators and Functions for working with other types of streams of data
+
+For example, using the Side Effects category:
 
 ```ts
 import { fromEvent } from 'rxjs';

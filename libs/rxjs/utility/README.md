@@ -13,7 +13,14 @@
 `@rxjs-ninja/rxjs-utility` provides operators for working with Observable values to view them, and modify them and don't
 all into the other module categories.
 
-Most operators fall into the `tap*` category:
+### Function and Operator categories
+
+- HTTP - Functions for working with HTTP Observables
+- Mapping - Operators use for mapping to different values
+- Side Effects - Operators for handling side effects
+- Streams - Operators and Functions for working with other types of streams of data
+
+For example, using the Side Effects category:
 
 ```ts
 import { fromEvent } from 'rxjs';

@@ -10,7 +10,7 @@ import { switchMap } from 'rxjs/operators';
  * Returns an Observable that emits the value from either the `trueResult` or `falseResult` based on the result from
  * the source with a [[PredicateFn]].
  *
- * @category Observable Mapping
+ * @category Mapping
  *
  * @remarks Each method can return it's own type which you should handle in later operators
  *
@@ -26,18 +26,18 @@ import { switchMap } from 'rxjs/operators';
  * @example
  * Returns a FizzBuzz based on the input value
  * ```ts
- * const input = [ 1, 2, 3, 4, 5, 6, 10, 15, 16 ];
+ * const input = [ 12, 5, 6, 1, 3, 10 ];
  * from(input).pipe(
- *  mapIf<number, string, number>(
- *    (value) => value % 15 == 0 || value % 3 == 0 || value % 5 == 0,
- *    (value) => (value % 15 == 0 ? `FizzBuzz` : value % 3 === 0 ? 'Fizz' : 'Buzz'),
- *    (value) => value,
+ *  switchMapIf<number, string, number>(
+ *    (value) => value <= 6,
+ *    (value) => of(true),
+ *    (value) => of(false),
  *  ),
  * ).subscribe();
  * ```
- * Output: `1, 2, 'Fizz', 4, 'Buzz', 'Fizz', 10, 'FizzBuzz', 16`
+ * Output: `true, false, true, false, false, true`
  *
- * @returns Observable that emits a value from the truthy or falsy [[MapFn]] based on the [[PredicateFn]] result
+ * @returns Observable that emits a value based on the [[PredicateFn]] result
  */
 export function switchMapIf<I = unknown, T = unknown, F = unknown>(
   predicate: PredicateFn<I>,

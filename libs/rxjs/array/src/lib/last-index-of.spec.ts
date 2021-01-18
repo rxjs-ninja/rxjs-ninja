@@ -1,5 +1,6 @@
 import { marbles } from 'rxjs-marbles/jest';
 import { lastIndexOf } from '@rxjs-ninja/rxjs-array';
+import { of } from 'rxjs';
 
 describe('lastIndexOf', () => {
   it(
@@ -31,6 +32,17 @@ describe('lastIndexOf', () => {
       const subs = '^------!';
       const expected = m.cold('-x-y-z-|', { x: 1, y: 3, z: -1 });
       m.expect(input.pipe(lastIndexOf(1, 3))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
+    'should return the last index of the Observable item in the array or -1 from a different Observable start index',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-|', { a: [0, 1, 0, 0, 1, 0, 1], b: [0, 0, 1, 0, 0, 0, 1], c: [0, 0, 0, 0, 1, 1, 1] });
+      const subs = '^------!';
+      const expected = m.cold('-x-y-z-|', { x: 1, y: 2, z: -1 });
+      m.expect(input.pipe(lastIndexOf(of(1), of(3)))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

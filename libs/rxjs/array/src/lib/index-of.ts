@@ -3,8 +3,8 @@
  * @module Array
  */
 
-import { OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 import { ArrayOrSet } from '../types/array-set';
 import { isArrayOrSet } from '../utils/array-set';
 
@@ -45,16 +45,22 @@ import { isArrayOrSet } from '../utils/array-set';
  *
  * @returns Observable number or array of numbers containing the index of the first found value
  */
+
 export function indexOf<T extends unknown>(
-  input: T | ArrayOrSet<T>,
-  startIndex = 0,
+  input: ObservableInput<ArrayOrSet<T> | T> | ArrayOrSet<T> | T,
+  startIndex?: ObservableInput<number> | number,
 ): OperatorFunction<ArrayOrSet<T>, number | number[]> {
+  const input$ = (isObservable(input) ? input : of(input)) as Observable<ArrayOrSet<T>>;
+  const startIndex$ = (isObservable(startIndex) ? startIndex : of(startIndex)) as Observable<number>;
   return (source) =>
     source.pipe(
-      map((value) =>
-        isArrayOrSet(input)
-          ? input.map((inputVal) => [...value].indexOf(inputVal, startIndex))
-          : [...value].indexOf(input as T, startIndex),
+      withLatestFrom(input$, startIndex$),
+      map<[ArrayOrSet<T>, ArrayOrSet<T> | T, number], number | number[]>(
+        ([[...value], inputValue, startIndexValue]) => {
+          return isArrayOrSet(inputValue)
+            ? [...inputValue].map((val) => value.indexOf(val, startIndexValue))
+            : value.indexOf(inputValue as T, startIndexValue);
+        },
       ),
     );
 }

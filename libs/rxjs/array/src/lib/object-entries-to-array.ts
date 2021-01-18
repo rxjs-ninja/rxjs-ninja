@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
  * Returns an Observable that emits an array from a source `Object` using Object.entries, the array contains
  * tuples of the key as a string and the value
  *
- * @category Create
+ * @category Object
  *
  * @remarks Regardless of Object key type the result Array will have a `string` key value
  *
@@ -19,13 +19,13 @@ import { map } from 'rxjs/operators';
  * @example Convert an Object into an array of entries
  * ```ts
  * const input = { 1: 'a', 2: 'b', 3: 'c' };
- * of(input).pipe(fromObjectEntries()).subscribe();
+ * of(input).pipe(objectEntriesToArray()).subscribe();
  * ```
  * Output: `[ ['1', 'a'], ['2', 'b'], ['3', 'c'] ]`
  *
  * @returns Observable that emits a Array from a source Object entries
  */
-export function fromObjectEntries<K extends string | number | symbol, T extends unknown>(): OperatorFunction<
+export function objectEntriesToArray<K extends string | number | symbol, T extends unknown>(): OperatorFunction<
   Record<K, T>,
   [string, T][]
 > {

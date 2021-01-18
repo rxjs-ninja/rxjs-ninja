@@ -4,7 +4,7 @@
 
 RxJS Ninja is a set of libraries that provide operators and observables for [RxJS](https://rxjs.dev).
 
-There are **122** functions provided as operators or Observable generators, split down into separate modules for each
+There are **124** functions provided as operators or Observable generators, split down into separate modules for each
 domain.
 
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rxjs-ninja_rxjs-ninja&metric=alert_status)](https://sonarcloud.io/dashboard?id=rxjs-ninja_rxjs-ninja)

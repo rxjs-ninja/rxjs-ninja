@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { decodeJWT } from '../lib/decode-jwt';
+import { decodeJWT } from '@rxjs-ninja/rxjs-utility';
 
 describe('decodeJWT', () => {
   it(

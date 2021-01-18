@@ -39,7 +39,7 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a value from the truthy or falsy [[MapFn]] based on the [[PredicateFn]] result
  */
-export function mapIf<I = unknown, T = unknown, F = unknown>(
+export function mapIf<I extends unknown, T = unknown, F = unknown>(
   predicate: PredicateFn<I>,
   trueResult: MapFn<I, T>,
   falseResult: MapFn<I, T | F>,

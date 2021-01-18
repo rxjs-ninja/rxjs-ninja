@@ -16,7 +16,7 @@ describe('switchMapIf', () => {
       });
       m.expect(
         input.pipe(
-          switchMapIf<string>(
+          switchMapIf(
             (value) => value.toLowerCase() === 'jack',
             () => of('Cow'),
             () => of('Lamb'),

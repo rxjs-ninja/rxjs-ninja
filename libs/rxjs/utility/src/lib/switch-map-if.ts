@@ -28,7 +28,7 @@ import { switchMap } from 'rxjs/operators';
  * ```ts
  * const input = [ 12, 5, 6, 1, 3, 10 ];
  * from(input).pipe(
- *  switchMapIf<number, string, number>(
+ *  switchMapIf<number, boolean>(
  *    (value) => value <= 6,
  *    (value) => of(true),
  *    (value) => of(false),
@@ -39,7 +39,7 @@ import { switchMap } from 'rxjs/operators';
  *
  * @returns Observable that emits a value based on the [[PredicateFn]] result
  */
-export function switchMapIf<I = unknown, T = unknown, F = unknown>(
+export function switchMapIf<I extends unknown, T = unknown, F = unknown>(
   predicate: PredicateFn<I>,
   trueResult: (value?: I) => ObservableInput<T>,
   falseResult: (value?: I) => ObservableInput<T | F>,

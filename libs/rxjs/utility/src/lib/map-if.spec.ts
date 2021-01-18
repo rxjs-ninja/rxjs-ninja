@@ -15,7 +15,7 @@ describe('mapIf', () => {
       });
       m.expect(
         input.pipe(
-          mapIf<string>(
+          mapIf(
             (value) => value.toLowerCase() === 'jack',
             (value) => `${value} has a Cow`,
             (value) => `${value} has a Lamb`,
@@ -39,7 +39,7 @@ describe('mapIf', () => {
       });
       m.expect(
         input.pipe(
-          mapIf<number, string>(
+          mapIf(
             (value) => value === 42,
             (value) => `${value} is the ultimate answer!`,
             (value) => `${value} is NOT the ultimate answer!`,

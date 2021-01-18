@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module Array
  */
-import { OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 import { ArrayOrSet } from '../types/array-set';
 import { isArrayOrSet } from '../utils/array-set';
 
@@ -53,16 +53,19 @@ import { isArrayOrSet } from '../utils/array-set';
  * @returns Observable number or array of numbers containing the index of the last found value
  */
 export function lastIndexOf<T extends unknown>(
-  input: T | ArrayOrSet<T>,
-  fromIndex?: number,
+  input: ObservableInput<ArrayOrSet<T> | T> | ArrayOrSet<T> | T,
+  fromIndex?: ObservableInput<number> | number,
 ): OperatorFunction<ArrayOrSet<T>, number | number[]> {
+  const input$ = (isObservable(input) ? input : of(input)) as Observable<ArrayOrSet<T>>;
+  const fromIndex$ = (isObservable(fromIndex) ? fromIndex : of(fromIndex)) as Observable<number>;
   return (source) =>
     source.pipe(
-      map(([...value]) => {
-        fromIndex = fromIndex || value.length - 1;
-        return isArrayOrSet(input)
-          ? [...input].map((inputVal) => value.lastIndexOf(inputVal, fromIndex))
-          : value.lastIndexOf(input as T, fromIndex);
+      withLatestFrom(input$, fromIndex$),
+      map<[ArrayOrSet<T>, ArrayOrSet<T> | T, number], number | number[]>(([[...value], inputValue, fromIndexValue]) => {
+        fromIndexValue = fromIndexValue || value.length - 1;
+        return isArrayOrSet(inputValue)
+          ? [...inputValue].map((val) => value.lastIndexOf(val, fromIndexValue))
+          : value.lastIndexOf(inputValue as T, fromIndexValue);
       }),
     );
 }

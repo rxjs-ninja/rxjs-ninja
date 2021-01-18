@@ -1,7 +1,7 @@
 import { marbles } from 'rxjs-marbles';
-import { fromObjectEntries } from '@rxjs-ninja/rxjs-array';
+import { objectEntriesToArray } from '@rxjs-ninja/rxjs-array';
 
-describe('fromObjectEntries', () => {
+describe('objectEntriesToArray', () => {
   it(
     'should return an array of object entries',
     marbles((m) => {
@@ -23,7 +23,7 @@ describe('fromObjectEntries', () => {
           ['3', 'c'],
         ] as [string, string][],
       });
-      m.expect(input.pipe(fromObjectEntries())).toBeObservable(expected);
+      m.expect(input.pipe(objectEntriesToArray())).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

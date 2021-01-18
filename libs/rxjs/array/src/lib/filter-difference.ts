@@ -38,9 +38,10 @@ import { ArrayOrSet } from '../types/array-set';
 export function filterDifference<T extends unknown>(
   input: ArrayOrSet<T> | ObservableInput<ArrayOrSet<T>>,
 ): OperatorFunction<ArrayOrSet<T>, T[]> {
+  const $input = (isObservable(input) ? input : of(input)) as Observable<ArrayOrSet<T>>;
   return (source) =>
     source.pipe(
-      withLatestFrom((isObservable(input) ? input : of(input)) as Observable<ArrayOrSet<T>>),
+      withLatestFrom($input),
       map<[ArrayOrSet<T>, ArrayOrSet<T>], [T[], Set<T>]>(([value, inputValue]) => [[...value], new Set(inputValue)]),
       map(([value, inputValue]) => value.filter((x) => !inputValue.has(x))),
     );

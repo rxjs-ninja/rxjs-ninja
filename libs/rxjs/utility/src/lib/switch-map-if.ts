@@ -2,9 +2,9 @@
  * @packageDocumentation
  * @module Utility
  */
-import { MapFn, PredicateFn } from '../types/utility';
+import { PredicateFn } from '../types/utility';
 import { Observable, ObservableInput, OperatorFunction } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits the value from either the `trueResult` or `falseResult` based on the result from

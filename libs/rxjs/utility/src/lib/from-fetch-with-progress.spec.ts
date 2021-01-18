@@ -10,11 +10,11 @@ describe('fromFetchWithProgress', () => {
   beforeEach(() => {
     globalFetch = window.fetch;
 
-    window.fetch = (...args) =>
+    window.fetch = () =>
       Promise.resolve({
         ok: true,
         headers: {
-          get: (val: string) => 5,
+          get: () => 5,
         },
         body: {
           getReader() {

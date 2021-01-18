@@ -1,7 +1,7 @@
 import { mapIfSource } from '@rxjs-ninja/rxjs-utility';
 import { marbles } from 'rxjs-marbles/jest';
 
-describe('ifSource', () => {
+describe('mapIfSource', () => {
   it(
     'should return correct result based on predicate',
     marbles((m) => {

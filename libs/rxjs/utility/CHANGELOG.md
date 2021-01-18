@@ -5,12 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- `switchMapIfSource` operator that takes a predicate function, and two methods to return an Observable value based on
+  the predicate being `true` or `false`.
+
 ## [3.2.1] - 2021-01-14
 
 ### Fixed
 
-- `toWritableStream` now correctly returns the value to any operators after it and captures write errors when there is no
-  active stream
+- `toWritableStream` now correctly returns the value to any operators after it and captures write errors when there is
+  no active stream
 
 ## [3.2.0] - 2021-01-13
 

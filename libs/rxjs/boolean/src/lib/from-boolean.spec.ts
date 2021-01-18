@@ -15,11 +15,21 @@ describe('fromBoolean', () => {
   );
 
   it(
-    'should create an Observable from a promise',
+    'should create an Observable from a Promise boolean argument',
     observe(() =>
       fromBoolean(Promise.resolve(false)).pipe(
         map((val) => !val),
         tap((value) => expect(value).toBeTruthy()),
+      ),
+    ),
+  );
+
+  it(
+    'should create an Observable from a Promise boolean argument',
+    observe(() =>
+      fromBoolean(Promise.resolve([0, 1, 0, 1])).pipe(
+        reduce((a, b) => [...a, b], [] as boolean[]),
+        tap((value) => expect(value).toStrictEqual([false, true, false, true])),
       ),
     ),
   );

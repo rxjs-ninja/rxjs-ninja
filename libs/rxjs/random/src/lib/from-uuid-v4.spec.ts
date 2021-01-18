@@ -1,7 +1,7 @@
 import { getRandomValues } from '@trust/webcrypto';
 
 import { observe } from 'rxjs-marbles/jest';
-import { take, tap } from 'rxjs/operators';
+import { reduce, take, tap } from 'rxjs/operators';
 import { fromUUIDv4 } from '@rxjs-ninja/rxjs-random';
 
 describe('fromUUIDv4', () => {
@@ -17,5 +17,20 @@ describe('fromUUIDv4', () => {
         tap((value) => expect(value.length).toBe(36)),
       ),
     ),
+  );
+
+  it(
+    'should optionally generate a valid UUID every 1 second',
+    observe(() => {
+      const start = Date.now();
+      return fromUUIDv4(1000).pipe(
+        take(3),
+        reduce((a, b) => a + b),
+        tap(() => {
+          const end = Date.now();
+          expect(end - start).toBeCloseTo(2000, -2);
+        }),
+      );
+    }),
   );
 });

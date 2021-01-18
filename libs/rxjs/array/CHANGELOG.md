@@ -5,7 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [4.2.0] - 2021-01-17
+### [Unreleased]
+
+This update mainly fixes some naming inconsistencies and renames the current `from*` operators, listed below, instead they are
+now `*toArray` as a Source conversion, these changes are breaking.
+
+### Added
+
+- Static `fromSet` function to generate an Observable `Array` from a `Set` or collection of `Set` values, if does not flatten the array to emit the values
+- Static `fromMap` function to generate an Observable `Array` from a `Map` or collection of `Map` values, if does not flatten the array to emit the values
+- `toMap` operator that takes an `Array` of tuples containing the key/value pair for the map collection
+
+### Changed
+
+- The previous operator `fromSet` is now `setToArray`
+- The previous operator `fromMap` is now `mapToArray`
+- The previou soperator `fromObjectKeys` is now `objectKeysToArray`
+- The previous operator `fromObjectEntries` is now `objectEntriesToArray`
+
+### [4.2.0] - 2021-01-17
 
 Some internal refactoring, however there should be no breaking changes from `4.1.0`
 
@@ -55,7 +73,7 @@ an [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Glo
 ### Added
 
 - `toSet` converts a source Array to `Set`
-- `fromSet` converts a [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) to
+- `setToArray` converts a [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) to
   Array
 - `fromMap` operator converts
   a [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)

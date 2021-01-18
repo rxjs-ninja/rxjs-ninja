@@ -1,7 +1,7 @@
 import { marbles } from 'rxjs-marbles';
-import { fromObjectKeys } from '@rxjs-ninja/rxjs-array';
+import { objectKeysToArray } from '@rxjs-ninja/rxjs-array';
 
-describe('fromObjectKeys', () => {
+describe('objectKeysToArray', () => {
   it(
     'should return an array of object keys',
     marbles((m) => {
@@ -16,7 +16,7 @@ describe('fromObjectKeys', () => {
         y: ['1'],
         z: ['1', '3'],
       });
-      m.expect(input.pipe(fromObjectKeys())).toBeObservable(expected);
+      m.expect(input.pipe(objectKeysToArray())).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

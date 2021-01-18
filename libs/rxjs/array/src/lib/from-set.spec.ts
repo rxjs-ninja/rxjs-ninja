@@ -1,6 +1,6 @@
 import { catchError, reduce, tap } from 'rxjs/operators';
 import { observe } from 'rxjs-marbles/jest';
-import { fromSet } from '../lib/from-set';
+import { fromSet } from '@rxjs-ninja/rxjs-array';
 import { of } from 'rxjs';
 
 describe('fromSet', () => {
@@ -22,42 +22,32 @@ describe('fromSet', () => {
 
   it(
     'should create an Observable from multiple Set arguments',
-    observe(() => {
-      return fromSet(new Set([1, 1, 2, 3, 3, 4, 4, 5, 5]), new Set([5, 4, 3, 2, 1])).pipe(
+    observe(() =>
+      fromSet(new Set([1, 1, 2, 3, 3, 4, 4, 5, 5]), new Set([5, 4, 3, 2, 1])).pipe(
         reduce((a, b) => [...a, ...b], [] as number[]),
         tap((value) => expect(value).toStrictEqual([1, 2, 3, 4, 5, 5, 4, 3, 2, 1])),
-      );
-    }),
+      ),
+    ),
   );
 
   it(
     'should create an Observable from array of Set arguments',
-    observe(() => {
-      return fromSet([new Set([1, 1, 2, 3, 3, 4, 4, 5, 5]), new Set([5, 4, 3, 2, 1])]).pipe(
+    observe(() =>
+      fromSet([new Set([1, 1, 2, 3, 3, 4, 4, 5, 5]), new Set([5, 4, 3, 2, 1])]).pipe(
         reduce((a, b) => [...a, ...b], [] as number[]),
         tap((value) => expect(value).toStrictEqual([1, 2, 3, 4, 5, 5, 4, 3, 2, 1])),
-      );
-    }),
+      ),
+    ),
   );
 
   it(
     'should create an Observable from Observable array of Set arguments',
-    observe(() => {
-      return fromSet(of([new Set([1, 1, 2, 3, 3, 4, 4, 5, 5]), new Set([5, 4, 3, 2, 1])])).pipe(
+    observe(() =>
+      fromSet(of([new Set([1, 1, 2, 3, 3, 4, 4, 5, 5]), new Set([5, 4, 3, 2, 1])])).pipe(
         reduce((a, b) => [...a, ...b], [] as number[]),
         tap((value) => expect(value).toStrictEqual([1, 2, 3, 4, 5, 5, 4, 3, 2, 1])),
-      );
-    }),
-  );
-
-  it(
-    'should create an Observable from Observable multiple Set arguments',
-    observe(() => {
-      return fromSet(of(new Set([1, 1, 2, 3, 3, 4, 4, 5, 5]), new Set([5, 4, 3, 2, 1]))).pipe(
-        reduce((a, b) => [...a, ...b], [] as number[]),
-        tap((value) => expect(value).toStrictEqual([1, 2, 3, 4, 5, 5, 4, 3, 2, 1])),
-      );
-    }),
+      ),
+    ),
   );
 
   it(
@@ -65,6 +55,16 @@ describe('fromSet', () => {
     observe(() =>
       fromSet(Promise.resolve(new Set([1, 1, 2, 3, 3, 4, 4, 5, 5]))).pipe(
         tap((value) => expect(value).toStrictEqual([1, 2, 3, 4, 5])),
+      ),
+    ),
+  );
+
+  it(
+    'should create an Observable from a Promise Array Set argument',
+    observe(() =>
+      fromSet(Promise.resolve([new Set([1, 1, 2, 3, 3, 4, 4, 5, 5]), new Set([5, 4, 3, 2, 1])])).pipe(
+        reduce((a, b) => [...a, ...b], [] as number[]),
+        tap((value) => expect(value).toStrictEqual([1, 2, 3, 4, 5, 5, 4, 3, 2, 1])),
       ),
     ),
   );

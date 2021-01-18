@@ -19,6 +19,8 @@ export { findAll } from './lib/find-all';
 export { findLast } from './lib/find-last';
 export { findIndex } from './lib/find-index';
 export { flipArray } from './lib/flip-array';
+export { fromMap } from './lib/from-map';
+export { fromSet } from './lib/from-set';
 export { mapToArray } from 'libs/rxjs/array/src/lib/map-to-array';
 export { objectEntriesToArray } from 'libs/rxjs/array/src/lib/object-entries-to-array';
 export { objectKeysToArray } from 'libs/rxjs/array/src/lib/object-keys-to-array';
@@ -36,6 +38,7 @@ export { shuffle } from './lib/shuffle';
 export { some } from './lib/some';
 export { sort } from './lib/sort';
 export { sortMap } from './lib/sort-map';
+export { toMap } from './lib/to-map';
 export { toSet } from './lib/to-set';
 
 export { BinarySearchResult } from './types/binary-search';

@@ -2,17 +2,17 @@
  * @packageDocumentation
  * @module Array
  */
-import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
-import { isPromise } from 'rxjs/internal-compatibility';
+import { isObservable, Observable, ObservableInput, throwError } from 'rxjs';
+import { catchError, finalize, map, takeWhile, tap } from 'rxjs/operators';
+import { fromPromise, isPromise } from 'rxjs/internal-compatibility';
+import { flatMapSet } from '../utils/array-set';
 
 /**
- * Returns an Observable that emits an `Array` from a `Set`, it does not flatten or emit the
- * values from the `Set`, but coverts to `Array`
+ * Returns an Observable that emits un-flattened `Array` values generated from a source emitting `Set` objects.
  *
  * @category Set
  *
- * @typeParam T Type of the value from the source Observable
+ * @typeParam T The type of value contained in the `Set`
  *
  * @param args Input values to create the Observable source from
  *
@@ -25,45 +25,48 @@ import { isPromise } from 'rxjs/internal-compatibility';
  * Output: `[1, 2, 3, 4]`
  *
  * @returns Observable that emits an `Array` from the input `Set`
-
  */
 export function fromSet<T extends unknown>(
   ...args: (ObservableInput<Set<T>[] | Set<T>> | Set<T>[] | Set<T>)[]
 ): Observable<T[]> {
-  if (isObservable(args[0])) {
-    return ((args[0] as unknown) as Observable<Set<T>[] | Set<T>>).pipe(
-      map<Set<T>[] | Set<T>, T[][]>((value) =>
-        Array.isArray(value) ? ([...value.map((set) => [...set])] as T[][]) : ([[...value]] as T[][]),
-      ),
-      switchMap((value) => {
-        return new Observable<T[]>((subscriber: Subscriber<T[]>): void => {
-          for (let i = 0; i < value.length; i++) {
-            subscriber.next(value[i]);
-          }
-          subscriber.complete();
-        });
-      }),
-    );
-  } else if (isPromise(args[0])) {
-    return new Observable<T[]>((subscriber: Subscriber<T[]>): void => {
-      ((args[0] as unknown) as Promise<Set<T>>).then(
-        (response) => {
-          /* istanbul ignore next-line */
-          if (!subscriber.closed) {
-            subscriber.next([...response]);
-            subscriber.complete();
-          }
-        },
-        (err) => subscriber.error(err),
-      );
-    });
-  } else {
-    const value = Array.isArray(args[0]) ? (args[0] as Set<T>[]) : ([...args] as Set<T>[]);
-    return new Observable<T[]>((subscriber: Subscriber<T[]>): void => {
+  return new Observable<T[]>((subscriber) => {
+    if (isObservable(args[0])) {
+      (args[0] as Observable<Set<T>[] | Set<T>>)
+        .pipe(
+          takeWhile(() => !subscriber.closed),
+          map<Set<T>[] | Set<T>, T[][]>((value) => flatMapSet(value)),
+          tap((value) => {
+            for (let i = 0; i < value.length; i++) {
+              subscriber.next(value[i]);
+            }
+            !subscriber.closed && subscriber.complete();
+          }),
+        )
+        .subscribe();
+    } else if (isPromise(args[0])) {
+      fromPromise(args[0] as Promise<Set<T>[] | Set<T>>)
+        .pipe(
+          map<Set<T>[] | Set<T>, T[][]>((value) => flatMapSet(value)),
+          tap((value) => {
+            for (let i = 0; i < value.length; i++) {
+              subscriber.next(value[i]);
+            }
+          }),
+          catchError((error) => {
+            subscriber.error(error);
+            return throwError(error);
+          }),
+          finalize(() => !subscriber.closed && subscriber.complete()),
+        )
+        .subscribe();
+    } else {
+      const value = Array.isArray(args[0]) ? flatMapSet(args[0]) : flatMapSet([...(args as Set<T>[])]);
       for (let i = 0; i < value.length; i++) {
-        subscriber.next([...value[i]]);
+        subscriber.next(value[i]);
       }
-      subscriber.complete();
-    });
-  }
+      !subscriber.closed && subscriber.complete();
+    }
+    /* istanbul ignore next-line */
+    return () => !subscriber.closed && subscriber.complete();
+  });
 }

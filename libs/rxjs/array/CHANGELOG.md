@@ -7,13 +7,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### [Unreleased]
 
-This update mainly fixes some naming inconsistencies and renames the current `from*` operators, listed below, instead they are
-now `*toArray` as a Source conversion, these changes are breaking.
+This update mainly fixes some naming inconsistencies and renames the current `from*` operators, listed below, instead
+they are now `*toArray` as a Source conversion, these changes are breaking.
 
 ### Added
 
-- Static `fromSet` function to generate an Observable `Array` from a `Set` or collection of `Set` values, if does not flatten the array to emit the values
-- Static `fromMap` function to generate an Observable `Array` from a `Map` or collection of `Map` values, if does not flatten the array to emit the values
+- Static `fromSet` function to generate an Observable `Array` from a `Set` or collection of `Set` values
+- Static `fromMap` function to generate an Observable `Array` from a `Map` or collection of `Map` values
 - `toMap` operator that takes an `Array` of tuples containing the key/value pair for the map collection
 
 ### Changed

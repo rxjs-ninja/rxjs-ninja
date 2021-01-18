@@ -1,6 +1,6 @@
 import { catchError, reduce, tap } from 'rxjs/operators';
 import { observe } from 'rxjs-marbles/jest';
-import { fromMap } from '../lib/from-map';
+import { fromMap } from '@rxjs-ninja/rxjs-array';
 import { of } from 'rxjs';
 
 describe('fromMap', () => {
@@ -124,38 +124,6 @@ describe('fromMap', () => {
             [6, 'f'],
           ]),
         ]),
-      ).pipe(
-        reduce((a, b) => [...a, ...b], [] as [number, string][]),
-        tap((value) =>
-          expect(value).toStrictEqual([
-            [1, 'a'],
-            [2, 'b'],
-            [3, 'c'],
-            [4, 'd'],
-            [5, 'e'],
-            [6, 'f'],
-          ]),
-        ),
-      );
-    }),
-  );
-
-  it(
-    'should create an Observable from Observable multiple Map arguments',
-    observe(() => {
-      return fromMap(
-        of(
-          new Map([
-            [1, 'a'],
-            [2, 'b'],
-            [3, 'c'],
-          ]),
-          new Map([
-            [4, 'd'],
-            [5, 'e'],
-            [6, 'f'],
-          ]),
-        ),
       ).pipe(
         reduce((a, b) => [...a, ...b], [] as [number, string][]),
         tap((value) =>

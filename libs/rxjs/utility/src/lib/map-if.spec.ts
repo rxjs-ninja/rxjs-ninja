@@ -1,7 +1,7 @@
-import { mapIfSource } from '@rxjs-ninja/rxjs-utility';
+import { mapIf } from '@rxjs-ninja/rxjs-utility';
 import { marbles } from 'rxjs-marbles/jest';
 
-describe('ifSource', () => {
+describe('mapIf', () => {
   it(
     'should return correct result based on predicate',
     marbles((m) => {
@@ -15,7 +15,7 @@ describe('ifSource', () => {
       });
       m.expect(
         input.pipe(
-          mapIfSource<string>(
+          mapIf(
             (value) => value.toLowerCase() === 'jack',
             (value) => `${value} has a Cow`,
             (value) => `${value} has a Lamb`,
@@ -39,7 +39,7 @@ describe('ifSource', () => {
       });
       m.expect(
         input.pipe(
-          mapIfSource<number, string>(
+          mapIf(
             (value) => value === 42,
             (value) => `${value} is the ultimate answer!`,
             (value) => `${value} is NOT the ultimate answer!`,
@@ -64,7 +64,7 @@ describe('ifSource', () => {
       });
       m.expect(
         input.pipe(
-          mapIfSource<number, string, number>(
+          mapIf<number, string, number>(
             (value) => value % 15 == 0 || value % 3 == 0 || value % 5 == 0,
             (value) => (value % 15 == 0 ? `FizzBuzz` : value % 3 === 0 ? 'Fizz' : 'Buzz'),
             (value) => value,
@@ -89,7 +89,7 @@ describe('ifSource', () => {
       });
       m.expect(
         input.pipe(
-          mapIfSource(
+          mapIf(
             (value) => value % 2 == 0,
             (value) => value * 10,
             (value) => value * 20,

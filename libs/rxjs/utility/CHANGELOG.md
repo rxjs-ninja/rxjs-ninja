@@ -9,8 +9,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- `switchMapIf` operator that takes a predicate function, and two methods to return an Observable value based on
-  the predicate being `true` or `false`.
+- `switchMapIf` operator that takes a predicate function, and two methods to return an Observable value based on the
+  predicate being `true` or `false`.
+
+### Changed
+
+- `mapIfSource` renamed `mapIf`
 
 ## [3.2.1] - 2021-01-14
 

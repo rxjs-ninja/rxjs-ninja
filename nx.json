@@ -14,7 +14,12 @@
       "runner": "@nrwl/nx-cloud",
       "options": {
         "accessToken": "ZDQ0YTRjMmYtYmM5Ny00MDJkLThiMDUtOTM5OWIyYzdmYWNhfHJlYWQtd3JpdGU=",
-        "cacheableOperations": ["build", "test", "lint", "e2e"],
+        "cacheableOperations": [
+          "build",
+          "test",
+          "lint",
+          "e2e"
+        ],
         "canTrackAnalytics": false,
         "showUsageWarnings": true
       }
@@ -30,13 +35,13 @@
     "rxjs-number": {
       "tags": []
     },
+    "rxjs-random": {
+      "tags": []
+    },
     "rxjs-string": {
       "tags": []
     },
     "rxjs-utility": {
-      "tags": []
-    },
-    "rxjs-random": {
       "tags": []
     }
   }

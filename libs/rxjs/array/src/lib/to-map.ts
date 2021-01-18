@@ -23,6 +23,6 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a `Set` from a source array
  */
-export function toMap<V extends unknown, K extends unknown>(): OperatorFunction<[K, V][], Map<K, V>> {
+export function toMap<K extends unknown, V extends unknown>(): OperatorFunction<[K, V][], Map<K, V>> {
   return (source) => source.pipe(map((value) => new Map<K, V>(value)));
 }

@@ -18,10 +18,10 @@ they are now `*toArray` as a Source conversion, these changes are breaking.
 
 ### Changed
 
-- The previous operator `fromSet` is now `setToArray`
-- The previous operator `fromMap` is now `mapToArray`
-- The previou soperator `fromObjectKeys` is now `objectKeysToArray`
-- The previous operator `fromObjectEntries` is now `objectEntriesToArray`
+- The previous operator `fromSet` is now `setToArray`, new `fromSet` is static method for generating Observables
+- The previous operator `fromMap` is now `mapToArray`, new `fromMap` is static method for generating Observables
+- The previous operator `fromObjectKeys` is now `objectKeysToArray`. No replacement operator, use `of(object).pipe(objectKeysToArray())`.
+- The previous operator `fromObjectEntries` is now `objectEntriesToArray`. No replacement operator, use `of(object).pipe(objectEntriesToArray())`.
 
 ### [4.2.0] - 2021-01-17
 

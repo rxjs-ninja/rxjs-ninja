@@ -8,13 +8,14 @@ import { fromPromise, isPromise } from 'rxjs/internal-compatibility';
 import { flatMapSet } from '../utils/array-set';
 
 /**
- * Returns an Observable that emits un-flattened `Array` values generated from a source emitting `Set` objects.
+ * Returns an Observable that emits an `Array` from a `Set`
  *
  * @category Set
  *
  * @typeParam T The type of value contained in the `Set`
  *
- * @param args Input values to create the Observable source from
+ * @param args Input to create the emit values from, can be argument list of `Set`, an array of `Set` or an Observable
+ *   or Promise source
  *
  * @example
  * Create `Array` from `Set`

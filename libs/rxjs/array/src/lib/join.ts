@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module Array
  */
-import { OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 import { ArrayOrSet } from '../types/array-set';
 
 /**
@@ -34,6 +34,14 @@ import { ArrayOrSet } from '../types/array-set';
  *
  * @returns Observable string from the joined values in the source array
  */
-export function join<T extends unknown>(separator = ' '): OperatorFunction<ArrayOrSet<T>, string> {
-  return (source) => source.pipe(map((value) => [...value].join(separator)));
+export function join<T extends unknown>(
+  separator: string | ObservableInput<string> = ' ',
+): OperatorFunction<ArrayOrSet<T>, string> {
+  const separator$ = (isObservable(separator) ? separator : of(separator)) as Observable<string>;
+
+  return (source) =>
+    source.pipe(
+      withLatestFrom(separator$),
+      map(([value, separatorInput]) => [...value].join(separatorInput)),
+    );
 }

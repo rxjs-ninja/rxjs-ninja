@@ -9,7 +9,7 @@ import { map } from 'rxjs/operators';
  * Returns an Observable that emits an array from a source `Object` using Object.entries, the array contains
  * tuples of the key as a string and the value
  *
- * @category Convert
+ * @category Object
  *
  * @remarks Regardless of Object key type the result Array will have a `string` key value
  *

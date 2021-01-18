@@ -5,22 +5,21 @@
 import { isObservable, Observable, ObservableInput, throwError } from 'rxjs';
 import { catchError, finalize, map, takeWhile, tap } from 'rxjs/operators';
 import { fromPromise, isPromise } from 'rxjs/internal-compatibility';
-import { ArrayOrSet } from '../types/array-set';
 import { flatMapMap } from '../utils/array-set';
 
 /**
- * Returns an Observable that emits an `Array` from a `Map`, it does not flatten or emit the
- * values from the `Map`, but coverts to `Array`
+ * Returns an Observable that emits an `Array` from a `Map`
  *
  * @category Map
  *
  * @typeParam K The type of value in the `Map` key
  * @typeParam V Type of the value in the `Map` value
  *
- * @param args Input values to create the Observable source from
+ * @param args Input to create the emit values from, can be argument list of `Map`, an array of `Map` or an Observable
+ *   or Promise source
  *
  * @example
- * Create `Array` from `Set`
+ * Create `Array` from `Map`
  * ```ts
  * const input = new Map([ [1, 'a'], [2, 'b'], [3, 'c'] ]);
  * fromMap(input).subscribe();
@@ -29,8 +28,8 @@ import { flatMapMap } from '../utils/array-set';
  *
  * @returns Observable that emits an `Array` from the input `Map`
  */
-export function fromMap<V extends unknown, K extends unknown>(
-  ...args: (ObservableInput<ArrayOrSet<Map<K, V>> | Map<K, V>> | Map<K, V>[] | Map<K, V>)[]
+export function fromMap<K extends unknown, V extends unknown>(
+  ...args: (ObservableInput<Map<K, V>[] | Map<K, V>> | Map<K, V>[] | Map<K, V>)[]
 ): Observable<[K, V][]> {
   return new Observable<[K, V][]>((subscriber) => {
     if (isObservable(args[0])) {

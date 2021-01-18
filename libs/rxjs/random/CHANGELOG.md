@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
-- `fromUUIDv4` Observable that emits a UUIDv4 with optional `emitTime`
+- `fromUUIDv4` Observable that emits a random UUIDv4 with optional `emitTime`
 
 ### [2.0.1] - 2021-01-17
 

@@ -1,8 +1,8 @@
-import { mapIfSource, switchMapIfSource } from '@rxjs-ninja/rxjs-utility';
+import { switchMapIf } from '@rxjs-ninja/rxjs-utility';
 import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
 
-describe('switchMapIfSource', () => {
+describe('switchMapIf', () => {
   it(
     'should return correct result based on predicate',
     marbles((m) => {
@@ -16,7 +16,7 @@ describe('switchMapIfSource', () => {
       });
       m.expect(
         input.pipe(
-          switchMapIfSource<string>(
+          switchMapIf<string>(
             (value) => value.toLowerCase() === 'jack',
             () => of('Cow'),
             () => of('Lamb'),

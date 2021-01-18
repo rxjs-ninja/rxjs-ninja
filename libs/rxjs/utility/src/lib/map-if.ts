@@ -28,7 +28,7 @@ import { map } from 'rxjs/operators';
  * ```ts
  * const input = [ 1, 2, 3, 4, 5, 6, 10, 15, 16 ];
  * from(input).pipe(
- *  mapIfSource<number, string, number>(
+ *  mapIf<number, string, number>(
  *    (value) => value % 15 == 0 || value % 3 == 0 || value % 5 == 0,
  *    (value) => (value % 15 == 0 ? `FizzBuzz` : value % 3 === 0 ? 'Fizz' : 'Buzz'),
  *    (value) => value,
@@ -39,7 +39,7 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a value from the truthy or falsy [[MapFn]] based on the [[PredicateFn]] result
  */
-export function mapIfSource<I = unknown, T = unknown, F = unknown>(
+export function mapIf<I = unknown, T = unknown, F = unknown>(
   predicate: PredicateFn<I>,
   trueResult: MapFn<I, T>,
   falseResult: MapFn<I, T | F>,

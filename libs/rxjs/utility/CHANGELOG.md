@@ -9,7 +9,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- `switchMapIfSource` operator that takes a predicate function, and two methods to return an Observable value based on
+- `switchMapIf` operator that takes a predicate function, and two methods to return an Observable value based on
   the predicate being `true` or `false`.
 
 ## [3.2.1] - 2021-01-14
@@ -85,7 +85,7 @@ coverage that provided various bug fixes.
 ### Added
 
 - `tapIf` operator that fires a callback only when the predicate function is `true`
-- `mapIfSource` operator that takes a predicate function, and two methods to return a value based on the predicate
+- `mapIf` operator that takes a predicate function, and two methods to return a value based on the predicate
   being `true` or `false`.
 
 ## [1.3.1] - 2020-05-24

@@ -10,8 +10,8 @@
 export { debounceWithQuery } from './lib/debounce-with-query';
 export { fromReadableStream } from './lib/from-readable-stream';
 export { fromFetchWithProgress } from './lib/from-fetch-with-progress';
-export { mapIfSource } from './lib/map-if-source';
-export { switchMapIfSource } from './lib/switch-map-if-source';
+export { mapIf } from './lib/map-if';
+export { switchMapIf } from './lib/switch-map-if';
 export { tapIf } from './lib/tap-if';
 export { tapOnFirstEmit } from './lib/tap-on-first-emit';
 export { tapOnSubscribe } from './lib/tap-on-subscribe';

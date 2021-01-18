@@ -5,12 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- `switchMapIf` operator that takes a predicate function, and two methods to return an Observable value based on the
+  predicate being `true` or `false`.
+
+### Changed
+
+- `mapIfSource` renamed `mapIf`
+
 ## [3.2.1] - 2021-01-14
 
 ### Fixed
 
-- `toWritableStream` now correctly returns the value to any operators after it and captures write errors when there is no
-  active stream
+- `toWritableStream` now correctly returns the value to any operators after it and captures write errors when there is
+  no active stream
 
 ## [3.2.0] - 2021-01-13
 
@@ -78,7 +89,7 @@ coverage that provided various bug fixes.
 ### Added
 
 - `tapIf` operator that fires a callback only when the predicate function is `true`
-- `mapIfSource` operator that takes a predicate function, and two methods to return a value based on the predicate
+- `mapIf` operator that takes a predicate function, and two methods to return a value based on the predicate
   being `true` or `false`.
 
 ## [1.3.1] - 2020-05-24

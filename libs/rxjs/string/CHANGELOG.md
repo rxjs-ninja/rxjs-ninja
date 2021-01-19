@@ -7,7 +7,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-Major breaking changes in operators with this release, detailed below
+Breaking changes in public API, and a lot of internal refactoring.
 
 ### Added
 
@@ -18,13 +18,12 @@ Major breaking changes in operators with this release, detailed below
 
 - Operators `charAt`, `charCodeAt`, `codePointAt` all now return an `Array` value, even if a single value property is
   used (which will return an array of length 1)
-
-- `concat` no longer accepts input as multiple arguments, only as single value or `Set` or `Array` values
-
-- Internal changes to `from*` methods that fix argument and Observable generation, not a breaking change
+- `from*` Observables and `concat` operator no longer accept arguments list or Promise values
 - Fix `toLowerCase` and `toUpperCase` reading the wrong variable
 - Improved `titleize`, also uses new `join` operator internally
 - `split` operator now has default space separator
+- `normalize` accepts Observable `FormType`
+- Internal cleanup and refactoring
 
 ## [4.1.0] - 2021-01-17
 

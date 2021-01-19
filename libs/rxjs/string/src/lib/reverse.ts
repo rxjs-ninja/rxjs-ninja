@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
@@ -23,5 +23,5 @@ import { map } from 'rxjs/operators';
  * @returns Observable that emits a string that is reversed from the source
  */
 export function reverse(): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map((value) => [...value].reverse().join('')));
+  return (source) => source.pipe(map((value) => [...value].reverse().join('')));
 }

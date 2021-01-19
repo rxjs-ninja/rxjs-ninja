@@ -2,12 +2,10 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
+import { Observable, Subscribable } from 'rxjs';
 import { FormType } from '../types/normalize';
-import { map, switchMap } from 'rxjs/operators';
-import { isPromise } from 'rxjs/internal-compatibility';
-import { ArrayOrSet } from '../types/array-set';
-import { isArrayOrSet } from '../utils/array-set';
+import { finalize, map, takeWhile, tap } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a string made from a source unicode string using String.normalize
@@ -17,7 +15,7 @@ import { isArrayOrSet } from '../utils/array-set';
  * @remarks This operator is a type-safe {@link https://rxjs.dev/api/index/function/from|from} and will emit only
  * strings, also unlike `from` a single string is not converted into an array-like.
  *
- * @param input A string or array of string unicode characters
+ * @param input Single or list of Unicode character to convert to a string
  * @param form The Unicode Normalization Form to decode the string with
  *
  * @example
@@ -29,52 +27,25 @@ import { isArrayOrSet } from '../utils/array-set';
  *
  * @returns Observable that emits a string
  */
-
-export function fromUnicode<
-  A extends
-    | ObservableInput<ArrayOrSet<string> | string>
-    | PromiseLike<ArrayOrSet<string> | string>
-    | ArrayOrSet<string>
-    | string
->(input: A, form?: FormType): Observable<string> {
-  if (isObservable(input)) {
-    return ((input as unknown) as Observable<ArrayOrSet<string> | string>).pipe(
-      map((value) => (isArrayOrSet(value) ? [...value] : [value]) as string[]),
-      switchMap((value) => {
-        return new Observable<string>((subscriber: Subscriber<unknown>): void => {
+export function fromUnicode(
+  input: Subscribable<Iterable<string> | string> | Iterable<string> | string,
+  form?: FormType,
+): Observable<string> {
+  return new Observable<string>((subscriber) => {
+    createOrReturnObservable(input)
+      .pipe(
+        takeWhile(() => !subscriber.closed),
+        map<Iterable<string> | string, string[]>((value) => (typeof value === 'string' ? [value] : [...value])),
+        tap((value) => {
           for (let i = 0; i < value.length; i++) {
             subscriber.next(value[i].normalize(form));
           }
-          subscriber.complete();
-        });
-      }),
-    );
-  } else if (isPromise(input)) {
-    return new Observable<string>((subscriber: Subscriber<unknown>): void => {
-      function callSubscriber(value: ArrayOrSet<string> | string) {
-        /* istanbul ignore next-line */
-        if (!subscriber.closed) {
-          const output = isArrayOrSet(value) ? [...value] : [value];
-          for (let i = 0; i < output.length; i++) {
-            subscriber.next(output[i].normalize(form));
-          }
-          subscriber.complete();
-        }
-      }
+        }),
+        finalize(() => !subscriber.closed && subscriber.complete()),
+      )
+      .subscribe();
 
-      ((input as never) as Promise<ArrayOrSet<string> | string>).then(
-        (value) => callSubscriber(value),
-        (err) => subscriber.error(err),
-      );
-    });
-  } else {
-    const value = isArrayOrSet(input) ? ([...input] as string[]) : ([input] as string[]);
-
-    return new Observable<string>((subscriber: Subscriber<unknown>): void => {
-      for (let i = 0; i < value.length; i++) {
-        subscriber.next(value[i].normalize(form));
-      }
-      subscriber.complete();
-    });
-  }
+    /* istanbul ignore next-line */
+    return () => !subscriber.closed && subscriber.complete();
+  });
 }

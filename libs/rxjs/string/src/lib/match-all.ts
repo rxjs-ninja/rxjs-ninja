@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits an array of results from String.matchAll
@@ -26,9 +27,9 @@ import { map, withLatestFrom } from 'rxjs/operators';
  *
  * @returns Observable that emits an array of RegExpMatchArray
  */
-export function matchAll(pattern: RegExp | ObservableInput<RegExp>): OperatorFunction<string, RegExpMatchArray[]> {
-  const pattern$ = (isObservable(pattern) ? pattern : of(pattern)) as Observable<RegExp>;
-  return (source: Observable<string>) =>
+export function matchAll(pattern: Subscribable<RegExp> | RegExp): OperatorFunction<string, RegExpMatchArray[]> {
+  const pattern$ = createOrReturnObservable(pattern);
+  return (source) =>
     source.pipe(
       withLatestFrom(pattern$),
       map(([value, patternInput]) => [...value.matchAll(patternInput)]),

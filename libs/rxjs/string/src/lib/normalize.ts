@@ -2,9 +2,10 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 import { FormType } from '../types/normalize';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a string made from a source unicode string using String.normalize
@@ -22,6 +23,11 @@ import { FormType } from '../types/normalize';
  *
  * @returns Observable that emits a string
  */
-export function normalize(form?: FormType): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.normalize(form)));
+export function normalize(form?: Subscribable<FormType> | FormType): MonoTypeOperatorFunction<string> {
+  const form$ = createOrReturnObservable(form);
+  return (source) =>
+    source.pipe(
+      withLatestFrom(form$),
+      map(([value, formValue]) => value.normalize(formValue)),
+    );
 }

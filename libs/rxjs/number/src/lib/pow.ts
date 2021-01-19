@@ -23,9 +23,10 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a number that is the raised source value by the power
  */
 export function pow(power: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
+  const power$ = (isObservable(power) ? power : of(power)) as Observable<number>;
   return (source) =>
     source.pipe(
-      withLatestFrom((isObservable(power) ? power : of(power)) as Observable<number>),
+      withLatestFrom(power$),
       map(([value, inputValue]) => value ** inputValue),
     );
 }

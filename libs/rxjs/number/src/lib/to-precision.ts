@@ -21,9 +21,10 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @category Formatting
  */
 export function toPrecision(precision: number | ObservableInput<number>): OperatorFunction<number, string> {
+  const precision$ = (isObservable(precision) ? precision : of(precision)) as Observable<number>;
   return (source) =>
     source.pipe(
-      withLatestFrom((isObservable(precision) ? precision : of(precision)) as Observable<number>),
+      withLatestFrom(precision$),
       map<[number, number], string>(([value, inputValue]) => value.toPrecision(inputValue)),
     );
 }

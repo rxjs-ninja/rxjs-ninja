@@ -22,9 +22,10 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a number that is the subtraction of source and input
  */
 export function sub(input: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
+  const input$ = (isObservable(input) ? input : of(input)) as Observable<number>;
   return (source) =>
     source.pipe(
-      withLatestFrom((isObservable(input) ? input : of(input)) as Observable<number>),
+      withLatestFrom(input$),
       map(([value, inputValue]) => value - inputValue),
     );
 }

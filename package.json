@@ -29,7 +29,8 @@
     "coverage": "codecov --disable=gcov",
     "watch": "onchange -d 20000 'libs/**/*.ts' 'libs/**/*.md' -- npm run docs",
     "workspace-generator": "nx workspace-generator",
-    "cleanup": "git pull --prune && git branch -vv | grep ': gone]'|  grep -v \"\\*\" | awk '{ print $1; }' | xargs -r git branch -D"
+    "cleanup:workspace": "nxpm-stack lint",
+    "cleanup:branches": "git pull --prune && git branch -vv | grep ': gone]'|  grep -v \"\\*\" | awk '{ print $1; }' | xargs -r git branch -D"
   },
   "private": true,
   "dependencies": {

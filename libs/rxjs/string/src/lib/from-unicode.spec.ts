@@ -48,6 +48,18 @@ describe('fromUnicode', () => {
   );
 
   it(
+    'should create string value from passed Promise unicode array',
+    observe(() =>
+      fromUnicode(
+        Promise.resolve(['\u0041\u006d\u00e9\u006c\u0069\u0065', '\u0041\u006d\u0065\u0301\u006c\u0069\u0065']),
+      ).pipe(
+        reduce<string, string[]>((acc, val) => [...acc, val], []),
+        tap((value) => expect(value).toStrictEqual(['Amélie', 'Amélie'])),
+      ),
+    ),
+  );
+
+  it(
     'should create an Error from a failed promise',
     observe(() =>
       fromUnicode(Promise.reject('RxJS Ninja')).pipe(

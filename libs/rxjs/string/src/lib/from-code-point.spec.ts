@@ -30,6 +30,11 @@ describe('fromCodePoint', () => {
 
   it(
     'should create an ASCII string from an Promise array of character codes',
+    observe(() => fromCodePoint(Promise.resolve(9731)).pipe(tap((value) => expect(value).toBe('☃')))),
+  );
+
+  it(
+    'should create an ASCII string from an Promise array of character codes',
     observe(() => fromCodePoint(Promise.resolve([9731, 9733, 9842])).pipe(tap((value) => expect(value).toBe('☃★♲')))),
   );
 

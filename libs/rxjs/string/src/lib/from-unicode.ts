@@ -2,10 +2,10 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
+import { isObservable, Observable, ObservableInput, throwError } from 'rxjs';
 import { FormType } from '../types/normalize';
-import { map, switchMap } from 'rxjs/operators';
-import { isPromise } from 'rxjs/internal-compatibility';
+import { catchError, finalize, map, takeWhile, tap } from 'rxjs/operators';
+import { fromPromise, isPromise } from 'rxjs/internal-compatibility';
 import { ArrayOrSet } from '../types/array-set';
 import { isArrayOrSet } from '../utils/array-set';
 
@@ -30,51 +30,99 @@ import { isArrayOrSet } from '../utils/array-set';
  * @returns Observable that emits a string
  */
 
-export function fromUnicode<
-  A extends
-    | ObservableInput<ArrayOrSet<string> | string>
-    | PromiseLike<ArrayOrSet<string> | string>
-    | ArrayOrSet<string>
-    | string
->(input: A, form?: FormType): Observable<string> {
-  if (isObservable(input)) {
-    return ((input as unknown) as Observable<ArrayOrSet<string> | string>).pipe(
-      map((value) => (isArrayOrSet(value) ? [...value] : [value]) as string[]),
-      switchMap((value) => {
-        return new Observable<string>((subscriber: Subscriber<unknown>): void => {
-          for (let i = 0; i < value.length; i++) {
-            subscriber.next(value[i].normalize(form));
-          }
-          subscriber.complete();
-        });
-      }),
-    );
-  } else if (isPromise(input)) {
-    return new Observable<string>((subscriber: Subscriber<unknown>): void => {
-      function callSubscriber(value: ArrayOrSet<string> | string) {
-        /* istanbul ignore next-line */
-        if (!subscriber.closed) {
-          const output = isArrayOrSet(value) ? [...value] : [value];
-          for (let i = 0; i < output.length; i++) {
-            subscriber.next(output[i].normalize(form));
-          }
-          subscriber.complete();
-        }
-      }
-
-      ((input as never) as Promise<ArrayOrSet<string> | string>).then(
-        (value) => callSubscriber(value),
-        (err) => subscriber.error(err),
-      );
-    });
-  } else {
-    const value = isArrayOrSet(input) ? ([...input] as string[]) : ([input] as string[]);
-
-    return new Observable<string>((subscriber: Subscriber<unknown>): void => {
+export function fromUnicode(
+  input: ObservableInput<ArrayOrSet<string> | string> | ArrayOrSet<string> | string,
+  form?: FormType,
+): Observable<string> {
+  return new Observable<string>((subscriber) => {
+    if (isObservable(input)) {
+      (input as Observable<ArrayOrSet<string> | string>)
+        .pipe(
+          takeWhile(() => !subscriber.closed),
+          map((value) => (isArrayOrSet(value) ? [...value] : [value])),
+          tap((value) => {
+            for (let i = 0; i < value.length; i++) {
+              subscriber.next(value[i].normalize(form));
+            }
+          }),
+          finalize(() => !subscriber.closed && subscriber.complete()),
+        )
+        .subscribe();
+    } else if (isPromise(input)) {
+      fromPromise(input as Promise<ArrayOrSet<string> | string>)
+        .pipe(
+          map<ArrayOrSet<string> | string, string[]>((value) =>
+            Array.isArray(value) ? (value as string[]) : ([value] as string[]),
+          ),
+          tap((value) => {
+            for (let i = 0; i < value.length; i++) {
+              subscriber.next(value[i].normalize(form));
+            }
+          }),
+          catchError((error) => {
+            subscriber.error(error);
+            return throwError(error);
+          }),
+          finalize(() => !subscriber.closed && subscriber.complete()),
+        )
+        .subscribe();
+    } else {
+      const value = Array.isArray(input) ? (input as string[]) : ([input] as string[]);
       for (let i = 0; i < value.length; i++) {
         subscriber.next(value[i].normalize(form));
       }
-      subscriber.complete();
-    });
-  }
+      !subscriber.closed && subscriber.complete();
+    }
+    /* istanbul ignore next-line */
+    return () => !subscriber.closed && subscriber.complete();
+  });
 }
+
+// export function fromUnicode<
+//   A extends
+//     | ObservableInput<ArrayOrSet<string> | string>
+//     | PromiseLike<ArrayOrSet<string> | string>
+//     | ArrayOrSet<string>
+//     | string
+// >(input: A, form?: FormType): Observable<string> {
+//   if (isObservable(input)) {
+//     return ((input as unknown) as Observable<ArrayOrSet<string> | string>).pipe(
+//       map((value) => (isArrayOrSet(value) ? [...value] : [value]) as string[]),
+//       switchMap((value) => {
+//         return new Observable<string>((subscriber: Subscriber<unknown>): void => {
+//           for (let i = 0; i < value.length; i++) {
+//             subscriber.next(value[i].normalize(form));
+//           }
+//           subscriber.complete();
+//         });
+//       }),
+//     );
+//   } else if (isPromise(input)) {
+//     return new Observable<string>((subscriber: Subscriber<unknown>): void => {
+//       function callSubscriber(value: ArrayOrSet<string> | string) {
+//         /* istanbul ignore next-line */
+//         if (!subscriber.closed) {
+//           const output = isArrayOrSet(value) ? [...value] : [value];
+//           for (let i = 0; i < output.length; i++) {
+//             subscriber.next(output[i].normalize(form));
+//           }
+//           subscriber.complete();
+//         }
+//       }
+//
+//       ((input as never) as Promise<ArrayOrSet<string> | string>).then(
+//         (value) => callSubscriber(value),
+//         (err) => subscriber.error(err),
+//       );
+//     });
+//   } else {
+//     const value = isArrayOrSet(input) ? ([...input] as string[]) : ([input] as string[]);
+//
+//     return new Observable<string>((subscriber: Subscriber<unknown>): void => {
+//       for (let i = 0; i < value.length; i++) {
+//         subscriber.next(value[i].normalize(form));
+//       }
+//       subscriber.complete();
+//     });
+//   }
+// }

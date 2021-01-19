@@ -2,9 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
-import { isPromise } from 'rxjs/internal-compatibility';
-import { map, switchMap } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, throwError } from 'rxjs';
+import { fromPromise, isPromise } from 'rxjs/internal-compatibility';
+import { catchError, finalize, map, takeWhile, tap } from 'rxjs/operators';
 import { isArrayOrSet } from '../utils/array-set';
 import { ArrayOrSet } from '../types/array-set';
 
@@ -42,52 +42,49 @@ import { ArrayOrSet } from '../types/array-set';
  *
  * @returns Observable that emits a string
  */
-
-export function fromString<
-  A extends
-    | ObservableInput<ArrayOrSet<string> | string>
-    | PromiseLike<ArrayOrSet<string> | string>
-    | ArrayOrSet<string>
-    | string
->(...args: A[]): Observable<string> {
-  if (isObservable(args[0])) {
-    return ((args[0] as unknown) as Observable<ArrayOrSet<string> | string>).pipe(
-      map((value) => (isArrayOrSet(value) ? [...value] : [value]) as string[]),
-      switchMap((value) => {
-        return new Observable<string>((subscriber: Subscriber<unknown>): void => {
-          for (let i = 0; i < value.length; i++) {
-            subscriber.next(value[i]);
-          }
-          subscriber.complete();
-        });
-      }),
-    );
-  } else if (isPromise(args[0])) {
-    return new Observable<string>((subscriber: Subscriber<unknown>): void => {
-      function callSubscriber(value: ArrayOrSet<string> | string) {
-        /* istanbul ignore next-line */
-        if (!subscriber.closed) {
-          const output = isArrayOrSet(value) ? [...value] : [value];
-          for (let i = 0; i < output.length; i++) {
-            subscriber.next(output[i]);
-          }
-          subscriber.complete();
-        }
-      }
-
-      ((args[0] as never) as Promise<ArrayOrSet<string> | string>).then(
-        (value) => callSubscriber(value),
-        (err) => subscriber.error(err),
-      );
-    });
-  } else {
-    const value = isArrayOrSet(args[0]) ? [...(args[0] as string[])] : ([...args] as string[]);
-
-    return new Observable<string>((subscriber: Subscriber<unknown>): void => {
+export function fromString(
+  ...args: (ObservableInput<ArrayOrSet<string> | string> | ArrayOrSet<string> | string)[]
+): Observable<string> {
+  return new Observable<string>((subscriber) => {
+    if (isObservable(args[0])) {
+      (args[0] as Observable<ArrayOrSet<string> | string>)
+        .pipe(
+          takeWhile(() => !subscriber.closed),
+          map((value) => (isArrayOrSet(value) ? [...value] : [value])),
+          tap((value) => {
+            for (let i = 0; i < value.length; i++) {
+              subscriber.next(value[i]);
+            }
+          }),
+          finalize(() => !subscriber.closed && subscriber.complete()),
+        )
+        .subscribe();
+    } else if (isPromise(args[0])) {
+      fromPromise(args[0] as Promise<ArrayOrSet<string> | string>)
+        .pipe(
+          map<ArrayOrSet<string> | string, string[]>((value) =>
+            Array.isArray(value) ? (value as string[]) : ([value] as string[]),
+          ),
+          tap((value) => {
+            for (let i = 0; i < value.length; i++) {
+              subscriber.next(value[i]);
+            }
+          }),
+          catchError((error) => {
+            subscriber.error(error);
+            return throwError(error);
+          }),
+          finalize(() => !subscriber.closed && subscriber.complete()),
+        )
+        .subscribe();
+    } else {
+      const value = Array.isArray(args[0]) ? (args[0] as string[]) : ([...args] as string[]);
       for (let i = 0; i < value.length; i++) {
         subscriber.next(value[i]);
       }
-      subscriber.complete();
-    });
-  }
+      !subscriber.closed && subscriber.complete();
+    }
+    /* istanbul ignore next-line */
+    return () => !subscriber.closed && subscriber.complete();
+  });
 }

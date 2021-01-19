@@ -38,7 +38,7 @@ export function toUpperCase(
     source.pipe(
       withLatestFrom(locales$),
       map(([value, inputValue]) =>
-        isArrayOrSet(locales)
+        isArrayOrSet(inputValue)
           ? value.toLocaleUpperCase([...inputValue])
           : value.toLocaleUpperCase(inputValue as string),
       ),

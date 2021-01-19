@@ -38,7 +38,7 @@ export function toLowerCase(
     source.pipe(
       withLatestFrom(locales$),
       map(([value, inputValue]) =>
-        isArrayOrSet(locales)
+        isArrayOrSet(inputValue)
           ? value.toLocaleLowerCase([...inputValue])
           : value.toLocaleLowerCase(inputValue as string),
       ),

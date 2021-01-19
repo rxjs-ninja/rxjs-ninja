@@ -30,6 +30,11 @@ describe('fromCharCode', () => {
   );
 
   it(
+    'should create an ASCII string from an Promise single of character codes',
+    observe(() => fromCharCode(Promise.resolve(65)).pipe(tap((value) => expect(value).toBe('A')))),
+  );
+
+  it(
     'should create an ASCII string from an Promise array of character codes',
     observe(() => fromCharCode(Promise.resolve([65, 66, 67, 68])).pipe(tap((value) => expect(value).toBe('ABCD')))),
   );

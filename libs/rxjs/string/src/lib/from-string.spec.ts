@@ -71,6 +71,18 @@ describe('fromString', () => {
   );
 
   it(
+    'should create observable from promise array of string value',
+    observe(() =>
+      fromString(Promise.resolve(['TESTING', 'IS', 'FUN'])).pipe(
+        map((val) => val.toLowerCase()),
+        reduce((acc, val) => `${acc} ${val}`, ''),
+        map((val) => val.trim()),
+        tap((value) => expect(value).toBe('testing is fun')),
+      ),
+    ),
+  );
+
+  it(
     'should create an Error from a failed promise',
     observe(() =>
       fromString(Promise.reject('RxJS Ninja')).pipe(

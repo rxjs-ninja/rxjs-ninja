@@ -2,12 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, Subscribable, throwError } from 'rxjs';
-import { fromPromise, isIterable, isPromise } from 'rxjs/internal-compatibility';
-import { catchError, finalize, map, takeWhile, tap } from 'rxjs/operators';
-import { isArrayOrSet } from '../utils/array-set';
-import { ArrayOrSet } from '../types/array-set';
-import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
+import { Observable, Subscribable } from 'rxjs';
+import { finalize, map, takeWhile, tap } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits strings from any an argument list of strings or  supported Observable, Promise or

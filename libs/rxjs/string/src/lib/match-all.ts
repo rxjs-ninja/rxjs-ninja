@@ -2,9 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction, Subscribable } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
-import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits an array of results from String.matchAll

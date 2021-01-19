@@ -5,7 +5,6 @@
 import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { createOrReturnObservable } from '../utils/internal';
-import { isIterable } from 'rxjs/internal-compatibility';
 
 /**
  * Returns an Observable that emits an array of strings. The string is returned from String.charAt using the passed

@@ -2,12 +2,10 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, Subscribable, throwError } from 'rxjs';
-import { catchError, finalize, map, takeWhile, tap } from 'rxjs/operators';
-import { fromPromise, isIterable, isPromise } from 'rxjs/internal-compatibility';
-import { isArrayOrSet } from '../utils/array-set';
-import { ArrayOrSet } from '../types/array-set';
-import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
+import { Observable, Subscribable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { isIterable } from 'rxjs/internal-compatibility';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a string made from character codes using String.fromCharCode

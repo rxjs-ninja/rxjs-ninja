@@ -1,5 +1,6 @@
-import { isObservable, Observable, of, OperatorFunction, Subscribable } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a string value from an `Array` or `Set` of values converted to string
@@ -13,7 +14,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a string from an `Array` or`Set of values
  */
 export function join(separator: Subscribable<string> | string = ' '): OperatorFunction<Iterable<unknown>, string> {
-  const separator$ = (isObservable(separator) ? separator : of(separator)) as Observable<string>;
+  const separator$ = createOrReturnObservable(separator);
   return (source) =>
     source.pipe(
       withLatestFrom(separator$),

@@ -2,13 +2,10 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, Subscribable, throwError } from 'rxjs';
+import { Observable, Subscribable } from 'rxjs';
 import { FormType } from '../types/normalize';
-import { catchError, finalize, map, takeWhile, tap } from 'rxjs/operators';
-import { fromPromise, isPromise } from 'rxjs/internal-compatibility';
-import { ArrayOrSet } from '../types/array-set';
-import { isArrayOrSet } from '../utils/array-set';
-import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
+import { finalize, map, takeWhile, tap } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a string made from a source unicode string using String.normalize

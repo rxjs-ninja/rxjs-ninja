@@ -3,11 +3,8 @@
  * @module String
  */
 import { Observable, Subscribable } from 'rxjs';
-import { finalize, map, takeWhile, tap } from 'rxjs/operators';
-import { ArrayOrSet } from '../types/array-set';
-import { isArrayOrSet } from '../utils/array-set';
-import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
-import { isIterable } from 'rxjs/internal-compatibility';
+import { map } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a string made from code points using String.fromCodePoint
@@ -45,7 +42,7 @@ export function fromCodePoint(
   input: Subscribable<Iterable<number> | number> | Iterable<number> | number,
 ): Observable<string> {
   return createOrReturnObservable(input).pipe(
-    map<Iterable<number> | number, number[]>((value) => (isIterable(value) ? [...value] : [value])),
+    map<Iterable<number> | number, number[]>((value) => (typeof value === 'number' ? [value] : [...value])),
     map((value) => String.fromCodePoint(...value)),
   );
 }

@@ -5,7 +5,6 @@
 import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { createOrReturnObservable } from '../utils/internal';
-import { isIterable } from 'rxjs/internal-compatibility';
 
 /**
  * Returns an Observable that emits a number, the character code of a character at the passed position in a source

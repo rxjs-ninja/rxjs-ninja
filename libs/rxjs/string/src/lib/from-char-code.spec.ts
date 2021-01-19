@@ -1,4 +1,4 @@
-import { catchError, tap } from 'rxjs/operators';
+import { tap } from 'rxjs/operators';
 import { fromCharCode } from '@rxjs-ninja/rxjs-string';
 import { observe } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';

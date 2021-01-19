@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, ObservableInput, Subscribable } from 'rxjs';
+import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
 import { filter, map, withLatestFrom } from 'rxjs/operators';
 import { createOrReturnObservable } from '../utils/internal';
 

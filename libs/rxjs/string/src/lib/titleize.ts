@@ -2,12 +2,11 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of, Subscribable } from 'rxjs';
+import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
 import { split } from './split';
 import { join } from './join';
 import { map, withLatestFrom } from 'rxjs/operators';
-import { ArrayOrSet } from '../types/array-set';
-import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Default words to exclude when using the [[titleize]] operator

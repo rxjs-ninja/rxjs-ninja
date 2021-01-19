@@ -2,12 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, Subscribable } from 'rxjs';
+import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
-import { ArrayOrSet } from '../types/array-set';
-import { isArrayOrSet } from '../utils/array-set';
-import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
-import { isIterable } from 'rxjs/internal-compatibility';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a string that is the source string concatenated with the passed input to the

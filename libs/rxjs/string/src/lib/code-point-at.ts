@@ -35,7 +35,7 @@ export function codePointAt(
       withLatestFrom(position$),
       map(([value, inputValue]) =>
         typeof inputValue === 'number'
-          ? [value.codePointAt(inputValue as number) ?? NaN]
+          ? [value.codePointAt(inputValue) ?? NaN]
           : [...inputValue].map((v) => value.codePointAt(v) ?? NaN),
       ),
     );

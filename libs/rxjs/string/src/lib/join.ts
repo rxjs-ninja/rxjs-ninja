@@ -1,3 +1,7 @@
+/**
+ * @packageDocumentation
+ * @module String
+ */
 import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { createOrReturnObservable } from '../utils/internal';

@@ -12,14 +12,14 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @category Modify
  *
- * @param input Observable string source, array of strings or argument list of strings
+ * @param input Single or list of arguments to concatenate with the source string
  *
  * @example
- * Return a string that is a source appended with a list of strings
+ * Return a string that is a source appended with a string
  * ```ts
- * of('RxJS').pipe(concat(' ', 'Ninja')).subscribe();
+ * of('RxJS').pipe(concat('Ninja')).subscribe();
  * ```
- * Output: `RxJS Ninja`
+ * Output: `RxJSNinja`
  *
  * @example
  * Return a string that is a source appended with a array of strings
@@ -29,7 +29,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * Output: `RxJS Ninja`
  *
  * @example
- * Return a string that is a source appended with an Observable string
+ * Return a string that is a source appended with an Observable strings
  * ```ts
  * of('RxJS').pipe(concat(of([' ', 'Ninja']))).subscribe();
  * ```

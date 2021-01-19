@@ -15,7 +15,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * @remarks This operator is a type-safe {@link https://rxjs.dev/api/index/function/from|from} and will emit only
  * strings, also unlike `from` a single string is not converted into an array-like.
  *
- * @param input A string or array of string unicode characters
+ * @param input Single or list of Unicode character to convert to a string
  * @param form The Unicode Normalization Form to decode the string with
  *
  * @example

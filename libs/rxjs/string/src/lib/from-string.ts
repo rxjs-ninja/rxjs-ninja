@@ -18,13 +18,6 @@ import { createOrReturnObservable } from '../utils/internal';
  * @param input Argument list, Observable input, Promise or Array of strings
  *
  * @example
- * Return a reversed string from an argument list of strings
- * ```ts
- * fromString('RxJS', 'Ninja').pipe(reverse()).subscribe();
- * ```
- * Output: `'SJxR', 'ajniN'`
- *
- * @example
  * Return a reversed string from an array list of strings
  * ```ts
  * fromString(['RxJS', 'Ninja']).pipe(reverse()).subscribe();

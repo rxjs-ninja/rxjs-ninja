@@ -13,14 +13,7 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @category Create
  *
- * @param input Observable input, Promise, Array or argument list of code points
- *
- * @example
- * Return a string from code points arguments
- * ```ts
- * fromCodePoint(9731, 9733, 9842).subscribe();
- * ```
- * Output: `☃★♲`
+ * @param input Single or list of code points to convert to a string
  *
  * @example
  * Return a string from code points array

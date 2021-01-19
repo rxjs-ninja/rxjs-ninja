@@ -16,14 +16,7 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @category Create
  *
- * @param input Observable input, Promise, Array or argument list of character codes
- *
- * @example
- * Return a string from character code arguments
- * ```ts
- * fromCharCode(82, 120, 74, 83).subscribe();
- * ```
- * Output: `RxJS`
+ * @param input Single or list of character codes to convert to a string
  *
  * @example
  * Return a string from character code array

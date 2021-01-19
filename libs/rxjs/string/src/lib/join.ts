@@ -9,7 +9,7 @@ import { createOrReturnObservable } from '../utils/internal';
 /**
  * Returns an Observable that emits a string value from an `Array` or `Set` of values converted to string
  *
- * @category Create
+ * @category Convert
  *
  * @typeParam T The type of value in the source `Array` or `Map`
  *

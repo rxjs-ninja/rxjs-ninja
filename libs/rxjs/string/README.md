@@ -16,9 +16,9 @@ generating string emitters.
 ### Function and Operator categories
 
 - Create - Functions and Operators for creating Observable string values
-- Convert - Operators to convert strings to other types
+- Convert - Operators to convert strings to and from `Array` values
 - Filter - Operators for filtering Observable string sources for truthy values
-- Mapping - Operators that provide mapping to strings from other value types
+- Mapping - Operators that provide mapping strings from other value types using `String` methods
 - Modify - Operators for modifying string values
 - Query - Operators that return non-string values based on querying string values
 

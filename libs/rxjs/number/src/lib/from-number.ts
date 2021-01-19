@@ -2,11 +2,11 @@
  * @packageDocumentation
  * @module Number
  */
-import { isObservable, Observable, ObservableInput, Subscriber } from 'rxjs';
-import { isPromise } from 'rxjs/internal-compatibility';
-import { ArrayOrSetNumbers } from '../types/array-set';
-import { map, switchMap } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, throwError } from 'rxjs';
+import { fromPromise, isPromise } from 'rxjs/internal-compatibility';
+import { catchError, finalize, map, takeWhile, tap } from 'rxjs/operators';
 import { isArrayOrSet } from '../utils/array-set';
+import { ArrayOrSetNumbers } from '../types/array-set';
 
 /**
  * Returns an Observable that emits numbers from an an arguments list or array of number values
@@ -42,51 +42,50 @@ import { isArrayOrSet } from '../utils/array-set';
  *
  * @returns Observable that emits numbers passed from arguments or array
  */
-export function fromNumber<
-  A extends
-    | ObservableInput<ArrayOrSetNumbers | number>
-    | PromiseLike<ArrayOrSetNumbers | number>
-    | ArrayOrSetNumbers
-    | number
->(...args: A[]): Observable<number> {
-  if (isObservable(args[0])) {
-    return ((args[0] as unknown) as Observable<ArrayOrSetNumbers | number>).pipe(
-      map((value) => (isArrayOrSet(value) ? [...value] : [value]) as number[]),
-      switchMap((value) => {
-        return new Observable<number>((subscriber: Subscriber<unknown>): void => {
-          for (let i = 0; i < value.length; i++) {
-            subscriber.next(value[i]);
-          }
-          subscriber.complete();
-        });
-      }),
-    );
-  } else if (isPromise(args[0])) {
-    return new Observable<number>((subscriber: Subscriber<unknown>): void => {
-      function callSubscriber(value: ArrayOrSetNumbers | number) {
-        /* istanbul ignore next-line */
-        if (!subscriber.closed) {
-          const output = isArrayOrSet(value) ? [...value] : [value];
-          for (let i = 0; i < output.length; i++) {
-            subscriber.next(output[i]);
-          }
-          subscriber.complete();
-        }
-      }
 
-      ((args[0] as never) as Promise<ArrayOrSetNumbers | number>).then(
-        (value) => callSubscriber(value),
-        (err) => subscriber.error(err),
-      );
-    });
-  } else {
-    const value = Array.isArray(args[0]) ? (args[0] as number[]) : ([...args] as number[]);
-
-    return new Observable<number>((subscriber: Subscriber<unknown>): void => {
+export function fromNumber(
+  ...args: (ObservableInput<ArrayOrSetNumbers | number> | ArrayOrSetNumbers | number)[]
+): Observable<number> {
+  return new Observable<number>((subscriber) => {
+    if (isObservable(args[0])) {
+      (args[0] as Observable<ArrayOrSetNumbers | number>)
+        .pipe(
+          takeWhile(() => !subscriber.closed),
+          map((value) => (isArrayOrSet(value) ? [...value] : [value])),
+          tap((value) => {
+            for (let i = 0; i < value.length; i++) {
+              subscriber.next(value[i]);
+            }
+            !subscriber.closed && subscriber.complete();
+          }),
+        )
+        .subscribe();
+    } else if (isPromise(args[0])) {
+      fromPromise(args[0] as Promise<ArrayOrSetNumbers | number>)
+        .pipe(
+          map<ArrayOrSetNumbers | number, number[]>((value) =>
+            Array.isArray(value) ? (value as number[]) : ([value] as number[]),
+          ),
+          tap((value) => {
+            for (let i = 0; i < value.length; i++) {
+              subscriber.next(value[i]);
+            }
+          }),
+          catchError((error) => {
+            subscriber.error(error);
+            return throwError(error);
+          }),
+          finalize(() => !subscriber.closed && subscriber.complete()),
+        )
+        .subscribe();
+    } else {
+      const value = Array.isArray(args[0]) ? (args[0] as number[]) : ([...args] as number[]);
       for (let i = 0; i < value.length; i++) {
         subscriber.next(value[i]);
       }
-      subscriber.complete();
-    });
-  }
+      !subscriber.closed && subscriber.complete();
+    }
+    /* istanbul ignore next-line */
+    return () => !subscriber.closed && subscriber.complete();
+  });
 }

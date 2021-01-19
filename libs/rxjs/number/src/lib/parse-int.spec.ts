@@ -64,7 +64,7 @@ describe('parseInt', () => {
       const input = m.hot('-a-b-c-d-|', { a: '0', b: '60', c: 'ff', d: 'Ninja' });
       const subs = '^--------!';
       const expected = m.cold('-w-x-y-z-|', { w: 0, x: 96, y: 255, z: NaN });
-      m.expect(input.pipe(parseInt(of(16), true))).toBeObservable(expected);
+      m.expect(input.pipe(parseInt(of(16), of(true)))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

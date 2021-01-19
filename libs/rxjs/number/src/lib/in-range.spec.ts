@@ -1,5 +1,6 @@
 import { inRange } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
+import { of } from 'rxjs';
 
 describe('inRange', () => {
   it(
@@ -20,6 +21,17 @@ describe('inRange', () => {
       const subs = '^----------!';
       const expected = m.cold('-w-v-x-y-z-|', { w: false, v: false, x: true, y: false, z: false });
       m.expect(input.pipe(inRange(0, 2, true))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
+    'should filter values excluding the Observable boundary values',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-e-|', { a: -1, b: 0, c: 1, d: 2, e: 3.14 });
+      const subs = '^----------!';
+      const expected = m.cold('-w-v-x-y-z-|', { w: false, v: false, x: true, y: false, z: false });
+      m.expect(input.pipe(inRange(of(0), of(2), of(true)))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

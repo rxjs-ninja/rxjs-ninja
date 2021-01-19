@@ -28,9 +28,10 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @category Formatting
  */
 export function toString(radix: number | ObservableInput<number> = 10): OperatorFunction<number, string> {
+  const radix$ = (isObservable(radix) ? radix : of(radix)) as Observable<number>;
   return (source) =>
     source.pipe(
-      withLatestFrom((isObservable(radix) ? radix : of(radix)) as Observable<number>),
+      withLatestFrom(radix$),
       map<[number, number], string>(([value, inputValue]) => value.toString(inputValue)),
     );
 }

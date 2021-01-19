@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module Number
  */
-import { MonoTypeOperatorFunction } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { filter, map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits numbers, where that number falls between the provided `min` and `max` values.
@@ -38,12 +38,21 @@ import { filter } from 'rxjs/operators';
  * @returns Observable that emits a number that falls within the passed `min` and `max` range
  */
 export function filterInRange(
-  min: number,
-  max: number,
-  excludeBoundingValues?: boolean,
+  min: ObservableInput<number> | number,
+  max: ObservableInput<number> | number,
+  excludeBoundingValues?: ObservableInput<boolean> | boolean,
 ): MonoTypeOperatorFunction<number> {
+  const min$ = (isObservable(min) ? min : of(min)) as Observable<number>;
+  const max$ = (isObservable(max) ? max : of(max)) as Observable<number>;
+  const excludeVal$ = (isObservable(excludeBoundingValues)
+    ? excludeBoundingValues
+    : of(excludeBoundingValues)) as Observable<boolean>;
   return (source) =>
-    excludeBoundingValues
-      ? source.pipe(filter((value) => value > min && value < max))
-      : source.pipe(filter((value) => value >= min && value <= max));
+    source.pipe(
+      withLatestFrom(min$, max$, excludeVal$),
+      filter(([value, minInput, maxInput, excludeInput]) =>
+        excludeInput ? value > minInput && value < maxInput : value >= minInput && value <= maxInput,
+      ),
+      map(([value]) => value),
+    );
 }

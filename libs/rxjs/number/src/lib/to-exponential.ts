@@ -22,9 +22,10 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @category Formatting
  */
 export function toExponential(exponential: number | ObservableInput<number>): OperatorFunction<number, string> {
+  const exponential$ = (isObservable(exponential) ? exponential : of(exponential)) as Observable<number>;
   return (source) =>
     source.pipe(
-      withLatestFrom((isObservable(exponential) ? exponential : of(exponential)) as Observable<number>),
+      withLatestFrom(exponential$),
       map<[number, number], string>(([value, inputValue]) => value.toExponential(inputValue)),
     );
 }

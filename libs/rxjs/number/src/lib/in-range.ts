@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module Number
  */
-import { OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits booleans about values from a source that fall within the passed `min` and `max`
@@ -36,7 +36,24 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a boolean if the source number falls within the passed `min` and `max` range
  */
-export function inRange(min: number, max: number, excludeBoundingValues?: boolean): OperatorFunction<number, boolean> {
+export function inRange(
+  min: ObservableInput<number> | number,
+  max: ObservableInput<number> | number,
+  excludeBoundingValues?: ObservableInput<boolean> | boolean,
+): OperatorFunction<number, boolean> {
+  const min$ = (isObservable(min) ? min : of(min)) as Observable<number>;
+  const max$ = (isObservable(max) ? max : of(max)) as Observable<number>;
+  const excludeVal$ = (isObservable(excludeBoundingValues)
+    ? excludeBoundingValues
+    : of(excludeBoundingValues)) as Observable<boolean>;
   return (source) =>
-    source.pipe(map((value) => (excludeBoundingValues ? value > min && value < max : value >= min && value <= max)));
+    source.pipe(
+      withLatestFrom(min$, max$, excludeVal$),
+      map(([value, minInput, maxInput, excludeInput]) => {
+        if (excludeInput) {
+          return value > minInput && value < maxInput;
+        }
+        return value >= minInput && value <= maxInput;
+      }),
+    );
 }

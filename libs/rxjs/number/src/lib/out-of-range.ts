@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module Number
  */
-import { OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits booleans about values from a source that fall outside the passed `min` and `max`
@@ -14,7 +14,7 @@ import { map } from 'rxjs/operators';
  *
  * @param min The minimum number for the range
  * @param max The maximum number for the range
- * @param includeBoundingParameters Optionally include the `min` and `max` values in the Observable
+ * @param includeBounds Optionally include the `min` and `max` values in the Observable
  *
  * @example Returns a boolean value if the number is out the range including the `min` and `max`
  * ```ts
@@ -34,12 +34,19 @@ import { map } from 'rxjs/operators';
  * @category Query
  */
 export function outOfRange(
-  min: number,
-  max: number,
-  includeBoundingParameters?: boolean,
+  min: ObservableInput<number> | number,
+  max: ObservableInput<number> | number,
+  includeBounds?: ObservableInput<boolean> | boolean,
 ): OperatorFunction<number, boolean> {
+  const min$ = (isObservable(min) ? min : of(min)) as Observable<number>;
+  const max$ = (isObservable(max) ? max : of(max)) as Observable<number>;
+  const includeVal$ = (isObservable(includeBounds) ? includeBounds : of(includeBounds)) as Observable<boolean>;
+
   return (source) =>
     source.pipe(
-      map((value) => (includeBoundingParameters ? value <= min || value >= max : value < min || value > max)),
+      withLatestFrom(min$, max$, includeVal$),
+      map(([value, minInput, maxInput, includeInput]) =>
+        includeInput ? value <= minInput || value >= maxInput : value < minInput || value > maxInput,
+      ),
     );
 }

@@ -21,9 +21,10 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @category Formatting
  */
 export function toFixed(digits?: number | ObservableInput<number>): OperatorFunction<number, string> {
+  const digits$ = (isObservable(digits) ? digits : of(digits)) as Observable<number>;
   return (source) =>
     source.pipe(
-      withLatestFrom((isObservable(digits) ? digits : of(digits)) as Observable<number>),
+      withLatestFrom(digits$),
       map<[number, number], string>(([value, inputValue]) => value.toFixed(inputValue)),
     );
 }

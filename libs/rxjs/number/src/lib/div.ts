@@ -30,14 +30,10 @@ const ERROR_MESSAGE = `div operator cannot divide by 0`;
  * @returns Observable that emits a number that is the division of source and input
  */
 export function div(input: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
+  const input$ = (isObservable(input) ? input : of(input)) as Observable<number>;
   return (source) =>
     source.pipe(
-      withLatestFrom((isObservable(input) ? input : of(input)) as Observable<number>),
-      switchMap(([value, inputValue]) => {
-        if (inputValue === 0) {
-          return throwError(ERROR_MESSAGE);
-        }
-        return of(value / inputValue);
-      }),
+      withLatestFrom(input$),
+      switchMap(([value, inputValue]) => (inputValue !== 0 ? of(value / inputValue) : throwError(ERROR_MESSAGE))),
     );
 }

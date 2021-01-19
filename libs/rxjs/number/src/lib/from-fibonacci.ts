@@ -3,7 +3,7 @@
  * @module Number
  */
 
-import { Observable, Subscriber, timer } from 'rxjs';
+import { Observable, timer } from 'rxjs';
 import { finalize, map, takeWhile, tap } from 'rxjs/operators';
 import { fibonacci } from '../utils/from-fibonacci';
 
@@ -32,7 +32,7 @@ import { fibonacci } from '../utils/from-fibonacci';
  * @returns Observable of a Fibonacci sequence of numbers starting from `0`
  */
 export function fromFibonacci(iterations: number, emitDelay = 0): Observable<number> {
-  return new Observable((subscriber: Subscriber<number>) => {
+  return new Observable((subscriber) => {
     const memo = {};
 
     if (iterations <= 0) {

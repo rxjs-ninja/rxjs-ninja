@@ -37,13 +37,19 @@ import { filter, map, withLatestFrom } from 'rxjs/operators';
  * @category Parsing
  */
 export function parseInt(
-  radix: number | ObservableInput<number> = 10,
-  returnNaN?: boolean,
+  radix: ObservableInput<number> | number = 10,
+  returnNaN?: ObservableInput<boolean> | boolean,
 ): OperatorFunction<string, number> {
+  const radix$ = (isObservable(radix) ? radix : of(radix)) as Observable<number>;
+  const returnNaN$ = (isObservable(returnNaN) ? returnNaN : of(returnNaN)) as Observable<boolean>;
   return (source) =>
     source.pipe(
-      withLatestFrom((isObservable(radix) ? radix : of(radix)) as Observable<number>),
-      map(([value, inputValue]) => Number.parseInt(value, inputValue)),
-      filter((value) => returnNaN || !isNaN(value)),
+      withLatestFrom(radix$, returnNaN$),
+      map<[string, number, boolean], [number, boolean]>(([value, inputValue, isReturnNaN]) => [
+        Number.parseInt(value, inputValue),
+        isReturnNaN,
+      ]),
+      filter(([value, isReturnNaN]) => !isNaN(value) || (isNaN(value) && isReturnNaN)),
+      map(([value]) => value),
     );
 }

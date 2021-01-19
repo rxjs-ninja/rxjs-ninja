@@ -23,9 +23,10 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a number that is reminder of a Modulo operation
  */
 export function mod(modulus: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
+  const mod$ = (isObservable(modulus) ? modulus : of(modulus)) as Observable<number>;
   return (source) =>
     source.pipe(
-      withLatestFrom((isObservable(modulus) ? modulus : of(modulus)) as Observable<number>),
+      withLatestFrom(mod$),
       map(([value, inputValue]) => value % inputValue),
     );
 }

@@ -138,12 +138,36 @@
 					<h1>Changelog</h1>
 				</a>
 				<p>All notable changes to this project will be documented in this file.</p>
-				<p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>,
-				and this project adheres to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+				<p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>, and this project adheres
+				to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+				<a href="#500---2021-01-19" id="500---2021-01-19" style="color: inherit; text-decoration: none;">
+					<h2>[5.0.0] - 2021-01-19</h2>
+				</a>
+				<p>Breaking changes in public API, and a lot of internal refactoring.</p>
+				<a href="#added" id="added" style="color: inherit; text-decoration: none;">
+					<h3>Added</h3>
+				</a>
+				<ul>
+					<li><code>join</code> operator for the string module, allows string creation from <code>Array</code> and <code>Set</code> without
+					needing <code>@rxjs-ninja/rxjs-array</code></li>
+				</ul>
+				<a href="#changed" id="changed" style="color: inherit; text-decoration: none;">
+					<h3>Changed</h3>
+				</a>
+				<ul>
+					<li>Operators <code>charAt</code>, <code>charCodeAt</code>, <code>codePointAt</code> all now return an <code>Array</code> value, even if a single value property is
+					used (which will return an array of length 1)</li>
+					<li><code>from*</code> Observables and <code>concat</code> operator no longer accept arguments list or Promise values</li>
+					<li>Fix <code>toLowerCase</code> and <code>toUpperCase</code> reading the wrong variable</li>
+					<li>Improved <code>titleize</code>, also uses new <code>join</code> operator internally</li>
+					<li><code>split</code> operator now has default space separator</li>
+					<li><code>normalize</code> accepts Observable <code>FormType</code></li>
+					<li>Internal cleanup and refactoring</li>
+				</ul>
 				<a href="#410---2021-01-17" id="410---2021-01-17" style="color: inherit; text-decoration: none;">
 					<h2>[4.1.0] - 2021-01-17</h2>
 				</a>
-				<a href="#changed" id="changed" style="color: inherit; text-decoration: none;">
+				<a href="#changed-1" id="changed-1" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -159,36 +183,39 @@
 				</a>
 				<p>This release contains a major update to documentation and examples on <a href="https://rxjs.ninja">rxjs.ninja</a> and improved test
 				coverage that provided various bug fixes.</p>
-				<a href="#added" id="added" style="color: inherit; text-decoration: none;">
+				<a href="#added-1" id="added-1" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
-					<li><code>replaceAll</code> operator for replacing all instances of a passed string in a source string (note: This requires node 15 or latest browsers)</li>
+					<li><code>replaceAll</code> operator for replacing all instances of a passed string in a source string (note: This requires node 15
+					or latest browsers)</li>
 				</ul>
-				<a href="#changed-1" id="changed-1" style="color: inherit; text-decoration: none;">
+				<a href="#changed-2" id="changed-2" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
 					<li><code>padString</code> has been removed, <code>padStart</code>/<code>padLeft</code> and <code>padEnd</code>/<code>padRight</code> are the only API for these methods</li>
 					<li><code>trimString</code> has been removed, <code>trim</code>, <code>trimStart</code>/<code>trimLeft</code> and <code>trimEnd</code>/<code>trimRight</code> are now only available</li>
-					<li><code>titlize</code> arguments have changed, now accepts a list of words to exclude first as an array of strings. Ignores this for the first word or capitalised words</li>
+					<li><code>titlize</code> arguments have changed, now accepts a list of words to exclude first as an array of strings. Ignores this
+					for the first word or capitalised words</li>
 					<li><code>concat</code> now uses <code>concatMap</code> instead of <code>switchMap</code> when passed an Observable value</li>
 					<li><code>fromCharCode</code>, <code>fromCodePoint</code>, <code>fromString</code> and <code>fromUnicode</code> now accept Observable or Promise-like values</li>
 				</ul>
 				<a href="#312---2020-11-22" id="312---2020-11-22" style="color: inherit; text-decoration: none;">
 					<h2>[3.1.2] - 2020-11-22</h2>
 				</a>
-				<a href="#changed-2" id="changed-2" style="color: inherit; text-decoration: none;">
+				<a href="#changed-3" id="changed-3" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
-					<li>Package is now published under <code>@rxjs-ninja/rxjs-string</code> (this also includes previous version for migration from <code>@tinynodes/rxjs-string</code>)</li>
+					<li>Package is now published under <code>@rxjs-ninja/rxjs-string</code> (this also includes previous version for migration
+					from <code>@tinynodes/rxjs-string</code>)</li>
 					<li>Documentation updates</li>
 				</ul>
 				<a href="#311---2020-11-20" id="311---2020-11-20" style="color: inherit; text-decoration: none;">
 					<h2>[3.1.1] - 2020-11-20</h2>
 				</a>
-				<a href="#changed-3" id="changed-3" style="color: inherit; text-decoration: none;">
+				<a href="#changed-4" id="changed-4" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -206,7 +233,7 @@
 				<a href="#300---2020-11-17" id="300---2020-11-17" style="color: inherit; text-decoration: none;">
 					<h2>[3.0.0] - 2020-11-17</h2>
 				</a>
-				<a href="#changed-4" id="changed-4" style="color: inherit; text-decoration: none;">
+				<a href="#changed-5" id="changed-5" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -216,7 +243,7 @@
 				<a href="#231---2020-05-24" id="231---2020-05-24" style="color: inherit; text-decoration: none;">
 					<h2>[2.3.1] - 2020-05-24</h2>
 				</a>
-				<a href="#changed-5" id="changed-5" style="color: inherit; text-decoration: none;">
+				<a href="#changed-6" id="changed-6" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -225,7 +252,7 @@
 				<a href="#230-2020-05-23" id="230-2020-05-23" style="color: inherit; text-decoration: none;">
 					<h2>[2.3.0] 2020-05-23</h2>
 				</a>
-				<a href="#changed-6" id="changed-6" style="color: inherit; text-decoration: none;">
+				<a href="#changed-7" id="changed-7" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -234,25 +261,27 @@
 				<a href="#220---2020-05-18" id="220---2020-05-18" style="color: inherit; text-decoration: none;">
 					<h2>[2.2.0] - 2020-05-18</h2>
 				</a>
-				<a href="#added-1" id="added-1" style="color: inherit; text-decoration: none;">
+				<a href="#added-2" id="added-2" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
-				<p>New Operators (now <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a> feature complete)</p>
+				<p>New Operators (now <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String</a>
+				feature complete)</p>
 				<ul>
-					<li><code>fromUnicode</code> - Creates a string of Unicode Normalization Form characters
-						and uses <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize">String.prototype.normalize</a>
+					<li><code>fromUnicode</code> - Creates a string of Unicode Normalization Form characters and
+						uses <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize">String.prototype.normalize</a>
 					to convert it to a string</li>
 					<li><code>match</code> and <code>matchAll</code> for matching strings or regular expressions.<ul>
 							<li><code>match</code> returns a single Array-like <code>RegExpMatchArray</code></li>
 							<li><code>matchAll</code> returns an array of Array-like <code>RegExpMatchArray</code></li>
 						</ul>
 					</li>
-					<li><code>repeat</code> - This repeats a string by the passed count number. This implementation accepts an optional separator character that can be used to generate strings such as CSV</li>
+					<li><code>repeat</code> - This repeats a string by the passed count number. This implementation accepts an optional separator
+					character that can be used to generate strings such as CSV</li>
 					<li><code>search</code> - Searches a string and return the index of the result</li>
 					<li><code>padStart</code> and <code>padEnd</code> alias methods now added for padding</li>
 					<li><code>trimLeft</code> <code>trimRight</code> and <code>trim</code> alias methods now added for trimming</li>
 				</ul>
-				<a href="#changed-7" id="changed-7" style="color: inherit; text-decoration: none;">
+				<a href="#changed-8" id="changed-8" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -261,13 +290,13 @@
 				<a href="#212---2020-05-16" id="212---2020-05-16" style="color: inherit; text-decoration: none;">
 					<h2>[2.1.2] - 2020-05-16</h2>
 				</a>
-				<a href="#added-2" id="added-2" style="color: inherit; text-decoration: none;">
+				<a href="#added-3" id="added-3" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
 					<li>Added <code>PadPosition</code> and <code>TrimPosition</code> enums</li>
 				</ul>
-				<a href="#changed-8" id="changed-8" style="color: inherit; text-decoration: none;">
+				<a href="#changed-9" id="changed-9" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -282,7 +311,7 @@
 				<ul>
 					<li>Fix single character support in <code>mapCodePoint</code></li>
 				</ul>
-				<a href="#changed-9" id="changed-9" style="color: inherit; text-decoration: none;">
+				<a href="#changed-10" id="changed-10" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -291,15 +320,17 @@
 				<a href="#210---2020-05-10" id="210---2020-05-10" style="color: inherit; text-decoration: none;">
 					<h2>[2.1.0] - 2020-05-10</h2>
 				</a>
-				<a href="#changed-10" id="changed-10" style="color: inherit; text-decoration: none;">
+				<a href="#changed-11" id="changed-11" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
-					<li><code>fromString</code> now accepts both a single string value or array of string values. When passing an array
-					it acts the same as the <a href="https://rxjs.dev/api/index/function/from">from</a> operator and also accept a scheduler.</li>
+					<li><code>fromString</code> now accepts both a single string value or array of string values. When passing an array it acts the same
+					as the <a href="https://rxjs.dev/api/index/function/from">from</a> operator and also accept a scheduler.</li>
 					<li><code>concat</code> operator now accepts an argument list of strings or an array of strings</li>
-					<li><code>fromCharCode</code> now accepts both a single string value or array of string values, but will only return a single string value</li>
-					<li><code>fromCodePoint</code> now accepts both a single string value or array of string values, but will only return a single string value</li>
+					<li><code>fromCharCode</code> now accepts both a single string value or array of string values, but will only return a single string
+					value</li>
+					<li><code>fromCodePoint</code> now accepts both a single string value or array of string values, but will only return a single string
+					value</li>
 					<li><code>mapCharCode</code> now accepts an Observable single number or array of numbers</li>
 					<li><code>mapCodePoint</code> now accepts an Observable single number or array of numbers</li>
 					<li>Tests refactored and improved</li>
@@ -308,11 +339,12 @@
 				<a href="#200---2020-05-10" id="200---2020-05-10" style="color: inherit; text-decoration: none;">
 					<h2>[2.0.0] - 2020-05-10</h2>
 				</a>
-				<a href="#changed-11" id="changed-11" style="color: inherit; text-decoration: none;">
+				<a href="#changed-12" id="changed-12" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
-					<li>The current operators that begin with <code>from*</code> are being changed to <code>filter*</code> or <code>map*</code> as using <code>from</code> has a specific context in RxJS with creating Observable values.</li>
+					<li>The current operators that begin with <code>from*</code> are being changed to <code>filter*</code> or <code>map*</code> as using <code>from</code> has a specific
+					context in RxJS with creating Observable values.</li>
 				</ul>
 				<p>The following operators are affected:</p>
 				<ul>
@@ -322,7 +354,7 @@
 					<li><code>fromIncludes</code> to <code>filterIncludes</code></li>
 					<li><code>fromStartsWith</code> to <code>filterStartsWith</code></li>
 				</ul>
-				<a href="#added-3" id="added-3" style="color: inherit; text-decoration: none;">
+				<a href="#added-4" id="added-4" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -333,7 +365,7 @@
 				<a href="#112---2020-05-07" id="112---2020-05-07" style="color: inherit; text-decoration: none;">
 					<h2>[1.1.2] - 2020-05-07</h2>
 				</a>
-				<a href="#added-4" id="added-4" style="color: inherit; text-decoration: none;">
+				<a href="#added-5" id="added-5" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -343,7 +375,7 @@
 				<a href="#111---2020-05-06" id="111---2020-05-06" style="color: inherit; text-decoration: none;">
 					<h2>[1.1.1] - 2020-05-06</h2>
 				</a>
-				<a href="#changed-12" id="changed-12" style="color: inherit; text-decoration: none;">
+				<a href="#changed-13" id="changed-13" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -352,12 +384,13 @@
 				<a href="#110---2020-05-06" id="110---2020-05-06" style="color: inherit; text-decoration: none;">
 					<h2>[1.1.0] - 2020-05-06</h2>
 				</a>
-				<a href="#added-5" id="added-5" style="color: inherit; text-decoration: none;">
+				<a href="#added-6" id="added-6" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
 					<li><code>codePointAt</code> - Returns the code point at a specified index position of an <code>Observable&lt;string&gt;</code></li>
-					<li><code>concat</code> - Returns a string of the original <code>Observable&lt;string&gt;</code> concatenated with additional string passed as parameters</li>
+					<li><code>concat</code> - Returns a string of the original <code>Observable&lt;string&gt;</code> concatenated with additional string passed as
+					parameters</li>
 					<li><code>fromCharCode</code> - Generates a string based on an array of character codes</li>
 					<li><code>filterCodePoint</code> - Generates a string based on an array of code points</li>
 					<li><code>fromStartsWith</code> - Returns the <code>String</code> value of a <code>Observable&lt;string&gt;</code> that starts with a specified character</li>
@@ -370,7 +403,7 @@
 					<h2>[1.0.2] - 2020-05-06</h2>
 				</a>
 				<p>Initial release of library</p>
-				<a href="#added-6" id="added-6" style="color: inherit; text-decoration: none;">
+				<a href="#added-7" id="added-7" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -381,18 +414,22 @@
 					<li><code>fromIncludes</code> - Returns the <code>String</code> value of a <code>Observable&lt;string&gt;</code> that includes a specified string</li>
 					<li><code>includes</code> - Returns the <code>Boolean</code> value of a <code>Observable&lt;string&gt;</code> that includes a specified string</li>
 					<li><code>indexOf</code> - Returns a <code>Number</code> index of a specified string in a <code>Observable&lt;string&gt;</code> value</li>
-					<li><code>padString</code> - Returns a padded string, padded from <code>&#39;start&#39;</code> or <code>&#39;end&#39;</code> to a specified length and optional pad character</li>
-					<li><code>replace</code> - Returns a <code>String</code> where the original <code>Observable&lt;string&gt;</code> is modified with a regex or string search string, and replacement character or string</li>
-					<li><code>substring</code> - Returns a substring <code>String</code> of the original <code>Observable&lt;string&gt;</code> to the specified start position and length</li>
+					<li><code>padString</code> - Returns a padded string, padded from <code>&#39;start&#39;</code> or <code>&#39;end&#39;</code> to a specified length and optional pad
+					character</li>
+					<li><code>replace</code> - Returns a <code>String</code> where the original <code>Observable&lt;string&gt;</code> is modified with a regex or string search
+					string, and replacement character or string</li>
+					<li><code>substring</code> - Returns a substring <code>String</code> of the original <code>Observable&lt;string&gt;</code> to the specified start position and
+					length</li>
 					<li><code>toLowerCase</code> - Returns a localised lower-case <code>String</code> of the original <code>Observable&lt;string&gt;</code> value</li>
 					<li><code>toUpperCase</code> - Returns a localised upper-case <code>String</code> of the original <code>Observable&lt;string&gt;</code> value</li>
-					<li><code>trimString</code> - Returns a <code>String</code> value that has white space trimmed from the original <code>Observable&lt;string&gt;</code> - can be <code>&#39;start&#39;</code>, <code>&#39;end&#39;</code> or <code>&#39;all&#39;</code></li>
+					<li><code>trimString</code> - Returns a <code>String</code> value that has white space trimmed from the original <code>Observable&lt;string&gt;</code> - can
+					be <code>&#39;start&#39;</code>, <code>&#39;end&#39;</code> or <code>&#39;all&#39;</code></li>
 				</ul>
 			</div>
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/19/2021 at 12:42:11 AM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/19/2021 at 11:12:23 PM</p>
 			</div>
 		</div>
 	</div>

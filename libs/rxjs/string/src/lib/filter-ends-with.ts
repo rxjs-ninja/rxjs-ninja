@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, of } from 'rxjs';
+import { isObservable, MonoTypeOperatorFunction, Observable, of, Subscribable } from 'rxjs';
 import { filter, map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
 
 /**
  * Returns an Observable that emits a string where the source string ends with the passed ending using String.endsWith
@@ -12,8 +13,8 @@ import { filter, map, withLatestFrom } from 'rxjs/operators';
  *
  * @see The [[endsWith]] operator returns the boolean value
  *
- * @param ending The string to check the source ends with
- * @param length Optional length of the string to check
+ * @param search The string to check the source ends with
+ * @param maxLength Optional length of the string to check
  *
  * @example
  * Return a string where the source string ends with the `S` character
@@ -32,15 +33,15 @@ import { filter, map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a string
  */
 export function filterEndsWith(
-  ending: string | Observable<string>,
-  length?: number | Observable<number>,
+  search: Subscribable<string> | string,
+  maxLength?: Subscribable<number> | number,
 ): MonoTypeOperatorFunction<string> {
-  const ending$ = (isObservable(ending) ? ending : of(ending)) as Observable<string>;
-  const length$ = (isObservable(length) ? length : of(length)) as Observable<number>;
-  return (source: Observable<string>) =>
+  const search$ = createOrReturnObservable(search);
+  const maxLength$ = createOrReturnObservable(maxLength);
+  return (source) =>
     source.pipe(
-      withLatestFrom(ending$, length$),
-      map(([value, endingInput, lengthInput]) => (value.endsWith(endingInput, lengthInput) ? value : '')),
+      withLatestFrom(search$, maxLength$),
+      map(([value, searchValue, maxLengthValue]) => (value.endsWith(searchValue, maxLengthValue) ? value : '')),
       filter((val) => Boolean(val)),
     );
 }

@@ -2,10 +2,12 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of, Subscribable } from 'rxjs';
 import { split } from './split';
+import { join } from './join';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { ArrayOrSet } from '../types/array-set';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
 
 /**
  * Default words to exclude when using the [[titleize]] operator
@@ -59,29 +61,26 @@ export const NO_CAP_WORDS = ['a', 'and', 'but', 'is', 'or', 'over', 'the', 'to',
  * @returns Observable that emits a titilzed string
  */
 export function titleize(
-  noTitleWords: ArrayOrSet<string> | ObservableInput<ArrayOrSet<string>> = NO_CAP_WORDS,
-  separator: string | ObservableInput<string> = ' ',
-  locales?: string | ObservableInput<string>,
+  noTitleWords: Subscribable<Iterable<string>> | Iterable<string> = NO_CAP_WORDS,
+  separator: Subscribable<string> | string = ' ',
+  locales?: Subscribable<string> | string,
 ): MonoTypeOperatorFunction<string> {
-  const noTitleWords$ = (isObservable(noTitleWords) ? noTitleWords : of(noTitleWords)) as Observable<string[]>;
-  const separator$ = (isObservable(separator) ? separator : of(separator)) as Observable<string>;
-  const locales$ = (isObservable(locales) ? locales : of(locales)) as Observable<string>;
-
+  const noTitleWords$ = createOrReturnObservable(noTitleWords);
+  const locales$ = createOrReturnObservable(locales);
   return (source) =>
     source.pipe(
-      split(separator),
-      withLatestFrom(noTitleWords$, separator$, locales$),
-      map(([values, noTitleInput, separatorInput, localesInput]) =>
-        [...values]
-          .map((word, index) => {
-            if (index && [...noTitleInput].includes(word)) {
-              return word;
-            }
-            return word.charCodeAt(0) >= 65 && word.charCodeAt(0) <= 90
-              ? word
-              : `${word.charAt(0).toLocaleUpperCase(localesInput)}${word.slice(1)}`;
-          })
-          .join(separatorInput),
+      split(separator), // Here we use `split` passing the same value passed in to this operator
+      withLatestFrom(noTitleWords$, locales$),
+      map(([values, noTitleWordsValue, localesValues]) =>
+        [...values].map((word, index) => {
+          if (index && [...noTitleWordsValue].includes(word)) {
+            return word;
+          }
+          return word.charCodeAt(0) >= 65 && word.charCodeAt(0) <= 90
+            ? word
+            : `${word.charAt(0).toLocaleUpperCase(localesValues)}${word.slice(1)}`;
+        }),
       ),
+      join(separator), // Then use the `join` operator with same value to rejoin
     );
 }

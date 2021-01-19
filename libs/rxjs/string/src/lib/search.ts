@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
 
 /**
  * Returns an Observable that emits a number that is the first index of where the value is found using String.search
@@ -28,11 +29,11 @@ import { map, withLatestFrom } from 'rxjs/operators';
  *
  * @returns Observable that emits an number that is the start index of the first found value
  */
-export function search(pattern: string | RegExp | ObservableInput<string | RegExp>): OperatorFunction<string, number> {
-  const pattern$ = (isObservable(pattern) ? pattern : of(pattern)) as Observable<string | RegExp>;
-  return (source: Observable<string>) =>
+export function search(pattern: Subscribable<string | RegExp> | string | RegExp): OperatorFunction<string, number> {
+  const pattern$ = createOrReturnObservable(pattern);
+  return (source) =>
     source.pipe(
       withLatestFrom(pattern$),
-      map(([value, pattenInput]) => value.search(pattenInput)),
+      map(([value, patternValue]) => value.search(patternValue)),
     );
 }

@@ -2,12 +2,13 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, throwError } from 'rxjs';
+import { isObservable, Observable, ObservableInput, Subscribable, throwError } from 'rxjs';
 import { FormType } from '../types/normalize';
 import { catchError, finalize, map, takeWhile, tap } from 'rxjs/operators';
 import { fromPromise, isPromise } from 'rxjs/internal-compatibility';
 import { ArrayOrSet } from '../types/array-set';
 import { isArrayOrSet } from '../utils/array-set';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
 
 /**
  * Returns an Observable that emits a string made from a source unicode string using String.normalize
@@ -29,50 +30,24 @@ import { isArrayOrSet } from '../utils/array-set';
  *
  * @returns Observable that emits a string
  */
-
 export function fromUnicode(
-  input: ObservableInput<ArrayOrSet<string> | string> | ArrayOrSet<string> | string,
+  input: Subscribable<Iterable<string> | string> | Iterable<string> | string,
   form?: FormType,
 ): Observable<string> {
   return new Observable<string>((subscriber) => {
-    if (isObservable(input)) {
-      (input as Observable<ArrayOrSet<string> | string>)
-        .pipe(
-          takeWhile(() => !subscriber.closed),
-          map((value) => (isArrayOrSet(value) ? [...value] : [value])),
-          tap((value) => {
-            for (let i = 0; i < value.length; i++) {
-              subscriber.next(value[i].normalize(form));
-            }
-          }),
-          finalize(() => !subscriber.closed && subscriber.complete()),
-        )
-        .subscribe();
-    } else if (isPromise(input)) {
-      fromPromise(input as Promise<ArrayOrSet<string> | string>)
-        .pipe(
-          map<ArrayOrSet<string> | string, string[]>((value) =>
-            Array.isArray(value) ? (value as string[]) : ([value] as string[]),
-          ),
-          tap((value) => {
-            for (let i = 0; i < value.length; i++) {
-              subscriber.next(value[i].normalize(form));
-            }
-          }),
-          catchError((error) => {
-            subscriber.error(error);
-            return throwError(error);
-          }),
-          finalize(() => !subscriber.closed && subscriber.complete()),
-        )
-        .subscribe();
-    } else {
-      const value = Array.isArray(input) ? (input as string[]) : ([input] as string[]);
-      for (let i = 0; i < value.length; i++) {
-        subscriber.next(value[i].normalize(form));
-      }
-      !subscriber.closed && subscriber.complete();
-    }
+    createOrReturnObservable(input)
+      .pipe(
+        takeWhile(() => !subscriber.closed),
+        map<Iterable<string> | string, string[]>((value) => (typeof value === 'string' ? [value] : [...value])),
+        tap((value) => {
+          for (let i = 0; i < value.length; i++) {
+            subscriber.next(value[i].normalize(form));
+          }
+        }),
+        finalize(() => !subscriber.closed && subscriber.complete()),
+      )
+      .subscribe();
+
     /* istanbul ignore next-line */
     return () => !subscriber.closed && subscriber.complete();
   });

@@ -2,8 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
-and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
+to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+Major breaking changes in operators with this release, detailed below
+
+### Added
+
+- `join` operator for the string module, allows string creation from `Array` and `Set` without
+  needing `@rxjs-ninja/rxjs-array`
+
+### Changed
+
+- Operators `charAt`, `charCodeAt`, `codePointAt` all now return an `Array` value, even if a single value property is
+  used (which will return an array of length 1)
+
+- `concat` no longer accepts input as multiple arguments, only as single value or `Set` or `Array` values
+
+- Internal changes to `from*` methods that fix argument and Observable generation, not a breaking change
+- Fix `toLowerCase` and `toUpperCase` reading the wrong variable
+- Improved `titleize`, also uses new `join` operator internally
+- `split` operator now has default space separator
 
 ## [4.1.0] - 2021-01-17
 
@@ -22,13 +43,15 @@ coverage that provided various bug fixes.
 
 ### Added
 
-- `replaceAll` operator for replacing all instances of a passed string in a source string (note: This requires node 15 or latest browsers)
+- `replaceAll` operator for replacing all instances of a passed string in a source string (note: This requires node 15
+  or latest browsers)
 
 ### Changed
 
 - `padString` has been removed, `padStart`/`padLeft` and `padEnd`/`padRight` are the only API for these methods
 - `trimString` has been removed, `trim`, `trimStart`/`trimLeft` and `trimEnd`/`trimRight` are now only available
-- `titlize` arguments have changed, now accepts a list of words to exclude first as an array of strings. Ignores this for the first word or capitalised words
+- `titlize` arguments have changed, now accepts a list of words to exclude first as an array of strings. Ignores this
+  for the first word or capitalised words
 - `concat` now uses `concatMap` instead of `switchMap` when passed an Observable value
 - `fromCharCode`, `fromCodePoint`, `fromString` and `fromUnicode` now accept Observable or Promise-like values
 
@@ -36,7 +59,8 @@ coverage that provided various bug fixes.
 
 ### Changed
 
-- Package is now published under `@rxjs-ninja/rxjs-string` (this also includes previous version for migration from `@tinynodes/rxjs-string`)
+- Package is now published under `@rxjs-ninja/rxjs-string` (this also includes previous version for migration
+  from `@tinynodes/rxjs-string`)
 - Documentation updates
 
 ## [3.1.1] - 2020-11-20
@@ -74,15 +98,17 @@ coverage that provided various bug fixes.
 
 ### Added
 
-New Operators (now [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String) feature complete)
+New Operators (now [String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+feature complete)
 
-- `fromUnicode` - Creates a string of Unicode Normalization Form characters
-  and uses [String.prototype.normalize](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize)
+- `fromUnicode` - Creates a string of Unicode Normalization Form characters and
+  uses [String.prototype.normalize](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/normalize)
   to convert it to a string
 - `match` and `matchAll` for matching strings or regular expressions.
   - `match` returns a single Array-like `RegExpMatchArray`
   - `matchAll` returns an array of Array-like `RegExpMatchArray`
-- `repeat` - This repeats a string by the passed count number. This implementation accepts an optional separator character that can be used to generate strings such as CSV
+- `repeat` - This repeats a string by the passed count number. This implementation accepts an optional separator
+  character that can be used to generate strings such as CSV
 - `search` - Searches a string and return the index of the result
 - `padStart` and `padEnd` alias methods now added for padding
 - `trimLeft` `trimRight` and `trim` alias methods now added for trimming
@@ -115,11 +141,13 @@ New Operators (now [String](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 
 ### Changed
 
-- `fromString` now accepts both a single string value or array of string values. When passing an array
-  it acts the same as the [from](https://rxjs.dev/api/index/function/from) operator and also accept a scheduler.
+- `fromString` now accepts both a single string value or array of string values. When passing an array it acts the same
+  as the [from](https://rxjs.dev/api/index/function/from) operator and also accept a scheduler.
 - `concat` operator now accepts an argument list of strings or an array of strings
-- `fromCharCode` now accepts both a single string value or array of string values, but will only return a single string value
-- `fromCodePoint` now accepts both a single string value or array of string values, but will only return a single string value
+- `fromCharCode` now accepts both a single string value or array of string values, but will only return a single string
+  value
+- `fromCodePoint` now accepts both a single string value or array of string values, but will only return a single string
+  value
 - `mapCharCode` now accepts an Observable single number or array of numbers
 - `mapCodePoint` now accepts an Observable single number or array of numbers
 - Tests refactored and improved
@@ -129,7 +157,8 @@ New Operators (now [String](https://developer.mozilla.org/en-US/docs/Web/JavaScr
 
 ### Changed
 
-- The current operators that begin with `from*` are being changed to `filter*` or `map*` as using `from` has a specific context in RxJS with creating Observable values.
+- The current operators that begin with `from*` are being changed to `filter*` or `map*` as using `from` has a specific
+  context in RxJS with creating Observable values.
 
 The following operators are affected:
 
@@ -163,7 +192,8 @@ The following operators are affected:
 ### Added
 
 - `codePointAt` - Returns the code point at a specified index position of an `Observable<string>`
-- `concat` - Returns a string of the original `Observable<string>` concatenated with additional string passed as parameters
+- `concat` - Returns a string of the original `Observable<string>` concatenated with additional string passed as
+  parameters
 - `fromCharCode` - Generates a string based on an array of character codes
 - `filterCodePoint` - Generates a string based on an array of code points
 - `fromStartsWith` - Returns the `String` value of a `Observable<string>` that starts with a specified character
@@ -185,9 +215,13 @@ Initial release of library
 - `fromIncludes` - Returns the `String` value of a `Observable<string>` that includes a specified string
 - `includes` - Returns the `Boolean` value of a `Observable<string>` that includes a specified string
 - `indexOf` - Returns a `Number` index of a specified string in a `Observable<string>` value
-- `padString` - Returns a padded string, padded from `'start'` or `'end'` to a specified length and optional pad character
-- `replace` - Returns a `String` where the original `Observable<string>` is modified with a regex or string search string, and replacement character or string
-- `substring` - Returns a substring `String` of the original `Observable<string>` to the specified start position and length
+- `padString` - Returns a padded string, padded from `'start'` or `'end'` to a specified length and optional pad
+  character
+- `replace` - Returns a `String` where the original `Observable<string>` is modified with a regex or string search
+  string, and replacement character or string
+- `substring` - Returns a substring `String` of the original `Observable<string>` to the specified start position and
+  length
 - `toLowerCase` - Returns a localised lower-case `String` of the original `Observable<string>` value
 - `toUpperCase` - Returns a localised upper-case `String` of the original `Observable<string>` value
-- `trimString` - Returns a `String` value that has white space trimmed from the original `Observable<string>` - can be `'start'`, `'end'` or `'all'`
+- `trimString` - Returns a `String` value that has white space trimmed from the original `Observable<string>` - can
+  be `'start'`, `'end'` or `'all'`

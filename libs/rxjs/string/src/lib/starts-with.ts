@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
 
 /**
  * Returns an Observable that emits a boolean when the source string contains the input string at the start of the
@@ -34,14 +35,14 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a boolean if the source string start with the input string
  */
 export function startsWith(
-  search: string | ObservableInput<string>,
-  startIndex?: number | ObservableInput<number>,
+  search: Subscribable<string> | string,
+  startIndex?: Subscribable<number> | number,
 ): OperatorFunction<string, boolean> {
-  const search$ = (isObservable(search) ? search : of(search)) as Observable<string>;
-  const startIndex$ = (isObservable(startIndex) ? startIndex : of(startIndex)) as Observable<number>;
+  const search$ = createOrReturnObservable(search);
+  const startIndex$ = createOrReturnObservable(startIndex);
   return (source) =>
     source.pipe(
       withLatestFrom(search$, startIndex$),
-      map(([value, inputValue, index]) => value.startsWith(inputValue, index)),
+      map(([value, searchValue, indexValue]) => value.startsWith(searchValue, indexValue)),
     );
 }

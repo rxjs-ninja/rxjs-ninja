@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of, Subscribable } from 'rxjs';
 import { filter, map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
 
 /**
  * Returns an Observable that emits a string where the source string starts with the passed string using
@@ -13,8 +14,8 @@ import { filter, map, withLatestFrom } from 'rxjs/operators';
  *
  * @see The [[startsWith]] operator returns the boolean value
  *
- * @param start The string to check the source starts with
- * @param startFrom Optional index to start the check from
+ * @param search The string to check the source starts with
+ * @param startIndex Optional index to start the check from
  *
  * @example
  * Return a string where the source string starts with the `N` character
@@ -33,15 +34,15 @@ import { filter, map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a string
  */
 export function filterStartsWith(
-  start: string | ObservableInput<string>,
-  startFrom?: number | ObservableInput<number>,
+  search: Subscribable<string> | string,
+  startIndex?: Subscribable<number> | number,
 ): MonoTypeOperatorFunction<string> {
-  const start$ = (isObservable(start) ? start : of(start)) as Observable<string>;
-  const startFrom$ = (isObservable(startFrom) ? startFrom : of(startFrom)) as Observable<number>;
+  const search$ = createOrReturnObservable(search);
+  const startIndex$ = createOrReturnObservable(startIndex);
   return (source) =>
     source.pipe(
-      withLatestFrom(start$, startFrom$),
-      map(([value, startInput, startFromInput]) => (value.startsWith(startInput, startFromInput) ? value : '')),
+      withLatestFrom(search$, startIndex$),
+      map(([value, searchValue, startIndexValue]) => (value.startsWith(searchValue, startIndexValue) ? value : '')),
       filter((value) => Boolean(value)),
     );
 }

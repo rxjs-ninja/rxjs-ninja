@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
 
 /**
  * Returns an Observable that emits a string that is a partial slice of the source string using String.substring
@@ -30,14 +31,14 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a string that is a substring of the source string
  */
 export function substring(
-  indexStart: number | ObservableInput<number>,
-  indexEnd?: number | ObservableInput<number>,
+  indexStart: Subscribable<number> | number,
+  indexEnd?: Subscribable<number> | number,
 ): MonoTypeOperatorFunction<string> {
-  const indexStart$ = (isObservable(indexStart) ? indexStart : of(indexStart)) as Observable<number>;
-  const indexEnd$ = (isObservable(indexEnd) ? indexEnd : of(indexEnd)) as Observable<number>;
+  const indexStart$ = createOrReturnObservable(indexStart);
+  const indexEnd$ = createOrReturnObservable(indexEnd);
   return (source) =>
     source.pipe(
       withLatestFrom(indexStart$, indexEnd$),
-      map(([value, start, end]) => value.substring(start, end)),
+      map(([value, startValue, endValue]) => value.substring(startValue, endValue)),
     );
 }

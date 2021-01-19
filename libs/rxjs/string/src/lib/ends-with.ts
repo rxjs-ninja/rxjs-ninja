@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
 
 /**
  * Returns an Observable that emits a boolean value where the source string ends with the passed string parameter using
@@ -13,8 +14,8 @@ import { map, withLatestFrom } from 'rxjs/operators';
  *
  * @see The [[filterEndsWith]] operator returns the string value
  *
- * @param ending The string to check the source ends with
- * @param length Optional length of the string to check
+ * @param search The string to check the source ends with
+ * @param maxLength Optional length of the string to check
  *
  * @example
  * Return if the source string ends with the `S` character
@@ -33,14 +34,14 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a boolean of the source string ending with the passed input
  */
 export function endsWith(
-  ending: string | ObservableInput<string>,
-  length?: number | ObservableInput<number>,
+  search: Subscribable<string> | string,
+  maxLength?: Subscribable<number> | number,
 ): OperatorFunction<string, boolean> {
-  const ending$ = (isObservable(ending) ? ending : of(ending)) as Observable<string>;
-  const length$ = (isObservable(length) ? length : of(length)) as Observable<number>;
+  const search$ = createOrReturnObservable(search);
+  const maxLength$ = createOrReturnObservable(maxLength);
   return (source) =>
     source.pipe(
-      withLatestFrom(ending$, length$),
-      map(([value, endingInput, lengthInput]) => value.endsWith(endingInput, lengthInput)),
+      withLatestFrom(search$, maxLength$),
+      map(([value, searchValue, maxLengthValue]) => value.endsWith(searchValue, maxLengthValue)),
     );
 }

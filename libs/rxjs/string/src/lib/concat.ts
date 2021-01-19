@@ -2,10 +2,12 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput } from 'rxjs';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { ArrayOrSet } from '../types/array-set';
 import { isArrayOrSet } from '../utils/array-set';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
+import { isIterable } from 'rxjs/internal-compatibility';
 
 /**
  * Returns an Observable that emits a string that is the source string concatenated with the passed input to the
@@ -13,7 +15,7 @@ import { isArrayOrSet } from '../utils/array-set';
  *
  * @category Modify
  *
- * @param args Observable string source, array of strings or argument list of strings
+ * @param input Observable string source, array of strings or argument list of strings
  *
  * @example
  * Return a string that is a source appended with a list of strings
@@ -39,20 +41,14 @@ import { isArrayOrSet } from '../utils/array-set';
  * @returns Observable that emits a string
  */
 export function concat(
-  ...args: ObservableInput<string | string[]>[] | ArrayOrSet<string>[] | string[]
+  input: Subscribable<Iterable<string> | string> | Iterable<string> | string,
 ): MonoTypeOperatorFunction<string> {
-  const values: unknown[] = [...args];
-  if (isArrayOrSet(values[0])) {
-    return (source) => source.pipe(map((value) => value.concat(...(values[0] as string[]))));
-  } else if (isObservable(values[0])) {
-    return (source) =>
-      source.pipe(
-        withLatestFrom(values[0] as Observable<string | string[]>),
-        map(([value, inputValue]) =>
-          isArrayOrSet(inputValue) ? value.concat(...inputValue) : value.concat(inputValue),
-        ),
-      );
-  } else {
-    return (source: Observable<string>) => source.pipe(map((value) => value.concat(...(values as string[]))));
-  }
+  const input$ = createOrReturnObservable(input);
+  return (source) =>
+    source.pipe(
+      withLatestFrom(input$),
+      map(([value, inputValue]) =>
+        typeof inputValue === 'string' ? value.concat(inputValue) : value.concat(...inputValue),
+      ),
+    );
 }

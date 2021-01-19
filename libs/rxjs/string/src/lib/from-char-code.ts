@@ -2,11 +2,12 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, throwError } from 'rxjs';
+import { isObservable, Observable, ObservableInput, Subscribable, throwError } from 'rxjs';
 import { catchError, finalize, map, takeWhile, tap } from 'rxjs/operators';
-import { fromPromise, isPromise } from 'rxjs/internal-compatibility';
+import { fromPromise, isIterable, isPromise } from 'rxjs/internal-compatibility';
 import { isArrayOrSet } from '../utils/array-set';
 import { ArrayOrSet } from '../types/array-set';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
 
 /**
  * Returns an Observable that emits a string made from character codes using String.fromCharCode
@@ -17,7 +18,7 @@ import { ArrayOrSet } from '../types/array-set';
  *
  * @category Create
  *
- * @param args Observable input, Promise, Array or argument list of character codes
+ * @param input Observable input, Promise, Array or argument list of character codes
  *
  * @example
  * Return a string from character code arguments
@@ -43,38 +44,10 @@ import { ArrayOrSet } from '../types/array-set';
  * @returns Observable that emits a string
  */
 export function fromCharCode(
-  ...args: (ObservableInput<ArrayOrSet<number> | number> | ArrayOrSet<number> | number)[]
+  input: Subscribable<Iterable<number> | number> | Iterable<number> | number,
 ): Observable<string> {
-  return new Observable<string>((subscriber) => {
-    if (isObservable(args[0])) {
-      (args[0] as Observable<ArrayOrSet<number> | number>)
-        .pipe(
-          takeWhile(() => !subscriber.closed),
-          map((value) => (isArrayOrSet(value) ? [...value] : [value])),
-          tap((value) => {
-            subscriber.next(String.fromCharCode(...value));
-          }),
-          finalize(() => !subscriber.closed && subscriber.complete()),
-        )
-        .subscribe();
-    } else if (isPromise(args[0])) {
-      fromPromise(args[0] as Promise<ArrayOrSet<number> | number>)
-        .pipe(
-          map((value) => (isArrayOrSet(value) ? [...value] : [value])),
-          tap((value) => subscriber.next(String.fromCharCode(...value))),
-          catchError((error) => {
-            subscriber.error(error);
-            return throwError(error);
-          }),
-          finalize(() => !subscriber.closed && subscriber.complete()),
-        )
-        .subscribe();
-    } else {
-      const value = isArrayOrSet(args[0]) ? [...(args[0] as number[])] : ([...args] as number[]);
-      subscriber.next(String.fromCharCode(...value));
-      !subscriber.closed && subscriber.complete();
-    }
-    /* istanbul ignore next-line */
-    return () => !subscriber.closed && subscriber.complete();
-  });
+  return createOrReturnObservable(input).pipe(
+    map<Iterable<number> | number, number[]>((value) => (isIterable(value) ? [...value] : [value])),
+    map((value) => String.fromCharCode(...value)),
+  );
 }

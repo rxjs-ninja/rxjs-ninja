@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
 
 /**
  * Returns an Observable that emits a string, replacing text in the source string with the replacement text if the
@@ -31,14 +32,14 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a string
  */
 export function replaceAll(
-  pattern: string | RegExp | ObservableInput<string | RegExp>,
-  replacement: string | ObservableInput<string>,
+  pattern: Subscribable<string | RegExp> | string | RegExp,
+  replacement: Subscribable<string> | string,
 ): MonoTypeOperatorFunction<string> {
-  const pattern$ = (isObservable(pattern) ? pattern : of(pattern)) as Observable<string | RegExp>;
-  const replacement$ = (isObservable(replacement) ? replacement : of(replacement)) as Observable<string>;
-  return (source: Observable<string>) =>
+  const pattern$ = createOrReturnObservable(pattern);
+  const replacement$ = createOrReturnObservable(replacement);
+  return (source) =>
     source.pipe(
       withLatestFrom(pattern$, replacement$),
-      map(([value, patternInput, replacementInput]) => value.replaceAll(patternInput, replacementInput)),
+      map(([value, patternValue, replacementValue]) => value.replaceAll(patternValue, replacementValue)),
     );
 }

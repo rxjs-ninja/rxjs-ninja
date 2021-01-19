@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module String
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { FormType } from '../types/normalize';
 
@@ -23,5 +23,5 @@ import { FormType } from '../types/normalize';
  * @returns Observable that emits a string
  */
 export function normalize(form?: FormType): MonoTypeOperatorFunction<string> {
-  return (source: Observable<string>) => source.pipe(map((value) => value.normalize(form)));
+  return (source) => source.pipe(map((value) => value.normalize(form)));
 }

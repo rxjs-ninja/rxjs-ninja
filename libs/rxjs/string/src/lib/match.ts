@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
 
 /**
  * Returns an Observable that emits a `RegExpMatchArray` where a source string returns a valid result using using
@@ -30,9 +31,9 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a RegExpMatchArray
  */
 export function match(
-  pattern: string | RegExp | ObservableInput<string | RegExp>,
+  pattern: Subscribable<string | RegExp> | string | RegExp,
 ): OperatorFunction<string, RegExpMatchArray | null> {
-  const pattern$ = (isObservable(pattern) ? pattern : of(pattern)) as Observable<string | RegExp>;
+  const pattern$ = createOrReturnObservable(pattern);
   return (source) =>
     source.pipe(
       withLatestFrom(pattern$),

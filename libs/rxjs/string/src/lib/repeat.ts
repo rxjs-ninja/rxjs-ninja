@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
 
 /**
  * Returns an Observable that emits a string where the source string is repeated with String.repeat.
@@ -33,16 +34,16 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a string of the source string repeated
  */
 export function repeat(
-  count: number | ObservableInput<number>,
-  separator?: string | ObservableInput<string>,
+  count: Subscribable<number> | number,
+  separator?: Subscribable<string> | string,
 ): MonoTypeOperatorFunction<string> {
-  const count$ = (isObservable(count) ? count : of(count)) as Observable<number>;
-  const separator$ = (isObservable(separator) ? separator : of(separator)) as Observable<string>;
+  const count$ = createOrReturnObservable(count);
+  const separator$ = createOrReturnObservable(separator);
   return (source) =>
     source.pipe(
       withLatestFrom(count$, separator$),
-      map(([value, countInput, separatorInput]) =>
-        separatorInput ? new Array(countInput).fill(value).join(separatorInput) : value.repeat(countInput),
+      map(([value, countValue, separatorValue]) =>
+        separatorValue ? new Array(countValue).fill(value).join(separatorValue) : value.repeat(countValue),
       ),
     );
 }

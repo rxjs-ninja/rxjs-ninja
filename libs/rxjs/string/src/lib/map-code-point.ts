@@ -4,8 +4,6 @@
  */
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ArrayOrSet } from '../types/array-set';
-import { isArrayOrSet } from '../utils/array-set';
 
 /**
  * Returns an Observable that emits a string from a source of character codes using String.fromCodePoint
@@ -23,9 +21,9 @@ import { isArrayOrSet } from '../utils/array-set';
  *
  * @returns Observable that emits a string from source code points
  */
-export function mapCodePoint(): OperatorFunction<ArrayOrSet<number> | number, string> {
+export function mapCodePoint(): OperatorFunction<Iterable<number> | number, string> {
   return (source) =>
     source.pipe(
-      map((values) => (isArrayOrSet(values) ? String.fromCodePoint(...values) : String.fromCodePoint(values))),
+      map((values) => (typeof values === 'number' ? String.fromCodePoint(values) : String.fromCodePoint(...values))),
     );
 }

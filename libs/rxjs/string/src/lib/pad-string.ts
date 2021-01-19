@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
 
 /**
  * Returns an Observable that emits a string where the source string has been padded using String.padStart
@@ -33,16 +34,15 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a string that is padded to the passed length
  */
 export function padStart(
-  maxLength: number | ObservableInput<number>,
-  fillString?: string | ObservableInput<string>,
+  maxLength: Subscribable<number> | number,
+  fillString?: Subscribable<string> | string,
 ): MonoTypeOperatorFunction<string> {
+  const maxLength$ = createOrReturnObservable(maxLength);
+  const fillString$ = createOrReturnObservable(fillString);
   return (source: Observable<string>) =>
     source.pipe(
-      withLatestFrom(
-        (isObservable(maxLength) ? maxLength : of(maxLength)) as Observable<number>,
-        (isObservable(fillString) ? fillString : of(fillString)) as Observable<string>,
-      ),
-      map(([value, maxLenInput, fillInput]) => value.padStart(maxLenInput, fillInput)),
+      withLatestFrom(maxLength$, fillString$),
+      map(([value, maxLengthValue, fillStringValue]) => value.padStart(maxLengthValue, fillStringValue)),
     );
 }
 
@@ -74,14 +74,14 @@ export function padStart(
  * @returns Observable that emits a string that is padded to the passed length
  */
 export function padEnd(
-  maxLength: number | ObservableInput<number>,
-  fillString?: string | ObservableInput<string>,
+  maxLength: Subscribable<number> | number,
+  fillString?: Subscribable<string> | string,
 ): MonoTypeOperatorFunction<string> {
-  const maxLength$ = (isObservable(maxLength) ? maxLength : of(maxLength)) as Observable<number>;
-  const fillString$ = (isObservable(fillString) ? fillString : of(fillString)) as Observable<string>;
-  return (source: Observable<string>) =>
+  const maxLength$ = createOrReturnObservable(maxLength);
+  const fillString$ = createOrReturnObservable(fillString);
+  return (source) =>
     source.pipe(
       withLatestFrom(maxLength$, fillString$),
-      map(([value, maxLenInput, fillInput]) => value.padEnd(maxLenInput, fillInput)),
+      map(([value, maxLengthValue, fillStringValue]) => value.padEnd(maxLengthValue, fillStringValue)),
     );
 }

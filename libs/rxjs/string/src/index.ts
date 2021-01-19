@@ -21,6 +21,7 @@ export { fromString } from './lib/from-string';
 export { fromUnicode } from './lib/from-unicode';
 export { includes } from './lib/includes';
 export { indexOf } from './lib/index-of';
+export { join } from './lib/join';
 export { lastIndexOf } from './lib/last-index-of';
 export { mapCharCode } from './lib/map-char-code';
 export { mapCodePoint } from './lib/map-code-point';

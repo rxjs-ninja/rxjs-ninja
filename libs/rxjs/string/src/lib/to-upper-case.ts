@@ -2,10 +2,11 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, of } from 'rxjs';
+import { isObservable, MonoTypeOperatorFunction, Observable, of, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { ArrayOrSet } from '../types/array-set';
 import { isArrayOrSet } from '../utils/array-set';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
 
 /**
  * Returns an Observable that emits a string where the source string is passed through String.toLocaleLowerCase
@@ -31,16 +32,14 @@ import { isArrayOrSet } from '../utils/array-set';
  * @returns Observable that emits a lower case string
  */
 export function toUpperCase(
-  locales?: ArrayOrSet<string> | string | Observable<ArrayOrSet<string> | string>,
+  locales?: Subscribable<Iterable<string> | string> | Iterable<string> | string,
 ): MonoTypeOperatorFunction<string> {
-  const locales$ = (isObservable(locales) ? locales : of(locales)) as Observable<ArrayOrSet<string> | string>;
-  return (source: Observable<string>) =>
+  const locales$ = createOrReturnObservable(locales);
+  return (source) =>
     source.pipe(
       withLatestFrom(locales$),
-      map(([value, inputValue]) =>
-        isArrayOrSet(inputValue)
-          ? value.toLocaleUpperCase([...inputValue])
-          : value.toLocaleUpperCase(inputValue as string),
+      map(([value, localesValue]) =>
+        value.toLocaleUpperCase(!localesValue || typeof localesValue === 'string' ? localesValue : [...localesValue]),
       ),
     );
 }

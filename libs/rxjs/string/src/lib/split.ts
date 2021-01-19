@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { isObservable, Observable, ObservableInput, of, OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
 
 /**
  * Returns an Observable that emits an array from a source string split by the separator using String.split
@@ -30,14 +31,14 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits an array of strings from the source string split on the separator
  */
 export function split(
-  separator: string | ObservableInput<string>,
-  limit?: number | ObservableInput<number>,
+  separator: Subscribable<string> | string = ' ',
+  limit?: Subscribable<number> | number,
 ): OperatorFunction<string, string[]> {
-  const separator$ = (isObservable(separator) ? separator : of(separator)) as Observable<string>;
-  const limit$ = (isObservable(limit) ? limit : of(limit)) as Observable<number>;
+  const separator$ = createOrReturnObservable(separator);
+  const limit$ = createOrReturnObservable(limit);
   return (source) =>
     source.pipe(
       withLatestFrom(separator$, limit$),
-      map(([value, separatorInput, limitInput]) => value.split(separatorInput, limitInput)),
+      map(([value, separatorValue, limitValue]) => value.split(separatorValue, limitValue)),
     );
 }

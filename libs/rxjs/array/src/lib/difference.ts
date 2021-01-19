@@ -2,9 +2,9 @@
  * @packageDocumentation
  * @module Array
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
-import { ArrayOrSet } from '../types/array-set';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable Array containing unique values that are not in the provided input Array or Set
@@ -36,9 +36,9 @@ import { ArrayOrSet } from '../types/array-set';
  * @returns An Observable that emits an Array containing a subset of the source value
  */
 export function difference<T extends unknown>(
-  input: ArrayOrSet<T> | ObservableInput<ArrayOrSet<T>>,
-): OperatorFunction<ArrayOrSet<T>, T[]> {
-  const input$ = (isObservable(input) ? input : of(input)) as Observable<ArrayOrSet<T>>;
+  input: Subscribable<Iterable<T>> | Iterable<T>,
+): OperatorFunction<Iterable<T>, T[]> {
+  const input$ = createOrReturnObservable(input);
   return (source) =>
     source.pipe(
       withLatestFrom(input$),

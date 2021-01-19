@@ -21,7 +21,7 @@ export function isArrayOrSet(input: unknown): input is ArrayLike<unknown> {
  * @internal
  * @param input
  */
-export function flatMapSet<T extends unknown>(input: Set<T>[] | Set<T>): T[][] {
+export function flatMapSet<T extends unknown>(input: Iterable<Set<T>> | Set<T>): T[][] {
   return Array.isArray(input) ? ([...input.map((set) => [...set])] as T[][]) : ([[...input]] as T[][]);
 }
 
@@ -31,6 +31,6 @@ export function flatMapSet<T extends unknown>(input: Set<T>[] | Set<T>): T[][] {
  * @internal
  * @param input
  */
-export function flatMapMap<K extends unknown, V extends unknown>(input: Map<K, V>[] | Map<K, V>): [K, V][] {
+export function flatMapMap<K extends unknown, V extends unknown>(input: Iterable<Map<K, V>> | Map<K, V>): [K, V][] {
   return Array.isArray(input) ? ([...input.map((map) => [...map])] as [K, V][]) : ([[...input]] as [K, V][]);
 }

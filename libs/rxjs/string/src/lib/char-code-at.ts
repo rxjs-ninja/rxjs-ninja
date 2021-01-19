@@ -2,17 +2,17 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
- * Returns an Observable that emits a number, the character code of a character at the passed position in a source
- * string using String.charCodeAt
+ * Returns an Observable that emits an array of numbers. The number is returned from String.charCodeAt using the passed
+ * index or array of indexes.  The output is always an `Array` containing the number, or `NaN`.
  *
  * @category Query
  *
- * @param position The index of the character to return in the source string
- *
+ * @param positions Single or list of index values to return the character at
  *
  * @example
  * Return the character code of the character at index `1`
@@ -21,13 +21,19 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * ```
  * Output: `120`
  *
- * @returns Observable that emits a number that is a character code
+ * @returns Observable that emits an `Array` of number values
  */
-export function charCodeAt(position: number | ObservableInput<number>): OperatorFunction<string, number> {
-  const position$ = (isObservable(position) ? position : of(position)) as Observable<number>;
+export function charCodeAt(
+  positions: Subscribable<Iterable<number> | number> | Iterable<number> | number,
+): OperatorFunction<string, number[]> {
+  const position$ = createOrReturnObservable(positions);
   return (source) =>
     source.pipe(
       withLatestFrom(position$),
-      map(([value, inputValue]) => value.charCodeAt(inputValue)),
+      map(([value, inputValue]) =>
+        typeof inputValue === 'number'
+          ? [value.charCodeAt(inputValue)]
+          : [...inputValue].map((v) => value.charCodeAt(v)),
+      ),
     );
 }

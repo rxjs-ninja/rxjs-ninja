@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a number of the last index from the source string where the search string begins
@@ -31,11 +32,11 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a number that is the last index of the search string in the source string
  */
 export function lastIndexOf(
-  search: string | ObservableInput<string>,
-  lastIndex?: number | ObservableInput<number>,
+  search: Subscribable<string> | string,
+  lastIndex?: Subscribable<number> | number,
 ): OperatorFunction<string, number> {
-  const search$ = (isObservable(search) ? search : of(search)) as Observable<string>;
-  const lastIndex$ = (isObservable(lastIndex) ? lastIndex : of(lastIndex)) as Observable<number>;
+  const search$ = createOrReturnObservable(search);
+  const lastIndex$ = createOrReturnObservable(lastIndex);
   return (source) =>
     source.pipe(
       withLatestFrom(search$, lastIndex$),

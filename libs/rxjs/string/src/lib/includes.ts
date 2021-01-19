@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a boolean where the source string contains with the passed search string using
@@ -24,11 +25,11 @@ import { map, withLatestFrom } from 'rxjs/operators';
  *
  * @returns Observable that emits a boolean
  */
-export function includes(search: string | ObservableInput<string>): OperatorFunction<string, boolean> {
-  const search$ = (isObservable(search) ? search : of(search)) as Observable<string>;
+export function includes(search: Subscribable<string> | string): OperatorFunction<string, boolean> {
+  const search$ = createOrReturnObservable(search);
   return (source) =>
     source.pipe(
       withLatestFrom(search$),
-      map(([value, searchInput]) => value.includes(searchInput)),
+      map(([value, searchValue]) => value.includes(searchValue)),
     );
 }

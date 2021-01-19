@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
 import { filter, map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a string where the source string contains with the passed search string using
@@ -24,12 +25,12 @@ import { filter, map, withLatestFrom } from 'rxjs/operators';
  *
  * @returns Observable that emits a string
  */
-export function filterIncludes(search: string | ObservableInput<string>): MonoTypeOperatorFunction<string> {
-  const search$ = (isObservable(search) ? search : of(search)) as Observable<string>;
-  return (source: Observable<string>) =>
+export function filterIncludes(search: Subscribable<string> | string): MonoTypeOperatorFunction<string> {
+  const search$ = createOrReturnObservable(search);
+  return (source) =>
     source.pipe(
       withLatestFrom(search$),
-      map(([value, inputValue]) => (value.includes(inputValue) ? value : '')),
+      map(([value, searchValue]) => (value.includes(searchValue) ? value : '')),
       filter((value) => Boolean(value)),
     );
 }

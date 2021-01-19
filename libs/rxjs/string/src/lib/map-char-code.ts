@@ -4,8 +4,6 @@
  */
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ArrayOrSet } from '../types/array-set';
-import { isArrayOrSet } from '../utils/array-set';
 
 /**
  * Returns an Observable that emits a string from a source of character codes using String.fromCharCode
@@ -24,7 +22,9 @@ import { isArrayOrSet } from '../utils/array-set';
  *
  * @returns Observable that emits a string from source character codes
  */
-export function mapCharCode(): OperatorFunction<ArrayOrSet<number> | number, string> {
+export function mapCharCode(): OperatorFunction<Iterable<number> | number, string> {
   return (source) =>
-    source.pipe(map((values) => (isArrayOrSet(values) ? String.fromCharCode(...values) : String.fromCharCode(values))));
+    source.pipe(
+      map((values) => (typeof values === 'number' ? String.fromCharCode(values) : String.fromCharCode(...values))),
+    );
 }

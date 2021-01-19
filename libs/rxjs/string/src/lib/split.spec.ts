@@ -4,6 +4,17 @@ import { of } from 'rxjs';
 
 describe('split', () => {
   it(
+    'should split a string into an array using default space',
+    marbles((m) => {
+      const input = m.hot('-a-|', { a: 'Hello RxJS Ninja' });
+      const subs = '^--!';
+      const expected = m.cold('-a-|', { a: ['Hello', 'RxJS', 'Ninja'] });
+      m.expect(input.pipe(split())).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
     'should split a string into an array at the separator',
     marbles((m) => {
       const input = m.hot('-a-|', { a: 'Name,Age,Street' });
@@ -26,7 +37,7 @@ describe('split', () => {
   );
 
   it(
-    'should split a string into an array at the separator',
+    'should split a string into an array at the Observable separator',
     marbles((m) => {
       const input = m.hot('-a-|', { a: 'Name,Age,Street' });
       const subs = '^--!';
@@ -37,7 +48,7 @@ describe('split', () => {
   );
 
   it(
-    'should split a string into an array at the separator',
+    'should split a string into an array at the Observable separator with Observable limit',
     marbles((m) => {
       const input = m.hot('-a-|', { a: 'Name,Age,Street' });
       const subs = '^--!';

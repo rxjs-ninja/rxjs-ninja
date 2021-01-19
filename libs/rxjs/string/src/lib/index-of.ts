@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module String
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a number of the first index from the source string where the search string begins
@@ -12,7 +13,7 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @category Query
  *
  * @param search The string to search in the source string
- * @param start Optional start position if not from the beginning of the string
+ * @param startIndex Optional start position if not from the beginning of the string
  *
  * @example
  * Returns the first index of `RxJS` in the string
@@ -31,14 +32,14 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a number that is the first index of the search string in the source string
  */
 export function indexOf(
-  search: string | ObservableInput<string>,
-  start?: number | ObservableInput<number>,
+  search: Subscribable<string> | string,
+  startIndex?: Subscribable<number> | number,
 ): OperatorFunction<string, number> {
-  const search$ = (isObservable(search) ? search : of(search)) as Observable<string>;
-  const start$ = (isObservable(start) ? start : of(start)) as Observable<number>;
+  const search$ = createOrReturnObservable(search);
+  const startIndex$ = createOrReturnObservable(startIndex);
   return (source) =>
     source.pipe(
-      withLatestFrom(search$, start$),
-      map(([value, searchInput, startInput]) => value.indexOf(searchInput, startInput)),
+      withLatestFrom(search$, startIndex$),
+      map(([value, searchValue, startIndexValue]) => value.indexOf(searchValue, startIndexValue)),
     );
 }

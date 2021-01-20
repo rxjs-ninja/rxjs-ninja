@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module Number
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits booleans about values from a source that fall within the passed `min` and `max`
@@ -37,23 +38,18 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a boolean if the source number falls within the passed `min` and `max` range
  */
 export function inRange(
-  min: ObservableInput<number> | number,
-  max: ObservableInput<number> | number,
-  excludeBoundingValues?: ObservableInput<boolean> | boolean,
+  min: Subscribable<number> | number,
+  max: Subscribable<number> | number,
+  excludeBoundingValues?: Subscribable<boolean> | boolean,
 ): OperatorFunction<number, boolean> {
-  const min$ = (isObservable(min) ? min : of(min)) as Observable<number>;
-  const max$ = (isObservable(max) ? max : of(max)) as Observable<number>;
-  const excludeVal$ = (isObservable(excludeBoundingValues)
-    ? excludeBoundingValues
-    : of(excludeBoundingValues)) as Observable<boolean>;
+  const min$ = createOrReturnObservable(min);
+  const max$ = createOrReturnObservable(max);
+  const excludeBoundingValues$ = createOrReturnObservable(excludeBoundingValues);
   return (source) =>
     source.pipe(
-      withLatestFrom(min$, max$, excludeVal$),
-      map(([value, minInput, maxInput, excludeInput]) => {
-        if (excludeInput) {
-          return value > minInput && value < maxInput;
-        }
-        return value >= minInput && value <= maxInput;
-      }),
+      withLatestFrom(min$, max$, excludeBoundingValues$),
+      map(([value, minValue, maxValue, excludeBoundingValuesValue]) =>
+        excludeBoundingValuesValue ? value > minValue && value < maxValue : value >= minValue && value <= maxValue,
+      ),
     );
 }

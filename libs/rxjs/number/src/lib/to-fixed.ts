@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module Number
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a formatted string value from a source number using Number.toFixed.
@@ -20,11 +21,11 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * @returns Observable that emits a formatted string from a source number to a fixed decimal value
  * @category Formatting
  */
-export function toFixed(digits?: number | ObservableInput<number>): OperatorFunction<number, string> {
-  const digits$ = (isObservable(digits) ? digits : of(digits)) as Observable<number>;
+export function toFixed(digits?: Subscribable<number> | number): OperatorFunction<number, string> {
+  const digits$ = createOrReturnObservable(digits);
   return (source) =>
     source.pipe(
       withLatestFrom(digits$),
-      map<[number, number], string>(([value, inputValue]) => value.toFixed(inputValue)),
+      map(([value, inputValue]) => value.toFixed(inputValue)),
     );
 }

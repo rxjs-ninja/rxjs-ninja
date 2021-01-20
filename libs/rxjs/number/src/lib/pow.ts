@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module Number
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a number from a source number that is raised by the passed power using the
@@ -22,8 +23,8 @@ import { map, withLatestFrom } from 'rxjs/operators';
  *
  * @returns Observable that emits a number that is the raised source value by the power
  */
-export function pow(power: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
-  const power$ = (isObservable(power) ? power : of(power)) as Observable<number>;
+export function pow(power: Subscribable<number> | number): MonoTypeOperatorFunction<number> {
+  const power$ = createOrReturnObservable(power);
   return (source) =>
     source.pipe(
       withLatestFrom(power$),

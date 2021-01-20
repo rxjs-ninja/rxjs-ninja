@@ -3,13 +3,11 @@
  * @module Number
  */
 import { OperatorFunction } from 'rxjs';
-import { filter, map } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a number from a source hex using Number.parseInt.
  * By default this operator removes `NaN` values but can optionally be set to return them
- *
- * @param returnNaN Optionally return `NaN` values instead of filtering
  *
  * @example Return only parsed hex values
  * ```ts
@@ -28,10 +26,6 @@ import { filter, map } from 'rxjs/operators';
  * @returns Observable that emits a number from source hex value, optionally returns `NaN` values
  * @category Parsing
  */
-export function parseHex(returnNaN?: boolean): OperatorFunction<string, number> {
-  return (source) =>
-    source.pipe(
-      map((value) => Number.parseInt(value, 16)),
-      filter((value) => returnNaN || !isNaN(value)),
-    );
+export function parseHex(): OperatorFunction<string, number> {
+  return (source) => source.pipe(map((value) => Number.parseInt(value, 16)));
 }

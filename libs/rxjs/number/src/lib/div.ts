@@ -17,7 +17,7 @@ const ERROR_MESSAGE = `div operator cannot divide by 0`;
  *
  * @category Math
  *
- * @param input The number to divide to the source value
+ * @param num The number to divide to the source value
  *
  * @remarks If the input value is `0` this operator will throw an error
  *
@@ -30,11 +30,11 @@ const ERROR_MESSAGE = `div operator cannot divide by 0`;
  *
  * @returns Observable that emits a number that is the division of source and input
  */
-export function div(input: Subscribable<number> | number): MonoTypeOperatorFunction<number> {
-  const input$ = createOrReturnObservable(input);
+export function div(num: Subscribable<number> | number): MonoTypeOperatorFunction<number> {
+  const num$ = createOrReturnObservable(num);
   return (source) =>
     source.pipe(
-      withLatestFrom(input$),
-      switchMap(([value, inputValue]) => (inputValue !== 0 ? of(value / inputValue) : throwError(ERROR_MESSAGE))),
+      withLatestFrom(num$),
+      switchMap(([value, numValue]) => (numValue !== 0 ? of(value / numValue) : throwError(ERROR_MESSAGE))),
     );
 }

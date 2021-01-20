@@ -45,10 +45,10 @@ export function filterOutOfRange(
 ): MonoTypeOperatorFunction<number> {
   const min$ = createOrReturnObservable(min);
   const max$ = createOrReturnObservable(max);
-  const includeVal$ = createOrReturnObservable(includeBounds);
+  const includeBounds$ = createOrReturnObservable(includeBounds);
   return (source) =>
     source.pipe(
-      withLatestFrom(min$, max$, includeVal$),
+      withLatestFrom(min$, max$, includeBounds$),
       filter(([value, minvalue, maxValue, includeBoundsValue]) =>
         includeBoundsValue ? value <= minvalue || value >= maxValue : value < minvalue || value > maxValue,
       ),

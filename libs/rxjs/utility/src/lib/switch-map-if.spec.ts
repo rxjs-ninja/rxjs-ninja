@@ -1,4 +1,4 @@
-import { mapIf, switchMapIf } from '@rxjs-ninja/rxjs-utility';
+import { switchMapIf } from '@rxjs-ninja/rxjs-utility';
 import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
 import { map } from 'rxjs/operators';

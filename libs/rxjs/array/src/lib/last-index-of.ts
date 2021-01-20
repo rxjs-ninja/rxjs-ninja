@@ -2,10 +2,10 @@
  * @packageDocumentation
  * @module Array
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
-import { ArrayOrSet } from '../types/array-set';
 import { isArrayOrSet } from '../utils/array-set';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable number or array of numbers. These are the index numbers of first truthy value in the source
@@ -53,19 +53,19 @@ import { isArrayOrSet } from '../utils/array-set';
  * @returns Observable number or array of numbers containing the index of the last found value
  */
 export function lastIndexOf<T extends unknown>(
-  input: ObservableInput<ArrayOrSet<T> | T> | ArrayOrSet<T> | T,
-  fromIndex?: ObservableInput<number> | number,
-): OperatorFunction<ArrayOrSet<T>, number | number[]> {
-  const input$ = (isObservable(input) ? input : of(input)) as Observable<ArrayOrSet<T>>;
-  const fromIndex$ = (isObservable(fromIndex) ? fromIndex : of(fromIndex)) as Observable<number>;
+  input: Subscribable<Iterable<T> | T> | Iterable<T> | T,
+  fromIndex?: Subscribable<number> | number,
+): OperatorFunction<Iterable<T>, number[]> {
+  const input$ = createOrReturnObservable(input);
+  const fromIndex$ = createOrReturnObservable(fromIndex);
   return (source) =>
     source.pipe(
       withLatestFrom(input$, fromIndex$),
-      map<[ArrayOrSet<T>, ArrayOrSet<T> | T, number], number | number[]>(([[...value], inputValue, fromIndexValue]) => {
+      map(([[...value], inputValue, fromIndexValue]) => {
         fromIndexValue = fromIndexValue || value.length - 1;
         return isArrayOrSet(inputValue)
           ? [...inputValue].map((val) => value.lastIndexOf(val, fromIndexValue))
-          : value.lastIndexOf(inputValue as T, fromIndexValue);
+          : [value.lastIndexOf(inputValue as T, fromIndexValue)];
       }),
     );
 }

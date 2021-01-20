@@ -9,7 +9,7 @@
  * @internal
  * @param input
  */
-export function isArrayOrSet(input: unknown): input is ArrayLike<unknown> {
+export function isArrayOrSet(input: unknown): input is Iterable<unknown> {
   if (Array.isArray(input)) {
     return true;
   } else return input instanceof Set;

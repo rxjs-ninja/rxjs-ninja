@@ -8,7 +8,7 @@ describe('indexOf', () => {
     marbles((m) => {
       const input = m.hot('-a-b-c-|', { a: ['a', 'b', 'c'], b: ['a', 'c', 'd'], c: ['z', 'y', 'x', 'b'] });
       const subs = '^------!';
-      const expected = m.cold('-x-y-z-|', { x: 1, y: -1, z: 3 });
+      const expected = m.cold('-x-y-z-|', { x: [1], y: [-1], z: [3] });
       m.expect(input.pipe(indexOf('b'))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
@@ -19,7 +19,7 @@ describe('indexOf', () => {
     marbles((m) => {
       const input = m.hot('-a-b-c-|', { a: ['a', 'b', 'c'], b: ['a', 'c', 'd'], c: ['z', 'y', 'x', 'b'] });
       const subs = '^------!';
-      const expected = m.cold('-x-y-z-|', { x: 1, y: -1, z: 3 });
+      const expected = m.cold('-x-y-z-|', { x: [1], y: [-1], z: [3] });
       m.expect(input.pipe(indexOf(of('b')))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
@@ -52,7 +52,7 @@ describe('indexOf', () => {
     marbles((m) => {
       const input = m.hot('-a-b-c-|', { a: [0, 1, 0, 0, 1, 0, 1], b: [0, 1, 0, 0, 0, 1, 0], c: [0, 1, 0, 0, 0, 0, 0] });
       const subs = '^------!';
-      const expected = m.cold('-x-y-z-|', { x: 4, y: 5, z: -1 });
+      const expected = m.cold('-x-y-z-|', { x: [4], y: [5], z: [-1] });
       m.expect(input.pipe(indexOf(1, 3))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
@@ -63,7 +63,7 @@ describe('indexOf', () => {
     marbles((m) => {
       const input = m.hot('-a-b-c-|', { a: [0, 1, 0, 0, 1, 0, 1], b: [0, 1, 0, 0, 0, 0, 1], c: [0, 1, 0, 0, 0, 0, 0] });
       const subs = '^------!';
-      const expected = m.cold('-x-y-z-|', { x: 4, y: 6, z: -1 });
+      const expected = m.cold('-x-y-z-|', { x: [4], y: [6], z: [-1] });
       m.expect(input.pipe(indexOf(of(1), of(3)))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),

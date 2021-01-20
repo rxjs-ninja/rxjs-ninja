@@ -14,7 +14,7 @@ export function createOrReturnObservable<T extends unknown>(input: Subscribable<
 }
 
 /**
- * Flat map a set
+ * Flat map `Set` into an `Array` of `unknown[]`
  * @private
  * @internal
  * @param input
@@ -24,7 +24,7 @@ export function flatMapSet<T extends unknown>(input: Iterable<Set<T>> | Set<T>):
 }
 
 /**
- * Flat map a set
+ * Flat map `Set` into an `Array` of `unknown[]`
  * @private
  * @internal
  * @param input

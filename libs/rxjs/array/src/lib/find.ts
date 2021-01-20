@@ -8,7 +8,9 @@ import { map } from 'rxjs/operators';
 import { PredicateFn } from '../types/generic-methods';
 
 /**
- * Returns an Observable value of the first truthy value found in a source array, or `undefined` using Array.find
+ * Returns an Observable value of the first truthy value found in a source array, or `undefined` using Array.find.
+ * When working with data, if the array contains numbers `0` will be returned as a value to the [[PredicateFn]], but all
+ * other falsy values will be ignored
  *
  * @category Filter
  *

@@ -7,15 +7,18 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-More API and internal improvements, after this released the API should be more stable
+This released contains more breaking changes to the APIs in this module, detailed below. Releases after this should be
+more stable.
 
 ### Changed
 
+- `binarySearch` parameter order changed, `SortFn` is now the last property, also now accepts Observable arguments
+  for `search` and `property`
 - Removed `ArrayOrSet<T>` in favour of `Iterable<T>`
 - `fromSet` and `fromMap` no longer accept arguments list or Promise value
 - `indexOf` and `lastIndexOf` now return an `Array` value, even if a single value property is used (which will return an
   array of length 1)
-- `isSuperset`, `isSubset`, `isEqual` and `fill`,  now accept Observable input values
+- `isSuperset`, `isSubset`, `isEqual` and `fill`, now accept Observable input values
 
 ## [5.0.0] - 2021-01-18
 

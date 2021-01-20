@@ -9,6 +9,8 @@ import { map } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a boolean when all values in the source Array or Set return truthy using Array.some
+ * When working with data, if the array contains numbers `0` will be returned as a value to the [[PredicateFn]], but all
+ * other falsy values will be ignored
  *
  * @category Query
  *

@@ -4,7 +4,7 @@
  */
 
 /**
- * Returns if the input is an array or
+ * Checks if an Iterable is only one of `Array` or `Set`
  * @private
  * @internal
  * @param input

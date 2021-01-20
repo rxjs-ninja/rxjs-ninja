@@ -31,7 +31,6 @@ export function isSubsetOf<T extends unknown>(
   input: Subscribable<Iterable<T>> | Iterable<T>,
 ): OperatorFunction<Iterable<T>, boolean> {
   const input$ = createOrReturnObservable(input);
-
   return (source) =>
     source.pipe(
       withLatestFrom(input$),

@@ -3,10 +3,10 @@
  * @module Array
  */
 
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
-import { ArrayOrSet } from '../types/array-set';
 import { isArrayOrSet } from '../utils/array-set';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable Number if the input is a single value, or Array of numbers in the input is an Array.
@@ -47,20 +47,18 @@ import { isArrayOrSet } from '../utils/array-set';
  */
 
 export function indexOf<T extends unknown>(
-  input: ObservableInput<ArrayOrSet<T> | T> | ArrayOrSet<T> | T,
-  startIndex?: ObservableInput<number> | number,
-): OperatorFunction<ArrayOrSet<T>, number | number[]> {
-  const input$ = (isObservable(input) ? input : of(input)) as Observable<ArrayOrSet<T>>;
-  const startIndex$ = (isObservable(startIndex) ? startIndex : of(startIndex)) as Observable<number>;
+  input: Subscribable<Iterable<T> | T> | Iterable<T> | T,
+  startIndex?: Subscribable<number> | number,
+): OperatorFunction<Iterable<T>, number[]> {
+  const input$ = createOrReturnObservable(input);
+  const startIndex$ = createOrReturnObservable(startIndex);
   return (source) =>
     source.pipe(
       withLatestFrom(input$, startIndex$),
-      map<[ArrayOrSet<T>, ArrayOrSet<T> | T, number], number | number[]>(
-        ([[...value], inputValue, startIndexValue]) => {
-          return isArrayOrSet(inputValue)
-            ? [...inputValue].map((val) => value.indexOf(val, startIndexValue))
-            : value.indexOf(inputValue as T, startIndexValue);
-        },
-      ),
+      map(([[...value], inputValue, startIndexValue]) => {
+        return isArrayOrSet(inputValue)
+          ? [...inputValue].map((val) => value.indexOf(val, startIndexValue))
+          : [value.indexOf(inputValue as T, startIndexValue)];
+      }),
     );
 }

@@ -7,21 +7,22 @@ import { map } from 'rxjs/operators';
 
 /**
  * Returns an Observable that emits a
- * {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set|Set} object from a
+ * {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map|Map} object from a
  * source array.
  *
  * @category Map
  *
- * @typeParam T The input type of the source Array or Set
+ * @typeParam K The type of Map key
+ * @typeParam V The type of Map value
  *
- * @example Convert an Array into a Set
+ * @example Convert an `Array` into a Map
  * ```ts
- * const input = [1, 1, 2, 3, 3, 4, 5];
- * of(input).pipe(toSet()).subscribe();
+ * const input = [ [1, 'a'], [2, 'b'], [3, 'c'] ];
+ * of(input).pipe(toMap()).subscribe();
  * ```
- * Output: `Set(5) {1, 2, 3, 4, 5}`
+ * Output: `Map(3) [1, 'a'], [2, 'b'], [3, 'c']`
  *
- * @returns Observable that emits a `Set` from a source array
+ * @returns Observable that emits a `Map` from a source array
  */
 export function toMap<K extends unknown, V extends unknown>(): OperatorFunction<[K, V][], Map<K, V>> {
   return (source) => source.pipe(map((value) => new Map<K, V>(value)));

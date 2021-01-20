@@ -2,13 +2,13 @@
  * @packageDocumentation
  * @module Array
  */
-import { OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { OperatorFunction, Subscribable } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 import { binarySearcher } from '../utils/search';
 import { defaultSortFn } from '../utils/sort';
 import { BinarySearchResult } from '../types/binary-search';
 import { SortFn } from '../types/generic-methods';
-import { ArrayOrSet } from '../types/array-set';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a [[BinarySearchResult]]. It take a source array and runs a [[SortFn]] over it.
@@ -22,10 +22,10 @@ import { ArrayOrSet } from '../types/array-set';
  * @typeParam T The type of the value to search for
  * @typeParam K The type of the value in the array
  *
- * @param searchValue The value to search for in the array
- * @param sortFn Optional [[SortFn]] for sorting more complex types
+ * @param search The value to search for in the array
  * @param property Optional property for searching tuples and objects - if an tuple use a `number` if an `Object` use a
  *   `string`
+ * @param sortFn Optional [[SortFn]] for sorting more complex types
  *
  * @example
  * Return the index of the word `bravo` in the sorted array from a source array
@@ -76,19 +76,25 @@ import { ArrayOrSet } from '../types/array-set';
  *
  * @returns An Observable that emits a [[BinarySearchResult]]
  */
-export function binarySearch<T extends unknown, K extends T | unknown>(
-  searchValue: T,
-  sortFn?: SortFn<K>,
-  property?: string | number,
-): OperatorFunction<ArrayOrSet<K>, BinarySearchResult<T, K>> {
+export function binarySearch<T extends unknown, V extends unknown>(
+  search: Subscribable<T> | T,
+  property?: Subscribable<string | number> | string | number,
+  sortFn?: SortFn<V>,
+): OperatorFunction<Iterable<V>, BinarySearchResult<T, V>> {
+  const search$ = createOrReturnObservable(search);
+  const property$ = createOrReturnObservable(property);
+
   return (source) =>
     source.pipe(
-      map<ArrayOrSet<K>, [K[], K[]]>((accArray) => [[...accArray], [...accArray].sort(sortFn || defaultSortFn)]),
-      map(([searchArray, sortedArray]) => [
-        binarySearcher(searchValue, sortedArray, property),
-        searchValue,
-        sortedArray,
-        searchArray,
-      ]),
+      map<Iterable<V>, [V[], V[]]>((accArray) => [[...accArray], [...accArray].sort(sortFn || defaultSortFn)]),
+      withLatestFrom(search$, property$),
+      map<[[V[], V[]], T, string | number | undefined], BinarySearchResult<T, V>>(
+        ([[searchArray, sortedArray], searchValue, propertyValue]) => [
+          binarySearcher(search, sortedArray, propertyValue),
+          searchValue,
+          sortedArray,
+          searchArray,
+        ],
+      ),
     );
 }

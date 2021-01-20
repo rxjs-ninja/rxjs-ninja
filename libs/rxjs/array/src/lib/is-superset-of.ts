@@ -2,9 +2,9 @@
  * @packageDocumentation
  * @module Array
  */
-import { OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { ArrayOrSet } from '../types/array-set';
+import { OperatorFunction, Subscribable } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a boolean value if the source Observable Array or Set is a superset of
@@ -27,10 +27,14 @@ import { ArrayOrSet } from '../types/array-set';
  *
  * @returns Observable that emits a boolean of the source array being a superset of the input array
  */
-export function isSupersetOf<T extends unknown>(input: ArrayOrSet<T>): OperatorFunction<ArrayOrSet<T>, boolean> {
+export function isSupersetOf<T extends unknown>(
+  input: Subscribable<Iterable<T>> | Iterable<T>,
+): OperatorFunction<Iterable<T>, boolean> {
+  const input$ = createOrReturnObservable(input);
   return (source) =>
     source.pipe(
-      map((value) => [new Set(value), new Set(input)]),
+      withLatestFrom(input$),
+      map(([value, inputValue]) => [new Set(value), new Set(inputValue)]),
       map(([value, inputValue]) => [...inputValue].filter((e) => [...value].includes(e)).length === inputValue.size),
     );
 }

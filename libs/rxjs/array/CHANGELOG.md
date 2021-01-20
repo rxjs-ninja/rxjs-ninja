@@ -5,7 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-### [5.0.0] - 2021-01-18
+## [Unreleased]
+
+This released contains more breaking changes to the APIs in this module, detailed below. Internally the operators and
+functions have been cleaned up to be more maintainable. Releases after this should be more stable.
+
+### Added
+
+- `differenceAll` operator which returns a tuple of two `Array` values, containing the unique differences in the source
+  and comparison array.
+- `toObject` operator that takes an `Array` of tuples containing the key/value pair for the object collection
+
+### Changed
+
+- `binarySearch` parameter order changed, `SortFn` is now the last property, also now accepts Observable arguments
+  for `search` and `property`
+- Removed `ArrayOrSet<T>` in favour of `Iterable<T>`
+- `fromSet` and `fromMap` no longer accept arguments list or Promise value
+- `indexOf` and `lastIndexOf` now return an `Array` value, even if a single value property is used (which will return an
+  array of length 1)
+- `isSuperset`, `isSubset`, `isEqual` and `fill`, now accept Observable input values
+
+## [5.0.0] - 2021-01-18
 
 This update mainly fixes some naming inconsistencies and renames the current `from*` operators, listed below, instead
 they are now `*toArray` as a Source conversion, these changes are breaking.
@@ -20,10 +41,12 @@ they are now `*toArray` as a Source conversion, these changes are breaking.
 
 - The previous operator `fromSet` is now `setToArray`, new `fromSet` is static method for generating Observables
 - The previous operator `fromMap` is now `mapToArray`, new `fromMap` is static method for generating Observables
-- The previous operator `fromObjectKeys` is now `objectKeysToArray`. No replacement operator, use `of(object).pipe(objectKeysToArray())`.
-- The previous operator `fromObjectEntries` is now `objectEntriesToArray`. No replacement operator, use `of(object).pipe(objectEntriesToArray())`.
+- The previous operator `fromObjectKeys` is now `objectKeysToArray`. No replacement operator,
+  use `of(object).pipe(objectKeysToArray())`.
+- The previous operator `fromObjectEntries` is now `objectEntriesToArray`. No replacement operator,
+  use `of(object).pipe(objectEntriesToArray())`.
 
-### [4.2.0] - 2021-01-17
+## [4.2.0] - 2021-01-17
 
 Some internal refactoring, however there should be no breaking changes from `4.1.0`
 

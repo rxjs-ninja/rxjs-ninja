@@ -2,9 +2,9 @@
  * @packageDocumentation
  * @module Array
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
-import { ArrayOrSet } from '../types/array-set';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable Array containing filtered values that are in both the source in the provided input Array or Set
@@ -36,13 +36,13 @@ import { ArrayOrSet } from '../types/array-set';
  * @returns An Observable that emits an Array of the intersection of input and source arrays.
  */
 export function filterIntersects<T extends unknown>(
-  input: ArrayOrSet<T> | ObservableInput<ArrayOrSet<T>>,
-): OperatorFunction<ArrayOrSet<T>, T[]> {
-  const input$ = (isObservable(input) ? input : of(input)) as Observable<ArrayOrSet<T>>;
+  input: Subscribable<Iterable<T>> | Iterable<T>,
+): OperatorFunction<Iterable<T>, T[]> {
+  const input$ = createOrReturnObservable(input);
   return (source) =>
     source.pipe(
       withLatestFrom(input$),
-      map<[ArrayOrSet<T>, ArrayOrSet<T>], [T[], Set<T>]>(([value, inputValue]) => [[...value], new Set(inputValue)]),
+      map<[Iterable<T>, Iterable<T>], [T[], Set<T>]>(([value, inputValue]) => [[...value], new Set(inputValue)]),
       map(([value, inputValue]) => value.filter((x) => inputValue.has(x))),
     );
 }

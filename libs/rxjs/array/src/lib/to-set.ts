@@ -24,5 +24,5 @@ import { map } from 'rxjs/operators';
  * @returns Observable that emits a `Set` from a source array
  */
 export function toSet<T extends unknown>(): OperatorFunction<T[], Set<T>> {
-  return (source) => source.pipe(map((value) => new Set(value)));
+  return (source) => source.pipe(map((value) => new Set<T>(value)));
 }

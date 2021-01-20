@@ -6,10 +6,11 @@
 import { PredicateFn } from '../types/generic-methods';
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ArrayOrSet } from '../types/array-set';
 
 /**
- * Returns an Observable that emits a boolean when all values in the source array return truthy using Array.every
+ * Returns an Observable that emits a boolean when all values in the source array return truthy using Array.every.
+ * When working with data, if the array contains numbers `0` will be returned as a value to the [[PredicateFn]], but all
+ * other falsy values will be ignored
  *
  * @category Query
  *
@@ -43,7 +44,7 @@ import { ArrayOrSet } from '../types/array-set';
  *
  * @returns An Observable that emits a boolean when all values in source array return truthy
  */
-export function every<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<ArrayOrSet<T>, boolean> {
+export function every<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<Iterable<T>, boolean> {
   return (source) =>
     source.pipe(
       map((value) =>

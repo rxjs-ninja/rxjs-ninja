@@ -105,7 +105,7 @@ describe('binarySearch', () => {
           ],
         ] as BinarySearchResult<string, any>,
       });
-      m.expect(input.pipe(binarySearch('Rocks', sortObj, 'word'))).toBeObservable(expected);
+      m.expect(input.pipe(binarySearch('Rocks', 'word', sortObj))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
@@ -180,7 +180,7 @@ describe('binarySearch', () => {
           ],
         ] as BinarySearchResult<number, [number, number]>,
       });
-      m.expect(input.pipe(binarySearch(6, sortTuple, 0))).toBeObservable(expected);
+      m.expect(input.pipe(binarySearch(6, 0, sortTuple))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

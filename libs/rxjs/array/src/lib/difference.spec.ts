@@ -13,7 +13,7 @@ describe('difference', () => {
       });
       const subs = '^------!';
       const expected = m.cold('-x-y-z-|', { x: ['b'], y: ['d', 'e'], z: ['x', 'y', 'z'] });
-      m.expect(input.pipe(difference(['a', 'c']))).toBeObservable(expected);
+      m.expect(input.pipe(difference(['a', 'c', 'g']))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
@@ -24,7 +24,7 @@ describe('difference', () => {
       const input = m.hot('-a-b-c-|', { a: [1, 2, 3, 3], b: [1, 4, 5], c: [10, 11, 12] });
       const subs = '^------!';
       const expected = m.cold('-x-y-z-|', { x: [3], y: [4, 5], z: [10, 11, 12] });
-      m.expect(input.pipe(difference([1, 2]))).toBeObservable(expected);
+      m.expect(input.pipe(difference([1, 2, 42]))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
@@ -39,7 +39,7 @@ describe('difference', () => {
       });
       const subs = '^------!';
       const expected = m.cold('-x-y-z-|', { x: ['b'], y: ['d', 'e'], z: ['x', 'y', 'z'] });
-      m.expect(input.pipe(difference(of(['a', 'c'])))).toBeObservable(expected);
+      m.expect(input.pipe(difference(of(['a', 'c', 'g'])))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

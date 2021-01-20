@@ -8,7 +8,7 @@ describe('lastIndexOf', () => {
     marbles((m) => {
       const input = m.hot('-a-b-c-|', { a: ['a', 'b', 'a'], b: ['a', 'b', 'd'], c: ['z', 'y', 'x', 'b'] });
       const subs = '^------!';
-      const expected = m.cold('-x-y-z-|', { x: 2, y: 0, z: -1 });
+      const expected = m.cold('-x-y-z-|', { x: [2], y: [0], z: [-1] });
       m.expect(input.pipe(lastIndexOf('a'))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
@@ -30,7 +30,7 @@ describe('lastIndexOf', () => {
     marbles((m) => {
       const input = m.hot('-a-b-c-|', { a: [0, 1, 0, 0, 1, 0, 1], b: [0, 0, 0, 1, 0, 0, 1], c: [0, 0, 0, 0, 1, 1, 1] });
       const subs = '^------!';
-      const expected = m.cold('-x-y-z-|', { x: 1, y: 3, z: -1 });
+      const expected = m.cold('-x-y-z-|', { x: [1], y: [3], z: [-1] });
       m.expect(input.pipe(lastIndexOf(1, 3))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
@@ -41,7 +41,7 @@ describe('lastIndexOf', () => {
     marbles((m) => {
       const input = m.hot('-a-b-c-|', { a: [0, 1, 0, 0, 1, 0, 1], b: [0, 0, 1, 0, 0, 0, 1], c: [0, 0, 0, 0, 1, 1, 1] });
       const subs = '^------!';
-      const expected = m.cold('-x-y-z-|', { x: 1, y: 2, z: -1 });
+      const expected = m.cold('-x-y-z-|', { x: [1], y: [2], z: [-1] });
       m.expect(input.pipe(lastIndexOf(of(1), of(3)))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),

@@ -2,9 +2,9 @@
  * @packageDocumentation
  * @module Array
  */
-import { OperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { ArrayOrSet } from '../types/array-set';
+import { OperatorFunction, Subscribable } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a boolean value if the source Observable Array or Set has equal non-duplicate
@@ -27,11 +27,15 @@ import { ArrayOrSet } from '../types/array-set';
  *
  * @returns Observable that emits a boolean of the source array has equal content to the input array
  */
-export function isEqualSet<T extends unknown>(input: ArrayOrSet<T>): OperatorFunction<ArrayOrSet<T>, boolean> {
+export function isEqualSet<T extends unknown>(
+  input: Subscribable<Iterable<T>> | Iterable<T>,
+): OperatorFunction<Iterable<T>, boolean> {
+  const input$ = createOrReturnObservable(input);
   return (source) =>
     source.pipe(
-      map((value) => [new Set(input), new Set(value)]),
-      map(([inputValue, value]) => [inputValue, value, inputValue.size == value.size] as [Set<T>, Set<T>, boolean]),
-      map(([inputValue, value, sameSize]) => (sameSize ? [...value].every((e) => [...inputValue].includes(e)) : false)),
+      withLatestFrom(input$),
+      map(([value, inputValue]) => [new Set(value), new Set(inputValue)]),
+      map(([value, inputValue]) => [value, inputValue, inputValue.size == value.size] as [Set<T>, Set<T>, boolean]),
+      map(([value, inputValue, sameSize]) => (sameSize ? [...value].every((e) => [...inputValue].includes(e)) : false)),
     );
 }

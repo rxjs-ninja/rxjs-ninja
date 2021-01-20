@@ -2,9 +2,9 @@
  * @packageDocumentation
  * @module Array
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
-import { ArrayOrSet } from '../types/array-set';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a joining the values of the Array or Set using the `separator` character using
@@ -34,14 +34,11 @@ import { ArrayOrSet } from '../types/array-set';
  *
  * @returns Observable string from the joined values in the source array
  */
-export function join<T extends unknown>(
-  separator: string | ObservableInput<string> = ' ',
-): OperatorFunction<ArrayOrSet<T>, string> {
-  const separator$ = (isObservable(separator) ? separator : of(separator)) as Observable<string>;
-
+export function join(separator: Subscribable<string> | string = ' '): OperatorFunction<Iterable<unknown>, string> {
+  const separator$ = createOrReturnObservable(separator);
   return (source) =>
     source.pipe(
       withLatestFrom(separator$),
-      map(([value, separatorInput]) => [...value].join(separatorInput)),
+      map(([value, separatorValue]) => [...value].join(separatorValue)),
     );
 }

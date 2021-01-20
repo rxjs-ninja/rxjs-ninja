@@ -20,7 +20,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * @see {@link https://en.wikipedia.org/wiki/Binary_search_algorithm|Binary search algorithm}
  *
  * @typeParam T The type of the value to search for
- * @typeParam K The type of the value in the array
+ * @typeParam V The type of the value in the array
  *
  * @param search The value to search for in the array
  * @param property Optional property for searching tuples and objects - if an tuple use a `number` if an `Object` use a

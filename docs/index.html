@@ -118,7 +118,7 @@
 		<div class="col-content">
 			<div class="tsd-panel tsd-typography">
 				<a href="#rxjs-ninja" id="rxjs-ninja" style="color: inherit; text-decoration: none;">
-					<h2>RxJS Ninja</h2>
+					<h1>RxJS Ninja</h1>
 				</a>
 				<p><img src="https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/main/assets/logo.png" alt="The RXJS Ninja Logo"></p>
 				<p>RxJS Ninja is a set of libraries that provide operators and observables for <a href="https://rxjs.dev">RxJS</a>.</p>
@@ -127,204 +127,51 @@
 				<p><a href="https://sonarcloud.io/dashboard?id=rxjs-ninja_rxjs-ninja"><img src="https://sonarcloud.io/api/project_badges/measure?project=rxjs-ninja_rxjs-ninja&metric=alert_status" alt="Quality Gate Status"></a>
 				<a href="https://codecov.io/gh/rxjs-ninja/rxjs-ninja"><img src="https://codecov.io/gh/rxjs-ninja/rxjs-ninja/branch/main/graph/badge.svg?token=RCNN1XMSN4" alt="codecov"></a></p>
 				<a href="#packages" id="packages" style="color: inherit; text-decoration: none;">
-					<h3>Packages</h3>
+					<h2>Packages</h2>
 				</a>
 				<p>RxJS Ninja is composed of libraries separated into sets of functionality, you don&#39;t need to install all the operators at
 				one time.</p>
 				<p>Below is each package npm name and version, once installed you can import any operator or observable into your project.
 				You can also check out the source on <a href="https://github.com/rxjs-ninja/rxjs-ninja">GitHub</a>.</p>
-				<a href="#arrays" id="arrays" style="color: inherit; text-decoration: none;">
-					<h4>Arrays</h4>
-				</a>
-				<p><a href="https://www.npmjs.com/package/@rxjs-ninja/rxjs-array"><img src="https://img.shields.io/npm/v/@rxjs-ninja/rxjs-array?label=@rxjs-ninja/rxjs-array" alt="rxjs-array"></a></p>
-				<p><a href="https://rxjs.ninja/modules/array.html">API Documentation</a>
-					|
-				<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/CHANGELOG.md">Changelog</a></p>
-				<p><code>@rxjs-ninja/rxjs-array</code> provides operators for RxJS for creating Observables of Array values, and for querying,
-					filtering and modifying <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Arrays</a>
-					and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">Sets</a> with all results
-				returned as Arrays where the operator provides them.</p>
-				<a href="#function-and-operator-categories" id="function-and-operator-categories" style="color: inherit; text-decoration: none;">
-					<h3>Function and Operator categories</h3>
-				</a>
-				<ul>
-					<li>Convert - Functions that convert source Observable <code>Set</code>, <code>Map</code> and <code>Object</code> to <code>Array</code></li>
-					<li>Filter - Operators that return source Arrays, or items from arrays using filtering functions or properties</li>
-					<li>Modify - Operators that modify Arrays or their values</li>
-					<li>Query - Operators that return non-Array values based on querying an arrays values</li>
-					<li>Set - Operators for working with <code>Set</code> objects (currently only <code>toSet</code> but more operators to come!)</li>
-				</ul>
-				<p>For example, you could <code>sortMap</code> an array of values from number into boolean and them <code>flipArray</code> the values:</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { <span class="hljs-keyword">of</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;
-<span class="hljs-keyword">import</span> { sortMap, flipArray } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rxjs-ninja/rxjs-array&#x27;</span>;
-
-<span class="hljs-keyword">of</span>([<span class="hljs-number">10</span>, <span class="hljs-number">4</span>, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">29</span>, <span class="hljs-number">5</span>])
-  .pipe(
-    <span class="hljs-comment">/**
-     * Out of the box `sortMap` does a basic sort on an array so the
-     * result will be [1, 3, 4, 5, 7, 10, 29]
-     * Then the map function will be called with the result, here we do a modulus 2 check
-     * so the result is [false, false, true, false, false, true, false]
-     */</span>
-    sortMap(<span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> value % <span class="hljs-number">2</span>),
-    <span class="hljs-comment">// Now we flip the array</span>
-    flipArray(),
-  )
-  .subscribe(); <span class="hljs-comment">// [true, true, false, true, true, false, true]</span></code></pre>
-				<a href="#booleans" id="booleans" style="color: inherit; text-decoration: none;">
-					<h4>Booleans</h4>
-				</a>
-				<p><a href="https://www.npmjs.com/package/@rxjs-ninja/rxjs-boolean"><img src="https://img.shields.io/npm/v/@rxjs-ninja/rxjs-boolean?label=@rxjs-ninja/rxjs-boolean" alt="rxjs-boolean"></a></p>
-				<p><a href="https://rxjs.ninja/modules/boolean.html">API Documentation</a>
-					|
-				<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/boolean/CHANGELOG.md">Changelog</a></p>
-				<p><code>@rxjs-ninja/rxjs-boolean</code> provides operators for querying, filtering and modifying boolean values, and Observable for
-				generating boolean emitters.</p>
-				<a href="#function-and-operator-categories-1" id="function-and-operator-categories-1" style="color: inherit; text-decoration: none;">
-					<h3>Function and Operator categories</h3>
-				</a>
-				<ul>
-					<li>Create - Functions and Operators for creating Observable boolean values</li>
-					<li>Filter - Operators for filtering Observable sources for truthy values</li>
-					<li>Modify - Operators for modifying boolean values</li>
-					<li>Validation - Operators that provide boolean output based on checks against source values</li>
-				</ul>
-				<p>For example, you can use the <code>firstTruthy</code> or <code>lastTruthy</code> value from an array:</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { <span class="hljs-keyword">from</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;
-<span class="hljs-keyword">import</span> { firstTruthy, lastTruthy } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rxjs-ninja/rxjs-array&#x27;</span>;
-
-<span class="hljs-keyword">const</span> inputObs$ = <span class="hljs-keyword">from</span>([<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-string">&#x27;There&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>]);
-
-inputObs$.pipe(firstTruthy()).subscribe(); <span class="hljs-comment">// [&#x27;Hello&#x27;]</span>
-inputObs$.pipe(lastTruthy()).subscribe(); <span class="hljs-comment">// [&#x27;Ninja&#x27;]</span></code></pre>
-				<a href="#numbers" id="numbers" style="color: inherit; text-decoration: none;">
-					<h4>Numbers</h4>
-				</a>
-				<p><a href="https://www.npmjs.com/package/@rxjs-ninja/rxjs-number"><img src="https://img.shields.io/npm/v/@rxjs-ninja/rxjs-number?label=@rxjs-ninja/rxjs-number" alt="rxjs-number"></a></p>
-				<p><a href="https://rxjs.ninja/modules/number.html">API Documentation</a>
-					|
-				<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/CHANGELOG.md">Changelog</a></p>
-				<p><code>@rxjs-ninja/rxjs-number</code> provides operators for querying, filtering and modifying number values, and Observable for
-				generating number emitters.</p>
-				<a href="#function-and-operator-categories-2" id="function-and-operator-categories-2" style="color: inherit; text-decoration: none;">
-					<h3>Function and Operator categories</h3>
-				</a>
-				<ul>
-					<li>Create - Functions and Operators for creating Observable number values</li>
-					<li>Filter - Operators for filtering Observable number sources for truthy queries</li>
-					<li>Formatting - Operators for formatting numbers to strings</li>
-					<li>Math - Operators for some math operations such as add, subtract, multiply and raise by power</li>
-					<li>Parsing - Operators for parsing strings to numbers</li>
-					<li>Query - Operators for generating number sources and getting boolean values</li>
-				</ul>
-				<p>For example, you can use the <code>fromNumber</code> to generate a sequence of numbers and filter out ones that are out of range.</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { fromNumber, filterInRange, fitlerOutOfRange } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rxjs-ninja/rxjs-number&#x27;</span>;
-
-<span class="hljs-keyword">const</span> inputObs$ = fromNumber([<span class="hljs-number">10</span>, <span class="hljs-number">4</span>, <span class="hljs-number">3</span>, <span class="hljs-number">6</span>, <span class="hljs-number">12</span>, <span class="hljs-number">2</span>, <span class="hljs-number">1</span>, <span class="hljs-number">5</span>]);
-
-inputObs$.pipe(filterInRange(<span class="hljs-number">4</span>, <span class="hljs-number">10</span>)).subscribe(); <span class="hljs-comment">// 10, 4, 6, 5</span>
-inputObs$.pipe(filterOutOfRange(<span class="hljs-number">4</span>, <span class="hljs-number">10</span>)).subscribe(); <span class="hljs-comment">// 3, 12, 2, 1</span></code></pre>
-				<a href="#randomness" id="randomness" style="color: inherit; text-decoration: none;">
-					<h4>Randomness</h4>
-				</a>
-				<p><a href="https://www.npmjs.com/package/@rxjs-ninja/rxjs-random"><img src="https://img.shields.io/npm/v/@rxjs-ninja/rxjs-random?label=@rxjs-ninja/rxjs-random" alt="rxjs-random"></a></p>
-				<p><a href="https://rxjs.ninja/modules/random.html">API Documentation</a>
-					|
-				<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/CHANGELOG.md">Changelog</a></p>
-				<p><code>@rxjs-ninja/rxjs-random</code> Observable for generating random emitters with both numbers and strings.</p>
-				<a href="#function-and-operator-categories-3" id="function-and-operator-categories-3" style="color: inherit; text-decoration: none;">
-					<h3>Function and Operator categories</h3>
-				</a>
-				<ul>
-					<li>Random Numbers - Generates random number streams</li>
-					<li>Random Strings - Generates random string streams</li>
-				</ul>
-				<p>For example, you can use the <code>fromRandomCrypto</code> to generate a sequence of random number between <code>-127</code> and <code>127</code>, then
-				use <code>inRange</code> from <code>@rxjs-ninja/rxjs-number</code> and <code>flip</code> from <code>@rxjs-ninja/rxjs-boolean</code>.</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { fromRandomCrypto } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rxjs-ninja/rxjs-random&#x27;</span>;
-<span class="hljs-keyword">import</span> { inRange } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rxjs-ninja/rxjs-number&#x27;</span>;
-<span class="hljs-keyword">import</span> { flip } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rxjs-ninja/rxjs-boolean&#x27;</span>;
-
-<span class="hljs-comment">/**
- * In this example the random crypto might create
- * values like:
- * 12, -114, -89, 1, 18, -90, 56....
- */</span>
-fromRandomCrypto(<span class="hljs-number">0</span>, { <span class="hljs-attr">bytes</span>: <span class="hljs-number">1</span>, <span class="hljs-attr">unsigned</span>: <span class="hljs-literal">true</span> })
-  .pipe(
-    <span class="hljs-comment">/**
-     * Here we check they are in range and return `true` or `false`
-     * instead of the value (use `filterInRange` to do this)
-     * In this example we get:
-     * ...true, false, false, true, true, false, true....
-     */</span>
-    inRange(-<span class="hljs-number">64</span>, <span class="hljs-number">64</span>),
-    <span class="hljs-comment">// Flip each value</span>
-    flip(),
-  )
-  .subscribe(); <span class="hljs-comment">// ...false, true, true, false, false, true, false...</span></code></pre>
-				<a href="#strings" id="strings" style="color: inherit; text-decoration: none;">
-					<h4>Strings</h4>
-				</a>
-				<p><a href="https://www.npmjs.com/package/@rxjs-ninja/rxjs-string"><img src="https://img.shields.io/npm/v/@rxjs-ninja/rxjs-string?label=@rxjs-ninja/rxjs-string" alt="rxjs-string"></a></p>
-				<p><a href="https://rxjs.ninja/modules/string.html">API Documentation</a>
-					|
-				<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/CHANGELOG.md">Changelog</a></p>
-				<p><code>@rxjs-ninja/rxjs-string</code> provides operators for querying, filtering and modifying string values, and Observable for
-				generating string emitters.</p>
-				<a href="#function-and-operator-categories-4" id="function-and-operator-categories-4" style="color: inherit; text-decoration: none;">
-					<h3>Function and Operator categories</h3>
-				</a>
-				<ul>
-					<li>Create - Functions and Operators for creating Observable string values</li>
-					<li>Convert - Operators to convert strings to other types</li>
-					<li>Filter - Operators for filtering Observable string sources for truthy values</li>
-					<li>Mapping - Operators that provide mapping to strings from other value types</li>
-					<li>Modify - Operators for modifying string values</li>
-					<li>Query - Operators that return non-string values based on querying string values</li>
-				</ul>
-				<p>For example, you can use the <code>fromString</code> to generate a sequence of strings and check they include a string
-				using <code>include</code>. We can also <code>titlize</code> strings.</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { fromString, includes, titleize } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rxjs-ninja/rxjs-string&#x27;</span>;
-
-<span class="hljs-keyword">const</span> inputObs$ = fromNumber([<span class="hljs-string">&#x27;full power&#x27;</span>, <span class="hljs-string">&#x27;half power&#x27;</span>, <span class="hljs-string">&#x27;quarter power&#x27;</span>]);
-
-inputObs$.pipe(includes(<span class="hljs-string">&#x27;half&#x27;</span>)).subscribe(); <span class="hljs-comment">// false, true, false</span>
-inputObs$.pipe(titleize()).subscribe(); <span class="hljs-comment">// Full Power, Half Power, Quarter Power</span></code></pre>
-				<a href="#utilities" id="utilities" style="color: inherit; text-decoration: none;">
-					<h4>Utilities</h4>
-				</a>
-				<p><a href="https://www.npmjs.com/package/@rxjs-ninja/rxjs-utility"><img src="https://img.shields.io/npm/v/@rxjs-ninja/rxjs-utility?label=@rxjs-ninja/rxjs-utility" alt="rxjs-utility"></a></p>
-				<ul>
-					<li><a href="https://rxjs.ninja/modules/string.html">API Documentation</a></li>
-					<li><a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/CHANGELOG.md">Changelog</a></li>
-				</ul>
-				<p><code>@rxjs-ninja/rxjs-utility</code> provides operators for working with Observable values to view them, and modify them and don&#39;t
-				all into the other module categories.</p>
-				<a href="#function-and-operator-categories-5" id="function-and-operator-categories-5" style="color: inherit; text-decoration: none;">
-					<h3>Function and Operator categories</h3>
-				</a>
-				<ul>
-					<li>HTTP - Functions for working with HTTP Observables</li>
-					<li>Mapping - Operators use for mapping to different values</li>
-					<li>Side Effects - Operators for handling side effects</li>
-					<li>Streams - Operators and Functions for working with other types of streams of data</li>
-				</ul>
-				<p>For example, using the Side Effects category:</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { fromEvent } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;
-<span class="hljs-keyword">import</span> { startWithTap, tapIf, tapOnSubscribe } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rxjs-ninja/rxjs-utility&#x27;</span>;
-
-<span class="hljs-keyword">const</span> inputObs$ = fromEvent(<span class="hljs-built_in">document</span>, <span class="hljs-string">&#x27;click&#x27;</span>).pipe(
-  startWithTap(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;This will only fire once&#x27;</span>)),
-  tapOnSubscribe(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;This will tab on every subscribe&#x27;</span>)),
-  tapIf(
-    <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> event.target.id === <span class="hljs-string">&#x27;some-div&#x27;</span>,
-    <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;This will tap if the user clicks on the target element&#x27;</span>),
-  ),
-);
-
-inputObs$.subscribe(); <span class="hljs-comment">// This will only fire once, This will tab on every subscribe</span>
-inputObs$.subscribe(); <span class="hljs-comment">// This will tab on every subscribe</span></code></pre>
+				<table>
+					<thead>
+						<tr>
+							<th>Package / Version</th>
+							<th>Description</th>
+							<th>Documentation</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><a href="https://www.npmjs.com/package/@rxjs-ninja/rxjs-array"><img src="https://img.shields.io/npm/v/@rxjs-ninja/rxjs-array?label=@rxjs-ninja/rxjs-array" alt="rxjs-array"></a></td>
+							<td>Works with <code>Array</code> values and allow conversion to/from <code>Set</code>, <code>Map</code> and <code>Object</code></td>
+							<td><a href="https://rxjs.ninja/modules/array.html">API Documentation</a> <br/> <a href="https://rxjs.ninja/pages/packages/array/changelog.html">Changelog</a> <br /> <a href="https://rxjs.ninja/pages/packages/array.html">Readme</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://www.npmjs.com/package/@rxjs-ninja/rxjs-boolean"><img src="https://img.shields.io/npm/v/@rxjs-ninja/rxjs-boolean?label=@rxjs-ninja/rxjs-boolean" alt="rxjs-boolean"></a></td>
+							<td>Work with <code>Boolean</code> values, or get Boolean values from other types</td>
+							<td><a href="https://rxjs.ninja/modules/boolean.html">API Documentation</a> <br/> <a href="https://rxjs.ninja/pages/packages/boolean/changelog.html">Changelog</a> <br /> <a href="https://rxjs.ninja/pages/packages/boolean.html">Readme</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://www.npmjs.com/package/@rxjs-ninja/rxjs-number"><img src="https://img.shields.io/npm/v/@rxjs-ninja/rxjs-number?label=@rxjs-ninja/rxjs-number" alt="rxjs-number"></a></td>
+							<td>Work with <code>Number</code> values, with conversion to and from <code>String</code> and modify or query values</td>
+							<td><a href="https://rxjs.ninja/modules/number.html">API Documentation</a> <br/> <a href="https://rxjs.ninja/pages/packages/number/changelog.html">Changelog</a> <br /> <a href="https://rxjs.ninja/pages/packages/number.html">Readme</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://www.npmjs.com/package/@rxjs-ninja/rxjs-random"><img src="https://img.shields.io/npm/v/@rxjs-ninja/rxjs-random?label=@rxjs-ninja/rxjs-random" alt="rxjs-random"></a></td>
+							<td>Create Observables using random <code>Number</code> and <code>String</code> values</td>
+							<td><a href="https://rxjs.ninja/modules/random.html">API Documentation</a> <br/> <a href="https://rxjs.ninja/pages/packages/random/changelog.html">Changelog</a> <br /> <a href="https://rxjs.ninja/pages/packages/random.html">Readme</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://www.npmjs.com/package/@rxjs-ninja/rxjs-string"><img src="https://img.shields.io/npm/v/@rxjs-ninja/rxjs-string?label=@rxjs-ninja/rxjs-string" alt="rxjs-string"></a></td>
+							<td>Work with <code>String</code> values, with features to modify and query them</td>
+							<td><a href="https://rxjs.ninja/modules/string.html">API Documentation</a> <br/> <a href="https://rxjs.ninja/pages/packages/string/changelog.html">Changelog</a> <br /> <a href="https://rxjs.ninja/pages/packages/string.html">Readme</a></td>
+						</tr>
+						<tr>
+							<td><a href="https://www.npmjs.com/package/@rxjs-ninja/rxjs-utility"><img src="https://img.shields.io/npm/v/@rxjs-ninja/rxjs-utility?label=@rxjs-ninja/rxjs-utility" alt="rxjs-utility"></a></td>
+							<td>Utility operators such as side effects and working with other Stream sources</td>
+							<td><a href="https://rxjs.ninja/modules/utility.html">API Documentation</a> <br/> <a href="https://rxjs.ninja/pages/packages/utility/changelog.html">Changelog</a> <br /> <a href="https://rxjs.ninja/pages/packages/utility.html">Readme</a></td>
+						</tr>
+				</tbody></table>
 				<a href="#additional-information" id="additional-information" style="color: inherit; text-decoration: none;">
 					<h4>Additional Information</h4>
 				</a>
@@ -335,7 +182,7 @@ inputObs$.subscribe(); <span class="hljs-comment">// This will tab on every subs
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/19/2021 at 11:12:23 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 11:03:14 AM</p>
 			</div>
 		</div>
 	</div>

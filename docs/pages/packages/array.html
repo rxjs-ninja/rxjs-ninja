@@ -141,43 +141,125 @@
 					<a href="https://rxjs.ninja/modules/array.html">API Documentation</a>
 					|
 				<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/CHANGELOG.md">Changelog</a></p>
-				<p><code>@rxjs-ninja/rxjs-array</code> provides operators for RxJS for creating Observables of Array values, and for querying,
-					filtering and modifying <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Arrays</a>
-					and
-					<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">Sets</a> with all results returned
-				as Arrays where the operator provides them.</p>
+				<p><code>@rxjs-ninja/rxjs-array</code> provides operators for RxJS for working with
+				of <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> types in RxJS.</p>
+				<p>A full list is available on the <a href="https://rxjs.ninja/modules/array.html">API Page</a>.</p>
 				<a href="#function-and-operator-categories" id="function-and-operator-categories" style="color: inherit; text-decoration: none;">
-					<h3>Function and Operator categories</h3>
+					<h2>Function and Operator categories</h2>
 				</a>
-				<ul>
-					<li>Convert - Functions that convert source Observable <code>Set</code>, <code>Map</code> and <code>Object</code> to <code>Array</code></li>
-					<li>Filter - Operators that return source Arrays, or items from arrays using filtering functions or properties</li>
-					<li>Modify - Operators that modify Arrays or their values</li>
-					<li>Query - Operators that return non-Array values based on querying an arrays values</li>
-					<li>Set - Operators for working with <code>Set</code> objects (currently only <code>toSet</code> but more operators to come!)</li>
-				</ul>
-				<p>For example, you could <code>sortMap</code> an array of values from number into boolean and them <code>flipArray</code> the values:</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { <span class="hljs-keyword">of</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;
-<span class="hljs-keyword">import</span> { sortMap, flipArray } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rxjs-ninja/rxjs-array&#x27;</span>;
+				<a href="#filter" id="filter" style="color: inherit; text-decoration: none;">
+					<h3>Filter</h3>
+				</a>
+				<p>Operators that return source Arrays, or items from arrays using filtering functions or properties.</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> technology$ = <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;TypeScript&#x27;</span>, <span class="hljs-string">&#x27;Angular&#x27;</span>, <span class="hljs-string">&#x27;Node&#x27;</span>, <span class="hljs-string">&#x27;NativeScript&#x27;</span>, <span class="hljs-string">&#x27;RxJS Ninja&#x27;</span>]);
+<span class="hljs-keyword">const</span> frontEnd$ = <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;TypeScript&#x27;</span>, <span class="hljs-string">&#x27;Angular&#x27;</span>, <span class="hljs-string">&#x27;RxJS Ninja&#x27;</span>, <span class="hljs-string">&#x27;React&#x27;</span>]);
 
-<span class="hljs-keyword">of</span>([<span class="hljs-number">10</span>, <span class="hljs-number">4</span>, <span class="hljs-number">7</span>, <span class="hljs-number">3</span>, <span class="hljs-number">1</span>, <span class="hljs-number">29</span>, <span class="hljs-number">5</span>])
+<span class="hljs-comment">// Get the intersection between two Array values</span>
+technology$.pipe(intersection(frontEnd$)).subscribe();
+<span class="hljs-comment">// Output: [&#x27;RxJS&#x27;, &#x27;TypeScript&#x27;, &#x27;Angular&#x27;, &#x27;RxJS Ninja&#x27;]</span>
+
+<span class="hljs-comment">// Get the difference in the source array</span>
+technology$.pipe(difference(frontEnd$)).subscribe();
+<span class="hljs-comment">// Output: [&#x27;Node&#x27;, &#x27;NativeScript&#x27;]</span>
+
+<span class="hljs-comment">// Get the difference from both source and input</span>
+technology$.pipe(differenceAll(frontEnd$)).subscribe();
+<span class="hljs-comment">// Output: [ [&#x27;Node&#x27;, &#x27;NativeScript&#x27;], [&#x27;React&#x27;] ]</span></code></pre>
+				<a href="#map-objects" id="map-objects" style="color: inherit; text-decoration: none;">
+					<h3>Map Objects</h3>
+				</a>
+				<p>Operators for working with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map">Map</a>
+				objects and converting to and from <code>Array</code></p>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> technology$ = <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;TypeScript&#x27;</span>, <span class="hljs-string">&#x27;Angular&#x27;</span>, <span class="hljs-string">&#x27;Node&#x27;</span>, <span class="hljs-string">&#x27;NativeScript&#x27;</span>, <span class="hljs-string">&#x27;RxJS Ninja&#x27;</span>]);
+<span class="hljs-keyword">const</span> categories$ = <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;Library&#x27;</span>, <span class="hljs-string">&#x27;Language&#x27;</span>, <span class="hljs-string">&#x27;Framework&#x27;</span>, <span class="hljs-string">&#x27;Runtime&#x27;</span>, <span class="hljs-string">&#x27;Framework&#x27;</span>, <span class="hljs-string">&#x27;Library&#x27;</span>]);
+
+<span class="hljs-comment">// Merge two arrays into a tuple and convert it to a map</span>
+combineLatest([technology$, categories$])
   .pipe(
-    <span class="hljs-comment">/**
-     * Out of the box `sortMap` does a basic sort on an array so the
-     * result will be [1, 3, 4, 5, 7, 10, 29]
-     * Then the map function will be called with the result, here we do a modulus 2 check
-     * so the result is [false, false, true, false, false, true, false]
-     */</span>
-    sortMap(<span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> value % <span class="hljs-number">2</span>),
-    <span class="hljs-comment">// Now we flip the array</span>
-    flipArray(),
+    map(<span class="hljs-function">(<span class="hljs-params">[technology, categories]</span>) =&gt;</span> technology.map(<span class="hljs-function">(<span class="hljs-params">tech, index</span>) =&gt;</span> [tech, categories[index]])),
+    toMap(),
+    tap(<span class="hljs-function">(<span class="hljs-params">techStack</span>) =&gt;</span> {
+      <span class="hljs-built_in">console</span>.log(techStack.has(<span class="hljs-string">&#x27;TypeScript&#x27;</span>)); <span class="hljs-comment">// true</span>
+      <span class="hljs-built_in">console</span>.log(techStack.get(<span class="hljs-string">&#x27;RxJS Ninja&#x27;</span>)); <span class="hljs-comment">// &#x27;Library&#x27;</span>
+    }),
   )
-  .subscribe(); <span class="hljs-comment">// [true, true, false, true, true, false, true]</span></code></pre>
+  .subscribe();</code></pre>
+				<a href="#modify" id="modify" style="color: inherit; text-decoration: none;">
+					<h3>Modify</h3>
+				</a>
+				<p>Operators for modifying the source <code>Array</code> such as sorting, reversing, changing the data or to a string</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> technology$ = <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;TypeScript&#x27;</span>, <span class="hljs-string">&#x27;Angular&#x27;</span>, <span class="hljs-string">&#x27;Node&#x27;</span>, <span class="hljs-string">&#x27;NativeScript&#x27;</span>, <span class="hljs-string">&#x27;RxJS Ninja&#x27;</span>]);
+
+<span class="hljs-comment">// Sort the array</span>
+technology$.pipe(sort()).subscribe();
+<span class="hljs-comment">// Output: `[&#x27;Angular&#x27;, &#x27;NativeScript&#x27;, &#x27;Node&#x27;, &#x27;RxJS&#x27;, &#x27;RxJS Ninja&#x27;, &#x27;TypeScript&#x27;]`</span>
+
+<span class="hljs-comment">// Reverse the array</span>
+technology$.pipe(reverse()).subscribe();
+<span class="hljs-comment">// Output: `[&#x27;RxJS Ninja&#x27;, &#x27;NativeScript&#x27;, &#x27;Node&#x27;, &#x27;Angular&#x27;, &#x27;TypeScript&#x27;, &#x27;RxJS&#x27;]`</span>
+
+<span class="hljs-comment">// Fill the array</span>
+technology$.pipe(fill(<span class="hljs-string">&#x27;jQuery&#x27;</span>)).subscribe();
+<span class="hljs-comment">// Output: `[&#x27;jQuery&#x27;, &#x27;jQuery&#x27;, &#x27;jQuery&#x27;, &#x27;jQuery&#x27;, &#x27;jQuery&#x27;, &#x27;jQuery&#x27;]`</span></code></pre>
+				<a href="#object" id="object" style="color: inherit; text-decoration: none;">
+					<h3>Object</h3>
+				</a>
+				<p>Operators for working
+					with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+				objects and converting to and from <code>Array</code></p>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> technology$ = <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;TypeScript&#x27;</span>, <span class="hljs-string">&#x27;Angular&#x27;</span>, <span class="hljs-string">&#x27;Node&#x27;</span>, <span class="hljs-string">&#x27;NativeScript&#x27;</span>, <span class="hljs-string">&#x27;RxJS Ninja&#x27;</span>]);
+<span class="hljs-keyword">const</span> categories$ = <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;Library&#x27;</span>, <span class="hljs-string">&#x27;Language&#x27;</span>, <span class="hljs-string">&#x27;Framework&#x27;</span>, <span class="hljs-string">&#x27;Runtime&#x27;</span>, <span class="hljs-string">&#x27;Framework&#x27;</span>, <span class="hljs-string">&#x27;Library&#x27;</span>]);
+
+<span class="hljs-comment">// Merge two arrays into a tuple and convert it to a map</span>
+combineLatest([technology$, categories$])
+  .pipe(
+    map(<span class="hljs-function">(<span class="hljs-params">[technology, categories]</span>) =&gt;</span> technology.map(<span class="hljs-function">(<span class="hljs-params">tech, index</span>) =&gt;</span> [index, { tech, <span class="hljs-attr">category</span>: categories[index] }])),
+    toObject(),
+  )
+  .subscribe();
+
+<span class="hljs-comment">// {</span>
+<span class="hljs-comment">//  1: { name: &#x27;RxJS&#x27;, category: &#x27;Library&#x27; }, 2: { name: &#x27;Typescript&#x27;, category: &#x27;Languge&#x27; },</span>
+<span class="hljs-comment">//  3: { name: &#x27;Angular&#x27;, category: &#x27;Framework&#x27; }, 4: { name: &#x27;Node&#x27;, category: &#x27;Runtime&#x27; }, ,</span>
+<span class="hljs-comment">//  5: { name: &#x27;NativeScript&#x27;, category: &#x27;Framework&#x27; }, 6: { name: &#x27;RxJS Ninja&#x27;, category: &#x27;Library&#x27; },</span>
+<span class="hljs-comment">// }</span></code></pre>
+				<a href="#query" id="query" style="color: inherit; text-decoration: none;">
+					<h3>Query</h3>
+				</a>
+				<p>Operators for querying for indexes or truthy values related to <code>Array</code> contents</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> technology$ = <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;TypeScript&#x27;</span>, <span class="hljs-string">&#x27;Angular&#x27;</span>, <span class="hljs-string">&#x27;Node&#x27;</span>, <span class="hljs-string">&#x27;NativeScript&#x27;</span>, <span class="hljs-string">&#x27;RxJS Ninja&#x27;</span>]);
+<span class="hljs-keyword">const</span> frontEnd$ = <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;TypeScript&#x27;</span>, <span class="hljs-string">&#x27;Angular&#x27;</span>, <span class="hljs-string">&#x27;RxJS Ninja&#x27;</span>, <span class="hljs-string">&#x27;React&#x27;</span>]);
+
+<span class="hljs-comment">// Check is source is subset of input</span>
+technology$.pipe(isSubsetOf(frontEnd$)).subscribe();
+<span class="hljs-comment">// Output: `false`</span>
+
+<span class="hljs-comment">// Check if source is a superset of input</span>
+technology$.pipe(isSupersetOf(frontEnd$)).subscribe();
+<span class="hljs-comment">// Output: `true`</span>
+
+<span class="hljs-comment">// Check if the source array contains some strings with `length &lt; 5`</span>
+technology$.pipe(some(<span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> value.length &lt; <span class="hljs-number">5</span>)).subscribe();
+<span class="hljs-comment">// Output : `true`</span>
+
+<span class="hljs-comment">// Check if the source array strings are all `length &lt; 5`</span>
+technology$.pipe(every(<span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> value.length &lt; <span class="hljs-number">5</span>)).subscribe();
+<span class="hljs-comment">// Output : `false`</span></code></pre>
+				<a href="#set" id="set" style="color: inherit; text-decoration: none;">
+					<h3>Set</h3>
+				</a>
+				<p>Operators for working with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">Set</a>
+				objects and converting to and from <code>Array</code></p>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> technologyStream$ = <span class="hljs-keyword">of</span>([<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;TypeScript&#x27;</span>, <span class="hljs-string">&#x27;Angular&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;TypeScript&#x27;</span>, <span class="hljs-string">&#x27;RxJS Ninja&#x27;</span>]);
+
+<span class="hljs-comment">// Covert array to set</span>
+technology$.pipe(toSet()).subscribe();
+<span class="hljs-comment">// Output: `Set(4) { &#x27;RxJS&#x27;, &#x27;TypeScript&#x27;, &#x27;Angular&#x27;, &#x27;RxJS Ninja&#x27; }`</span></code></pre>
 			</div>
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/19/2021 at 11:12:23 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 11:03:14 AM</p>
 			</div>
 		</div>
 	</div>

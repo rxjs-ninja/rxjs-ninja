@@ -6,10 +6,11 @@
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PredicateFn } from '../types/generic-methods';
-import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable value of the last truthy value found in a source array, or `undefined` using Array.find
+ * When working with data, if the array contains numbers `0` will be returned as a value to the [[PredicateFn]], but all
+ * other falsy values will be ignored
  *
  * @category Filter
  *
@@ -35,9 +36,7 @@ import { ArrayOrSet } from '../types/array-set';
  *
  * @returns An Observable that emits the last found value from the array, or `undefined`
  */
-export function findLast<T extends unknown>(
-  predicate?: PredicateFn<T>,
-): OperatorFunction<ArrayOrSet<T>, T | undefined> {
+export function findLast<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<Iterable<T>, T | undefined> {
   return (source) =>
     source.pipe(
       map((value) =>

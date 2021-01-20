@@ -4,7 +4,6 @@
  */
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable array where the source array contains boolean values, and flips the value to the opposite
@@ -22,6 +21,6 @@ import { ArrayOrSet } from '../types/array-set';
  *
  * @returns Observable array of boolean values that are flipped from their original value
  */
-export function flipArray(): OperatorFunction<ArrayOrSet<boolean>, boolean[]> {
+export function flipArray(): OperatorFunction<Iterable<boolean>, boolean[]> {
   return (source) => source.pipe(map((value) => [...value].map((v) => !v)));
 }

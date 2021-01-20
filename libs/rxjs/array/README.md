@@ -10,37 +10,135 @@
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/CHANGELOG.md)
 
-`@rxjs-ninja/rxjs-array` provides operators for RxJS for creating Observables of Array values, and for querying,
-filtering and modifying [Arrays](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-and
-[Sets](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) with all results returned
-as Arrays where the operator provides them.
+`@rxjs-ninja/rxjs-array` provides operators for RxJS for working with
+of [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) types in RxJS.
 
-### Function and Operator categories
+A full list is available on the [API Page](https://rxjs.ninja/modules/array.html).
 
-- Convert - Functions that convert source Observable `Set`, `Map` and `Object` to `Array`
-- Filter - Operators that return source Arrays, or items from arrays using filtering functions or properties
-- Modify - Operators that modify Arrays or their values
-- Query - Operators that return non-Array values based on querying an arrays values
-- Set - Operators for working with `Set` objects (currently only `toSet` but more operators to come!)
+## Function and Operator categories
 
-For example, you could `sortMap` an array of values from number into boolean and them `flipArray` the values:
+### Filter
+
+Operators that return source Arrays, or items from arrays using filtering functions or properties.
 
 ```ts
-import { of } from 'rxjs';
-import { sortMap, flipArray } from '@rxjs-ninja/rxjs-array';
+const technology$ = of(['RxJS', 'TypeScript', 'Angular', 'Node', 'NativeScript', 'RxJS Ninja']);
+const frontEnd$ = of(['RxJS', 'TypeScript', 'Angular', 'RxJS Ninja', 'React']);
 
-of([10, 4, 7, 3, 1, 29, 5])
+// Get the intersection between two Array values
+technology$.pipe(intersection(frontEnd$)).subscribe();
+// Output: ['RxJS', 'TypeScript', 'Angular', 'RxJS Ninja']
+
+// Get the difference in the source array
+technology$.pipe(difference(frontEnd$)).subscribe();
+// Output: ['Node', 'NativeScript']
+
+// Get the difference from both source and input
+technology$.pipe(differenceAll(frontEnd$)).subscribe();
+// Output: [ ['Node', 'NativeScript'], ['React'] ]
+```
+
+### Map Objects
+
+Operators for working with [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
+objects and converting to and from `Array`
+
+```ts
+const technology$ = of(['RxJS', 'TypeScript', 'Angular', 'Node', 'NativeScript', 'RxJS Ninja']);
+const categories$ = of(['Library', 'Language', 'Framework', 'Runtime', 'Framework', 'Library']);
+
+// Merge two arrays into a tuple and convert it to a map
+combineLatest([technology$, categories$])
   .pipe(
-    /**
-     * Out of the box `sortMap` does a basic sort on an array so the
-     * result will be [1, 3, 4, 5, 7, 10, 29]
-     * Then the map function will be called with the result, here we do a modulus 2 check
-     * so the result is [false, false, true, false, false, true, false]
-     */
-    sortMap((value) => value % 2),
-    // Now we flip the array
-    flipArray(),
+    map(([technology, categories]) => technology.map((tech, index) => [tech, categories[index]])),
+    toMap(),
+    tap((techStack) => {
+      console.log(techStack.has('TypeScript')); // true
+      console.log(techStack.get('RxJS Ninja')); // 'Library'
+    }),
   )
-  .subscribe(); // [true, true, false, true, true, false, true]
+  .subscribe();
+```
+
+### Modify
+
+Operators for modifying the source `Array` such as sorting, reversing, changing the data or to a string
+
+```ts
+const technology$ = of(['RxJS', 'TypeScript', 'Angular', 'Node', 'NativeScript', 'RxJS Ninja']);
+
+// Sort the array
+technology$.pipe(sort()).subscribe();
+// Output: `['Angular', 'NativeScript', 'Node', 'RxJS', 'RxJS Ninja', 'TypeScript']`
+
+// Reverse the array
+technology$.pipe(reverse()).subscribe();
+// Output: `['RxJS Ninja', 'NativeScript', 'Node', 'Angular', 'TypeScript', 'RxJS']`
+
+// Fill the array
+technology$.pipe(fill('jQuery')).subscribe();
+// Output: `['jQuery', 'jQuery', 'jQuery', 'jQuery', 'jQuery', 'jQuery']`
+```
+
+### Object
+
+Operators for working
+with [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+objects and converting to and from `Array`
+
+```ts
+const technology$ = of(['RxJS', 'TypeScript', 'Angular', 'Node', 'NativeScript', 'RxJS Ninja']);
+const categories$ = of(['Library', 'Language', 'Framework', 'Runtime', 'Framework', 'Library']);
+
+// Merge two arrays into a tuple and convert it to a map
+combineLatest([technology$, categories$])
+  .pipe(
+    map(([technology, categories]) => technology.map((tech, index) => [index, { tech, category: categories[index] }])),
+    toObject(),
+  )
+  .subscribe();
+
+// {
+//  1: { name: 'RxJS', category: 'Library' }, 2: { name: 'Typescript', category: 'Languge' },
+//  3: { name: 'Angular', category: 'Framework' }, 4: { name: 'Node', category: 'Runtime' }, ,
+//  5: { name: 'NativeScript', category: 'Framework' }, 6: { name: 'RxJS Ninja', category: 'Library' },
+// }
+```
+
+### Query
+
+Operators for querying for indexes or truthy values related to `Array` contents
+
+```ts
+const technology$ = of(['RxJS', 'TypeScript', 'Angular', 'Node', 'NativeScript', 'RxJS Ninja']);
+const frontEnd$ = of(['RxJS', 'TypeScript', 'Angular', 'RxJS Ninja', 'React']);
+
+// Check is source is subset of input
+technology$.pipe(isSubsetOf(frontEnd$)).subscribe();
+// Output: `false`
+
+// Check if source is a superset of input
+technology$.pipe(isSupersetOf(frontEnd$)).subscribe();
+// Output: `true`
+
+// Check if the source array contains some strings with `length < 5`
+technology$.pipe(some((value) => value.length < 5)).subscribe();
+// Output : `true`
+
+// Check if the source array strings are all `length < 5`
+technology$.pipe(every((value) => value.length < 5)).subscribe();
+// Output : `false`
+```
+
+### Set
+
+Operators for working with [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
+objects and converting to and from `Array`
+
+```ts
+const technologyStream$ = of(['RxJS', 'TypeScript', 'Angular', 'RxJS', 'TypeScript', 'RxJS Ninja']);
+
+// Covert array to set
+technology$.pipe(toSet()).subscribe();
+// Output: `Set(4) { 'RxJS', 'TypeScript', 'Angular', 'RxJS Ninja' }`
 ```

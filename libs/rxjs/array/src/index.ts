@@ -9,6 +9,7 @@
 /* istanbul ignore file */
 export { binarySearch } from './lib/binary-search';
 export { difference } from './lib/difference';
+export { differenceAll } from './lib/difference-all';
 export { every } from './lib/every';
 export { fill } from './lib/fill';
 export { filterDifference } from './lib/filter-difference';
@@ -42,4 +43,3 @@ export { toMap } from './lib/to-map';
 export { toSet } from './lib/to-set';
 
 export { BinarySearchResult } from './types/binary-search';
-export { ArrayOrSet } from './types/array-set';

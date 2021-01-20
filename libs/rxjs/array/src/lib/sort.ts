@@ -6,7 +6,6 @@ import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { defaultSortFn } from '../utils/sort';
 import { SortFn } from '../types/generic-methods';
-import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable that emits an array of sorted values from the source Array or Set using the [[SortFn]]
@@ -43,6 +42,6 @@ import { ArrayOrSet } from '../types/array-set';
  *
  * @returns Observable array of values from source array sorted via [[SortFn]]
  */
-export function sort<T extends unknown>(sortFn?: SortFn<T>): OperatorFunction<ArrayOrSet<T>, T[]> {
+export function sort<T extends unknown>(sortFn?: SortFn<T>): OperatorFunction<Iterable<T>, T[]> {
   return (source) => source.pipe(map((value) => [...value].sort(sortFn || defaultSortFn)));
 }

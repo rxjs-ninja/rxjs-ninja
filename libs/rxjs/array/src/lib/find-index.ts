@@ -6,10 +6,11 @@
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { PredicateFn } from '../types/generic-methods';
-import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable number which is the index of the first value found in an array using Array.findIndex
+ * When working with data, if the array contains numbers `0` will be returned as a value to the [[PredicateFn]], but all
+ * other falsy values will be ignored
  *
  * @category Query
  *
@@ -35,7 +36,7 @@ import { ArrayOrSet } from '../types/array-set';
  *
  * @returns An Observable that emits a number value, the index of first value where [[PredicateFn]] is true
  */
-export function findIndex<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<ArrayOrSet<T>, number> {
+export function findIndex<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<Iterable<T>, number> {
   return (source) =>
     source.pipe(
       map((value) =>

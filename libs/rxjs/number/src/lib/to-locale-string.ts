@@ -8,7 +8,9 @@ import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a formatted string value from a source number using Number.toLocaleString with
- * optional formatting options provided by Intl.NumberFormat.
+ * optional formatting options provided by Intl.NumberFormat
+ *
+ * @category Formatting
  *
  * @param locales The locale or locales that the number is being formatted for
  * @param format Formatting of the string based on
@@ -33,7 +35,6 @@ import { createOrReturnObservable } from '../utils/internal';
  * Output: `'€1,000,000.00'`
  *
  * @returns Observable that emits a formatted string from a source number
- * @category Formatting
  */
 export function toLocaleString(
   locales?: Subscribable<string | string[]> | string | string[],

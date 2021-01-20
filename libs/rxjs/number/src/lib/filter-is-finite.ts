@@ -14,6 +14,7 @@ import { filter } from 'rxjs/operators';
  *   `Infinity` to be generated, this operator can help avoid those values
  *
  * @see The [[isFinite]] operator returns a boolean value instead of the number
+ *
  * @example
  * Return only finite values
  * ```ts

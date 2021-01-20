@@ -8,7 +8,9 @@ import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a formatted string of a number raised to an exponential power using
- * Number.toExponential.
+ * Number.toExponential
+ *
+ * @category Formatting
  *
  * @param exponential The exponential value to raise the number by
  *
@@ -20,7 +22,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * Output: `'-1.00e+0', '0.00e+0', '1.00e+0', '2.30e+0', '3.14e+0'`
  *
  * @returns Observable that emits a formatted string of the exponential number
- * @category Formatting
+
  */
 export function toExponential(exponential: Subscribable<number> | number): OperatorFunction<number, string> {
   const exponential$ = createOrReturnObservable(exponential);

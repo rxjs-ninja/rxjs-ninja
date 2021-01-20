@@ -7,7 +7,9 @@ import { map, withLatestFrom } from 'rxjs/operators';
 import { createOrReturnObservable } from '../utils/internal';
 
 /**
- * Returns an Observable that emits a formatted string value from a source number using Number.toFixed.
+ * Returns an Observable that emits a formatted string value from a source number using Number.toFixed
+ *
+ * @category Formatting
  *
  * @param digits Optional number of digits to fix to, if not passed treated as `0`
  *
@@ -19,7 +21,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * Output: `'1.834', '2.12', '3.14', '42.20'`
  *
  * @returns Observable that emits a formatted string from a source number to a fixed decimal value
- * @category Formatting
+
  */
 export function toFixed(digits?: Subscribable<number> | number): OperatorFunction<number, string> {
   const digits$ = createOrReturnObservable(digits);

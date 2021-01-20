@@ -7,7 +7,9 @@ import { map, withLatestFrom } from 'rxjs/operators';
 import { createOrReturnObservable } from '../utils/internal';
 
 /**
- * Returns an Observable that emits a formatted string value from a source number using Number.toString.
+ * Returns an Observable that emits a formatted string value from a source number using Number.toString
+ *
+ * @category Formatting
  *
  * @param radix The base number to format to. Default is `10`.
  *
@@ -26,7 +28,6 @@ import { createOrReturnObservable } from '../utils/internal';
  * Output: `'8', '10', '20', '40'`
  *
  * @returns Observable that emits a formatted string from a source number and passed `radix` value
- * @category Formatting
  */
 export function toString(radix: Subscribable<number> | number = 10): OperatorFunction<number, string> {
   const radix$ = createOrReturnObservable(radix);

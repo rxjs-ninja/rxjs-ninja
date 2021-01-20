@@ -2,15 +2,16 @@
  * @packageDocumentation
  * @module Number
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
-import { filter, map, withLatestFrom } from 'rxjs/operators';
+import { OperatorFunction, Subscribable } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a number from a source string using Number.parseInt.
- * By default this operator removes `NaN` values but can optionally be set to return them
+ *
+ * @category Parse
  *
  * @param radix The number base to convert from. Default is base `10`
- * @param returnNaN Optionally return `NaN` values instead of filtering
  *
  * @example Return only parsed integer values using base `10`
  * ```ts
@@ -18,13 +19,6 @@ import { filter, map, withLatestFrom } from 'rxjs/operators';
  * from(input).pipe(parseInt()).subscribe();
  * ```
  * Output: `-2, 0, 1, 2, 3`
- *
- * @example Return parsed integer values and `NaN` values using base `10`
- * ```ts
- * const input = ['RxJS', '-2.3', '0', '1', '2', '3.14', 'Infinity'];
- * from(input).pipe(parseInt(10, true)).subscribe();
- * ```
- * Output: `NaN, -2, 0, 1, 2, 3, NaN`
  *
  * @example Return parsed integer values using base `16`
  * ```ts
@@ -34,22 +28,12 @@ import { filter, map, withLatestFrom } from 'rxjs/operators';
  * Output: `1, 255, 64`
  *
  * @returns Observable that emits a number from source parsed string, optionally returns `NaN` values
- * @category Parsing
  */
-export function parseInt(
-  radix: ObservableInput<number> | number = 10,
-  returnNaN?: ObservableInput<boolean> | boolean,
-): OperatorFunction<string, number> {
-  const radix$ = (isObservable(radix) ? radix : of(radix)) as Observable<number>;
-  const returnNaN$ = (isObservable(returnNaN) ? returnNaN : of(returnNaN)) as Observable<boolean>;
+export function parseInt(radix: Subscribable<number> | number = 10): OperatorFunction<string, number> {
+  const radix$ = createOrReturnObservable(radix);
   return (source) =>
     source.pipe(
-      withLatestFrom(radix$, returnNaN$),
-      map<[string, number, boolean], [number, boolean]>(([value, inputValue, isReturnNaN]) => [
-        Number.parseInt(value, inputValue),
-        isReturnNaN,
-      ]),
-      filter(([value, isReturnNaN]) => !isNaN(value) || (isNaN(value) && isReturnNaN)),
-      map(([value]) => value),
+      withLatestFrom(radix$),
+      map(([value, inputValue]) => Number.parseInt(value, inputValue)),
     );
 }

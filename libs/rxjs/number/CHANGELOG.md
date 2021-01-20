@@ -5,6 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+This released contains more breaking changes to the APIs in this module, detailed below. Internally the operators and
+functions have been cleaned up to be more maintainable. Releases after this should be more stable.
+
+### Added
+
+- `isMod` operator that returns a boolean value if the source number has no remainder from the passed modulus value
+
+### Changed
+
+- `filterIsNotNaN` is now just `filterNaN` removing them from number source
+- `fromNumber` no longer accepts arguments list or Promise value, parameter is now optional - if not passed the
+  Observable will emit increasing positive number values.
+- `parseFloat`, `parseInt` and `parseHex` no longer have property to filter `NaN` values and will return them,
+  use `filterNaN` to remove these values.
+- Internal improvements and documentation updates
+
 ## [4.3.0] - 2021-01-19
 
 ### Changed

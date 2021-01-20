@@ -2,8 +2,9 @@
  * @packageDocumentation
  * @module Number
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of, throwError } from 'rxjs';
+import { MonoTypeOperatorFunction, of, Subscribable, throwError } from 'rxjs';
 import { switchMap, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * @private
@@ -16,7 +17,7 @@ const ERROR_MESSAGE = `div operator cannot divide by 0`;
  *
  * @category Math
  *
- * @param input The number to divide to the source value
+ * @param num The number to divide to the source value
  *
  * @remarks If the input value is `0` this operator will throw an error
  *
@@ -29,11 +30,11 @@ const ERROR_MESSAGE = `div operator cannot divide by 0`;
  *
  * @returns Observable that emits a number that is the division of source and input
  */
-export function div(input: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
-  const input$ = (isObservable(input) ? input : of(input)) as Observable<number>;
+export function div(num: Subscribable<number> | number): MonoTypeOperatorFunction<number> {
+  const num$ = createOrReturnObservable(num);
   return (source) =>
     source.pipe(
-      withLatestFrom(input$),
-      switchMap(([value, inputValue]) => (inputValue !== 0 ? of(value / inputValue) : throwError(ERROR_MESSAGE))),
+      withLatestFrom(num$),
+      switchMap(([value, numValue]) => (numValue !== 0 ? of(value / numValue) : throwError(ERROR_MESSAGE))),
     );
 }

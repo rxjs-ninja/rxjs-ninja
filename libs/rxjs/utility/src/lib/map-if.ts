@@ -3,7 +3,7 @@
  * @module Utility
  */
 import { MapFn, PredicateFn } from '../types/utility';
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
@@ -44,6 +44,5 @@ export function mapIf<I extends unknown, T = unknown, F = unknown>(
   trueResult: MapFn<I, T>,
   falseResult: MapFn<I, T | F>,
 ): OperatorFunction<I, T | F> {
-  return (source: Observable<I>) =>
-    source.pipe(map((value: I) => (predicate(value) ? trueResult(value) : falseResult(value))));
+  return (source) => source.pipe(map((value: I) => (predicate(value) ? trueResult(value) : falseResult(value))));
 }

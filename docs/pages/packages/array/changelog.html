@@ -140,12 +140,37 @@
 				<p>All notable changes to this project will be documented in this file.</p>
 				<p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>, and this project adheres
 				to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+				<a href="#600---2021-01-20" id="600---2021-01-20" style="color: inherit; text-decoration: none;">
+					<h2>[6.0.0] - 2021-01-20</h2>
+				</a>
+				<p>This released contains more breaking changes to the APIs in this module, detailed below. Internally the operators and
+				functions have been cleaned up to be more maintainable. Releases after this should be more stable.</p>
+				<a href="#added" id="added" style="color: inherit; text-decoration: none;">
+					<h3>Added</h3>
+				</a>
+				<ul>
+					<li><code>differenceAll</code> operator which returns a tuple of two <code>Array</code> values, containing the unique differences in the source
+					and comparison array.</li>
+					<li><code>toObject</code> operator that takes an <code>Array</code> of tuples containing the key/value pair for the object collection</li>
+				</ul>
+				<a href="#changed" id="changed" style="color: inherit; text-decoration: none;">
+					<h3>Changed</h3>
+				</a>
+				<ul>
+					<li><code>binarySearch</code> parameter order changed, <code>SortFn</code> is now the last property, also now accepts Observable arguments
+					for <code>search</code> and <code>property</code></li>
+					<li>Removed <code>ArrayOrSet&lt;T&gt;</code> in favour of <code>Iterable&lt;T&gt;</code></li>
+					<li><code>fromSet</code> and <code>fromMap</code> no longer accept arguments list or Promise value</li>
+					<li><code>indexOf</code> and <code>lastIndexOf</code> now return an <code>Array</code> value, even if a single value property is used (which will return an
+					array of length 1)</li>
+					<li><code>isSuperset</code>, <code>isSubset</code>, <code>isEqual</code> and <code>fill</code>, now accept Observable input values</li>
+				</ul>
 				<a href="#500---2021-01-18" id="500---2021-01-18" style="color: inherit; text-decoration: none;">
-					<h3>[5.0.0] - 2021-01-18</h3>
+					<h2>[5.0.0] - 2021-01-18</h2>
 				</a>
 				<p>This update mainly fixes some naming inconsistencies and renames the current <code>from*</code> operators, listed below, instead
 				they are now <code>*toArray</code> as a Source conversion, these changes are breaking.</p>
-				<a href="#added" id="added" style="color: inherit; text-decoration: none;">
+				<a href="#added-1" id="added-1" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -153,26 +178,28 @@
 					<li>Static <code>fromMap</code> function to generate an Observable <code>Array</code> from a <code>Map</code> or collection of <code>Map</code> values</li>
 					<li><code>toMap</code> operator that takes an <code>Array</code> of tuples containing the key/value pair for the map collection</li>
 				</ul>
-				<a href="#changed" id="changed" style="color: inherit; text-decoration: none;">
+				<a href="#changed-1" id="changed-1" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
 					<li>The previous operator <code>fromSet</code> is now <code>setToArray</code>, new <code>fromSet</code> is static method for generating Observables</li>
 					<li>The previous operator <code>fromMap</code> is now <code>mapToArray</code>, new <code>fromMap</code> is static method for generating Observables</li>
-					<li>The previous operator <code>fromObjectKeys</code> is now <code>objectKeysToArray</code>. No replacement operator, use <code>of(object).pipe(objectKeysToArray())</code>.</li>
-					<li>The previous operator <code>fromObjectEntries</code> is now <code>objectEntriesToArray</code>. No replacement operator, use <code>of(object).pipe(objectEntriesToArray())</code>.</li>
+					<li>The previous operator <code>fromObjectKeys</code> is now <code>objectKeysToArray</code>. No replacement operator,
+					use <code>of(object).pipe(objectKeysToArray())</code>.</li>
+					<li>The previous operator <code>fromObjectEntries</code> is now <code>objectEntriesToArray</code>. No replacement operator,
+					use <code>of(object).pipe(objectEntriesToArray())</code>.</li>
 				</ul>
 				<a href="#420---2021-01-17" id="420---2021-01-17" style="color: inherit; text-decoration: none;">
-					<h3>[4.2.0] - 2021-01-17</h3>
+					<h2>[4.2.0] - 2021-01-17</h2>
 				</a>
 				<p>Some internal refactoring, however there should be no breaking changes from <code>4.1.0</code></p>
-				<a href="#added-1" id="added-1" style="color: inherit; text-decoration: none;">
+				<a href="#added-2" id="added-2" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
 					<li>New <code>ArrayOrSet&lt;T&gt;</code> type for all inputs and sources in this library</li>
 				</ul>
-				<a href="#changed-1" id="changed-1" style="color: inherit; text-decoration: none;">
+				<a href="#changed-2" id="changed-2" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -182,7 +209,7 @@
 				<a href="#410---2021-01-15" id="410---2021-01-15" style="color: inherit; text-decoration: none;">
 					<h2>[4.1.0] - 2021-01-15</h2>
 				</a>
-				<a href="#added-2" id="added-2" style="color: inherit; text-decoration: none;">
+				<a href="#added-3" id="added-3" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -202,14 +229,14 @@
 					an <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a> or
 					<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set">Set</a> but will always return an
 				<code>Array</code> (except for specific <code>Set</code> operators that will be provided later)</p>
-				<a href="#added-3" id="added-3" style="color: inherit; text-decoration: none;">
+				<a href="#added-4" id="added-4" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
 					<li><code>isSubsetOf</code> operator that takes an <code>Array</code> or <code>Set</code> and checks if the source <code>Array</code> or <code>Set</code> is a subset of it</li>
 					<li><code>isSupersetOf</code> operator that takes an <code>Array</code> or <code>Set</code> and checks if the source <code>Array</code> or <code>Set</code> is a superset of it</li>
 				</ul>
-				<a href="#changed-2" id="changed-2" style="color: inherit; text-decoration: none;">
+				<a href="#changed-3" id="changed-3" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -223,7 +250,7 @@
 				<a href="#310---2021-01-14" id="310---2021-01-14" style="color: inherit; text-decoration: none;">
 					<h2>[3.1.0] - 2021-01-14</h2>
 				</a>
-				<a href="#added-4" id="added-4" style="color: inherit; text-decoration: none;">
+				<a href="#added-5" id="added-5" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -245,7 +272,7 @@
 				</a>
 				<p>This release contains a major update to documentation and examples on <a href="https://rxjs.ninja">rxjs.ninja</a> and improved test
 				coverage that provided various bug fixes.</p>
-				<a href="#added-5" id="added-5" style="color: inherit; text-decoration: none;">
+				<a href="#added-6" id="added-6" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -255,7 +282,7 @@
 					<li><code>findLast</code> operator that returns the last value from an array that is truthy for a passed predicate function</li>
 					<li><code>shuffle</code> operator that takes a source array and returns it shuffled randomly</li>
 				</ul>
-				<a href="#changed-3" id="changed-3" style="color: inherit; text-decoration: none;">
+				<a href="#changed-4" id="changed-4" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -268,7 +295,7 @@
 				<a href="#220---2020-11-23" id="220---2020-11-23" style="color: inherit; text-decoration: none;">
 					<h2>[2.2.0] - 2020-11-23</h2>
 				</a>
-				<a href="#added-6" id="added-6" style="color: inherit; text-decoration: none;">
+				<a href="#added-7" id="added-7" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -286,7 +313,7 @@
 				<a href="#212---2020-11-22" id="212---2020-11-22" style="color: inherit; text-decoration: none;">
 					<h2>[2.1.2] - 2020-11-22</h2>
 				</a>
-				<a href="#changed-4" id="changed-4" style="color: inherit; text-decoration: none;">
+				<a href="#changed-5" id="changed-5" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -297,7 +324,7 @@
 				<a href="#211---2020-11-20" id="211---2020-11-20" style="color: inherit; text-decoration: none;">
 					<h2>[2.1.1] - 2020-11-20</h2>
 				</a>
-				<a href="#changed-5" id="changed-5" style="color: inherit; text-decoration: none;">
+				<a href="#changed-6" id="changed-6" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -312,7 +339,7 @@
 				<ul>
 					<li>Correctly export all operators and fixed issues with Angular imports</li>
 				</ul>
-				<a href="#added-7" id="added-7" style="color: inherit; text-decoration: none;">
+				<a href="#added-8" id="added-8" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -324,7 +351,7 @@
 				<a href="#200---2020-11-17" id="200---2020-11-17" style="color: inherit; text-decoration: none;">
 					<h2>[2.0.0] - 2020-11-17</h2>
 				</a>
-				<a href="#changed-6" id="changed-6" style="color: inherit; text-decoration: none;">
+				<a href="#changed-7" id="changed-7" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -334,7 +361,7 @@
 				<a href="#102---2020-05-25" id="102---2020-05-25" style="color: inherit; text-decoration: none;">
 					<h2>[1.0.2] - 2020-05-25</h2>
 				</a>
-				<a href="#changed-7" id="changed-7" style="color: inherit; text-decoration: none;">
+				<a href="#changed-8" id="changed-8" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -343,7 +370,7 @@
 				<a href="#101---2020-05-24" id="101---2020-05-24" style="color: inherit; text-decoration: none;">
 					<h2>[1.0.1] - 2020-05-24</h2>
 				</a>
-				<a href="#changed-8" id="changed-8" style="color: inherit; text-decoration: none;">
+				<a href="#changed-9" id="changed-9" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -352,7 +379,7 @@
 				<a href="#100---2020-05-23" id="100---2020-05-23" style="color: inherit; text-decoration: none;">
 					<h2>[1.0.0] - 2020-05-23</h2>
 				</a>
-				<a href="#added-8" id="added-8" style="color: inherit; text-decoration: none;">
+				<a href="#added-9" id="added-9" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -366,7 +393,7 @@
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/19/2021 at 11:12:23 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 11:03:14 AM</p>
 			</div>
 		</div>
 	</div>

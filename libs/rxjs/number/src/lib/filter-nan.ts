@@ -22,6 +22,6 @@ import { filter } from 'rxjs/operators';
  *
  * @returns Observable that emits valid numbers and excludes `NaN` values
  */
-export function filterIsNotNaN(): MonoTypeOperatorFunction<number> {
+export function filterNaN(): MonoTypeOperatorFunction<number> {
   return (source) => source.pipe(filter((value) => !Number.isNaN(value)));
 }

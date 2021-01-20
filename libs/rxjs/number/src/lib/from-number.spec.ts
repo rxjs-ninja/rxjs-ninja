@@ -11,8 +11,8 @@ describe('fromNumber', () => {
         take(100),
         reduce((a, b) => [...a, b + 1], [] as number[]),
         tap((value) => {
-          expect(value.length).toBe(100)
-          expect(value[0]).toBe(1)
+          expect(value.length).toBe(100);
+          expect(value[0]).toBe(1);
         }),
       ),
     ),

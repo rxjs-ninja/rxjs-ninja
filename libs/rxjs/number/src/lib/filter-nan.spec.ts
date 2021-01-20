@@ -1,4 +1,4 @@
-import { filterIsNotNaN } from '@rxjs-ninja/rxjs-number';
+import { filterNaN } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
 
 describe('filterIsNotNaN', () => {
@@ -8,7 +8,7 @@ describe('filterIsNotNaN', () => {
       const input = m.hot('-a-b-c-d-e-|', { a: -1, b: 0, c: NaN, d: 2.3, e: 3.14 });
       const subs = '^----------!';
       const expected = m.cold('-a-b---d-e-|', { a: -1, b: 0, d: 2.3, e: 3.14 });
-      m.expect(input.pipe(filterIsNotNaN())).toBeObservable(expected);
+      m.expect(input.pipe(filterNaN())).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

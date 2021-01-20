@@ -13,9 +13,18 @@
 `@rxjs-ninja/rxjs-number` provides operators for querying, filtering and modifying number values, and Observable for
 generating number emitters.
 
-### Function and Operator categories
+## Function and Operator categories
 
-- Create - Functions and Operators for creating Observable number values
+### Create
+
+Functions and Operators for creating Observable number values
+
+```ts
+// Generate a number stream, take `6`, add `1` return the modulus `3` value
+fromNumber().pipe(take(6), add(1), mod(3)).subscribe();
+// Output: `1, 2, 0, 1, 2, 0`
+```
+
 - Filter - Operators for filtering Observable number sources for truthy queries
 - Formatting - Operators for formatting numbers to strings
 - Math - Operators for some math operations such as add, subtract, multiply and raise by power

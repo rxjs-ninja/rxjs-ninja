@@ -19,7 +19,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * const input = [2, 3, 4, 5, 6];
  * from(input).pipe(mod(3)).subscribe();
  * ```
- * Output: `2, 0, 1, 2, 6`
+ * Output: `2, 0, 1, 2, 0`
  *
  * @returns Observable that emits a number that is reminder of a Modulo operation
  */

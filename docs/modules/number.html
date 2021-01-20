@@ -120,9 +120,6 @@
 			</nav>
 			<nav class="tsd-navigation">
 				<ul class="before-current">
-					<li class=" tsd-kind-type-alias tsd-parent-kind-module root">
-						<a href="number.html#arrayorsetnumbers" class="tsd-kind-icon">Array<wbr>OrSet<wbr>Numbers</a>
-					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module root">
 						<a href="number.html#add" class="tsd-kind-icon">add</a>
 					</li>
@@ -142,10 +139,10 @@
 						<a href="number.html#filterisinteger" class="tsd-kind-icon">filter<wbr>IsInteger</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module root">
-						<a href="number.html#filterisnotnan" class="tsd-kind-icon">filter<wbr>IsNot<wbr>NaN</a>
+						<a href="number.html#filterissafeinteger" class="tsd-kind-icon">filter<wbr>IsSafe<wbr>Integer</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module root">
-						<a href="number.html#filterissafeinteger" class="tsd-kind-icon">filter<wbr>IsSafe<wbr>Integer</a>
+						<a href="number.html#filternan" class="tsd-kind-icon">filter<wbr>NaN</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module root">
 						<a href="number.html#filteroutofrange" class="tsd-kind-icon">filter<wbr>Out<wbr>OfRange</a>
@@ -153,7 +150,7 @@
 					<li class=" tsd-kind-function tsd-parent-kind-module root">
 						<a href="number.html#fromfibonacci" class="tsd-kind-icon">from<wbr>Fibonacci</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module root">
+					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter root">
 						<a href="number.html#fromnumber" class="tsd-kind-icon">from<wbr>Number</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module root">
@@ -167,6 +164,9 @@
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module root">
 						<a href="number.html#isinteger" class="tsd-kind-icon">is<wbr>Integer</a>
+					</li>
+					<li class=" tsd-kind-function tsd-parent-kind-module root">
+						<a href="number.html#ismod" class="tsd-kind-icon">is<wbr>Mod</a>
 					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module root">
 						<a href="number.html#isnan" class="tsd-kind-icon">is<wbr>NaN</a>
@@ -229,20 +229,12 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Type aliases</h3>
-							<div class="tsd-index-list">
-								<div class="tsd-kind-type-alias tsd-parent-kind-module"><a href="number.html#arrayorsetnumbers"
-									class="tsd-kind-icon">ArrayOrSetNumbers</a>
-								</div>
-							</div>
-						</section>
-						<section class="tsd-index-section ">
 							<h3>Create</h3>
 							<div class="tsd-index-list">
 								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#fromfibonacci"
 									class="tsd-kind-icon">fromFibonacci</a>
 								</div>
-								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#fromnumber"
+								<div class="tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter"><a href="number.html#fromnumber"
 									class="tsd-kind-icon">fromNumber</a>
 								</div>
 							</div>
@@ -260,11 +252,11 @@
 								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#filterisinteger"
 									class="tsd-kind-icon">filterIsInteger</a>
 								</div>
-								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#filterisnotnan"
-									class="tsd-kind-icon">filterIsNotNaN</a>
-								</div>
 								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#filterissafeinteger"
 									class="tsd-kind-icon">filterIsSafeInteger</a>
+								</div>
+								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#filternan"
+									class="tsd-kind-icon">filterNaN</a>
 								</div>
 								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#filteroutofrange"
 									class="tsd-kind-icon">filterOutOfRange</a>
@@ -312,7 +304,7 @@
 									class="tsd-kind-icon">sub</a>
 								</div>
 							</div>
-							<h3>Parsing</h3>
+							<h3>Parse</h3>
 							<div class="tsd-index-list">
 								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#parsefloat"
 									class="tsd-kind-icon">parseFloat</a>
@@ -338,6 +330,9 @@
 								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#isinteger"
 									class="tsd-kind-icon">isInteger</a>
 								</div>
+								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#ismod"
+									class="tsd-kind-icon">isMod</a>
+								</div>
 								<div class="tsd-kind-function tsd-parent-kind-module"><a href="number.html#isnan"
 									class="tsd-kind-icon">isNaN</a>
 								</div>
@@ -356,36 +351,11 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Type aliases</h2>
-				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module">
-					<a name="arrayorsetnumbers" class="tsd-anchor"></a>
-					<div class="tsd-signature tsd-kind-icon">Array<wbr>OrSet<wbr>Numbers<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Set</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>An Array-like interface that is an array of items or a set of items</p>
-						</div>
-						</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-						<dl class="tsd-comment-tags"><dt class="tds-tag-internal">internal</dt>
-							<dd class="tds-tag-internal"></dd><dt class="tds-tag-typeparam">typeparam</dt>
-							<dd class="tds-tag-typeparam"><p>The type of the value from the input source</p>
-						</dd></dl>
-					</div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in
-								<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/types/array-set.ts#L13">
-									libs/rxjs/number/src/types/array-set.ts:13
-								</a>
-							</li>
-						</ul>
-					</aside>
-			</section></section>
-			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="add" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">add<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -406,7 +376,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>num: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The number to add to the source value</p>
 									</div>
@@ -417,8 +387,8 @@
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/add.ts#L24">
-											libs/rxjs/number/src/lib/add.ts:24
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/add.ts#L25">
+											libs/rxjs/number/src/lib/add.ts:25
 										</a>
 									</li>
 								</ul>
@@ -428,7 +398,7 @@
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="div" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">div<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">div<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -451,7 +421,7 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>num: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The number to divide to the source value</p>
 									</div>
@@ -462,8 +432,8 @@
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/div.ts#L32">
-											libs/rxjs/number/src/lib/div.ts:32
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/div.ts#L33">
+											libs/rxjs/number/src/lib/div.ts:33
 										</a>
 									</li>
 								</ul>
@@ -473,7 +443,7 @@
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="filterinrange" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">filter<wbr>InRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, excludeBoundingValues<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">filter<wbr>InRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, excludeBoundingValues<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -505,19 +475,19 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>min: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<h5>min: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The minimum range value</p>
 									</div>
 								</li>
 								<li>
-									<h5>max: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<h5>max: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The maximum range value</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> excludeBoundingValues: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> excludeBoundingValues: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>Also filter the <code>min</code> and <code>max</code> values from the <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
 									</div>
@@ -528,8 +498,8 @@
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-in-range.ts#L40">
-											libs/rxjs/number/src/lib/filter-in-range.ts:40
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-in-range.ts#L41">
+											libs/rxjs/number/src/lib/filter-in-range.ts:41
 										</a>
 									</li>
 								</ul>
@@ -551,7 +521,7 @@
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
-									<dd class="tds-tag-remarks"><p>Certain operations such as dividing by zero or multiplying passed Number.MAX_VALUE in JavaScript can cause
+									<dd class="tds-tag-remarks"><p>Certain operations such as dividing by zero or multiplying passed <code>Number.MAX_VALUE</code> in JavaScript can cause
 										<code>Infinity</code> to be generated, this operator can help avoid those values</p>
 									</dd><dt class="tds-tag-see">see</dt>
 									<dd class="tds-tag-see"><p>The <a href="number.html#isfinite">isFinite</a> operator returns a boolean value instead of the number</p>
@@ -567,8 +537,8 @@
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-is-finite.ts#L27">
-											libs/rxjs/number/src/lib/filter-is-finite.ts:27
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-is-finite.ts#L28">
+											libs/rxjs/number/src/lib/filter-is-finite.ts:28
 										</a>
 									</li>
 								</ul>
@@ -648,42 +618,6 @@
 						</li>
 					</ul>
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="filterisnotnan" class="tsd-anchor"></a>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">filter<wbr>IsNot<wbr>NaN<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits number values from a source filtering out any <code>NaN</code> values.</p>
-								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
-									<dd class="tds-tag-see"><p>The <a href="number.html#isnotnan">isNotNaN</a> operator returns a boolean value instead of the number</p>
-									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><p>Returns only valid numbers where the source may contain <code>NaN</code> values</p>
-										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-literal">NaN</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
-<span class="hljs-keyword">from</span>(input).pipe(filterIsNotNaN()).subscribe()</code></pre>
-										<p>Output: <code>-2.3, 0, 2, 3.14, 4.2, 11, 42</code></p>
-								</dd></dl>
-							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Observable that emits valid numbers and excludes <code>NaN</code> values</p>
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-is-not-nan.ts#L25">
-											libs/rxjs/number/src/lib/filter-is-not-nan.ts:25
-										</a>
-									</li>
-								</ul>
-							</aside>
-						</li>
-					</ul>
-					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="filterissafeinteger" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
 						<li class="tsd-signature tsd-kind-icon">filter<wbr>IsSafe<wbr>Integer<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
@@ -722,9 +656,45 @@
 						</li>
 					</ul>
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="filternan" class="tsd-anchor"></a>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">filter<wbr>NaN<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits number values from a source filtering out any <code>NaN</code> values.</p>
+								</div>
+								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
+								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+									<dd class="tds-tag-see"><p>The <a href="number.html#isnan">isNaN</a> and <a href="number.html#isnotnan">isNotNaN</a> operator returns a boolean value instead of the number</p>
+									</dd><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Returns only valid numbers where the source may contain <code>NaN</code> values</p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-literal">NaN</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
+<span class="hljs-keyword">from</span>(input).pipe(filterNaN()).subscribe()</code></pre>
+										<p>Output: <code>-2.3, 0, 2, 3.14, 4.2, 11, 42</code></p>
+								</dd></dl>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Observable that emits valid numbers and excludes <code>NaN</code> values</p>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-nan.ts#L25">
+											libs/rxjs/number/src/lib/filter-nan.ts:25
+										</a>
+									</li>
+								</ul>
+							</aside>
+						</li>
+					</ul>
+					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="filteroutofrange" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">filter<wbr>Out<wbr>OfRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, includeBounds<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">filter<wbr>Out<wbr>OfRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, includeBounds<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -756,19 +726,19 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>min: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<h5>min: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The minimum range value</p>
 									</div>
 								</li>
 								<li>
-									<h5>max: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<h5>max: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The maximum range value</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> includeBounds: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> includeBounds: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>Optionally include the <code>min</code> and <code>max</code> values in the <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
 									</div>
@@ -779,8 +749,8 @@
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-out-of-range.ts#L40">
-											libs/rxjs/number/src/lib/filter-out-of-range.ts:40
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/filter-out-of-range.ts#L41">
+											libs/rxjs/number/src/lib/filter-out-of-range.ts:41
 										</a>
 									</li>
 								</ul>
@@ -839,10 +809,10 @@
 							</aside>
 						</li>
 					</ul>
-					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="fromnumber" class="tsd-anchor"></a>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Number<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><a href="number.html#arrayorsetnumbers" class="tsd-signature-type">ArrayOrSetNumbers</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="number.html#arrayorsetnumbers" class="tsd-signature-type">ArrayOrSetNumbers</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Number&lt;T&gt;<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -850,33 +820,32 @@
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits numbers from an an arguments list or array of number values</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits numbers as a type-safe number generator from a source, if no source is passed it
+									will generate an infinite sequence of positive numbers starting from 0</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
-									<dd class="tds-tag-remarks"><p>This is a type-safe version of the RxJS <a href="https://rxjs.dev/api/index/function/from" class="external">from</a> operator that
-										only accepts numbers as input</p>
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Return an Observable that emits numbers from an <code>Array</code> and multiply by <code>2</code></p>
+										<pre><code class="language-ts">fromNumber([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]).pipe(mul(<span class="hljs-number">2</span>)).subscribe();</code></pre>
+										<p>Output: <code>2, 4, 6, 8</code></p>
 									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><p>Returns an observable from a single number and multiply the value</p>
-										<pre><code class="language-ts">fromNumber(<span class="hljs-number">6</span>).pipe(map(<span class="hljs-function"><span class="hljs-params">val</span> =&gt;</span> val * <span class="hljs-number">7</span>)).subscribe();</code></pre>
-										<p>Output: <code>42</code></p>
-									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><p>Returns an Observable from an argument list of numbers and reduce the values</p>
-										<pre><code class="language-ts">fromNumber(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>).pipe(reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> acc + val)).subscribe();</code></pre>
-										<p>Output: <code>10</code></p>
-									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><p>Returns an Observable from an array of numbers and reduce the values</p>
-										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>];
-fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> acc + val)).subscribe();</code></pre>
-										<p>Output: <code>10</code></p>
+									<dd class="tds-tag-example"><p>Returns an Observable of numbers and take the first 1000, and reduce to an array</p>
+										<pre><code class="language-ts">fromNumber().pipe(take(<span class="hljs-number">1000</span>), reduce(<span class="hljs-function">(<span class="hljs-params">acc, val</span>) =&gt;</span> [...acc, val], [])).subscribe();</code></pre>
+										<p>Output: <code>[0, 1, 2, 3, 4, ...]</code></p>
 								</dd></dl>
 							</div>
+							<h4 class="tsd-type-parameters-title">Type parameters</h4>
+							<ul class="tsd-type-parameters">
+								<li>
+									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></h4>
+								</li>
+							</ul>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-symbol">(</span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><a href="number.html#arrayorsetnumbers" class="tsd-signature-type">ArrayOrSetNumbers</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><a href="number.html#arrayorsetnumbers" class="tsd-signature-type">ArrayOrSetNumbers</a><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> input: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Numbers to emit from the <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> as arguments or an array</p>
+										<p>Optional number source to emit from</p>
 									</div>
 								</li>
 							</ul>
@@ -885,8 +854,8 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/from-number.ts#L46">
-											libs/rxjs/number/src/lib/from-number.ts:46
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/from-number.ts#L35">
+											libs/rxjs/number/src/lib/from-number.ts:35
 										</a>
 									</li>
 								</ul>
@@ -896,7 +865,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="inrange" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">in<wbr>Range<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, excludeBoundingValues<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">in<wbr>Range<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, excludeBoundingValues<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -926,19 +895,19 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>min: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<h5>min: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The minimum number for the range</p>
 									</div>
 								</li>
 								<li>
-									<h5>max: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<h5>max: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The maximum number for the range</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> excludeBoundingValues: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> excludeBoundingValues: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>Optionally filter the <code>min</code> and <code>max</code> values from the <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
 									</div>
@@ -949,8 +918,8 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/in-range.ts#L39">
-											libs/rxjs/number/src/lib/in-range.ts:39
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/in-range.ts#L40">
+											libs/rxjs/number/src/lib/in-range.ts:40
 										</a>
 									</li>
 								</ul>
@@ -1004,7 +973,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean value when a source number is a a valid finite floating point</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean value when a source number is a a valid finite floating point number</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
@@ -1048,7 +1017,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 									</dd><dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Return booleans for values that are integer values</p>
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [-<span class="hljs-number">10</span>, -<span class="hljs-number">2.3</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">4.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">42</span>];
-<span class="hljs-keyword">from</span>(input).pipe(filterIsInteger()).subscribe()</code></pre>
+<span class="hljs-keyword">from</span>(input).pipe(isInteger()).subscribe()</code></pre>
 										<p>Output: <code>true, false, true, true, true, false, false, true, true, true</code></p>
 								</dd></dl>
 							</div>
@@ -1059,6 +1028,49 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 									<li>Defined in
 										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/is-integer.ts#L25">
 											libs/rxjs/number/src/lib/is-integer.ts:25
+										</a>
+									</li>
+								</ul>
+							</aside>
+						</li>
+					</ul>
+					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+					<a name="ismod" class="tsd-anchor"></a>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
+						<li class="tsd-signature tsd-kind-icon">is<wbr>Mod<span class="tsd-signature-symbol">(</span>modulus<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+							</aside>
+							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+								<div class="lead">
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean is the source number has no remainder from the passed modulus</p>
+								</div>
+								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
+								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+									<dd class="tds-tag-example"><p>Return if the source value has no remainder for modulus <code>3</code></p>
+										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>];
+<span class="hljs-keyword">from</span>(input).pipe(isMod(<span class="hljs-number">3</span>)).subscribe();</code></pre>
+										<p>Output: <code>false, true, false, false, true</code></p>
+								</dd></dl>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>modulus: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography tsd-comment-text">
+										<p>The dividing number for the Modulo operation</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<p>Observable that emits a boolean is the source number has no remainder</p>
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/is-mod.ts#L25">
+											libs/rxjs/number/src/lib/is-mod.ts:25
 										</a>
 									</li>
 								</ul>
@@ -1080,7 +1092,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
-									<dd class="tds-tag-see"><p>The <a href="number.html#filterisnotnan">filterIsNotNaN</a> operator returns the number value</p>
+									<dd class="tds-tag-see"><p>The <a href="number.html#filternan">filterNaN</a> operator returns numbers excluding <code>NaN</code> values</p>
 									</dd><dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Return a boolean if a number is a <code>NaN</code> value</p>
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">3.14</span>, <span class="hljs-literal">undefined</span>];
@@ -1112,13 +1124,15 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean value when a source number is valid and not <code>NaN</code>, checked using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN</a></p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean value when a source number is valid and not <code>NaN</code>, checked using
+									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN">Number.isNaN</a></p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
-									<dd class="tds-tag-remarks"><p>This is mostly for convenience of getting truthy values that are valid for numbers without flipping the value os <code>isNaN</code></p>
+									<dd class="tds-tag-remarks"><p>This is mostly for convenience of getting truthy values that are valid for numbers without flipping the
+										value os <code>isNaN</code></p>
 									</dd><dt class="tds-tag-see">see</dt>
-									<dd class="tds-tag-see"><p>The <a href="number.html#filterisnotnan">filterIsNotNaN</a> operator returns the number value</p>
+									<dd class="tds-tag-see"><p>The <a href="number.html#filternan">filterNaN</a> operator returns numbers excluding <code>NaN</code> values</p>
 									</dd><dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Return a boolean if a number is not <code>NaN</code> value</p>
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">3.14</span>, <span class="hljs-literal">undefined</span>];
@@ -1131,8 +1145,8 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/is-not-nan.ts#L27">
-											libs/rxjs/number/src/lib/is-not-nan.ts:27
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/is-not-nan.ts#L29">
+											libs/rxjs/number/src/lib/is-not-nan.ts:29
 										</a>
 									</li>
 								</ul>
@@ -1179,7 +1193,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="mod" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">mod<span class="tsd-signature-symbol">(</span>modulus<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">mod<span class="tsd-signature-symbol">(</span>modulus<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1195,13 +1209,13 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 									<dd class="tds-tag-example"><p>Return the remainder of modulus <code>3</code></p>
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>];
 <span class="hljs-keyword">from</span>(input).pipe(mod(<span class="hljs-number">3</span>)).subscribe();</code></pre>
-										<p>Output: <code>2, 0, 1, 2, 6</code></p>
+										<p>Output: <code>2, 0, 1, 2, 0</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>modulus: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>modulus: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The dividing number for the Modulo operation</p>
 									</div>
@@ -1212,8 +1226,8 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/mod.ts#L25">
-											libs/rxjs/number/src/lib/mod.ts:25
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/mod.ts#L26">
+											libs/rxjs/number/src/lib/mod.ts:26
 										</a>
 									</li>
 								</ul>
@@ -1223,7 +1237,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="mul" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">mul<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">mul<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1244,7 +1258,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>num: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The number to multiply to the source value</p>
 									</div>
@@ -1255,8 +1269,8 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/mul.ts#L24">
-											libs/rxjs/number/src/lib/mul.ts:24
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/mul.ts#L25">
+											libs/rxjs/number/src/lib/mul.ts:25
 										</a>
 									</li>
 								</ul>
@@ -1266,7 +1280,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="outofrange" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">out<wbr>OfRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, includeBounds<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">out<wbr>OfRange<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, includeBounds<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1296,19 +1310,19 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>min: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<h5>min: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The minimum number for the range</p>
 									</div>
 								</li>
 								<li>
-									<h5>max: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
+									<h5>max: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The maximum number for the range</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> includeBounds: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> includeBounds: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>Optionally include the <code>min</code> and <code>max</code> values in the <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
 									</div>
@@ -1319,8 +1333,8 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/out-of-range.ts#L36">
-											libs/rxjs/number/src/lib/out-of-range.ts:36
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/out-of-range.ts#L39">
+											libs/rxjs/number/src/lib/out-of-range.ts:39
 										</a>
 									</li>
 								</ul>
@@ -1330,7 +1344,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="parsefloat" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">parse<wbr>Float<span class="tsd-signature-symbol">(</span>returnNaN<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Float<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1338,8 +1352,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a number from a source string using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat">Number.parseFloat</a>.
-									By default this operator removes <code>NaN</code> values but can optionally be set to return them</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a number from a source string using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseFloat">Number.parseFloat</a>.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
@@ -1347,29 +1360,15 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;-2.3&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;3.14&#x27;</span>, <span class="hljs-string">&#x27;Infinity&#x27;</span>];
 <span class="hljs-keyword">from</span>(input).pipe(<span class="hljs-built_in">parseFloat</span>()).subscribe();</code></pre>
 										<p>Output: <code>-2.3, 0, 1, 2, 3.14</code></p>
-									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><p>Return parsed number values and <code>NaN</code> values using base <code>10</code></p>
-										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;-2.3&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;3.14&#x27;</span>, <span class="hljs-string">&#x27;Infinity&#x27;</span>];
-<span class="hljs-keyword">from</span>(input).pipe(<span class="hljs-built_in">parseFloat</span>(<span class="hljs-number">10</span>, <span class="hljs-literal">true</span>)).subscribe();</code></pre>
-										<p>Output: <code>NaN, -2.3, 0, 1, 2, 3.14, NaN</code></p>
 								</dd></dl>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> returnNaN: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Optionally return <code>NaN</code> values instead of filtering</p>
-									</div>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Observable that emits a number from source parsed string, optionally returns <code>NaN</code> values</p>
+							<p>Observable that emits a number from source parsed string</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/parse-float.ts#L31">
-											libs/rxjs/number/src/lib/parse-float.ts:31
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/parse-float.ts#L22">
+											libs/rxjs/number/src/lib/parse-float.ts:22
 										</a>
 									</li>
 								</ul>
@@ -1379,7 +1378,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="parsehex" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">parse<wbr>Hex<span class="tsd-signature-symbol">(</span>returnNaN<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Hex<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1387,8 +1386,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a number from a source hex using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a>.
-									By default this operator removes <code>NaN</code> values but can optionally be set to return them</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a number from a source hex using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a>.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
@@ -1396,29 +1394,15 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;ff&#x27;</span>, <span class="hljs-string">&#x27;00&#x27;</span>, <span class="hljs-string">&#x27;1b&#x27;</span>, <span class="hljs-string">&#x27;23&#x27;</span>, <span class="hljs-string">&#x27;c89bb&#x27;</span>];
 <span class="hljs-keyword">from</span>(input).pipe(parseHex()).subscribe();</code></pre>
 										<p>Output: <code>255, 0, 27, 25, 821691</code></p>
-									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><p>Return parsed integer values and <code>NaN</code> values using base <code>10</code></p>
-										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;ff&#x27;</span>, <span class="hljs-string">&#x27;00&#x27;</span>, <span class="hljs-string">&#x27;1b&#x27;</span>, <span class="hljs-string">&#x27;23&#x27;</span>, <span class="hljs-string">&#x27;c89bb&#x27;</span>];
-<span class="hljs-keyword">from</span>(input).pipe(parseHex(<span class="hljs-literal">true</span>)).subscribe();</code></pre>
-										<p>Output: <code>NaN, 255, 0, 27, 25, 821691</code></p>
 								</dd></dl>
 							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> returnNaN: <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">true</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Optionally return <code>NaN</code> values instead of filtering</p>
-									</div>
-								</li>
-							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Observable that emits a number from source hex value, optionally returns <code>NaN</code> values</p>
+							<p>Observable that emits a number from source hex value</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/parse-hex.ts#L31">
-											libs/rxjs/number/src/lib/parse-hex.ts:31
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/parse-hex.ts#L22">
+											libs/rxjs/number/src/lib/parse-hex.ts:22
 										</a>
 									</li>
 								</ul>
@@ -1428,7 +1412,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="parseint" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">parse<wbr>Int<span class="tsd-signature-symbol">(</span>radix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, returnNaN<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">parse<wbr>Int<span class="tsd-signature-symbol">(</span>radix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1436,8 +1420,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a number from a source string using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a>.
-									By default this operator removes <code>NaN</code> values but can optionally be set to return them</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a number from a source string using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a>.</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
@@ -1445,11 +1428,6 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;-2.3&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;3.14&#x27;</span>, <span class="hljs-string">&#x27;Infinity&#x27;</span>];
 <span class="hljs-keyword">from</span>(input).pipe(<span class="hljs-built_in">parseInt</span>()).subscribe();</code></pre>
 										<p>Output: <code>-2, 0, 1, 2, 3</code></p>
-									</dd><dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><p>Return parsed integer values and <code>NaN</code> values using base <code>10</code></p>
-										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;-2.3&#x27;</span>, <span class="hljs-string">&#x27;0&#x27;</span>, <span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;2&#x27;</span>, <span class="hljs-string">&#x27;3.14&#x27;</span>, <span class="hljs-string">&#x27;Infinity&#x27;</span>];
-<span class="hljs-keyword">from</span>(input).pipe(<span class="hljs-built_in">parseInt</span>(<span class="hljs-number">10</span>, <span class="hljs-literal">true</span>)).subscribe();</code></pre>
-										<p>Output: <code>NaN, -2, 0, 1, 2, 3, NaN</code></p>
 									</dd><dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Return parsed integer values using base <code>16</code></p>
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;1&#x27;</span>, <span class="hljs-string">&#x27;ff&#x27;</span>, <span class="hljs-string">&#x27;40&#x27;</span>];
@@ -1460,15 +1438,9 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> radix: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> radix: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The number base to convert from. Default is base <code>10</code></p>
-									</div>
-								</li>
-								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> returnNaN: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">boolean</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-text">
-										<p>Optionally return <code>NaN</code> values instead of filtering</p>
 									</div>
 								</li>
 							</ul>
@@ -1477,8 +1449,8 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/parse-int.ts#L39">
-											libs/rxjs/number/src/lib/parse-int.ts:39
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/parse-int.ts#L32">
+											libs/rxjs/number/src/lib/parse-int.ts:32
 										</a>
 									</li>
 								</ul>
@@ -1488,7 +1460,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="pow" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">pow<span class="tsd-signature-symbol">(</span>power<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">pow<span class="tsd-signature-symbol">(</span>power<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1503,14 +1475,14 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Return values raised to the power <code>2</code></p>
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">2</span>, <span class="hljs-number">4</span>, <span class="hljs-number">10</span>, <span class="hljs-number">16</span>, <span class="hljs-number">256</span>];
-<span class="hljs-keyword">from</span>(input).pipe(raiseBy(<span class="hljs-number">2</span>)).subscribe();</code></pre>
+<span class="hljs-keyword">from</span>(input).pipe(pow(<span class="hljs-number">2</span>)).subscribe();</code></pre>
 										<p>Output: <code>4, 25, 100, 256, 655356</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>power: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>power: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The number to raise the value by</p>
 									</div>
@@ -1521,8 +1493,8 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/pow.ts#L25">
-											libs/rxjs/number/src/lib/pow.ts:25
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/pow.ts#L26">
+											libs/rxjs/number/src/lib/pow.ts:26
 										</a>
 									</li>
 								</ul>
@@ -1532,7 +1504,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="sub" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">sub<span class="tsd-signature-symbol">(</span>input<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">sub<span class="tsd-signature-symbol">(</span>num<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1553,7 +1525,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>input: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>num: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The number to subtract to the source value</p>
 									</div>
@@ -1564,8 +1536,8 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/sub.ts#L24">
-											libs/rxjs/number/src/lib/sub.ts:24
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/sub.ts#L25">
+											libs/rxjs/number/src/lib/sub.ts:25
 										</a>
 									</li>
 								</ul>
@@ -1575,7 +1547,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="toexponential" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>Exponential<span class="tsd-signature-symbol">(</span>exponential<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Exponential<span class="tsd-signature-symbol">(</span>exponential<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1584,7 +1556,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a formatted string of a number raised to an exponential power using
-									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential">Number.toExponential</a>.</p>
+									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toExponential">Number.toExponential</a></p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
@@ -1597,7 +1569,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>exponential: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>exponential: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The exponential value to raise the number by</p>
 									</div>
@@ -1608,8 +1580,8 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-exponential.ts#L24">
-											libs/rxjs/number/src/lib/to-exponential.ts:24
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-exponential.ts#L27">
+											libs/rxjs/number/src/lib/to-exponential.ts:27
 										</a>
 									</li>
 								</ul>
@@ -1619,7 +1591,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="tofixed" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>Fixed<span class="tsd-signature-symbol">(</span>digits<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Fixed<span class="tsd-signature-symbol">(</span>digits<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1627,20 +1599,20 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a formatted string value from a source number using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed">Number.toFixed</a>.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a formatted string value from a source number using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toFixed">Number.toFixed</a></p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Return a string of a number to fixed position of <code>2</code></p>
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">1.8372</span>, <span class="hljs-number">2.12353</span>, <span class="hljs-number">3.14</span>, <span class="hljs-number">42.2</span>];
-<span class="hljs-keyword">from</span>(input).pipe(toString()).subscribe();</code></pre>
+<span class="hljs-keyword">from</span>(input).pipe(toFixed(<span class="hljs-number">2</span>)).subscribe();</code></pre>
 										<p>Output: <code>&#39;1.834&#39;, &#39;2.12&#39;, &#39;3.14&#39;, &#39;42.20&#39;</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> digits: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> digits: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>Optional number of digits to fix to, if not passed treated as <code>0</code></p>
 									</div>
@@ -1651,8 +1623,8 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-fixed.ts#L23">
-											libs/rxjs/number/src/lib/to-fixed.ts:23
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-fixed.ts#L26">
+											libs/rxjs/number/src/lib/to-fixed.ts:26
 										</a>
 									</li>
 								</ul>
@@ -1670,8 +1642,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a string that is the hex value of a source number
-									*</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a string that is the hex value of a source number</p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
@@ -1686,8 +1657,8 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-hex.ts#L21">
-											libs/rxjs/number/src/lib/to-hex.ts:21
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-hex.ts#L22">
+											libs/rxjs/number/src/lib/to-hex.ts:22
 										</a>
 									</li>
 								</ul>
@@ -1697,7 +1668,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="tolocalestring" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>Locale<wbr>String<span class="tsd-signature-symbol">(</span>locales<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, format<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">NumberFormatOptions</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NumberFormatOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Locale<wbr>String<span class="tsd-signature-symbol">(</span>locales<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, format<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">NumberFormatOptions</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NumberFormatOptions</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1706,7 +1677,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a formatted string value from a source number using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString">Number.toLocaleString</a> with
-									optional formatting options provided by <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a>.</p>
+									optional formatting options provided by <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a></p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
@@ -1726,13 +1697,13 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> locales: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> locales: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The locale or locales that the number is being formatted for</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> format: <span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">NumberFormatOptions</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NumberFormatOptions</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> format: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">NumberFormatOptions</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">NumberFormatOptions</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>Formatting of the string based on
 										<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat"><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat">Intl.NumberFormat</a></a></p>
@@ -1744,8 +1715,8 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-locale-string.ts#L37">
-											libs/rxjs/number/src/lib/to-locale-string.ts:37
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-locale-string.ts#L39">
+											libs/rxjs/number/src/lib/to-locale-string.ts:39
 										</a>
 									</li>
 								</ul>
@@ -1755,7 +1726,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="toprecision" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>Precision<span class="tsd-signature-symbol">(</span>precision<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">to<wbr>Precision<span class="tsd-signature-symbol">(</span>precision<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1776,7 +1747,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>precision: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>precision: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The number of decimal places to format the precision to.</p>
 									</div>
@@ -1787,8 +1758,8 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-precision.ts#L23">
-											libs/rxjs/number/src/lib/to-precision.ts:23
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-precision.ts#L25">
+											libs/rxjs/number/src/lib/to-precision.ts:25
 										</a>
 									</li>
 								</ul>
@@ -1798,7 +1769,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="tostring" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span>radix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">to<wbr>String<span class="tsd-signature-symbol">(</span>radix<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -1806,7 +1777,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							</aside>
 							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a formatted string value from a source number using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString">Number.toString</a>.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a formatted string value from a source number using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString">Number.toString</a></p>
 								</div>
 								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
@@ -1824,7 +1795,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> radix: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> = 10</span></h5>
+									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> radix: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10</span></h5>
 									<div class="tsd-comment tsd-typography tsd-comment-text">
 										<p>The base number to format to. Default is <code>10</code>.</p>
 									</div>
@@ -1835,8 +1806,8 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-string.ts#L30">
-											libs/rxjs/number/src/lib/to-string.ts:30
+										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/number/src/lib/to-string.ts#L32">
+											libs/rxjs/number/src/lib/to-string.ts:32
 										</a>
 									</li>
 								</ul>
@@ -1847,7 +1818,7 @@ fromNumber(input).pipe(reduce(<span class="hljs-function">(<span class="hljs-par
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 1:11:32 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 5:20:01 PM</p>
 			</div>
 		</div>
 	</div>

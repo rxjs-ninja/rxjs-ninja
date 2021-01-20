@@ -9,6 +9,7 @@
 /* istanbul ignore file */
 export { binarySearch } from './lib/binary-search';
 export { difference } from './lib/difference';
+export { differenceAll } from './lib/difference-all';
 export { every } from './lib/every';
 export { fill } from './lib/fill';
 export { filterDifference } from './lib/filter-difference';

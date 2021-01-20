@@ -10,6 +10,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 This released contains more breaking changes to the APIs in this module, detailed below. Releases after this should be
 more stable.
 
+### Added
+
+- `differenceAll` operator which returns a tuple of two `Array` values, containing the unique differences in the source
+  and comparison array.
+- `toObject` operator that takes an `Array` of tuples containing the key/value pair for the object collection
+
 ### Changed
 
 - `binarySearch` parameter order changed, `SortFn` is now the last property, also now accepts Observable arguments

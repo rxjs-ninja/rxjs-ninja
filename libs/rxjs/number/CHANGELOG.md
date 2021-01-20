@@ -12,7 +12,10 @@ functions have been cleaned up to be more maintainable. Releases after this shou
 
 ### Changed
 
-
+- `fromNumber` no longer accepts arguments list or Promise value, parameter is now optional - if not passed the
+  Observable will emit increasing positive number values.
+- `parseFloat`, `parseInt` and `parseHex` no longer have property to filter `NaN` values and will return them,
+  use `filterIsNotNaN` to remove these values.
 
 ## [4.3.0] - 2021-01-19
 

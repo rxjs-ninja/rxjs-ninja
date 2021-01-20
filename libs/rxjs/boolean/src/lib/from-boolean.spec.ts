@@ -1,4 +1,4 @@
-import { catchError, filter, map, reduce, tap } from 'rxjs/operators';
+import { filter, map, reduce, tap } from 'rxjs/operators';
 import { fromBoolean } from '@rxjs-ninja/rxjs-boolean';
 import { observe } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
@@ -15,55 +15,11 @@ describe('fromBoolean', () => {
   );
 
   it(
-    'should create an Observable from a Promise boolean argument',
-    observe(() =>
-      fromBoolean(Promise.resolve(false)).pipe(
-        map((val) => !val),
-        tap((value) => expect(value).toBeTruthy()),
-      ),
-    ),
-  );
-
-  it(
-    'should create an Observable from a Promise boolean argument',
-    observe(() =>
-      fromBoolean(Promise.resolve([0, 1, 0, 1])).pipe(
-        reduce((a, b) => [...a, b], [] as boolean[]),
-        tap((value) => expect(value).toStrictEqual([false, true, false, true])),
-      ),
-    ),
-  );
-
-  it(
-    'should create an Error from a failed promise',
-    observe(() =>
-      fromBoolean(Promise.reject('RxJS Ninja')).pipe(
-        map((val) => !val),
-        catchError((error) => {
-          expect(error).toBe('RxJS Ninja');
-          return of(true);
-        }),
-      ),
-    ),
-  );
-
-  it(
     'should create an Observable from a Observable',
     observe(() =>
       fromBoolean(of(false)).pipe(
         map((val) => !val),
         tap((value) => expect(value).toBeTruthy()),
-      ),
-    ),
-  );
-
-  it(
-    'should create an Observable from multiple boolean arguments',
-    observe(() =>
-      fromBoolean(false, true, false).pipe(
-        map((val) => !val),
-        reduce<boolean, boolean[]>((acc, val) => [...acc, val], []),
-        tap((value) => expect(value).toStrictEqual([true, false, true])),
       ),
     ),
   );
@@ -90,16 +46,6 @@ describe('fromBoolean', () => {
   );
 
   it(
-    'should create an Observable from an argument list of strings',
-    observe(() =>
-      fromBoolean('', 'hello', 'rxjs', 'ninja').pipe(
-        reduce<boolean, boolean[]>((acc, val) => [...acc, val], []),
-        tap((value) => expect(value).toStrictEqual([false, true, true, true])),
-      ),
-    ),
-  );
-
-  it(
     'should create an Observable from an array of strings',
     observe(() =>
       fromBoolean(['', 'hello', 'rxjs', 'ninja']).pipe(
@@ -117,16 +63,6 @@ describe('fromBoolean', () => {
   it(
     'should create an Observable from positive number value',
     observe(() => fromBoolean(1).pipe(tap((value) => expect(value).toBeTruthy()))),
-  );
-
-  it(
-    'should create an Observable from an argument list of numbers',
-    observe(() =>
-      fromBoolean(0, 1, 2, 3).pipe(
-        reduce<boolean, boolean[]>((acc, val) => [...acc, val], []),
-        tap((value) => expect(value).toStrictEqual([false, true, true, true])),
-      ),
-    ),
   );
 
   it(

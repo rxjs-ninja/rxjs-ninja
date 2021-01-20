@@ -2,9 +2,9 @@
  * @packageDocumentation
  * @module Number
  */
-import { MonoTypeOperatorFunction, Observable, Subscribable } from 'rxjs';
+import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
 import { filter, map, withLatestFrom } from 'rxjs/operators';
-import { createOrReturnObservable } from 'libs/rxjs/number/src/utils/internal';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits numbers, where that number falls between the provided `min` and `max` values.

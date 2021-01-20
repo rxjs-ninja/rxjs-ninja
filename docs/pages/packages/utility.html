@@ -138,25 +138,39 @@
 				<p><a href="https://www.npmjs.com/package/@rxjs-ninja/rxjs-utility"><img src="https://img.shields.io/npm/v/@rxjs-ninja/rxjs-utility?label=@rxjs-ninja/rxjs-utility" alt="rxjs-utility"></a></p>
 				<p><a href="https://rxjs.ninja">Website</a>
 					|
-					<a href="https://rxjs.ninja/modules/string.html">API Documentation</a>
+					<a href="https://rxjs.ninja/modules/utility.html">API Documentation</a>
 					|
-				<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/CHANGELOG.md">Changelog</a></p>
+				<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/utility/CHANGELOG.md">Changelog</a></p>
 				<p><code>@rxjs-ninja/rxjs-utility</code> provides operators for working with Observable values to view them, and modify them and don&#39;t
 				all into the other module categories.</p>
 				<a href="#function-and-operator-categories" id="function-and-operator-categories" style="color: inherit; text-decoration: none;">
-					<h3>Function and Operator categories</h3>
+					<h2>Function and Operator categories</h2>
 				</a>
-				<ul>
-					<li>HTTP - Functions for working with HTTP Observables</li>
-					<li>Mapping - Operators use for mapping to different values</li>
-					<li>Side Effects - Operators for handling side effects</li>
-					<li>Streams - Operators and Functions for working with other types of streams of data</li>
-				</ul>
-				<p>For example, using the Side Effects category:</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { fromEvent } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;
-<span class="hljs-keyword">import</span> { startWithTap, tapIf, tapOnSubscribe } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rxjs-ninja/rxjs-utility&#x27;</span>;
+				<a href="#http" id="http" style="color: inherit; text-decoration: none;">
+					<h3>HTTP</h3>
+				</a>
+				<p>Functions for working with HTTP Observables -
+				see <a href="https://stackblitz.com/edit/fetch-with-progress">Fetch With Progress Demo</a>.</p>
+				<a href="#mapping" id="mapping" style="color: inherit; text-decoration: none;">
+					<h3>Mapping</h3>
+				</a>
+				<p>Operators use for mapping to different values</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> source$ = <span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>]);
 
-<span class="hljs-keyword">const</span> inputObs$ = fromEvent(<span class="hljs-built_in">document</span>, <span class="hljs-string">&#x27;click&#x27;</span>).pipe(
+<span class="hljs-comment">// Generate a FizzBuzz from the source numbers</span>
+source$.pipe(
+  mapIfSource&lt;<span class="hljs-built_in">number</span>, <span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span>&gt;(
+    <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> value % <span class="hljs-number">15</span> == <span class="hljs-number">0</span> || value % <span class="hljs-number">3</span> == <span class="hljs-number">0</span> || value % <span class="hljs-number">5</span> == <span class="hljs-number">0</span>,
+    <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> (value % <span class="hljs-number">15</span> == <span class="hljs-number">0</span> ? <span class="hljs-string">`FizzBuzz`</span> : value % <span class="hljs-number">3</span> === <span class="hljs-number">0</span> ? <span class="hljs-string">&#x27;Fizz&#x27;</span> : <span class="hljs-string">&#x27;Buzz&#x27;</span>),
+    <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> value,
+  ),
+);
+<span class="hljs-comment">// Output: `1, 2, &#x27;Fizz&#x27;, 4, &#x27;Buzz&#x27;, &#x27;Fizz&#x27;, 7, 8, &#x27;Fizz&#x27;, &#x27;Buzz&#x27;, 11, &#x27;Fizz&#x27;, 13, 14, &#x27;Fizz&#x27; &#x27;Buzz&#x27;`</span></code></pre>
+				<a href="#side-effects" id="side-effects" style="color: inherit; text-decoration: none;">
+					<h3>Side Effects</h3>
+				</a>
+				<p>Operators for handling side effects on different events or conditions</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> inputObs$ = fromEvent(<span class="hljs-built_in">document</span>, <span class="hljs-string">&#x27;click&#x27;</span>).pipe(
   startWithTap(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;This will only fire once&#x27;</span>)),
   tapOnSubscribe(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;This will tab on every subscribe&#x27;</span>)),
   tapIf(
@@ -167,11 +181,20 @@
 
 inputObs$.subscribe(); <span class="hljs-comment">// This will only fire once, This will tab on every subscribe</span>
 inputObs$.subscribe(); <span class="hljs-comment">// This will tab on every subscribe</span></code></pre>
+				<a href="#streams" id="streams" style="color: inherit; text-decoration: none;">
+					<h3>Streams</h3>
+				</a>
+				<p>Operators and Functions for working with other types of streams of data. See Demos:</p>
+				<ul>
+					<li><a href="https://stackblitz.com/edit/rxjs-readable-stream">Readable Stream</a></li>
+					<li><a href="https://stackblitz.com/edit/rxjs-readable-stream-fetch">Readable Stream with Fetch</a></li>
+					<li><a href="https://stackblitz.com/edit/rxjs-writable-stream">Writable Stream</a></li>
+				</ul>
 			</div>
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 5:20:01 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 8:26:15 PM</p>
 			</div>
 		</div>
 	</div>

@@ -1,6 +1,7 @@
-import { switchMapIf } from '@rxjs-ninja/rxjs-utility';
+import { mapIf, switchMapIf } from '@rxjs-ninja/rxjs-utility';
 import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 describe('switchMapIf', () => {
   it(
@@ -44,6 +45,31 @@ describe('switchMapIf', () => {
             (value) => value.length <= 3,
             () => of(false),
             () => of(true),
+          ),
+        ),
+      ).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
+    'should return correct result based on predicate with one two type switches',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-(e|)', { a: 1, b: 3, c: 5, d: 15, e: 16 });
+      const subs = '^--------!';
+      const expected = m.cold('-a-b-c-d-(e|)', {
+        a: 1,
+        b: 'Fizz',
+        c: 'Buzz',
+        d: 'FizzBuzz',
+        e: 16,
+      });
+      m.expect(
+        input.pipe(
+          switchMapIf<number, string, number>(
+            (value) => value % 15 == 0 || value % 3 == 0 || value % 5 == 0,
+            (value) => of(value).pipe(map((v) => (v % 15 == 0 ? `FizzBuzz` : v % 3 === 0 ? 'Fizz' : 'Buzz'))),
+            (value) => of(value),
           ),
         ),
       ).toBeObservable(expected);

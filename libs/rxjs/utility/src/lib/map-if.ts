@@ -16,8 +16,7 @@ import { map } from 'rxjs/operators';
  *
  * @typeParam I The type of value from the source
  * @typeParam T The type returned from the Truthy result
- * @typeParam F The type returned from the Falsy result, this type is optional and if not included the `T` type will be
- *   used
+ * @typeParam F The type returned from the Falsy result
  *
  * @param predicate The method to check the value from the source Observable
  * @param trueResult The method with return value for a truthy [[PredicateFn]]
@@ -39,10 +38,10 @@ import { map } from 'rxjs/operators';
  *
  * @returns Observable that emits a value from the truthy or falsy [[MapFn]] based on the [[PredicateFn]] result
  */
-export function mapIf<I extends unknown, T = unknown, F = unknown>(
+export function mapIf<I extends unknown, T = I | unknown, F = I | unknown>(
   predicate: PredicateFn<I>,
   trueResult: MapFn<I, T>,
-  falseResult: MapFn<I, T | F>,
+  falseResult: MapFn<I, F>,
 ): OperatorFunction<I, T | F> {
   return (source) => source.pipe(map((value: I) => (predicate(value) ? trueResult(value) : falseResult(value))));
 }

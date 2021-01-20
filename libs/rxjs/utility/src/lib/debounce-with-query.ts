@@ -27,6 +27,9 @@ import { QueryMethod } from '../types/utility';
  *
  * @returns An Observable that emits a value from a server request
  */
-export function debounceWithQuery<T extends unknown>(time: number, queryMethod: QueryMethod<T>): OperatorFunction<string, T> {
+export function debounceWithQuery<T extends unknown>(
+  time: number,
+  queryMethod: QueryMethod<T>,
+): OperatorFunction<string, T> {
   return (source) => source.pipe(debounceTime(time), distinctUntilChanged(), switchMap(queryMethod));
 }

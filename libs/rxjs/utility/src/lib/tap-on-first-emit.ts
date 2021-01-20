@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Utility
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { switchMap, take, tap } from 'rxjs/operators';
 import { CallbackFn } from '../types/utility';
 
@@ -34,7 +34,7 @@ import { CallbackFn } from '../types/utility';
  * @returns Observable that emits the source observable after performing a side effect
  */
 export function tapOnFirstEmit<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
-  return (source: Observable<T>) =>
+  return (source) =>
     source.pipe(
       take(1),
       tap(callback),

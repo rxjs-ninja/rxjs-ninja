@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Utility
  */
-import { MonoTypeOperatorFunction, Observable } from 'rxjs';
+import { MonoTypeOperatorFunction } from 'rxjs';
 import { CallbackFn, PredicateFn } from '../types/utility';
 import { switchMap } from 'rxjs/operators';
 
@@ -34,7 +34,7 @@ export function tapIf<T extends unknown>(
   predicate: PredicateFn<T>,
   callback: CallbackFn<T>,
 ): MonoTypeOperatorFunction<T> {
-  return (source: Observable<T>) =>
+  return (source) =>
     source.pipe(
       switchMap((value) => {
         predicate(value) && callback(value);

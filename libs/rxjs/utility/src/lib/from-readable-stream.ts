@@ -55,11 +55,13 @@ export function fromReadableStream<T extends unknown>(
         abort: (error) => {
           if (throwEndAsError) {
             subscriber.error(error);
+            /* istanbul ignore next-line */
           } else if (!subscriber.closed) {
             subscriber.complete();
           }
         },
         close: () => {
+          /* istanbul ignore next-line */
           if (!subscriber.closed) {
             subscriber.complete();
           }
@@ -72,7 +74,10 @@ export function fromReadableStream<T extends unknown>(
   return new Observable<T>((subscriber) => {
     stream
       .pipeTo(createStream(subscriber), { signal })
-      .then(() => !subscriber.closed && subscriber.complete())
+      .then(() => {
+        /* istanbul ignore next-line */
+        return !subscriber.closed && subscriber.complete();
+      })
       .catch((error) => subscriber.error(error));
 
     return () => !stream.locked && stream.cancel();

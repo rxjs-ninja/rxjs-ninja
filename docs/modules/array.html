@@ -840,8 +840,8 @@
 									</dd><dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Returns both differences between the source and array</p>
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>, <span class="hljs-string">&#x27;d&#x27;</span>, <span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;b&#x27;</span>];
-<span class="hljs-keyword">of</span>(input).pipe(difference([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;g&#x27;</span>])).subscribe();</code></pre>
-										<p>Output: <code>[&#39;b&#39;, &#39;d&#39;, &#39;g&#39;]</code></p>
+<span class="hljs-keyword">of</span>(input).pipe(differenceAll([<span class="hljs-string">&#x27;a&#x27;</span>, <span class="hljs-string">&#x27;c&#x27;</span>, <span class="hljs-string">&#x27;g&#x27;</span>])).subscribe();</code></pre>
+										<p>Output: <code>[ [&#39;b&#39;, &#39;d&#39;], [&#39;g&#39;] ]</code></p>
 								</dd></dl>
 							</div>
 							<h4 class="tsd-type-parameters-title">Type parameters</h4>
@@ -862,7 +862,7 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
-							<p>Observable that emits an <code>Array</code> containing items from the source not in the comparison value</p>
+							<p>Observable that emits an tuple containing two <code>Array</code> values with the source difference and input difference</p>
 							<aside class="tsd-sources">
 								<ul>
 									<li>Defined in
@@ -2673,7 +2673,7 @@ fromArray(input).pipe(some(<span class="hljs-function"><span class="hljs-params"
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 11:03:14 AM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 12:12:28 PM</p>
 			</div>
 		</div>
 	</div>

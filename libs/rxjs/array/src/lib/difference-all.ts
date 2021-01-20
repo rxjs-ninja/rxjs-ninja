@@ -23,11 +23,11 @@ import { createOrReturnObservable } from '../utils/internal';
  * Returns both differences between the source and array
  * ```ts
  * const input = ['a', 'b', 'd', 'a', 'b'];
- * of(input).pipe(difference(['a', 'c', 'g'])).subscribe();
+ * of(input).pipe(differenceAll(['a', 'c', 'g'])).subscribe();
  * ```
- * Output: `['b', 'd', 'g']`
+ * Output: `[ ['b', 'd'], ['g'] ]`
  *
- * @returns Observable that emits an `Array` containing items from the source not in the comparison value
+ * @returns Observable that emits an tuple containing two `Array` values with the source difference and input difference
  */
 export function differenceAll<T extends unknown>(
   compare: Subscribable<Iterable<T>> | Iterable<T>,

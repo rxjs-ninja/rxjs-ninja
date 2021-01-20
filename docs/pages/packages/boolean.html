@@ -141,29 +141,67 @@
 					<a href="https://rxjs.ninja/modules/boolean.html">API Documentation</a>
 					|
 				<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/boolean/CHANGELOG.md">Changelog</a></p>
-				<p><code>@rxjs-ninja/rxjs-boolean</code> provides operators for querying, filtering and modifying boolean values, and Observable for generating boolean emitters.</p>
+				<p><code>@rxjs-ninja/rxjs-boolean</code> provides operators for querying, filtering and modifying boolean values, and Observable for
+				generating boolean emitters.</p>
 				<a href="#function-and-operator-categories" id="function-and-operator-categories" style="color: inherit; text-decoration: none;">
-					<h3>Function and Operator categories</h3>
+					<h2>Function and Operator categories</h2>
 				</a>
-				<ul>
-					<li>Create - Functions and Operators for creating Observable boolean values</li>
-					<li>Filter - Operators for filtering Observable sources for truthy values</li>
-					<li>Modify - Operators for modifying boolean values</li>
-					<li>Validation - Operators that provide boolean output based on checks against source values</li>
-				</ul>
-				<p>For example, you can use the <code>firstTruthy</code> or <code>lastTruthy</code> value from an array:</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">import</span> { <span class="hljs-keyword">from</span> } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;rxjs&#x27;</span>;
-<span class="hljs-keyword">import</span> { firstTruthy, lastTruthy } <span class="hljs-keyword">from</span> <span class="hljs-string">&#x27;@rxjs-ninja/rxjs-array&#x27;</span>;
+				<a href="#create" id="create" style="color: inherit; text-decoration: none;">
+					<h3>Create</h3>
+				</a>
+				<p>Functions and Operators for creating Observable boolean values</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> numbers = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>];
+<span class="hljs-keyword">const</span> strings = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;TypeScript&#x27;</span>];
 
-<span class="hljs-keyword">const</span> inputObs$ = <span class="hljs-keyword">from</span>([<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-string">&#x27;There&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>]);
+<span class="hljs-comment">// Generate a boolean array from numbers</span>
+fromBoolean(numbers).subscribe();
+<span class="hljs-comment">// Output: `false, true, false, false, true, false, true`</span>
 
-inputObs$.pipe(firstTruthy()).subscribe(); <span class="hljs-comment">// [&#x27;Hello&#x27;]</span>
-inputObs$.pipe(lastTruthy()).subscribe(); <span class="hljs-comment">// [&#x27;Ninja&#x27;]</span></code></pre>
+<span class="hljs-comment">// Generate a boolean array from numbers</span>
+fromBoolean(strings).subscribe();
+<span class="hljs-comment">// Output: `true, false, false, true, true`</span></code></pre>
+				<a href="#filter" id="filter" style="color: inherit; text-decoration: none;">
+					<h3>Filter</h3>
+				</a>
+				<p>Operators for filtering Observable sources for truthy values</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> strings$ = <span class="hljs-keyword">from</span>([<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;TypeScript&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Angular&#x27;</span>]);
+
+<span class="hljs-comment">// Get the first truthy value</span>
+strings$.pipe(firstTruthy()).subscribe();
+<span class="hljs-comment">// Output: `RxJS`</span>
+
+<span class="hljs-comment">// Get the first truthy value that is over length of 6</span>
+strings$.pipe(firstTruthy(<span class="hljs-function">(<span class="hljs-params">v</span>) =&gt;</span> v.length &gt; <span class="hljs-number">5</span>)).subscribe();
+<span class="hljs-comment">// Output: `TypeScript`</span>
+
+<span class="hljs-comment">// Get the last truthy value</span>
+strings$.pipe(lastTruthy()).subscribe();
+<span class="hljs-comment">// Output: `Angular`</span>
+
+<span class="hljs-comment">// Get the last truthy value of less than 5 characters</span>
+strings$.pipe(lastTruthy(<span class="hljs-function">(<span class="hljs-params">v</span>) =&gt;</span> v.length &lt; <span class="hljs-number">5</span>)).subscribe();
+<span class="hljs-comment">// Output: `RxJS`</span></code></pre>
+				<a href="#modify" id="modify" style="color: inherit; text-decoration: none;">
+					<h3>Modify</h3>
+				</a>
+				<p>Operators for modifying boolean values</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> source$ = <span class="hljs-keyword">from</span>([<span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>]);
+
+<span class="hljs-comment">// Flip the boolean value</span>
+source$.pipe(flip()).subscribe();
+<span class="hljs-comment">// Output: `true, false, false, true`</span></code></pre>
+				<a href="#validation" id="validation" style="color: inherit; text-decoration: none;">
+					<h3>Validation</h3>
+				</a>
+				<p>Operators that provide boolean output based on checks against source values</p>
+				<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;4485275742308327&#x27;</span>, <span class="hljs-string">&#x27;1111222233334444&#x27;</span>, <span class="hljs-string">&#x27;111133332224444&#x27;</span>];
+<span class="hljs-keyword">from</span>(input).pipe(luhnCheck()).subscribe();
+<span class="hljs-comment">// Output: `[true, true, false]`</span></code></pre>
 			</div>
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 1:33:19 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 1:11:32 PM</p>
 			</div>
 		</div>
 	</div>

@@ -34,7 +34,7 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @returns Observable string from the joined values in the source array
  */
-export function join(separator: Subscribable<string> | string = ' '): OperatorFunction<Iterable<unknown>, string> {
+export function join<T extends unknown>(separator: Subscribable<string> | string = ' '): OperatorFunction<Iterable<T>, string> {
   const separator$ = createOrReturnObservable(separator);
   return (source) =>
     source.pipe(

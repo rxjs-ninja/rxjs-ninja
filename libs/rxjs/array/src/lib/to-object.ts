@@ -13,7 +13,7 @@ import { map } from 'rxjs/operators';
  * @category Object
  *
  * @typeParam K The type of Object key
- * @typeParam K The type of Object value
+ * @typeParam V The type of Object value
  *
  * @example Convert an Array into a Object
  * ```ts

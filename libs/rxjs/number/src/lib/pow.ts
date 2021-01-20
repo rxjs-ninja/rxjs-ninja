@@ -17,7 +17,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * @example Return values raised to the power `2`
  * ```ts
  * const input = [2, 4, 10, 16, 256];
- * from(input).pipe(raiseBy(2)).subscribe();
+ * from(input).pipe(pow(2)).subscribe();
  * ```
  * Output: `4, 25, 100, 256, 655356`
  *

@@ -16,7 +16,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * @example Return if the source value has no remainder for modulus `3`
  * ```ts
  * const input = [2, 3, 4, 5, 6];
- * from(input).pipe(mod(3)).subscribe();
+ * from(input).pipe(isMod(3)).subscribe();
  * ```
  * Output: `false, true, false, false, true`
  *

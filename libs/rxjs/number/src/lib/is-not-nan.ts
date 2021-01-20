@@ -14,7 +14,7 @@ import { map } from 'rxjs/operators';
  * @remarks This is mostly for convenience of getting truthy values that are valid for numbers without flipping the
  *   value os `isNaN`
  *
- * @see The [[filterIsNotNaN]] operator returns the number value
+ * @see The [[filterNaN]] operator returns numbers excluding `NaN` values
  *
  * @example
  * Return a boolean if a number is not `NaN` value

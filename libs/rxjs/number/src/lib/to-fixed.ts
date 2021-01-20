@@ -14,7 +14,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * @example Return a string of a number to fixed position of `2`
  * ```ts
  * const input = [1.8372, 2.12353, 3.14, 42.2];
- * from(input).pipe(toString()).subscribe();
+ * from(input).pipe(toFixed(2)).subscribe();
  * ```
  * Output: `'1.834', '2.12', '3.14', '42.20'`
  *

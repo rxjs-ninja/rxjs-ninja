@@ -20,7 +20,7 @@ import { PredicateFn } from '../types/generic-methods';
  * Return an array of all numbers that are truthy
  * ```ts
  * const input = [0, 10, 1, 0, 6, 6, 0, 1];
- * of(input).pipe(find()).subscribe();
+ * of(input).pipe(findAll()).subscribe();
  * ```
  * Output: `[10, 1, 6, 6, 1]`
  *
@@ -28,7 +28,7 @@ import { PredicateFn } from '../types/generic-methods';
  * Return an array of values where the source array value length `>= 5`
  * ```ts
  * const input = ['', '', 'Hello', 'RxJS', 'Ninja'];
- * of(input).pipe(find(v => v.length >= 5)).subscribe();
+ * of(input).pipe(findAll(v => v.length >= 5)).subscribe();
  * ```
  * Output: `['Hello', 'Ninja']`
  *

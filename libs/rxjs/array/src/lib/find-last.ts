@@ -22,7 +22,7 @@ import { PredicateFn } from '../types/generic-methods';
  * Return the last truthy string in the array
  * ```ts
  * const input = ['', '', 'Hello', 'RxJS', 'Ninja']
- * of(input).pipe(find()).subscribe();
+ * of(input).pipe(findLast()).subscribe();
  * ```
  * Output: `'Ninja'`
  *
@@ -30,7 +30,7 @@ import { PredicateFn } from '../types/generic-methods';
  * Return the last truthy string that has a length `>= 5`
  * ```ts
  * const input = ['', '', 'Hello', 'RxJS', 'Ninja', 'Docs'];
- * of(input).pipe(find(v => v.length >= 5)).subscribe();
+ * of(input).pipe(findLast(v => v.length >= 5)).subscribe();
  * ```
  * Output: `'Ninja'`
  *

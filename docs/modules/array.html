@@ -1340,12 +1340,12 @@
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Return an array of all numbers that are truthy</p>
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-number">0</span>, <span class="hljs-number">10</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">6</span>, <span class="hljs-number">6</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>];
-<span class="hljs-keyword">of</span>(input).pipe(find()).subscribe();</code></pre>
+<span class="hljs-keyword">of</span>(input).pipe(findAll()).subscribe();</code></pre>
 										<p>Output: <code>[10, 1, 6, 6, 1]</code></p>
 									</dd><dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Return an array of values where the source array value length <code>&gt;= 5</code></p>
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>];
-<span class="hljs-keyword">of</span>(input).pipe(find(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v.length &gt;= <span class="hljs-number">5</span>)).subscribe();</code></pre>
+<span class="hljs-keyword">of</span>(input).pipe(findAll(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v.length &gt;= <span class="hljs-number">5</span>)).subscribe();</code></pre>
 										<p>Output: <code>[&#39;Hello&#39;, &#39;Ninja&#39;]</code></p>
 								</dd></dl>
 							</div>
@@ -1454,12 +1454,12 @@
 								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Return the last truthy string in the array</p>
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>]
-<span class="hljs-keyword">of</span>(input).pipe(find()).subscribe();</code></pre>
+<span class="hljs-keyword">of</span>(input).pipe(findLast()).subscribe();</code></pre>
 										<p>Output: <code>&#39;Ninja&#39;</code></p>
 									</dd><dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Return the last truthy string that has a length <code>&gt;= 5</code></p>
 										<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Hello&#x27;</span>, <span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;Docs&#x27;</span>];
-<span class="hljs-keyword">of</span>(input).pipe(find(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v.length &gt;= <span class="hljs-number">5</span>)).subscribe();</code></pre>
+<span class="hljs-keyword">of</span>(input).pipe(findLast(<span class="hljs-function"><span class="hljs-params">v</span> =&gt;</span> v.length &gt;= <span class="hljs-number">5</span>)).subscribe();</code></pre>
 										<p>Output: <code>&#39;Ninja&#39;</code></p>
 								</dd></dl>
 							</div>
@@ -2679,7 +2679,7 @@ fromArray(input).pipe(some(<span class="hljs-function"><span class="hljs-params"
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 1:27:19 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 1:33:19 PM</p>
 			</div>
 		</div>
 	</div>

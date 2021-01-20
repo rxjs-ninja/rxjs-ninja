@@ -2,11 +2,9 @@
  * @packageDocumentation
  * @module Array
  */
-import { isObservable, Observable, ObservableInput, Subscribable, throwError } from 'rxjs';
-import { catchError, finalize, map, takeWhile, tap } from 'rxjs/operators';
-import { fromPromise, isPromise } from 'rxjs/internal-compatibility';
-import { flatMapMap } from '../utils/array-set';
-import { createOrReturnObservable } from 'libs/rxjs/string/src/utils/internal';
+import { Observable, Subscribable } from 'rxjs';
+import { finalize, map, takeWhile, tap } from 'rxjs/operators';
+import { createOrReturnObservable, flatMapMap } from '../utils/internal';
 
 /**
  * Returns an Observable that emits an `Array` from a `Map`

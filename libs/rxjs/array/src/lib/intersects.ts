@@ -2,9 +2,9 @@
  * @packageDocumentation
  * @module Array
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
-import { ArrayOrSet } from '../types/array-set';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable Array containing unique values that are in both the source and provided input Array or Set
@@ -36,11 +36,12 @@ import { ArrayOrSet } from '../types/array-set';
  * @returns An Observable that emits an array of the intersection of input and source arrays.
  */
 export function intersects<T extends unknown>(
-  input: ArrayOrSet<T> | ObservableInput<ArrayOrSet<T>>,
-): OperatorFunction<ArrayOrSet<T>, T[]> {
+  input: Subscribable<Iterable<T>> | Iterable<T>,
+): OperatorFunction<Iterable<T>, T[]> {
+  const input$ = createOrReturnObservable(input);
   return (source) =>
     source.pipe(
-      withLatestFrom((isObservable(input) ? input : of(input)) as Observable<ArrayOrSet<T>>),
+      withLatestFrom(input$),
       map(([value, inputValue]) => [new Set(value), new Set(inputValue)]),
       map(([value, inputValue]) => [...value].filter((x) => inputValue.has(x))),
     );

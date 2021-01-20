@@ -8,7 +8,6 @@ import { binarySearcher } from '../utils/search';
 import { defaultSortFn } from '../utils/sort';
 import { BinarySearchResult } from '../types/binary-search';
 import { SortFn } from '../types/generic-methods';
-import { ArrayOrSet } from '../types/array-set';
 
 /**
  * Returns an Observable that emits a [[BinarySearchResult]]. It take a source array and runs a [[SortFn]] over it.
@@ -80,10 +79,10 @@ export function binarySearch<T extends unknown, K extends T | unknown>(
   searchValue: T,
   sortFn?: SortFn<K>,
   property?: string | number,
-): OperatorFunction<ArrayOrSet<K>, BinarySearchResult<T, K>> {
+): OperatorFunction<Iterable<K>, BinarySearchResult<T, K>> {
   return (source) =>
     source.pipe(
-      map<ArrayOrSet<K>, [K[], K[]]>((accArray) => [[...accArray], [...accArray].sort(sortFn || defaultSortFn)]),
+      map<Iterable<K>, [K[], K[]]>((accArray) => [[...accArray], [...accArray].sort(sortFn || defaultSortFn)]),
       map(([searchArray, sortedArray]) => [
         binarySearcher(searchValue, sortedArray, property),
         searchValue,

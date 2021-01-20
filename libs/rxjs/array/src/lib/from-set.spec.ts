@@ -1,4 +1,4 @@
-import { catchError, reduce, tap } from 'rxjs/operators';
+import { reduce, tap } from 'rxjs/operators';
 import { observe } from 'rxjs-marbles/jest';
 import { fromSet } from '@rxjs-ninja/rxjs-array';
 import { of } from 'rxjs';

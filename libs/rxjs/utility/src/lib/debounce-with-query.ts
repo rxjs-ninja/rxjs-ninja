@@ -3,7 +3,7 @@
  * @module Utility
  */
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction } from 'rxjs';
 import { QueryMethod } from '../types/utility';
 
 /**
@@ -27,7 +27,9 @@ import { QueryMethod } from '../types/utility';
  *
  * @returns An Observable that emits a value from a server request
  */
-export function debounceWithQuery<T = unknown>(time: number, queryMethod: QueryMethod<T>): OperatorFunction<string, T> {
-  return (source: Observable<string>) =>
-    source.pipe(debounceTime(time), distinctUntilChanged(), switchMap(queryMethod));
+export function debounceWithQuery<T extends unknown>(
+  time: number,
+  queryMethod: QueryMethod<T>,
+): OperatorFunction<string, T> {
+  return (source) => source.pipe(debounceTime(time), distinctUntilChanged(), switchMap(queryMethod));
 }

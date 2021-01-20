@@ -3,7 +3,7 @@
  * @module Utility
  */
 import { MapFn, PredicateFn } from '../types/utility';
-import { Observable, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 /**
@@ -16,8 +16,7 @@ import { switchMap } from 'rxjs/operators';
  *
  * @typeParam I The type of value from the source
  * @typeParam T The type returned from the Truthy result
- * @typeParam F The type returned from the Falsy result, this type is optional and if not included the `T` type will be
- *   used
+ * @typeParam F The type returned from the Falsy result
  *
  * @param predicate The method to check the value from the source Observable
  * @param trueResult The method with return value for a truthy [[PredicateFn]]
@@ -39,11 +38,10 @@ import { switchMap } from 'rxjs/operators';
  *
  * @returns Observable that emits a value based on the [[PredicateFn]] result
  */
-export function switchMapIf<I extends unknown, T = unknown, F = unknown>(
+export function switchMapIf<I extends unknown, T = I | unknown, F = I | unknown>(
   predicate: PredicateFn<I>,
-  trueResult: MapFn<I, Observable<T>>,
-  falseResult: MapFn<I, Observable<T | F>>,
+  trueResult: MapFn<I, Subscribable<T>>,
+  falseResult: MapFn<I, Subscribable<F>>,
 ): OperatorFunction<I, T | F> {
-  return (source: Observable<I>) =>
-    source.pipe(switchMap((value: I) => (predicate(value) ? trueResult(value) : falseResult(value))));
+  return (source) => source.pipe(switchMap((value: I) => (predicate(value) ? trueResult(value) : falseResult(value))));
 }

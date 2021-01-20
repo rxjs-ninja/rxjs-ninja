@@ -4,7 +4,7 @@
  */
 import { Observable, OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
-import { createOrReturnObservable } from 'libs/rxjs/number/src/utils/internal';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a formatted string value from a source number using Number.toLocaleString with

@@ -1,6 +1,6 @@
 /**
  * @packageDocumentation
- * @module String
+ * @module Number
  */
 import { isObservable, Observable, of, Subscribable } from 'rxjs';
 

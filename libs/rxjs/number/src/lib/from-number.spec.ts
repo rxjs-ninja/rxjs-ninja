@@ -1,9 +1,23 @@
-import { map, reduce, tap } from 'rxjs/operators';
+import { map, reduce, take, tap } from 'rxjs/operators';
 import { fromNumber } from '@rxjs-ninja/rxjs-number';
 import { observe } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
 
 describe('fromNumber', () => {
+  it(
+    'should create a sequence of numbers if no input passed, reduce to array, adding `1` to each value',
+    observe(() =>
+      fromNumber().pipe(
+        take(100),
+        reduce((a, b) => [...a, b + 1], [] as number[]),
+        tap((value) => {
+          expect(value.length).toBe(100)
+          expect(value[0]).toBe(1)
+        }),
+      ),
+    ),
+  );
+
   it(
     'should create observable from number value',
     observe(() =>

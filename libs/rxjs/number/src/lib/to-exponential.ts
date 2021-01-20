@@ -2,9 +2,9 @@
  * @packageDocumentation
  * @module Number
  */
-import { Observable, OperatorFunction, Subscribable } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
-import { createOrReturnObservable } from 'libs/rxjs/number/src/utils/internal';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a formatted string of a number raised to an exponential power using

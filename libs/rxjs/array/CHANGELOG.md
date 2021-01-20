@@ -7,8 +7,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
-This released contains more breaking changes to the APIs in this module, detailed below. Releases after this should be
-more stable.
+This released contains more breaking changes to the APIs in this module, detailed below. Internally the operators and
+functions have been cleaned up to be more maintainable. Releases after this should be more stable.
 
 ### Added
 

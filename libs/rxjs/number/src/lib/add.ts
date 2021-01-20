@@ -2,15 +2,16 @@
  * @packageDocumentation
  * @module Number
  */
-import { isObservable, MonoTypeOperatorFunction, Observable, ObservableInput, of } from 'rxjs';
+import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a number that is the addition of the source number with input number
  *
  * @category Math
  *
- * @param input The number to add to the source value
+ * @param num The number to add to the source value
  *
  * @example Returns a number that is the addition of source and input
  * ```ts
@@ -21,11 +22,11 @@ import { map, withLatestFrom } from 'rxjs/operators';
  *
  * @returns Observable that emits a number that is the addition of source and input
  */
-export function add(input: number | ObservableInput<number>): MonoTypeOperatorFunction<number> {
-  const input$ = (isObservable(input) ? input : of(input)) as Observable<number>;
+export function add(num: Subscribable<number> | number): MonoTypeOperatorFunction<number> {
+  const num$ = createOrReturnObservable(num);
   return (source) =>
     source.pipe(
-      withLatestFrom(input$),
-      map(([value, inputValue]) => value + inputValue),
+      withLatestFrom(num$),
+      map(([value, numValue]) => value + numValue),
     );
 }

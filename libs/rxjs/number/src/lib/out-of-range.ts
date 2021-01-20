@@ -2,13 +2,16 @@
  * @packageDocumentation
  * @module Number
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits booleans about values from a source that fall outside the passed `min` and `max`
  * range, excluding the range numbers.  To emit a boolean for numbers including the `min` and `max` set
  * `includeBoundingParameters` to `true`.
+ *
+ * @category Query
  *
  * @see To get numbers outside of a range use [[filterOutOfRange]]
  *
@@ -31,22 +34,21 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * Output: `true, true, false, false, false, false, false, false, true, true`
  *
  * @returns Observable that emits a boolean if the source number falls outside the passed `min` and `max` range
- * @category Query
+
  */
 export function outOfRange(
-  min: ObservableInput<number> | number,
-  max: ObservableInput<number> | number,
-  includeBounds?: ObservableInput<boolean> | boolean,
+  min: Subscribable<number> | number,
+  max: Subscribable<number> | number,
+  includeBounds?: Subscribable<boolean> | boolean,
 ): OperatorFunction<number, boolean> {
-  const min$ = (isObservable(min) ? min : of(min)) as Observable<number>;
-  const max$ = (isObservable(max) ? max : of(max)) as Observable<number>;
-  const includeVal$ = (isObservable(includeBounds) ? includeBounds : of(includeBounds)) as Observable<boolean>;
-
+  const min$ = createOrReturnObservable(min);
+  const max$ = createOrReturnObservable(max);
+  const includeBounds$ = createOrReturnObservable(includeBounds);
   return (source) =>
     source.pipe(
-      withLatestFrom(min$, max$, includeVal$),
-      map(([value, minInput, maxInput, includeInput]) =>
-        includeInput ? value <= minInput || value >= maxInput : value < minInput || value > maxInput,
+      withLatestFrom(min$, max$, includeBounds$),
+      map(([value, minValue, maxValue, includeBoundsValue]) =>
+        includeBoundsValue ? value <= minValue || value >= maxValue : value < minValue || value > maxValue,
       ),
     );
 }

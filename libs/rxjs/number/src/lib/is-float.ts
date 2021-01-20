@@ -6,7 +6,7 @@ import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * Returns an Observable that emits a boolean value when a source number is a a valid finite floating point
+ * Returns an Observable that emits a boolean value when a source number is a a valid finite floating point number
  *
  * @category Query
  *

@@ -2,12 +2,15 @@
  * @packageDocumentation
  * @module Number
  */
-import { isObservable, Observable, ObservableInput, of, OperatorFunction } from 'rxjs';
+import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a formatted string of a number raised to an exponential power using
- * Number.toExponential.
+ * Number.toExponential
+ *
+ * @category Formatting
  *
  * @param exponential The exponential value to raise the number by
  *
@@ -19,13 +22,13 @@ import { map, withLatestFrom } from 'rxjs/operators';
  * Output: `'-1.00e+0', '0.00e+0', '1.00e+0', '2.30e+0', '3.14e+0'`
  *
  * @returns Observable that emits a formatted string of the exponential number
- * @category Formatting
+
  */
-export function toExponential(exponential: number | ObservableInput<number>): OperatorFunction<number, string> {
-  const exponential$ = (isObservable(exponential) ? exponential : of(exponential)) as Observable<number>;
+export function toExponential(exponential: Subscribable<number> | number): OperatorFunction<number, string> {
+  const exponential$ = createOrReturnObservable(exponential);
   return (source) =>
     source.pipe(
       withLatestFrom(exponential$),
-      map<[number, number], string>(([value, inputValue]) => value.toExponential(inputValue)),
+      map(([value, inputValue]) => value.toExponential(inputValue)),
     );
 }

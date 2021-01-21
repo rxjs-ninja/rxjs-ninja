@@ -139,13 +139,13 @@
       "replace": "<a href=\"https://rxjs.dev\" target=\"_blank\">RxJS</a>"
     },
     {
-      "pattern": "(Array|Crypto|Intl|Math|Number|Object|String)\\.(\\w+)",
+      "pattern": "(Array|Boolean|Crypto|Intl|Math|Number|Object|String)\\.(\\w+)",
       "flags": "gm",
       "replace": "<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/$1/$2\" target=\"_blank\">$1.$2</a>"
     },
 
     {
-      "pattern": "\\s(Array|Set|Map|Object|RegExp[^\\.\\w+])",
+      "pattern": "\\s(Array|Boolean|Crypto|Intl|Math|Number|Object|String[^\\.\\w+])",
       "flags": "gm",
       "replace": " <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/$1\" target=\"_blank\">$1</a>"
     }

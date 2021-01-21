@@ -1,5 +1,6 @@
 /**
- * Package containing various operators for filtering, querying and generating `Boolean` values in RxJS.
+ * The RxJS Ninja Array module contains operators for working with, and returning Boolean values, and for filtering
+ * any source with predicate methods to check for both truthy and falsy values.
  *
  * @packageDocumentation
  * @module Boolean
@@ -17,4 +18,4 @@ export { lastTruthy } from './lib/last-truthy';
 export { luhnCheck } from './lib/luhn-check';
 export { toBoolean } from './lib/to-boolean';
 
-export * from './types/boolean';
+export { PredicateFn } from './types/boolean';

@@ -22,7 +22,6 @@
  * const mapToNumber: MapFn<string> = (input: string): string => input.toUpperCase();
  * ```
  */
-
 export type MapFn<T = unknown, K = T | unknown> = (value: T) => K;
 
 /**

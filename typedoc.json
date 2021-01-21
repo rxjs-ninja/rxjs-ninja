@@ -139,15 +139,19 @@
       "replace": "<a href=\"https://rxjs.dev\" target=\"_blank\">RxJS</a>"
     },
     {
-      "pattern": "(Array|Boolean|Crypto|Intl|Map|Math|Number|Object|Set|String)\\.(\\w+)",
+      "pattern": "(Array|Boolean|Crypto|Intl|Map|Math|Number|Object|ReadableStream|Set|String|WritableStream)\\.(\\w+)",
       "flags": "gm",
       "replace": "<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/$1/$2\" target=\"_blank\">$1.$2</a>"
     },
-
     {
       "pattern": "\\s(Array|Boolean|Crypto|Infinity|Intl|Map|Math|NaN|Number|Object|Set|String[^*])",
       "flags": "gm",
       "replace": " <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/$1\" target=\"_blank\">$1</a>"
+    },
+    {
+      "pattern": "\\s(ReadableStream|WritableStream[^*])",
+      "flags": "gm",
+      "replace": " <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/$1\" target=\"_blank\">$1</a>"
     }
   ]
 }

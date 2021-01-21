@@ -4,7 +4,6 @@
  * @packageDocumentation
  * @module Boolean
  *
- * @ignore
  */
 /* istanbul ignore file */
 export { firstFalsy } from './lib/first-falsy';

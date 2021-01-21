@@ -4,7 +4,6 @@
  * @packageDocumentation
  * @module Utility
  *
- * @ignore
  */
 /* istanbul ignore file */
 export { debounceWithQuery } from './lib/debounce-with-query';

@@ -8,8 +8,9 @@ import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits numbers, where that number falls outside the provided `min` and `max` values.
- * When filtering in range, the range numbers are excluded in the filter - to include them set `includeBounds` to
- * `true`.
+ *
+ * @remarks When filtering out-of-range, the range numbers are excluded from the filter - to include them set
+ *   `includeBounds = true`
  *
  * @category Filter
  *

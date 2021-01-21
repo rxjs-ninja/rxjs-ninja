@@ -11,24 +11,24 @@ import { SortFn } from '../types/generic-methods';
 import { createOrReturnObservable } from '../utils/internal';
 
 /**
- * Returns an Observable that emits a [[BinarySearchResult]]. It take a source array and runs a [[SortFn]] over it.
- * Then it tries to find the the `searchValue` in the array. The `BinarySearchResult` contains the index in the sorted
- * array, the value searched and the sorted and unsorted array. If not found the index is `-1`.
+ * Returns an Observable that emits a [[BinarySearchResult]]. It take a source Array or Set and runs a [[SortFn]] over
+ * it, then searches it for the passed `search` value. The `BinarySearchResult` contains the index in the sorted array,
+ * the value searched and the sorted and unsorted array. If not found the index is `-1`.
  *
  * @category Query
  *
  * @see {@link https://en.wikipedia.org/wiki/Binary_search_algorithm|Binary search algorithm}
  *
- * @typeParam T The type of the value to search for
- * @typeParam V The type of the value in the array
+ * @typeParam T The type of the search value
+ * @typeParam V The type of item in the Array if different to search type
  *
- * @param search The value to search for in the array
+ * @param search The value to search for in the Array
  * @param property Optional property for searching tuples and objects - if an tuple use a `number` if an `Object` use a
  *   `string`
  * @param sortFn Optional [[SortFn]] for sorting more complex types
  *
  * @example
- * Return the index of the word `bravo` in the sorted array from a source array
+ * Return the index of the word `bravo` in the sorted Array from a source array
  * ```ts
  * const input = ['bravo', 'delta', 'alpha', 'echo', 'charlie'];
  * of(input).pipe(binarySearch('bravo')).subscribe();
@@ -36,7 +36,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * Output: `<BinarySearchResult>[1, 'bravo', [...sortedArray], [...searchArray]]`
  *
  * @example
- * Return the index of the number `30` in the sorted array from the source array
+ * Return the index of the number `30` in the sorted Array from the source array
  * ```ts
  * const input = [100, 90, 10, 20, 40, 80, 30, 25];
  * of(input).pipe(binarySearch(30)).subscribe();
@@ -60,7 +60,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * Output: `<BinarySearchResult>[4, 'Ninja', [...sortedArray], [...searchArray]]`
  *
  * @example
- * Return the index of the tuple in the array where the value at index `0` is `2`, sorted by the index `1`
+ * Return the index of the tuple in the Array where the value at index `0` is `2`, sorted by the index `1`
  * ```ts
  * const input = [
  *  [1, 1], [2, 4], [3, 7], [4, 2], [5, 5],

@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
  *
  * @category Modify
  *
- * @typeParam T Item type contained in the Array/Set
+ * @typeParam T Item type contained in the Array or Set
  *
  * @example
  * Reverse an array of values

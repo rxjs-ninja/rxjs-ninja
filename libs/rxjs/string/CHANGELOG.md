@@ -5,18 +5,24 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Documentation updates and some minor internal cleanup due to [Typedoc](https://typedoc.org) upgrade
+
 ## [5.0.0] - 2021-01-19
 
 Breaking changes in public API, and a lot of internal refactoring.
 
 ### Added
 
-- `join` operator for the string module, allows string creation from `Array` and `Set` without
+- `join` operator for the string module, allows string creation from Array and `Set` without
   needing `@rxjs-ninja/rxjs-array`
 
 ### Changed
 
-- Operators `charAt`, `charCodeAt`, `codePointAt` all now return an `Array` value, even if a single value property is
+- Operators `charAt`, `charCodeAt`, `codePointAt` all now return an Array value, even if a single value property is
   used (which will return an array of length 1)
 - `from*` Observables and `concat` operator no longer accept arguments list or Promise values
 - Fix `toLowerCase` and `toUpperCase` reading the wrong variable
@@ -30,7 +36,7 @@ Breaking changes in public API, and a lot of internal refactoring.
 ### Changed
 
 - All operators now accept Observable input values
-- All operators and Observables that accepted `Array` values now also support `Set`
+- All operators and Observables that accepted Array values now also support `Set`
 - Internal refactor of all operators
 
 ## [4.0.0] - 2020-12-21

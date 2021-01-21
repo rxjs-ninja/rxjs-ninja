@@ -8,7 +8,8 @@ import { finalize, map, takeWhile, tap } from 'rxjs/operators';
 import { fibonacci } from '../utils/from-fibonacci';
 
 /**
- * Returns an Observable that emits a sequence of numbers in the Fibonacci sequence, starting from `0`
+ * Returns an Observable that emits a sequence of numbers in the
+ * {@link https://en.wikipedia.org/wiki/Fibonacci_number|Fibonacci} sequence, starting from `0`
  *
  * @category Create
  *

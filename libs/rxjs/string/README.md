@@ -13,23 +13,83 @@
 `@rxjs-ninja/rxjs-string` provides operators for querying, filtering and modifying string values, and Observable for
 generating string emitters.
 
-### Function and Operator categories
+## Function and Operator categories
 
-- Create - Functions and Operators for creating Observable string values
-- Convert - Operators to convert strings to and from `Array` values
-- Filter - Operators for filtering Observable string sources for truthy values
-- Mapping - Operators that provide mapping strings from other value types using `String` methods
-- Modify - Operators for modifying string values
-- Query - Operators that return non-string values based on querying string values
+### Convert
 
-For example, you can use the `fromString` to generate a sequence of strings and check they include a string
-using `include`. We can also `titlize` strings.
+Convert between String and Array values
 
 ```ts
-import { fromString, includes, titleize } from '@rxjs-ninja/rxjs-string';
+// Split comma-seperated list into tab seperated list
+of('Jane,Rod,Freddy,George').pipe(split(','), join('\t')).subscribe();
+// Output: `'Jane\tRod\tFreddy\tGeorge'`
+```
 
-const inputObs$ = fromNumber(['full power', 'half power', 'quarter power']);
+### Create
 
-inputObs$.pipe(includes('half')).subscribe(); // false, true, false
-inputObs$.pipe(titleize()).subscribe(); // Full Power, Half Power, Quarter Power
+Functions to create strings from various input
+
+```ts
+// Create a string from an array of codepoints
+fromCodePoint([9731, 9733, 9842]).subscribe();
+// Output: `'☃★♲'`
+```
+
+### Filter
+
+Operators for filtering string based on passed conditions
+
+```ts
+const source$ = from(['RxJS', 'TypeScript', 'Angular', 'HorseJS', 'JS Weekly']);
+
+// Get items from the source that only end in `JS`
+source$.pipe(filterStartsWith('JS')).subscribe();
+// Output: `'JS Weekly'`
+
+// Get items from the source that only end in `JS`
+source$.pipe(filterEndsWith('JS')).subscribe();
+// Output: `'RxJS', 'HorseJS'`
+```
+
+### Mapping
+
+Operators for mapping codes to String values
+
+```ts
+// Get the string character for a code point
+from([9731, 9733, 9842]).pipe(mapCodePoint()).subscribe();
+// Output: `'☃', '★', '♲'`
+```
+
+### Modify
+
+Operators for modifying String values
+
+```ts
+const source$ = from(['RxJS', 'Angular', 'TypeScript', 'jQuery']);
+
+// Concat to an string
+source$.pipe(concat(' is cool')).subscribe();
+// Output: `'RxJS is cool', 'Angular is cool', 'TypeScript is cool', 'jQuery is cool'`
+
+source$.pipe(reverse()).subscribe();
+// Output: `'SJxR', 'ralugnA', 'tpircSepyT`, 'yreuQj'`
+```
+
+### Query
+
+Operators for querying String values and returning a value based on a boolean check
+
+- Query - Operators that return non-string values based on querying string values
+
+```ts
+const source$ = from(['RxJS', 'TypeScript', 'Angular', 'HorseJS', 'JS Weekly']);
+
+// Check the string starts with `JS`
+source$.pipe(startWith('JS')).subscribe();
+// Output: `false, false, false, false, true`
+
+// Check the string ends with `JS`
+source$.pipe(endsWith('JS')).subscribe();
+// Output: `true, false, false, true, false`
 ```

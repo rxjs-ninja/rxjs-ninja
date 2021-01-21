@@ -13,9 +13,9 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @see [[filterIntersects]] operator for an Array containing potential duplicate intersections
  *
- * @typeParam T Item type contained in the Array/Set
+ * @typeParam T Item type contained in the Array or Set
  *
- * @param input Array/Set or Observable value to compare against for the intersection
+ * @param input Array or Set or Observable value to compare against for the intersection
  *
  * @example
  * Returns the intersection between the source array and the passed static array

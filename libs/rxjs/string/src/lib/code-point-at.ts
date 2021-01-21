@@ -8,11 +8,11 @@ import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits an array of numbers. The number is returned from String.codePointAt using the passed
- * index or array of indexes.  The output is always an `Array` containing the number, or `NaN`.
+ * index or array of indexes.  The output is always an Array containing the number, or NaN.
  *
  * @category Query
  *
- * @remarks By default String.codePointAt returns undefined, this operator returns `NaN` instead matching [[charCodeAt]]
+ * @remarks By default String.codePointAt returns undefined, this operator returns NaN instead matching [[charCodeAt]]
  *
  * @param positions Single or list of index values to return the character at
  *

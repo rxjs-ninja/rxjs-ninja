@@ -17,8 +17,8 @@ import { createOrReturnObservable } from '../utils/internal';
  * @param startIndex Optional start index to fill the array from
  * @param endIndex Optional index of the item to stop filling at, the last item filled is `fillTo - 1`
  *
- * @typeParam T Item type contained in the input Array/Set
- * @typeParam K Item type container in the output Array/Set
+ * @typeParam T Item type contained in the input Array or Set
+ * @typeParam K Item type container in the output Array or Set
  *
  * @example
  * Return an array with all values replaced
@@ -44,7 +44,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * ```
  * Output: `'The', 'Cake', 'CAKE!', 'CAKE!', 'lie'`
  *
- * @returns An Observable that emits an array of values where some or all of the source array values are replaced with
+ * @returns An Observable that emits an Array of values where some or all of the source array values are replaced with
  *   the `fillValue`
  */
 export function fill<T extends unknown, K extends unknown>(

@@ -21,7 +21,7 @@ import { createSeedArray, RND_STR_DEFAULTS } from '../utils/from-random-string';
  * @example
  * Emit a random string of length `8`
  * ```ts
- * fromRandomStr(5).subscribe();
+ * fromRandomStr(8).subscribe();
  * ```
  * Output: `'A3gtYb76', '0br2YgT6', 'TL184Avf'...`
  *

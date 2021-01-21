@@ -16,7 +16,7 @@ import { filter, map } from 'rxjs/operators';
  *
  * @see The [[every]] operator returns the boolean value instead of the array
  *
- * @typeParam T Item type contained in the Array/Set
+ * @typeParam T Item type contained in the Array or Set
  *
  * @param predicate Optional [[PredicateFn]] used to get a truthy value of array values
  *

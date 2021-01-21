@@ -5,6 +5,12 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Documentation updates and some minor internal cleanup due to [Typedoc](https://typedoc.org) upgrade
+
 ## [5.0.0] - 2021-01-20
 
 This released contains more breaking changes to the APIs in this module, detailed below. Internally the operators and
@@ -19,7 +25,7 @@ functions have been cleaned up to be more maintainable. Releases after this shou
 - `filterIsNotNaN` is now just `filterNaN` removing them from number source
 - `fromNumber` no longer accepts arguments list or Promise value, parameter is now optional - if not passed the
   Observable will emit increasing positive number values.
-- `parseFloat`, `parseInt` and `parseHex` no longer have property to filter `NaN` values and will return them,
+- `parseFloat`, `parseInt` and `parseHex` no longer have property to filter NaN values and will return them,
   use `filterNaN` to remove these values.
 - Internal improvements and documentation updates
 
@@ -36,7 +42,7 @@ functions have been cleaned up to be more maintainable. Releases after this shou
 
 - All operators improved in their flow of data, now correctly pass errors
 - Internal improvements
-- `fromNumber` now correctly accepts `Set` and `Array` values for seed values
+- `fromNumber` now correctly accepts `Set` and Array values for seed values
 
 ## [4.1.0] - 2021-01-03
 
@@ -65,7 +71,7 @@ coverage that provided various bug fixes.
 ### Changed
 
 - `fromNumber` now accepts Observable and Promise-based values.
-- `parseFloat` and `parseInt` now accepts an option to filter `NaN` values, by default this is set to `true`
+- `parseFloat` and `parseInt` now accepts an option to filter NaN values, by default this is set to `true`
 
 ## [3.1.2] - 2020-11-22
 
@@ -133,7 +139,7 @@ coverage that provided various bug fixes.
 
 ## Added
 
-- `isNotNaN` operator to return if a value is not a `NaN` value
+- `isNotNaN` operator to return if a value is not a NaN value
 - `filterIsNotNaN` - Returns the value that is not a NaN
 
 ### Changed

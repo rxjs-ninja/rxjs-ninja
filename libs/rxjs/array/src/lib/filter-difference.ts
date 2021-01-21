@@ -11,11 +11,12 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @category Filter
  *
- * @see [[difference]] operator for an Array of unique differences
+ * @see Operator [[difference]] for only the values from the source
+ * @see Operator [[differenceAll]] when you want to get all differences in both source and input array
  *
- * @typeParam T Item type contained in the Array/Set
+ * @typeParam T Type of value contained in the source Array or Set
  *
- * @param input Array/Set or Observable value to compare against for the difference
+ * @param compare Array or Set value to compare the source value with
  *
  * @example
  * Returns the difference between the source array and the passed static array
@@ -36,9 +37,9 @@ import { createOrReturnObservable } from '../utils/internal';
  * @returns An Observable that emits an Array with the difference between source and input
  */
 export function filterDifference<T extends unknown>(
-  input: Subscribable<Iterable<T>> | Iterable<T>,
+  compare: Subscribable<Iterable<T>> | Iterable<T>,
 ): OperatorFunction<Iterable<T>, T[]> {
-  const $input = createOrReturnObservable(input);
+  const $input = createOrReturnObservable(compare);
   return (source) =>
     source.pipe(
       withLatestFrom($input),

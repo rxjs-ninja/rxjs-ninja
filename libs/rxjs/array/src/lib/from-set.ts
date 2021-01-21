@@ -7,24 +7,24 @@ import { finalize, map, takeWhile, tap } from 'rxjs/operators';
 import { createOrReturnObservable, flatMapSet } from '../utils/internal';
 
 /**
- * Returns an Observable that emits an `Array` from a `Set`
+ * Returns an Observable that emits an Array from a Set
  *
  * @category Set
  *
- * @typeParam T The type of value contained in the `Set`
+ * @typeParam T The type of value contained in the Set
  *
- * @param input Input to create the emit values from, can be argument list of `Set`, an array of `Set` or an Observable
+ * @param input Input to create the emit values from, can be argument list of Set, an array of Set or an Observable
  *   or Promise source
  *
  * @example
- * Create `Array` from `Set`
+ * Create Array from Set
  * ```ts
  * const input = new Set(1, 1, 2, 2, 3, 3, 4, 4);
  * fromSet(input).subscribe();
  * ```
  * Output: `[1, 2, 3, 4]`
  *
- * @returns Observable that emits an `Array` from the input `Set`
+ * @returns Observable that emits an Array from the input Set
  */
 export function fromSet<T extends unknown>(
   input: Subscribable<Iterable<Set<T>> | Set<T>> | Iterable<Set<T>> | Set<T>,

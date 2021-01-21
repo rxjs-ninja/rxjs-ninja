@@ -27,7 +27,12 @@ export function createSeedArray(opts: FromRandomStringOpts): string[] {
 
 /**
  * The default options for [[fromRandomStr]]
- * @internal
+ * Contains 4 boolean properties that can be set for the string generator
+ *
+ * - `caps` (default: `true`) - Provide all Latin upper-case characters
+ * - `lower` (default: `true`) - Provide all Latin lower-case characters
+ * - `number` (default: `true`) - Provide all Latin number characters
+ * - `special` (default: `false`) - Provide additional ASCII non-letter or number characters
  */
 export const RND_STR_DEFAULTS: FromRandomStringOpts = {
   /**

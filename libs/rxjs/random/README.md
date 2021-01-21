@@ -12,35 +12,22 @@
 
 `@rxjs-ninja/rxjs-random` Observable for generating random emitters with both numbers and strings.
 
-### Function and Operator categories
+## Function and Operator categories
 
-- Random Numbers - Generates random number streams
-- Random Strings - Generates random string streams
+### Random Numbers
 
-For example, you can use the `fromRandomCrypto` to generate a sequence of random number between `-127` and `127`,
-then use `inRange` from `@rxjs-ninja/rxjs-number` and `flip` from `@rxjs-ninja/rxjs-boolean`.
+Functions to create Observable random numbers
 
 ```ts
-import { fromRandomCrypto } from '@rxjs-ninja/rxjs-random';
-import { inRange } from '@rxjs-ninja/rxjs-number';
-import { flip } from '@rxjs-ninja/rxjs-boolean';
+// Randomly generate 50 `1byte` values between `-127` and `127` and filter values in the range `-64, 64`
+fromRandomCrypto(0, { bytes: 1, unsigned: true }).pipe(take(50), filterInRange(-64, 64)).subscribe();
+Output: `-12, 4, 64, 32, -1, 21, -43`;
+```
 
-/**
- * In this example the random crypto might create
- * values like:
- * 12, -114, -89, 1, 18, -90, 56....
- */
-fromRandomCrypto(0, { bytes: 1, unsigned: true })
-  .pipe(
-    /**
-     * Here we check they are in range and return `true` or `false`
-     * instead of the value (use `filterInRange` to do this)
-     * In this example we get:
-     * ...true, false, false, true, true, false, true....
-     */
-    inRange(-64, 64),
-    // Flip each value
-    flip(),
-  )
-  .subscribe(); // ...false, true, true, false, false, true, false...
+### Random Strings
+
+```ts
+// Generate a random UUID
+fromUUIDv4().pipe(take(1)).subscribe();
+// Output: `2a6d71bf-6ccd-4810-bc60-c9ffdedf8864`
 ```

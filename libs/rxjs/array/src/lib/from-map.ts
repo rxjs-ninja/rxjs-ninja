@@ -7,25 +7,25 @@ import { finalize, map, takeWhile, tap } from 'rxjs/operators';
 import { createOrReturnObservable, flatMapMap } from '../utils/internal';
 
 /**
- * Returns an Observable that emits an `Array` from a `Map`
+ * Returns an Observable that emits an Array from a Map
  *
  * @category Map
  *
- * @typeParam K The type of value in the `Map` key
- * @typeParam V Type of the value in the `Map` value
+ * @typeParam K The type of value in the Map key
+ * @typeParam V Type of the value in the Map value
  *
- * @param input Input to create the emit values from, can be argument list of `Map`, an array of `Map` or an Observable
+ * @param input Input to create the emit values from, can be argument list of Map, an array of Map or an Observable
  *   or Promise source
  *
  * @example
- * Create `Array` from `Map`
+ * Create Array from Map
  * ```ts
  * const input = new Map([ [1, 'a'], [2, 'b'], [3, 'c'] ]);
  * fromMap(input).subscribe();
  * ```
  * Output: `[1, 'a'], [2, 'b'], [3, 'c']`
  *
- * @returns Observable that emits an `Array` from the input `Map`
+ * @returns Observable that emits an Array from the input Map
  */
 
 export function fromMap<K extends unknown, V extends unknown>(

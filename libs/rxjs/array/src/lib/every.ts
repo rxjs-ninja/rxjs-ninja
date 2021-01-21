@@ -14,12 +14,12 @@ import { map } from 'rxjs/operators';
  *
  * @category Query
  *
- * @typeParam T Item type contained in the Array/Set
+ * @typeParam T Type of value contained in the source Array or Set
  *
- * @param predicate Optional [[PredicateFn]] used to get a truthy value of array values
+ * @param predicate Optional [[PredicateFn]] used to get a truthy value of Array values
  *
  * @example
- * Returns a boolean where every string item in the array is truthy
+ * Returns a boolean where every string item in the Array is truthy
  * ```ts
  * const input = [ ['', '', ''], ['', 'Hello', 'RxJS'], ['Hello', 'RxJS', 'Ninja'] ];
  * from(input).pipe(every()).subscribe();
@@ -27,7 +27,7 @@ import { map } from 'rxjs/operators';
  * Output: `false, false, true`
  *
  * @example
- * Returns a boolean where every string item in the array length `< 4`
+ * Returns a boolean where every string item in the Array length `< 4`
  * ```ts
  * const input = [ ['', '', ''], ['', 'Foo', 'Bar'], ['Foo', 'Bar', 'Baz'] ];
  * from(input).pipe(every(v => v.length < 4)).subscribe();

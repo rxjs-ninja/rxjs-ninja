@@ -1,5 +1,6 @@
 /**
- * Package containing various operators for filtering, querying and parsing Arrays and Sets in RxJS
+ * The RxJS Ninja Array module contains operators for working with, and returning Array values. There are also methods
+ * for working with Set, Map and Object converting to and from Array types.
  *
  * @packageDocumentation
  * @module Array

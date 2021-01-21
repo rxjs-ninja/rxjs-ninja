@@ -14,7 +14,7 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @category Query
  *
- * @typeParam T Item type contained in the Array/Set
+ * @typeParam T Item type contained in the Array or Set
  *
  * @param input A value or array of values to get the index of in the source array
  * @param startIndex Optional index to start searching from in the array, starts from `0`

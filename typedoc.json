@@ -1,10 +1,7 @@
 {
   "name": "RxJS Ninja",
   "out": "docs",
-  "exclude": [
-    "**/*.spec.ts",
-    "tools/**/*"
-  ],
+  "exclude": ["**/*.spec.ts", "tools/**/*"],
   "readme": "README.md",
   "tsconfig": "tsconfig.base.json",
   "theme": "./node_modules/typedoc-ninja-theme/bin/default",
@@ -132,54 +129,25 @@
   },
   "replace-in-comments-config": [
     {
-      "pattern": "(Observables?)",
+      "pattern": "Observables?",
       "flags": "gm",
-      "replace": "[$1](https://rxjs.dev/api/index/class/Observable)"
+      "replace": "<a href=\"https://rxjs.dev/api/index/class/Observable\" target=\"_blank\">Observable</a>"
     },
     {
       "pattern": "RxJS",
       "flags": "gm",
-      "replace": "[RxJS](https://rxjs.dev)"
+      "replace": "<a href=\"https://rxjs.dev\" target=\"_blank\">RxJS</a>"
     },
     {
-      "pattern": "RegExp",
+      "pattern": "(Array|Crypto|Intl|Math|Number|Object|String)\\.(\\w+)",
       "flags": "gm",
-      "replace": "[RegExp](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp)"
+      "replace": "<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/$1/$2\" target=\"_blank\">$1.$2</a>"
     },
+
     {
-      "pattern": "(Intl\\.(\\w+))",
+      "pattern": "\\s(Array|Set|Map|Object|RegExp[^\\.\\w+])",
       "flags": "gm",
-      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/$2)"
-    },
-    {
-      "pattern": "(Number\\.(\\w+))",
-      "flags": "gm",
-      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/$2)"
-    },
-    {
-      "pattern": "(String\\.(\\w+))",
-      "flags": "gm",
-      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/$2)"
-    },
-    {
-      "pattern": "(Array\\.(\\w+))",
-      "flags": "gm",
-      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/$2)"
-    },
-    {
-      "pattern": "(Math\\.(\\w+))",
-      "flags": "gm",
-      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/$2)"
-    },
-    {
-      "pattern": "(Crypto\\.(\\w+))",
-      "flags": "gm",
-      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Crypto/$2)"
-    },
-    {
-      "pattern": "(Object\\.(\\w+))",
-      "flags": "gm",
-      "replace": "[$1](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/$2)"
+      "replace": " <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/$1\" target=\"_blank\">$1</a>"
     }
   ]
 }

@@ -6,8 +6,7 @@ import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * Returns an Observable that emits an array from a source
- * {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map|Map} object.
+ * Returns an Observable that emits an array from a source Map object.
  *
  * @category Map
  *

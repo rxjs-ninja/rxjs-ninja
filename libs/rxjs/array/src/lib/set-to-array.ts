@@ -6,12 +6,11 @@ import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * Returns an Observable that emits an array from a source
- * {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set|Set} object.
+ * Returns an Observable that emits an Array from a source Set.
  *
  * @category Set
  *
- * @typeParam T The input type of the source Set
+ * @typeParam T The type of value contained in the Set
  *
  * @example Convert a Set into an Array
  * ```ts

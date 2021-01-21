@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 import { PredicateFn } from '../types/generic-methods';
 
 /**
- * Returns an Observable array of truthy values from a source `Array` or `Set`
+ * Returns an Observable array of truthy values from a source Array or Set
  * When working with data, if the array contains numbers `0` will be returned as a value to the [[PredicateFn]], but all
  * other falsy values will be ignored
  *

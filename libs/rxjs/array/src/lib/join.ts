@@ -12,7 +12,7 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @category Modify
  *
- * @typeParam T Item type contained in the Array/Set
+ * @typeParam T Item type contained in the Array or Set
  *
  * @param separator Separator to be used to join strings. Default value is a space (` `) character.
  *
@@ -34,7 +34,9 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @returns Observable string from the joined values in the source array
  */
-export function join<T extends unknown>(separator: Subscribable<string> | string = ' '): OperatorFunction<Iterable<T>, string> {
+export function join<T extends unknown>(
+  separator: Subscribable<string> | string = ' ',
+): OperatorFunction<Iterable<T>, string> {
   const separator$ = createOrReturnObservable(separator);
   return (source) =>
     source.pipe(

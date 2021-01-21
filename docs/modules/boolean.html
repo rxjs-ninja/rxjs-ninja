@@ -167,7 +167,8 @@
 		<div class="col-content">
 			<section class="tsd-panel tsd-comment">        <div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Package containing various operators for filtering, querying and generating <code>Boolean</code> values in <a href="https://rxjs.dev">RxJS</a>.</p>
+						<p>The <a href="https://rxjs.dev" target="_blank">RxJS</a> Ninja <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank">Boolean</a> module contains operators for working with, and returning boolean values, and for filtering
+						any source with predicate methods to check for both truthy and falsy values.</p>
 					</div>
 				</div>
 			</section>
@@ -238,21 +239,23 @@
 					<div class="tsd-signature tsd-kind-icon">Predicate<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A predicate function is used when you need a boolean check of a value, usually with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">Array.filter</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find">Array.find</a></p>
+							<p>A function that takes one or more parameters and returns a boolean value based on the function calculation</p>
 						</div>
-						<p><strong>Default predicate function:</strong></p>
-						<pre><code class="language-ts"><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">defaultPredicateFn</span><span style="color: #000000">(</span><span style="color: #001080">item</span><span style="color: #000000">: </span><span style="color: #267F99">unknown</span><span style="color: #000000">): </span><span style="color: #267F99">boolean</span><span style="color: #000000"> {</span>
-<span style="color: #000000"> </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #267F99">Boolean</span><span style="color: #000000">(</span><span style="color: #001080">item</span><span style="color: #000000">);</span>
-<span style="color: #000000">}</span>
-</code></pre>
 						<dl class="tsd-comment-tags">
-							<dt class="tds-tag-internal">internal</dt>
-							<dd class="tds-tag-internal"></dd>
-							<dt class="tds-tag-param">param</dt>
-							<dd class="tds-tag-param"><p>The arguments for the function</p>
+							<dt class="tds-tag-example">example</dt>
+							<dd class="tds-tag-example"><p>Return is a number is boolean <code>true</code></p>
+								<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">isTruthy</span><span style="color: #000000">: </span><span style="color: #267F99">PredicateFn</span><span style="color: #000000">&lt;</span><span style="color: #267F99">number</span><span style="color: #000000">&gt; = (</span><span style="color: #001080">item</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #267F99">Boolean</span><span style="color: #000000">(</span><span style="color: #001080">number</span><span style="color: #000000">);</span>
+</code></pre>
 							</dd>
-							<dt class="tds-tag-returns">returns</dt>
-							<dd class="tds-tag-returns"><p>A boolean value from the value being checked in the predicate</p>
+							<dt class="tds-tag-example">example</dt>
+							<dd class="tds-tag-example"><p>Return is a number is greater than 10</p>
+								<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">isTruthy</span><span style="color: #000000">: </span><span style="color: #267F99">PredicateFn</span><span style="color: #000000">&lt;</span><span style="color: #267F99">number</span><span style="color: #000000">&gt; = (</span><span style="color: #001080">item</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">item</span><span style="color: #000000"> &gt; </span><span style="color: #098658">10</span><span style="color: #000000">;</span>
+</code></pre>
+							</dd>
+							<dt class="tds-tag-example">example</dt>
+							<dd class="tds-tag-example"><p>Return if two numbers match</p>
+								<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">isTruthy</span><span style="color: #000000">: </span><span style="color: #267F99">PredicateFn</span><span style="color: #000000">&lt;</span><span style="color: #267F99">number</span><span style="color: #000000">&gt; = (</span><span style="color: #001080">item1</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">, </span><span style="color: #001080">item2</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">item1</span><span style="color: #000000"> === </span><span style="color: #001080">item2</span><span style="color: #000000">;</span>
+</code></pre>
 							</dd>
 						</dl>
 					</div>
@@ -292,7 +295,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/boolean/src/types/boolean.ts#L25">boolean/src/types/boolean.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/boolean/src/types/boolean.ts#L29">boolean/src/types/boolean.ts:29</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -308,7 +311,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits boolean values from passed source of values.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits boolean values from passed source of values</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-example">example</dt>
@@ -330,7 +333,7 @@
 								<li>
 									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
 									<div class="tsd-comment tsd-typography">
-										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
+										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a></p>
 									</div>
 								</li>
 							</ul>
@@ -339,7 +342,7 @@
 								<li>
 									<h5>input: <span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Input values to create the <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> source from</p>
+										<p>Input values to create the <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> source from</p>
 									</div>
 								</li>
 							</ul>
@@ -349,10 +352,10 @@
 								<span class="tsd-signature-type">boolean</span>
 								<span class="tsd-signature-symbol">&gt;</span>
 							</h4>
-							<p>Observable that emits the <code>Boolean</code> value of the source value</p>
+							<p>Observable that emits a boolean value of the source value Boolean conversion</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/boolean/src/lib/from-boolean.ts#L36">boolean/src/lib/from-boolean.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/boolean/src/lib/from-boolean.ts#L36">boolean/src/lib/from-boolean.ts:36</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -367,9 +370,12 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean based on the input value - if no predicate method, the value will be
-									converted to it&#39;s <code>Boolean</code> value, otherwise the predicate method is used to convert the boolean</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits a boolean based on the input value:</p>
 								</div>
+								<ul>
+									<li>If no predicate method, the value will be converted to it&#39;s <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank">Boolean</a> value</li>
+									<li>If a <a href="boolean.html#predicatefn">PredicateFn</a> is passed it&#39;s used to convert the source value to a boolean based on the function condition</li>
+								</ul>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Returns boolean values for source strings</p>
@@ -392,7 +398,7 @@
 								<li>
 									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
 									<div class="tsd-comment tsd-typography">
-										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
+										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a></p>
 									</div>
 								</li>
 							</ul>
@@ -413,10 +419,10 @@
 								<span class="tsd-signature-type">boolean</span>
 								<span class="tsd-signature-symbol">&gt;</span>
 							</h4>
-							<p>Observable that emits a boolean value of a source value</p>
+							<p>Observable that emits a boolean value of a source value Boolean conversion</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/boolean/src/lib/to-boolean.ts#L37">boolean/src/lib/to-boolean.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/boolean/src/lib/to-boolean.ts#L39">boolean/src/lib/to-boolean.ts:39</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -434,7 +440,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits only values from a source that does not pass the passed predicate</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits only values from a source that does not pass the passed predicate</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-example">example</dt>
@@ -452,7 +458,7 @@
 								<li>
 									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
 									<div class="tsd-comment tsd-typography">
-										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
+										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a></p>
 									</div>
 								</li>
 							</ul>
@@ -474,7 +480,7 @@
 							<p>Observable that emits only values that don&#39;t pass the <a href="boolean.html#predicatefn">PredicateFn</a></p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/boolean/src/lib/filter-falsy.ts#L29">boolean/src/lib/filter-falsy.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/boolean/src/lib/filter-falsy.ts#L29">boolean/src/lib/filter-falsy.ts:29</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -489,8 +495,8 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits only truthy values from a source, with optional function to further filter the truthy
-									values with a stricter check</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits only truthy values from a source when the value is truthy for <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank">Boolean</a> conversion of
+									the value - with optional <a href="boolean.html#predicatefn">PredicateFn</a> to further filter the truthy values with a stricter check</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-example">example</dt>
@@ -529,7 +535,7 @@
 								<li>
 									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
 									<div class="tsd-comment tsd-typography">
-										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
+										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a></p>
 									</div>
 								</li>
 							</ul>
@@ -551,7 +557,7 @@
 							<p>Observable that emits only truthy values or values that pass the optional <a href="boolean.html#predicatefn">PredicateFn</a></p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/boolean/src/lib/filter-truthy.ts#L54">boolean/src/lib/filter-truthy.ts:54</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/boolean/src/lib/filter-truthy.ts#L54">boolean/src/lib/filter-truthy.ts:54</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -566,7 +572,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits the first value that does not pass the predicate</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits the first value that does not pass the predicate</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-example">example</dt>
@@ -583,7 +589,7 @@
 								<li>
 									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
 									<div class="tsd-comment tsd-typography">
-										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
+										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a></p>
 									</div>
 								</li>
 							</ul>
@@ -605,7 +611,7 @@
 							<p>Observable that emits the first values to not pass the predicate</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/boolean/src/lib/first-falsy.ts#L28">boolean/src/lib/first-falsy.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/boolean/src/lib/first-falsy.ts#L28">boolean/src/lib/first-falsy.ts:28</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -620,8 +626,8 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits the first truthy value from a source, with optional function to further filter the
-									truthy values with a stricter check</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits the first truthy value from a source that is truthy for <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank">Boolean</a> conversion of the
+									value - with optional <a href="boolean.html#predicatefn">PredicateFn</a> to further filter the truthy values with a stricter check</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-example">example</dt>
@@ -652,7 +658,7 @@
 								<li>
 									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
 									<div class="tsd-comment tsd-typography">
-										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
+										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a></p>
 									</div>
 								</li>
 							</ul>
@@ -674,7 +680,7 @@
 							<p>Observable that emits the first truthy value</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/boolean/src/lib/first-truthy.ts#L45">boolean/src/lib/first-truthy.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/boolean/src/lib/first-truthy.ts#L45">boolean/src/lib/first-truthy.ts:45</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -689,7 +695,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits the last value that does not pass the predicate</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits the last value that does not pass the predicate</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-example">example</dt>
@@ -706,7 +712,7 @@
 								<li>
 									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
 									<div class="tsd-comment tsd-typography">
-										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
+										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a></p>
 									</div>
 								</li>
 							</ul>
@@ -728,7 +734,7 @@
 							<p>Observable that emits the last values to not pass the predicate</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/boolean/src/lib/last-falsy.ts#L28">boolean/src/lib/last-falsy.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/boolean/src/lib/last-falsy.ts#L28">boolean/src/lib/last-falsy.ts:28</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -743,8 +749,8 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits the last truthy value from a source, with optional function to further filter the
-									truthy values with a stricter check</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits the last truthy value from a source, the value is truthy for <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean" target="_blank">Boolean</a> conversion of
+									the value - with optional <a href="boolean.html#predicatefn">PredicateFn</a> to further filter the truthy values with a stricter check</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-example">example</dt>
@@ -775,7 +781,7 @@
 								<li>
 									<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
 									<div class="tsd-comment tsd-typography">
-										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
+										<p>Type of the value from the source <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a></p>
 									</div>
 								</li>
 							</ul>
@@ -797,7 +803,7 @@
 							<p>Observable that emits the last truthy value</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/boolean/src/lib/last-truthy.ts#L45">boolean/src/lib/last-truthy.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/boolean/src/lib/last-truthy.ts#L45">boolean/src/lib/last-truthy.ts:45</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -815,7 +821,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a flipped boolean value from the source value</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits a flipped boolean value from the source value</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-example">example</dt>
@@ -836,7 +842,7 @@
 							<p>Observable that emits a boolean where the source Observable value have been flipped</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/boolean/src/lib/flip.ts#L23">boolean/src/lib/flip.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/boolean/src/lib/flip.ts#L23">boolean/src/lib/flip.ts:23</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -854,7 +860,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean value.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits a boolean value.</p>
 								</div>
 								<p>The source should emit a <code>string</code> or <code>number</code> that can be checked with the
 									<a href="https://en.wikipedia.org/wiki/Luhn_algorithm" class="external">Luhn Algorithm</a> used to validate identification numbers such as
@@ -889,7 +895,7 @@
 							<p>Observable that emits an boolean if the source value passes the Luhn check</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/boolean/src/lib/luhn-check.ts#L30">boolean/src/lib/luhn-check.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/boolean/src/lib/luhn-check.ts#L30">boolean/src/lib/luhn-check.ts:30</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -899,7 +905,7 @@
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 7:40:23 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 11:46:58 PM</p>
 			</div>
 		</div>
 	</div>

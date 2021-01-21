@@ -12,9 +12,9 @@ functions have been cleaned up to be more maintainable. Releases after this shou
 
 ### Added
 
-- `differenceAll` operator which returns a tuple of two `Array` values, containing the unique differences in the source
+- `differenceAll` operator which returns a tuple of two Array values, containing the unique differences in the source
   and comparison array.
-- `toObject` operator that takes an `Array` of tuples containing the key/value pair for the object collection
+- `toObject` operator that takes an Array of tuples containing the key/value pair for the object collection
 
 ### Changed
 
@@ -22,7 +22,7 @@ functions have been cleaned up to be more maintainable. Releases after this shou
   for `search` and `property`
 - Removed `ArrayOrSet<T>` in favour of `Iterable<T>`
 - `fromSet` and `fromMap` no longer accept arguments list or Promise value
-- `indexOf` and `lastIndexOf` now return an `Array` value, even if a single value property is used (which will return an
+- `indexOf` and `lastIndexOf` now return an Array value, even if a single value property is used (which will return an
   array of length 1)
 - `isSuperset`, `isSubset`, `isEqual` and `fill`, now accept Observable input values
 
@@ -33,9 +33,9 @@ they are now `*toArray` as a Source conversion, these changes are breaking.
 
 ### Added
 
-- Static `fromSet` function to generate an Observable `Array` from a `Set` or collection of `Set` values
-- Static `fromMap` function to generate an Observable `Array` from a `Map` or collection of `Map` values
-- `toMap` operator that takes an `Array` of tuples containing the key/value pair for the map collection
+- Static `fromSet` function to generate an Observable Array from a `Set` or collection of `Set` values
+- Static `fromMap` function to generate an Observable Array from a `Map` or collection of `Map` values
+- `toMap` operator that takes an Array of tuples containing the key/value pair for the map collection
 
 ### Changed
 
@@ -75,17 +75,17 @@ Some internal refactoring, however there should be no breaking changes from `4.1
 This release contains a few breaking changes and renaming of operators, also all operators now accept a source that is
 an [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) or
 [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set) but will always return an
-`Array` (except for specific `Set` operators that will be provided later)
+Array (except for specific `Set` operators that will be provided later)
 
 ### Added
 
-- `isSubsetOf` operator that takes an `Array` or `Set` and checks if the source `Array` or `Set` is a subset of it
-- `isSupersetOf` operator that takes an `Array` or `Set` and checks if the source `Array` or `Set` is a superset of it
+- `isSubsetOf` operator that takes an Array or `Set` and checks if the source Array or `Set` is a subset of it
+- `isSupersetOf` operator that takes an Array or `Set` and checks if the source Array or `Set` is a superset of it
 
 ### Changed
 
 - All operators now accept Set where they also currently accept an Array, either as a source or as an input value
-- The `difference` and `intersection` no longer accept a mapping method and only accepts an `Array` or `Set` value to
+- The `difference` and `intersection` no longer accept a mapping method and only accepts an Array or `Set` value to
   return the pure difference between the two
 - `differenceWith` has been renamed `filterDifference` and `intersectionWith` is now `filterIntersection` - both no
   longer accepts a predicate method

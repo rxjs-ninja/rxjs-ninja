@@ -8,7 +8,7 @@ import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits an array of numbers. The number is returned from String.charCodeAt using the passed
- * index or array of indexes.  The output is always an `Array` containing the number, or NaN.
+ * index or array of indexes.  The output is always an Array containing the number, or NaN.
  *
  * @category Query
  *
@@ -21,7 +21,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * ```
  * Output: `120`
  *
- * @returns Observable that emits an `Array` of number values
+ * @returns Observable that emits an Array of number values
  */
 export function charCodeAt(
   positions: Subscribable<Iterable<number> | number> | Iterable<number> | number,

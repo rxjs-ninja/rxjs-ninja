@@ -4,7 +4,7 @@
  */
 
 /**
- * Checks if an Iterable is only one of `Array` or `Set`
+ * Checks if an Iterable is only one of Array or `Set`
  * @private
  * @internal
  * @param input

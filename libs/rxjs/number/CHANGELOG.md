@@ -36,7 +36,7 @@ functions have been cleaned up to be more maintainable. Releases after this shou
 
 - All operators improved in their flow of data, now correctly pass errors
 - Internal improvements
-- `fromNumber` now correctly accepts `Set` and `Array` values for seed values
+- `fromNumber` now correctly accepts `Set` and Array values for seed values
 
 ## [4.1.0] - 2021-01-03
 

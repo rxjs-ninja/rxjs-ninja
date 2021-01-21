@@ -21,11 +21,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- `ArrayOrSet` type for `forBoolean` allowing support for `Set` and `Array` seed values
+- `ArrayOrSet` type for `forBoolean` allowing support for `Set` and Array seed values
 
 ### Changed
 
-- Improved internals of `fromBoolean` and now accepts both `Set` and `Array` seed values
+- Improved internals of `fromBoolean` and now accepts both `Set` and Array seed values
 
 ## [3.1.0] - 2021-01-15
 

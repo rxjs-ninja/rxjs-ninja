@@ -134,6 +134,9 @@
 					<li class=" tsd-kind-interface tsd-parent-kind-module root">
 						<a href="../interfaces/random.fromrandomstringopts.html" class="tsd-kind-icon">From<wbr>Random<wbr>String<wbr>Opts</a>
 					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-module root">
+						<a href="random.html#rnd_str_defaults" class="tsd-kind-icon">RND_<wbr>STR_<wbr>DEFAULTS</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module root">
 						<a href="random.html#fromrandom" class="tsd-kind-icon">from<wbr>Random</a>
 					</li>
@@ -155,7 +158,7 @@
 		<div class="col-content">
 			<section class="tsd-panel tsd-comment">        <div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Package containing various operators for generating <a href="https://rxjs.dev/api/index/class/Observable">Observables</a> with random values in <a href="https://rxjs.dev">RxJS</a></p>
+						<p>Package containing various operators for generating <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> with random values in <a href="https://rxjs.dev" target="_blank">RxJS</a></p>
 					</div>
 				</div>
 			</section>
@@ -172,6 +175,14 @@
 								</div>
 								<div class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/random.fromrandomstringopts.html"
 									class="tsd-kind-icon">FromRandomStringOpts</a>
+								</div>
+							</div>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<div class="tsd-index-list">
+								<div class="tsd-kind-variable tsd-parent-kind-module"><a href="random.html#rnd_str_defaults"
+									class="tsd-kind-icon">RND_STR_DEFAULTS</a>
 								</div>
 							</div>
 						</section>
@@ -202,6 +213,30 @@
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
+					<a name="rnd_str_defaults" class="tsd-anchor"></a>
+					<div class="tsd-signature tsd-kind-icon">RND_<wbr>STR_<wbr>DEFAULTS<span class="tsd-signature-symbol">:</span> <a href="../interfaces/random.fromrandomstringopts.html" class="tsd-signature-type" data-tsd-kind="Interface">FromRandomStringOpts</a><span class="tsd-signature-symbol"> = ...</span></div>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The default options for <a href="random.html#fromrandomstr">fromRandomStr</a>
+							Contains 4 boolean properties that can be set for the string generator</p>
+						</div>
+						<ul>
+							<li><code>caps</code> (default: <code>true</code>) - Provide all Latin upper-case characters</li>
+							<li><code>lower</code> (default: <code>true</code>) - Provide all Latin lower-case characters</li>
+							<li><code>number</code> (default: <code>true</code>) - Provide all Latin number characters</li>
+							<li><code>special</code> (default: <code>false</code>) - Provide additional ASCII non-letter or number characters</li>
+						</ul>
+					</div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/random/src/utils/from-random-string.ts#L37">random/src/utils/from-random-string.ts:37</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Random Numbers Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="fromrandom" class="tsd-anchor"></a>
@@ -212,7 +247,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits random numbers generated using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random">Math.random</a>. The values are generated between the
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits random numbers generated using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random" target="_blank">Math.random</a>. The values are generated between the
 									passed <code>min</code> and <code>max</code> range.</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -254,7 +289,7 @@
 							<p>Observable that emits a random number between the <code>min</code> and <code>max</code></p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/random/src/lib/from-random.ts#L27">random/src/lib/from-random.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/random/src/lib/from-random.ts#L27">random/src/lib/from-random.ts:27</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -269,10 +304,10 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a number generated using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Crypto/getRandomValues">Crypto.getRandomValues</a>, and using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random">Math.random</a> selects one
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits a number generated using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Crypto/getRandomValues" target="_blank">Crypto.getRandomValues</a>, and using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random" target="_blank">Math.random</a> selects one
 									random number value from the <code>TypedArray</code>.</p>
 								</div>
-								<p>By default this <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> will generate <code>4-bit signed</code> values</p>
+								<p>By default this <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> will generate <code>4-bit signed</code> values</p>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-see">see</dt>
 									<dd class="tds-tag-see"><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays#Typed_array_views" class="external">Typed Array Views</a></p>
@@ -302,7 +337,7 @@
 								<li>
 									<h5>opts: <a href="../interfaces/random.fromrandomcryptoopts.html" class="tsd-signature-type" data-tsd-kind="Interface">FromRandomCryptoOpts</a><span class="tsd-signature-symbol"> = ...</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional options for the <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> to generate different byte lengths and signed numbers</p>
+										<p>Optional options for the <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> to generate different byte lengths and signed numbers</p>
 									</div>
 								</li>
 							</ul>
@@ -315,7 +350,7 @@
 							<p>Observable with a stream of random numbers</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/random/src/lib/from-random-crypto.ts#L39">random/src/lib/from-random-crypto.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/random/src/lib/from-random-crypto.ts#L39">random/src/lib/from-random-crypto.ts:39</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -330,7 +365,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits random integer numbers generated using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random">Math.random</a>. The values are generated
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits random integer numbers generated using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random" target="_blank">Math.random</a>. The values are generated
 									between the passed <code>min</code> and <code>max</code> range.</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -372,7 +407,7 @@
 							<p>Observable that emits a random integer number between the <code>min</code> and <code>max</code></p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/random/src/lib/from-random-integer.ts#L27">random/src/lib/from-random-integer.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/random/src/lib/from-random-integer.ts#L27">random/src/lib/from-random-integer.ts:27</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -390,14 +425,14 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a string generated at random.</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits a string generated at random.</p>
 								</div>
 								<p>By default the string will be made up of upper and lower case characters, and numbers.
 								For special characters pass a <a href="../interfaces/random.fromrandomstringopts.html">FromRandomStringOpts</a> options object</p>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Emit a random string of length <code>8</code></p>
-										<pre><code class="language-ts"><span style="color: #795E26">fromRandomStr</span><span style="color: #000000">(</span><span style="color: #098658">5</span><span style="color: #000000">).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+										<pre><code class="language-ts"><span style="color: #795E26">fromRandomStr</span><span style="color: #000000">(</span><span style="color: #098658">8</span><span style="color: #000000">).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
 </code></pre>
 										<p>Output: <code>&#39;A3gtYb76&#39;, &#39;0br2YgT6&#39;, &#39;TL184Avf&#39;...</code></p>
 									</dd>
@@ -440,7 +475,7 @@
 							<p>Observable that emits a string</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/random/src/lib/from-random-string.ts#L38">random/src/lib/from-random-string.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/random/src/lib/from-random-string.ts#L38">random/src/lib/from-random-string.ts:38</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -455,7 +490,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a UUID v4, optionally with <code>emitTime</code> otherwise it will generate them
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits a UUID v4, optionally with <code>emitTime</code> otherwise it will generate them
 									per tick.</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -488,7 +523,7 @@
 							<p>Observable that emits a UUIDv4</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/random/src/lib/from-uuid-v4.ts#L28">random/src/lib/from-uuid-v4.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/random/src/lib/from-uuid-v4.ts#L28">random/src/lib/from-uuid-v4.ts:28</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -498,7 +533,7 @@
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 7:40:24 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 11:46:58 PM</p>
 			</div>
 		</div>
 	</div>

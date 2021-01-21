@@ -176,7 +176,7 @@
 		<div class="col-content">
 			<section class="tsd-panel tsd-comment">        <div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Package containing utility methods for use with <a href="https://rxjs.dev">RxJS</a></p>
+						<p>Package containing utility methods for use with <a href="https://rxjs.dev" target="_blank">RxJS</a></p>
 					</div>
 				</div>
 			</section>
@@ -258,16 +258,6 @@
 						<div class="lead">
 							<p>A callback function that is called with <code>0...n</code> arguments</p>
 						</div>
-						<dl class="tsd-comment-tags">
-							<dt class="tds-tag-internal">internal</dt>
-							<dd class="tds-tag-internal"></dd>
-							<dt class="tds-tag-params">params</dt>
-							<dd class="tds-tag-params"><p>args Arguments passed to the callback</p>
-							</dd>
-							<dt class="tds-tag-returns">returns</dt>
-							<dd class="tds-tag-returns"><p>void</p>
-							</dd>
-						</dl>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
@@ -305,7 +295,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/types/utility.ts#L19">utility/src/types/utility.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/utility/src/types/utility.ts#L13">utility/src/types/utility.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -314,26 +304,19 @@
 					<div class="tsd-signature tsd-kind-icon">Map<wbr>Fn&lt;T, K&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">K</span></div>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A map function is used to convert values, usually using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.map</a> - the values can be of the same type (such as multiplying
-							and number or using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase">String.toUpperCase</a>) or it can change to a different value (using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString">Number.toString</a>)</p>
+							<p>A function used to map values to a modified value, either of the same type (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase" target="_blank">String.toUpperCase</a>) or of a different
+							type (<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt" target="_blank">Number.parseInt</a>)</p>
 						</div>
-						<p><strong>Example map functions:</strong></p>
-						<pre><code class="language-ts"><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">mapToUpperCase</span><span style="color: #000000">(</span><span style="color: #001080">str</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">): </span><span style="color: #267F99">string</span><span style="color: #000000"> {</span>
-<span style="color: #000000"> </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">str</span><span style="color: #000000">.</span><span style="color: #795E26">toUpperCase</span><span style="color: #000000">();</span>
-<span style="color: #000000">}</span>
-
-<span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">mapToInteger</span><span style="color: #000000"> (</span><span style="color: #001080">str</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">): </span><span style="color: #267F99">number</span><span style="color: #000000"> {</span>
-<span style="color: #000000"> </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #795E26">parseInt</span><span style="color: #000000">(</span><span style="color: #001080">str</span><span style="color: #000000">, </span><span style="color: #098658">10</span><span style="color: #000000">);</span>
-<span style="color: #000000">}</span>
-</code></pre>
 						<dl class="tsd-comment-tags">
-							<dt class="tds-tag-internal">internal</dt>
-							<dd class="tds-tag-internal"></dd>
-							<dt class="tds-tag-param">param</dt>
-							<dd class="tds-tag-param"><p>The value to be converted</p>
+							<dt class="tds-tag-example">example</dt>
+							<dd class="tds-tag-example"><p>Map a string to a number</p>
+								<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">mapToNumber</span><span style="color: #000000">: </span><span style="color: #267F99">MapFn</span><span style="color: #000000">&lt;</span><span style="color: #267F99">string</span><span style="color: #000000">, </span><span style="color: #267F99">number</span><span style="color: #000000">&gt; = (</span><span style="color: #001080">input</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">): </span><span style="color: #267F99">number</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #795E26">parseInt</span><span style="color: #000000">(</span><span style="color: #001080">input</span><span style="color: #000000">);</span>
+</code></pre>
 							</dd>
-							<dt class="tds-tag-returns">returns</dt>
-							<dd class="tds-tag-returns"><p>A value that has been mapped to a new value</p>
+							<dt class="tds-tag-example">example</dt>
+							<dd class="tds-tag-example"><p>Map any string to an upper case string</p>
+								<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">mapToNumber</span><span style="color: #000000">: </span><span style="color: #267F99">MapFn</span><span style="color: #000000">&lt;</span><span style="color: #267F99">string</span><span style="color: #000000">&gt; = (</span><span style="color: #001080">input</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">): </span><span style="color: #267F99">string</span><span style="color: #000000"> </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">input</span><span style="color: #000000">.</span><span style="color: #795E26">toUpperCase</span><span style="color: #000000">();</span>
+</code></pre>
 							</dd>
 						</dl>
 					</div>
@@ -343,7 +326,7 @@
 							<h4>T = <span class="tsd-signature-type">unknown</span></h4>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The type of the value from the input source</p>
+									<p>The type of value as input to the method</p>
 								</div>
 							</div>
 						</li>
@@ -351,7 +334,7 @@
 							<h4>K = <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">unknown</span></h4>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>The type of the returned from the new <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> source</p>
+									<p>The type of value returned from the method</p>
 								</div>
 							</div>
 						</li>
@@ -381,7 +364,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/types/utility.ts#L67">utility/src/types/utility.ts:67</a></li>
+							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/utility/src/types/utility.ts#L59">utility/src/types/utility.ts:59</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -390,21 +373,23 @@
 					<div class="tsd-signature tsd-kind-icon">Predicate<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A predicate function is used when you need a boolean check of a value, usually with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">Array.filter</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find">Array.find</a></p>
+							<p>A function that takes one or more parameters and returns a boolean value based on the function calculation</p>
 						</div>
-						<p><strong>Example predicate function:</strong></p>
-						<pre><code class="language-ts"><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">isGreaterThan5</span><span style="color: #000000">(</span><span style="color: #001080">item</span><span style="color: #000000">: </span><span style="color: #267F99">unknown</span><span style="color: #000000">): </span><span style="color: #267F99">boolean</span><span style="color: #000000"> {</span>
-<span style="color: #000000"> </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #0000FF">typeof</span><span style="color: #000000"> </span><span style="color: #001080">item</span><span style="color: #000000"> === </span><span style="color: #A31515">&#039;number&#039;</span><span style="color: #000000"> &amp;&amp; </span><span style="color: #001080">item</span><span style="color: #000000"> &gt; </span><span style="color: #098658">5</span>
-<span style="color: #000000">}</span>
-</code></pre>
 						<dl class="tsd-comment-tags">
-							<dt class="tds-tag-internal">internal</dt>
-							<dd class="tds-tag-internal"></dd>
-							<dt class="tds-tag-param">param</dt>
-							<dd class="tds-tag-param"><p>The arguments for the function</p>
+							<dt class="tds-tag-example">example</dt>
+							<dd class="tds-tag-example"><p>Return is a number is boolean <code>true</code></p>
+								<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">isTruthy</span><span style="color: #000000">: </span><span style="color: #267F99">PredicateFn</span><span style="color: #000000">&lt;</span><span style="color: #267F99">number</span><span style="color: #000000">&gt; = (</span><span style="color: #001080">item</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #267F99">Boolean</span><span style="color: #000000">(</span><span style="color: #001080">number</span><span style="color: #000000">);</span>
+</code></pre>
 							</dd>
-							<dt class="tds-tag-returns">returns</dt>
-							<dd class="tds-tag-returns"><p>A boolean value from the value being checked in the predicate</p>
+							<dt class="tds-tag-example">example</dt>
+							<dd class="tds-tag-example"><p>Return is a number is greater than 10</p>
+								<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">isTruthy</span><span style="color: #000000">: </span><span style="color: #267F99">PredicateFn</span><span style="color: #000000">&lt;</span><span style="color: #267F99">number</span><span style="color: #000000">&gt; = (</span><span style="color: #001080">item</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">item</span><span style="color: #000000"> &gt; </span><span style="color: #098658">10</span><span style="color: #000000">;</span>
+</code></pre>
+							</dd>
+							<dt class="tds-tag-example">example</dt>
+							<dd class="tds-tag-example"><p>Return if two numbers match</p>
+								<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">isTruthy</span><span style="color: #000000">: </span><span style="color: #267F99">PredicateFn</span><span style="color: #000000">&lt;</span><span style="color: #267F99">number</span><span style="color: #000000">&gt; = (</span><span style="color: #001080">item1</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">, </span><span style="color: #001080">item2</span><span style="color: #000000">: </span><span style="color: #267F99">number</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">item1</span><span style="color: #000000"> === </span><span style="color: #001080">item2</span><span style="color: #000000">;</span>
+</code></pre>
 							</dd>
 						</dl>
 					</div>
@@ -444,7 +429,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/types/utility.ts#L40">utility/src/types/utility.ts:40</a></li>
+							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/utility/src/types/utility.ts#L38">utility/src/types/utility.ts:38</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -453,15 +438,8 @@
 					<div class="tsd-signature tsd-kind-icon">Query<wbr>Method&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>A function passed to <a href="utility.html#debouncewithquery">debounceWithQuery</a> as the second parameter, takes a string and returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> source</p>
+							<p>A function passed to <a href="utility.html#debouncewithquery">debounceWithQuery</a> as the second parameter, takes a string and returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> source</p>
 						</div>
-						<dl class="tsd-comment-tags">
-							<dt class="tds-tag-internal">internal</dt>
-							<dd class="tds-tag-internal"></dd>
-							<dt class="tds-tag-param">param</dt>
-							<dd class="tds-tag-param"><p>The string to send to the query method</p>
-							</dd>
-						</dl>
 					</div>
 					<h4 class="tsd-type-parameters-title">Type parameters</h4>
 					<ul class="tsd-type-parameters">
@@ -502,7 +480,7 @@
 					</div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/types/utility.ts#L78">utility/src/types/utility.ts:78</a></li>
+							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/utility/src/types/utility.ts#L66">utility/src/types/utility.ts:66</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -518,7 +496,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> from <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" class="external">fetch</a> that emits
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> from <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API" class="external">fetch</a> that emits
 										a number during the progress of the file download and once finished emits a
 									<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array" class="external">Uint8Array</a></p>
 								</div>
@@ -587,7 +565,7 @@
 							</h4>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/from-fetch-with-progress.ts#L49">utility/src/lib/from-fetch-with-progress.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/utility/src/lib/from-fetch-with-progress.ts#L49">utility/src/lib/from-fetch-with-progress.ts:49</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -605,7 +583,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> value from a remote source where the <a href="utility.html#querymethod">QueryMethod</a> returns a result such as a search from
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> value from a remote source where the <a href="utility.html#querymethod">QueryMethod</a> returns a result such as a search from
 									a remote location</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -653,7 +631,7 @@
 							<p>An Observable that emits a value from a server request</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/debounce-with-query.ts#L30">utility/src/lib/debounce-with-query.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/utility/src/lib/debounce-with-query.ts#L30">utility/src/lib/debounce-with-query.ts:30</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -668,7 +646,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits an object from a parsed JWT token</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits an object from a parsed JWT token</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-example">example</dt>
@@ -701,7 +679,7 @@
 							<p>Observable that emits a decoded JWT token body</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/decode-jwt.ts#L26">utility/src/lib/decode-jwt.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/utility/src/lib/decode-jwt.ts#L26">utility/src/lib/decode-jwt.ts:26</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -716,7 +694,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits the value from either the <code>trueResult</code> or <code>falseResult</code> based on the result from
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits the value from either the <code>trueResult</code> or <code>falseResult</code> based on the result from
 									the source with a <a href="utility.html#predicatefn">PredicateFn</a>.</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -764,7 +742,7 @@
 								<li>
 									<h5>predicate: <a href="utility.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The method to check the value from the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
+										<p>The method to check the value from the source <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a></p>
 									</div>
 								</li>
 								<li>
@@ -793,7 +771,7 @@
 							<p>Observable that emits a value from the truthy or falsy <a href="utility.html#mapfn">MapFn</a> based on the <a href="utility.html#predicatefn">PredicateFn</a> result</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/map-if.ts#L41">utility/src/lib/map-if.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/utility/src/lib/map-if.ts#L41">utility/src/lib/map-if.ts:41</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -808,7 +786,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits the value from either the <code>trueResult</code> or <code>falseResult</code> based on the result from
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that emits the value from either the <code>trueResult</code> or <code>falseResult</code> based on the result from
 									the source with a <a href="utility.html#predicatefn">PredicateFn</a>.</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -856,7 +834,7 @@
 								<li>
 									<h5>predicate: <a href="utility.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The method to check the value from the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
+										<p>The method to check the value from the source <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a></p>
 									</div>
 								</li>
 								<li>
@@ -885,7 +863,7 @@
 							<p>Observable that emits a value based on the <a href="utility.html#predicatefn">PredicateFn</a> result</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/switch-map-if.ts#L41">utility/src/lib/switch-map-if.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/utility/src/lib/switch-map-if.ts#L41">utility/src/lib/switch-map-if.ts:41</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -903,7 +881,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Perform a side effect for every emit from the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that passes the <a href="utility.html#predicatefn">PredicateFn</a>, return an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a>
+									<p>Perform a side effect for every emit from the source <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that passes the <a href="utility.html#predicatefn">PredicateFn</a>, return an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a>
 									that is identical to the source.</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -952,7 +930,7 @@
 							<p>Observable that emits the source observable after performing a side effect</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/tap-if.ts#L33">utility/src/lib/tap-if.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/utility/src/lib/tap-if.ts#L33">utility/src/lib/tap-if.ts:33</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -967,7 +945,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Perform a side effect for the first subscription to the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a>, return an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that is identical to
+									<p>Perform a side effect for the first subscription to the source <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a>, return an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that is identical to
 									the source.</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -1013,7 +991,7 @@
 							<p>Observable that emits the source observable after performing a side effect</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/tap-on-first-emit.ts#L36">utility/src/lib/tap-on-first-emit.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/utility/src/lib/tap-on-first-emit.ts#L36">utility/src/lib/tap-on-first-emit.ts:36</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1028,7 +1006,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Perform a side effect for every subscription to the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> and return an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that is identical to
+									<p>Perform a side effect for every subscription to the source <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> and return an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> that is identical to
 									the source.</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -1070,7 +1048,7 @@
 							<p>Observable that emits the source observable after performing a side effect</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/tap-on-subscribe.ts#L31">utility/src/lib/tap-on-subscribe.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/utility/src/lib/tap-on-subscribe.ts#L31">utility/src/lib/tap-on-subscribe.ts:31</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1088,8 +1066,7 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Creates an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> source from a
-										<a href="https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream" class="external">ReadableStream</a> source that will emit any
+									<p>Creates an <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a> source from a <a href="https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream" target="_blank">ReadableStream</a> source that will emit any
 									values emitted by the stream.</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -1127,7 +1104,7 @@
 								<li>
 									<h5>stream: <span class="tsd-signature-type">ReadableStream</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The <code>ReadableStream</code> to subscribe to</p>
+										<p>The <a href="https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream" target="_blank">ReadableStream</a> to subscribe to</p>
 									</div>
 								</li>
 								<li>
@@ -1156,10 +1133,10 @@
 								<span class="tsd-signature-type">T</span>
 								<span class="tsd-signature-symbol">&gt;</span>
 							</h4>
-							<p>Observable that emits from a <code>ReadableStream</code> source</p>
+							<p>Observable that emits from a ReadableStream source</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/from-readable-stream.ts#L40">utility/src/lib/from-readable-stream.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/utility/src/lib/from-readable-stream.ts#L39">utility/src/lib/from-readable-stream.ts:39</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1174,10 +1151,9 @@
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a>, emitting it through the passed
-										<a href="https://developer.mozilla.org/en-US/docs/Web/API/WritableStream" class="external">WritableStream</a> and handling the internal
+									<p>Returns the source <a href="https://rxjs.dev/api/index/class/Observable" target="_blank">Observable</a>, emitting it through the passed <a href="https://developer.mozilla.org/en-US/docs/Web/API/WritableStream " target="_blank">WritableStream </a>and handling the internal
 										subscription state and error handling. If passed an
-										<a href="https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal" class="external">AbortSignal</a> the <code>WritableStream</code> can be ended
+										<a href="https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal" class="external">AbortSignal</a> the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WritableStream " target="_blank">WritableStream </a>can be ended
 									early without ending the entire subscription</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -1185,7 +1161,7 @@
 									<dd class="tds-tag-see"><p><a href="https://stackblitz.com/edit/rxjs-writable-stream" class="external">Writable Stream Demo</a></p>
 									</dd>
 									<dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><p>Write an array of Observable values to a <code>WritableStream</code></p>
+									<dd class="tds-tag-example"><p>Write an array of Observable values to a WritableStream</p>
 										<pre><code class="language-ts"><span style="color: #0000FF">let</span><span style="color: #000000"> </span><span style="color: #001080">result</span><span style="color: #000000"> = </span><span style="color: #A31515">&#039;&#039;</span>
 <span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">stream</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #267F99">WritableStream</span><span style="color: #000000">({</span>
 <span style="color: #000000">  </span><span style="color: #795E26">write</span><span style="color: #001080">:</span><span style="color: #000000"> (</span><span style="color: #001080">chunk</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">result</span><span style="color: #000000"> += </span><span style="color: #001080">chunk</span><span style="color: #000000">,</span>
@@ -1229,7 +1205,7 @@
 							<p>Observable that emits the source observable after performing a write to the WritableStream</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/to-writable-stream.ts#L37">utility/src/lib/to-writable-stream.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/ad1d4de/libs/rxjs/utility/src/lib/to-writable-stream.ts#L36">utility/src/lib/to-writable-stream.ts:36</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1239,7 +1215,7 @@
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 7:40:24 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 11:46:59 PM</p>
 			</div>
 		</div>
 	</div>

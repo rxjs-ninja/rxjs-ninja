@@ -151,42 +151,28 @@
 				<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/CHANGELOG.md">Changelog</a></p>
 				<p><code>@rxjs-ninja/rxjs-random</code> Observable for generating random emitters with both numbers and strings.</p>
 				<a href="#function-and-operator-categories" id="function-and-operator-categories" style="color: inherit; text-decoration: none;">
-					<h3>Function and Operator categories</h3>
+					<h2>Function and Operator categories</h2>
 				</a>
-				<ul>
-					<li>Random Numbers - Generates random number streams</li>
-					<li>Random Strings - Generates random string streams</li>
-				</ul>
-				<p>For example, you can use the <code>fromRandomCrypto</code> to generate a sequence of random number between <code>-127</code> and <code>127</code>,
-				then use <code>inRange</code> from <code>@rxjs-ninja/rxjs-number</code> and <code>flip</code> from <code>@rxjs-ninja/rxjs-boolean</code>.</p>
-				<pre><code class="language-ts"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">fromRandomCrypto</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@rxjs-ninja/rxjs-random&#039;</span><span style="color: #000000">;</span>
-<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">inRange</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@rxjs-ninja/rxjs-number&#039;</span><span style="color: #000000">;</span>
-<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">flip</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;@rxjs-ninja/rxjs-boolean&#039;</span><span style="color: #000000">;</span>
-
-<span style="color: #008000">/**</span>
-<span style="color: #008000"> * In this example the random crypto might create</span>
-<span style="color: #008000"> * values like:</span>
-<span style="color: #008000"> * 12, -114, -89, 1, 18, -90, 56....</span>
-<span style="color: #008000"> */</span>
-<span style="color: #795E26">fromRandomCrypto</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">, { </span><span style="color: #001080">bytes:</span><span style="color: #000000"> </span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #001080">unsigned:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> })</span>
-<span style="color: #000000">  .</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span>
-<span style="color: #000000">    </span><span style="color: #008000">/**</span>
-<span style="color: #008000">     * Here we check they are in range and return `true` or `false`</span>
-<span style="color: #008000">     * instead of the value (use `filterInRange` to do this)</span>
-<span style="color: #008000">     * In this example we get:</span>
-<span style="color: #008000">     * ...true, false, false, true, true, false, true....</span>
-<span style="color: #008000">     */</span>
-<span style="color: #000000">    </span><span style="color: #795E26">inRange</span><span style="color: #000000">(-</span><span style="color: #098658">64</span><span style="color: #000000">, </span><span style="color: #098658">64</span><span style="color: #000000">),</span>
-<span style="color: #000000">    </span><span style="color: #008000">// Flip each value</span>
-<span style="color: #000000">    </span><span style="color: #795E26">flip</span><span style="color: #000000">(),</span>
-<span style="color: #000000">  )</span>
-<span style="color: #000000">  .</span><span style="color: #795E26">subscribe</span><span style="color: #000000">(); </span><span style="color: #008000">// ...false, true, true, false, false, true, false...</span>
+				<a href="#random-numbers" id="random-numbers" style="color: inherit; text-decoration: none;">
+					<h3>Random Numbers</h3>
+				</a>
+				<p>Functions to create Observable random numbers</p>
+				<pre><code class="language-ts"><span style="color: #008000">// Randomly generate 50 `1byte` values between `-127` and `127` and filter values in the range `-64, 64`</span>
+<span style="color: #795E26">fromRandomCrypto</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">, { </span><span style="color: #001080">bytes:</span><span style="color: #000000"> </span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #001080">unsigned:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> }).</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">take</span><span style="color: #000000">(</span><span style="color: #098658">50</span><span style="color: #000000">), </span><span style="color: #795E26">filterInRange</span><span style="color: #000000">(-</span><span style="color: #098658">64</span><span style="color: #000000">, </span><span style="color: #098658">64</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #000000">Output: </span><span style="color: #A31515">`-12, 4, 64, 32, -1, 21, -43`</span><span style="color: #000000">;</span>
+</code></pre>
+				<a href="#random-strings" id="random-strings" style="color: inherit; text-decoration: none;">
+					<h3>Random Strings</h3>
+				</a>
+				<pre><code class="language-ts"><span style="color: #008000">// Generate a random UUID</span>
+<span style="color: #795E26">fromUUIDv4</span><span style="color: #000000">().</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">take</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `2a6d71bf-6ccd-4810-bc60-c9ffdedf8864`</span>
 </code></pre>
 			</div>
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 7:40:24 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 11:46:59 PM</p>
 			</div>
 		</div>
 	</div>

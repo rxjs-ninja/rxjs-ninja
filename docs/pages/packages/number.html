@@ -219,11 +219,11 @@
 				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">floatSource$</span><span style="color: #000000"> = </span><span style="color: #795E26">from</span><span style="color: #000000">([</span><span style="color: #A31515">&#039;1.9875&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;5.67&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;8.1&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;97.344&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Ninja&#039;</span><span style="color: #000000">]);</span>
 
 <span style="color: #008000">// Parse string values as float</span>
-<span style="color: #001080">floatSource$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">parseFloat</span><span style="color: #000000">()).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">()</span>
+<span style="color: #001080">floatSource$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">parseFloat</span><span style="color: #000000">()).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
 <span style="color: #008000">// Output: `1.9875, 5.67, 8.1, 97.344, NaN`</span>
 
 <span style="color: #008000">// Parse string values as integer</span>
-<span style="color: #001080">floatSource$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">parseInt</span><span style="color: #000000">()).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">()</span>
+<span style="color: #001080">floatSource$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">parseInt</span><span style="color: #000000">()).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
 <span style="color: #008000">// Output: `1, 5, 8, 97, NaN`</span>
 </code></pre>
 				<a href="#query" id="query" style="color: inherit; text-decoration: none;">
@@ -236,7 +236,7 @@
 <span style="color: #001080">source$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">inRange</span><span style="color: #000000">(</span><span style="color: #098658">2</span><span style="color: #000000">, </span><span style="color: #098658">11</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
 <span style="color: #008000">// Output: `false, true, true, false, false, false, true, false, false`</span>
 
-<span style="color: #008000">// Check if values are not `NaN` values</span>
+<span style="color: #008000">// Check if values are not NaN values</span>
 <span style="color: #001080">source</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">isNotNaN</span><span style="color: #000000">()).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
 <span style="color: #008000">// Output: `true, true, true, false, true, true, true, false, true`</span>
 </code></pre>
@@ -244,7 +244,7 @@
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 7:40:24 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 11:46:59 PM</p>
 			</div>
 		</div>
 	</div>

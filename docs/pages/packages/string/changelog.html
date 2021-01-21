@@ -148,6 +148,15 @@
 				<p>All notable changes to this project will be documented in this file.</p>
 				<p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>, and this project adheres
 				to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+				<a href="#501---2021-01-21" id="501---2021-01-21" style="color: inherit; text-decoration: none;">
+					<h2>[5.0.1] - 2021-01-21</h2>
+				</a>
+				<a href="#changed" id="changed" style="color: inherit; text-decoration: none;">
+					<h3>Changed</h3>
+				</a>
+				<ul>
+					<li>Documentation updates and some minor internal cleanup due to <a href="https://typedoc.org">Typedoc</a> upgrade</li>
+				</ul>
 				<a href="#500---2021-01-19" id="500---2021-01-19" style="color: inherit; text-decoration: none;">
 					<h2>[5.0.0] - 2021-01-19</h2>
 				</a>
@@ -156,14 +165,14 @@
 					<h3>Added</h3>
 				</a>
 				<ul>
-					<li><code>join</code> operator for the string module, allows string creation from <code>Array</code> and <code>Set</code> without
+					<li><code>join</code> operator for the string module, allows string creation from Array and <code>Set</code> without
 					needing <code>@rxjs-ninja/rxjs-array</code></li>
 				</ul>
-				<a href="#changed" id="changed" style="color: inherit; text-decoration: none;">
+				<a href="#changed-1" id="changed-1" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
-					<li>Operators <code>charAt</code>, <code>charCodeAt</code>, <code>codePointAt</code> all now return an <code>Array</code> value, even if a single value property is
+					<li>Operators <code>charAt</code>, <code>charCodeAt</code>, <code>codePointAt</code> all now return an Array value, even if a single value property is
 					used (which will return an array of length 1)</li>
 					<li><code>from*</code> Observables and <code>concat</code> operator no longer accept arguments list or Promise values</li>
 					<li>Fix <code>toLowerCase</code> and <code>toUpperCase</code> reading the wrong variable</li>
@@ -175,12 +184,12 @@
 				<a href="#410---2021-01-17" id="410---2021-01-17" style="color: inherit; text-decoration: none;">
 					<h2>[4.1.0] - 2021-01-17</h2>
 				</a>
-				<a href="#changed-1" id="changed-1" style="color: inherit; text-decoration: none;">
+				<a href="#changed-2" id="changed-2" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
 					<li>All operators now accept Observable input values</li>
-					<li>All operators and Observables that accepted <code>Array</code> values now also support <code>Set</code></li>
+					<li>All operators and Observables that accepted Array values now also support <code>Set</code></li>
 					<li>Internal refactor of all operators</li>
 				</ul>
 				<a href="#400---2020-12-21" id="400---2020-12-21" style="color: inherit; text-decoration: none;">
@@ -198,7 +207,7 @@
 					<li><code>replaceAll</code> operator for replacing all instances of a passed string in a source string (note: This requires node 15
 					or latest browsers)</li>
 				</ul>
-				<a href="#changed-2" id="changed-2" style="color: inherit; text-decoration: none;">
+				<a href="#changed-3" id="changed-3" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -212,7 +221,7 @@
 				<a href="#312---2020-11-22" id="312---2020-11-22" style="color: inherit; text-decoration: none;">
 					<h2>[3.1.2] - 2020-11-22</h2>
 				</a>
-				<a href="#changed-3" id="changed-3" style="color: inherit; text-decoration: none;">
+				<a href="#changed-4" id="changed-4" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -223,7 +232,7 @@
 				<a href="#311---2020-11-20" id="311---2020-11-20" style="color: inherit; text-decoration: none;">
 					<h2>[3.1.1] - 2020-11-20</h2>
 				</a>
-				<a href="#changed-4" id="changed-4" style="color: inherit; text-decoration: none;">
+				<a href="#changed-5" id="changed-5" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -241,7 +250,7 @@
 				<a href="#300---2020-11-17" id="300---2020-11-17" style="color: inherit; text-decoration: none;">
 					<h2>[3.0.0] - 2020-11-17</h2>
 				</a>
-				<a href="#changed-5" id="changed-5" style="color: inherit; text-decoration: none;">
+				<a href="#changed-6" id="changed-6" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -251,7 +260,7 @@
 				<a href="#231---2020-05-24" id="231---2020-05-24" style="color: inherit; text-decoration: none;">
 					<h2>[2.3.1] - 2020-05-24</h2>
 				</a>
-				<a href="#changed-6" id="changed-6" style="color: inherit; text-decoration: none;">
+				<a href="#changed-7" id="changed-7" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -260,7 +269,7 @@
 				<a href="#230-2020-05-23" id="230-2020-05-23" style="color: inherit; text-decoration: none;">
 					<h2>[2.3.0] 2020-05-23</h2>
 				</a>
-				<a href="#changed-7" id="changed-7" style="color: inherit; text-decoration: none;">
+				<a href="#changed-8" id="changed-8" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -289,7 +298,7 @@
 					<li><code>padStart</code> and <code>padEnd</code> alias methods now added for padding</li>
 					<li><code>trimLeft</code> <code>trimRight</code> and <code>trim</code> alias methods now added for trimming</li>
 				</ul>
-				<a href="#changed-8" id="changed-8" style="color: inherit; text-decoration: none;">
+				<a href="#changed-9" id="changed-9" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -304,7 +313,7 @@
 				<ul>
 					<li>Added <code>PadPosition</code> and <code>TrimPosition</code> enums</li>
 				</ul>
-				<a href="#changed-9" id="changed-9" style="color: inherit; text-decoration: none;">
+				<a href="#changed-10" id="changed-10" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -319,7 +328,7 @@
 				<ul>
 					<li>Fix single character support in <code>mapCodePoint</code></li>
 				</ul>
-				<a href="#changed-10" id="changed-10" style="color: inherit; text-decoration: none;">
+				<a href="#changed-11" id="changed-11" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -328,7 +337,7 @@
 				<a href="#210---2020-05-10" id="210---2020-05-10" style="color: inherit; text-decoration: none;">
 					<h2>[2.1.0] - 2020-05-10</h2>
 				</a>
-				<a href="#changed-11" id="changed-11" style="color: inherit; text-decoration: none;">
+				<a href="#changed-12" id="changed-12" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -347,7 +356,7 @@
 				<a href="#200---2020-05-10" id="200---2020-05-10" style="color: inherit; text-decoration: none;">
 					<h2>[2.0.0] - 2020-05-10</h2>
 				</a>
-				<a href="#changed-12" id="changed-12" style="color: inherit; text-decoration: none;">
+				<a href="#changed-13" id="changed-13" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -383,7 +392,7 @@
 				<a href="#111---2020-05-06" id="111---2020-05-06" style="color: inherit; text-decoration: none;">
 					<h2>[1.1.1] - 2020-05-06</h2>
 				</a>
-				<a href="#changed-13" id="changed-13" style="color: inherit; text-decoration: none;">
+				<a href="#changed-14" id="changed-14" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -437,7 +446,7 @@
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 7:40:24 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 11:46:59 PM</p>
 			</div>
 		</div>
 	</div>

@@ -11,7 +11,7 @@ import { filter } from 'rxjs/operators';
  * @category Filter
  *
  * @remarks Certain operations such as dividing by zero or multiplying passed `Number.MAX_VALUE` in JavaScript can cause
- *   `Infinity` to be generated, this operator can help avoid those values
+ *   Infinity to be generated, this operator can help avoid those values
  *
  * @see The [[isFinite]] operator returns a boolean value instead of the number
  *

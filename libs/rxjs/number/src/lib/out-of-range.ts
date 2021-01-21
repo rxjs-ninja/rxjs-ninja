@@ -8,8 +8,10 @@ import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits booleans about values from a source that fall outside the passed `min` and `max`
- * range, excluding the range numbers.  To emit a boolean for numbers including the `min` and `max` set
- * `includeBoundingParameters` to `true`.
+ * range, excluding the range numbers.
+ *
+ * @remarks When querying out-of-range, the range numbers are querying from the filter - to include them set
+ *   `includeBounds = true`
  *
  * @category Query
  *

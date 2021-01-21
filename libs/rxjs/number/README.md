@@ -89,11 +89,11 @@ Operators for parsing strings to numbers
 const floatSource$ = from(['1.9875', '5.67', '8.1', '97.344', 'Ninja']);
 
 // Parse string values as float
-floatSource$.pipe(parseFloat()).subscribe()
+floatSource$.pipe(parseFloat()).subscribe();
 // Output: `1.9875, 5.67, 8.1, 97.344, NaN`
 
 // Parse string values as integer
-floatSource$.pipe(parseInt()).subscribe()
+floatSource$.pipe(parseInt()).subscribe();
 // Output: `1, 5, 8, 97, NaN`
 ```
 
@@ -108,7 +108,7 @@ const source$ = from([1.4, 5, 8.2, NaN, 12, 19, 11, NaN, 14]);
 source$.pipe(inRange(2, 11)).subscribe();
 // Output: `false, true, true, false, false, false, true, false, false`
 
-// Check if values are not `NaN` values
+// Check if values are not NaN values
 source.pipe(isNotNaN()).subscribe();
 // Output: `true, true, true, false, true, true, true, false, true`
 ```

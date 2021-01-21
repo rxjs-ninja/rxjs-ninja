@@ -1,5 +1,5 @@
 /**
- * The RxJS Ninja Array module contains operators for working with, and returning Boolean values, and for filtering
+ * The RxJS Ninja Boolean module contains operators for working with, and returning boolean values, and for filtering
  * any source with predicate methods to check for both truthy and falsy values.
  *
  * @packageDocumentation

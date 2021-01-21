@@ -8,8 +8,9 @@ import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits numbers, where that number falls between the provided `min` and `max` values.
- * When filtering in range, the range numbers are included in the filter - to exclude them set `excludeBoundingValues`
- * to `true`.
+ *
+ * @remarks When filtering in range, the range numbers are included in the filter - to exclude them set
+ *   `excludeBoundingValues = true`
  *
  * @category Filter
  *
@@ -18,7 +19,7 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @param min The minimum range value
  * @param max The maximum range value
- * @param excludeBoundingValues Also filter the `min` and `max` values from the Observable
+ * @param excludeBounds Also filter the `min` and `max` values from the Observable
  *
  * @example
  * Return only numbers in and including the range of `0` to `10`
@@ -41,16 +42,16 @@ import { createOrReturnObservable } from '../utils/internal';
 export function filterInRange(
   min: Subscribable<number> | number,
   max: Subscribable<number> | number,
-  excludeBoundingValues?: Subscribable<boolean> | boolean,
+  excludeBounds?: Subscribable<boolean> | boolean,
 ): MonoTypeOperatorFunction<number> {
   const min$ = createOrReturnObservable(min);
   const max$ = createOrReturnObservable(max);
-  const excludeVal$ = createOrReturnObservable(excludeBoundingValues);
+  const excludeBounds$ = createOrReturnObservable(excludeBounds);
   return (source) =>
     source.pipe(
-      withLatestFrom(min$, max$, excludeVal$),
-      filter(([value, minValue, maxValue, excludeBoundingValuesValue]) =>
-        excludeBoundingValuesValue ? value > minValue && value < maxValue : value >= minValue && value <= maxValue,
+      withLatestFrom(min$, max$, excludeBounds$),
+      filter(([value, minValue, maxValue, excludeBoundsValue]) =>
+        excludeBoundsValue ? value > minValue && value < maxValue : value >= minValue && value <= maxValue,
       ),
       map(([value]) => value),
     );

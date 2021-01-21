@@ -8,8 +8,10 @@ import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits booleans about values from a source that fall within the passed `min` and `max`
- * range, including the range numbers.  To emit a boolean for numbers only between the `min` and `max` set
- * `excludeBoundingValues` to `true`.
+ * range, including the range numbers.
+ *
+ * @remarks When querying in range, the range numbers are included in the query - to exclude them set
+ *   `excludeBoundingValues = true`
  *
  * @category Query
  *
@@ -17,7 +19,7 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @param min The minimum number for the range
  * @param max The maximum number for the range
- * @param excludeBoundingValues Optionally filter the `min` and `max` values from the Observable
+ * @param excludeBounds Optionally filter the `min` and `max` values from the Observable
  *
  * @example
  * Returns a boolean value if the number is in the range
@@ -40,16 +42,16 @@ import { createOrReturnObservable } from '../utils/internal';
 export function inRange(
   min: Subscribable<number> | number,
   max: Subscribable<number> | number,
-  excludeBoundingValues?: Subscribable<boolean> | boolean,
+  excludeBounds?: Subscribable<boolean> | boolean,
 ): OperatorFunction<number, boolean> {
   const min$ = createOrReturnObservable(min);
   const max$ = createOrReturnObservable(max);
-  const excludeBoundingValues$ = createOrReturnObservable(excludeBoundingValues);
+  const excludeBounds$ = createOrReturnObservable(excludeBounds);
   return (source) =>
     source.pipe(
-      withLatestFrom(min$, max$, excludeBoundingValues$),
-      map(([value, minValue, maxValue, excludeBoundingValuesValue]) =>
-        excludeBoundingValuesValue ? value > minValue && value < maxValue : value >= minValue && value <= maxValue,
+      withLatestFrom(min$, max$, excludeBounds$),
+      map(([value, minValue, maxValue, excludeBoundsValue]) =>
+        excludeBoundsValue ? value > minValue && value < maxValue : value >= minValue && value <= maxValue,
       ),
     );
 }

@@ -8,7 +8,7 @@
   "readme": "README.md",
   "tsconfig": "tsconfig.base.json",
   "theme": "./node_modules/typedoc-ninja-theme/bin/default",
-  "excludeInternal": true,
+  "excludeInternal": false,
   "excludeExternals": true,
   "excludePrivate": true,
   "categorizeByGroup": true,

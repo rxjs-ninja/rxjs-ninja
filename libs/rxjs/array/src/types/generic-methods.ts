@@ -18,8 +18,6 @@
  * }
  *```
  *
- * @internal
- *
  * @typeParam T The type of the value from the input source
  * @typeParam K The type of the returned from the new Observable source
  *
@@ -39,8 +37,6 @@ export type MapFn<T = unknown, K = T | unknown> = (value: T) => K;
  *  return Boolean(item);
  * }
  * ```
- *
- * @internal
  *
  * @typeParam T The type of the value being checked
  *
@@ -66,7 +62,6 @@ export type PredicateFn<T extends unknown> = (...args: T[]) => boolean;
  *}
  * ```
  *
- * @internal
  *
  * @typeParam T The Type of the value to sort
  *

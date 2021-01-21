@@ -128,6 +128,18 @@
 			</nav>
 			<nav class="tsd-navigation">
 				<ul class="before-current">
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter root">
+						<a href="utility.html#callbackfn" class="tsd-kind-icon">Callback<wbr>Fn</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter root">
+						<a href="utility.html#mapfn" class="tsd-kind-icon">Map<wbr>Fn</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter root">
+						<a href="utility.html#predicatefn" class="tsd-kind-icon">Predicate<wbr>Fn</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter root">
+						<a href="utility.html#querymethod" class="tsd-kind-icon">Query<wbr>Method</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter root">
 						<a href="utility.html#debouncewithquery" class="tsd-kind-icon">debounce<wbr>With<wbr>Query</a>
 					</li>
@@ -174,6 +186,23 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
+							<h3>Type aliases</h3>
+							<div class="tsd-index-list">
+								<div class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="utility.html#callbackfn"
+									class="tsd-kind-icon">CallbackFn</a>
+								</div>
+								<div class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="utility.html#mapfn"
+									class="tsd-kind-icon">MapFn</a>
+								</div>
+								<div class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="utility.html#predicatefn"
+									class="tsd-kind-icon">PredicateFn</a>
+								</div>
+								<div class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="utility.html#querymethod"
+									class="tsd-kind-icon">QueryMethod</a>
+								</div>
+							</div>
+						</section>
+						<section class="tsd-index-section ">
 							<h3>HTTP</h3>
 							<div class="tsd-index-list">
 								<div class="tsd-kind-function tsd-parent-kind-module"><a href="utility.html#fromfetchwithprogress"
@@ -218,6 +247,264 @@
 							</div>
 						</section>
 					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Type aliases</h2>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="callbackfn" class="tsd-anchor"></a>
+					<div class="tsd-signature tsd-kind-icon">Callback<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">void</span></div>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A callback function that is called with <code>0...n</code> arguments</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt class="tds-tag-internal">internal</dt>
+							<dd class="tds-tag-internal"></dd>
+							<dt class="tds-tag-params">params</dt>
+							<dd class="tds-tag-params"><p>args Arguments passed to the callback</p>
+							</dd>
+							<dt class="tds-tag-returns">returns</dt>
+							<dd class="tds-tag-returns"><p>void</p>
+							</dd>
+						</dl>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The type of the value from a source</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns
+											<span class="tsd-signature-type">void</span>
+										</h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/types/utility.ts#L19">utility/src/types/utility.ts:19</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="mapfn" class="tsd-anchor"></a>
+					<div class="tsd-signature tsd-kind-icon">Map<wbr>Fn&lt;T, K&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">K</span></div>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A map function is used to convert values, usually using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.map</a> - the values can be of the same type (such as multiplying
+							and number or using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase">String.toUpperCase</a>) or it can change to a different value (using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString">Number.toString</a>)</p>
+						</div>
+						<p><strong>Example map functions:</strong></p>
+						<pre><code class="language-ts"><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">mapToUpperCase</span><span style="color: #000000">(</span><span style="color: #001080">str</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">): </span><span style="color: #267F99">string</span><span style="color: #000000"> {</span>
+<span style="color: #000000"> </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">str</span><span style="color: #000000">.</span><span style="color: #795E26">toUpperCase</span><span style="color: #000000">();</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">mapToInteger</span><span style="color: #000000"> (</span><span style="color: #001080">str</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">): </span><span style="color: #267F99">number</span><span style="color: #000000"> {</span>
+<span style="color: #000000"> </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #795E26">parseInt</span><span style="color: #000000">(</span><span style="color: #001080">str</span><span style="color: #000000">, </span><span style="color: #098658">10</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
+</code></pre>
+						<dl class="tsd-comment-tags">
+							<dt class="tds-tag-internal">internal</dt>
+							<dd class="tds-tag-internal"></dd>
+							<dt class="tds-tag-param">param</dt>
+							<dd class="tds-tag-param"><p>The value to be converted</p>
+							</dd>
+							<dt class="tds-tag-returns">returns</dt>
+							<dd class="tds-tag-returns"><p>A value that has been mapped to a new value</p>
+							</dd>
+						</dl>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T = <span class="tsd-signature-type">unknown</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The type of the value from the input source</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<h4>K = <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">unknown</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The type of the returned from the new <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> source</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>value: <span class="tsd-signature-type">T</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns
+											<span class="tsd-signature-type">K</span>
+										</h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/types/utility.ts#L67">utility/src/types/utility.ts:67</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="predicatefn" class="tsd-anchor"></a>
+					<div class="tsd-signature tsd-kind-icon">Predicate<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A predicate function is used when you need a boolean check of a value, usually with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">Array.filter</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find">Array.find</a></p>
+						</div>
+						<p><strong>Example predicate function:</strong></p>
+						<pre><code class="language-ts"><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">isGreaterThan5</span><span style="color: #000000">(</span><span style="color: #001080">item</span><span style="color: #000000">: </span><span style="color: #267F99">unknown</span><span style="color: #000000">): </span><span style="color: #267F99">boolean</span><span style="color: #000000"> {</span>
+<span style="color: #000000"> </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #0000FF">typeof</span><span style="color: #000000"> </span><span style="color: #001080">item</span><span style="color: #000000"> === </span><span style="color: #A31515">&#039;number&#039;</span><span style="color: #000000"> &amp;&amp; </span><span style="color: #001080">item</span><span style="color: #000000"> &gt; </span><span style="color: #098658">5</span>
+<span style="color: #000000">}</span>
+</code></pre>
+						<dl class="tsd-comment-tags">
+							<dt class="tds-tag-internal">internal</dt>
+							<dd class="tds-tag-internal"></dd>
+							<dt class="tds-tag-param">param</dt>
+							<dd class="tds-tag-param"><p>The arguments for the function</p>
+							</dd>
+							<dt class="tds-tag-returns">returns</dt>
+							<dd class="tds-tag-returns"><p>A boolean value from the value being checked in the predicate</p>
+							</dd>
+						</dl>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The type of the value being checked</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns
+											<span class="tsd-signature-type">boolean</span>
+										</h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/types/utility.ts#L40">utility/src/types/utility.ts:40</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="querymethod" class="tsd-anchor"></a>
+					<div class="tsd-signature tsd-kind-icon">Query<wbr>Method&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A function passed to <a href="utility.html#debouncewithquery">debounceWithQuery</a> as the second parameter, takes a string and returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> source</p>
+						</div>
+						<dl class="tsd-comment-tags">
+							<dt class="tds-tag-internal">internal</dt>
+							<dd class="tds-tag-internal"></dd>
+							<dt class="tds-tag-param">param</dt>
+							<dd class="tds-tag-param"><p>The string to send to the query method</p>
+							</dd>
+						</dl>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T = <span class="tsd-signature-type">unknown</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The response from an API which returns the result of a query</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>query<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">ObservableInput</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>query: <span class="tsd-signature-type">string</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns
+											<span class="tsd-signature-type">ObservableInput</span>
+											<span class="tsd-signature-symbol">&lt;</span>
+											<span class="tsd-signature-type">T</span>
+											<span class="tsd-signature-symbol">&gt;</span>
+										</h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/types/utility.ts#L78">utility/src/types/utility.ts:78</a></li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
@@ -300,7 +587,7 @@
 							</h4>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/utility/src/lib/from-fetch-with-progress.ts#L49">utility/src/lib/from-fetch-with-progress.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/from-fetch-with-progress.ts#L49">utility/src/lib/from-fetch-with-progress.ts:49</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -312,13 +599,13 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="debouncewithquery" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">debounce<wbr>With<wbr>Query&lt;T&gt;<span class="tsd-signature-symbol">(</span>time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, queryMethod<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">QueryMethod</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">debounce<wbr>With<wbr>Query&lt;T&gt;<span class="tsd-signature-symbol">(</span>time<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, queryMethod<span class="tsd-signature-symbol">: </span><a href="utility.html#querymethod" class="tsd-signature-type" data-tsd-kind="Type alias">QueryMethod</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> value from a remote source where the [[QueryMethod]] returns a result such as a search from
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> value from a remote source where the <a href="utility.html#querymethod">QueryMethod</a> returns a result such as a search from
 									a remote location</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -349,7 +636,7 @@
 									</div>
 								</li>
 								<li>
-									<h5>queryMethod: <span class="tsd-signature-type">QueryMethod</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>queryMethod: <a href="utility.html#querymethod" class="tsd-signature-type" data-tsd-kind="Type alias">QueryMethod</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The method that returns the search</p>
 									</div>
@@ -366,7 +653,7 @@
 							<p>An Observable that emits a value from a server request</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/utility/src/lib/debounce-with-query.ts#L30">utility/src/lib/debounce-with-query.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/debounce-with-query.ts#L30">utility/src/lib/debounce-with-query.ts:30</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -414,7 +701,7 @@
 							<p>Observable that emits a decoded JWT token body</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/utility/src/lib/decode-jwt.ts#L26">utility/src/lib/decode-jwt.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/decode-jwt.ts#L26">utility/src/lib/decode-jwt.ts:26</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -423,14 +710,14 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="mapif" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">map<wbr>If&lt;I, T, F&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">&gt;</span>, trueResult<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MapFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, falseResult<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MapFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">map<wbr>If&lt;I, T, F&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><a href="utility.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">&gt;</span>, trueResult<span class="tsd-signature-symbol">: </span><a href="utility.html#mapfn" class="tsd-signature-type" data-tsd-kind="Type alias">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, falseResult<span class="tsd-signature-symbol">: </span><a href="utility.html#mapfn" class="tsd-signature-type" data-tsd-kind="Type alias">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits the value from either the <code>trueResult</code> or <code>falseResult</code> based on the result from
-									the source with a [[PredicateFn]].</p>
+									the source with a <a href="utility.html#predicatefn">PredicateFn</a>.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-remarks">remarks</dt>
@@ -475,21 +762,21 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>predicate: <span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>predicate: <a href="utility.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The method to check the value from the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
 									</div>
 								</li>
 								<li>
-									<h5>trueResult: <span class="tsd-signature-type">MapFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>trueResult: <a href="utility.html#mapfn" class="tsd-signature-type" data-tsd-kind="Type alias">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The method with return value for a truthy [[PredicateFn]]</p>
+										<p>The method with return value for a truthy <a href="utility.html#predicatefn">PredicateFn</a></p>
 									</div>
 								</li>
 								<li>
-									<h5>falseResult: <span class="tsd-signature-type">MapFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>falseResult: <a href="utility.html#mapfn" class="tsd-signature-type" data-tsd-kind="Type alias">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The method with return value for a falsy [[PredicateFn]]</p>
+										<p>The method with return value for a falsy <a href="utility.html#predicatefn">PredicateFn</a></p>
 									</div>
 								</li>
 							</ul>
@@ -503,10 +790,10 @@
 								<span class="tsd-signature-type">F</span>
 								<span class="tsd-signature-symbol">&gt;</span>
 							</h4>
-							<p>Observable that emits a value from the truthy or falsy [[MapFn]] based on the [[PredicateFn]] result</p>
+							<p>Observable that emits a value from the truthy or falsy <a href="utility.html#mapfn">MapFn</a> based on the <a href="utility.html#predicatefn">PredicateFn</a> result</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/utility/src/lib/map-if.ts#L41">utility/src/lib/map-if.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/map-if.ts#L41">utility/src/lib/map-if.ts:41</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -515,14 +802,14 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="switchmapif" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">switch<wbr>Map<wbr>If&lt;I, T, F&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">&gt;</span>, trueResult<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MapFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, falseResult<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MapFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">switch<wbr>Map<wbr>If&lt;I, T, F&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><a href="utility.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">&gt;</span>, trueResult<span class="tsd-signature-symbol">: </span><a href="utility.html#mapfn" class="tsd-signature-type" data-tsd-kind="Type alias">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span>, falseResult<span class="tsd-signature-symbol">: </span><a href="utility.html#mapfn" class="tsd-signature-type" data-tsd-kind="Type alias">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits the value from either the <code>trueResult</code> or <code>falseResult</code> based on the result from
-									the source with a [[PredicateFn]].</p>
+									the source with a <a href="utility.html#predicatefn">PredicateFn</a>.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-remarks">remarks</dt>
@@ -567,21 +854,21 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>predicate: <span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>predicate: <a href="utility.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
 										<p>The method to check the value from the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a></p>
 									</div>
 								</li>
 								<li>
-									<h5>trueResult: <span class="tsd-signature-type">MapFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>trueResult: <a href="utility.html#mapfn" class="tsd-signature-type" data-tsd-kind="Type alias">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The method with return value for a truthy [[PredicateFn]]</p>
+										<p>The method with return value for a truthy <a href="utility.html#predicatefn">PredicateFn</a></p>
 									</div>
 								</li>
 								<li>
-									<h5>falseResult: <span class="tsd-signature-type">MapFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>falseResult: <a href="utility.html#mapfn" class="tsd-signature-type" data-tsd-kind="Type alias">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">I</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">F</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The method with return value for a falsy [[PredicateFn]]</p>
+										<p>The method with return value for a falsy <a href="utility.html#predicatefn">PredicateFn</a></p>
 									</div>
 								</li>
 							</ul>
@@ -595,10 +882,10 @@
 								<span class="tsd-signature-type">F</span>
 								<span class="tsd-signature-symbol">&gt;</span>
 							</h4>
-							<p>Observable that emits a value based on the [[PredicateFn]] result</p>
+							<p>Observable that emits a value based on the <a href="utility.html#predicatefn">PredicateFn</a> result</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/utility/src/lib/switch-map-if.ts#L41">utility/src/lib/switch-map-if.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/switch-map-if.ts#L41">utility/src/lib/switch-map-if.ts:41</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -610,13 +897,13 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="tapif" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">tap<wbr>If&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CallbackFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">tap<wbr>If&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">: </span><a href="utility.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span>, callback<span class="tsd-signature-symbol">: </span><a href="utility.html#callbackfn" class="tsd-signature-type" data-tsd-kind="Type alias">CallbackFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Perform a side effect for every emit from the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that passes the [[PredicateFn]], return an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a>
+									<p>Perform a side effect for every emit from the source <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that passes the <a href="utility.html#predicatefn">PredicateFn</a>, return an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a>
 									that is identical to the source.</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -644,15 +931,15 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>predicate: <span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>predicate: <a href="utility.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>[[PredicateFn]] function to compared the values against</p>
+										<p><a href="utility.html#predicatefn">PredicateFn</a> function to compared the values against</p>
 									</div>
 								</li>
 								<li>
-									<h5>callback: <span class="tsd-signature-type">CallbackFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>callback: <a href="utility.html#callbackfn" class="tsd-signature-type" data-tsd-kind="Type alias">CallbackFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>[[CallbackFn]] to be executed when this operator is run</p>
+										<p><a href="utility.html#callbackfn">CallbackFn</a> to be executed when this operator is run</p>
 									</div>
 								</li>
 							</ul>
@@ -665,7 +952,7 @@
 							<p>Observable that emits the source observable after performing a side effect</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/utility/src/lib/tap-if.ts#L33">utility/src/lib/tap-if.ts:33</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/tap-if.ts#L33">utility/src/lib/tap-if.ts:33</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -674,7 +961,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="taponfirstemit" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">tap<wbr>OnFirst<wbr>Emit&lt;T&gt;<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CallbackFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">tap<wbr>OnFirst<wbr>Emit&lt;T&gt;<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><a href="utility.html#callbackfn" class="tsd-signature-type" data-tsd-kind="Type alias">CallbackFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -711,9 +998,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>callback: <span class="tsd-signature-type">CallbackFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>callback: <a href="utility.html#callbackfn" class="tsd-signature-type" data-tsd-kind="Type alias">CallbackFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>[[CallbackFn]] to be executed when this operator is run</p>
+										<p><a href="utility.html#callbackfn">CallbackFn</a> to be executed when this operator is run</p>
 									</div>
 								</li>
 							</ul>
@@ -726,7 +1013,7 @@
 							<p>Observable that emits the source observable after performing a side effect</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/utility/src/lib/tap-on-first-emit.ts#L36">utility/src/lib/tap-on-first-emit.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/tap-on-first-emit.ts#L36">utility/src/lib/tap-on-first-emit.ts:36</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -735,7 +1022,7 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="taponsubscribe" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">tap<wbr>OnSubscribe&lt;T&gt;<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">CallbackFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">tap<wbr>OnSubscribe&lt;T&gt;<span class="tsd-signature-symbol">(</span>callback<span class="tsd-signature-symbol">: </span><a href="utility.html#callbackfn" class="tsd-signature-type" data-tsd-kind="Type alias">CallbackFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MonoTypeOperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
@@ -768,9 +1055,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>callback: <span class="tsd-signature-type">CallbackFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>callback: <a href="utility.html#callbackfn" class="tsd-signature-type" data-tsd-kind="Type alias">CallbackFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>[[CallbackFn]] to be executed when this operator is run</p>
+										<p><a href="utility.html#callbackfn">CallbackFn</a> to be executed when this operator is run</p>
 									</div>
 								</li>
 							</ul>
@@ -783,7 +1070,7 @@
 							<p>Observable that emits the source observable after performing a side effect</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/utility/src/lib/tap-on-subscribe.ts#L31">utility/src/lib/tap-on-subscribe.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/tap-on-subscribe.ts#L31">utility/src/lib/tap-on-subscribe.ts:31</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -872,7 +1159,7 @@
 							<p>Observable that emits from a <code>ReadableStream</code> source</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/utility/src/lib/from-readable-stream.ts#L40">utility/src/lib/from-readable-stream.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/from-readable-stream.ts#L40">utility/src/lib/from-readable-stream.ts:40</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -942,7 +1229,7 @@
 							<p>Observable that emits the source observable after performing a write to the WritableStream</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/utility/src/lib/to-writable-stream.ts#L37">utility/src/lib/to-writable-stream.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/utility/src/lib/to-writable-stream.ts#L37">utility/src/lib/to-writable-stream.ts:37</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -952,7 +1239,7 @@
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 6:52:45 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 7:40:24 PM</p>
 			</div>
 		</div>
 	</div>

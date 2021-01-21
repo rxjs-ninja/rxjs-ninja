@@ -16,3 +16,5 @@ export { lastFalsy } from './lib/last-falsy';
 export { lastTruthy } from './lib/last-truthy';
 export { luhnCheck } from './lib/luhn-check';
 export { toBoolean } from './lib/to-boolean';
+
+export * from './types/boolean';

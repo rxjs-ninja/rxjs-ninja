@@ -16,3 +16,5 @@ export { tapIf } from './lib/tap-if';
 export { tapOnFirstEmit } from './lib/tap-on-first-emit';
 export { tapOnSubscribe } from './lib/tap-on-subscribe';
 export { toWritableStream } from './lib/to-writable-stream';
+
+export * from './types/utility';

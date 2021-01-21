@@ -42,3 +42,4 @@ export { toMap } from './lib/to-map';
 export { toSet } from './lib/to-set';
 
 export { BinarySearchResult } from './types/binary-search';
+export * from './types/generic-methods';

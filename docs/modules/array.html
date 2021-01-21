@@ -131,6 +131,15 @@
 					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter root">
 						<a href="array.html#binarysearchresult" class="tsd-kind-icon">Binary<wbr>Search<wbr>Result</a>
 					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter root">
+						<a href="array.html#mapfn" class="tsd-kind-icon">Map<wbr>Fn</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter root">
+						<a href="array.html#predicatefn" class="tsd-kind-icon">Predicate<wbr>Fn</a>
+					</li>
+					<li class=" tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter root">
+						<a href="array.html#sortfn" class="tsd-kind-icon">Sort<wbr>Fn</a>
+					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter root">
 						<a href="array.html#binarysearch" class="tsd-kind-icon">binary<wbr>Search</a>
 					</li>
@@ -253,6 +262,15 @@
 							<div class="tsd-index-list">
 								<div class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#binarysearchresult"
 									class="tsd-kind-icon">BinarySearchResult</a>
+								</div>
+								<div class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#mapfn"
+									class="tsd-kind-icon">MapFn</a>
+								</div>
+								<div class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#predicatefn"
+									class="tsd-kind-icon">PredicateFn</a>
+								</div>
+								<div class="tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter"><a href="array.html#sortfn"
+									class="tsd-kind-icon">SortFn</a>
 								</div>
 							</div>
 						</section>
@@ -412,7 +430,214 @@
 					</ul>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/types/binary-search.ts#L12">array/src/types/binary-search.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/types/binary-search.ts#L12">array/src/types/binary-search.ts:12</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="mapfn" class="tsd-anchor"></a>
+					<div class="tsd-signature tsd-kind-icon">Map<wbr>Fn&lt;T, K&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">K</span></div>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A map function is used to convert values, usually using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map">Array.map</a> - the values can be of the same type (such as multiplying
+							and number or using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase">String.toUpperCase</a>) or it can change to a different value (using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/parseInt">Number.parseInt</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/toString">Number.toString</a>)</p>
+						</div>
+						<p><strong>Example map functions:</strong></p>
+						<pre><code class="language-ts"><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">mapToUpperCase</span><span style="color: #000000">(</span><span style="color: #001080">str</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">): </span><span style="color: #267F99">string</span><span style="color: #000000"> {</span>
+<span style="color: #000000"> </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">str</span><span style="color: #000000">.</span><span style="color: #795E26">toUpperCase</span><span style="color: #000000">();</span>
+<span style="color: #000000">}</span>
+
+<span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">mapToInteger</span><span style="color: #000000"> (</span><span style="color: #001080">str</span><span style="color: #000000">: </span><span style="color: #267F99">string</span><span style="color: #000000">): </span><span style="color: #267F99">number</span><span style="color: #000000"> {</span>
+<span style="color: #000000"> </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #795E26">parseInt</span><span style="color: #000000">(</span><span style="color: #001080">str</span><span style="color: #000000">, </span><span style="color: #098658">10</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
+</code></pre>
+						<dl class="tsd-comment-tags">
+							<dt class="tds-tag-param">param</dt>
+							<dd class="tds-tag-param"><p>The value to be converted</p>
+							</dd>
+							<dt class="tds-tag-returns">returns</dt>
+							<dd class="tds-tag-returns"><p>A value that has been mapped to a new value</p>
+							</dd>
+						</dl>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T = <span class="tsd-signature-type">unknown</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The type of the value from the input source</p>
+								</div>
+							</div>
+						</li>
+						<li>
+							<h4>K = <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">unknown</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The type of the returned from the new <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> source</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">K</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>value: <span class="tsd-signature-type">T</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns
+											<span class="tsd-signature-type">K</span>
+										</h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/types/generic-methods.ts#L29">array/src/types/generic-methods.ts:29</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="predicatefn" class="tsd-anchor"></a>
+					<div class="tsd-signature tsd-kind-icon">Predicate<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">boolean</span></div>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A predicate function is used when you need a boolean check of a value, usually with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter">Array.filter</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find">Array.find</a></p>
+						</div>
+						<p><strong>Default predicate function:</strong></p>
+						<pre><code class="language-ts"><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">defaultPredicateFn</span><span style="color: #000000">(</span><span style="color: #001080">item</span><span style="color: #000000">: </span><span style="color: #267F99">unknown</span><span style="color: #000000">): </span><span style="color: #267F99">boolean</span><span style="color: #000000"> {</span>
+<span style="color: #000000"> </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #267F99">Boolean</span><span style="color: #000000">(</span><span style="color: #001080">item</span><span style="color: #000000">);</span>
+<span style="color: #000000">}</span>
+</code></pre>
+						<dl class="tsd-comment-tags">
+							<dt class="tds-tag-param">param</dt>
+							<dd class="tds-tag-param"><p>The arguments for the function</p>
+							</dd>
+							<dt class="tds-tag-returns">returns</dt>
+							<dd class="tds-tag-returns"><p>A boolean value from the value being checked in the predicate</p>
+							</dd>
+						</dl>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The type of the value being checked</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns
+											<span class="tsd-signature-type">boolean</span>
+										</h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/types/generic-methods.ts#L48">array/src/types/generic-methods.ts:48</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-type-alias tsd-parent-kind-module tsd-has-type-parameter">
+					<a name="sortfn" class="tsd-anchor"></a>
+					<div class="tsd-signature tsd-kind-icon">Sort<wbr>Fn&lt;T&gt;<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">(</span>first<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, second<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol"> =&gt; </span><span class="tsd-signature-type">number</span></div>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>A sort function is used with <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/sort">Array.sort</a> to order array items and returns a number for the sorting position order
+							of an item. Usually is provided when working with more complex objects or tuples</p>
+						</div>
+						<p><strong>Default sort function:</strong></p>
+						<pre><code class="language-ts"><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">defaultSortFn</span><span style="color: #000000">&lt;</span><span style="color: #267F99">T</span><span style="color: #000000"> </span><span style="color: #0000FF">extends</span><span style="color: #000000"> </span><span style="color: #267F99">unknown</span><span style="color: #000000">&gt;(</span><span style="color: #001080">first</span><span style="color: #000000">: </span><span style="color: #267F99">T</span><span style="color: #000000">, </span><span style="color: #001080">second</span><span style="color: #000000">: </span><span style="color: #267F99">T</span><span style="color: #000000">): </span><span style="color: #267F99">number</span><span style="color: #000000"> {</span>
+<span style="color: #000000"> </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #0000FF">typeof</span><span style="color: #000000"> </span><span style="color: #001080">first</span><span style="color: #000000"> === </span><span style="color: #A31515">&#039;string&#039;</span><span style="color: #000000">) {</span>
+<span style="color: #000000">   </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">first</span><span style="color: #000000">.</span><span style="color: #795E26">localeCompare</span><span style="color: #000000">(</span><span style="color: #001080">second</span><span style="color: #000000"> </span><span style="color: #AF00DB">as</span><span style="color: #000000"> </span><span style="color: #267F99">string</span><span style="color: #000000">);</span>
+<span style="color: #000000"> }</span>
+<span style="color: #000000"> </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">first</span><span style="color: #000000"> === </span><span style="color: #001080">second</span><span style="color: #000000">) </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #098658">0</span><span style="color: #000000">;</span>
+<span style="color: #000000"> </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">first</span><span style="color: #000000"> &lt; </span><span style="color: #001080">second</span><span style="color: #000000"> ? -</span><span style="color: #098658">1</span><span style="color: #000000"> : </span><span style="color: #098658">1</span><span style="color: #000000">;</span>
+<span style="color: #000000">}</span>
+</code></pre>
+						<dl class="tsd-comment-tags">
+							<dt class="tds-tag-param">param</dt>
+							<dd class="tds-tag-param"><p>The first value to compare</p>
+							</dd>
+							<dt class="tds-tag-param">param</dt>
+							<dd class="tds-tag-param"><p>The second value to compare</p>
+							</dd>
+							<dt class="tds-tag-returns">returns</dt>
+							<dd class="tds-tag-returns"><p>A number based on the new position in the array the item should move to</p>
+							</dd>
+						</dl>
+					</div>
+					<h4 class="tsd-type-parameters-title">Type parameters</h4>
+					<ul class="tsd-type-parameters">
+						<li>
+							<h4>T<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">unknown</span></h4>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>The Type of the value to sort</p>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-signature">
+								<ul class="tsd-signatures tsd-kind-type-literal tsd-parent-kind-type-alias">
+									<li class="tsd-signature tsd-kind-icon"><span class="tsd-signature-symbol">(</span>first<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span>, second<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+								</ul>
+								<ul class="tsd-descriptions">
+									<li class="tsd-description">
+										<h4 class="tsd-parameters-title">Parameters</h4>
+										<ul class="tsd-parameters">
+											<li>
+												<h5>first: <span class="tsd-signature-type">T</span></h5>
+											</li>
+											<li>
+												<h5>second: <span class="tsd-signature-type">T</span></h5>
+											</li>
+										</ul>
+										<h4 class="tsd-returns-title">Returns
+											<span class="tsd-signature-type">number</span>
+										</h4>
+									</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/types/generic-methods.ts#L74">array/src/types/generic-methods.ts:74</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -436,7 +661,7 @@
 									<dd class="tds-tag-see"><p><a href="array.html#differenceall">differenceAll</a> operator for <code>Array</code> containing the difference from both source and comparison</p>
 									</dd>
 									<dt class="tds-tag-see">see</dt>
-									<dd class="tds-tag-see"><p><a href="array.html#filterdifference">filterDifference</a> operator for an <code>Array</code> containing differences based on a [[PredicateFn]]</p>
+									<dd class="tds-tag-see"><p><a href="array.html#filterdifference">filterDifference</a> operator for an <code>Array</code> containing differences based on a <a href="array.html#predicatefn">PredicateFn</a></p>
 									</dd>
 									<dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Returns the difference between the source array and the passed static array</p>
@@ -480,7 +705,7 @@
 							<p>Observable that emits an <code>Array</code> containing items from the source not in the comparison value</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/difference.ts#L32">array/src/lib/difference.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/difference.ts#L32">array/src/lib/difference.ts:32</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -503,7 +728,7 @@
 									<dd class="tds-tag-see"><p><a href="array.html#difference">difference</a> operator for <code>Array</code> containing the difference only from the source value</p>
 									</dd>
 									<dt class="tds-tag-see">see</dt>
-									<dd class="tds-tag-see"><p><a href="array.html#filterdifference">filterDifference</a> operator for an <code>Array</code> containing differences based on a [[PredicateFn]]</p>
+									<dd class="tds-tag-see"><p><a href="array.html#filterdifference">filterDifference</a> operator for an <code>Array</code> containing differences based on a <a href="array.html#predicatefn">PredicateFn</a></p>
 									</dd>
 									<dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Returns both differences between the source and array</p>
@@ -548,7 +773,7 @@
 							<p>Observable that emits an tuple containing two <code>Array</code> values with the source difference and input difference</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/difference-all.ts#L32">array/src/lib/difference-all.ts:32</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/difference-all.ts#L32">array/src/lib/difference-all.ts:32</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -618,7 +843,7 @@
 							<p>An Observable that emits an Array with the difference between source and input</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/filter-difference.ts#L38">array/src/lib/filter-difference.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/filter-difference.ts#L38">array/src/lib/filter-difference.ts:38</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -627,14 +852,14 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="filterevery" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">filter<wbr>Every&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">filter<wbr>Every&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits an array when all values in the source array return truthy using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every">Array.every</a>.
-										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the [[PredicateFn]], but all
+										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the <a href="array.html#predicatefn">PredicateFn</a>, but all
 									other falsy values will be ignored</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -676,9 +901,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional [[PredicateFn]] used to get a truthy value of array values</p>
+										<p>Optional <a href="array.html#predicatefn">PredicateFn</a> used to get a truthy value of array values</p>
 									</div>
 								</li>
 							</ul>
@@ -694,10 +919,10 @@
 								<span class="tsd-signature-symbol">[]</span>
 								<span class="tsd-signature-symbol">&gt;</span>
 							</h4>
-							<p>An Observable that emits a boolean when all values in source array return truthy with the [[PredicateFn]]</p>
+							<p>An Observable that emits a boolean when all values in source array return truthy with the <a href="array.html#predicatefn">PredicateFn</a></p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/filter-every.ts#L49">array/src/lib/filter-every.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/filter-every.ts#L49">array/src/lib/filter-every.ts:49</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -767,7 +992,7 @@
 							<p>An Observable that emits an Array of the intersection of input and source arrays.</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/filter-intersects.ts#L38">array/src/lib/filter-intersects.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/filter-intersects.ts#L38">array/src/lib/filter-intersects.ts:38</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -776,14 +1001,14 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="filtersome" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">filter<wbr>Some&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">filter<wbr>Some&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits an array when one of the values in the source array return truthy using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some">Array.some</a>
-										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the [[PredicateFn]], but all
+										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the <a href="array.html#predicatefn">PredicateFn</a>, but all
 									other falsy values will be ignored</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -825,9 +1050,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional [[PredicateFn]] used to get a truthy value of array values</p>
+										<p>Optional <a href="array.html#predicatefn">PredicateFn</a> used to get a truthy value of array values</p>
 									</div>
 								</li>
 							</ul>
@@ -843,10 +1068,10 @@
 								<span class="tsd-signature-symbol">[]</span>
 								<span class="tsd-signature-symbol">&gt;</span>
 							</h4>
-							<p>An Observable that emits a boolean when all values in source array return truthy with the [[PredicateFn]]</p>
+							<p>An Observable that emits a boolean when all values in source array return truthy with the <a href="array.html#predicatefn">PredicateFn</a></p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/filter-some.ts#L48">array/src/lib/filter-some.ts:48</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/filter-some.ts#L48">array/src/lib/filter-some.ts:48</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -855,14 +1080,14 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="find" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">find&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">find&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> value of the first truthy value found in a source array, or <code>undefined</code> using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find">Array.find</a>.
-										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the [[PredicateFn]], but all
+										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the <a href="array.html#predicatefn">PredicateFn</a>, but all
 									other falsy values will be ignored</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -894,9 +1119,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional [[PredicateFn]] used to get a truthy value of array values</p>
+										<p>Optional <a href="array.html#predicatefn">PredicateFn</a> used to get a truthy value of array values</p>
 									</div>
 								</li>
 							</ul>
@@ -916,7 +1141,7 @@
 							<p>An Observable that emits the first found value from the array, or <code>undefined</code></p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/find.ts#L39">array/src/lib/find.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/find.ts#L39">array/src/lib/find.ts:39</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -925,14 +1150,14 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="findall" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">find<wbr>All&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">find<wbr>All&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> array of truthy values from a source <code>Array</code> or <code>Set</code>
-										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the [[PredicateFn]], but all
+										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the <a href="array.html#predicatefn">PredicateFn</a>, but all
 									other falsy values will be ignored</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -961,9 +1186,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional [[PredicateFn]] used to get a truthy value of array values</p>
+										<p>Optional <a href="array.html#predicatefn">PredicateFn</a> used to get a truthy value of array values</p>
 									</div>
 								</li>
 							</ul>
@@ -982,7 +1207,7 @@
 							<p>An Observable that emits an array containing all truthy values from a source array</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/find-all.ts#L37">array/src/lib/find-all.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/find-all.ts#L37">array/src/lib/find-all.ts:37</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -991,14 +1216,14 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="findlast" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">find<wbr>Last&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">find<wbr>Last&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> value of the last truthy value found in a source array, or <code>undefined</code> using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find">Array.find</a>
-										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the [[PredicateFn]], but all
+										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the <a href="array.html#predicatefn">PredicateFn</a>, but all
 									other falsy values will be ignored</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -1030,9 +1255,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional [[PredicateFn]] used to get a truthy value of array values</p>
+										<p>Optional <a href="array.html#predicatefn">PredicateFn</a> used to get a truthy value of array values</p>
 									</div>
 								</li>
 							</ul>
@@ -1052,7 +1277,7 @@
 							<p>An Observable that emits the last found value from the array, or <code>undefined</code></p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/find-last.ts#L39">array/src/lib/find-last.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/find-last.ts#L39">array/src/lib/find-last.ts:39</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1122,7 +1347,7 @@
 							<p>An Observable that emits an array of the intersection of input and source arrays.</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/intersects.ts#L38">array/src/lib/intersects.ts:38</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/intersects.ts#L38">array/src/lib/intersects.ts:38</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1191,7 +1416,7 @@
 							<p>Observable that emits an <code>Array</code> from the input <code>Map</code></p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/from-map.ts#L31">array/src/lib/from-map.ts:31</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/from-map.ts#L31">array/src/lib/from-map.ts:31</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1255,7 +1480,7 @@
 							<p>Observable that emits a Array from a source Map</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/map-to-array.ts#L26">array/src/lib/map-to-array.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/map-to-array.ts#L26">array/src/lib/map-to-array.ts:26</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1320,7 +1545,7 @@
 							<p>Observable that emits a <code>Map</code> from a source array</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/to-map.ts#L27">array/src/lib/to-map.ts:27</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/to-map.ts#L27">array/src/lib/to-map.ts:27</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1417,7 +1642,7 @@
 							the <code>fillValue</code></p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/fill.ts#L50">array/src/lib/fill.ts:50</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/fill.ts#L50">array/src/lib/fill.ts:50</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1460,7 +1685,7 @@
 							<p>Observable array of boolean values that are flipped from their original value</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/flip-array.ts#L24">array/src/lib/flip-array.ts:24</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/flip-array.ts#L24">array/src/lib/flip-array.ts:24</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1527,7 +1752,7 @@
 							<p>Observable string from the joined values in the source array</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/join.ts#L37">array/src/lib/join.ts:37</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/join.ts#L37">array/src/lib/join.ts:37</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1578,7 +1803,7 @@
 							<p>Observable that emits an array which is reversed from the source array</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/reverse.ts#L26">array/src/lib/reverse.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/reverse.ts#L26">array/src/lib/reverse.ts:26</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1629,7 +1854,7 @@
 							<p>Observable that emits an array of values shuffled from the source array</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/shuffle.ts#L25">array/src/lib/shuffle.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/shuffle.ts#L25">array/src/lib/shuffle.ts:25</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1638,13 +1863,13 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="sort" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">sort&lt;T&gt;<span class="tsd-signature-symbol">(</span>sortFn<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SortFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">sort&lt;T&gt;<span class="tsd-signature-symbol">(</span>sortFn<span class="tsd-signature-symbol">?: </span><a href="array.html#sortfn" class="tsd-signature-type" data-tsd-kind="Type alias">SortFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits an array of sorted values from the source Array or Set using the [[SortFn]]</p>
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits an array of sorted values from the source Array or Set using the <a href="array.html#sortfn">SortFn</a></p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-example">example</dt>
@@ -1683,9 +1908,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sortFn: <span class="tsd-signature-type">SortFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sortFn: <a href="array.html#sortfn" class="tsd-signature-type" data-tsd-kind="Type alias">SortFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional [[SortFn]] used to sort the array, if not provided the <code>defaultSortFn</code> is used.</p>
+										<p>Optional <a href="array.html#sortfn">SortFn</a> used to sort the array, if not provided the <code>defaultSortFn</code> is used.</p>
 									</div>
 								</li>
 							</ul>
@@ -1701,10 +1926,10 @@
 								<span class="tsd-signature-symbol">[]</span>
 								<span class="tsd-signature-symbol">&gt;</span>
 							</h4>
-							<p>Observable array of values from source array sorted via [[SortFn]]</p>
+							<p>Observable array of values from source array sorted via <a href="array.html#sortfn">SortFn</a></p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/sort.ts#L45">array/src/lib/sort.ts:45</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/sort.ts#L45">array/src/lib/sort.ts:45</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1713,14 +1938,14 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="sortmap" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">sort<wbr>Map&lt;T, K&gt;<span class="tsd-signature-symbol">(</span>mapFn<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">MapFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span>, sortFn<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SortFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">sort<wbr>Map&lt;T, K&gt;<span class="tsd-signature-symbol">(</span>mapFn<span class="tsd-signature-symbol">: </span><a href="array.html#mapfn" class="tsd-signature-type" data-tsd-kind="Type alias">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span>, sortFn<span class="tsd-signature-symbol">?: </span><a href="array.html#sortfn" class="tsd-signature-type" data-tsd-kind="Type alias">SortFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits an array of sorted mapped values from a source array where values are mapped to
-									type <code>K</code> using a [[MapFn]].</p>
+									type <code>K</code> using a <a href="array.html#mapfn">MapFn</a>.</p>
 								</div>
 								<dl class="tsd-comment-tags">
 									<dt class="tds-tag-example">example</dt>
@@ -1731,7 +1956,7 @@
 										<p>Output: <code>[false, false, true, true, true, true]</code></p>
 									</dd>
 									<dt class="tds-tag-example">example</dt>
-									<dd class="tds-tag-example"><p>Returns a sorted array of strings from an object, with [[SortFn]] and [[MapFn]]</p>
+									<dd class="tds-tag-example"><p>Returns a sorted array of strings from an object, with <a href="array.html#sortfn">SortFn</a> and <a href="array.html#mapfn">MapFn</a></p>
 										<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #795E26">sortFn</span><span style="color: #000000"> = (</span><span style="color: #001080">a</span><span style="color: #000000">: </span><span style="color: #267F99">any</span><span style="color: #000000">, </span><span style="color: #001080">b</span><span style="color: #000000">: </span><span style="color: #267F99">any</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
 <span style="color: #000000"> </span><span style="color: #AF00DB">if</span><span style="color: #000000"> (</span><span style="color: #001080">a</span><span style="color: #000000">.</span><span style="color: #001080">index</span><span style="color: #000000"> === </span><span style="color: #001080">b</span><span style="color: #000000">.</span><span style="color: #001080">index</span><span style="color: #000000">) </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #098658">0</span><span style="color: #000000">;</span>
 <span style="color: #000000"> </span><span style="color: #AF00DB">return</span><span style="color: #000000"> </span><span style="color: #001080">a</span><span style="color: #000000">.</span><span style="color: #001080">index</span><span style="color: #000000"> &lt; </span><span style="color: #001080">b</span><span style="color: #000000">.</span><span style="color: #001080">index</span><span style="color: #000000"> ? -</span><span style="color: #098658">1</span><span style="color: #000000"> : </span><span style="color: #098658">0</span>
@@ -1768,15 +1993,15 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>mapFn: <span class="tsd-signature-type">MapFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5>mapFn: <a href="array.html#mapfn" class="tsd-signature-type" data-tsd-kind="Type alias">MapFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">K</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>The [[MapFn]] to map the value in the array</p>
+										<p>The <a href="array.html#mapfn">MapFn</a> to map the value in the array</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sortFn: <span class="tsd-signature-type">SortFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sortFn: <a href="array.html#sortfn" class="tsd-signature-type" data-tsd-kind="Type alias">SortFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional [[SortFn]] used to sort the array, if not provided the <code>defaultSortFn</code> is used.</p>
+										<p>Optional <a href="array.html#sortfn">SortFn</a> used to sort the array, if not provided the <code>defaultSortFn</code> is used.</p>
 									</div>
 								</li>
 							</ul>
@@ -1795,7 +2020,7 @@
 							<p>Observable that emits an array of sorted mapped values</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/sort-map.ts#L51">array/src/lib/sort-map.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/sort-map.ts#L51">array/src/lib/sort-map.ts:51</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1865,7 +2090,7 @@
 							<p>Observable that emits a Array from a source Object entries</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/object-entries-to-array.ts#L28">array/src/lib/object-entries-to-array.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/object-entries-to-array.ts#L28">array/src/lib/object-entries-to-array.ts:28</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1928,7 +2153,7 @@
 							<p>Observable that emits a Array of strings from a source Object keys</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/object-keys-to-array.ts#L28">array/src/lib/object-keys-to-array.ts:28</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/object-keys-to-array.ts#L28">array/src/lib/object-keys-to-array.ts:28</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -1940,13 +2165,13 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="binarysearch" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">binary<wbr>Search&lt;T, V&gt;<span class="tsd-signature-symbol">(</span>search<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span>, property<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, sortFn<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">SortFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="array.html#binarysearchresult" class="tsd-signature-type" data-tsd-kind="Type alias">BinarySearchResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">binary<wbr>Search&lt;T, V&gt;<span class="tsd-signature-symbol">(</span>search<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">T</span>, property<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">Subscribable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">number</span>, sortFn<span class="tsd-signature-symbol">?: </span><a href="array.html#sortfn" class="tsd-signature-type" data-tsd-kind="Type alias">SortFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><a href="array.html#binarysearchresult" class="tsd-signature-type" data-tsd-kind="Type alias">BinarySearchResult</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a <a href="array.html#binarysearchresult">BinarySearchResult</a>. It take a source array and runs a [[SortFn]] over it.
+									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a <a href="array.html#binarysearchresult">BinarySearchResult</a>. It take a source array and runs a <a href="array.html#sortfn">SortFn</a> over it.
 										Then it tries to find the the <code>searchValue</code> in the array. The <code>BinarySearchResult</code> contains the index in the sorted
 									array, the value searched and the sorted and unsorted array. If not found the index is <code>-1</code>.</p>
 								</div>
@@ -2030,9 +2255,9 @@
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sortFn: <span class="tsd-signature-type">SortFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> sortFn: <a href="array.html#sortfn" class="tsd-signature-type" data-tsd-kind="Type alias">SortFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">V</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional [[SortFn]] for sorting more complex types</p>
+										<p>Optional <a href="array.html#sortfn">SortFn</a> for sorting more complex types</p>
 									</div>
 								</li>
 							</ul>
@@ -2057,7 +2282,7 @@
 							<p>An Observable that emits a <a href="array.html#binarysearchresult">BinarySearchResult</a></p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/binary-search.ts#L79">array/src/lib/binary-search.ts:79</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/binary-search.ts#L79">array/src/lib/binary-search.ts:79</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -2066,14 +2291,14 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="every" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">every&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">every&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean when all values in the source array return truthy using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every">Array.every</a>.
-										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the [[PredicateFn]], but all
+										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the <a href="array.html#predicatefn">PredicateFn</a>, but all
 									other falsy values will be ignored</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -2112,9 +2337,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional [[PredicateFn]] used to get a truthy value of array values</p>
+										<p>Optional <a href="array.html#predicatefn">PredicateFn</a> used to get a truthy value of array values</p>
 									</div>
 								</li>
 							</ul>
@@ -2132,7 +2357,7 @@
 							<p>An Observable that emits a boolean when all values in source array return truthy</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/every.ts#L47">array/src/lib/every.ts:47</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/every.ts#L47">array/src/lib/every.ts:47</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -2141,14 +2366,14 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="findindex" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">find<wbr>Index&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">find<wbr>Index&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> number which is the index of the first value found in an array using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex">Array.findIndex</a>
-										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the [[PredicateFn]], but all
+										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the <a href="array.html#predicatefn">PredicateFn</a>, but all
 									other falsy values will be ignored</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -2180,9 +2405,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional [[PredicateFn]] used to get a truthy or falsy value of array values</p>
+										<p>Optional <a href="array.html#predicatefn">PredicateFn</a> used to get a truthy or falsy value of array values</p>
 									</div>
 								</li>
 							</ul>
@@ -2197,10 +2422,10 @@
 								<span class="tsd-signature-type">number</span>
 								<span class="tsd-signature-symbol">&gt;</span>
 							</h4>
-							<p>An Observable that emits a number value, the index of first value where [[PredicateFn]] is true</p>
+							<p>An Observable that emits a number value, the index of first value where <a href="array.html#predicatefn">PredicateFn</a> is true</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/find-index.ts#L39">array/src/lib/find-index.ts:39</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/find-index.ts#L39">array/src/lib/find-index.ts:39</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -2281,7 +2506,7 @@
 							<p>Observable number or array of numbers containing the index of the first found value</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/index-of.ts#L49">array/src/lib/index-of.ts:49</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/index-of.ts#L49">array/src/lib/index-of.ts:49</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -2344,7 +2569,7 @@
 							<p>Observable that emits a boolean of the source array has equal content to the input array</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/is-equal-set.ts#L30">array/src/lib/is-equal-set.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/is-equal-set.ts#L30">array/src/lib/is-equal-set.ts:30</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -2407,7 +2632,7 @@
 							<p>Observable that emits a boolean of the source array being a subset of the input array</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/is-subset-of.ts#L30">array/src/lib/is-subset-of.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/is-subset-of.ts#L30">array/src/lib/is-subset-of.ts:30</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -2470,7 +2695,7 @@
 							<p>Observable that emits a boolean of the source array being a superset of the input array</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/is-superset-of.ts#L30">array/src/lib/is-superset-of.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/is-superset-of.ts#L30">array/src/lib/is-superset-of.ts:30</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -2558,7 +2783,7 @@
 							<p>Observable number or array of numbers containing the index of the last found value</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/last-index-of.ts#L55">array/src/lib/last-index-of.ts:55</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/last-index-of.ts#L55">array/src/lib/last-index-of.ts:55</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -2567,14 +2792,14 @@
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
 					<a name="some" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-has-type-parameter">
-						<li class="tsd-signature tsd-kind-icon">some&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">some&lt;T&gt;<span class="tsd-signature-symbol">(</span>predicate<span class="tsd-signature-symbol">?: </span><a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">OperatorFunction</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Iterable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a boolean when all values in the source Array or Set return truthy using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some">Array.some</a>
-										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the [[PredicateFn]], but all
+										When working with data, if the array contains numbers <code>0</code> will be returned as a value to the <a href="array.html#predicatefn">PredicateFn</a>, but all
 									other falsy values will be ignored</p>
 								</div>
 								<dl class="tsd-comment-tags">
@@ -2609,9 +2834,9 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <span class="tsd-signature-type">PredicateFn</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> predicate: <a href="array.html#predicatefn" class="tsd-signature-type" data-tsd-kind="Type alias">PredicateFn</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">T</span><span class="tsd-signature-symbol">&gt;</span></h5>
 									<div class="tsd-comment tsd-typography">
-										<p>Optional [[PredicateFn]] used to get a truthy value of array values</p>
+										<p>Optional <a href="array.html#predicatefn">PredicateFn</a> used to get a truthy value of array values</p>
 									</div>
 								</li>
 							</ul>
@@ -2629,7 +2854,7 @@
 							<p>An Observable that emits a boolean when all values in source array return truthy</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/some.ts#L41">array/src/lib/some.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/some.ts#L41">array/src/lib/some.ts:41</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -2688,7 +2913,7 @@
 							<p>Observable that emits an <code>Array</code> from the input <code>Set</code></p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/from-set.ts#L29">array/src/lib/from-set.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/from-set.ts#L29">array/src/lib/from-set.ts:29</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -2740,7 +2965,7 @@
 							<p>Observable that emits a Array from a source Set</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/set-to-array.ts#L25">array/src/lib/set-to-array.ts:25</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/set-to-array.ts#L25">array/src/lib/set-to-array.ts:25</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -2793,7 +3018,7 @@
 							<p>Observable that emits a <code>Set</code> from a source array</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/58ef1a9/libs/rxjs/array/src/lib/to-set.ts#L26">array/src/lib/to-set.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/0e63f4c/libs/rxjs/array/src/lib/to-set.ts#L26">array/src/lib/to-set.ts:26</a></li>
 								</ul>
 							</aside>
 						</li>
@@ -2803,7 +3028,7 @@
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 6:52:44 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 7:40:23 PM</p>
 			</div>
 		</div>
 	</div>

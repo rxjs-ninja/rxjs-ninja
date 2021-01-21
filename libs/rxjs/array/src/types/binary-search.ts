@@ -4,7 +4,12 @@
  */
 
 /**
- * The return value of the [[binarySearch]] operator.
+ * The return value of the [[binarySearch]] operator, contains in order
+ *
+ * - The index of the found item, or `-1` if not found
+ * - The value that was passed for search
+ * - The sorted `Array` used for searching
+ * - The original `Array` unsorted
  *
  * @typeParam T The type of the value being searched for
  * @typeParam K The type of value in the search array

@@ -11,3 +11,6 @@ export { fromRandomInt } from './lib/from-random-integer';
 export { fromRandomStr } from './lib/from-random-string';
 export { fromRandomCrypto } from './lib/from-random-crypto';
 export { fromUUIDv4 } from './lib/from-uuid-v4';
+
+export { FromRandomStringOpts } from './types/from-random-string';
+export { FromRandomCryptoOpts } from './types/from-random-crypto';

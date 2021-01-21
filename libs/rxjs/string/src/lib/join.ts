@@ -7,16 +7,16 @@ import { map, withLatestFrom } from 'rxjs/operators';
 import { createOrReturnObservable } from '../utils/internal';
 
 /**
- * Returns an Observable that emits a string value from an `Array` or `Set` of values joined to a single string using
+ * Returns an Observable that emits a string value from an Array or `Set` of values joined to a single string using
  * the separator.
  *
  * @category Convert
  *
- * @typeParam T The type of value in the source `Array` or `Map`
+ * @typeParam T The type of value in the source Array or `Map`
  *
  * @param separator The character to join text with, default is a space character
  *
- * @returns Observable that emits a string from an `Array` or`Set of values
+ * @returns Observable that emits a string from an Array or`Set of values
  */
 export function join(separator: Subscribable<string> | string = ' '): OperatorFunction<Iterable<unknown>, string> {
   const separator$ = createOrReturnObservable(separator);

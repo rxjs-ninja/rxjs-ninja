@@ -7,17 +7,18 @@ import { map, withLatestFrom } from 'rxjs/operators';
 import { createOrReturnObservable } from '../utils/internal';
 
 /**
- * Returns an Observable that emits an tuple containing two `Array` values, the first contains the difference between
- * the source value and compare `Array`/`Set` and the second array contains the reverse compare
+ * Returns an Observable that emits an tuple containing two Array both containing differences in the source and
+ * `compare` value. The first array contains items from the source not contained in `compare` and the second values
+ * from `compare` not in the source.
  *
  * @category Filter
  *
- * @see [[difference]] operator for `Array` containing the difference only from the source value
- * @see [[filterDifference]] operator for an `Array` containing differences based on a [[PredicateFn]]
+ * @see Operator [[difference]] for only the values from the source
+ * @see Operator [[filterDifference]] when you want to emit a result with duplicate values
  *
- * @typeParam T Item type contained in the `Array`/`Set`
+ * @typeParam T Type of value contained in the source Array or Set
  *
- * @param compare `Array`/`Set` or Observable value to compare against for the difference
+ * @param compare Array or Set value to compare the source value with
  *
  * @example
  * Returns both differences between the source and array
@@ -27,7 +28,8 @@ import { createOrReturnObservable } from '../utils/internal';
  * ```
  * Output: `[ ['b', 'd'], ['g'] ]`
  *
- * @returns Observable that emits an tuple containing two `Array` values with the source difference and input difference
+ * @returns Observable that emits an tuple containing two Array values with the source difference and input
+ *   difference
  */
 export function differenceAll<T extends unknown>(
   compare: Subscribable<Iterable<T>> | Iterable<T>,

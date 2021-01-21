@@ -41,7 +41,7 @@ technology$.pipe(differenceAll(frontEnd$)).subscribe();
 ### Map Objects
 
 Operators for working with [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map)
-objects and converting to and from `Array`
+objects and converting to and from Array
 
 ```ts
 const technology$ = of(['RxJS', 'TypeScript', 'Angular', 'Node', 'NativeScript', 'RxJS Ninja']);
@@ -62,7 +62,7 @@ combineLatest([technology$, categories$])
 
 ### Modify
 
-Operators for modifying the source `Array` such as sorting, reversing, changing the data or to a string
+Operators for modifying the source Array such as sorting, reversing, changing the data or to a string
 
 ```ts
 const technology$ = of(['RxJS', 'TypeScript', 'Angular', 'Node', 'NativeScript', 'RxJS Ninja']);
@@ -84,7 +84,7 @@ technology$.pipe(fill('jQuery')).subscribe();
 
 Operators for working
 with [Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-objects and converting to and from `Array`
+objects and converting to and from Array
 
 ```ts
 const technology$ = of(['RxJS', 'TypeScript', 'Angular', 'Node', 'NativeScript', 'RxJS Ninja']);
@@ -107,7 +107,7 @@ combineLatest([technology$, categories$])
 
 ### Query
 
-Operators for querying for indexes or truthy values related to `Array` contents
+Operators for querying for indexes or truthy values related to Array contents
 
 ```ts
 const technology$ = of(['RxJS', 'TypeScript', 'Angular', 'Node', 'NativeScript', 'RxJS Ninja']);
@@ -133,7 +133,7 @@ technology$.pipe(every((value) => value.length < 5)).subscribe();
 ### Set
 
 Operators for working with [Set](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set)
-objects and converting to and from `Array`
+objects and converting to and from Array
 
 ```ts
 const technologyStream$ = of(['RxJS', 'TypeScript', 'Angular', 'RxJS', 'TypeScript', 'RxJS Ninja']);

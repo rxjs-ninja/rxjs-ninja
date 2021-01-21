@@ -1,6 +1,6 @@
 /**
- * Package containing various operators for generating Observables with numbers and filtering, querying and parsing
- * numbers in RxJS
+ * The RxJS Ninja Number module contains operators for working with, and returning number values. The operators allow for
+ * filtering, querying, converting to and from String, and mathematical operations.
  *
  * @packageDocumentation
  * @module Number

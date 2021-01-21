@@ -8,7 +8,7 @@ import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits an array of strings. The string is returned from String.charAt using the passed
- * index or array of indexes.  The output is always an `Array` containing the string, or empty string if nothing found.
+ * index or array of indexes.  The output is always an Array containing the string, or empty string if nothing found.
  *
  * @category Query
  *
@@ -28,7 +28,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * ```
  * Output: `['x', 'n']`
  *
- * @returns Observable that emits an `Array` of string values
+ * @returns Observable that emits an Array of string values
  */
 export function charAt(
   positions: Subscribable<Iterable<number> | number> | Iterable<number> | number,

@@ -16,7 +16,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * @param input Optional number source to emit from
  *
  * @example
- * Return an Observable that emits numbers from an `Array` and multiply by `2`
+ * Return an Observable that emits numbers from an Array and multiply by `2`
  * ```ts
  * fromNumber([1, 2, 3, 4]).pipe(mul(2)).subscribe();
  * ```

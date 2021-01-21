@@ -27,7 +27,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * ```
  * Output: `1, 255, 64`
  *
- * @returns Observable that emits a number from source parsed string, optionally returns `NaN` values
+ * @returns Observable that emits a number from source parsed string, optionally returns NaN values
  */
 export function parseInt(radix: Subscribable<number> | number = 10): OperatorFunction<string, number> {
   const radix$ = createOrReturnObservable(radix);

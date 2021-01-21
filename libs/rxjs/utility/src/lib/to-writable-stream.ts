@@ -6,10 +6,9 @@ import { from, MonoTypeOperatorFunction, of, throwError } from 'rxjs';
 import { catchError, finalize, mergeMap, switchMap, tap } from 'rxjs/operators';
 
 /**
- * Returns the source Observable, emitting it through the passed
- * {@link https://developer.mozilla.org/en-US/docs/Web/API/WritableStream|WritableStream} and handling the internal
+ * Returns the source Observable, emitting it through the passed WritableStream and handling the internal
  * subscription state and error handling. If passed an
- * {@link https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal|AbortSignal} the `WritableStream` can be ended
+ * {@link https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal|AbortSignal} the WritableStream can be ended
  * early without ending the entire subscription
  *
  * @category Streams
@@ -19,7 +18,7 @@ import { catchError, finalize, mergeMap, switchMap, tap } from 'rxjs/operators';
  * @param stream The Writer object to emit the data to
  * @param signal Optional signal used to end the writer without ending the rest of the stream
  *
- * @example Write an array of Observable values to a `WritableStream`
+ * @example Write an array of Observable values to a WritableStream
  * ```ts
  * let result = ''
  * const stream = new WritableStream({

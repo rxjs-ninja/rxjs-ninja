@@ -8,7 +8,7 @@ import { isArrayOrSet } from '../utils/array-set';
 import { createOrReturnObservable } from '../utils/internal';
 
 /**
- * Returns an Observable that emits boolean values from passed source of values.
+ * Returns an Observable that emits boolean values from passed source of values
  *
  * @category Create
  *
@@ -30,7 +30,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * ```
  * Output: `false, true, true, false`;
  *
- * @returns Observable that emits the `Boolean` value of the source value
+ * @returns Observable that emits a boolean value of the source value Boolean conversion
 
  */
 export function fromBoolean<T extends unknown>(

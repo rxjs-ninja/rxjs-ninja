@@ -14,3 +14,4 @@ export { fromUUIDv4 } from './lib/from-uuid-v4';
 
 export { FromRandomStringOpts } from './types/from-random-string';
 export { FromRandomCryptoOpts } from './types/from-random-crypto';
+export { RND_STR_DEFAULTS } from './utils/from-random-string';

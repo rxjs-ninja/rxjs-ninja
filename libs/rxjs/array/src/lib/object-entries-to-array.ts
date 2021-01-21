@@ -6,7 +6,7 @@ import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * Returns an Observable that emits an array from a source `Object` using Object.entries, the array contains
+ * Returns an Observable that emits an Array from a source Object using Object.entries, the Array contains
  * tuples of the key as a string and the value
  *
  * @category Object

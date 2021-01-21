@@ -5,8 +5,7 @@
 import { Observable, Subscriber } from 'rxjs';
 
 /**
- * Creates an Observable source from a
- * {@link https://developer.mozilla.org/en-US/docs/Web/API/ReadableStream|ReadableStream} source that will emit any
+ * Creates an Observable source from a ReadableStream source that will emit any
  * values emitted by the stream.
  *
  * @category Streams
@@ -14,7 +13,7 @@ import { Observable, Subscriber } from 'rxjs';
  * @see {@link https://stackblitz.com/edit/rxjs-readable-stream|StreamAPI Number Stream}
  * @see {@link https://stackblitz.com/edit/rxjs-readable-stream-fetch|Fetch + StreamAPI Demo}
  *
- * @param stream The `ReadableStream` to subscribe to
+ * @param stream The ReadableStream to subscribe to
  * @param signal Optional {@link https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal|AbortSignal} to provide
  *   to the underlying stream
  * @param queueStrategy Optional strategy for backpressure queueing
@@ -35,7 +34,7 @@ import { Observable, Subscriber } from 'rxjs';
  * ```
  * Output: `4950`
  *
- * @returns Observable that emits from a `ReadableStream` source
+ * @returns Observable that emits from a ReadableStream source
  */
 export function fromReadableStream<T extends unknown>(
   stream: ReadableStream<T>,

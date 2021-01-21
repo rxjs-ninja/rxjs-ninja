@@ -6,9 +6,7 @@ import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 /**
- * Returns an Observable that emits a
- * {@link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set|Set} object from a
- * source array.
+ * Returns an Observable that emits a Set from a source Array.
  *
  * @category Set
  *
@@ -21,7 +19,7 @@ import { map } from 'rxjs/operators';
  * ```
  * Output: `Set(5) {1, 2, 3, 4, 5}`
  *
- * @returns Observable that emits a `Set` from a source array
+ * @returns Observable that emits a Set from a source Array
  */
 export function toSet<T extends unknown>(): OperatorFunction<T[], Set<T>> {
   return (source) => source.pipe(map((value) => new Set<T>(value)));

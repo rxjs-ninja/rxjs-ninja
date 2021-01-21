@@ -14,7 +14,7 @@ import { PredicateFn } from '../types/generic-methods';
  *
  * @category Query
  *
- * @typeParam T Item type contained in the Array/Set
+ * @typeParam T Item type contained in the Array or Set
  *
  * @param predicate Optional [[PredicateFn]] used to get a truthy or falsy value of array values
  *

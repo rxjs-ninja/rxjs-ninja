@@ -7,8 +7,8 @@ import { filter } from 'rxjs/operators';
 import { PredicateFn } from '../types/boolean';
 
 /**
- * Returns an Observable that emits only truthy values from a source, with optional function to further filter the truthy
- * values with a stricter check
+ * Returns an Observable that emits only truthy values from a source when the value is truthy for Boolean conversion of
+ * the value - with optional [[PredicateFn]] to further filter the truthy values with a stricter check
  *
  * @category Filter
  *

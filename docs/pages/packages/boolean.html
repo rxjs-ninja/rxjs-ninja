@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="default no-js">
+<html class="default no-js" lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@
 					data-base="../..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
+						<input id="tsd-search-field" type="text"/>
 					</div>
 					<ul class="results">
 						<li class="state loading">Preparing search index...</li>
@@ -30,8 +30,8 @@
 					</ul>
 					<a href="../../index.html" class="title header-title">RxJS Ninja</a>
 					<div class="header-nav">
-						&emsp;  <a href="https://github.com/rxjs-ninja/rxjs-ninja" class="title">Github</a>
-						&emsp;  <a href="https://www.npmjs.com/org/rxjs-ninja" class="title">NPM</a>
+						&emsp; <a href="https://github.com/rxjs-ninja/rxjs-ninja" class="title">Github</a>
+						&emsp; <a href="https://www.npmjs.com/org/rxjs-ninja" class="title">NPM</a>
 					</div>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
@@ -46,8 +46,10 @@
 									<li data-value="private" class="selected">All</li>
 								</ul>
 							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<input type="checkbox" id="tsd-filter-inherited" checked/>
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported"/>
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -58,6 +60,9 @@
 <div class="tsd-page-title">
 	<div class="container">
 		<ul class="tsd-breadcrumb">
+			<li>
+				<a href="../../modules.html">RxJS Ninja</a>
+			</li>
 			<li>
 				<a href="array.html">Package Docs</a>
 			</li>
@@ -103,6 +108,9 @@
 					</li>
 					<li class=" pp-nav pp-group root">
 						<a href="" class="tsd-kind-icon">RxJS <wbr>Ninja APIs</a>
+					</li>
+					<li class="  root">
+						<a href="../../modules.html" class="tsd-kind-icon">Modules</a>
 					</li>
 					<li class=" tsd-kind-module root">
 						<a href="../../modules/array.html" class="tsd-kind-icon">Array</a>
@@ -150,58 +158,62 @@
 					<h3>Create</h3>
 				</a>
 				<p>Functions and Operators for creating Observable boolean values</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">const</span> numbers = [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>];
-<span class="hljs-keyword">const</span> strings = [<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;TypeScript&#x27;</span>];
+				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">numbers</span><span style="color: #000000"> = [</span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">1</span><span style="color: #000000">];</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">strings</span><span style="color: #000000"> = [</span><span style="color: #A31515">&#039;RxJS&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Ninja&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;TypeScript&#039;</span><span style="color: #000000">];</span>
 
-<span class="hljs-comment">// Generate a boolean array from numbers</span>
-fromBoolean(numbers).subscribe();
-<span class="hljs-comment">// Output: `false, true, false, false, true, false, true`</span>
+<span style="color: #008000">// Generate a boolean array from numbers</span>
+<span style="color: #795E26">fromBoolean</span><span style="color: #000000">(</span><span style="color: #001080">numbers</span><span style="color: #000000">).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `false, true, false, false, true, false, true`</span>
 
-<span class="hljs-comment">// Generate a boolean array from numbers</span>
-fromBoolean(strings).subscribe();
-<span class="hljs-comment">// Output: `true, false, false, true, true`</span></code></pre>
+<span style="color: #008000">// Generate a boolean array from numbers</span>
+<span style="color: #795E26">fromBoolean</span><span style="color: #000000">(</span><span style="color: #001080">strings</span><span style="color: #000000">).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `true, false, false, true, true`</span>
+</code></pre>
 				<a href="#filter" id="filter" style="color: inherit; text-decoration: none;">
 					<h3>Filter</h3>
 				</a>
 				<p>Operators for filtering Observable sources for truthy values</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">const</span> strings$ = <span class="hljs-keyword">from</span>([<span class="hljs-string">&#x27;RxJS&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>, <span class="hljs-string">&#x27;TypeScript&#x27;</span>, <span class="hljs-string">&#x27;&#x27;</span>, <span class="hljs-string">&#x27;Angular&#x27;</span>]);
+				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">strings$</span><span style="color: #000000"> = </span><span style="color: #795E26">from</span><span style="color: #000000">([</span><span style="color: #A31515">&#039;RxJS&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Ninja&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;TypeScript&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Angular&#039;</span><span style="color: #000000">]);</span>
 
-<span class="hljs-comment">// Get the first truthy value</span>
-strings$.pipe(firstTruthy()).subscribe();
-<span class="hljs-comment">// Output: `RxJS`</span>
+<span style="color: #008000">// Get the first truthy value</span>
+<span style="color: #001080">strings$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">firstTruthy</span><span style="color: #000000">()).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `RxJS`</span>
 
-<span class="hljs-comment">// Get the first truthy value that is over length of 6</span>
-strings$.pipe(firstTruthy(<span class="hljs-function">(<span class="hljs-params">v</span>) =&gt;</span> v.length &gt; <span class="hljs-number">5</span>)).subscribe();
-<span class="hljs-comment">// Output: `TypeScript`</span>
+<span style="color: #008000">// Get the first truthy value that is over length of 6</span>
+<span style="color: #001080">strings$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">firstTruthy</span><span style="color: #000000">((</span><span style="color: #001080">v</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">v</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000"> &gt; </span><span style="color: #098658">5</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `TypeScript`</span>
 
-<span class="hljs-comment">// Get the last truthy value</span>
-strings$.pipe(lastTruthy()).subscribe();
-<span class="hljs-comment">// Output: `Angular`</span>
+<span style="color: #008000">// Get the last truthy value</span>
+<span style="color: #001080">strings$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">lastTruthy</span><span style="color: #000000">()).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `Angular`</span>
 
-<span class="hljs-comment">// Get the last truthy value of less than 5 characters</span>
-strings$.pipe(lastTruthy(<span class="hljs-function">(<span class="hljs-params">v</span>) =&gt;</span> v.length &lt; <span class="hljs-number">5</span>)).subscribe();
-<span class="hljs-comment">// Output: `RxJS`</span></code></pre>
+<span style="color: #008000">// Get the last truthy value of less than 5 characters</span>
+<span style="color: #001080">strings$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">lastTruthy</span><span style="color: #000000">((</span><span style="color: #001080">v</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">v</span><span style="color: #000000">.</span><span style="color: #001080">length</span><span style="color: #000000"> &lt; </span><span style="color: #098658">5</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `RxJS`</span>
+</code></pre>
 				<a href="#modify" id="modify" style="color: inherit; text-decoration: none;">
 					<h3>Modify</h3>
 				</a>
 				<p>Operators for modifying boolean values</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">const</span> source$ = <span class="hljs-keyword">from</span>([<span class="hljs-literal">false</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">true</span>, <span class="hljs-literal">false</span>]);
+				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">source$</span><span style="color: #000000"> = </span><span style="color: #795E26">from</span><span style="color: #000000">([</span><span style="color: #0000FF">false</span><span style="color: #000000">, </span><span style="color: #0000FF">true</span><span style="color: #000000">, </span><span style="color: #0000FF">true</span><span style="color: #000000">, </span><span style="color: #0000FF">false</span><span style="color: #000000">]);</span>
 
-<span class="hljs-comment">// Flip the boolean value</span>
-source$.pipe(flip()).subscribe();
-<span class="hljs-comment">// Output: `true, false, false, true`</span></code></pre>
+<span style="color: #008000">// Flip the boolean value</span>
+<span style="color: #001080">source$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">flip</span><span style="color: #000000">()).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `true, false, false, true`</span>
+</code></pre>
 				<a href="#validation" id="validation" style="color: inherit; text-decoration: none;">
 					<h3>Validation</h3>
 				</a>
 				<p>Operators that provide boolean output based on checks against source values</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">const</span> input = [<span class="hljs-string">&#x27;4485275742308327&#x27;</span>, <span class="hljs-string">&#x27;1111222233334444&#x27;</span>, <span class="hljs-string">&#x27;111133332224444&#x27;</span>];
-<span class="hljs-keyword">from</span>(input).pipe(luhnCheck()).subscribe();
-<span class="hljs-comment">// Output: `[true, true, false]`</span></code></pre>
+				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">input</span><span style="color: #000000"> = [</span><span style="color: #A31515">&#039;4485275742308327&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;1111222233334444&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;111133332224444&#039;</span><span style="color: #000000">];</span>
+<span style="color: #795E26">from</span><span style="color: #000000">(</span><span style="color: #001080">input</span><span style="color: #000000">).</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">luhnCheck</span><span style="color: #000000">()).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `[true, true, false]`</span>
+</code></pre>
 			</div>
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 8:26:15 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 6:50:03 PM</p>
 			</div>
 		</div>
 	</div>

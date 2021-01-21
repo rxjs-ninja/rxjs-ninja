@@ -1,26 +1,35 @@
 {
   "name": "RxJS Ninja",
-  "mode": "modules",
   "out": "docs",
-  "exclude": ["**/*.spec.ts", "tools/**/*"],
-  "excludeExternals": true,
-  "excludeNotExported": true,
-  "excludePrivate": true,
-  "stripInternal": false,
+  "exclude": [
+    "**/*.spec.ts",
+    "tools/**/*"
+  ],
   "readme": "README.md",
-  "includes": "libs/rxjs",
   "tsconfig": "tsconfig.base.json",
   "theme": "./node_modules/typedoc-ninja-theme/bin/default",
-  "favicon": "assets/favicon.ico",
+  "excludeInternal": true,
+  "excludeExternals": true,
+  "excludePrivate": true,
+  "categorizeByGroup": true,
   "cname": "rxjs.ninja",
-  "plugin": [
-    "typedoc-ninja-theme",
-    "typedoc-plugin-external-module-name",
-    "typedoc-plugin-extras",
-    "typedoc-plugin-pages",
-    "typedoc-plugin-ghpages-cname",
-    "typedoc-plugin-replace-in-comments"
+  "favicon": "assets/favicon.ico",
+  "entryPoints": [
+    "libs/rxjs/array/src/index.ts",
+    "libs/rxjs/boolean/src/index.ts",
+    "libs/rxjs/number/src/index.ts",
+    "libs/rxjs/random/src/index.ts",
+    "libs/rxjs/string/src/index.ts",
+    "libs/rxjs/utility/src/index.ts"
   ],
+  "plugin": [
+    "typedoc-plugin-ghpages-cname",
+    "typedoc-plugin-replace-in-comments",
+    "typedoc-plugin-pages-fork",
+    "typedoc-plugin-extras",
+    "typedoc-ninja-theme"
+  ],
+  "homepageText": "A collection of over 120 out-of-the-box and well tested RxJS operators",
   "links": [
     {
       "label": "Github",
@@ -38,9 +47,8 @@
     }
   ],
   "pages": {
-    "replaceGlobalsPage": true,
     "reflectionNavigationTitle": "RxJS Ninja APIs",
-    "enableSearch": false,
+    "enableSearch": true,
     "groups": [
       {
         "title": "Package Docs",

@@ -5,7 +5,6 @@
  * @packageDocumentation
  * @module Number
  *
- * @ignore
  */
 /* istanbul ignore file */
 export { add } from './lib/add';

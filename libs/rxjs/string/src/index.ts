@@ -4,7 +4,6 @@
  * @packageDocumentation
  * @module String
  *
- * @ignore
  */
 /* istanbul ignore file */
 export { charAt } from './lib/char-at';

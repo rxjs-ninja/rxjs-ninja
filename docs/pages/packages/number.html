@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="default no-js">
+<html class="default no-js" lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@
 					data-base="../..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
+						<input id="tsd-search-field" type="text"/>
 					</div>
 					<ul class="results">
 						<li class="state loading">Preparing search index...</li>
@@ -30,8 +30,8 @@
 					</ul>
 					<a href="../../index.html" class="title header-title">RxJS Ninja</a>
 					<div class="header-nav">
-						&emsp;  <a href="https://github.com/rxjs-ninja/rxjs-ninja" class="title">Github</a>
-						&emsp;  <a href="https://www.npmjs.com/org/rxjs-ninja" class="title">NPM</a>
+						&emsp; <a href="https://github.com/rxjs-ninja/rxjs-ninja" class="title">Github</a>
+						&emsp; <a href="https://www.npmjs.com/org/rxjs-ninja" class="title">NPM</a>
 					</div>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
@@ -46,8 +46,10 @@
 									<li data-value="private" class="selected">All</li>
 								</ul>
 							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<input type="checkbox" id="tsd-filter-inherited" checked/>
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported"/>
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -58,6 +60,9 @@
 <div class="tsd-page-title">
 	<div class="container">
 		<ul class="tsd-breadcrumb">
+			<li>
+				<a href="../../modules.html">RxJS Ninja</a>
+			</li>
 			<li>
 				<a href="array.html">Package Docs</a>
 			</li>
@@ -103,6 +108,9 @@
 					</li>
 					<li class=" pp-nav pp-group root">
 						<a href="" class="tsd-kind-icon">RxJS <wbr>Ninja APIs</a>
+					</li>
+					<li class="  root">
+						<a href="../../modules.html" class="tsd-kind-icon">Modules</a>
 					</li>
 					<li class=" tsd-kind-module root">
 						<a href="../../modules/array.html" class="tsd-kind-icon">Array</a>
@@ -150,87 +158,93 @@
 					<h3>Create</h3>
 				</a>
 				<p>Functions and Operators for creating Observable number values</p>
-				<pre><code class="language-ts"><span class="hljs-comment">// Generate a number stream, take `6`, add `1` return the modulus `3` value</span>
-fromNumber().pipe(take(<span class="hljs-number">6</span>), add(<span class="hljs-number">1</span>), mod(<span class="hljs-number">3</span>)).subscribe();
-<span class="hljs-comment">// Output: `1, 2, 0, 1, 2, 0`</span></code></pre>
+				<pre><code class="language-ts"><span style="color: #008000">// Generate a number stream, take `6`, add `1` return the modulus `3` value</span>
+<span style="color: #795E26">fromNumber</span><span style="color: #000000">().</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">take</span><span style="color: #000000">(</span><span style="color: #098658">6</span><span style="color: #000000">), </span><span style="color: #795E26">add</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">), </span><span style="color: #795E26">mod</span><span style="color: #000000">(</span><span style="color: #098658">3</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `1, 2, 0, 1, 2, 0`</span>
+</code></pre>
 				<a href="#filter" id="filter" style="color: inherit; text-decoration: none;">
 					<h3>Filter</h3>
 				</a>
 				<p>Operators for filtering Observable number sources for truthy queries</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">const</span> source$ = <span class="hljs-keyword">from</span>([<span class="hljs-number">1.4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8.2</span>, <span class="hljs-number">10</span>, <span class="hljs-number">12</span>, <span class="hljs-number">19</span>, <span class="hljs-number">11</span>, <span class="hljs-number">7.6</span>, <span class="hljs-number">14</span>]);
+				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">source$</span><span style="color: #000000"> = </span><span style="color: #795E26">from</span><span style="color: #000000">([</span><span style="color: #098658">1.4</span><span style="color: #000000">, </span><span style="color: #098658">5</span><span style="color: #000000">, </span><span style="color: #098658">8.2</span><span style="color: #000000">, </span><span style="color: #098658">10</span><span style="color: #000000">, </span><span style="color: #098658">12</span><span style="color: #000000">, </span><span style="color: #098658">19</span><span style="color: #000000">, </span><span style="color: #098658">11</span><span style="color: #000000">, </span><span style="color: #098658">7.6</span><span style="color: #000000">, </span><span style="color: #098658">14</span><span style="color: #000000">]);</span>
 
-<span class="hljs-comment">// Gets numbers only in the range of `2` to `11`</span>
-source$.pipe(filterInRange(<span class="hljs-number">2</span>, <span class="hljs-number">11</span>)).subscribe();
-<span class="hljs-comment">// Output: `5, 8.2, 10, 12, 11, 7.6`</span>
+<span style="color: #008000">// Gets numbers only in the range of `2` to `11`</span>
+<span style="color: #001080">source$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">filterInRange</span><span style="color: #000000">(</span><span style="color: #098658">2</span><span style="color: #000000">, </span><span style="color: #098658">11</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `5, 8.2, 10, 12, 11, 7.6`</span>
 
-<span class="hljs-comment">// Gets numbers only in the range of `2` to `11`</span>
-source$.pipe(filterOutOfRange(<span class="hljs-number">2</span>, <span class="hljs-number">11</span>)).subscribe();
-<span class="hljs-comment">// Output: `1.4, 19, 14`</span>
+<span style="color: #008000">// Gets numbers only in the range of `2` to `11`</span>
+<span style="color: #001080">source$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">filterOutOfRange</span><span style="color: #000000">(</span><span style="color: #098658">2</span><span style="color: #000000">, </span><span style="color: #098658">11</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `1.4, 19, 14`</span>
 
-<span class="hljs-comment">// Get only floating numbers</span>
-source$.pipe(filterIsFloat()).subscribe();
-<span class="hljs-comment">// Output: `1.4, 8.2, 7.6`</span></code></pre>
+<span style="color: #008000">// Get only floating numbers</span>
+<span style="color: #001080">source$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">filterIsFloat</span><span style="color: #000000">()).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `1.4, 8.2, 7.6`</span>
+</code></pre>
 				<a href="#formatting" id="formatting" style="color: inherit; text-decoration: none;">
 					<h3>Formatting</h3>
 				</a>
 				<p>Operators for formatting numbers to strings</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">const</span> floatSource$ = <span class="hljs-keyword">from</span>([<span class="hljs-number">1.9875</span>, <span class="hljs-number">5.67</span>, <span class="hljs-number">8.1</span>, <span class="hljs-number">97.344</span>]);
+				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">floatSource$</span><span style="color: #000000"> = </span><span style="color: #795E26">from</span><span style="color: #000000">([</span><span style="color: #098658">1.9875</span><span style="color: #000000">, </span><span style="color: #098658">5.67</span><span style="color: #000000">, </span><span style="color: #098658">8.1</span><span style="color: #000000">, </span><span style="color: #098658">97.344</span><span style="color: #000000">]);</span>
 
-<span class="hljs-comment">// Get a fixed length string</span>
-floatSource$.pipe(toFixed(<span class="hljs-number">2</span>)).subscribe();
-<span class="hljs-comment">// Output: `&#x27;1.99&#x27;, &#x27;5.67&#x27;, &#x27;8.10&#x27;, &#x27;97.34&#x27;`</span>
+<span style="color: #008000">// Get a fixed length string</span>
+<span style="color: #001080">floatSource$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">toFixed</span><span style="color: #000000">(</span><span style="color: #098658">2</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `&#039;1.99&#039;, &#039;5.67&#039;, &#039;8.10&#039;, &#039;97.34&#039;`</span>
 
-<span class="hljs-comment">// Format value to local currency</span>
-floatSource$.pipe(toLocaleString(<span class="hljs-string">&#x27;en-GB&#x27;</span>, { <span class="hljs-attr">currency</span>: <span class="hljs-string">&#x27;EUR&#x27;</span>, <span class="hljs-attr">style</span>: <span class="hljs-string">&#x27;currency&#x27;</span> })).subscribe();
-<span class="hljs-comment">// Output: `&#x27;€1.99&#x27;, &#x27;€5.67&#x27;, &#x27;€8.10&#x27;, &#x27;€97.34&#x27;`</span></code></pre>
+<span style="color: #008000">// Format value to local currency</span>
+<span style="color: #001080">floatSource$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">toLocaleString</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;en-GB&#039;</span><span style="color: #000000">, { </span><span style="color: #001080">currency:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;EUR&#039;</span><span style="color: #000000">, </span><span style="color: #001080">style:</span><span style="color: #000000"> </span><span style="color: #A31515">&#039;currency&#039;</span><span style="color: #000000"> })).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `&#039;€1.99&#039;, &#039;€5.67&#039;, &#039;€8.10&#039;, &#039;€97.34&#039;`</span>
+</code></pre>
 				<a href="#math" id="math" style="color: inherit; text-decoration: none;">
 					<h3>Math</h3>
 				</a>
 				<p>Operators for some math operations such as add, subtract, multiply and raise by power</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">const</span> source$ = <span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>]);
+				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">source$</span><span style="color: #000000"> = </span><span style="color: #795E26">from</span><span style="color: #000000">([</span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #098658">2</span><span style="color: #000000">, </span><span style="color: #098658">3</span><span style="color: #000000">, </span><span style="color: #098658">4</span><span style="color: #000000">, </span><span style="color: #098658">5</span><span style="color: #000000">]);</span>
 
-<span class="hljs-comment">// Add `5` to the source value</span>
-$source.pipe(add(<span class="hljs-number">5</span>)).subscribe();
-<span class="hljs-comment">// Output: `6, 7, 8, 9, 10`</span>
+<span style="color: #008000">// Add `5` to the source value</span>
+<span style="color: #001080">$source</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">add</span><span style="color: #000000">(</span><span style="color: #098658">5</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `6, 7, 8, 9, 10`</span>
 
-<span class="hljs-comment">// Add `5` to the source value</span>
-$source.pipe(mul(<span class="hljs-number">2</span>)).subscribe();
-<span class="hljs-comment">// Output: `2, 4, 6, 8, 10`</span>
+<span style="color: #008000">// Add `5` to the source value</span>
+<span style="color: #001080">$source</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">mul</span><span style="color: #000000">(</span><span style="color: #098658">2</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `2, 4, 6, 8, 10`</span>
 
-<span class="hljs-comment">// Return the remainder for modulus 2</span>
-$source.pipe(mod(<span class="hljs-number">2</span>)).subscribe();
-<span class="hljs-comment">// Output: `1, 0, 1, 0, 1`</span></code></pre>
+<span style="color: #008000">// Return the remainder for modulus 2</span>
+<span style="color: #001080">$source</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">mod</span><span style="color: #000000">(</span><span style="color: #098658">2</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `1, 0, 1, 0, 1`</span>
+</code></pre>
 				<a href="#parsing" id="parsing" style="color: inherit; text-decoration: none;">
 					<h3>Parsing</h3>
 				</a>
 				<p>Operators for parsing strings to numbers</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">const</span> floatSource$ = <span class="hljs-keyword">from</span>([<span class="hljs-string">&#x27;1.9875&#x27;</span>, <span class="hljs-string">&#x27;5.67&#x27;</span>, <span class="hljs-string">&#x27;8.1&#x27;</span>, <span class="hljs-string">&#x27;97.344&#x27;</span>, <span class="hljs-string">&#x27;Ninja&#x27;</span>]);
+				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">floatSource$</span><span style="color: #000000"> = </span><span style="color: #795E26">from</span><span style="color: #000000">([</span><span style="color: #A31515">&#039;1.9875&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;5.67&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;8.1&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;97.344&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;Ninja&#039;</span><span style="color: #000000">]);</span>
 
-<span class="hljs-comment">// Parse string values as float</span>
-floatSource$.pipe(<span class="hljs-built_in">parseFloat</span>()).subscribe()
-<span class="hljs-comment">// Output: `1.9875, 5.67, 8.1, 97.344, NaN`</span>
+<span style="color: #008000">// Parse string values as float</span>
+<span style="color: #001080">floatSource$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">parseFloat</span><span style="color: #000000">()).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">()</span>
+<span style="color: #008000">// Output: `1.9875, 5.67, 8.1, 97.344, NaN`</span>
 
-<span class="hljs-comment">// Parse string values as integer</span>
-floatSource$.pipe(<span class="hljs-built_in">parseInt</span>()).subscribe()
-<span class="hljs-comment">// Output: `1, 5, 8, 97, NaN`</span></code></pre>
+<span style="color: #008000">// Parse string values as integer</span>
+<span style="color: #001080">floatSource$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">parseInt</span><span style="color: #000000">()).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">()</span>
+<span style="color: #008000">// Output: `1, 5, 8, 97, NaN`</span>
+</code></pre>
 				<a href="#query" id="query" style="color: inherit; text-decoration: none;">
 					<h3>Query</h3>
 				</a>
 				<p>Operators for querying number sources for boolean checks</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">const</span> source$ = <span class="hljs-keyword">from</span>([<span class="hljs-number">1.4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">8.2</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">12</span>, <span class="hljs-number">19</span>, <span class="hljs-number">11</span>, <span class="hljs-literal">NaN</span>, <span class="hljs-number">14</span>]);
+				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">source$</span><span style="color: #000000"> = </span><span style="color: #795E26">from</span><span style="color: #000000">([</span><span style="color: #098658">1.4</span><span style="color: #000000">, </span><span style="color: #098658">5</span><span style="color: #000000">, </span><span style="color: #098658">8.2</span><span style="color: #000000">, </span><span style="color: #0000FF">NaN</span><span style="color: #000000">, </span><span style="color: #098658">12</span><span style="color: #000000">, </span><span style="color: #098658">19</span><span style="color: #000000">, </span><span style="color: #098658">11</span><span style="color: #000000">, </span><span style="color: #0000FF">NaN</span><span style="color: #000000">, </span><span style="color: #098658">14</span><span style="color: #000000">]);</span>
 
-<span class="hljs-comment">// Check if number is in range of `2` to `11`</span>
-source$.pipe(inRange(<span class="hljs-number">2</span>, <span class="hljs-number">11</span>)).subscribe();
-<span class="hljs-comment">// Output: `false, true, true, false, false, false, true, false, false`</span>
+<span style="color: #008000">// Check if number is in range of `2` to `11`</span>
+<span style="color: #001080">source$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">inRange</span><span style="color: #000000">(</span><span style="color: #098658">2</span><span style="color: #000000">, </span><span style="color: #098658">11</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `false, true, true, false, false, false, true, false, false`</span>
 
-<span class="hljs-comment">// Check if values are not `NaN` values</span>
-source.pipe(isNotNaN()).subscribe();
-<span class="hljs-comment">// Output: `true, true, true, false, true, true, true, false, true`</span></code></pre>
+<span style="color: #008000">// Check if values are not `NaN` values</span>
+<span style="color: #001080">source</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">isNotNaN</span><span style="color: #000000">()).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `true, true, true, false, true, true, true, false, true`</span>
+</code></pre>
 			</div>
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 8:26:15 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 6:50:03 PM</p>
 			</div>
 		</div>
 	</div>

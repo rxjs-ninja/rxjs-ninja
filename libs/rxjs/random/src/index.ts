@@ -4,7 +4,6 @@
  * @packageDocumentation
  * @module Random
  *
- * @ignore
  */
 /* istanbul ignore file */
 export { fromRandom } from './lib/from-random';

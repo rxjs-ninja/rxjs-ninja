@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="default no-js">
+<html class="default no-js" lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@
 					data-base="../..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
+						<input id="tsd-search-field" type="text"/>
 					</div>
 					<ul class="results">
 						<li class="state loading">Preparing search index...</li>
@@ -30,8 +30,8 @@
 					</ul>
 					<a href="../../index.html" class="title header-title">RxJS Ninja</a>
 					<div class="header-nav">
-						&emsp;  <a href="https://github.com/rxjs-ninja/rxjs-ninja" class="title">Github</a>
-						&emsp;  <a href="https://www.npmjs.com/org/rxjs-ninja" class="title">NPM</a>
+						&emsp; <a href="https://github.com/rxjs-ninja/rxjs-ninja" class="title">Github</a>
+						&emsp; <a href="https://www.npmjs.com/org/rxjs-ninja" class="title">NPM</a>
 					</div>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
@@ -46,8 +46,10 @@
 									<li data-value="private" class="selected">All</li>
 								</ul>
 							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<input type="checkbox" id="tsd-filter-inherited" checked/>
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported"/>
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -58,6 +60,9 @@
 <div class="tsd-page-title">
 	<div class="container">
 		<ul class="tsd-breadcrumb">
+			<li>
+				<a href="../../modules.html">RxJS Ninja</a>
+			</li>
 			<li>
 				<a href="array.html">Package Docs</a>
 			</li>
@@ -103,6 +108,9 @@
 					</li>
 					<li class=" pp-nav pp-group root">
 						<a href="" class="tsd-kind-icon">RxJS <wbr>Ninja APIs</a>
+					</li>
+					<li class="  root">
+						<a href="../../modules.html" class="tsd-kind-icon">Modules</a>
 					</li>
 					<li class=" tsd-kind-module root">
 						<a href="../../modules/array.html" class="tsd-kind-icon">Array</a>
@@ -155,32 +163,34 @@
 					<h3>Mapping</h3>
 				</a>
 				<p>Operators use for mapping to different values</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">const</span> source$ = <span class="hljs-keyword">from</span>([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>, <span class="hljs-number">6</span>, <span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>, <span class="hljs-number">12</span>, <span class="hljs-number">13</span>, <span class="hljs-number">14</span>, <span class="hljs-number">15</span>, <span class="hljs-number">16</span>]);
+				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">source$</span><span style="color: #000000"> = </span><span style="color: #795E26">from</span><span style="color: #000000">([</span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #098658">2</span><span style="color: #000000">, </span><span style="color: #098658">3</span><span style="color: #000000">, </span><span style="color: #098658">4</span><span style="color: #000000">, </span><span style="color: #098658">5</span><span style="color: #000000">, </span><span style="color: #098658">6</span><span style="color: #000000">, </span><span style="color: #098658">7</span><span style="color: #000000">, </span><span style="color: #098658">8</span><span style="color: #000000">, </span><span style="color: #098658">9</span><span style="color: #000000">, </span><span style="color: #098658">10</span><span style="color: #000000">, </span><span style="color: #098658">11</span><span style="color: #000000">, </span><span style="color: #098658">12</span><span style="color: #000000">, </span><span style="color: #098658">13</span><span style="color: #000000">, </span><span style="color: #098658">14</span><span style="color: #000000">, </span><span style="color: #098658">15</span><span style="color: #000000">, </span><span style="color: #098658">16</span><span style="color: #000000">]);</span>
 
-<span class="hljs-comment">// Generate a FizzBuzz from the source numbers</span>
-source$.pipe(
-  mapIfSource&lt;<span class="hljs-built_in">number</span>, <span class="hljs-built_in">string</span>, <span class="hljs-built_in">number</span>&gt;(
-    <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> value % <span class="hljs-number">15</span> == <span class="hljs-number">0</span> || value % <span class="hljs-number">3</span> == <span class="hljs-number">0</span> || value % <span class="hljs-number">5</span> == <span class="hljs-number">0</span>,
-    <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> (value % <span class="hljs-number">15</span> == <span class="hljs-number">0</span> ? <span class="hljs-string">`FizzBuzz`</span> : value % <span class="hljs-number">3</span> === <span class="hljs-number">0</span> ? <span class="hljs-string">&#x27;Fizz&#x27;</span> : <span class="hljs-string">&#x27;Buzz&#x27;</span>),
-    <span class="hljs-function">(<span class="hljs-params">value</span>) =&gt;</span> value,
-  ),
-);
-<span class="hljs-comment">// Output: `1, 2, &#x27;Fizz&#x27;, 4, &#x27;Buzz&#x27;, &#x27;Fizz&#x27;, 7, 8, &#x27;Fizz&#x27;, &#x27;Buzz&#x27;, 11, &#x27;Fizz&#x27;, 13, 14, &#x27;Fizz&#x27; &#x27;Buzz&#x27;`</span></code></pre>
+<span style="color: #008000">// Generate a FizzBuzz from the source numbers</span>
+<span style="color: #001080">source$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span>
+<span style="color: #000000">  </span><span style="color: #795E26">mapIfSource</span><span style="color: #000000">&lt;</span><span style="color: #267F99">number</span><span style="color: #000000">, </span><span style="color: #267F99">string</span><span style="color: #000000">, </span><span style="color: #267F99">number</span><span style="color: #000000">&gt;(</span>
+<span style="color: #000000">    (</span><span style="color: #001080">value</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">value</span><span style="color: #000000"> % </span><span style="color: #098658">15</span><span style="color: #000000"> == </span><span style="color: #098658">0</span><span style="color: #000000"> || </span><span style="color: #001080">value</span><span style="color: #000000"> % </span><span style="color: #098658">3</span><span style="color: #000000"> == </span><span style="color: #098658">0</span><span style="color: #000000"> || </span><span style="color: #001080">value</span><span style="color: #000000"> % </span><span style="color: #098658">5</span><span style="color: #000000"> == </span><span style="color: #098658">0</span><span style="color: #000000">,</span>
+<span style="color: #000000">    (</span><span style="color: #001080">value</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> (</span><span style="color: #001080">value</span><span style="color: #000000"> % </span><span style="color: #098658">15</span><span style="color: #000000"> == </span><span style="color: #098658">0</span><span style="color: #000000"> ? </span><span style="color: #A31515">`FizzBuzz`</span><span style="color: #000000"> : </span><span style="color: #001080">value</span><span style="color: #000000"> % </span><span style="color: #098658">3</span><span style="color: #000000"> === </span><span style="color: #098658">0</span><span style="color: #000000"> ? </span><span style="color: #A31515">&#039;Fizz&#039;</span><span style="color: #000000"> : </span><span style="color: #A31515">&#039;Buzz&#039;</span><span style="color: #000000">),</span>
+<span style="color: #000000">    (</span><span style="color: #001080">value</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">value</span><span style="color: #000000">,</span>
+<span style="color: #000000">  ),</span>
+<span style="color: #000000">);</span>
+<span style="color: #008000">// Output: `1, 2, &#039;Fizz&#039;, 4, &#039;Buzz&#039;, &#039;Fizz&#039;, 7, 8, &#039;Fizz&#039;, &#039;Buzz&#039;, 11, &#039;Fizz&#039;, 13, 14, &#039;Fizz&#039; &#039;Buzz&#039;`</span>
+</code></pre>
 				<a href="#side-effects" id="side-effects" style="color: inherit; text-decoration: none;">
 					<h3>Side Effects</h3>
 				</a>
 				<p>Operators for handling side effects on different events or conditions</p>
-				<pre><code class="language-ts"><span class="hljs-keyword">const</span> inputObs$ = fromEvent(<span class="hljs-built_in">document</span>, <span class="hljs-string">&#x27;click&#x27;</span>).pipe(
-  startWithTap(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;This will only fire once&#x27;</span>)),
-  tapOnSubscribe(<span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;This will tab on every subscribe&#x27;</span>)),
-  tapIf(
-    <span class="hljs-function">(<span class="hljs-params">event</span>) =&gt;</span> event.target.id === <span class="hljs-string">&#x27;some-div&#x27;</span>,
-    <span class="hljs-function">() =&gt;</span> <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&#x27;This will tap if the user clicks on the target element&#x27;</span>),
-  ),
-);
+				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">inputObs$</span><span style="color: #000000"> = </span><span style="color: #795E26">fromEvent</span><span style="color: #000000">(</span><span style="color: #001080">document</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;click&#039;</span><span style="color: #000000">).</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span>
+<span style="color: #000000">  </span><span style="color: #795E26">startWithTap</span><span style="color: #000000">(() </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;This will only fire once&#039;</span><span style="color: #000000">)),</span>
+<span style="color: #000000">  </span><span style="color: #795E26">tapOnSubscribe</span><span style="color: #000000">(() </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;This will tab on every subscribe&#039;</span><span style="color: #000000">)),</span>
+<span style="color: #000000">  </span><span style="color: #795E26">tapIf</span><span style="color: #000000">(</span>
+<span style="color: #000000">    (</span><span style="color: #001080">event</span><span style="color: #000000">) </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">event</span><span style="color: #000000">.</span><span style="color: #001080">target</span><span style="color: #000000">.</span><span style="color: #001080">id</span><span style="color: #000000"> === </span><span style="color: #A31515">&#039;some-div&#039;</span><span style="color: #000000">,</span>
+<span style="color: #000000">    () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&#039;This will tap if the user clicks on the target element&#039;</span><span style="color: #000000">),</span>
+<span style="color: #000000">  ),</span>
+<span style="color: #000000">);</span>
 
-inputObs$.subscribe(); <span class="hljs-comment">// This will only fire once, This will tab on every subscribe</span>
-inputObs$.subscribe(); <span class="hljs-comment">// This will tab on every subscribe</span></code></pre>
+<span style="color: #001080">inputObs$</span><span style="color: #000000">.</span><span style="color: #795E26">subscribe</span><span style="color: #000000">(); </span><span style="color: #008000">// This will only fire once, This will tab on every subscribe</span>
+<span style="color: #001080">inputObs$</span><span style="color: #000000">.</span><span style="color: #795E26">subscribe</span><span style="color: #000000">(); </span><span style="color: #008000">// This will tab on every subscribe</span>
+</code></pre>
 				<a href="#streams" id="streams" style="color: inherit; text-decoration: none;">
 					<h3>Streams</h3>
 				</a>
@@ -194,7 +204,7 @@ inputObs$.subscribe(); <span class="hljs-comment">// This will tab on every subs
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 8:26:15 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 6:50:03 PM</p>
 			</div>
 		</div>
 	</div>

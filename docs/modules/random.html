@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="default no-js">
+<html class="default no-js" lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -20,7 +20,7 @@
 					data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
+						<input id="tsd-search-field" type="text"/>
 					</div>
 					<ul class="results">
 						<li class="state loading">Preparing search index...</li>
@@ -30,8 +30,8 @@
 					</ul>
 					<a href="../index.html" class="title header-title">RxJS Ninja</a>
 					<div class="header-nav">
-						&emsp;  <a href="https://github.com/rxjs-ninja/rxjs-ninja" class="title">Github</a>
-						&emsp;  <a href="https://www.npmjs.com/org/rxjs-ninja" class="title">NPM</a>
+						&emsp; <a href="https://github.com/rxjs-ninja/rxjs-ninja" class="title">Github</a>
+						&emsp; <a href="https://www.npmjs.com/org/rxjs-ninja" class="title">NPM</a>
 					</div>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
@@ -46,8 +46,10 @@
 									<li data-value="private" class="selected">All</li>
 								</ul>
 							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<input type="checkbox" id="tsd-filter-inherited" checked/>
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported"/>
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -58,6 +60,9 @@
 <div class="tsd-page-title">
 	<div class="container">
 		<ul class="tsd-breadcrumb">
+			<li>
+				<a href="../modules.html">RxJS Ninja</a>
+			</li>
 			<li>
 				<a href="random.html">Random</a>
 			</li>
@@ -94,6 +99,9 @@
 					<li class=" pp-nav pp-group root">
 						<a href="" class="tsd-kind-icon">RxJS <wbr>Ninja APIs</a>
 					</li>
+					<li class="  root">
+						<a href="../modules.html" class="tsd-kind-icon">Modules</a>
+					</li>
 					<li class=" tsd-kind-module root">
 						<a href="array.html" class="tsd-kind-icon">Array</a>
 					</li>
@@ -120,12 +128,6 @@
 			</nav>
 			<nav class="tsd-navigation">
 				<ul class="before-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module root">
-						<a href="../interfaces/random.fromrandomcryptoopts.html" class="tsd-kind-icon">From<wbr>Random<wbr>Crypto<wbr>Opts</a>
-					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module root">
-						<a href="../interfaces/random.fromrandomstringopts.html" class="tsd-kind-icon">From<wbr>Random<wbr>String<wbr>Opts</a>
-					</li>
 					<li class=" tsd-kind-function tsd-parent-kind-module root">
 						<a href="random.html#fromrandom" class="tsd-kind-icon">from<wbr>Random</a>
 					</li>
@@ -141,32 +143,21 @@
 					<li class=" tsd-kind-function tsd-parent-kind-module root">
 						<a href="random.html#fromuuidv4" class="tsd-kind-icon">fromUUIDv4</a>
 					</li>
-					<li class=" tsd-kind-object-literal tsd-parent-kind-module root">
-						<a href="random.html#rnd_crypto_defaults" class="tsd-kind-icon">RND_<wbr>CRYPTO_<wbr>DEFAULTS</a>
-					</li>
-					<li class=" tsd-kind-object-literal tsd-parent-kind-module root">
-						<a href="random.html#rnd_str_defaults" class="tsd-kind-icon">RND_<wbr>STR_<wbr>DEFAULTS</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
 		<div class="col-content">
+			<section class="tsd-panel tsd-comment">        <div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Package containing various operators for generating <a href="https://rxjs.dev/api/index/class/Observable">Observables</a> with random values in <a href="https://rxjs.dev">RxJS</a></p>
+					</div>
+				</div>
+			</section>
 			<!---->
 			<section class="tsd-panel-group tsd-index-group">
 				<h2>Module - Random</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
-							<h3>Interfaces</h3>
-							<div class="tsd-index-list">
-								<div class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/random.fromrandomcryptoopts.html"
-									class="tsd-kind-icon">FromRandomCryptoOpts</a>
-								</div>
-								<div class="tsd-kind-interface tsd-parent-kind-module"><a href="../interfaces/random.fromrandomstringopts.html"
-									class="tsd-kind-icon">FromRandomStringOpts</a>
-								</div>
-							</div>
-						</section>
 						<section class="tsd-index-section ">
 							<h3>Random Numbers</h3>
 							<div class="tsd-index-list">
@@ -190,22 +181,11 @@
 								</div>
 							</div>
 						</section>
-						<section class="tsd-index-section ">
-							<h3>Object literals</h3>
-							<div class="tsd-index-list">
-								<div class="tsd-kind-object-literal tsd-parent-kind-module"><a href="random.html#rnd_crypto_defaults"
-									class="tsd-kind-icon">RND_CRYPTO_DEFAULTS</a>
-								</div>
-								<div class="tsd-kind-object-literal tsd-parent-kind-module"><a href="random.html#rnd_str_defaults"
-									class="tsd-kind-icon">RND_STR_DEFAULTS</a>
-								</div>
-							</div>
-						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
+				<h2>Random Numbers Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="fromrandom" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
@@ -213,423 +193,295 @@
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits random numbers generated using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random">Math.random</a>. The values are generated between the
 									passed <code>min</code> and <code>max</code> range.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+								<dl class="tsd-comment-tags">
+									<dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Return random number between <code>0</code> and <code>10</code></p>
-										<pre><code class="language-ts">fromRandom(<span class="hljs-number">0</span>, <span class="hljs-number">10</span>).subscribe();</code></pre>
+										<pre><code class="language-ts"><span style="color: #795E26">fromRandom</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">, </span><span style="color: #098658">10</span><span style="color: #000000">).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+</code></pre>
 										<p>Output: <code>8.332405921423248, 7.9304238877750315, 4.603376889484552...</code></p>
-								</dd></dl>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> min: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-text">
+									<h5>min: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+									<div class="tsd-comment tsd-typography">
 										<p>The minimum value to create a random number between. Default is <code>0</code>.</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> max: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-text">
+									<h5>max: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 1</span></h5>
+									<div class="tsd-comment tsd-typography">
 										<p>The maximum value to create a random number between. Default is <code>1</code>.</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> emitDelay: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-text">
+									<h5>emitDelay: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+									<div class="tsd-comment tsd-typography">
 										<p>Optionally emit each value at the set delay, otherwise emit immediately</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns
+								<span class="tsd-signature-type">Observable</span>
+								<span class="tsd-signature-symbol">&lt;</span>
+								<span class="tsd-signature-type">number</span>
+								<span class="tsd-signature-symbol">&gt;</span>
+							</h4>
 							<p>Observable that emits a random number between the <code>min</code> and <code>max</code></p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/src/lib/from-random.ts#L27">
-											libs/rxjs/random/src/lib/from-random.ts:27
-										</a>
-									</li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/1f6a785/libs/rxjs/random/src/lib/from-random.ts#L27">random/src/lib/from-random.ts:27</a></li>
 								</ul>
 							</aside>
 						</li>
 					</ul>
-					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="fromrandomcrypto" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Random<wbr>Crypto<span class="tsd-signature-symbol">(</span>emitDelay<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, opts<span class="tsd-signature-symbol">?: </span><a href="../interfaces/random.fromrandomcryptoopts.html" class="tsd-signature-type">FromRandomCryptoOpts</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Random<wbr>Crypto<span class="tsd-signature-symbol">(</span>emitDelay<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, opts<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">FromRandomCryptoOpts</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a number generated using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Crypto/getRandomValues">Crypto.getRandomValues</a>, and using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random">Math.random</a> selects one
 									random number value from the <code>TypedArray</code>.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
 								<p>By default this <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> will generate <code>4-bit signed</code> values</p>
-								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-see">see</dt>
+								<dl class="tsd-comment-tags">
+									<dt class="tds-tag-see">see</dt>
 									<dd class="tds-tag-see"><p><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Typed_arrays#Typed_array_views" class="external">Typed Array Views</a></p>
-									</dd><dt class="tds-tag-example">example</dt>
+									</dd>
+									<dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Emits a stream of random <code>4-byte</code> numbers</p>
-										<pre><code class="language-ts">fromRandomCrypto().subscribe();</code></pre>
+										<pre><code class="language-ts"><span style="color: #795E26">fromRandomCrypto</span><span style="color: #000000">().</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+</code></pre>
 										<p>Output: <code>1228475997, 258463200, 850749141, 3060206219...</code></p>
-									</dd><dt class="tds-tag-example">example</dt>
+									</dd>
+									<dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p> Emits a stream of random <code>1-byte</code> every second</p>
-										<pre><code class="language-ts">fromRandomCrypto(<span class="hljs-number">1000</span>, { <span class="hljs-attr">bytes</span>: <span class="hljs-number">1</span> }).subscribe();</code></pre>
+										<pre><code class="language-ts"><span style="color: #795E26">fromRandomCrypto</span><span style="color: #000000">(</span><span style="color: #098658">1000</span><span style="color: #000000">, { </span><span style="color: #001080">bytes:</span><span style="color: #000000"> </span><span style="color: #098658">1</span><span style="color: #000000"> }).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+</code></pre>
 										<p>Output: <code>15, 8, 234, 12...</code></p>
-								</dd></dl>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> emitDelay: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-text">
+									<h5>emitDelay: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+									<div class="tsd-comment tsd-typography">
 										<p>Optionally emit each value at the set delay, otherwise emit immediately</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/random.fromrandomcryptoopts.html" class="tsd-signature-type">FromRandomCryptoOpts</a><span class="tsd-signature-symbol"> = RND_CRYPTO_DEFAULTS</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-text">
+									<h5>opts: <span class="tsd-signature-type">FromRandomCryptoOpts</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
 										<p>Optional options for the <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> to generate different byte lengths and signed numbers</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns
+								<span class="tsd-signature-type">Observable</span>
+								<span class="tsd-signature-symbol">&lt;</span>
+								<span class="tsd-signature-type">number</span>
+								<span class="tsd-signature-symbol">&gt;</span>
+							</h4>
 							<p>Observable with a stream of random numbers</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/src/lib/from-random-crypto.ts#L39">
-											libs/rxjs/random/src/lib/from-random-crypto.ts:39
-										</a>
-									</li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/1f6a785/libs/rxjs/random/src/lib/from-random-crypto.ts#L39">random/src/lib/from-random-crypto.ts:39</a></li>
 								</ul>
 							</aside>
 						</li>
 					</ul>
-					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="fromrandomint" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
 						<li class="tsd-signature tsd-kind-icon">from<wbr>Random<wbr>Int<span class="tsd-signature-symbol">(</span>min<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, max<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, emitDelay<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits random integer numbers generated using <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random">Math.random</a>. The values are generated
 									between the passed <code>min</code> and <code>max</code> range.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+								<dl class="tsd-comment-tags">
+									<dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Return random number between <code>0</code> and <code>100</code></p>
-										<pre><code class="language-ts">fromRandomInt().subscribe();</code></pre>
+										<pre><code class="language-ts"><span style="color: #795E26">fromRandomInt</span><span style="color: #000000">().</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+</code></pre>
 										<p>Output: <code>7, 94, 14, 12, 86...</code></p>
-								</dd></dl>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> min: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-text">
+									<h5>min: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+									<div class="tsd-comment tsd-typography">
 										<p>The minimum value to create a random number between. Default is <code>0</code>.</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> max: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 100</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-text">
+									<h5>max: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 100</span></h5>
+									<div class="tsd-comment tsd-typography">
 										<p>The maximum value to create a random number between. Default is <code>100</code>.</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> emitDelay: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-text">
+									<h5>emitDelay: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+									<div class="tsd-comment tsd-typography">
 										<p>Optionally emit each value at the set delay, otherwise emit immediately</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns
+								<span class="tsd-signature-type">Observable</span>
+								<span class="tsd-signature-symbol">&lt;</span>
+								<span class="tsd-signature-type">number</span>
+								<span class="tsd-signature-symbol">&gt;</span>
+							</h4>
 							<p>Observable that emits a random integer number between the <code>min</code> and <code>max</code></p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/src/lib/from-random-integer.ts#L27">
-											libs/rxjs/random/src/lib/from-random-integer.ts:27
-										</a>
-									</li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/1f6a785/libs/rxjs/random/src/lib/from-random-integer.ts#L27">random/src/lib/from-random-integer.ts:27</a></li>
 								</ul>
 							</aside>
 						</li>
 					</ul>
-					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Random Strings Functions</h2>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="fromrandomstr" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">from<wbr>Random<wbr>Str<span class="tsd-signature-symbol">(</span>length<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, emitDelay<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, opts<span class="tsd-signature-symbol">?: </span><a href="../interfaces/random.fromrandomstringopts.html" class="tsd-signature-type">FromRandomStringOpts</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">from<wbr>Random<wbr>Str<span class="tsd-signature-symbol">(</span>length<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, emitDelay<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span>, opts<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">FromRandomStringOpts</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a string generated at random.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-text">
 								<p>By default the string will be made up of upper and lower case characters, and numbers.
-								For special characters pass a <a href="../interfaces/random.fromrandomstringopts.html">FromRandomStringOpts</a> options object</p>
-								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-example">example</dt>
+								For special characters pass a [[FromRandomStringOpts]] options object</p>
+								<dl class="tsd-comment-tags">
+									<dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Emit a random string of length <code>8</code></p>
-										<pre><code class="language-ts">fromRandomStr(<span class="hljs-number">5</span>).subscribe();</code></pre>
+										<pre><code class="language-ts"><span style="color: #795E26">fromRandomStr</span><span style="color: #000000">(</span><span style="color: #098658">5</span><span style="color: #000000">).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+</code></pre>
 										<p>Output: <code>&#39;A3gtYb76&#39;, &#39;0br2YgT6&#39;, &#39;TL184Avf&#39;...</code></p>
-									</dd><dt class="tds-tag-example">example</dt>
+									</dd>
+									<dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Emit a random string of length <code>8</code> with special characters every second</p>
-										<pre><code class="language-ts"><span class="hljs-keyword">const</span> options = { <span class="hljs-attr">caps</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">lower</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">number</span>: <span class="hljs-literal">true</span>, <span class="hljs-attr">special</span>: <span class="hljs-literal">true</span> };
-fromRandomStr(<span class="hljs-number">8</span>, <span class="hljs-number">1000</span>, options).subscribe();</code></pre>
+										<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">options</span><span style="color: #000000"> = { </span><span style="color: #001080">caps:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">, </span><span style="color: #001080">lower:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">, </span><span style="color: #001080">number:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">, </span><span style="color: #001080">special:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> };</span>
+<span style="color: #795E26">fromRandomStr</span><span style="color: #000000">(</span><span style="color: #098658">8</span><span style="color: #000000">, </span><span style="color: #098658">1000</span><span style="color: #000000">, </span><span style="color: #001080">options</span><span style="color: #000000">).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+</code></pre>
 										<p>Output: <code>&#39;A3g!^b76&#39;, &#39;0br2£gT6&#39;, &#39;TL1!4Av$&#39;...</code></p>
-								</dd></dl>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> length: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-text">
+									<h5>length: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 10</span></h5>
+									<div class="tsd-comment tsd-typography">
 										<p>The length of the string to produce</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> emitDelay: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-text">
+									<h5>emitDelay: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+									<div class="tsd-comment tsd-typography">
 										<p>Optionally emit each value at the set delay, otherwise emit immediately</p>
 									</div>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> opts: <a href="../interfaces/random.fromrandomstringopts.html" class="tsd-signature-type">FromRandomStringOpts</a><span class="tsd-signature-symbol"> = RND_STR_DEFAULTS</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-text">
+									<h5>opts: <span class="tsd-signature-type">FromRandomStringOpts</span><span class="tsd-signature-symbol"> = ...</span></h5>
+									<div class="tsd-comment tsd-typography">
 										<p>Additional options to include other characters and numbers</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns
+								<span class="tsd-signature-type">Observable</span>
+								<span class="tsd-signature-symbol">&lt;</span>
+								<span class="tsd-signature-type">string</span>
+								<span class="tsd-signature-symbol">&gt;</span>
+							</h4>
 							<p>Observable that emits a string</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/src/lib/from-random-string.ts#L38">
-											libs/rxjs/random/src/lib/from-random-string.ts:38
-										</a>
-									</li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/1f6a785/libs/rxjs/random/src/lib/from-random-string.ts#L38">random/src/lib/from-random-string.ts:38</a></li>
 								</ul>
 							</aside>
 						</li>
 					</ul>
-					</section>            <section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
 					<a name="fromuuidv4" class="tsd-anchor"></a>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
 						<li class="tsd-signature tsd-kind-icon">fromUUIDv4<span class="tsd-signature-symbol">(</span>emitTime<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
-							<aside class="tsd-sources">
-							</aside>
-							<div class="tsd-comment tsd-typography tsd-comment-shorttext">
+							<div class="tsd-comment tsd-typography">
 								<div class="lead">
 									<p>Returns an <a href="https://rxjs.dev/api/index/class/Observable">Observable</a> that emits a UUID v4, optionally with <code>emitTime</code> otherwise it will generate them
 									per tick.</p>
 								</div>
-								</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-								<dl class="tsd-comment-tags"><dt class="tds-tag-remarks">remarks</dt>
+								<dl class="tsd-comment-tags">
+									<dt class="tds-tag-remarks">remarks</dt>
 									<dd class="tds-tag-remarks"><p>This operator requires <a href="https://developer.mozilla.org/en-US/docs/Web/API/Crypto" class="external">Crypto</a> to work</p>
-									</dd><dt class="tds-tag-example">example</dt>
+									</dd>
+									<dt class="tds-tag-example">example</dt>
 									<dd class="tds-tag-example"><p>Get a random UUID</p>
-										<pre><code class="language-ts">fromUUIDv4().pipe(take(<span class="hljs-number">1</span>)).subscribe()</code></pre>
+										<pre><code class="language-ts"><span style="color: #795E26">fromUUIDv4</span><span style="color: #000000">().</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">take</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">()</span>
+</code></pre>
 										<p>Output: <code>2a6d71bf-6ccd-4810-bc60-c9ffdedf8864</code></p>
-								</dd></dl>
+									</dd>
+								</dl>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagDefault value">Default value</span> emitTime: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
-									<div class="tsd-comment tsd-typography tsd-comment-text">
+									<h5>emitTime: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol"> = 0</span></h5>
+									<div class="tsd-comment tsd-typography">
 										<p>Optional time in <code>ms</code> to emit the UUID</p>
 									</div>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Observable</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns
+								<span class="tsd-signature-type">Observable</span>
+								<span class="tsd-signature-symbol">&lt;</span>
+								<span class="tsd-signature-type">string</span>
+								<span class="tsd-signature-symbol">&gt;</span>
+							</h4>
 							<p>Observable that emits a UUIDv4</p>
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in
-										<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/src/lib/from-uuid-v4.ts#L28">
-											libs/rxjs/random/src/lib/from-uuid-v4.ts:28
-										</a>
-									</li>
+									<li>Defined in <a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/1f6a785/libs/rxjs/random/src/lib/from-uuid-v4.ts#L28">random/src/lib/from-uuid-v4.ts:28</a></li>
 								</ul>
 							</aside>
 						</li>
 					</ul>
-			</section></section>
-			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Object literals</h2>
-				<section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-module">
-					<a name="rnd_crypto_defaults" class="tsd-anchor"></a>
-					<div class="tsd-signature tsd-kind-icon">RND_<wbr>CRYPTO_<wbr>DEFAULTS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>Default options for <a href="random.html#fromrandomcrypto">fromRandomCrypto</a></p>
-						</div>
-						</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-						<dl class="tsd-comment-tags"><dt class="tds-tag-internal">internal</dt>
-						<dd class="tds-tag-internal"></dd></dl>
-					</div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in
-								<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/src/utils/from-random-crypto.ts#L11">
-									libs/rxjs/random/src/utils/from-random-crypto.ts:11
-								</a>
-							</li>
-						</ul>
-					</aside>
-					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="rnd_crypto_defaults.bytes" class="tsd-anchor"></a>
-						<div class="tsd-signature tsd-kind-icon">bytes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">4</span><span class="tsd-signature-symbol"> = 4</span></div>
-						<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-							<div class="lead">
-								<p>Default length of number generated is <code>4-bytes</code></p>
-							</div>
-						</div>
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in
-									<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/src/utils/from-random-crypto.ts#L15">
-										libs/rxjs/random/src/utils/from-random-crypto.ts:15
-									</a>
-								</li>
-							</ul>
-						</aside>
-						</section>    <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="rnd_crypto_defaults.unsigned" class="tsd-anchor"></a>
-						<div class="tsd-signature tsd-kind-icon">unsigned<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> = false</span></div>
-						<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-							<div class="lead">
-								<p>By default values are signed</p>
-							</div>
-						</div>
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in
-									<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/src/utils/from-random-crypto.ts#L19">
-										libs/rxjs/random/src/utils/from-random-crypto.ts:19
-									</a>
-								</li>
-							</ul>
-						</aside>
-					</section></section>            <section class="tsd-panel tsd-member tsd-kind-object-literal tsd-parent-kind-module">
-					<a name="rnd_str_defaults" class="tsd-anchor"></a>
-					<div class="tsd-signature tsd-kind-icon">RND_<wbr>STR_<wbr>DEFAULTS<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">object</span></div>
-					<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-						<div class="lead">
-							<p>The default options for <a href="random.html#fromrandomstr">fromRandomStr</a></p>
-						</div>
-						</div><div class="tsd-comment tsd-typography tsd-comment-tags">
-						<dl class="tsd-comment-tags"><dt class="tds-tag-internal">internal</dt>
-						<dd class="tds-tag-internal"></dd></dl>
-					</div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in
-								<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/src/utils/from-random-string.ts#L32">
-									libs/rxjs/random/src/utils/from-random-string.ts:32
-								</a>
-							</li>
-						</ul>
-					</aside>
-					<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="rnd_str_defaults.caps" class="tsd-anchor"></a>
-						<div class="tsd-signature tsd-kind-icon">caps<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> = true</span></div>
-						<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-							<div class="lead">
-								<p>By default include all caps letters</p>
-							</div>
-						</div>
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in
-									<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/src/utils/from-random-string.ts#L36">
-										libs/rxjs/random/src/utils/from-random-string.ts:36
-									</a>
-								</li>
-							</ul>
-						</aside>
-						</section>    <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="rnd_str_defaults.lower" class="tsd-anchor"></a>
-						<div class="tsd-signature tsd-kind-icon">lower<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> = true</span></div>
-						<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-							<div class="lead">
-								<p>By default include all lower case letters</p>
-							</div>
-						</div>
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in
-									<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/src/utils/from-random-string.ts#L40">
-										libs/rxjs/random/src/utils/from-random-string.ts:40
-									</a>
-								</li>
-							</ul>
-						</aside>
-						</section>    <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="rnd_str_defaults.number" class="tsd-anchor"></a>
-						<div class="tsd-signature tsd-kind-icon">number<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">true</span><span class="tsd-signature-symbol"> = true</span></div>
-						<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-							<div class="lead">
-								<p>By default exclude all numbers</p>
-							</div>
-						</div>
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in
-									<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/src/utils/from-random-string.ts#L44">
-										libs/rxjs/random/src/utils/from-random-string.ts:44
-									</a>
-								</li>
-							</ul>
-						</aside>
-						</section>    <section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-object-literal">
-						<a name="rnd_str_defaults.special" class="tsd-anchor"></a>
-						<div class="tsd-signature tsd-kind-icon">special<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">false</span><span class="tsd-signature-symbol"> = false</span></div>
-						<div class="tsd-comment tsd-typography tsd-comment-shorttext">
-							<div class="lead">
-								<p>By default exclude all special characters</p>
-							</div>
-						</div>
-						<aside class="tsd-sources">
-							<ul>
-								<li>Defined in
-									<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/src/utils/from-random-string.ts#L48">
-										libs/rxjs/random/src/utils/from-random-string.ts:48
-									</a>
-								</li>
-							</ul>
-						</aside>
-			</section></section></section>
+				</section>
+			</section>
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/20/2021 at 8:26:14 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/21/2021 at 6:50:02 PM</p>
 			</div>
 		</div>
 	</div>

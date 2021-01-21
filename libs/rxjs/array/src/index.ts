@@ -4,7 +4,6 @@
  * @packageDocumentation
  * @module Array
  *
- * @ignore
  */
 /* istanbul ignore file */
 export { binarySearch } from './lib/binary-search';

@@ -15,6 +15,8 @@ export { switchMapIf } from './lib/switch-map-if';
 export { tapIf } from './lib/tap-if';
 export { tapOnFirstEmit } from './lib/tap-on-first-emit';
 export { tapOnSubscribe } from './lib/tap-on-subscribe';
+export { temperature } from './lib/temperature';
 export { toWritableStream } from './lib/to-writable-stream';
 
 export * from './types/utility';
+export { Temperature } from './types/temperature';

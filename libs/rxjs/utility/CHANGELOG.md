@@ -5,6 +5,27 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+#### Conversion
+
+- `length` operator that accepts `fromLength` and `toLength` properties and modifies the source number using a length
+  calculation
+  - Example: `length(Lengths.KILOMETERS, Lengths.MILES)` to convert a Kilometer length to Miles
+- `temperature` operator that accepts `temperatureFrom` and `temperatureTo` properties and modifies the source number
+  using a temperature calculation
+  - Example: `temperature(Temperatures.KELVIN, Temperatures.CELSIUS)` to convert from Kelvin to Celsius
+- `weight` operator that accepts `fromWeight` and `toWeight` properties and modifies the source number using a weight
+  conversion
+  - Example: `weight(Weights.GRAMS, Weights.KILOGRAMS)` to convert Grams to Kilograms
+
+#### Color
+
+- `rgbToHex` and `rgbaToHex` which converts RGB/RGBA strings to their Hex colour value
+- `hexToRGBA` which converts a Hex string to RGB/RGBA
+
 ## [4.1.2] - 2021-01-21
 
 ### Changed
@@ -21,7 +42,8 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- `decodeJWT` operator that takes a string source that could be a JWT token, and attempts to decoded it and return the decoded response
+- `decodeJWT` operator that takes a string source that could be a JWT token, and attempts to decoded it and return the
+  decoded response
 
 ## [4.0.0] - 2021-01-18
 

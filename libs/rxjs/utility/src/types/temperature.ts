@@ -6,7 +6,7 @@
 /**
  * Types of temperatures the [[temperature]] operator supports
  */
-export enum Temperature {
+export enum Temperatures {
   /**
    * Fahrenheit
    */

@@ -8,6 +8,7 @@
 /* istanbul ignore file */
 export { debounceWithQuery } from './lib/debounce-with-query';
 export { decodeJWT } from './lib/decode-jwt';
+export { distance } from './lib/distance';
 export { fromReadableStream } from './lib/from-readable-stream';
 export { fromFetchWithProgress } from './lib/from-fetch-with-progress';
 export { hexToRGBA } from './lib/hex-to-rgba';
@@ -22,4 +23,5 @@ export { temperature } from './lib/temperature';
 export { toWritableStream } from './lib/to-writable-stream';
 
 export * from './types/utility';
-export { Temperature } from './types/temperature';
+export { Temperatures } from './types/temperature';
+export { Distances } from './types/distance';

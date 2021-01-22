@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { Temperature, temperature } from '@rxjs-ninja/rxjs-utility';
+import { Temperatures, temperature } from '@rxjs-ninja/rxjs-utility';
 
 describe('temperature', () => {
   // This test is only needed once
@@ -21,7 +21,7 @@ describe('temperature', () => {
         d: -42,
         e: 100000,
       });
-      m.expect(input.pipe(temperature('foobar', Temperature.FAHRENHEIT))).toBeObservable(expected);
+      m.expect(input.pipe(temperature('foobar', Temperatures.FAHRENHEIT))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );
@@ -45,7 +45,7 @@ describe('temperature', () => {
           d: -43.6,
           e: 180032,
         });
-        m.expect(input.pipe(temperature(Temperature.CELSIUS, Temperature.FAHRENHEIT))).toBeObservable(expected);
+        m.expect(input.pipe(temperature(Temperatures.CELSIUS, Temperatures.FAHRENHEIT))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -68,7 +68,7 @@ describe('temperature', () => {
           d: 231.2,
           e: 100273.2,
         });
-        m.expect(input.pipe(temperature(Temperature.CELSIUS, 'kelvin'))).toBeObservable(expected);
+        m.expect(input.pipe(temperature(Temperatures.CELSIUS, 'kelvin'))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -91,7 +91,7 @@ describe('temperature', () => {
           d: -42.32,
           e: 100000.3,
         });
-        m.expect(input.pipe(temperature(Temperature.CELSIUS, Temperature.CELSIUS, 2))).toBeObservable(expected);
+        m.expect(input.pipe(temperature(Temperatures.CELSIUS, Temperatures.CELSIUS, 2))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -116,7 +116,7 @@ describe('temperature', () => {
           d: -42,
           e: 100000,
         });
-        m.expect(input.pipe(temperature(Temperature.FAHRENHEIT, Temperature.CELSIUS))).toBeObservable(expected);
+        m.expect(input.pipe(temperature(Temperatures.FAHRENHEIT, Temperatures.CELSIUS))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -139,7 +139,7 @@ describe('temperature', () => {
           d: 232,
           e: 55810.9,
         });
-        m.expect(input.pipe(temperature(Temperature.FAHRENHEIT, 'kelvin'))).toBeObservable(expected);
+        m.expect(input.pipe(temperature(Temperatures.FAHRENHEIT, 'kelvin'))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -162,7 +162,7 @@ describe('temperature', () => {
           d: -42.32,
           e: 100000.3,
         });
-        m.expect(input.pipe(temperature(Temperature.FAHRENHEIT, Temperature.FAHRENHEIT, 2))).toBeObservable(expected);
+        m.expect(input.pipe(temperature(Temperatures.FAHRENHEIT, Temperatures.FAHRENHEIT, 2))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -187,7 +187,7 @@ describe('temperature', () => {
           d: -316.7,
           e: 179758.9,
         });
-        m.expect(input.pipe(temperature(Temperature.KELVIN, Temperature.CELSIUS))).toBeObservable(expected);
+        m.expect(input.pipe(temperature(Temperatures.KELVIN, Temperatures.CELSIUS))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -210,7 +210,7 @@ describe('temperature', () => {
           d: -535.3,
           e: 179540.3,
         });
-        m.expect(input.pipe(temperature(Temperature.KELVIN, Temperature.FAHRENHEIT))).toBeObservable(expected);
+        m.expect(input.pipe(temperature(Temperatures.KELVIN, Temperatures.FAHRENHEIT))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -233,7 +233,7 @@ describe('temperature', () => {
           d: -42.32,
           e: 100000.3,
         });
-        m.expect(input.pipe(temperature(Temperature.KELVIN, Temperature.KELVIN, 2))).toBeObservable(expected);
+        m.expect(input.pipe(temperature(Temperatures.KELVIN, Temperatures.KELVIN, 2))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );

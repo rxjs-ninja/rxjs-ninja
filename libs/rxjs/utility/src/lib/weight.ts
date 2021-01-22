@@ -57,6 +57,7 @@ export function weight<T extends Weights>(
           case Weights.ST: {
             return fromSt[toWeightValue](value, precisionValue);
           }
+          /* istanbul ignore next-line */
           default:
             return value;
         }

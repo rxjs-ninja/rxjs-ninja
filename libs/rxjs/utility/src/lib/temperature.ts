@@ -49,6 +49,7 @@ export function temperature<T extends Temperatures>(
           } else if (fromTemperatureValue === Temperatures.KELVIN) {
             return kelvinTo(value, toTemperatureValue, precisionValue);
           }
+          /* istanbul ignore next-line */
           return value;
         },
       ),

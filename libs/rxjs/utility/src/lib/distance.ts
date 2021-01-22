@@ -63,6 +63,7 @@ export function distance<T extends Distances>(
           case Distances.YARDS: {
             return fromYards[toDistanceValue](value, precisionValue);
           }
+          /* istanbul ignore next-line */
           default:
             return value;
         }

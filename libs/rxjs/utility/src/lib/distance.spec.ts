@@ -2,25 +2,6 @@ import { marbles } from 'rxjs-marbles/jest';
 import { distance, Distances } from '@rxjs-ninja/rxjs-utility';
 
 describe('distance', () => {
-  it(
-    'should return the value for an unknown distance',
-    marbles((m) => {
-      const input = m.hot('-a-b-c-|', {
-        a: 0,
-        b: 100,
-        c: 420,
-      });
-      const subs = '^------!';
-      const expected = m.cold('-a-b-c-|', {
-        a: 0,
-        b: 100,
-        c: 420,
-      });
-      m.expect(input.pipe(distance('foobar', Distances.FEET))).toBeObservable(expected);
-      m.expect(input).toHaveSubscriptions(subs);
-    }),
-  );
-
   // Centimeters
   describe('cm', () => {
     it(

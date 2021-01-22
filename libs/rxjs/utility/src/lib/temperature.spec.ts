@@ -2,6 +2,30 @@ import { marbles } from 'rxjs-marbles/jest';
 import { Temperature, temperature } from '@rxjs-ninja/rxjs-utility';
 
 describe('temperature', () => {
+  // This test is only needed once
+  it(
+    'should return the value if the input temperatures are not known',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-e|', {
+        a: 0,
+        b: 100,
+        c: 37.5,
+        d: -42,
+        e: 100000,
+      });
+      const subs = '^---------!';
+      const expected = m.cold('-a-b-c-d-e|', {
+        a: 0,
+        b: 100,
+        c: 37.5,
+        d: -42,
+        e: 100000,
+      });
+      m.expect(input.pipe(temperature('foobar', Temperature.FAHRENHEIT))).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
   describe('Celsius', () => {
     it(
       'should convert values from Celsius to Fahrenheit',

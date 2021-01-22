@@ -1,31 +1,7 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { Temperatures, temperature } from '@rxjs-ninja/rxjs-utility';
+import { temperature, Temperatures } from '@rxjs-ninja/rxjs-utility';
 
 describe('temperature', () => {
-  // This test is only needed once
-  it(
-    'should return the value if the input temperatures are not known',
-    marbles((m) => {
-      const input = m.hot('-a-b-c-d-e|', {
-        a: 0,
-        b: 100,
-        c: 37.5,
-        d: -42,
-        e: 100000,
-      });
-      const subs = '^---------!';
-      const expected = m.cold('-a-b-c-d-e|', {
-        a: 0,
-        b: 100,
-        c: 37.5,
-        d: -42,
-        e: 100000,
-      });
-      m.expect(input.pipe(temperature('foobar', Temperatures.FAHRENHEIT))).toBeObservable(expected);
-      m.expect(input).toHaveSubscriptions(subs);
-    }),
-  );
-
   describe('Celsius', () => {
     it(
       'should convert values from Celsius to Fahrenheit',
@@ -68,7 +44,7 @@ describe('temperature', () => {
           d: 231.2,
           e: 100273.2,
         });
-        m.expect(input.pipe(temperature(Temperatures.CELSIUS, 'kelvin'))).toBeObservable(expected);
+        m.expect(input.pipe(temperature(Temperatures.CELSIUS, Temperatures.KELVIN))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -139,7 +115,7 @@ describe('temperature', () => {
           d: 232,
           e: 55810.9,
         });
-        m.expect(input.pipe(temperature(Temperatures.FAHRENHEIT, 'kelvin'))).toBeObservable(expected);
+        m.expect(input.pipe(temperature(Temperatures.FAHRENHEIT, Temperatures.KELVIN))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );

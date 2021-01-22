@@ -13,8 +13,8 @@ import { fromG, fromKg, fromLb, fromOz, fromSt } from '../utils/weight';
  *
  * @category Conversion
  *
- * @param from The weight type of the source value
- * @param to The weight type of the output value
+ * @param fromWeight The weight type of the source value
+ * @param toWeight The weight type of the output value
  * @param precision The number of decimal places to return, default is `2`
  *
  * @example
@@ -22,40 +22,40 @@ import { fromG, fromKg, fromLb, fromOz, fromSt } from '../utils/weight';
  * ```ts
  * const source$ = from([10, 5, 100]);
  *
- * source$.pipe(weight('st', 'kg')).subscribe()
+ * source$.pipe(weight(Weights.ST, Weights.KG)).subscribe()
  * ```
  * Output: `63.5, 31.8, 635`
  *
  * @returns Observable that emits a number that is the `from` [[Weights]] converted to the `to` [[Weights]]
  */
-export function weight(
-  from: Subscribable<string> | string,
-  to: Subscribable<string> | string,
+export function weight<T extends Weights>(
+  fromWeight: Subscribable<T> | T,
+  toWeight: Subscribable<T> | T,
   precision: Subscribable<number> | number = 3,
 ): MonoTypeOperatorFunction<number> {
-  const from$ = createOrReturnObservable(from);
-  const to$ = createOrReturnObservable(to);
+  const fromWeight$ = createOrReturnObservable(fromWeight);
+  const toWeight$ = createOrReturnObservable(toWeight);
   const precision$ = createOrReturnObservable(precision);
 
   return (source) =>
     source.pipe(
-      withLatestFrom(from$, to$, precision$),
-      map<[number, string, string, number], number>(([value, fromValue, toValue, precisionValue]) => {
-        switch (fromValue) {
+      withLatestFrom(fromWeight$, toWeight$, precision$),
+      map<[number, string, string, number], number>(([value, fromWeightValue, toWeightValue, precisionValue]) => {
+        switch (fromWeightValue) {
           case Weights.G: {
-            return fromG[toValue](value, precisionValue);
+            return fromG[toWeightValue](value, precisionValue);
           }
           case Weights.KG: {
-            return fromKg[toValue](value, precisionValue);
+            return fromKg[toWeightValue](value, precisionValue);
           }
           case Weights.LB: {
-            return fromLb[toValue](value, precisionValue);
+            return fromLb[toWeightValue](value, precisionValue);
           }
           case Weights.OZ: {
-            return fromOz[toValue](value, precisionValue);
+            return fromOz[toWeightValue](value, precisionValue);
           }
           case Weights.ST: {
-            return fromSt[toValue](value, precisionValue);
+            return fromSt[toWeightValue](value, precisionValue);
           }
           default:
             return value;

@@ -13,8 +13,8 @@ import { fromCm, fromFeet, fromInches, fromKm, fromMeters, fromMiles, fromYards 
  *
  * @category Conversion
  *
- * @param from The distance type of the source value
- * @param to The distance type of the output value
+ * @param fromDistance The distance type of the source value
+ * @param toDistance The distance type of the output value
  * @param precision The number of decimal places to return, default is `3`
  *
  * @example
@@ -28,40 +28,40 @@ import { fromCm, fromFeet, fromInches, fromKm, fromMeters, fromMiles, fromYards 
  *
  * @returns Observable that emits a number that is the `from` [[Distances]] converted to the `to` [[Distances]]
  */
-export function distance(
-  from: Subscribable<string> | string,
-  to: Subscribable<string> | string,
+export function distance<T extends Distances>(
+  fromDistance: Subscribable<T> | T,
+  toDistance: Subscribable<T> | T,
   precision: Subscribable<number> | number = 3,
 ): MonoTypeOperatorFunction<number> {
-  const from$ = createOrReturnObservable(from);
-  const to$ = createOrReturnObservable(to);
+  const fromDistance$ = createOrReturnObservable(fromDistance);
+  const toDistance$ = createOrReturnObservable(toDistance);
   const precision$ = createOrReturnObservable(precision);
 
   return (source) =>
     source.pipe(
-      withLatestFrom(from$, to$, precision$),
-      map<[number, string, string, number], number>(([value, fromValue, toValue, precisionValue]) => {
-        switch (fromValue) {
+      withLatestFrom(fromDistance$, toDistance$, precision$),
+      map<[number, string, string, number], number>(([value, fromDistanceValue, toDistanceValue, precisionValue]) => {
+        switch (fromDistanceValue) {
           case Distances.CM: {
-            return fromCm[toValue](value, precisionValue);
+            return fromCm[toDistanceValue](value, precisionValue);
           }
           case Distances.FEET: {
-            return fromFeet[toValue](value, precisionValue);
+            return fromFeet[toDistanceValue](value, precisionValue);
           }
           case Distances.INCHES: {
-            return fromInches[toValue](value, precisionValue);
+            return fromInches[toDistanceValue](value, precisionValue);
           }
           case Distances.KM: {
-            return fromKm[toValue](value, precisionValue);
+            return fromKm[toDistanceValue](value, precisionValue);
           }
           case Distances.METERS: {
-            return fromMeters[toValue](value, precisionValue);
+            return fromMeters[toDistanceValue](value, precisionValue);
           }
           case Distances.MILES: {
-            return fromMiles[toValue](value, precisionValue);
+            return fromMiles[toDistanceValue](value, precisionValue);
           }
           case Distances.YARDS: {
-            return fromYards[toValue](value, precisionValue);
+            return fromYards[toDistanceValue](value, precisionValue);
           }
           default:
             return value;

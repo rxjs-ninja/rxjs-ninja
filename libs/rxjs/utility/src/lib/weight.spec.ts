@@ -3,7 +3,7 @@ import { weight, Weights } from '@rxjs-ninja/rxjs-utility';
 
 describe('weight', () => {
   it(
-    'return the value for unrecognised weight',
+    'return the value for unrecognised input weight',
     marbles((m) => {
       const input = m.hot('-a-b-c-|', {
         a: 0,
@@ -16,7 +16,7 @@ describe('weight', () => {
         b: 100,
         c: 1000,
       });
-      m.expect(input.pipe(weight('foobar', Weights.KG))).toBeObservable(expected);
+      m.expect(input.pipe(weight('foobar' as any, Weights.KG))).toBeObservable(expected);
       m.expect(input).toHaveSubscriptions(subs);
     }),
   );

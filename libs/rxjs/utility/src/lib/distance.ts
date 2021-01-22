@@ -18,11 +18,13 @@ import { fromCm, fromFeet, fromInches, fromKm, fromMeters, fromMiles, fromYards 
  * @param precision The number of decimal places to return, default is `3`
  *
  * @example
- * Return the number of miles from meters
+ * Return the number of miles from meters to precision `0`
  * ```ts
-
+ * const source$ = from([100, 200, 300, 500]);
+ *
+ * source$.pipe(distance(Distances.MILES, Distances.METERS, 0)).subscribe()
  * ```
- * Output: ``
+ * Output: `160934, 321869, 482803, 804672`
  *
  * @returns Observable that emits a number that is the `from` [[Distances]] converted to the `to` [[Distances]]
  */

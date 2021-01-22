@@ -15,6 +15,39 @@ all into the other module categories.
 
 ## Function and Operator categories
 
+### Conversion
+
+Operators for converting source values using calculations such a temperture, length and weight
+
+```ts
+const source$ = from([10, 50, 100]);
+
+// Convert the source values as Celcius temperature to Fahrenheit
+source.pipe(temperature(Temperatures.CELSIUS, Temperatures.FAHRENHEIT)).subscribe();
+// Output: `50, 122, 212`
+
+// Convert the source values as Km to Miles, with `1` decimal place
+source.pipe(length(Lengths.KM, Lengths.MILES, 1)).subscribe();
+// Output: `6.2, 31.1, 62.1`
+```
+
+### Colour
+
+Operators for converting colour types
+
+```ts
+const rgb$ = from(['rgb(0, 0, 0)', 'rgb(255, 255, 255)']);
+const hex$ = from(['#000000', '#ffffff']);
+
+// Convert RGB strings to Hex
+rgb$.pipe(rgbToHex()).subscribe();
+// Output: `'#000000', '#ffffff'`
+
+// Convert Hex strings to RGB
+hex$.pipe(hexToRGBA()).subscribe();
+// Output: `'rgb(0, 0, 0)', 'rgb(255, 255, 255)'`
+```
+
 ### HTTP
 
 Functions for working with HTTP Observables -

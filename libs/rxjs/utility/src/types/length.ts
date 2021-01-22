@@ -4,9 +4,9 @@
  */
 
 /**
- * Supported distance types in the [[distance]] operator
+ * Supported length types in the [[length]] operator
  */
-export enum Distances {
+export enum Lengths {
   /**
    * Centimeters
    */

@@ -2,9 +2,10 @@
  * @packageDocumentation
  * @module Colour
  */
-import { MonoTypeOperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 import { convertRGBAStrToHexComponents } from '../utils/colour';
+import { createOrReturnObservable } from 'libs/rxjs/utility/src/utils/internal';
 
 /**
  * Returns an Observable that emits a string containing a HTML hex colour converted from a source rgb string
@@ -31,10 +32,14 @@ import { convertRGBAStrToHexComponents } from '../utils/colour';
  *
  * @returns Observable that emits a string containing a HTML hex colour
  */
-export function rgbToHex(excludeHash?: boolean): MonoTypeOperatorFunction<string> {
+export function rgbToHex(excludeHash?: Subscribable<boolean> | boolean): MonoTypeOperatorFunction<string> {
+  const excludeHash$ = createOrReturnObservable(excludeHash);
   return (source) =>
     source.pipe(
       map((input) => convertRGBAStrToHexComponents(input)),
-      map(([red, green, blue]) => (excludeHash ? `${red}${green}${blue}` : `#${red}${green}${blue}`)),
+      withLatestFrom(excludeHash$),
+      map(([[red, green, blue], excludeHashValue]) =>
+        excludeHashValue ? `${red}${green}${blue}` : `#${red}${green}${blue}`,
+      ),
     );
 }

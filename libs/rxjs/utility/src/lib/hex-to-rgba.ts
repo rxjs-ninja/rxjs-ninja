@@ -2,12 +2,14 @@
  * @packageDocumentation
  * @module Utility
  */
-import { MonoTypeOperatorFunction } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
+import { map, withLatestFrom } from 'rxjs/operators';
 import { convertHexToRGBA } from '../utils/colour';
+import { createOrReturnObservable } from 'libs/rxjs/utility/src/utils/internal';
 
 /**
- * Returns an Observable that emits a string containing a `rgb` or `rgba`  colour converted from a source hex string
+ * Returns an Observable that emits a string containing a `rgb` or `rgba` colour (if `alpha` is included in the sting
+ * or as a property) converted from a source hex string
  *
  * @category Colour
  *
@@ -39,6 +41,11 @@ import { convertHexToRGBA } from '../utils/colour';
  *
  * @returns Observable that emits a string containing a HTML hex colour
  */
-export function hexToRGBA(alpha?: number): MonoTypeOperatorFunction<string> {
-  return (source) => source.pipe(map((value) => convertHexToRGBA(value, alpha)));
+export function hexToRGBA(alpha?: Subscribable<number> | number): MonoTypeOperatorFunction<string> {
+  const alpha$ = createOrReturnObservable(alpha);
+  return (source) =>
+    source.pipe(
+      withLatestFrom(alpha$),
+      map(([value, alphaValue]) => convertHexToRGBA(value, alphaValue)),
+    );
 }

@@ -9,13 +9,20 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### Added
 
-- `distance` operator that accepts `fromDistance` and `toDistance` properties and modifies the source number using a
-  distance calculation (e.g. `distance(Distances.KM, Distances.MILES)` to convert a Kilometer distance to Miles)
+#### Conversion
+
+- `length` operator that accepts `fromLength` and `toLength` properties and modifies the source number using a length
+  calculation (e.g. `length(Lengths.KM, Lengths.MILES)` to convert a Kilometer length to Miles)
 - `temperature` operator that accepts `temperatureFrom` and `temperatureTo` properties and modifies the source number
   using a temperature calculation (e.g. `temperature(Temperatures.KELVIN, Temperatures.CELSIUS)` to convert from Kelvin
   to Celsius)
 - `weight` operator that accepts `fromWeight` and `toWeight` properties and modifies the source number using a weight
   conversion (e.g. `weight(Weights.G, Weights.KG)` to convert Grams to Kilograms)
+
+#### Color
+
+- `rgbToHex` and `rgbaToHex` which converts RGB/RGBA strings to their Hex colour value
+- `hexToRGBA` which converts a Hex string to RGB/RGBA
 
 ## [4.1.2] - 2021-01-21
 

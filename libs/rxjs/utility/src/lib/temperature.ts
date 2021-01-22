@@ -42,15 +42,20 @@ export function temperature<T extends Temperatures>(
       withLatestFrom(fromTemperature$, toTemperature$, precision$),
       map<[number, string, string, number], number>(
         ([value, fromTemperatureValue, toTemperatureValue, precisionValue]) => {
-          if (fromTemperatureValue === Temperatures.CELSIUS) {
-            return celsiusTo(value, toTemperatureValue, precisionValue);
-          } else if (fromTemperatureValue === Temperatures.FAHRENHEIT) {
-            return fahrenheitTo(value, toTemperatureValue, precisionValue);
-          } else if (fromTemperatureValue === Temperatures.KELVIN) {
-            return kelvinTo(value, toTemperatureValue, precisionValue);
+          switch (fromTemperatureValue) {
+            case Temperatures.CELSIUS: {
+              return celsiusTo(value, toTemperatureValue, precisionValue);
+            }
+            case Temperatures.FAHRENHEIT: {
+              return fahrenheitTo(value, toTemperatureValue, precisionValue);
+            }
+            case Temperatures.KELVIN: {
+              return kelvinTo(value, toTemperatureValue, precisionValue);
+            }
+            /* istanbul ignore next-line */
+            default:
+              return value;
           }
-          /* istanbul ignore next-line */
-          return value;
         },
       ),
     );

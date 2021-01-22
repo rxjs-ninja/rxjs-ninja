@@ -118,10 +118,126 @@ describe('distance', () => {
     );
   });
 
+  // Feet
+  describe('feet', () => {
+    it(
+      'should convert to cm',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100,
+          c: 420,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 3048.037,
+          c: 12801.756,
+        });
+        m.expect(input.pipe(distance(Distances.FEET, Distances.CM))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+    it(
+      'should convert to inches',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100,
+          c: 420,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 1200,
+          c: 5040,
+        });
+        m.expect(input.pipe(distance(Distances.FEET, Distances.INCHES))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+
+    it(
+      'should convert to km',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100,
+          c: 420,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 0.03,
+          c: 0.128,
+        });
+        m.expect(input.pipe(distance(Distances.FEET, Distances.KM))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+
+    it(
+      'should convert to meters',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100,
+          c: 420,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 30.48,
+          c: 128.018,
+        });
+        m.expect(input.pipe(distance(Distances.FEET, Distances.METERS))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+
+    it(
+      'should convert to miles',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100,
+          c: 420,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 0.0189,
+          c: 0.0795,
+        });
+        m.expect(input.pipe(distance(Distances.FEET, Distances.MILES, 4))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+
+    it(
+      'should convert to yards',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100,
+          c: 420,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 33.333,
+          c: 139.999,
+        });
+        m.expect(input.pipe(distance(Distances.FEET, Distances.YARDS))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+  });
+
   // Inches
   describe('inches', () => {
     it(
-      'should convert inches to cm with precision of `1`',
+      'should convert to cm with precision of `1`',
       marbles((m) => {
         const input = m.hot('-a-b-c-|', {
           a: 0,
@@ -139,7 +255,7 @@ describe('distance', () => {
       }),
     );
     it(
-      'should convert inches to feet',
+      'should convert to feet',
       marbles((m) => {
         const input = m.hot('-a-b-c-|', {
           a: 0,
@@ -158,7 +274,7 @@ describe('distance', () => {
     );
 
     it(
-      'should convert inches to km',
+      'should convert to km',
       marbles((m) => {
         const input = m.hot('-a-b-c-|', {
           a: 0,
@@ -177,7 +293,7 @@ describe('distance', () => {
     );
 
     it(
-      'should convert inches to meters',
+      'should convert to meters',
       marbles((m) => {
         const input = m.hot('-a-b-c-|', {
           a: 0,
@@ -195,8 +311,8 @@ describe('distance', () => {
       }),
     );
 
-    xit(
-      'should convert inches to miles',
+    it(
+      'should convert to miles',
       marbles((m) => {
         const input = m.hot('-a-b-c-|', {
           a: 0,
@@ -206,16 +322,16 @@ describe('distance', () => {
         const subs = '^------!';
         const expected = m.cold('-a-b-c-|', {
           a: 0,
-          b: 0.000621,
-          c: 0.00261,
+          b: 0.002,
+          c: 0.007,
         });
         m.expect(input.pipe(distance(Distances.INCHES, Distances.MILES))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
 
-    xit(
-      'should convert inches to yards',
+    it(
+      'should convert to yards',
       marbles((m) => {
         const input = m.hot('-a-b-c-|', {
           a: 0,
@@ -225,10 +341,126 @@ describe('distance', () => {
         const subs = '^------!';
         const expected = m.cold('-a-b-c-|', {
           a: 0,
-          b: 1.09,
-          c: 4.59,
+          b: 2.78,
+          c: 11.67,
         });
         m.expect(input.pipe(distance(Distances.INCHES, Distances.YARDS, 2))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+  });
+
+  // Kilometers
+  describe('km', () => {
+    it(
+      'should convert to cm',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100,
+          c: 420,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 10000000,
+          c: 42000000,
+        });
+        m.expect(input.pipe(distance(Distances.KM, Distances.CM))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+    it(
+      'should convert to feet',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100,
+          c: 420,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 328080,
+          c: 1377936,
+        });
+        m.expect(input.pipe(distance(Distances.KM, Distances.FEET))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+
+    it(
+      'should convert to km',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100,
+          c: 420,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 3937000,
+          c: 16535400,
+        });
+        m.expect(input.pipe(distance(Distances.KM, Distances.INCHES))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+
+    it(
+      'should convert to meters',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100,
+          c: 420,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 100000,
+          c: 420000,
+        });
+        m.expect(input.pipe(distance(Distances.KM, Distances.METERS))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+
+    it(
+      'should convert to miles',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100,
+          c: 420,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 62.137,
+          c: 260.975,
+        });
+        m.expect(input.pipe(distance(Distances.KM, Distances.MILES))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+
+    it(
+      'should convert to yards',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100,
+          c: 420,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 109360,
+          c: 459312,
+        });
+        m.expect(input.pipe(distance(Distances.KM, Distances.YARDS, 2))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );

@@ -9,24 +9,22 @@ import { Distances } from '../types/distance';
 import { fromCm, fromFeet, fromInches, fromKm, fromMeters, fromMiles, fromYards } from '../utils/distance';
 
 /**
- * Returns an Observable that converts the source value through [[Temperature]] conversion
+ * Returns an Observable that converts the source value through [[Distances]] conversion
  *
  * @category Conversion
  *
- * @param from The temperature type of the source value
- * @param to The temperature type of the output value
+ * @param from The distance type of the source value
+ * @param to The distance type of the output value
  * @param precision The number of decimal places to return, default is `3`
  *
  * @example
- * Return Fahrenheit from Celsius temperatures
+ * Return the number of miles from meters
  * ```ts
- * const source$ = from([0, 100, 37.5, -42]);
- *
- * source.pipe(temperature(Temperature.CELSIUS, Temperature.FAHRENHEIT)).subscribe()
+
  * ```
- * Output: `32, 212, 99.5, -43.6`
+ * Output: ``
  *
- * @returns Observable that emits a number that is the `from` [[Temperature]] converted to the `to` [[Temperature]]
+ * @returns Observable that emits a number that is the `from` [[Distances]] converted to the `to` [[Distances]]
  */
 export function distance(
   from: Subscribable<string> | string,

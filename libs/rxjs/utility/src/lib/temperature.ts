@@ -9,7 +9,7 @@ import { Temperatures } from '../types/temperature';
 import { celsiusTo, fahrenheitTo, kelvinTo } from '../utils/temperature';
 
 /**
- * Returns an Observable that converts the source value through [[Temperature]] conversion
+ * Returns an Observable that converts the source value through [[Temperatures]] conversion
  *
  * @category Conversion
  *
@@ -22,11 +22,11 @@ import { celsiusTo, fahrenheitTo, kelvinTo } from '../utils/temperature';
  * ```ts
  * const source$ = from([0, 100, 37.5, -42]);
  *
- * source.pipe(temperature(Temperature.CELSIUS, Temperature.FAHRENHEIT)).subscribe()
+ * source.pipe(temperature(Temperatures.CELSIUS, Temperatures.FAHRENHEIT)).subscribe()
  * ```
  * Output: `32, 212, 99.5, -43.6`
  *
- * @returns Observable that emits a number that is the `from` [[Temperature]] converted to the `to` [[Temperature]]
+ * @returns Observable that emits a number that is the `from` [[Temperatures]] converted to the `to` [[Temperatures]]
  */
 export function temperature(
   from: Subscribable<string> | string,

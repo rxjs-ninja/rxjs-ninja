@@ -24,7 +24,7 @@ export const fromCm: Record<string, (num: number, precision: number) => number> 
 export const fromFeet: Record<string, (num: number, precision: number) => number> = {
   meters: (value: number, precision: number) => roundNumber(value / 3.2808, precision),
   inches: (value: number, precision: number) => roundNumber(value * 12, precision),
-  cm: (value: number, precision: number) => roundNumber(value * 0.032808, precision),
+  cm: (value: number, precision: number) => roundNumber(value / 0.032808, precision),
   yards: (value: number, precision: number) => roundNumber(value * 0.33333, precision),
   km: (value: number, precision: number) => roundNumber(value / 3280.8, precision),
   miles: (value: number, precision: number) => roundNumber(value * 0.00018939, precision),

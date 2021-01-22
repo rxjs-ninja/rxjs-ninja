@@ -5,7 +5,7 @@
 import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { convertHexToRGBA } from '../utils/colour';
-import { createOrReturnObservable } from 'libs/rxjs/utility/src/utils/internal';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a string containing a `rgb` or `rgba` colour (if `alpha` is included in the sting

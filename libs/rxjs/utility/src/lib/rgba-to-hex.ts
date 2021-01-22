@@ -5,7 +5,7 @@
 import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { convertRGBAStrToHexComponents } from '../utils/colour';
-import { createOrReturnObservable } from 'libs/rxjs/utility/src/utils/internal';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a string containing a HTML hex colour converted from a source rgba string

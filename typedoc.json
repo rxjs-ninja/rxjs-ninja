@@ -26,7 +26,7 @@
     "typedoc-plugin-extras",
     "typedoc-ninja-theme"
   ],
-  "homepageText": "A collection of over 120 out-of-the-box and well tested RxJS operators",
+  "homepageText": "A collection of over 130 out-of-the-box and well tested RxJS operators",
   "links": [
     {
       "label": "Github",

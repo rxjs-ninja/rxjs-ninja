@@ -1,5 +1,6 @@
 /**
- * Package containing utility methods for use with RxJS
+ * Package containing utility operators for use with RxJS covering various categories such as side effects,
+ * handling streams and converting values.
  *
  * @packageDocumentation
  * @module Utility
@@ -8,13 +9,22 @@
 /* istanbul ignore file */
 export { debounceWithQuery } from './lib/debounce-with-query';
 export { decodeJWT } from './lib/decode-jwt';
+export { length } from 'libs/rxjs/utility/src/lib/length';
 export { fromReadableStream } from './lib/from-readable-stream';
 export { fromFetchWithProgress } from './lib/from-fetch-with-progress';
+export { hexToRGBA } from './lib/hex-to-rgba';
 export { mapIf } from './lib/map-if';
+export { rgbToHex } from './lib/rgb-to-hex';
+export { rgbaToHex } from './lib/rgba-to-hex';
 export { switchMapIf } from './lib/switch-map-if';
 export { tapIf } from './lib/tap-if';
 export { tapOnFirstEmit } from './lib/tap-on-first-emit';
 export { tapOnSubscribe } from './lib/tap-on-subscribe';
+export { temperature } from './lib/temperature';
 export { toWritableStream } from './lib/to-writable-stream';
+export { weight } from './lib/weight';
 
 export * from './types/utility';
+export { Temperatures } from './types/temperature';
+export { Lengths } from 'libs/rxjs/utility/src/types/length';
+export { Weights } from './types/weight';

@@ -158,6 +158,35 @@
 				<a href="#function-and-operator-categories" id="function-and-operator-categories" style="color: inherit; text-decoration: none;">
 					<h2>Function and Operator categories</h2>
 				</a>
+				<a href="#conversion" id="conversion" style="color: inherit; text-decoration: none;">
+					<h3>Conversion</h3>
+				</a>
+				<p>Operators for converting source values using calculations such a temperture, length and weight</p>
+				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">source$</span><span style="color: #000000"> = </span><span style="color: #795E26">from</span><span style="color: #000000">([</span><span style="color: #098658">10</span><span style="color: #000000">, </span><span style="color: #098658">50</span><span style="color: #000000">, </span><span style="color: #098658">100</span><span style="color: #000000">]);</span>
+
+<span style="color: #008000">// Convert the source values as Celcius temperature to Fahrenheit</span>
+<span style="color: #001080">source</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">temperature</span><span style="color: #000000">(</span><span style="color: #001080">Temperatures</span><span style="color: #000000">.</span><span style="color: #0070C1">CELSIUS</span><span style="color: #000000">, </span><span style="color: #001080">Temperatures</span><span style="color: #000000">.</span><span style="color: #0070C1">FAHRENHEIT</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `50, 122, 212`</span>
+
+<span style="color: #008000">// Convert the source values as Km to Miles, with `1` decimal place</span>
+<span style="color: #001080">source</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">length</span><span style="color: #000000">(</span><span style="color: #001080">Lengths</span><span style="color: #000000">.</span><span style="color: #0070C1">KM</span><span style="color: #000000">, </span><span style="color: #001080">Lengths</span><span style="color: #000000">.</span><span style="color: #0070C1">MILES</span><span style="color: #000000">, </span><span style="color: #098658">1</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `6.2, 31.1, 62.1`</span>
+</code></pre>
+				<a href="#colour" id="colour" style="color: inherit; text-decoration: none;">
+					<h3>Colour</h3>
+				</a>
+				<p>Operators for converting colour types</p>
+				<pre><code class="language-ts"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">rgb$</span><span style="color: #000000"> = </span><span style="color: #795E26">from</span><span style="color: #000000">([</span><span style="color: #A31515">&#039;rgb(0, 0, 0)&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;rgb(255, 255, 255)&#039;</span><span style="color: #000000">]);</span>
+<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">hex$</span><span style="color: #000000"> = </span><span style="color: #795E26">from</span><span style="color: #000000">([</span><span style="color: #A31515">&#039;#000000&#039;</span><span style="color: #000000">, </span><span style="color: #A31515">&#039;#ffffff&#039;</span><span style="color: #000000">]);</span>
+
+<span style="color: #008000">// Convert RGB strings to Hex</span>
+<span style="color: #001080">rgb$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">rgbToHex</span><span style="color: #000000">()).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `&#039;#000000&#039;, &#039;#ffffff&#039;`</span>
+
+<span style="color: #008000">// Convert Hex strings to RGB</span>
+<span style="color: #001080">hex$</span><span style="color: #000000">.</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">hexToRGBA</span><span style="color: #000000">()).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
+<span style="color: #008000">// Output: `&#039;rgb(0, 0, 0)&#039;, &#039;rgb(255, 255, 255)&#039;`</span>
+</code></pre>
 				<a href="#http" id="http" style="color: inherit; text-decoration: none;">
 					<h3>HTTP</h3>
 				</a>
@@ -208,7 +237,7 @@
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/22/2021 at 9:38:00 AM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/22/2021 at 4:29:01 PM</p>
 			</div>
 		</div>
 	</div>

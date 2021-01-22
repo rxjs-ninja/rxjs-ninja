@@ -10,7 +10,7 @@ export enum Lengths {
   /**
    * Centimeters
    */
-  CM = 'cm',
+  CENTIMETERS = 'cm',
   /**
    * Feet
    */
@@ -22,7 +22,7 @@ export enum Lengths {
   /**
    * Kilometers
    */
-  KM = 'km',
+  KILOMETERS = 'km',
   /**
    * Meters
    */

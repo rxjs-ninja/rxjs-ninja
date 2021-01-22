@@ -42,7 +42,7 @@ export function length<T extends Lengths>(
       withLatestFrom(fromLength$, toLength$, precision$),
       map<[number, string, string, number], number>(([value, fromLengthValue, toLengthValue, precisionValue]) => {
         switch (fromLengthValue) {
-          case Lengths.CM: {
+          case Lengths.CENTIMETERS: {
             return fromCm[toLengthValue](value, precisionValue);
           }
           case Lengths.FEET: {
@@ -51,7 +51,7 @@ export function length<T extends Lengths>(
           case Lengths.INCHES: {
             return fromInches[toLengthValue](value, precisionValue);
           }
-          case Lengths.KM: {
+          case Lengths.KILOMETERS: {
             return fromKm[toLengthValue](value, precisionValue);
           }
           case Lengths.METERS: {

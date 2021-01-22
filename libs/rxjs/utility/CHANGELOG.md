@@ -13,13 +13,13 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - `length` operator that accepts `fromLength` and `toLength` properties and modifies the source number using a length
   calculation
-  - Example: `length(Lengths.KM, Lengths.MILES)` to convert a Kilometer length to Miles
+  - Example: `length(Lengths.KILOMETERS, Lengths.MILES)` to convert a Kilometer length to Miles
 - `temperature` operator that accepts `temperatureFrom` and `temperatureTo` properties and modifies the source number
   using a temperature calculation
   - Example: `temperature(Temperatures.KELVIN, Temperatures.CELSIUS)` to convert from Kelvin to Celsius
 - `weight` operator that accepts `fromWeight` and `toWeight` properties and modifies the source number using a weight
   conversion
-  - Example: `weight(Weights.G, Weights.KG)` to convert Grams to Kilograms
+  - Example: `weight(Weights.GRAMS, Weights.KILOGRAMS)` to convert Grams to Kilograms
 
 #### Color
 

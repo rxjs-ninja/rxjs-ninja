@@ -5,21 +5,21 @@ export enum Weights {
   /**
    * Grams
    */
-  G = 'g',
+  GRAMS = 'g',
   /**
    * Kilograms
    */
-  KG = 'kg',
+  KILOGRAMS = 'kg',
   /**
    * Pounds
    */
-  LB = 'lb',
+  POUNDS = 'lb',
   /**
    * Ounces
    */
-  OZ = 'oz',
+  OUNCES = 'oz',
   /**
    * Stones
    */
-  ST = 'st',
+  STONE = 'st',
 }

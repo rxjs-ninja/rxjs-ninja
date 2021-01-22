@@ -18,7 +18,7 @@ describe('length', () => {
           b: 3.281,
           c: 13.779,
         });
-        m.expect(input.pipe(length(Lengths.CM, Lengths.FEET))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.CENTIMETERS, Lengths.FEET))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -36,7 +36,7 @@ describe('length', () => {
           b: 39.37,
           c: 165.354,
         });
-        m.expect(input.pipe(length(Lengths.CM, Lengths.INCHES))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.CENTIMETERS, Lengths.INCHES))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -55,7 +55,7 @@ describe('length', () => {
           b: 0.001,
           c: 0.004,
         });
-        m.expect(input.pipe(length(Lengths.CM, Lengths.KM))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.CENTIMETERS, Lengths.KILOMETERS))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -74,7 +74,7 @@ describe('length', () => {
           b: 1,
           c: 4.2,
         });
-        m.expect(input.pipe(length(Lengths.CM, Lengths.METERS))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.CENTIMETERS, Lengths.METERS))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -93,7 +93,7 @@ describe('length', () => {
           b: 0.0006,
           c: 0.0026,
         });
-        m.expect(input.pipe(length(Lengths.CM, Lengths.MILES, 4))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.CENTIMETERS, Lengths.MILES, 4))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -112,7 +112,7 @@ describe('length', () => {
           b: 1.09,
           c: 4.59,
         });
-        m.expect(input.pipe(length(Lengths.CM, Lengths.YARDS, 2))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.CENTIMETERS, Lengths.YARDS, 2))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -134,7 +134,7 @@ describe('length', () => {
           b: 3048.037,
           c: 12801.756,
         });
-        m.expect(input.pipe(length(Lengths.FEET, Lengths.CM))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.FEET, Lengths.CENTIMETERS))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -171,7 +171,7 @@ describe('length', () => {
           b: 0.03,
           c: 0.128,
         });
-        m.expect(input.pipe(length(Lengths.FEET, Lengths.KM))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.FEET, Lengths.KILOMETERS))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -250,7 +250,7 @@ describe('length', () => {
           b: 254,
           c: 1066.8,
         });
-        m.expect(input.pipe(length(Lengths.INCHES, Lengths.CM, 1))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.INCHES, Lengths.CENTIMETERS, 1))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -287,7 +287,7 @@ describe('length', () => {
           b: 0.003,
           c: 0.011,
         });
-        m.expect(input.pipe(length(Lengths.INCHES, Lengths.KM))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.INCHES, Lengths.KILOMETERS))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -366,7 +366,7 @@ describe('length', () => {
           b: 10000000,
           c: 42000000,
         });
-        m.expect(input.pipe(length(Lengths.KM, Lengths.CM))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.KILOMETERS, Lengths.CENTIMETERS))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -384,7 +384,7 @@ describe('length', () => {
           b: 328080,
           c: 1377936,
         });
-        m.expect(input.pipe(length(Lengths.KM, Lengths.FEET))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.KILOMETERS, Lengths.FEET))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -403,7 +403,7 @@ describe('length', () => {
           b: 3937000,
           c: 16535400,
         });
-        m.expect(input.pipe(length(Lengths.KM, Lengths.INCHES))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.KILOMETERS, Lengths.INCHES))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -422,7 +422,7 @@ describe('length', () => {
           b: 100000,
           c: 420000,
         });
-        m.expect(input.pipe(length(Lengths.KM, Lengths.METERS))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.KILOMETERS, Lengths.METERS))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -441,7 +441,7 @@ describe('length', () => {
           b: 62.137,
           c: 260.975,
         });
-        m.expect(input.pipe(length(Lengths.KM, Lengths.MILES))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.KILOMETERS, Lengths.MILES))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -460,7 +460,7 @@ describe('length', () => {
           b: 109360,
           c: 459312,
         });
-        m.expect(input.pipe(length(Lengths.KM, Lengths.YARDS, 2))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.KILOMETERS, Lengths.YARDS, 2))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -482,7 +482,7 @@ describe('length', () => {
           b: 10000,
           c: 42000,
         });
-        m.expect(input.pipe(length(Lengths.METERS, Lengths.CM))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.METERS, Lengths.CENTIMETERS))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -538,7 +538,7 @@ describe('length', () => {
           b: 0.1,
           c: 0.42,
         });
-        m.expect(input.pipe(length(Lengths.METERS, Lengths.KM))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.METERS, Lengths.KILOMETERS))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -598,7 +598,7 @@ describe('length', () => {
           b: 16093471,
           c: 67592578,
         });
-        m.expect(input.pipe(length(Lengths.MILES, Lengths.CM, 0))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.MILES, Lengths.CENTIMETERS, 0))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -654,7 +654,7 @@ describe('length', () => {
           b: 160.935,
           c: 675.926,
         });
-        m.expect(input.pipe(length(Lengths.MILES, Lengths.KM))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.MILES, Lengths.KILOMETERS))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -714,7 +714,7 @@ describe('length', () => {
           b: 9144.111,
           c: 38405.267,
         });
-        m.expect(input.pipe(length(Lengths.YARDS, Lengths.CM))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.YARDS, Lengths.CENTIMETERS))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );
@@ -770,7 +770,7 @@ describe('length', () => {
           b: 0.091,
           c: 0.384,
         });
-        m.expect(input.pipe(length(Lengths.YARDS, Lengths.KM))).toBeObservable(expected);
+        m.expect(input.pipe(length(Lengths.YARDS, Lengths.KILOMETERS))).toBeObservable(expected);
         m.expect(input).toHaveSubscriptions(subs);
       }),
     );

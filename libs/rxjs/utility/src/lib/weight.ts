@@ -13,6 +13,8 @@ import { fromG, fromKg, fromLb, fromOz, fromSt } from '../utils/weight';
  *
  * @category Conversion
  *
+ * @typeParam T Type of [[Weights]] to use for conversion
+ *
  * @param fromWeight The weight type of the source value
  * @param toWeight The weight type of the output value
  * @param precision The number of decimal places to return, default is `2`
@@ -22,7 +24,7 @@ import { fromG, fromKg, fromLb, fromOz, fromSt } from '../utils/weight';
  * ```ts
  * const source$ = from([10, 5, 100]);
  *
- * source$.pipe(weight(Weights.ST, Weights.KG)).subscribe()
+ * source$.pipe(weight(Weights.STONE, Weights.KILOGRAMS)).subscribe()
  * ```
  * Output: `63.5, 31.8, 635`
  *
@@ -42,19 +44,19 @@ export function weight<T extends Weights>(
       withLatestFrom(fromWeight$, toWeight$, precision$),
       map<[number, string, string, number], number>(([value, fromWeightValue, toWeightValue, precisionValue]) => {
         switch (fromWeightValue) {
-          case Weights.G: {
+          case Weights.GRAMS: {
             return fromG[toWeightValue](value, precisionValue);
           }
-          case Weights.KG: {
+          case Weights.KILOGRAMS: {
             return fromKg[toWeightValue](value, precisionValue);
           }
-          case Weights.LB: {
+          case Weights.POUNDS: {
             return fromLb[toWeightValue](value, precisionValue);
           }
-          case Weights.OZ: {
+          case Weights.OUNCES: {
             return fromOz[toWeightValue](value, precisionValue);
           }
-          case Weights.ST: {
+          case Weights.STONE: {
             return fromSt[toWeightValue](value, precisionValue);
           }
           /* istanbul ignore next-line */

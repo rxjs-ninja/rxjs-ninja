@@ -12,12 +12,14 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 #### Conversion
 
 - `length` operator that accepts `fromLength` and `toLength` properties and modifies the source number using a length
-  calculation (e.g. `length(Lengths.KM, Lengths.MILES)` to convert a Kilometer length to Miles)
+  calculation
+  - Example: `length(Lengths.KM, Lengths.MILES)` to convert a Kilometer length to Miles
 - `temperature` operator that accepts `temperatureFrom` and `temperatureTo` properties and modifies the source number
-  using a temperature calculation (e.g. `temperature(Temperatures.KELVIN, Temperatures.CELSIUS)` to convert from Kelvin
-  to Celsius)
+  using a temperature calculation
+  - Example: `temperature(Temperatures.KELVIN, Temperatures.CELSIUS)` to convert from Kelvin to Celsius
 - `weight` operator that accepts `fromWeight` and `toWeight` properties and modifies the source number using a weight
-  conversion (e.g. `weight(Weights.G, Weights.KG)` to convert Grams to Kilograms)
+  conversion
+  - Example: `weight(Weights.G, Weights.KG)` to convert Grams to Kilograms
 
 #### Color
 

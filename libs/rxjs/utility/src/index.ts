@@ -1,5 +1,6 @@
 /**
- * Package containing utility methods for use with RxJS
+ * Package containing utility operators for use with RxJS covering various categories such as side effects,
+ * handling streams and converting values.
  *
  * @packageDocumentation
  * @module Utility

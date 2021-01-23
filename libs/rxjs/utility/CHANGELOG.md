@@ -5,6 +5,14 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+### [Unreleased]
+
+### Changed
+
+- `temperature` operator now also includes [Rankine](https://en.wikipedia.org/wiki/Rankine_scale) conversion
+- `temperature` operator accepts string or Enum parameters (strings are still fixed to supported temperature types)
+- `weight` operator accepts string or Enum parameters (strings are still fixed to supported temperature types)
+
 ## [4.2.0] - 2021-01-22
 
 ### Added

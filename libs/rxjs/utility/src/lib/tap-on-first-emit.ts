@@ -17,11 +17,6 @@ import { CallbackFn } from '../types/utility';
  * @param callback [[CallbackFn]] to be executed when this operator is run
  *
  * @example
- * ```ts
- * form.valueChange.pipe(tapOnFirstEmit(() => this.onTouch())).subscribe();
- * ```
- *
- * @example
  * Perform a side effect on first subscription to the source
  * ```ts
  * const input = ['Hello', 'RxJS', 'Ninja'];

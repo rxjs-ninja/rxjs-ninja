@@ -3,7 +3,7 @@
  * @module Utility
  */
 import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
-import { createOrReturnObservable } from '../utils/internal';
+import { createOrReturnObservable, roundNumber } from '../utils/internal';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { SupportedLengths } from '../types/length';
 import { fromCm, fromFeet, fromInches, fromKm, fromMeters, fromMiles, fromYards } from '../utils/length';
@@ -18,13 +18,22 @@ import { fromCm, fromFeet, fromInches, fromKm, fromMeters, fromMiles, fromYards 
  * @param precision The number of decimal places to return, default is `3`
  *
  * @example
- * Return the number of miles from meters to precision `0`
+ * Convert a value from Miles to Meters
  * ```ts
  * const source$ = from([100, 200, 300, 500]);
  *
  * source$.pipe(length(Lengths.MILES, Lengths.METERS, 0)).subscribe()
  * ```
  * Output: `160934, 321869, 482803, 804672`
+ *
+ * @example
+ * Convert a value from Inches to Yards to precision `2`
+ * ```ts
+ * const source$ = from([100, 200, 300, 500]);
+ *
+ * source$.pipe(length('inches', 'yards', 2)).subscribe()
+ * ```
+ * Output: `2.78, 5.56, 8.33, 13.89`
  *
  * @returns Observable that emits a number that is the `from` [[Lengths]] converted to the `to` [[Lengths]]
  */
@@ -65,7 +74,7 @@ export function length<I extends SupportedLengths, O extends SupportedLengths>(
           }
           /* istanbul ignore next-line */
           default:
-            return value;
+            return roundNumber(value, precisionValue);
         }
       }),
     );

@@ -13,6 +13,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `temperature` operator accepts string or Enum parameters (strings are still fixed to supported temperature types)
 - `weight` operator accepts string or Enum parameters (strings are still fixed to supported weight types)
 - `length` operator accepts string or Enum parameters (strings are still fixed to supported length types)
+- `temperature` and `weight` operators correctly have precision of `2` as default
 
 ## [4.2.0] - 2021-01-22
 

@@ -3,7 +3,7 @@
  * @module Utility
  */
 import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
-import { createOrReturnObservable } from '../utils/internal';
+import { createOrReturnObservable, roundNumber } from '../utils/internal';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { SupportedWeights } from '../types/weight';
 import { fromG, fromKg, fromLb, fromOz, fromSt } from '../utils/weight';
@@ -43,7 +43,7 @@ import { fromG, fromKg, fromLb, fromOz, fromSt } from '../utils/weight';
 export function weight<I extends SupportedWeights, O extends SupportedWeights>(
   fromWeight: Subscribable<I> | I,
   toWeight: Subscribable<O> | O,
-  precision: Subscribable<number> | number = 3,
+  precision: Subscribable<number> | number = 2,
 ): MonoTypeOperatorFunction<number> {
   const fromWeight$ = createOrReturnObservable(fromWeight);
   const toWeight$ = createOrReturnObservable(toWeight);
@@ -71,7 +71,7 @@ export function weight<I extends SupportedWeights, O extends SupportedWeights>(
           }
           /* istanbul ignore next-line */
           default:
-            return value;
+            return roundNumber(value, precisionValue);
         }
       }),
     );

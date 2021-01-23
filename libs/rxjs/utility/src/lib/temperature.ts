@@ -3,7 +3,7 @@
  * @module Utility
  */
 import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
-import { createOrReturnObservable } from '../utils/internal';
+import { createOrReturnObservable, roundNumber } from '../utils/internal';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { SupportedTemperatures } from '../types/temperature';
 import { fromCelsius, fromFahrenheit, fromKelvin, fromRankine } from '../utils/temperature';
@@ -12,7 +12,7 @@ import { fromCelsius, fromFahrenheit, fromKelvin, fromRankine } from '../utils/t
  * Returns an Observable that emits a number based on the version of the source value through [[Temperatures]]
  * conversion
  *
- * @remarks This library does not handle validation on temperature values (e.g. negative Kelvin values)
+ * @remarks This operator does not handle validation on temperature values (e.g. negative Kelvin values)
  *
  * @category Conversion
  *
@@ -35,18 +35,18 @@ import { fromCelsius, fromFahrenheit, fromKelvin, fromRankine } from '../utils/t
  * @example
  * Convert a source of numbers from Kelvin to Celsius with precision `2`
  * ```ts
- * const source$ = from([0, 100, 37.5, -42]);
+ * const source$ = from([0, 100, 273.15, 10000]);
  *
  * source$.pipe(temperature('kelvin', 'celsius', 2)).subscribe()
  * ```
- * Output: `32, 212, 99.5, -43.6`
+ * Output: `-273,15, -173.15, 0, 9726.85`
  *
  * @returns Observable that emits a number that is the `from` [[Temperatures]] converted to the `to` [[Temperatures]]
  */
 export function temperature<I extends SupportedTemperatures, O extends SupportedTemperatures>(
   fromTemperature: Subscribable<I> | I,
   toTemperature: Subscribable<O> | O,
-  precision: Subscribable<number> | number = 1,
+  precision: Subscribable<number> | number = 2,
 ): MonoTypeOperatorFunction<number> {
   const fromTemperature$ = createOrReturnObservable(fromTemperature);
   const toTemperature$ = createOrReturnObservable(toTemperature);
@@ -72,7 +72,7 @@ export function temperature<I extends SupportedTemperatures, O extends Supported
             }
             /* istanbul ignore next-line */
             default:
-              return value;
+              return roundNumber(value, precisionValue);
           }
         },
       ),

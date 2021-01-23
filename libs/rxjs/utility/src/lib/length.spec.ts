@@ -5,6 +5,25 @@ describe('length', () => {
   // Centimeters
   describe('cm', () => {
     it(
+      'should return to precision 2',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100.1234,
+          c: 420.5689,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 100.12,
+          c: 420.57,
+        });
+        m.expect(input.pipe(length(Lengths.CENTIMETERS, Lengths.CENTIMETERS, 2))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+
+    it(
       'should convert cm to feet',
       marbles((m) => {
         const input = m.hot('-a-b-c-|', {
@@ -120,6 +139,25 @@ describe('length', () => {
 
   // Feet
   describe('feet', () => {
+    it(
+      'should return to precision 2',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100.1234,
+          c: 420.5689,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 100.12,
+          c: 420.57,
+        });
+        m.expect(input.pipe(length(Lengths.FEET, Lengths.FEET, 2))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+
     it(
       'should convert to cm',
       marbles((m) => {
@@ -237,6 +275,25 @@ describe('length', () => {
   // Inches
   describe('inches', () => {
     it(
+      'should return to precision 2',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100.1234,
+          c: 420.5689,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 100.12,
+          c: 420.57,
+        });
+        m.expect(input.pipe(length(Lengths.INCHES, Lengths.INCHES, 2))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+
+    it(
       'should convert to cm with precision of `1`',
       marbles((m) => {
         const input = m.hot('-a-b-c-|', {
@@ -352,6 +409,25 @@ describe('length', () => {
 
   // Kilometers
   describe('km', () => {
+    it(
+      'should return to precision 2',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100.1234,
+          c: 420.5689,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 100.12,
+          c: 420.57,
+        });
+        m.expect(input.pipe(length(Lengths.KILOMETERS, Lengths.KILOMETERS, 2))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+
     it(
       'should convert to cm',
       marbles((m) => {
@@ -469,6 +545,25 @@ describe('length', () => {
   // Meters
   describe('meters', () => {
     it(
+      'should return to precision 2',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100.1234,
+          c: 420.5689,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 100.12,
+          c: 420.57,
+        });
+        m.expect(input.pipe(length(Lengths.METERS, Lengths.METERS, 2))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+
+    it(
       'should convert to cm',
       marbles((m) => {
         const input = m.hot('-a-b-c-|', {
@@ -585,6 +680,25 @@ describe('length', () => {
   // Miles
   describe('miles', () => {
     it(
+      'should return to precision 2',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100.1234,
+          c: 420.5689,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 100.12,
+          c: 420.57,
+        });
+        m.expect(input.pipe(length(Lengths.MILES, Lengths.MILES, 2))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+
+    it(
       'should convert to cm to precision 0',
       marbles((m) => {
         const input = m.hot('-a-b-c-|', {
@@ -698,8 +812,27 @@ describe('length', () => {
     );
   });
 
-  // Miles
+  // Yards
   describe('yards', () => {
+    it(
+      'should return to precision 2',
+      marbles((m) => {
+        const input = m.hot('-a-b-c-|', {
+          a: 0,
+          b: 100.1234,
+          c: 420.5689,
+        });
+        const subs = '^------!';
+        const expected = m.cold('-a-b-c-|', {
+          a: 0,
+          b: 100.12,
+          c: 420.57,
+        });
+        m.expect(input.pipe(length(Lengths.YARDS, Lengths.YARDS, 2))).toBeObservable(expected);
+        m.expect(input).toHaveSubscriptions(subs);
+      }),
+    );
+
     it(
       'should convert to cm',
       marbles((m) => {

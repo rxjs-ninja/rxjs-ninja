@@ -25,6 +25,21 @@ fromNumber().pipe(take(6), add(1), mod(3)).subscribe();
 // Output: `1, 2, 0, 1, 2, 0`
 ```
 
+### Distribution
+
+Operators for handling the distribution of numbers, these will return a single value from an Iterable of numbers
+
+```ts
+const source$ = from([
+  [1, 2, 3],
+  [10, 15, 8],
+  [5, 10, 100],
+]);
+// Get the Median, Mean, Mix and Max values
+combineLatest([source$.pipe(median()), source$.pipe(mean()), source$.pipe(min()), source$.pipe(max())]).subscribe();
+// Output : [ [ 2, 2, 1, 3 ], [ 15, 11, 8, 15 ], [ 52.5, 38.333, 5, 100 ] ]
+```
+
 ### Filter
 
 Operators for filtering Observable number sources for truthy queries

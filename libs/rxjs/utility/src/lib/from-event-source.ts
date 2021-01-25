@@ -11,32 +11,39 @@ import { Observable } from 'rxjs';
  *
  * @param source The URL of the EventStream to connect to
  * @param eventName The name of the event to listen to, by default this is `message`
- * @param options Optional options for the EventSource object
  * @param signal Optional signal to
  */
 export function fromEventSource<T extends unknown>(
   source: EventSource,
   eventName = 'message',
-  options?: EventSourceInit,
   signal?: AbortSignal,
-): Observable<T>  {
-  return new Observable<T>((subscriber) => {
-
+): Observable<MessageEvent<T>> {
+  return new Observable<MessageEvent<T>>((subscriber) => {
     if (signal) {
       signal.onabort = () => {
+        source.close();
         subscriber.complete();
       };
     }
 
-    source.addEventListener(eventName, (event: Event) => {
-      subscriber.next((event as MessageEvent).data as T);
-    });
+    function handleMessage(event: Event) {
+      if (!eventName) {
+        subscriber.next(event as MessageEvent<T>);
+      } else if (eventName && eventName === event.type) {
+        subscriber.next(event as MessageEvent<T>);
+      }
+    }
 
-    source.addEventListener('error', (event: Event) => {
-      subscriber.error(event);
-    });
+    function handleError(event: Event) {
+      subscriber.error(event as MessageEvent<T>);
+    }
+
+    source.addEventListener(eventName, handleMessage);
+    source.addEventListener('error', handleError);
 
     return () => {
+      source.removeEventListener(eventName, handleMessage);
+      source.removeEventListener('error', handleError);
       source.close();
       !subscriber.closed && subscriber.complete();
     };

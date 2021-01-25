@@ -24,6 +24,16 @@
         "build": {
           "builder": "@nrwl/web:package",
           "options": {
+            "globals": [
+              {
+                "moduleId": "rxjs",
+                "global": "rxjs"
+              },
+              {
+                "moduleId": "rxjs/operators",
+                "global": "rxjs.operators"
+              }
+            ],
             "outputPath": "dist/libs/rxjs/array",
             "tsConfig": "libs/rxjs/array/tsconfig.lib.json",
             "project": "libs/rxjs/array/package.json",
@@ -70,6 +80,16 @@
         "build": {
           "builder": "@nrwl/web:package",
           "options": {
+            "globals": [
+              {
+                "moduleId": "rxjs",
+                "global": "rxjs"
+              },
+              {
+                "moduleId": "rxjs/operators",
+                "global": "rxjs.operators"
+              }
+            ],
             "outputPath": "dist/libs/rxjs/boolean",
             "tsConfig": "libs/rxjs/boolean/tsconfig.lib.json",
             "project": "libs/rxjs/boolean/package.json",
@@ -116,6 +136,16 @@
         "build": {
           "builder": "@nrwl/web:package",
           "options": {
+            "globals": [
+              {
+                "moduleId": "rxjs",
+                "global": "rxjs"
+              },
+              {
+                "moduleId": "rxjs/operators",
+                "global": "rxjs.operators"
+              }
+            ],
             "outputPath": "dist/libs/rxjs/number",
             "tsConfig": "libs/rxjs/number/tsconfig.lib.json",
             "project": "libs/rxjs/number/package.json",
@@ -162,6 +192,16 @@
         "build": {
           "builder": "@nrwl/web:package",
           "options": {
+            "globals": [
+              {
+                "moduleId": "rxjs",
+                "global": "rxjs"
+              },
+              {
+                "moduleId": "rxjs/operators",
+                "global": "rxjs.operators"
+              }
+            ],
             "outputPath": "dist/libs/rxjs/random",
             "tsConfig": "libs/rxjs/random/tsconfig.lib.json",
             "project": "libs/rxjs/random/package.json",
@@ -208,6 +248,16 @@
         "build": {
           "builder": "@nrwl/web:package",
           "options": {
+            "globals": [
+              {
+                "moduleId": "rxjs",
+                "global": "rxjs"
+              },
+              {
+                "moduleId": "rxjs/operators",
+                "global": "rxjs.operators"
+              }
+            ],
             "outputPath": "dist/libs/rxjs/string",
             "tsConfig": "libs/rxjs/string/tsconfig.lib.json",
             "project": "libs/rxjs/string/package.json",
@@ -254,6 +304,16 @@
         "build": {
           "builder": "@nrwl/web:package",
           "options": {
+            "globals": [
+              {
+                "moduleId": "rxjs",
+                "global": "rxjs"
+              },
+              {
+                "moduleId": "rxjs/operators",
+                "global": "rxjs.operators"
+              }
+            ],
             "outputPath": "dist/libs/rxjs/utility",
             "tsConfig": "libs/rxjs/utility/tsconfig.lib.json",
             "project": "libs/rxjs/utility/package.json",

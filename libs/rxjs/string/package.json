@@ -1,7 +1,7 @@
 {
   "name": "@rxjs-ninja/rxjs-string",
   "description": "Operators for handling RxJS Observable of string",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "keywords": [
     "Rx",
     "RxJS",

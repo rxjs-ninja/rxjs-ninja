@@ -4,8 +4,8 @@
  */
 import { Observable, Subscribable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { isIterable } from 'rxjs/internal-compatibility';
 import { createOrReturnObservable } from '../utils/internal';
+import { isArrayOrSet } from '../utils/array-set';
 
 /**
  * Returns an Observable that emits a string made from character codes using String.fromCharCode
@@ -38,7 +38,7 @@ export function fromCharCode(
   input: Subscribable<Iterable<number> | number> | Iterable<number> | number,
 ): Observable<string> {
   return createOrReturnObservable(input).pipe(
-    map<Iterable<number> | number, number[]>((value) => (isIterable(value) ? [...value] : [value])),
+    map<Iterable<number> | number, number[]>((value) => (isArrayOrSet(value) ? [...value] : [value])),
     map((value) => String.fromCharCode(...value)),
   );
 }

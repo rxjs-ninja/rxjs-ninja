@@ -35,9 +35,22 @@ const source$ = from([
   [10, 15, 8],
   [5, 10, 100],
 ]);
-// Get the Median, Mean, Mix and Max values
-combineLatest([source$.pipe(median()), source$.pipe(mean()), source$.pipe(min()), source$.pipe(max())]).subscribe();
-// Output : [ [ 2, 2, 1, 3 ], [ 15, 11, 8, 15 ], [ 52.5, 38.333, 5, 100 ] ]
+
+// Get the Mean
+source$.pipe(mean()).subscribe();
+// Output: `2, 11, 38.333`
+
+// Get the Median
+source$.pipe(median()).subscribe();
+// Output: `2, 15, 100`
+
+// Get the Minimum Number
+source$.pipe(min()).subscribe();
+// Output: `1, 8, 5`
+
+// Get the Minimum Number
+source$.pipe(max()).subscribe();
+// Output: `3, 15, 100`
 ```
 
 ### Filter

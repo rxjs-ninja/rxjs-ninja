@@ -1,6 +1,6 @@
 /**
- * The RxJS Ninja Number module contains operators for working with, and returning number values. The operators allow for
- * filtering, querying, converting to and from String, and mathematical operations.
+ * The RxJS Ninja Number module contains operators for working with, and returning number values. The operators allow
+ * for filtering, querying, converting to and from String, and mathematical operations.
  *
  * @packageDocumentation
  * @module Number
@@ -8,6 +8,7 @@
  */
 /* istanbul ignore file */
 export { add } from './lib/add';
+export { mean, mean as average } from './lib/mean';
 export { div } from './lib/div';
 export { filterInRange } from './lib/filter-in-range';
 export { filterIsFinite } from './lib/filter-is-finite';
@@ -26,6 +27,9 @@ export { isMod } from './lib/is-mod';
 export { isNaN } from './lib/is-nan';
 export { isNotNaN } from './lib/is-not-nan';
 export { isSafeInteger } from './lib/is-safe-integer';
+export { max } from './lib/max';
+export { median } from './lib/median';
+export { min } from './lib/min';
 export { mod } from './lib/mod';
 export { mul } from './lib/mul';
 export { outOfRange } from './lib/out-of-range';
@@ -33,6 +37,7 @@ export { parseFloat } from './lib/parse-float';
 export { parseHex } from './lib/parse-hex';
 export { parseInt } from './lib/parse-int';
 export { pow } from './lib/pow';
+export { roundTo } from './lib/round-to';
 export { sub } from './lib/sub';
 export { toExponential } from './lib/to-exponential';
 export { toFixed } from './lib/to-fixed';

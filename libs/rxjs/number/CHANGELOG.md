@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added
+
+- `roundTo` operator that returns a fixed number value to the passed precision value
+- New `Distribution` category for getting a number value from an `Iterable` source like Array or Set
+  - `max` and `min` operators that returns the maximum or minimum number from an `Iterable` source
+  - `mean` and `median` operators that calculate the mean/median value of an `Iterable` source, by default this will round
+    to `3` places but can be passed as a property
+
 ## [5.0.1] - 2021-01-21
 
 ### Changed

@@ -149,7 +149,7 @@
       "replace": " <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/$1\" target=\"_blank\">$1</a>"
     },
     {
-      "pattern": "\\s(ReadableStream|WritableStream[^*])",
+      "pattern": "\\s(EventSource|ReadableStream|WritableStream[^*])",
       "flags": "gm",
       "replace": " <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/$1\" target=\"_blank\">$1</a>"
     }

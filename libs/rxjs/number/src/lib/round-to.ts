@@ -9,7 +9,7 @@ import { createOrReturnObservable } from '../utils/internal';
 /**
  * Returns an Observable that emits a number value rounded to the number of digits passed
  *
- * @category Modify
+ * @category Math
  *
  * @param precision Maximum number of digits to round the number to
  *

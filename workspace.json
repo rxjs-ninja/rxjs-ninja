@@ -10,9 +10,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/rxjs/array/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/rxjs/array/**/*.ts"]
           }
         },
         "test": {
@@ -21,9 +19,7 @@
             "jestConfig": "libs/rxjs/array/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/rxjs/array"
-          ]
+          "outputs": ["coverage/libs/rxjs/array"]
         },
         "build": {
           "builder": "@nrwl/web:package",
@@ -32,9 +28,7 @@
             "tsConfig": "libs/rxjs/array/tsconfig.lib.json",
             "project": "libs/rxjs/array/package.json",
             "entryFile": "libs/rxjs/array/src/index.ts",
-            "external": [
-              "rxjs"
-            ],
+            "external": ["rxjs"],
             "babelConfig": "@nrwl/web/babel",
             "assets": [
               {
@@ -49,9 +43,7 @@
               }
             ]
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         }
       }
     },
@@ -64,9 +56,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/rxjs/boolean/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/rxjs/boolean/**/*.ts"]
           }
         },
         "test": {
@@ -75,9 +65,7 @@
             "jestConfig": "libs/rxjs/boolean/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/rxjs/boolean"
-          ]
+          "outputs": ["coverage/libs/rxjs/boolean"]
         },
         "build": {
           "builder": "@nrwl/web:package",
@@ -86,9 +74,7 @@
             "tsConfig": "libs/rxjs/boolean/tsconfig.lib.json",
             "project": "libs/rxjs/boolean/package.json",
             "entryFile": "libs/rxjs/boolean/src/index.ts",
-            "external": [
-              "rxjs"
-            ],
+            "external": ["rxjs"],
             "babelConfig": "@nrwl/web/babel",
             "assets": [
               {
@@ -103,9 +89,7 @@
               }
             ]
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         }
       }
     },
@@ -118,9 +102,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/rxjs/number/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/rxjs/number/**/*.ts"]
           }
         },
         "test": {
@@ -129,9 +111,7 @@
             "jestConfig": "libs/rxjs/number/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/rxjs/number"
-          ]
+          "outputs": ["coverage/libs/rxjs/number"]
         },
         "build": {
           "builder": "@nrwl/web:package",
@@ -140,9 +120,7 @@
             "tsConfig": "libs/rxjs/number/tsconfig.lib.json",
             "project": "libs/rxjs/number/package.json",
             "entryFile": "libs/rxjs/number/src/index.ts",
-            "external": [
-              "rxjs"
-            ],
+            "external": ["rxjs"],
             "babelConfig": "@nrwl/web/babel",
             "assets": [
               {
@@ -157,9 +135,7 @@
               }
             ]
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         }
       }
     },
@@ -172,9 +148,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/rxjs/random/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/rxjs/random/**/*.ts"]
           }
         },
         "test": {
@@ -183,9 +157,7 @@
             "jestConfig": "libs/rxjs/random/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/rxjs/random"
-          ]
+          "outputs": ["coverage/libs/rxjs/random"]
         },
         "build": {
           "builder": "@nrwl/web:package",
@@ -194,9 +166,7 @@
             "tsConfig": "libs/rxjs/random/tsconfig.lib.json",
             "project": "libs/rxjs/random/package.json",
             "entryFile": "libs/rxjs/random/src/index.ts",
-            "external": [
-              "rxjs"
-            ],
+            "external": ["rxjs"],
             "babelConfig": "@nrwl/web/babel",
             "assets": [
               {
@@ -211,9 +181,7 @@
               }
             ]
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         }
       }
     },
@@ -226,9 +194,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/rxjs/string/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/rxjs/string/**/*.ts"]
           }
         },
         "test": {
@@ -237,9 +203,7 @@
             "jestConfig": "libs/rxjs/string/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/rxjs/string"
-          ]
+          "outputs": ["coverage/libs/rxjs/string"]
         },
         "build": {
           "builder": "@nrwl/web:package",
@@ -248,9 +212,7 @@
             "tsConfig": "libs/rxjs/string/tsconfig.lib.json",
             "project": "libs/rxjs/string/package.json",
             "entryFile": "libs/rxjs/string/src/index.ts",
-            "external": [
-              "rxjs"
-            ],
+            "external": ["rxjs"],
             "babelConfig": "@nrwl/web/babel",
             "assets": [
               {
@@ -265,9 +227,7 @@
               }
             ]
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         }
       }
     },
@@ -280,9 +240,7 @@
         "lint": {
           "builder": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/rxjs/utility/**/*.ts"
-            ]
+            "lintFilePatterns": ["libs/rxjs/utility/**/*.ts"]
           }
         },
         "test": {
@@ -291,9 +249,7 @@
             "jestConfig": "libs/rxjs/utility/jest.config.js",
             "passWithNoTests": true
           },
-          "outputs": [
-            "coverage/libs/rxjs/utility"
-          ]
+          "outputs": ["coverage/libs/rxjs/utility"]
         },
         "build": {
           "builder": "@nrwl/web:package",
@@ -302,9 +258,7 @@
             "tsConfig": "libs/rxjs/utility/tsconfig.lib.json",
             "project": "libs/rxjs/utility/package.json",
             "entryFile": "libs/rxjs/utility/src/index.ts",
-            "external": [
-              "rxjs"
-            ],
+            "external": ["rxjs"],
             "babelConfig": "@nrwl/web/babel",
             "assets": [
               {
@@ -319,9 +273,7 @@
               }
             ]
           },
-          "outputs": [
-            "{options.outputPath}"
-          ]
+          "outputs": ["{options.outputPath}"]
         }
       }
     }

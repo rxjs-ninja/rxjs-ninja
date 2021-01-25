@@ -2,44 +2,50 @@
  * @packageDocumentation
  * @module Utility
  */
-import { Temperatures } from '../types/temperature';
+import { SupportedTemperatures } from '../types/temperature';
 import { roundNumber } from './internal';
+import { ConversionMapping } from '../types/internal';
 
 /**
  * @private
- * @param celsius
- * @param to
- * @param roundTo
+ * @internal
  */
-export const celsiusTo = (celsius: number, to: string, roundTo: number): number => {
-  if (to === Temperatures.CELSIUS) {
-    return roundNumber(celsius, roundTo);
-  }
-  return roundNumber(to === Temperatures.FAHRENHEIT ? celsius * 1.8 + 32 : celsius + 273.15, roundTo);
+export const fromCelsius: ConversionMapping = {
+  [SupportedTemperatures.CELSIUS]: (num, precision) => roundNumber(num, precision),
+  [SupportedTemperatures.FAHRENHEIT]: (num, precision) => roundNumber(num * 1.8 + 32, precision),
+  [SupportedTemperatures.KELVIN]: (num, precision) => roundNumber(num + 273.15, precision),
+  [SupportedTemperatures.RANKINE]: (num, precision) => roundNumber((num + 273.15) * 1.8, precision),
 };
 
 /**
  * @private
- * @param fahrenheit
- * @param to
- * @param roundTo
+ * @internal
  */
-export const fahrenheitTo = (fahrenheit: number, to: string, roundTo: number): number => {
-  if (to === Temperatures.FAHRENHEIT) {
-    return roundNumber(fahrenheit, roundTo);
-  }
-  return roundNumber(to === Temperatures.CELSIUS ? (fahrenheit - 32) / 1.8 : (fahrenheit - 32) / 1.8 + 273.15, roundTo);
+export const fromFahrenheit: ConversionMapping = {
+  [SupportedTemperatures.CELSIUS]: (num, precision) => roundNumber((num - 32) / 1.8, precision),
+  [SupportedTemperatures.FAHRENHEIT]: (num, precision) => roundNumber(num, precision),
+  [SupportedTemperatures.KELVIN]: (num, precision) => roundNumber((num - 32) / 1.8 + 273.15, precision),
+  [SupportedTemperatures.RANKINE]: (num, precision) => roundNumber(num + 459.67, precision),
 };
 
 /**
  * @private
- * @param kelvin
- * @param to
- * @param roundTo
+ * @internal
  */
-export const kelvinTo = (kelvin: number, to: string, roundTo: number): number => {
-  if (to === Temperatures.KELVIN) {
-    return roundNumber(kelvin, roundTo);
-  }
-  return roundNumber(to === Temperatures.FAHRENHEIT ? (kelvin - 273.15) * 1.8 + 32 : kelvin - 273.15, roundTo);
+export const fromKelvin: ConversionMapping = {
+  [SupportedTemperatures.CELSIUS]: (num, precision) => roundNumber(num - 273.15, precision),
+  [SupportedTemperatures.FAHRENHEIT]: (num, precision) => roundNumber((num - 273.15) * 1.8 + 32, precision),
+  [SupportedTemperatures.KELVIN]: (num, precision) => roundNumber(num, precision),
+  [SupportedTemperatures.RANKINE]: (num, precision) => roundNumber(num * 1.8, precision),
+};
+
+/**
+ * @private
+ * @internal
+ */
+export const fromRankine: ConversionMapping = {
+  [SupportedTemperatures.CELSIUS]: (num, precision) => roundNumber((num - 491.67) * 1.8, precision),
+  [SupportedTemperatures.FAHRENHEIT]: (num, precision) => roundNumber(num - 491.67, precision),
+  [SupportedTemperatures.KELVIN]: (num, precision) => roundNumber(num / 1.8, precision),
+  [SupportedTemperatures.RANKINE]: (num, precision) => roundNumber(num, precision),
 };

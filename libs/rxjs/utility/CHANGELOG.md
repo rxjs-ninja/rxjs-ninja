@@ -7,13 +7,17 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ### [Unreleased]
 
-### Changed
+### Added
 
 - `temperature` operator now also includes [Rankine](https://en.wikipedia.org/wiki/Rankine_scale) conversion
+
+### Changed
+
 - `temperature` operator accepts string or Enum parameters (strings are still fixed to supported temperature types)
 - `weight` operator accepts string or Enum parameters (strings are still fixed to supported weight types)
 - `length` operator accepts string or Enum parameters (strings are still fixed to supported length types)
-- `temperature` and `weight` operators correctly have precision of `2` as default
+- `temperature` & `weight` operators correctly have precision of `2` as default
+- Internal refactor of new code and tests
 
 ## [4.2.0] - 2021-01-22
 

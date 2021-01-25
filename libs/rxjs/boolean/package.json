@@ -1,7 +1,7 @@
 {
   "name": "@rxjs-ninja/rxjs-boolean",
   "description": "Operators for RxJS for filtering with boolean logic",
-  "version": "4.0.1",
+  "version": "4.0.2",
   "keywords": [
     "Rx",
     "RxJS",

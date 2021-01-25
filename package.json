@@ -54,6 +54,7 @@
     "dotenv": "8.2.0",
     "eslint": "7.13.0",
     "eslint-config-prettier": "6.15.0",
+    "eventsourcemock": "^2.0.0",
     "jest": "26.6.3",
     "jest-marbles": "^2.5.1",
     "onchange": "^7.1.0",

@@ -65,7 +65,7 @@
     "tslib": "^2.1.0",
     "tslint": "6.1.3",
     "typedoc": "^0.20.16",
-    "typedoc-ninja-theme": "1.0.0-rc.14",
+    "typedoc-ninja-theme": "1.0.0-rc.16",
     "typedoc-plugin-extras": "^1.1.7",
     "typedoc-plugin-ghpages-cname": "^1.0.1",
     "typedoc-plugin-pages-fork": "^0.0.1",

@@ -10,6 +10,7 @@
 export { debounceWithQuery } from './lib/debounce-with-query';
 export { decodeJWT } from './lib/decode-jwt';
 export { length } from 'libs/rxjs/utility/src/lib/length';
+export { fromEventSource } from './lib/from-event-source';
 export { fromReadableStream } from './lib/from-readable-stream';
 export { fromFetchWithProgress } from './lib/from-fetch-with-progress';
 export { hexToRGBA } from './lib/hex-to-rgba';

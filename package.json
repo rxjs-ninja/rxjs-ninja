@@ -15,7 +15,7 @@
     "build": "nx build",
     "cleanup:branches": "git pull --prune && git branch -vv | grep ': gone]'|  grep -v \"\\*\" | awk '{ print $1; }' | xargs -r git branch -D",
     "cleanup:workspace": "nxpm-stack lint",
-    "coverage": "codecov --disable=gcov",
+    "coverage": "codecov --disable=gcov --yml=codecov.yaml",
     "dep-graph": "nx dep-graph",
     "docs": "typedoc",
     "e2e": "nx e2e",

@@ -2,9 +2,9 @@
  * @packageDocumentation
  * @module Utility
  */
-import { defer, MonoTypeOperatorFunction } from 'rxjs';
+import { defer, MonoTypeOperatorFunction, of } from 'rxjs';
 import { CallbackFn } from '../types/utility';
-import { switchMap, take, tap } from 'rxjs/operators';
+import { switchMap, tap } from 'rxjs/operators';
 
 /**
  * Perform a side effect for every subscription to the source Observable and return an Observable that is identical to
@@ -28,11 +28,10 @@ import { switchMap, take, tap } from 'rxjs/operators';
  *
  * @returns Observable that emits the source observable after performing a side effect
  */
-export function tapOnSubscribe<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
+export function tapOnSubscribe<T extends unknown>(callback: CallbackFn<undefined>): MonoTypeOperatorFunction<T> {
   return (source) =>
     defer(() =>
-      source.pipe(
-        take(1),
+      of(undefined).pipe(
         tap(callback),
         switchMap(() => source),
       ),

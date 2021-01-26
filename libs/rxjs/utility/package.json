@@ -33,6 +33,6 @@
     "url": "https://github.com/rxjs-ninja/rxjs-ninja.git"
   },
   "peerDependencies": {
-    "rxjs": ">=6.5.0"
+    "rxjs": ">=6.5.0 < 7.0.0"
   }
 }

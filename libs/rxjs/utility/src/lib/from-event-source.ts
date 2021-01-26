@@ -10,6 +10,8 @@ import { Observable, Observer } from 'rxjs';
  *
  * @category Streams
  *
+ * @see {@link https://codesandbox.io/s/rxjs-ninja-eventsource-example-w7v4j|RxJS Event Source Example}
+ *
  * @typeParam T The type of the value in the message `data` property
  *
  * @param source The event source to subscribe to
@@ -73,9 +75,10 @@ export function fromEventSource<T extends unknown>(
      * @internal
      * @param event
      */
+
     /* istanbul ignore next */
     function handleError(event: Event) {
-      subscriber.error((event as ErrorEvent).message);
+      subscriber.error(event as ErrorEvent);
     }
 
     /**
@@ -83,6 +86,7 @@ export function fromEventSource<T extends unknown>(
      * @internal
      * @param event
      */
+
     /* istanbul ignore next */
     function handleOpen(event: Event) {
       openObserver?.next(event);

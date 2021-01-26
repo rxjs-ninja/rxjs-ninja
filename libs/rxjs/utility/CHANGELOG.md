@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [Unreleased]
+## [5.0.0] - 2021-01-26
 
 Breaking change in side-effect operators, reverting to earlier code - when tested in isolation they did not cause issues
 however when used together issues were caused.

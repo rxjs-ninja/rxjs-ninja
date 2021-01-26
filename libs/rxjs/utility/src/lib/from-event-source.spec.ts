@@ -53,11 +53,13 @@ describe('fromEventSource', () => {
         sources['test.js'].emit(event.type, event);
         sources['test.js'].emit(event.type, event);
         stop.abort();
+        sources['test.js'].emit(event.type, event);
+        sources['test.js'].emit(event.type, event);
       }, 1000);
 
       let count = 0;
       return fromEventSource<Record<string, string>>(source, undefined, undefined, stop.signal).pipe(
-        reduce((a, b) => a + 1, 0),
+        reduce((a) => a + 1, 0),
         tap((value) => (count = value)),
         finalize(() => {
           expect(count).toBe(4);

@@ -109,23 +109,22 @@ describe('fromEventSource', () => {
         take(1),
         withLatestFrom(opened$.asObservable()),
         tap(([message, opened]) => {
-          console.log('opened', message, opened);
           expect(opened).toBeInstanceOf(Event);
         }),
       );
-
-      //return opened$.asObservable().pipe(tap((value) => );
     }),
   );
 
   xit(
     'should emit an error if thrown from the emitter',
     observe(() => {
-      source = new EventSource('test');
+      setTimeout(() => {
+        sources['test.js'].emitError(new Error('This is an error'));
+      }, 1000);
 
       return fromEventSource<Record<string, string>>(source).pipe(
         catchError((err) => {
-          expect(err).toBe('This is a error');
+          expect(err).toBeInstanceOf(Error);
           return of(true);
         }),
       );

@@ -161,10 +161,32 @@
 				<p>All notable changes to this project will be documented in this file.</p>
 				<p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>, and this project adheres
 				to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+				<a href="#500---2021-01-26" id="500---2021-01-26" style="color: inherit; text-decoration: none;">
+					<h2>[5.0.0] - 2021-01-26</h2>
+				</a>
+				<p>Breaking change in side-effect operators, reverting to earlier code - when tested in isolation they did not cause issues
+				however when used together issues were caused.</p>
+				<a href="#added" id="added" style="color: inherit; text-decoration: none;">
+					<h3>Added</h3>
+				</a>
+				<ul>
+					<li><code>takeUntilSignal</code> operator that provides the same interface as <a href="https://rxjs.dev/api/operators/takeUntil">takeUntil</a>
+					but uses an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal">AbortSignal</a> as the notifier.</li>
+					<li><code>tapOnUnSubscribe</code> operator that is called on each source unsubscription.</li>
+				</ul>
+				<a href="#fixed" id="fixed" style="color: inherit; text-decoration: none;">
+					<h3>Fixed</h3>
+				</a>
+				<ul>
+					<li><code>tapOnFirstEmit</code> &amp; <code>tapOnSubscribe</code> now correctly emit the source as the return Observable, no longer return the
+					source value inside the callback function.</li>
+					<li><code>tapIf</code> no longer turns the source, instead source is always tapped but callback function is still only run if the
+					predicate method passes</li>
+				</ul>
 				<a href="#441---2021-01-26" id="441---2021-01-26" style="color: inherit; text-decoration: none;">
 					<h2>[4.4.1] - 2021-01-26</h2>
 				</a>
-				<a href="#fixed" id="fixed" style="color: inherit; text-decoration: none;">
+				<a href="#fixed-1" id="fixed-1" style="color: inherit; text-decoration: none;">
 					<h3>Fixed</h3>
 				</a>
 				<ul>
@@ -173,7 +195,7 @@
 				<a href="#440---2021-01-26" id="440---2021-01-26" style="color: inherit; text-decoration: none;">
 					<h2>[4.4.0] - 2021-01-26</h2>
 				</a>
-				<a href="#added" id="added" style="color: inherit; text-decoration: none;">
+				<a href="#added-1" id="added-1" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -183,7 +205,7 @@
 				<a href="#431---2021-01-25" id="431---2021-01-25" style="color: inherit; text-decoration: none;">
 					<h2>[4.3.1] - 2021-01-25</h2>
 				</a>
-				<a href="#fixed-1" id="fixed-1" style="color: inherit; text-decoration: none;">
+				<a href="#fixed-2" id="fixed-2" style="color: inherit; text-decoration: none;">
 					<h3>Fixed</h3>
 				</a>
 				<ul>
@@ -193,7 +215,7 @@
 				<a href="#430---2021-01-25" id="430---2021-01-25" style="color: inherit; text-decoration: none;">
 					<h3>[4.3.0] - 2021-01-25</h3>
 				</a>
-				<a href="#added-1" id="added-1" style="color: inherit; text-decoration: none;">
+				<a href="#added-2" id="added-2" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -212,7 +234,7 @@
 				<a href="#420---2021-01-22" id="420---2021-01-22" style="color: inherit; text-decoration: none;">
 					<h2>[4.2.0] - 2021-01-22</h2>
 				</a>
-				<a href="#added-2" id="added-2" style="color: inherit; text-decoration: none;">
+				<a href="#added-3" id="added-3" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<a href="#conversion" id="conversion" style="color: inherit; text-decoration: none;">
@@ -263,7 +285,7 @@
 				<a href="#410---2021-01-18" id="410---2021-01-18" style="color: inherit; text-decoration: none;">
 					<h2>[4.1.0] - 2021-01-18</h2>
 				</a>
-				<a href="#added-3" id="added-3" style="color: inherit; text-decoration: none;">
+				<a href="#added-4" id="added-4" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -273,7 +295,7 @@
 				<a href="#400---2021-01-18" id="400---2021-01-18" style="color: inherit; text-decoration: none;">
 					<h2>[4.0.0] - 2021-01-18</h2>
 				</a>
-				<a href="#added-4" id="added-4" style="color: inherit; text-decoration: none;">
+				<a href="#added-5" id="added-5" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -289,7 +311,7 @@
 				<a href="#321---2021-01-14" id="321---2021-01-14" style="color: inherit; text-decoration: none;">
 					<h2>[3.2.1] - 2021-01-14</h2>
 				</a>
-				<a href="#fixed-2" id="fixed-2" style="color: inherit; text-decoration: none;">
+				<a href="#fixed-3" id="fixed-3" style="color: inherit; text-decoration: none;">
 					<h3>Fixed</h3>
 				</a>
 				<ul>
@@ -299,7 +321,7 @@
 				<a href="#320---2021-01-13" id="320---2021-01-13" style="color: inherit; text-decoration: none;">
 					<h2>[3.2.0] - 2021-01-13</h2>
 				</a>
-				<a href="#added-5" id="added-5" style="color: inherit; text-decoration: none;">
+				<a href="#added-6" id="added-6" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -320,7 +342,7 @@
 				<a href="#310---2021-01-12" id="310---2021-01-12" style="color: inherit; text-decoration: none;">
 					<h2>[3.1.0] - 2021-01-12</h2>
 				</a>
-				<a href="#added-6" id="added-6" style="color: inherit; text-decoration: none;">
+				<a href="#added-7" id="added-7" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -366,7 +388,7 @@
 				<a href="#210---2020-11-19" id="210---2020-11-19" style="color: inherit; text-decoration: none;">
 					<h2>[2.1.0] - 2020-11-19</h2>
 				</a>
-				<a href="#fixed-3" id="fixed-3" style="color: inherit; text-decoration: none;">
+				<a href="#fixed-4" id="fixed-4" style="color: inherit; text-decoration: none;">
 					<h3>Fixed</h3>
 				</a>
 				<ul>
@@ -382,7 +404,7 @@
 					<li>Updated to Typescript 4</li>
 					<li>Documentation, test and code improvements</li>
 				</ul>
-				<a href="#added-7" id="added-7" style="color: inherit; text-decoration: none;">
+				<a href="#added-8" id="added-8" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -402,7 +424,7 @@
 				<a href="#130---2020-05-23" id="130---2020-05-23" style="color: inherit; text-decoration: none;">
 					<h2>[1.3.0] - 2020-05-23</h2>
 				</a>
-				<a href="#added-8" id="added-8" style="color: inherit; text-decoration: none;">
+				<a href="#added-9" id="added-9" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -439,7 +461,7 @@
 					<h2>[1.0.1] - 2020-05-06</h2>
 				</a>
 				<p>Initial release of library</p>
-				<a href="#added-9" id="added-9" style="color: inherit; text-decoration: none;">
+				<a href="#added-10" id="added-10" style="color: inherit; text-decoration: none;">
 					<h3>Added</h3>
 				</a>
 				<ul>
@@ -451,7 +473,7 @@
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/26/2021 at 7:09:20 PM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/26/2021 at 9:18:55 PM</p>
 			</div>
 		</div>
 	</div>

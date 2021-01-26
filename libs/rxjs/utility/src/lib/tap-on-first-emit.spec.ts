@@ -9,11 +9,11 @@ describe('tapOnStart', () => {
     observe(() => {
       const mock = jest.fn();
       return from([1, 2, 3]).pipe(
-        tapOnFirstEmit((val) => mock(val)),
+        tapOnFirstEmit(() => mock('Test')),
         reduce((acc, val) => acc + val),
         tap((value) => expect(value).toBe(6)),
         finalize(() => {
-          expect(mock).toHaveBeenNthCalledWith(1, 1);
+          expect(mock).toHaveBeenNthCalledWith(1, 'Test');
           expect(mock).toHaveBeenCalledTimes(1);
         }),
       );

@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module Utility
  */
-import { MonoTypeOperatorFunction } from 'rxjs';
-import { switchMap, take, tap } from 'rxjs/operators';
+import { MonoTypeOperatorFunction, of } from 'rxjs';
+import { switchMap, tap } from 'rxjs/operators';
 import { CallbackFn } from '../types/utility';
 
 /**
@@ -28,10 +28,9 @@ import { CallbackFn } from '../types/utility';
  *
  * @returns Observable that emits the source observable after performing a side effect
  */
-export function tapOnFirstEmit<T extends unknown>(callback: CallbackFn<T>): MonoTypeOperatorFunction<T> {
+export function tapOnFirstEmit<T extends unknown>(callback: CallbackFn<undefined>): MonoTypeOperatorFunction<T> {
   return (source) =>
-    source.pipe(
-      take(1),
+    of(undefined).pipe(
       tap(callback),
       switchMap(() => source),
     );

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Random |
+	<title>Licence |
 	RxJS Ninja</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,10 +68,10 @@
 				<a href="../../modules.html">RxJS Ninja</a>
 			</li>
 			<li>
-				<a href="array.html">Package Docs</a>
+				<a href="blog.html">Site Docs</a>
 			</li>
 			<li>
-				<a href="random.html">Random</a>
+				<a href="licence.html">Licence</a>
 			</li>
 		</ul>
 	</div>
@@ -86,38 +86,35 @@
 						<a href="" class="tsd-kind-icon">Site <wbr>Docs</a>
 					</li>
 					<li class=" pp-nav pp-page root">
-						<a href="../site-docs/blog.html" class="tsd-kind-icon">Blog</a>
+						<a href="blog.html" class="tsd-kind-icon">Blog</a>
 					</li>
-					<li class=" pp-nav pp-page root">
-						<a href="../site-docs/licence.html" class="tsd-kind-icon">Licence</a>
+				</ul>
+				<ul class="current">
+					<li class="current pp-nav pp-page root">
+						<a href="licence.html" class="tsd-kind-icon">Licence</a>
 					</li>
+				</ul>
+				<ul class="after-current">
 					<li class=" pp-nav pp-group root">
 						<a href="" class="tsd-kind-icon">Package <wbr>Docs</a>
 					</li>
 					<li class=" pp-nav pp-page pp-parent root">
-						<a href="array.html" class="tsd-kind-icon">Array</a>
+						<a href="../packages/array.html" class="tsd-kind-icon">Array</a>
 					</li>
 					<li class=" pp-nav pp-page pp-parent root">
-						<a href="boolean.html" class="tsd-kind-icon">Boolean</a>
+						<a href="../packages/boolean.html" class="tsd-kind-icon">Boolean</a>
 					</li>
 					<li class=" pp-nav pp-page pp-parent root">
-						<a href="number.html" class="tsd-kind-icon">Number</a>
-					</li>
-				</ul>
-				<ul class="current">
-					<li class="current pp-nav pp-page pp-parent root">
-						<a href="random.html" class="tsd-kind-icon">Random</a>
-					</li>
-				</ul>
-				<ul class="after-current">
-					<li class=" pp-nav pp-page pp-child root">
-						<a href="random/changelog.html" class="tsd-kind-icon">Changelog</a>
+						<a href="../packages/number.html" class="tsd-kind-icon">Number</a>
 					</li>
 					<li class=" pp-nav pp-page pp-parent root">
-						<a href="string.html" class="tsd-kind-icon">String</a>
+						<a href="../packages/random.html" class="tsd-kind-icon">Random</a>
 					</li>
 					<li class=" pp-nav pp-page pp-parent root">
-						<a href="utility.html" class="tsd-kind-icon">Utility</a>
+						<a href="../packages/string.html" class="tsd-kind-icon">String</a>
+					</li>
+					<li class=" pp-nav pp-page pp-parent root">
+						<a href="../packages/utility.html" class="tsd-kind-icon">Utility</a>
 					</li>
 					<li class=" pp-nav pp-group root">
 						<a href="" class="tsd-kind-icon">RxJS <wbr>Ninja APIs</a>
@@ -152,35 +149,10 @@
 		</div>
 		<div class="col-content">
 			<div class="tsd-panel tsd-typography">
-				<a href="#rxjs-ninja---randomness" id="rxjs-ninja---randomness" style="color: inherit; text-decoration: none;">
-					<h1>RxJS Ninja - Randomness</h1>
-				</a>
-				<p><img src="https://raw.githubusercontent.com/rxjs-ninja/rxjs-ninja/main/assets/logo.png" alt="The RXJS Ninja Logo"></p>
-				<p><a href="https://www.npmjs.com/package/@rxjs-ninja/rxjs-random"><img src="https://img.shields.io/npm/v/@rxjs-ninja/rxjs-random?label=@rxjs-ninja/rxjs-random" alt="rxjs-random"></a></p>
-				<p><a href="https://rxjs.ninja">Website</a>
-					|
-					<a href="https://rxjs.ninja/modules/random.html">API Documentation</a>
-					|
-				<a href="https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/CHANGELOG.md">Changelog</a></p>
-				<p><code>@rxjs-ninja/rxjs-random</code> Observable for generating random emitters with both numbers and strings.</p>
-				<a href="#function-and-operator-categories" id="function-and-operator-categories" style="color: inherit; text-decoration: none;">
-					<h2>Function and Operator categories</h2>
-				</a>
-				<a href="#random-numbers" id="random-numbers" style="color: inherit; text-decoration: none;">
-					<h3>Random Numbers</h3>
-				</a>
-				<p>Functions to create Observable random numbers</p>
-				<pre><code class="language-ts"><span style="color: #008000">// Randomly generate 50 `1byte` values between `-127` and `127` and filter values in the range `-64, 64`</span>
-<span style="color: #795E26">fromRandomCrypto</span><span style="color: #000000">(</span><span style="color: #098658">0</span><span style="color: #000000">, { </span><span style="color: #001080">bytes:</span><span style="color: #000000"> </span><span style="color: #098658">1</span><span style="color: #000000">, </span><span style="color: #001080">unsigned:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000"> }).</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">take</span><span style="color: #000000">(</span><span style="color: #098658">50</span><span style="color: #000000">), </span><span style="color: #795E26">filterInRange</span><span style="color: #000000">(-</span><span style="color: #098658">64</span><span style="color: #000000">, </span><span style="color: #098658">64</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
-<span style="color: #000000">Output: </span><span style="color: #A31515">`-12, 4, 64, 32, -1, 21, -43`</span><span style="color: #000000">;</span>
-</code></pre>
-				<a href="#random-strings" id="random-strings" style="color: inherit; text-decoration: none;">
-					<h3>Random Strings</h3>
-				</a>
-				<pre><code class="language-ts"><span style="color: #008000">// Generate a random UUID</span>
-<span style="color: #795E26">fromUUIDv4</span><span style="color: #000000">().</span><span style="color: #795E26">pipe</span><span style="color: #000000">(</span><span style="color: #795E26">take</span><span style="color: #000000">(</span><span style="color: #098658">1</span><span style="color: #000000">)).</span><span style="color: #795E26">subscribe</span><span style="color: #000000">();</span>
-<span style="color: #008000">// Output: `2a6d71bf-6ccd-4810-bc60-c9ffdedf8864`</span>
-</code></pre>
+				<p>Copyright 2020 Tane Piper</p>
+				<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+				<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+				<p>THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 			</div>
 			<footer class="with-border-bottom">
 			</footer>

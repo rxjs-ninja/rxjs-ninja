@@ -1,7 +1,10 @@
 {
   "name": "RxJS Ninja",
   "out": "docs",
-  "exclude": ["**/*.spec.ts", "tools/**/*"],
+  "exclude": [
+    "**/*.spec.ts",
+    "tools/**/*"
+  ],
   "readme": "README.md",
   "tsconfig": "tsconfig.base.json",
   "theme": "./node_modules/typedoc-ninja-theme/bin/default",
@@ -47,6 +50,22 @@
     "reflectionNavigationTitle": "RxJS Ninja APIs",
     "enableSearch": true,
     "groups": [
+      {
+        "title": "Site Docs",
+        "output": "site-docs",
+        "pages": [
+          {
+            "title": "Blog",
+            "source": "BLOG.md",
+            "output": "blog"
+          },
+          {
+            "title": "Licence",
+            "source": "LICENCE.md",
+            "output": "licence"
+          }
+        ]
+      },
       {
         "title": "Package Docs",
         "output": "packages",

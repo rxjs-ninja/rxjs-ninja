@@ -73,6 +73,7 @@ export function fromEventSource<T extends unknown>(
      * @internal
      * @param event
      */
+    /* istanbul ignore next */
     function handleError(event: Event) {
       subscriber.error((event as ErrorEvent).message);
     }
@@ -82,12 +83,14 @@ export function fromEventSource<T extends unknown>(
      * @internal
      * @param event
      */
+    /* istanbul ignore next */
     function handleOpen(event: Event) {
       openObserver?.next(event);
       openObserver?.complete();
       source.removeEventListener('open', handleOpen);
     }
 
+    /* istanbul ignore next */
     if (openObserver) {
       source.addEventListener('open', handleOpen);
     }
@@ -101,6 +104,7 @@ export function fromEventSource<T extends unknown>(
       source.removeEventListener('open', handleOpen);
 
       source.close();
+      /* istanbul ignore next */
       !subscriber.closed && subscriber.complete();
     };
   });

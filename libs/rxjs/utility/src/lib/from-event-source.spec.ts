@@ -3,7 +3,7 @@
 import EventSource, { sources } from 'eventsourcemock';
 import { observe } from 'rxjs-marbles/jest';
 import { fromEventSource } from '@rxjs-ninja/rxjs-utility';
-import { catchError, take, tap, withLatestFrom } from 'rxjs/operators';
+import { catchError, finalize, reduce, take, tap, withLatestFrom } from 'rxjs/operators';
 import { BehaviorSubject, of } from 'rxjs';
 
 describe('fromEventSource', () => {
@@ -34,6 +34,34 @@ describe('fromEventSource', () => {
       return fromEventSource<Record<string, string>>(source).pipe(
         take(1),
         tap((result) => expect(result).toBe('{"value": "This is a test"}')),
+      );
+    }),
+  );
+
+  it(
+    'should end on a passed signal',
+    observe(() => {
+      const event = new MessageEvent('message', {
+        data: '{"value": "This is a test"}',
+      });
+
+      const stop = new AbortController();
+
+      setTimeout(() => {
+        sources['test.js'].emit(event.type, event);
+        sources['test.js'].emit(event.type, event);
+        sources['test.js'].emit(event.type, event);
+        sources['test.js'].emit(event.type, event);
+        stop.abort();
+      }, 1000);
+
+      let count = 0;
+      return fromEventSource<Record<string, string>>(source, undefined, undefined, stop.signal).pipe(
+        reduce((a, b) => a + 1, 0),
+        tap((value) => (count = value)),
+        finalize(() => {
+          expect(count).toBe(4);
+        }),
       );
     }),
   );

@@ -34,6 +34,7 @@ export function tapOnUnsubscribe<T extends unknown>(callback: CallbackFn<undefin
 
       return () => {
         callback();
+        /* istanbul ignore next */
         !sub.closed && sub.unsubscribe();
       };
     });

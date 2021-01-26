@@ -66,6 +66,7 @@ export function toWritableStream<T extends unknown>(
       catchError((error) => {
         closed = true;
         // Attempt to close the writer then always return the original error
+        /* istanbul ignore next */
         return from(writer.close()).pipe(
           catchError(() => throwError(error)),
           switchMap(() => throwError(error)),

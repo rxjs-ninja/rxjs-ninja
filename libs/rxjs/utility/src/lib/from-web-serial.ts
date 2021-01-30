@@ -1,3 +1,8 @@
+/**
+ * @packageDocumentation
+ * @module Utility
+ */
+/* istanbul ignore file */
 import { EMPTY, from, Observable, Subject } from 'rxjs';
 import { catchError, takeUntil, tap } from 'rxjs/operators';
 import { toWritableStream } from './to-writable-stream';
@@ -6,14 +11,17 @@ import { toWritableStream } from './to-writable-stream';
  * Returns an Observable that emits the response from a source connected to via the
  * {@link https://reillyeon.github.io/serial|Web Serial API}
  *
+ * @category Streams
+ *
  * @remarks Web Serial is available in Chrome or Edge 89 or later, in earlier versions it can be enabled using the
  *   experimental web features flag. To use the feature is **must** be invoked with a user action such as a user
- *   button click before the port can be opened by this operator.
+ *   button click, and in a browser location that provides an acceptable policy before the port can be opened by this
+ *   operator.
  *
  * @see {@link https://rxjs-from-web-serial.stackblitz.io|RxJS Web Serial Demo}
+ * @see {@link https://stackblitz.com/edit/rxjs-from-web-serial|Demo Source}
  *
- * @typeParam O The type output from the SerialPort device
- * @typeParam I The type of input value from the writer to the device
+ * @typeParam T The type of input value from the writer to the device
  *
  * @param port The SerialPort object to connect to
  * @param writerSource Optional Observable source to emit values to the serial connection writer
@@ -22,9 +30,9 @@ import { toWritableStream } from './to-writable-stream';
  *
  * @returns Observable that emits the output from a serial source
  */
-export function fromWebSerial<I extends unknown>(
+export function fromWebSerial<T extends unknown>(
   port: SerialPort,
-  writerSource?: Observable<I>,
+  writerSource?: Observable<T>,
   options: SerialOptions = { baudRate: 9600 },
   signal?: AbortSignal,
 ): Observable<Uint8Array> {
@@ -32,7 +40,7 @@ export function fromWebSerial<I extends unknown>(
     from(port.open(options))
       .pipe(
         tap(() => {
-          let writer: WritableStreamDefaultWriter<I>;
+          let writer: WritableStreamDefaultWriter<T>;
           let writerEnd: Promise<void>;
           let reader: ReadableStreamDefaultReader<Uint8Array>;
           const closeStreams$ = new Subject<void>();

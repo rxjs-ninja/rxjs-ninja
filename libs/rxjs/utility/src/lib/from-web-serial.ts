@@ -21,8 +21,6 @@ import { toWritableStream } from './to-writable-stream';
  * @see {@link https://rxjs-from-web-serial.stackblitz.io|RxJS Web Serial Demo}
  * @see {@link https://stackblitz.com/edit/rxjs-from-web-serial|Demo Source}
  *
- * @typeParam T The type of input value from the writer to the device
- *
  * @param port The SerialPort object to connect to
  * @param writerSource Optional Observable source to emit values to the serial connection writer
  * @param options Options for the connection - default is `baudRate` of `9600`
@@ -30,9 +28,9 @@ import { toWritableStream } from './to-writable-stream';
  *
  * @returns Observable that emits the output from a serial source
  */
-export function fromWebSerial<T extends unknown>(
+export function fromWebSerial(
   port: SerialPort,
-  writerSource?: Observable<T>,
+  writerSource?: Observable<string>,
   options: SerialOptions = { baudRate: 9600 },
   signal?: AbortSignal,
 ): Observable<Uint8Array> {
@@ -40,7 +38,7 @@ export function fromWebSerial<T extends unknown>(
     from(port.open(options))
       .pipe(
         tap(() => {
-          let writer: WritableStreamDefaultWriter<T>;
+          let writer: WritableStreamDefaultWriter<string>;
           let writerEnd: Promise<void>;
           let reader: ReadableStreamDefaultReader<Uint8Array>;
           const closeStreams$ = new Subject<void>();
@@ -65,7 +63,7 @@ export function fromWebSerial<T extends unknown>(
             writerEnd = encoder.readable.pipeTo(port.writable);
             const outputStream = encoder.writable;
 
-            const writer: WritableStreamDefaultWriter = outputStream.getWriter();
+            writer = outputStream.getWriter();
             writerSource.pipe(takeUntil(closeStreams$), toWritableStream(writer, signal)).subscribe();
           }
 

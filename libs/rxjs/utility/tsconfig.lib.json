@@ -4,7 +4,7 @@
     "module": "es2015",
     "outDir": "../../../dist/out-tsc",
     "declaration": true,
-    "types": ["node"]
+    "types": ["node", "w3c-web-serial"]
   },
   "exclude": ["**/*.spec.ts"],
   "include": ["**/*.ts"]

@@ -12,6 +12,10 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `fromWebSerial` Observable that allows communication between [Web Serial](https://reillyeon.github.io/serial/) devices
   using RxJS (see [demo](https://rxjs-from-web-serial.stackblitz.io)
   and [source](https://stackblitz.com/edit/rxjs-from-web-serial))
+  
+### Fixed
+
+- Correct export path for `length` operator
 
 ## [5.0.0] - 2021-01-26
 

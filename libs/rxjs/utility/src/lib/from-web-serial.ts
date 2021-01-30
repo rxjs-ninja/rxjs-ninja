@@ -1,7 +1,6 @@
 import { EMPTY, from, Observable, Subject } from 'rxjs';
 import { catchError, takeUntil, tap } from 'rxjs/operators';
 import { toWritableStream } from './to-writable-stream';
-import { SerialOptions, SerialPort } from '../types/serial';
 
 /**
  * Returns an Observable that emits the response from a source connected to via the
@@ -23,22 +22,19 @@ import { SerialOptions, SerialPort } from '../types/serial';
  *
  * @returns Observable that emits the output from a serial source
  */
-export function fromWebSerial<O extends Uint8Array, I extends unknown>(
+export function fromWebSerial<I extends unknown>(
   port: SerialPort,
   writerSource?: Observable<I>,
   options: SerialOptions = { baudRate: 9600 },
   signal?: AbortSignal,
-): Observable<O> {
-  return new Observable<O>((subscriber) => {
+): Observable<Uint8Array> {
+  return new Observable<Uint8Array>((subscriber) => {
     from(port.open(options))
       .pipe(
         tap(() => {
-          /**
-           * Get the writer for web serial
-           */
           let writer: WritableStreamDefaultWriter<I>;
           let writerEnd: Promise<void>;
-          const reader: ReadableStreamDefaultReader<O> = port.readable.getReader();
+          let reader: ReadableStreamDefaultReader<Uint8Array>;
           const closeStreams$ = new Subject<void>();
 
           closeStreams$
@@ -49,12 +45,14 @@ export function fromWebSerial<O extends Uint8Array, I extends unknown>(
                   await writerEnd;
                   writer.releaseLock();
                 }
-                reader.releaseLock();
+                if (reader) {
+                  reader.releaseLock();
+                }
               }),
             )
             .subscribe();
 
-          if (writerSource) {
+          if (writerSource && port.writable) {
             const encoder = new TextEncoderStream();
             writerEnd = encoder.readable.pipeTo(port.writable);
             const outputStream = encoder.writable;
@@ -75,12 +73,17 @@ export function fromWebSerial<O extends Uint8Array, I extends unknown>(
             closeStreams$.complete();
           };
 
-          const process = async (result: ReadableStreamReadResult<O>): Promise<ReadableStreamReadResult<O>> => {
+          const process = async (
+            result: ReadableStreamReadResult<Uint8Array>,
+          ): Promise<ReadableStreamReadResult<Uint8Array>> => {
             subscriber.next(result.value);
-            return !result.done ? reader.read().then(process) : Promise.resolve(result);
+            return !result.done || !port.readable ? reader.read().then(process) : Promise.resolve(result);
           };
 
-          reader.read().then(process);
+          if (port.readable) {
+            reader = port.readable.getReader();
+            reader.read().then(process);
+          }
         }),
         catchError((err) => {
           subscriber.error(err);

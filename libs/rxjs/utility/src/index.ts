@@ -9,10 +9,11 @@
 /* istanbul ignore file */
 export { debounceWithQuery } from './lib/debounce-with-query';
 export { decodeJWT } from './lib/decode-jwt';
-export { length } from 'libs/rxjs/utility/src/lib/length';
+export { length } from './lib/length';
 export { fromEventSource } from './lib/from-event-source';
 export { fromReadableStream } from './lib/from-readable-stream';
 export { fromFetchWithProgress } from './lib/from-fetch-with-progress';
+export { fromWebSerial } from './lib/from-web-serial';
 export { hexToRGBA } from './lib/hex-to-rgba';
 export { mapIf } from './lib/map-if';
 export { rgbToHex } from './lib/rgb-to-hex';
@@ -29,5 +30,5 @@ export { weight } from './lib/weight';
 
 export * from './types/utility';
 export { Temperatures } from './types/temperature';
-export { Lengths } from 'libs/rxjs/utility/src/types/length';
+export { Lengths } from './types/length';
 export { Weights } from './types/weight';

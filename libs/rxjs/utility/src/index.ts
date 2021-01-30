@@ -13,6 +13,7 @@ export { length } from 'libs/rxjs/utility/src/lib/length';
 export { fromEventSource } from './lib/from-event-source';
 export { fromReadableStream } from './lib/from-readable-stream';
 export { fromFetchWithProgress } from './lib/from-fetch-with-progress';
+export { fromWebSerial } from './lib/from-web-serial';
 export { hexToRGBA } from './lib/hex-to-rgba';
 export { mapIf } from './lib/map-if';
 export { rgbToHex } from './lib/rgb-to-hex';

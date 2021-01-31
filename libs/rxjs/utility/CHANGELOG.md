@@ -7,6 +7,12 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [Unreleased]
 
+### Fixed
+
+- Fixed bug in `fromWebSerial` where `AbortController` signal already called and not firing in main function
+
+## [5.1.1] - 2021-01-31
+
 ### Changed
 
 - Internal improvements to `toWritableStream` and `fromWebSerial`

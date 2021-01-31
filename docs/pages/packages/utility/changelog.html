@@ -161,6 +161,21 @@
 				<p>All notable changes to this project will be documented in this file.</p>
 				<p>The format is based on <a href="https://keepachangelog.com/en/1.0.0/">Keep a Changelog</a>, and this project adheres
 				to <a href="https://semver.org/spec/v2.0.0.html">Semantic Versioning</a>.</p>
+				<a href="#511---2021-01-31" id="511---2021-01-31" style="color: inherit; text-decoration: none;">
+					<h2>[5.1.1] - 2021-01-31</h2>
+				</a>
+				<a href="#changed" id="changed" style="color: inherit; text-decoration: none;">
+					<h3>Changed</h3>
+				</a>
+				<ul>
+					<li>Internal improvements to <code>toWritableStream</code> and <code>fromWebSerial</code></li>
+				</ul>
+				<a href="#fixed" id="fixed" style="color: inherit; text-decoration: none;">
+					<h3>Fixed</h3>
+				</a>
+				<ul>
+					<li><code>fromWebSerial</code> writer Observable now correctly accepts <code>Uint8Array</code> instead of <code>string</code></li>
+				</ul>
 				<a href="#510---2021-01-30" id="510---2021-01-30" style="color: inherit; text-decoration: none;">
 					<h2>[5.1.0] - 2021-01-30</h2>
 				</a>
@@ -168,15 +183,15 @@
 					<h3>Added</h3>
 				</a>
 				<ul>
-					<li><p><code>fromWebSerial</code> Observable that allows communication between <a href="https://reillyeon.github.io/serial/">Web Serial</a> devices
-							using RxJS (see <a href="https://rxjs-from-web-serial.stackblitz.io">demo</a>
-						and <a href="https://stackblitz.com/edit/rxjs-from-web-serial">source</a>)</p>
-						<a href="#fixed" id="fixed" style="color: inherit; text-decoration: none;">
-							<h3>Fixed</h3>
-						</a>
-					</li>
-					<li><p>Correct export path for <code>length</code> operator</p>
-					</li>
+					<li><code>fromWebSerial</code> Observable that allows communication between <a href="https://reillyeon.github.io/serial/">Web Serial</a> devices
+						using RxJS (see <a href="https://rxjs-from-web-serial.stackblitz.io">demo</a>
+					and <a href="https://stackblitz.com/edit/rxjs-from-web-serial">source</a>)</li>
+				</ul>
+				<a href="#fixed-1" id="fixed-1" style="color: inherit; text-decoration: none;">
+					<h3>Fixed</h3>
+				</a>
+				<ul>
+					<li>Correct export path for <code>length</code> operator</li>
 				</ul>
 				<a href="#500---2021-01-26" id="500---2021-01-26" style="color: inherit; text-decoration: none;">
 					<h2>[5.0.0] - 2021-01-26</h2>
@@ -191,7 +206,7 @@
 					but uses an <a href="https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal">AbortSignal</a> as the notifier.</li>
 					<li><code>tapOnUnSubscribe</code> operator that is called on each source unsubscription.</li>
 				</ul>
-				<a href="#fixed-1" id="fixed-1" style="color: inherit; text-decoration: none;">
+				<a href="#fixed-2" id="fixed-2" style="color: inherit; text-decoration: none;">
 					<h3>Fixed</h3>
 				</a>
 				<ul>
@@ -203,7 +218,7 @@
 				<a href="#441---2021-01-26" id="441---2021-01-26" style="color: inherit; text-decoration: none;">
 					<h2>[4.4.1] - 2021-01-26</h2>
 				</a>
-				<a href="#fixed-2" id="fixed-2" style="color: inherit; text-decoration: none;">
+				<a href="#fixed-3" id="fixed-3" style="color: inherit; text-decoration: none;">
 					<h3>Fixed</h3>
 				</a>
 				<ul>
@@ -222,7 +237,7 @@
 				<a href="#431---2021-01-25" id="431---2021-01-25" style="color: inherit; text-decoration: none;">
 					<h2>[4.3.1] - 2021-01-25</h2>
 				</a>
-				<a href="#fixed-3" id="fixed-3" style="color: inherit; text-decoration: none;">
+				<a href="#fixed-4" id="fixed-4" style="color: inherit; text-decoration: none;">
 					<h3>Fixed</h3>
 				</a>
 				<ul>
@@ -238,7 +253,7 @@
 				<ul>
 					<li><code>temperature</code> operator now also includes <a href="https://en.wikipedia.org/wiki/Rankine_scale">Rankine</a> conversion</li>
 				</ul>
-				<a href="#changed" id="changed" style="color: inherit; text-decoration: none;">
+				<a href="#changed-1" id="changed-1" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -284,7 +299,7 @@
 				<a href="#412---2021-01-21" id="412---2021-01-21" style="color: inherit; text-decoration: none;">
 					<h2>[4.1.2] - 2021-01-21</h2>
 				</a>
-				<a href="#changed-1" id="changed-1" style="color: inherit; text-decoration: none;">
+				<a href="#changed-2" id="changed-2" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -293,7 +308,7 @@
 				<a href="#411---2021-01-20" id="411---2021-01-20" style="color: inherit; text-decoration: none;">
 					<h2>[4.1.1] - 2021-01-20</h2>
 				</a>
-				<a href="#changed-2" id="changed-2" style="color: inherit; text-decoration: none;">
+				<a href="#changed-3" id="changed-3" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -319,7 +334,7 @@
 					<li><code>switchMapIf</code> operator that takes a predicate function, and two methods to return an Observable value based on the
 					predicate being <code>true</code> or <code>false</code>.</li>
 				</ul>
-				<a href="#changed-3" id="changed-3" style="color: inherit; text-decoration: none;">
+				<a href="#changed-4" id="changed-4" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -328,7 +343,7 @@
 				<a href="#321---2021-01-14" id="321---2021-01-14" style="color: inherit; text-decoration: none;">
 					<h2>[3.2.1] - 2021-01-14</h2>
 				</a>
-				<a href="#fixed-4" id="fixed-4" style="color: inherit; text-decoration: none;">
+				<a href="#fixed-5" id="fixed-5" style="color: inherit; text-decoration: none;">
 					<h3>Fixed</h3>
 				</a>
 				<ul>
@@ -345,7 +360,7 @@
 					<li><code>fromFetchWithProgress</code> provides a <code>fetch</code> interface that returns a number during a fetch of a file, and
 					a <code>Uint8Array</code> when finished (which can be converted to binary data)</li>
 				</ul>
-				<a href="#changed-4" id="changed-4" style="color: inherit; text-decoration: none;">
+				<a href="#changed-5" id="changed-5" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -376,7 +391,7 @@
 				</a>
 				<p>This release contains a major update to documentation and examples on <a href="https://rxjs.ninja">rxjs.ninja</a> and improved test
 				coverage that provided various bug fixes.</p>
-				<a href="#changed-5" id="changed-5" style="color: inherit; text-decoration: none;">
+				<a href="#changed-6" id="changed-6" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -385,7 +400,7 @@
 				<a href="#212---2020-11-22" id="212---2020-11-22" style="color: inherit; text-decoration: none;">
 					<h2>[2.1.2] - 2020-11-22</h2>
 				</a>
-				<a href="#changed-6" id="changed-6" style="color: inherit; text-decoration: none;">
+				<a href="#changed-7" id="changed-7" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -396,7 +411,7 @@
 				<a href="#211---2020-11-20" id="211---2020-11-20" style="color: inherit; text-decoration: none;">
 					<h2>[2.1.1] - 2020-11-20</h2>
 				</a>
-				<a href="#changed-7" id="changed-7" style="color: inherit; text-decoration: none;">
+				<a href="#changed-8" id="changed-8" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -405,7 +420,7 @@
 				<a href="#210---2020-11-19" id="210---2020-11-19" style="color: inherit; text-decoration: none;">
 					<h2>[2.1.0] - 2020-11-19</h2>
 				</a>
-				<a href="#fixed-5" id="fixed-5" style="color: inherit; text-decoration: none;">
+				<a href="#fixed-6" id="fixed-6" style="color: inherit; text-decoration: none;">
 					<h3>Fixed</h3>
 				</a>
 				<ul>
@@ -414,7 +429,7 @@
 				<a href="#200---2020-11-17" id="200---2020-11-17" style="color: inherit; text-decoration: none;">
 					<h2>[2.0.0] - 2020-11-17</h2>
 				</a>
-				<a href="#changed-8" id="changed-8" style="color: inherit; text-decoration: none;">
+				<a href="#changed-9" id="changed-9" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -432,7 +447,7 @@
 				<a href="#131---2020-05-24" id="131---2020-05-24" style="color: inherit; text-decoration: none;">
 					<h2>[1.3.1] - 2020-05-24</h2>
 				</a>
-				<a href="#changed-9" id="changed-9" style="color: inherit; text-decoration: none;">
+				<a href="#changed-10" id="changed-10" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -450,7 +465,7 @@
 				<a href="#120---2020-05-18" id="120---2020-05-18" style="color: inherit; text-decoration: none;">
 					<h2>[1.2.0] - 2020-05-18</h2>
 				</a>
-				<a href="#changed-10" id="changed-10" style="color: inherit; text-decoration: none;">
+				<a href="#changed-11" id="changed-11" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -459,7 +474,7 @@
 				<a href="#110---2020-05-11" id="110---2020-05-11" style="color: inherit; text-decoration: none;">
 					<h2>[1.1.0] - 2020-05-11</h2>
 				</a>
-				<a href="#changed-11" id="changed-11" style="color: inherit; text-decoration: none;">
+				<a href="#changed-12" id="changed-12" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -468,7 +483,7 @@
 				<a href="#102---2020-05-06" id="102---2020-05-06" style="color: inherit; text-decoration: none;">
 					<h2>[1.0.2] - 2020-05-06</h2>
 				</a>
-				<a href="#changed-12" id="changed-12" style="color: inherit; text-decoration: none;">
+				<a href="#changed-13" id="changed-13" style="color: inherit; text-decoration: none;">
 					<h3>Changed</h3>
 				</a>
 				<ul>
@@ -490,7 +505,7 @@
 			<footer class="with-border-bottom">
 			</footer>
 			<div class="container tsd-generator">
-				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/30/2021 at 10:46:56 AM</p>
+				<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a>, the 1/31/2021 at 11:01:21 AM</p>
 			</div>
 		</div>
 	</div>

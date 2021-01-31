@@ -3,7 +3,7 @@
  * @module Utility
  */
 /* istanbul ignore file */
-import { EMPTY, from, Observable, of, Subject } from 'rxjs';
+import { EMPTY, from, Observable, Subject } from 'rxjs';
 import { catchError, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { toWritableStream } from './to-writable-stream';
 

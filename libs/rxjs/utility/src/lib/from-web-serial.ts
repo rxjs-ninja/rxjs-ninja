@@ -89,7 +89,7 @@ export function fromWebSerial(
             writerSource
               .pipe(
                 takeUntil(closeStreams$),
-                toWritableStream(writer, signal),
+                toWritableStream(writer),
                 catchError((err) => {
                   subscriber.error(err);
                   return EMPTY;

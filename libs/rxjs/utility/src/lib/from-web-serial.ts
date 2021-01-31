@@ -3,13 +3,14 @@
  * @module Utility
  */
 /* istanbul ignore file */
-import { EMPTY, from, Observable, Subject } from 'rxjs';
-import { catchError, takeUntil, tap } from 'rxjs/operators';
+import { EMPTY, from, Observable, of, Subject } from 'rxjs';
+import { catchError, switchMap, takeUntil, tap } from 'rxjs/operators';
 import { toWritableStream } from './to-writable-stream';
 
 /**
  * Returns an Observable that emits the response from a source connected to via the
- * {@link https://reillyeon.github.io/serial|Web Serial API}
+ * {@link https://reillyeon.github.io/serial|Web Serial API}. The function can also accept an Observable
+ * that emits values to write to the serial device, allowing two-way communication.
  *
  * @category Streams
  *
@@ -30,41 +31,48 @@ import { toWritableStream } from './to-writable-stream';
  */
 export function fromWebSerial(
   port: SerialPort,
-  writerSource?: Observable<string>,
+  writerSource?: Observable<Uint8Array>,
   options: SerialOptions = { baudRate: 9600 },
   signal?: AbortSignal,
 ): Observable<Uint8Array> {
   return new Observable<Uint8Array>((subscriber) => {
+    console.log('new subscription');
+    const closeStreams$ = new Subject<void>();
+
     from(port.open(options))
       .pipe(
         tap(() => {
-          let writer: WritableStreamDefaultWriter<string>;
-          let writerEnd: Promise<void>;
           let reader: ReadableStreamDefaultReader<Uint8Array>;
-          const closeStreams$ = new Subject<void>();
+          let writer: WritableStreamDefaultWriter<Uint8Array>;
 
           closeStreams$
+            .asObservable()
             .pipe(
               tap(async () => {
-                if (writer) {
-                  await writer.close();
-                  await writerEnd;
-                  writer.releaseLock();
-                }
-                if (reader) {
-                  reader.releaseLock();
-                }
+                console.log('here');
+                await writer.close();
+                //writer.releaseLock();
+                await reader.cancel();
+                //reader.releaseLock();
+                await port.close();
+                !subscriber.closed && subscriber.complete();
               }),
             )
             .subscribe();
 
           if (writerSource && port.writable) {
-            const encoder = new TextEncoderStream();
-            writerEnd = encoder.readable.pipeTo(port.writable);
-            const outputStream = encoder.writable;
+            writer = port.writable.getWriter();
 
-            writer = outputStream.getWriter();
-            writerSource.pipe(takeUntil(closeStreams$), toWritableStream(writer, signal)).subscribe();
+            writerSource
+              .pipe(
+                takeUntil(closeStreams$),
+                toWritableStream(writer, signal),
+                catchError((err) => {
+                  subscriber.error(err);
+                  return EMPTY;
+                }),
+              )
+              .subscribe();
           }
 
           if (signal) {
@@ -88,7 +96,12 @@ export function fromWebSerial(
 
           if (port.readable) {
             reader = port.readable.getReader();
-            reader.read().then(process);
+            from(reader.read())
+              .pipe(
+                takeUntil(closeStreams$),
+                switchMap((result) => process(result)),
+              )
+              .subscribe();
           }
         }),
         catchError((err) => {
@@ -97,5 +110,10 @@ export function fromWebSerial(
         }),
       )
       .subscribe();
+
+    return () => {
+      closeStreams$.next();
+      closeStreams$.complete();
+    };
   });
 }

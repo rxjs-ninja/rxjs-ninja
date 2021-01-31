@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Changed
+
+- Internal improvements to `toWritableStream` and `fromWebSerial`
+
+### Fixed
+
+- `fromWebSerial` writer Observable now correctly accepts `Uint8Array` instead of `string`
+
 ## [5.1.0] - 2021-01-30
 
 ### Added
@@ -12,7 +22,7 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - `fromWebSerial` Observable that allows communication between [Web Serial](https://reillyeon.github.io/serial/) devices
   using RxJS (see [demo](https://rxjs-from-web-serial.stackblitz.io)
   and [source](https://stackblitz.com/edit/rxjs-from-web-serial))
-  
+
 ### Fixed
 
 - Correct export path for `length` operator

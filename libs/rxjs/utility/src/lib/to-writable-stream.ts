@@ -2,7 +2,7 @@
  * @packageDocumentation
  * @module Utility
  */
-import { from, MonoTypeOperatorFunction, of, throwError } from 'rxjs';
+import { EMPTY, from, MonoTypeOperatorFunction, throwError } from 'rxjs';
 import { catchError, finalize, mergeMap, switchMap, tap } from 'rxjs/operators';
 
 /**
@@ -48,7 +48,7 @@ export function toWritableStream<T extends unknown>(
     signal.onabort = () => {
       closed = true;
       from(writer.close())
-        .pipe(catchError(() => of(true)))
+        .pipe(catchError(() => EMPTY))
         .subscribe();
     };
   }
@@ -59,7 +59,7 @@ export function toWritableStream<T extends unknown>(
         // Attempt to write to the writer is not closed, if there is an error don't pass it on
         if (!closed) {
           from(writer.ready)
-            .pipe(mergeMap(() => from(writer.write(value)).pipe(catchError(() => of(value)))))
+            .pipe(mergeMap(() => from(writer.write(value)).pipe(catchError(() => EMPTY))))
             .subscribe();
         }
       }),
@@ -67,16 +67,13 @@ export function toWritableStream<T extends unknown>(
         closed = true;
         // Attempt to close the writer then always return the original error
         /* istanbul ignore next */
-        return from(writer.close()).pipe(
-          catchError(() => throwError(error)),
-          switchMap(() => throwError(error)),
-        );
+        return from(writer.close()).pipe(switchMap(() => throwError(error)));
       }),
       finalize(() => {
         closed = true;
         // Attempt to close any open writer, don't emit any error
         from(writer.close())
-          .pipe(catchError(() => of(true)))
+          .pipe(catchError(() => EMPTY))
           .subscribe();
       }),
     );

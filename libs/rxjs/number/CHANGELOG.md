@@ -11,7 +11,6 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 - Fixed export paths that were pointing to the export location from the repo root, not the library root
 
-
 ## [5.1.2] - 2021-01-25
 
 ### Fixed

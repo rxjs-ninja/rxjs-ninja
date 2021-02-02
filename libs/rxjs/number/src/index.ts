@@ -14,7 +14,7 @@ export { filterInRange } from './lib/filter-in-range';
 export { filterIsFinite } from './lib/filter-is-finite';
 export { filterIsFloat } from './lib/filter-is-float';
 export { filterIsInteger } from './lib/filter-is-integer';
-export { filterNaN } from 'libs/rxjs/number/src/lib/filter-nan';
+export { filterNaN } from './lib/filter-nan';
 export { filterIsSafeInteger } from './lib/filter-is-safe-integer';
 export { filterOutOfRange } from './lib/filter-out-of-range';
 export { fromFibonacci } from './lib/from-fibonacci';

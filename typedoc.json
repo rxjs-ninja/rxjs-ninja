@@ -26,6 +26,7 @@
     "typedoc-plugin-extras",
     "typedoc-ninja-theme"
   ],
+  "fathomId": "NRPNPAKT",
   "homepageText": "A collection of over 130 out-of-the-box and well tested RxJS operators",
   "links": [
     {

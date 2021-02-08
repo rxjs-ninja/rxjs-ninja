@@ -1,5 +1,28 @@
 # RxJS Ninja Blog
 
+## [20201-02-08] - Upcoming Major releases and Package Changes
+
+There are some important changes coming up in RxJS Ninja. The next release of the libraries will all be major, and will
+be the last versions published under their current names - with the package names being shortened - removing the
+second `rxjs` from each package name.
+
+* `@rxjs-ninja/rxjs-array` will now become `@rxjs-ninja/array`
+* `@rxjs-ninja/rxjs-boolean` will now become `@rxjs-ninja/boolean`
+* `@rxjs-ninja/rxjs-number` will now become `@rxjs-ninja/number`
+* `@rxjs-ninja/rxjs-string` will now become `@rxjs-ninja/string`
+* `@rxjs-ninja/rxjs-utility` will now become `@rxjs-ninja/utilities`
+
+Each version will be published as a major version bump and marked with a deprecation warning - the new names will be
+published from the same version number (i.e. these are **not** reverting to `1.0.0`)
+
+Also, these major versions will have new `peerDependency` ranges - `rxjs` will enforce support only for
+versions `>=6.5.0 < 7.0.0`
+and will also now enforce a minimum TypeScript version of `>= 4.1` to use, due
+to [Template Literal Types](https://devblogs.microsoft.com/typescript/announcing-typescript-4-1/#template-literal-types)
+used in these libraries.
+
+If you have any feedback on this, please [comment here](https://github.com/rxjs-ninja/rxjs-ninja/issues/89)
+
 ## [2021-01-26] - First entry
 
 Welcome to the first update of the RxJS Ninja blog - this is where you'll find more details on existing and upcoming

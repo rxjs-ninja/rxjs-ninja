@@ -4,5 +4,5 @@ set -o errexit -o noclobber -o nounset -o pipefail
 rm -rf "docs"
 wait
 echo "Generating Documentation"
-npm run docs
+npm run docs:prod
 wait

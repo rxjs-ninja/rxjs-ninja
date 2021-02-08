@@ -1,0 +1,174 @@
+{
+  "name": "RxJS Ninja",
+  "out": "docs",
+  "exclude": ["**/*.spec.ts", "tools/**/*"],
+  "readme": "README.md",
+  "tsconfig": "tsconfig.base.json",
+  "theme": "./node_modules/typedoc-ninja-theme/bin/default",
+  "excludeInternal": false,
+  "excludeExternals": true,
+  "excludePrivate": true,
+  "categorizeByGroup": true,
+  "cname": "rxjs.ninja",
+  "favicon": "assets/favicon.ico",
+  "entryPoints": [
+    "libs/rxjs/array/src/index.ts",
+    "libs/rxjs/boolean/src/index.ts",
+    "libs/rxjs/number/src/index.ts",
+    "libs/rxjs/random/src/index.ts",
+    "libs/rxjs/string/src/index.ts",
+    "libs/rxjs/utility/src/index.ts"
+  ],
+  "plugin": [
+    "typedoc-plugin-ghpages-cname",
+    "typedoc-plugin-replace-in-comments",
+    "typedoc-plugin-pages-fork",
+    "typedoc-plugin-extras",
+    "typedoc-ninja-theme"
+  ],
+  "fathomId": "",
+  "homepageText": "A collection of over 130 out-of-the-box and well tested RxJS operators",
+  "links": [
+    {
+      "label": "Github",
+      "url": "https://github.com/rxjs-ninja/rxjs-ninja"
+    },
+    {
+      "label": "NPM",
+      "url": "https://www.npmjs.com/org/rxjs-ninja"
+    }
+  ],
+  "source": [
+    {
+      "path": "https://github.com/rxjs-ninja/rxjs-ninja/blob/main/",
+      "line": "L"
+    }
+  ],
+  "pages": {
+    "reflectionNavigationTitle": "RxJS Ninja APIs",
+    "enableSearch": true,
+    "groups": [
+      {
+        "title": "Site Docs",
+        "output": "site-docs",
+        "pages": [
+          {
+            "title": "Blog",
+            "source": "BLOG.md",
+            "output": "blog"
+          },
+          {
+            "title": "Licence",
+            "source": "LICENCE.md",
+            "output": "licence"
+          }
+        ]
+      },
+      {
+        "title": "Package Docs",
+        "output": "packages",
+        "pages": [
+          {
+            "title": "Array",
+            "source": "libs/rxjs/array/README.md",
+            "output": "array",
+            "children": [
+              {
+                "title": "Changelog",
+                "source": "libs/rxjs/array/CHANGELOG.md",
+                "output": "changelog"
+              }
+            ]
+          },
+          {
+            "title": "Boolean",
+            "source": "libs/rxjs/boolean/README.md",
+            "output": "boolean",
+            "children": [
+              {
+                "title": "Changelog",
+                "source": "libs/rxjs/boolean/CHANGELOG.md",
+                "output": "changelog"
+              }
+            ]
+          },
+          {
+            "title": "Number",
+            "source": "libs/rxjs/number/README.md",
+            "output": "number",
+            "children": [
+              {
+                "title": "Changelog",
+                "source": "libs/rxjs/number/CHANGELOG.md",
+                "output": "changelog"
+              }
+            ]
+          },
+          {
+            "title": "Random",
+            "source": "libs/rxjs/random/README.md",
+            "output": "random",
+            "children": [
+              {
+                "title": "Changelog",
+                "source": "libs/rxjs/random/CHANGELOG.md",
+                "output": "changelog"
+              }
+            ]
+          },
+          {
+            "title": "String",
+            "source": "libs/rxjs/string/README.md",
+            "output": "string",
+            "children": [
+              {
+                "title": "Changelog",
+                "source": "libs/rxjs/string/CHANGELOG.md",
+                "output": "changelog"
+              }
+            ]
+          },
+          {
+            "title": "Utility",
+            "source": "libs/rxjs/utility/README.md",
+            "output": "utility",
+            "children": [
+              {
+                "title": "Changelog",
+                "source": "libs/rxjs/utility/CHANGELOG.md",
+                "output": "changelog"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "replace-in-comments-config": [
+    {
+      "pattern": "Observables?",
+      "flags": "gm",
+      "replace": "<a href=\"https://rxjs.dev/api/index/class/Observable\" target=\"_blank\">Observable</a>"
+    },
+    {
+      "pattern": "RxJS",
+      "flags": "gm",
+      "replace": "<a href=\"https://rxjs.dev\" target=\"_blank\">RxJS</a>"
+    },
+    {
+      "pattern": "(Array|Boolean|Crypto|Intl|Map|Math|Number|Object|ReadableStream|Set|String|WritableStream)\\.(\\w+)",
+      "flags": "gm",
+      "replace": "<a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/$1/$2\" target=\"_blank\">$1.$2</a>"
+    },
+    {
+      "pattern": "\\s(Array|Boolean|Crypto|Infinity|Intl|Map|Math|NaN|Number|Object|Set|String[^*])",
+      "flags": "gm",
+      "replace": " <a href=\"https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/$1\" target=\"_blank\">$1</a>"
+    },
+    {
+      "pattern": "\\s(AbortController|AbortSignal|EventSource|ReadableStream|WritableStream[^*])",
+      "flags": "gm",
+      "replace": " <a href=\"https://developer.mozilla.org/en-US/docs/Web/API/$1\" target=\"_blank\">$1</a>"
+    }
+  ]
+}

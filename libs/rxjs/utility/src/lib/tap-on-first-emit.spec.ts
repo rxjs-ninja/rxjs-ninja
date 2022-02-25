@@ -1,7 +1,7 @@
-import { observe } from 'rxjs-marbles/jest';
 import { from } from 'rxjs';
+import { observe } from 'rxjs-marbles/jest';
 import { finalize, reduce, tap } from 'rxjs/operators';
-import { tapOnFirstEmit } from '@rxjs-ninja/rxjs-utility';
+import { tapOnFirstEmit } from './tap-on-first-emit';
 
 describe('tapOnStart', () => {
   it(

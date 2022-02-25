@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles';
-import { sort } from '@rxjs-ninja/rxjs-array';
+import { sort } from './sort';
 
 describe('sort', () => {
   it(

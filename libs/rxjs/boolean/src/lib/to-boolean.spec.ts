@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { toBoolean } from '@rxjs-ninja/rxjs-boolean';
+import { toBoolean } from './to-boolean';
 
 describe('toBoolean', () => {
   it(

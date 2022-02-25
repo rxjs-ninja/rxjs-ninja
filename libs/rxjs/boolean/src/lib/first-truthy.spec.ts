@@ -1,5 +1,5 @@
-import { firstTruthy } from '@rxjs-ninja/rxjs-boolean';
 import { marbles } from 'rxjs-marbles/jest';
+import { firstTruthy } from './first-truthy';
 
 describe('firstTruthy', () => {
   it(

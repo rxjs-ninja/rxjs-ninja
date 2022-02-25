@@ -27,7 +27,7 @@ export { mapCodePoint } from './lib/map-code-point';
 export { match } from './lib/match';
 export { matchAll } from './lib/match-all';
 export { normalize } from './lib/normalize';
-export { padEnd, padStart, padStart as padLeft, padEnd as padRight } from './lib/pad-string';
+export { padEnd, padEnd as padRight, padStart as padLeft, padStart } from './lib/pad-string';
 export { repeat } from './lib/repeat';
 export { replace } from './lib/replace';
 export { replaceAll } from './lib/replace-all';
@@ -37,9 +37,10 @@ export { slice } from './lib/slice';
 export { split } from './lib/split';
 export { startsWith } from './lib/starts-with';
 export { substring } from './lib/substring';
-export { titleize, NO_CAP_WORDS } from './lib/titleize';
+export { NO_CAP_WORDS, titleize } from './lib/titleize';
 export { toLowerCase } from './lib/to-lower-case';
 export { toUpperCase } from './lib/to-upper-case';
-export { trim, trimStart, trimEnd, trimStart as trimLeft, trimEnd as trimRight } from './lib/trim-string';
-
+export { trim, trimEnd, trimEnd as trimRight, trimStart as trimLeft, trimStart } from './lib/trim-string';
 export { FormType } from './types/normalize';
+
+

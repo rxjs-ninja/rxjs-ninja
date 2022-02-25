@@ -1,7 +1,7 @@
-import { debounceWithQuery } from '@rxjs-ninja/rxjs-utility';
 import { from, of } from 'rxjs';
 import { observe } from 'rxjs-marbles/jest';
 import { tap } from 'rxjs/operators';
+import { debounceWithQuery } from './debounce-with-query';
 
 describe('debounceWithQuery', () => {
   it(

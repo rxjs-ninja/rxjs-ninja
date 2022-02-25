@@ -1,5 +1,5 @@
-import { isFinite } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
+import { isFinite } from './is-finite';
 
 describe('isFinite', () => {
   it(

@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles';
-import { objectKeysToArray } from '@rxjs-ninja/rxjs-array';
+import { objectKeysToArray } from './object-keys-to-array';
 
 describe('objectKeysToArray', () => {
   it(

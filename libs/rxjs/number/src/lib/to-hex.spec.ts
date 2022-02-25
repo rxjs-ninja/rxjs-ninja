@@ -1,5 +1,5 @@
-import { toHex } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
+import { toHex } from './to-hex';
 
 describe('toHex', () => {
   it(

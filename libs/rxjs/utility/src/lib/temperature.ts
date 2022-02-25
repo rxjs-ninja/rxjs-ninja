@@ -3,9 +3,9 @@
  * @module Utility
  */
 import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
-import { createOrReturnObservable, roundNumber } from '../utils/internal';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { SupportedTemperatures } from '../types/temperature';
+import { createOrReturnObservable, roundNumber } from '../utils/internal';
 import { fromCelsius, fromFahrenheit, fromKelvin, fromRankine } from '../utils/temperature';
 
 /**

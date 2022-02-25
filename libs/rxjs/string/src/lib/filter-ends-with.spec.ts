@@ -1,6 +1,6 @@
-import { filterEndsWith } from '@rxjs-ninja/rxjs-string';
-import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { filterEndsWith } from './filter-ends-with';
 
 describe('filterEndsWith', () => {
   it(

@@ -1,5 +1,5 @@
-import { filterIsInteger } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
+import { filterIsInteger } from './filter-is-integer';
 
 describe('filterIsInteger', () => {
   it(

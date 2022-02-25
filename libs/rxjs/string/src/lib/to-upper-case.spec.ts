@@ -1,6 +1,6 @@
-import { toUpperCase } from '@rxjs-ninja/rxjs-string';
-import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { toUpperCase } from './to-upper-case';
 
 describe('toUpperCase', () => {
   it(

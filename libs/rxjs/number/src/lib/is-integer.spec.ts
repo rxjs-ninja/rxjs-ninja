@@ -1,5 +1,5 @@
-import { isInteger } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
+import { isInteger } from './is-integer';
 
 describe('isInteger', () => {
   it(

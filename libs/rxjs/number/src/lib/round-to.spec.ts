@@ -1,6 +1,6 @@
-import { roundTo } from '@rxjs-ninja/rxjs-number';
-import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { roundTo } from './round-to';
 
 describe('toFixed', () => {
   it(

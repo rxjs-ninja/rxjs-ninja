@@ -4,11 +4,11 @@
  */
 import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
-import { binarySearcher } from '../utils/search';
-import { defaultSortFn } from '../utils/sort';
 import { BinarySearchResult } from '../types/binary-search';
 import { SortFn } from '../types/generic-methods';
 import { createOrReturnObservable } from '../utils/internal';
+import { binarySearcher } from '../utils/search';
+import { defaultSortFn } from '../utils/sort';
 
 /**
  * Returns an Observable that emits a [[BinarySearchResult]]. It take a source Array or Set and runs a [[SortFn]] over

@@ -3,9 +3,9 @@
  * @module Utility
  */
 import { MonoTypeOperatorFunction, Subscribable } from 'rxjs';
-import { createOrReturnObservable, roundNumber } from '../utils/internal';
 import { map, withLatestFrom } from 'rxjs/operators';
 import { SupportedWeights } from '../types/weight';
+import { createOrReturnObservable, roundNumber } from '../utils/internal';
 import { fromG, fromKg, fromLb, fromOz, fromSt } from '../utils/weight';
 
 /**

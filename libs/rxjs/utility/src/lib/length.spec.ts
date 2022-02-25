@@ -1,5 +1,6 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { length, Lengths } from '@rxjs-ninja/rxjs-utility';
+import { Lengths } from '../types/length';
+import { length } from './length';
 
 describe('length', () => {
   // Centimeters

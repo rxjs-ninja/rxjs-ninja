@@ -1,6 +1,6 @@
-import { marbles } from 'rxjs-marbles/jest';
-import { lastIndexOf } from '@rxjs-ninja/rxjs-array';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { lastIndexOf } from './last-index-of';
 
 describe('lastIndexOf', () => {
   it(

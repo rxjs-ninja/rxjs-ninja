@@ -1,5 +1,5 @@
-import { filterIsFinite } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
+import { filterIsFinite } from './filter-is-finite';
 
 describe('filterIsFinite', () => {
   it(

@@ -1,6 +1,6 @@
-import { toLocaleString } from '@rxjs-ninja/rxjs-number';
-import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { toLocaleString } from './to-locale-string';
 
 describe('toLocaleString', () => {
   it(

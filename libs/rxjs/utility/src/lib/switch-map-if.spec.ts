@@ -1,7 +1,7 @@
-import { switchMapIf } from '@rxjs-ninja/rxjs-utility';
-import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
 import { map } from 'rxjs/operators';
+import { switchMapIf } from './switch-map-if';
 
 describe('switchMapIf', () => {
   it(

@@ -1,7 +1,7 @@
-import { tap } from 'rxjs/operators';
-import { fromCodePoint } from '@rxjs-ninja/rxjs-string';
-import { observe } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { observe } from 'rxjs-marbles/jest';
+import { tap } from 'rxjs/operators';
+import { fromCodePoint } from './from-code-point';
 
 describe('fromCodePoint', () => {
   it(

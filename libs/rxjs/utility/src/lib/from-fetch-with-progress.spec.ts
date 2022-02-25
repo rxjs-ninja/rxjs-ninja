@@ -1,7 +1,7 @@
-import { observe } from 'rxjs-marbles/jest';
-import { fromFetchWithProgress } from '@rxjs-ninja/rxjs-utility';
-import { catchError, finalize, tap } from 'rxjs/operators';
 import { of } from 'rxjs';
+import { observe } from 'rxjs-marbles/jest';
+import { catchError, finalize, tap } from 'rxjs/operators';
+import { fromFetchWithProgress } from './from-fetch-with-progress';
 
 describe('fromFetchWithProgress', () => {
   let globalFetch: any;

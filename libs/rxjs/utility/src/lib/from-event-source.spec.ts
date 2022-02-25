@@ -1,10 +1,10 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
+import { fromEventSource } from './from-event-source';
 import EventSource, { sources } from 'eventsourcemock';
-import { observe } from 'rxjs-marbles/jest';
-import { fromEventSource } from '@rxjs-ninja/rxjs-utility';
-import { catchError, finalize, reduce, take, tap, withLatestFrom } from 'rxjs/operators';
 import { BehaviorSubject, of } from 'rxjs';
+import { observe } from 'rxjs-marbles/jest';
+import { catchError, finalize, reduce, take, tap, withLatestFrom } from 'rxjs/operators';
 
 describe('fromEventSource', () => {
   let source: EventSource;

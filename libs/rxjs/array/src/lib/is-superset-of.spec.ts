@@ -1,5 +1,5 @@
-import { isSupersetOf } from '@rxjs-ninja/rxjs-array';
 import { marbles } from 'rxjs-marbles';
+import { isSupersetOf } from './is-superset-of';
 
 describe('isSuperset', () => {
   it(

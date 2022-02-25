@@ -1,6 +1,7 @@
-import { FormType, normalize } from '@rxjs-ninja/rxjs-string';
-import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { FormType } from '../types/normalize';
+import { normalize } from './normalize';
 
 describe('normalize', () => {
   it(

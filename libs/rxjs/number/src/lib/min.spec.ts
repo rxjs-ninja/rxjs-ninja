@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { min } from '@rxjs-ninja/rxjs-number';
+import { min } from './min';
 
 describe('min', () => {
   it(

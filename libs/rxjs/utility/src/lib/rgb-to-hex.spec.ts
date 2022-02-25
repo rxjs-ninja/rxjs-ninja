@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { rgbToHex } from '@rxjs-ninja/rxjs-utility';
+import { rgbToHex } from './rgb-to-hex';
 
 describe('rgbToHex', () => {
   it(

@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles';
-import { fill } from '@rxjs-ninja/rxjs-array';
+import { fill } from './fill';
 
 describe('fill', () => {
   it(

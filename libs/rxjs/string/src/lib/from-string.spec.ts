@@ -1,7 +1,7 @@
-import { map, reduce, tap } from 'rxjs/operators';
-import { fromString } from '@rxjs-ninja/rxjs-string';
-import { observe } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { observe } from 'rxjs-marbles/jest';
+import { map, reduce, tap } from 'rxjs/operators';
+import { fromString } from './from-string';
 
 describe('fromString', () => {
   it(

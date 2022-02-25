@@ -1,5 +1,5 @@
-import { mapCodePoint } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
+import { mapCodePoint } from './map-code-point';
 
 describe('mapCodePoint', () => {
   it(

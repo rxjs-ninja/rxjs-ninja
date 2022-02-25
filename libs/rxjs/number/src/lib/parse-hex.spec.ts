@@ -1,5 +1,5 @@
-import { parseHex } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
+import { parseHex } from './parse-hex';
 
 describe('parseHex', () => {
   it(

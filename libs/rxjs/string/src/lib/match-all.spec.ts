@@ -1,7 +1,7 @@
-import { matchAll } from '@rxjs-ninja/rxjs-string';
+import { of } from 'rxjs';
 import { marbles } from 'rxjs-marbles/jest';
 import { map } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { matchAll } from './match-all';
 
 describe('matchAll', () => {
   it(

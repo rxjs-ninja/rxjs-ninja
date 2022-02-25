@@ -1,5 +1,6 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { weight, Weights } from '@rxjs-ninja/rxjs-utility';
+import { Weights } from '../types/weight';
+import { weight } from './weight';
 
 describe('weight', () => {
   // Grams

@@ -1,6 +1,6 @@
-import { slice } from '@rxjs-ninja/rxjs-string';
-import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { slice } from './slice';
 
 describe('slice', () => {
   it(

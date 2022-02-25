@@ -1,6 +1,6 @@
-import { marbles } from 'rxjs-marbles/jest';
-import { join } from '@rxjs-ninja/rxjs-string';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { join } from './join';
 
 describe('join', () => {
   it(

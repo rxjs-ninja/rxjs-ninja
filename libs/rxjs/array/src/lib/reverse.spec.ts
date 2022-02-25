@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles';
-import { reverse } from '@rxjs-ninja/rxjs-array';
+import { reverse } from './reverse';
 
 describe('reverse', () => {
   it(

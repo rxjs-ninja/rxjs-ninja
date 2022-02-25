@@ -1,5 +1,5 @@
-import { isSafeInteger } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
+import { isSafeInteger } from './is-safe-integer';
 
 describe('isSafeInteger', () => {
   it(

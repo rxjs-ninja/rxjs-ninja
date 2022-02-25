@@ -1,6 +1,6 @@
-import { toLowerCase } from '@rxjs-ninja/rxjs-string';
-import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { toLowerCase } from './to-lower-case';
 
 describe('toLowerCase', () => {
   it(

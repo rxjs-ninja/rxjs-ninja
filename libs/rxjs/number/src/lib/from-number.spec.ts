@@ -1,7 +1,7 @@
-import { map, reduce, take, tap } from 'rxjs/operators';
-import { fromNumber } from '@rxjs-ninja/rxjs-number';
-import { observe } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { observe } from 'rxjs-marbles/jest';
+import { map, reduce, take, tap } from 'rxjs/operators';
+import { fromNumber } from './from-number';
 
 describe('fromNumber', () => {
   it(

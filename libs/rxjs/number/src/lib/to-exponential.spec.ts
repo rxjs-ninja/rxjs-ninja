@@ -1,6 +1,6 @@
-import { toExponential } from '@rxjs-ninja/rxjs-number';
-import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { toExponential } from './to-exponential';
 
 describe('toExponential', () => {
   it(

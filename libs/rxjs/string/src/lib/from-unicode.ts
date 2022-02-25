@@ -3,8 +3,8 @@
  * @module String
  */
 import { Observable, Subscribable } from 'rxjs';
-import { FormType } from '../types/normalize';
 import { finalize, map, takeWhile, tap } from 'rxjs/operators';
+import { FormType } from '../types/normalize';
 import { createOrReturnObservable } from '../utils/internal';
 
 /**

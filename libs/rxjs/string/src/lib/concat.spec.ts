@@ -1,6 +1,6 @@
-import { concat } from '@rxjs-ninja/rxjs-string';
 import { of } from 'rxjs';
 import { marbles } from 'rxjs-marbles/jest';
+import { concat } from './concat';
 
 describe('concat', () => {
   it(

@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { median } from '@rxjs-ninja/rxjs-number';
+import { median } from './median';
 
 describe('median', () => {
   it(

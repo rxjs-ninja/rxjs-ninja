@@ -1,6 +1,6 @@
-import { marbles } from 'rxjs-marbles/jest';
-import { div } from '@rxjs-ninja/rxjs-number';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { div } from './div';
 
 describe('div', () => {
   it(

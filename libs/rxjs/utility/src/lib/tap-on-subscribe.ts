@@ -3,8 +3,8 @@
  * @module Utility
  */
 import { defer, MonoTypeOperatorFunction, of } from 'rxjs';
-import { CallbackFn } from '../types/utility';
 import { switchMap, tap } from 'rxjs/operators';
+import { CallbackFn } from '../types/utility';
 
 /**
  * Perform a side effect for every subscription to the source Observable and return an Observable that is identical to

@@ -1,5 +1,5 @@
-import { firstFalsy } from '@rxjs-ninja/rxjs-boolean';
 import { marbles } from 'rxjs-marbles/jest';
+import { firstFalsy } from './first-falsy';
 
 describe('firstFalsy', () => {
   it(

@@ -1,7 +1,7 @@
-import { shuffle } from '@rxjs-ninja/rxjs-array';
+import { of } from 'rxjs';
 import { observe } from 'rxjs-marbles/jest';
 import { tap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { shuffle } from './shuffle';
 
 describe('shuffle', () => {
   it(

@@ -1,6 +1,6 @@
-import { toFixed } from '@rxjs-ninja/rxjs-number';
-import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { toFixed } from './to-fixed';
 
 describe('toFixed', () => {
   it(

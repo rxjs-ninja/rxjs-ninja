@@ -1,7 +1,7 @@
-import { reduce, tap } from 'rxjs/operators';
-import { fromUnicode } from '@rxjs-ninja/rxjs-string';
-import { observe } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { observe } from 'rxjs-marbles/jest';
+import { reduce, tap } from 'rxjs/operators';
+import { fromUnicode } from './from-unicode';
 
 describe('fromUnicode', () => {
   it(

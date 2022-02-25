@@ -1,6 +1,6 @@
-import { marbles } from 'rxjs-marbles';
-import { join } from '@rxjs-ninja/rxjs-array';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles';
+import { join } from './join';
 
 describe('join', () => {
   it(

@@ -1,5 +1,6 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { temperature, Temperatures } from '@rxjs-ninja/rxjs-utility';
+import { Temperatures } from '../types/temperature';
+import { temperature } from './temperature';
 
 describe('temperature', () => {
   describe('Celsius', () => {

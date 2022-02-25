@@ -8,14 +8,13 @@
  */
 /* istanbul ignore file */
 export { add } from './lib/add';
-export { mean, mean as average } from './lib/mean';
 export { div } from './lib/div';
 export { filterInRange } from './lib/filter-in-range';
 export { filterIsFinite } from './lib/filter-is-finite';
 export { filterIsFloat } from './lib/filter-is-float';
 export { filterIsInteger } from './lib/filter-is-integer';
-export { filterNaN } from './lib/filter-nan';
 export { filterIsSafeInteger } from './lib/filter-is-safe-integer';
+export { filterNaN } from './lib/filter-nan';
 export { filterOutOfRange } from './lib/filter-out-of-range';
 export { fromFibonacci } from './lib/from-fibonacci';
 export { fromNumber } from './lib/from-number';
@@ -28,6 +27,7 @@ export { isNaN } from './lib/is-nan';
 export { isNotNaN } from './lib/is-not-nan';
 export { isSafeInteger } from './lib/is-safe-integer';
 export { max } from './lib/max';
+export { mean as average, mean } from './lib/mean';
 export { median } from './lib/median';
 export { min } from './lib/min';
 export { mod } from './lib/mod';
@@ -45,3 +45,4 @@ export { toHex } from './lib/to-hex';
 export { toLocaleString } from './lib/to-locale-string';
 export { toPrecision } from './lib/to-precision';
 export { toString } from './lib/to-string';
+

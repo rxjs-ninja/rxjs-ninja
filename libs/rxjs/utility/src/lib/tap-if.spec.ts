@@ -1,7 +1,7 @@
 import { from } from 'rxjs';
-import { tapIf } from '@rxjs-ninja/rxjs-utility';
 import { observe } from 'rxjs-marbles/jest';
 import { finalize } from 'rxjs/operators';
+import { tapIf } from './tap-if';
 
 describe('tapIf', () => {
   it(

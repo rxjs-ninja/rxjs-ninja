@@ -1,9 +1,5 @@
-/**
- * @packageDocumentation
-
- */
-import { luhnCheck } from '@rxjs-ninja/rxjs-boolean';
 import { marbles } from 'rxjs-marbles/jest';
+import { luhnCheck } from './luhn-check';
 
 describe('luhnCheck', () => {
   it(

@@ -1,6 +1,6 @@
-import { marbles } from 'rxjs-marbles/jest';
-import { indexOf } from '@rxjs-ninja/rxjs-array';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { indexOf } from './index-of';
 
 describe('indexOf', () => {
   it(

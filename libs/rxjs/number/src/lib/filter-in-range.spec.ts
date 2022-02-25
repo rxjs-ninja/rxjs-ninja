@@ -1,6 +1,6 @@
-import { filterInRange } from '@rxjs-ninja/rxjs-number';
-import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { filterInRange } from './filter-in-range';
 
 describe('filterInRange', () => {
   it(

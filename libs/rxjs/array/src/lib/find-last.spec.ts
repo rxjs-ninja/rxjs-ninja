@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles';
-import { findLast } from '@rxjs-ninja/rxjs-array';
+import { findLast } from './find-last';
 
 describe('findLast', () => {
   it(

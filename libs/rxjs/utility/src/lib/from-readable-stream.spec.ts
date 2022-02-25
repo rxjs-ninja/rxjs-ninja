@@ -1,8 +1,8 @@
+import { of } from 'rxjs';
 import { observe } from 'rxjs-marbles/jest';
-import { fromReadableStream } from '@rxjs-ninja/rxjs-utility';
 import { catchError, reduce, tap } from 'rxjs/operators';
 import { CountQueuingStrategy, ReadableStream, WritableStream } from 'web-streams-polyfill/ponyfill';
-import { of } from 'rxjs';
+import { fromReadableStream } from './from-readable-stream';
 
 describe('fromReadableSource', () => {
   beforeAll(() => {

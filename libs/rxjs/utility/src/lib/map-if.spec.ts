@@ -1,5 +1,5 @@
-import { mapIf } from '@rxjs-ninja/rxjs-utility';
 import { marbles } from 'rxjs-marbles/jest';
+import { mapIf } from './map-if';
 
 describe('mapIf', () => {
   it(

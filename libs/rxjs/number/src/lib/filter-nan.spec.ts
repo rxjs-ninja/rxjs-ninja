@@ -1,5 +1,5 @@
-import { filterNaN } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
+import { filterNaN } from './filter-nan';
 
 describe('filterIsNotNaN', () => {
   it(

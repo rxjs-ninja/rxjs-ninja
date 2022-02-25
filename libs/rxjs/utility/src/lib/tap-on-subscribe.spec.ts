@@ -1,7 +1,7 @@
 import { from } from 'rxjs';
-import { tapOnSubscribe } from '@rxjs-ninja/rxjs-utility';
-import { finalize, take } from 'rxjs/operators';
 import { observe } from 'rxjs-marbles/jest';
+import { finalize, take } from 'rxjs/operators';
+import { tapOnSubscribe } from './tap-on-subscribe';
 
 describe('tapOnSubscribe', () => {
   it(

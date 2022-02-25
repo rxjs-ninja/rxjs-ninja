@@ -1,6 +1,6 @@
 import { marbles } from 'rxjs-marbles';
-import { takeUntilSignal } from '@rxjs-ninja/rxjs-utility';
 import { tap } from 'rxjs/operators';
+import { takeUntilSignal } from './take-until-signal';
 
 describe('takeUntilSignal', () => {
   it(

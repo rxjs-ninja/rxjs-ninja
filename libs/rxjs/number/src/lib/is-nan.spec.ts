@@ -1,5 +1,5 @@
-import { isNaN } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
+import { isNaN } from './is-nan';
 
 describe('isNaN', () => {
   it(

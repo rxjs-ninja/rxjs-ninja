@@ -9,12 +9,12 @@
 /* istanbul ignore file */
 export { debounceWithQuery } from './lib/debounce-with-query';
 export { decodeJWT } from './lib/decode-jwt';
-export { length } from './lib/length';
 export { fromEventSource } from './lib/from-event-source';
-export { fromReadableStream } from './lib/from-readable-stream';
 export { fromFetchWithProgress } from './lib/from-fetch-with-progress';
+export { fromReadableStream } from './lib/from-readable-stream';
 export { fromWebSerial } from './lib/from-web-serial';
 export { hexToRGBA } from './lib/hex-to-rgba';
+export { length } from './lib/length';
 export { mapIf } from './lib/map-if';
 export { rgbToHex } from './lib/rgb-to-hex';
 export { rgbaToHex } from './lib/rgba-to-hex';
@@ -27,8 +27,9 @@ export { tapOnUnsubscribe } from './lib/tap-on-unsubscribe';
 export { temperature } from './lib/temperature';
 export { toWritableStream } from './lib/to-writable-stream';
 export { weight } from './lib/weight';
-
-export * from './types/utility';
-export { Temperatures } from './types/temperature';
 export { Lengths } from './types/length';
+export { Temperatures } from './types/temperature';
+export * from './types/utility';
 export { Weights } from './types/weight';
+
+

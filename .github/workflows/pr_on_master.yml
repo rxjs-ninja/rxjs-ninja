@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         # Latest nodes only
-        node-version: [15.x]
+        node-version: [14.x]
 
     # Pipeline Steps
     steps:

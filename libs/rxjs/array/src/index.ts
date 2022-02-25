@@ -18,8 +18,8 @@ export { filterIntersects } from './lib/filter-intersects';
 export { filterSome } from './lib/filter-some';
 export { find } from './lib/find';
 export { findAll } from './lib/find-all';
-export { findLast } from './lib/find-last';
 export { findIndex } from './lib/find-index';
+export { findLast } from './lib/find-last';
 export { flipArray } from './lib/flip-array';
 export { fromMap } from './lib/from-map';
 export { fromSet } from './lib/from-set';
@@ -41,6 +41,7 @@ export { sort } from './lib/sort';
 export { sortMap } from './lib/sort-map';
 export { toMap } from './lib/to-map';
 export { toSet } from './lib/to-set';
-
 export { BinarySearchResult } from './types/binary-search';
-export { PredicateFn, MapFn, SortFn } from './types/generic-methods';
+export { MapFn, PredicateFn, SortFn } from './types/generic-methods';
+
+

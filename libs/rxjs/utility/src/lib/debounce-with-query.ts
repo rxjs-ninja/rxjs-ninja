@@ -2,8 +2,8 @@
  * @packageDocumentation
  * @module Utility
  */
-import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { OperatorFunction } from 'rxjs';
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { QueryMethod } from '../types/utility';
 
 /**

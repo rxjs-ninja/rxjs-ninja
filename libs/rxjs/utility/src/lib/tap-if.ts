@@ -3,8 +3,8 @@
  * @module Utility
  */
 import { MonoTypeOperatorFunction } from 'rxjs';
-import { CallbackFn, PredicateFn } from '../types/utility';
 import { tap } from 'rxjs/operators';
+import { CallbackFn, PredicateFn } from '../types/utility';
 
 /**
  * Perform a side effect for every emit from the source Observable that passes the [[PredicateFn]], return an Observable

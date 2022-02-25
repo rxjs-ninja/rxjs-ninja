@@ -1,5 +1,5 @@
-import { trim, trimEnd, trimStart } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
+import { trim, trimEnd, trimStart } from './trim-string';
 
 describe('trim', () => {
   it(

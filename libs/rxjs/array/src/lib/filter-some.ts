@@ -2,9 +2,9 @@
  * @packageDocumentation
  * @module Array
  */
-import { PredicateFn } from '../types/generic-methods';
 import { OperatorFunction } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import { PredicateFn } from '../types/generic-methods';
 
 /**
  * Returns an Observable that emits an array when one of the values in the source array return truthy using Array.some

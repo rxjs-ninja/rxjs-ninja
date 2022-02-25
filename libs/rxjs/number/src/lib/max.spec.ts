@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { max } from '@rxjs-ninja/rxjs-number';
+import { max } from './max';
 
 describe('max', () => {
   it(

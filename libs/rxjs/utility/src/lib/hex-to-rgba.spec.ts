@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { hexToRGBA } from '@rxjs-ninja/rxjs-utility';
+import { hexToRGBA } from './hex-to-rgba';
 
 describe('hexToRGBA', () => {
   it(

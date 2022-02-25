@@ -1,6 +1,6 @@
-import { marbles } from 'rxjs-marbles/jest';
-import { pow } from '@rxjs-ninja/rxjs-number';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { pow } from './pow';
 
 describe('raiseBy', () => {
   it(

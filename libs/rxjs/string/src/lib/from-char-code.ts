@@ -4,8 +4,8 @@
  */
 import { Observable, Subscribable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { createOrReturnObservable } from '../utils/internal';
 import { isArrayOrSet } from '../utils/array-set';
+import { createOrReturnObservable } from '../utils/internal';
 
 /**
  * Returns an Observable that emits a string made from character codes using String.fromCharCode

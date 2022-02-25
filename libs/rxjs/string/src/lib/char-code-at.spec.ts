@@ -1,6 +1,6 @@
-import { charCodeAt } from '@rxjs-ninja/rxjs-string';
-import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { charCodeAt } from './char-code-at';
 
 describe('charCodeAt', () => {
   it(

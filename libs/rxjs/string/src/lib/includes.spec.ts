@@ -1,6 +1,6 @@
-import { includes } from '@rxjs-ninja/rxjs-string';
-import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { includes } from './includes';
 
 describe('includes', () => {
   it(

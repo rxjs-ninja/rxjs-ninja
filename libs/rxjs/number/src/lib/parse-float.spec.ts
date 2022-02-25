@@ -1,5 +1,5 @@
-import { parseFloat } from '@rxjs-ninja/rxjs-number';
 import { marbles } from 'rxjs-marbles/jest';
+import { parseFloat } from './parse-float';
 
 describe('parseFloat', () => {
   it(

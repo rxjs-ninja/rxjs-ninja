@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles/jest';
-import { mean } from '@rxjs-ninja/rxjs-number';
+import { mean } from './mean';
 
 describe('mean', () => {
   it(

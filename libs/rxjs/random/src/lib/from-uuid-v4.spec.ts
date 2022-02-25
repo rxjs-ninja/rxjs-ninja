@@ -1,8 +1,7 @@
 import { getRandomValues } from '@trust/webcrypto';
-
 import { observe } from 'rxjs-marbles/jest';
 import { reduce, take, tap } from 'rxjs/operators';
-import { fromUUIDv4 } from '@rxjs-ninja/rxjs-random';
+import { fromUUIDv4 } from './from-uuid-v4';
 
 describe('fromUUIDv4', () => {
   beforeAll(() => {

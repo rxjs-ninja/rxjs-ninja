@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles';
-import { isSubsetOf } from '@rxjs-ninja/rxjs-array';
+import { isSubsetOf } from './is-subset-of';
 
 describe('isSubset', () => {
   it(

@@ -3,9 +3,9 @@
  * @module Array
  */
 
-import { PredicateFn } from '../types/generic-methods';
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { PredicateFn } from '../types/generic-methods';
 
 /**
  * Returns an Observable that emits a boolean when all values in the source Array or Set return truthy using Array.some

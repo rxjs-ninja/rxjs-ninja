@@ -1,6 +1,6 @@
-import { filterDifference } from '@rxjs-ninja/rxjs-array';
-import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { filterDifference } from './filter-difference';
 
 describe('filterDifference', () => {
   it(

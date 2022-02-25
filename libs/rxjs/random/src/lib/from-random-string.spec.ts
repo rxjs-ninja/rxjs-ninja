@@ -1,6 +1,6 @@
 import { observe } from 'rxjs-marbles/jest';
 import { reduce, take, tap } from 'rxjs/operators';
-import { fromRandomStr } from '@rxjs-ninja/rxjs-random';
+import { fromRandomStr } from './from-random-string';
 
 describe('fromRandomStr', () => {
   it(

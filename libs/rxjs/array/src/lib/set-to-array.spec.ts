@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles';
-import { setToArray } from '@rxjs-ninja/rxjs-array';
+import { setToArray } from './set-to-array';
 
 describe('setToArray', () => {
   it(

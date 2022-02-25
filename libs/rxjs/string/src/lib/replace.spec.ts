@@ -1,6 +1,6 @@
-import { replace } from '@rxjs-ninja/rxjs-string';
-import { marbles } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { marbles } from 'rxjs-marbles/jest';
+import { replace } from './replace';
 
 describe('replace', () => {
   it(

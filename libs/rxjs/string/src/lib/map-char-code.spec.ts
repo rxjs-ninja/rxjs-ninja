@@ -1,5 +1,5 @@
-import { mapCharCode } from '@rxjs-ninja/rxjs-string';
 import { marbles } from 'rxjs-marbles/jest';
+import { mapCharCode } from './map-char-code';
 
 describe('mapCharCode', () => {
   it(

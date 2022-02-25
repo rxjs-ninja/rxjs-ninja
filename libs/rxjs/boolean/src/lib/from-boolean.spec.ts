@@ -1,7 +1,7 @@
-import { filter, map, reduce, tap } from 'rxjs/operators';
-import { fromBoolean } from '@rxjs-ninja/rxjs-boolean';
-import { observe } from 'rxjs-marbles/jest';
 import { of } from 'rxjs';
+import { observe } from 'rxjs-marbles/jest';
+import { filter, map, reduce, tap } from 'rxjs/operators';
+import { fromBoolean } from './from-boolean';
 
 describe('fromBoolean', () => {
   it(

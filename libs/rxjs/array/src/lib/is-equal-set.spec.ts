@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles';
-import { isEqualSet } from '@rxjs-ninja/rxjs-array';
+import { isEqualSet } from './is-equal-set';
 
 describe('isEqualSet', () => {
   it(

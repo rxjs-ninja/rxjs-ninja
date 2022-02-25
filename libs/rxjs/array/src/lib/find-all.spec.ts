@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles';
-import { findAll } from '@rxjs-ninja/rxjs-array';
+import { findAll } from './find-all';
 
 describe('findAll', () => {
   it(

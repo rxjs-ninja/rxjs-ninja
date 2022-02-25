@@ -1,5 +1,5 @@
 import { marbles } from 'rxjs-marbles';
-import { mapToArray } from '@rxjs-ninja/rxjs-array';
+import { mapToArray } from './map-to-array';
 
 describe('mapToArray', () => {
   it(

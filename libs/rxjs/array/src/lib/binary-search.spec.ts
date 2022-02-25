@@ -1,5 +1,6 @@
-import { binarySearch, BinarySearchResult } from '@rxjs-ninja/rxjs-array';
 import { marbles } from 'rxjs-marbles/jest';
+import { BinarySearchResult } from '../types/binary-search';
+import { binarySearch } from './binary-search';
 
 describe('binarySearch', () => {
   it(

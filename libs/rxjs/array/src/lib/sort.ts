@@ -4,8 +4,8 @@
  */
 import { OperatorFunction } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { defaultSortFn } from '../utils/sort';
 import { SortFn } from '../types/generic-methods';
+import { defaultSortFn } from '../utils/sort';
 
 /**
  * Returns an Observable that emits an array of sorted values from the source Array or Set using the [[SortFn]]

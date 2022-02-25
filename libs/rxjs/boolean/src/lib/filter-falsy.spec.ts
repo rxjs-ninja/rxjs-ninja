@@ -1,5 +1,5 @@
-import { filterFalsy } from '@rxjs-ninja/rxjs-boolean';
 import { marbles } from 'rxjs-marbles/jest';
+import { filterFalsy } from './filter-falsy';
 
 describe('filterFalsy', () => {
   it(

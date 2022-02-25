@@ -1,7 +1,7 @@
-import { fromFibonacci } from '@rxjs-ninja/rxjs-number';
+import { of } from 'rxjs';
 import { observe } from 'rxjs-marbles/jest';
 import { catchError, finalize, reduce, take, tap } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { fromFibonacci } from './from-fibonacci';
 
 describe('fromFibonacci', () => {
   it(

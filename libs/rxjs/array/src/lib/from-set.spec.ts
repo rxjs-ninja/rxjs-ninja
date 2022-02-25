@@ -1,7 +1,7 @@
-import { reduce, tap } from 'rxjs/operators';
-import { observe } from 'rxjs-marbles/jest';
-import { fromSet } from '@rxjs-ninja/rxjs-array';
 import { of } from 'rxjs';
+import { observe } from 'rxjs-marbles/jest';
+import { reduce, tap } from 'rxjs/operators';
+import { fromSet } from './from-set';
 
 describe('fromSet', () => {
   it(

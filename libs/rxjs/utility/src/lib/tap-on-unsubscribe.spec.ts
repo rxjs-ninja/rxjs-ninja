@@ -1,7 +1,7 @@
 import { from } from 'rxjs';
-import { finalize, take } from 'rxjs/operators';
 import { observe } from 'rxjs-marbles/jest';
-import { tapOnUnsubscribe } from '@rxjs-ninja/rxjs-utility';
+import { finalize, take } from 'rxjs/operators';
+import { tapOnUnsubscribe } from './tap-on-unsubscribe';
 
 describe('tapOnUnsubscribe', () => {
   it(

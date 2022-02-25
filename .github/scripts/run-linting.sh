@@ -2,7 +2,7 @@
 set -o errexit -o noclobber -o nounset -o pipefail
 
 RUN_ALL=${1:-"False"}
-BASE="main~1"
+BASE="main"
 
 echo "Running Linting"
 if [[ "$RUN_ALL" == "True" ]]; then

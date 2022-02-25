@@ -52,7 +52,7 @@ export function fromFetchWithProgress(
   controller = new AbortController(),
 ): Observable<number | Uint8Array> {
   const { signal } = controller;
-  const data$ = new Subject<ReadableStreamReadResult<Uint8Array>>();
+  const data$ = new Subject<ReadableStreamDefaultReadResult<Uint8Array>>();
 
   return new Observable((subscriber) => {
     fetch(input, { ...init, signal })
@@ -69,7 +69,7 @@ export function fromFetchWithProgress(
 
         data$
           .pipe(
-            scan<ReadableStreamReadResult<Uint8Array>, Uint8Array | number[]>(
+            scan<ReadableStreamDefaultReadResult<Uint8Array>, Uint8Array | number[]>(
               (acc, { done, value = [] }) => (done ? Uint8Array.from([...acc, ...value]) : [...acc, ...value]),
               [],
             ),
@@ -80,8 +80,8 @@ export function fromFetchWithProgress(
           .subscribe(subscriber);
 
         const process = async (
-          result: ReadableStreamReadResult<Uint8Array>,
-        ): Promise<ReadableStreamReadResult<Uint8Array>> => {
+          result: ReadableStreamDefaultReadResult<Uint8Array>,
+        ): Promise<ReadableStreamDefaultReadResult<Uint8Array>> => {
           data$.next(result);
           return !result.done ? reader.read().then(process) : Promise.resolve(result);
         };

@@ -22,7 +22,7 @@
           "outputs": ["coverage/libs/rxjs/array"]
         },
         "build": {
-          "builder": "@nrwl/web:package",
+          "builder": "@nrwl/web:rollup",
           "options": {
             "globals": [
               {
@@ -55,7 +55,8 @@
           },
           "outputs": ["{options.outputPath}"]
         }
-      }
+      },
+      "tags": []
     },
     "rxjs-boolean": {
       "root": "libs/rxjs/boolean",
@@ -78,7 +79,7 @@
           "outputs": ["coverage/libs/rxjs/boolean"]
         },
         "build": {
-          "builder": "@nrwl/web:package",
+          "builder": "@nrwl/web:rollup",
           "options": {
             "globals": [
               {
@@ -111,7 +112,8 @@
           },
           "outputs": ["{options.outputPath}"]
         }
-      }
+      },
+      "tags": []
     },
     "rxjs-number": {
       "root": "libs/rxjs/number",
@@ -134,7 +136,7 @@
           "outputs": ["coverage/libs/rxjs/number"]
         },
         "build": {
-          "builder": "@nrwl/web:package",
+          "builder": "@nrwl/web:rollup",
           "options": {
             "globals": [
               {
@@ -167,7 +169,8 @@
           },
           "outputs": ["{options.outputPath}"]
         }
-      }
+      },
+      "tags": []
     },
     "rxjs-random": {
       "root": "libs/rxjs/random",
@@ -190,7 +193,7 @@
           "outputs": ["coverage/libs/rxjs/random"]
         },
         "build": {
-          "builder": "@nrwl/web:package",
+          "builder": "@nrwl/web:rollup",
           "options": {
             "globals": [
               {
@@ -223,7 +226,8 @@
           },
           "outputs": ["{options.outputPath}"]
         }
-      }
+      },
+      "tags": []
     },
     "rxjs-string": {
       "root": "libs/rxjs/string",
@@ -246,7 +250,7 @@
           "outputs": ["coverage/libs/rxjs/string"]
         },
         "build": {
-          "builder": "@nrwl/web:package",
+          "builder": "@nrwl/web:rollup",
           "options": {
             "globals": [
               {
@@ -279,7 +283,8 @@
           },
           "outputs": ["{options.outputPath}"]
         }
-      }
+      },
+      "tags": []
     },
     "rxjs-utility": {
       "root": "libs/rxjs/utility",
@@ -302,7 +307,7 @@
           "outputs": ["coverage/libs/rxjs/utility"]
         },
         "build": {
-          "builder": "@nrwl/web:package",
+          "builder": "@nrwl/web:rollup",
           "options": {
             "globals": [
               {
@@ -335,10 +340,8 @@
           },
           "outputs": ["{options.outputPath}"]
         }
-      }
+      },
+      "tags": []
     }
-  },
-  "cli": {
-    "defaultCollection": "@nrwl/workspace"
   }
 }

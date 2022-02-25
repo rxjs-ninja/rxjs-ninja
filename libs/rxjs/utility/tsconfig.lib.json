@@ -6,6 +6,6 @@
     "declaration": true,
     "types": ["node", "w3c-web-serial"]
   },
-  "exclude": ["**/*.spec.ts"],
+  "exclude": ["**/*.spec.ts", "**/*.test.ts"],
   "include": ["**/*.ts"]
 }

@@ -1,7 +1,6 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 import { fromEventSource } from './from-event-source';
-import EventSource, { sources } from 'eventsourcemock';
 import { BehaviorSubject, of } from 'rxjs';
 import { observe } from 'rxjs-marbles/jest';
 import { catchError, finalize, reduce, take, tap, withLatestFrom } from 'rxjs/operators';
@@ -17,7 +16,7 @@ describe('fromEventSource', () => {
 
   beforeEach(() => {
     source = new EventSource('test.js');
-    sources['test.js'].emitOpen();
+    //source['test.js'].emitOpen();
   });
 
   it(
@@ -28,7 +27,7 @@ describe('fromEventSource', () => {
       });
 
       setTimeout(() => {
-        sources['test.js'].emit(event.type, event);
+        source.dispatchEvent(event);
       }, 1000);
 
       return fromEventSource<Record<string, string>>(source).pipe(
@@ -48,13 +47,13 @@ describe('fromEventSource', () => {
       const stop = new AbortController();
 
       setTimeout(() => {
-        sources['test.js'].emit(event.type, event);
-        sources['test.js'].emit(event.type, event);
-        sources['test.js'].emit(event.type, event);
-        sources['test.js'].emit(event.type, event);
+        source.dispatchEvent(event);
+        source.dispatchEvent(event);
+        source.dispatchEvent(event);
+        source.dispatchEvent(event);
         stop.abort();
-        sources['test.js'].emit(event.type, event);
-        sources['test.js'].emit(event.type, event);
+        source.dispatchEvent(event);
+        source.dispatchEvent(event);
       }, 1000);
 
       let count = 0;
@@ -80,8 +79,8 @@ describe('fromEventSource', () => {
       });
 
       setTimeout(() => {
-        sources['test.js'].emit(event1.type, event1);
-        sources['test.js'].emit(event2.type, event2);
+        source.dispatchEvent(event1);
+        source.dispatchEvent(event2);
       }, 1000);
 
       return fromEventSource<Record<string, string>>(source, 'custom').pipe(
@@ -99,8 +98,7 @@ describe('fromEventSource', () => {
       });
 
       setTimeout(() => {
-        sources['test.js'].emitOpen();
-        sources['test.js'].emit(event.type, event);
+        source.dispatchEvent(event);
       }, 1000);
 
       const opened$ = new BehaviorSubject<any>(undefined);
@@ -119,7 +117,7 @@ describe('fromEventSource', () => {
     'should emit an error if thrown from the emitter',
     observe(() => {
       setTimeout(() => {
-        sources['test.js'].emitError(new Error('This is an error'));
+        //source.dispatchEvent(new Error('This is an error'))
       }, 1000);
 
       return fromEventSource<Record<string, string>>(source).pipe(

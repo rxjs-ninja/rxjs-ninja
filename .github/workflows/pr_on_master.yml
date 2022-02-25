@@ -15,7 +15,7 @@ jobs:
     strategy:
       matrix:
         # Latest nodes only
-        node-version: [14.x]
+        node-version: [16.x]
 
     # Pipeline Steps
     steps:
@@ -23,24 +23,34 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v2
         with:
-          ref: ${{ github.event.pull_request.head.ref }}
+          ref: ${{ github.head_ref }}
           fetch-depth: 0
 
       #2 - Make sure we have all branches
       - name: Fetch other branches
-        run: git fetch --no-tags --prune --depth=5 origin main
+        run: git fetch --no-tags --prune --depth=2 origin main
 
       #3 - Run initial node setup
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: "Setup: CI Environment (NodeJS: ${{ matrix.node-version }}, ubuntu-latest)"
         uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: 'https://registry.npmjs.org'
       #4 - Clean up folders and run a new install
-      - name: Install environment
+      - name: Clean Environment
         run: |
           rm -rf node_modules && rm -rf dist && rm -rf docs && rm -rf coverage
-          npm ci
+          .github/scripts/env-setup
+      #4.1 Check for cached dependencies
+      - name: "Setup: Cached Dependencies"
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: /home/runner/.pnpm-store/v3
+          key: modules-${{ hashFiles('pnpm-lock.yaml') }}
+      #4.2 Run NPM Install if no cached dependencies
+      - name: "Setup: Install Dependencies"
+        run: pnpm install
       #5 - Run Linting
       - name: Run lint
         run: ./.github/scripts/run-linting.sh False

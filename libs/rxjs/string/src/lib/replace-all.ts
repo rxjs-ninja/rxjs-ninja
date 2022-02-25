@@ -40,6 +40,9 @@ export function replaceAll(
   return (source) =>
     source.pipe(
       withLatestFrom(pattern$, replacement$),
-      map(([value, patternValue, replacementValue]) => value.replaceAll(patternValue, replacementValue)),
+      map(([value, patternValue, replacementValue]) => {
+        console.log('value', value)
+        return value.replaceAll(patternValue, replacementValue);
+      }),
     );
 }

@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+
+set -o errexit -o noclobber -o nounset -o pipefail
+
+if [[ "$OSTYPE" == *"darwin"* ]]; then
+  echo "This file is for the CI, you are running on OSX"
+  echo "The following global dependnecies should be installed:"
+  echo "jq, pnpm"
+  exit 0
+fi
+
+###
+# Setup yq on machine
+###
+echo "Check for Dependency: jq"
+if ! type "jq" > /dev/null; then
+  echo "Not found, installing jq"
+  sudo apt update
+  sudo apt install jq -y
+fi
+
+###
+# Setup pnpm on machine
+###
+echo "Check for Dependency: pnpm"
+if ! type "pnpm" > /dev/null; then
+  echo "Not found, installing pnpm"
+  sudo npm i -g pnpm
+fi

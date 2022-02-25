@@ -28,7 +28,7 @@ jobs:
 
       #2 - Make sure we have all branches
       - name: Fetch other branches
-        run: git fetch --no-tags --prune --depth=2 origin main
+        run: git fetch --no-tags --prune --depth=5 origin main
 
       #3 - Run initial node setup
       - name: "Setup: CI Environment (NodeJS: ${{ matrix.node-version }}, ubuntu-latest)"

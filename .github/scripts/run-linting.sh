@@ -9,7 +9,7 @@ echo "Running Linting"
 if [[ "$RUN_ALL" == "True" ]]; then
   pnpm affected:lint --all
 else
-  AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base="$BASE")
+  AFFECTED=$(pnpx nx affected:libs --plain --base="$BASE")
   echo "Will Lint: $AFFECTED"
   pnpm affected:lint --base="$BASE"
 fi

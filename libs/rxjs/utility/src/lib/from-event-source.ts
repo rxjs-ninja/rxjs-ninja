@@ -18,6 +18,8 @@ import { Observable, Observer } from 'rxjs';
  * @param eventName The name of the event to listen to, by default this is `message`
  * @param openObserver Optional observer that is emitted when the event source is opened
  * @param signal Optional signal to end the event source
+ * 
+ * @deprecated This Function will be removed in the next version as it is now supported in RxJS7 {@link https://rxjs.dev/api/index/type-alias/ObservableInput|ObservableInput}
  *
  * @example
  * Subscribe to an EventSource, listen for it opening and provide a stop signal

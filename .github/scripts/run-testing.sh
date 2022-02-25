@@ -11,14 +11,14 @@ COVERAGE_RULE=$([[ "$WITH_COVERAGE" == 'True' ]] && echo "--codeCoverage" || ech
 
 echo "Running Unit Testing"
 if [[ "$RUN_ALL" == "True" ]]; then
-  npm run affected:test -- "$COVERAGE_RULE" --all --parallel --maxParallel=2
+  pnpm affected:test "$COVERAGE_RULE" --all --parallel --maxParallel=2
 else
   AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base="$BASE")
   echo "Will test: $AFFECTED"
-  npm run affected:test -- --base="$BASE" "$COVERAGE_RULE" --parallel --maxParallel=2
+  pnpm affected:test --base="$BASE" "$COVERAGE_RULE" --parallel --maxParallel=2
 fi
 echo "Unit Testing Complete"
 if [[ "$WITH_COVERAGE" == "True" ]]; then
-  CODECOV_TOKEN="$CODECOV_TOKEN_INPUT" npm run coverage
+  CODECOV_TOKEN="$CODECOV_TOKEN_INPUT" pnpm coverage
 fi
 wait

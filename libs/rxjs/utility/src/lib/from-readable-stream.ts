@@ -18,6 +18,8 @@ import { Observable, Subscriber } from 'rxjs';
  *   to the underlying stream
  * @param queueStrategy Optional strategy for backpressure queueing
  * @param throwEndAsError Optional to return an error when the `AbortSignal` has been fired instead of just closing
+ * 
+ * @deprecated This Function will be removed in the next version as it is now supported in RxJS7 {@link https://rxjs.dev/api/index/type-alias/ObservableInput|ObservableInput}
  *
  * @example Create a ReadableStream of `0` to `100` and convert to an Observable
  * ```ts

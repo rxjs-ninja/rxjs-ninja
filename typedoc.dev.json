@@ -9,7 +9,7 @@
   "excludeExternals": true,
   "excludePrivate": true,
   "categorizeByGroup": true,
-  "cname": "rxjs.ninja",
+  "cname": "rxjs-ninja.tane.dev",
   "favicon": "assets/favicon.ico",
   "entryPoints": [
     "libs/rxjs/array/src/index.ts",

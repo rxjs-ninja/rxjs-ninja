@@ -10,11 +10,6 @@ each domain.
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=rxjs-ninja_rxjs-ninja&metric=alert_status)](https://sonarcloud.io/dashboard?id=rxjs-ninja_rxjs-ninja)
 [![codecov](https://codecov.io/gh/rxjs-ninja/rxjs-ninja/branch/main/graph/badge.svg?token=RCNN1XMSN4)](https://codecov.io/gh/rxjs-ninja/rxjs-ninja)
 
-
-## Notice - Feb 2021
-
-**[Please see notes on upcoming changes to RxJS package names](https://github.com/rxjs-ninja/rxjs-ninja/issues/89)**
-
 ## Packages
 
 RxJS Ninja is composed of libraries separated into sets of functionality, you don't need to install all the operators at

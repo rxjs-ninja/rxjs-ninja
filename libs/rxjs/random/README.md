@@ -4,9 +4,9 @@
 
 [![rxjs-random](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-random?label=@rxjs-ninja/rxjs-random)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-random)
 
-[Website](https://rxjs.ninja)
+[Website](https://rxjs-ninja.tane.dev)
 |
-[API Documentation](https://rxjs.ninja/modules/random.html)
+[API Documentation](https://rxjs-ninja.tane.dev/modules/random.html)
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/random/CHANGELOG.md)
 

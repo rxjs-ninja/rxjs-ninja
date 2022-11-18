@@ -4,9 +4,9 @@
 
 [![rxjs-utility](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-utility?label=@rxjs-ninja/rxjs-utility)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-utility)
 
-[Website](https://rxjs.ninja)
+[Website](https://rxjs-ninja.tane.dev)
 |
-[API Documentation](https://rxjs.ninja/modules/utility.html)
+[API Documentation](https://rxjs-ninja.tane.dev/modules/utility.html)
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/utility/CHANGELOG.md)
 

@@ -4,9 +4,9 @@
 
 [![rxjs-boolean](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-boolean?label=@rxjs-ninja/rxjs-boolean)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-boolean)
 
-[Website](https://rxjs.ninja)
+[Website](https://rxjs-ninja.tane.dev)
 |
-[API Documentation](https://rxjs.ninja/modules/boolean.html)
+[API Documentation](https://rxjs-ninja.tane.dev/modules/boolean.html)
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/boolean/CHANGELOG.md)
 

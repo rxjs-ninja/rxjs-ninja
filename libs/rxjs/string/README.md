@@ -4,9 +4,9 @@
 
 [![rxjs-string](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-string?label=@rxjs-ninja/rxjs-string)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-string)
 
-[Website](https://rxjs.ninja)
+[Website](https://rxjs-ninja.tane.dev)
 |
-[API Documentation](https://rxjs.ninja/modules/string.html)
+[API Documentation](https://rxjs-ninja.tane.dev/modules/string.html)
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/string/CHANGELOG.md)
 

@@ -4,16 +4,16 @@
 
 [![rxjs-array](https://img.shields.io/npm/v/@rxjs-ninja/rxjs-array?label=@rxjs-ninja/rxjs-array)](https://www.npmjs.com/package/@rxjs-ninja/rxjs-array)
 
-[Website](https://rxjs.ninja)
+[Website](https://rxjs-ninja.tane.dev)
 |
-[API Documentation](https://rxjs.ninja/modules/array.html)
+[API Documentation](https://rxjs-ninja.tane.dev/modules/array.html)
 |
 [Changelog](https://github.com/rxjs-ninja/rxjs-ninja/blob/main/libs/rxjs/array/CHANGELOG.md)
 
 `@rxjs-ninja/rxjs-array` provides operators for RxJS for working with
 of [Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array) types in RxJS.
 
-A full list is available on the [API Page](https://rxjs.ninja/modules/array.html).
+A full list is available on the [API Page](https://rxjs-ninja.tane.dev/modules/array.html).
 
 ## Function and Operator categories
 

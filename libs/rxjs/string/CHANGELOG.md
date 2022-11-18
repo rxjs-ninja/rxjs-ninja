@@ -50,7 +50,7 @@ Breaking changes in public API, and a lot of internal refactoring.
 
 ### Updated
 
-This release contains a major update to documentation and examples on [rxjs.ninja](https://rxjs.ninja) and improved test
+This release contains a major update to documentation and examples on [rxjs.ninja](https://rxjs-ninja.tane.dev) and improved test
 coverage that provided various bug fixes.
 
 ### Added

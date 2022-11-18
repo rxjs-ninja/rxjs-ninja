@@ -74,7 +74,7 @@ jobs:
 
       # Deploy the library to the general NPM repository
       - name: Deploy To General NPM
-        if: ${{ github.event.inputs.skipNpmPublish == true }}
+        if: ${{ github.event.inputs.skipNpmPublish == false }}
         env:
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
         run: |
@@ -83,7 +83,7 @@ jobs:
 
       # Deploy the library to the Github NPM repository
       - name: Deploy To Github NPM
-        if: ${{ github.event.inputs.skipGitHubPublish == true }}
+        if: ${{ github.event.inputs.skipGitHubPublish == false }}
         env:
           NPM_AUTH_TOKEN: ${{ secrets.GH_NPM_PACKAGE_PUBLISHER }}
         run: |

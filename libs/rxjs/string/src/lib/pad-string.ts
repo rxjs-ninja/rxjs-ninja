@@ -11,7 +11,6 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @category Modify
  *
- * @remarks Alias: `padLeft` (String.padStart).
  *
  * @param maxLength The maximum length to pad the string to
  * @param fillString Optional string to use as the string padding

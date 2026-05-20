@@ -7,10 +7,18 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
 ## [5.0.0] - 2026-05-20
 
+### Added
+
+- `filterFalsy()` without a predicate (falsy under `Boolean()` conversion)
+- Query operators: `isBoolean`, `isTruthy`, `isFalsy`
+- Aggregation over boolean streams: `booleanEvery`, `booleanSome`, `booleanNone`
+- Combinators: `and`, `or`, `xor`, `nand`
+
 ### Changed
 
 - **BREAKING**: Peer dependency is now RxJS `7.x` (was `>=6.5.0`)
 - **BREAKING**: Published entry points use `dist/` via `main`, `types`, and `exports` fields
+- **BREAKING**: `filterFalsy` predicate is now optional (was required)
 
 ## [4.0.2] - 2021-01-25
 

@@ -4,18 +4,36 @@
  *
  * @packageDocumentation
  * @module Boolean
- *
  */
 /* istanbul ignore file */
-export { firstFalsy } from './lib/first-falsy';
-export { firstTruthy } from './lib/first-truthy';
+
+// Combinators
+export { and } from './lib/and';
+export { nand } from './lib/nand';
+export { or } from './lib/or';
+export { xor } from './lib/xor';
+
+// Filter
 export { filterFalsy } from './lib/filter-falsy';
 export { filterTruthy } from './lib/filter-truthy';
-export { flip } from './lib/flip';
-export { fromBoolean } from './lib/from-boolean';
+
+// Query
+export { booleanEvery } from './lib/boolean-every';
+export { booleanNone } from './lib/boolean-none';
+export { booleanSome } from './lib/boolean-some';
+export { firstFalsy } from './lib/first-falsy';
+export { firstTruthy } from './lib/first-truthy';
+export { isBoolean } from './lib/is-boolean';
+export { isFalsy } from './lib/is-falsy';
+export { isTruthy } from './lib/is-truthy';
 export { lastFalsy } from './lib/last-falsy';
 export { lastTruthy } from './lib/last-truthy';
+
+// Operators
+export { flip } from './lib/flip';
+export { fromBoolean } from './lib/from-boolean';
 export { luhnCheck } from './lib/luhn-check';
 export { toBoolean } from './lib/to-boolean';
 
-export { PredicateFn } from './types/boolean';
+// Types
+export type { PredicateFn } from './types/boolean';

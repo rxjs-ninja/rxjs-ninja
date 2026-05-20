@@ -32,7 +32,6 @@ export function trimStart(): MonoTypeOperatorFunction<string> {
  *
  * @category Modify
  *
- * @remarks Alias: `trimRight` (String.trimEnd).
  *
  * @example
  * Returns the source string with any whitespace at the end removed

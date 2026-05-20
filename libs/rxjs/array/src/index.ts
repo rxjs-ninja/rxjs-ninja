@@ -55,5 +55,9 @@ export { toObject } from './lib/to-object';
 export { toSet } from './lib/to-set';
 export { union } from './lib/union';
 
+export { ArrayOrSet, isArrayOrSet } from './types/array-set';
 export { BinarySearchResult } from './types/binary-search';
 export { PredicateFn, MapFn, SortFn, ReduceFn } from './types/generic-methods';
+export { IterableInput } from './types/iterable-input';
+export { MapEntry } from './types/map-entry';
+export { isSearchList, ScalarOrList, ScalarOrListInput } from './types/scalar-or-list';

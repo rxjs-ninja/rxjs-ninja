@@ -1,16 +1,6 @@
 /**
  * @packageDocumentation
  * @module Array
+ * @deprecated Import `isArrayOrSet` from `@rxjs-ninja/rxjs-array` public types instead.
  */
-
-/**
- * Checks if an Iterable is only one of Array or `Set`
- * @private
- * @internal
- * @param input
- */
-export function isArrayOrSet(input: unknown): input is Iterable<unknown> {
-  if (Array.isArray(input)) {
-    return true;
-  } else return input instanceof Set;
-}
+export { isArrayOrSet } from '../types/array-set';

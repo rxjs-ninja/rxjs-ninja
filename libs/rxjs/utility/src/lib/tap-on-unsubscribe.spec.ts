@@ -7,7 +7,7 @@ describe('tapOnUnsubscribe', () => {
   it(
     'tap on each unsubscribe',
     observe(() => {
-      const mock = jest.fn();
+      const mock = vi.fn();
 
       const input = from([1, 2, 3]).pipe(tapOnUnsubscribe(() => mock('Test')));
       input.pipe(take(2)).subscribe();

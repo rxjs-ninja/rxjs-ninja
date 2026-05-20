@@ -7,7 +7,7 @@ describe('tapOnStart', () => {
   it(
     'should only be called on the first value',
     observe(() => {
-      const mock = jest.fn();
+      const mock = vi.fn();
       return from([1, 2, 3]).pipe(
         tapOnFirstEmit(() => mock('Test')),
         reduce((acc, val) => acc + val),

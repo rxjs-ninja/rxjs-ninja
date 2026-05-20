@@ -10,8 +10,9 @@ describe('fromEventSource', () => {
   let source: EventSource;
 
   beforeAll(() => {
-    Object.defineProperty(window, 'EventSource', {
+    Object.defineProperty(globalThis, 'EventSource', {
       value: EventSource,
+      configurable: true,
     });
   });
 
@@ -91,7 +92,7 @@ describe('fromEventSource', () => {
     }),
   );
 
-  xit(
+  it.skip(
     'should signal when the event emitter has been opened',
     observe(() => {
       const event = new MessageEvent('message', {
@@ -115,7 +116,7 @@ describe('fromEventSource', () => {
     }),
   );
 
-  xit(
+  it.skip(
     'should emit an error if thrown from the emitter',
     observe(() => {
       setTimeout(() => {

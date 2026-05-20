@@ -45,8 +45,8 @@
   "files": ["dist", "README.md", "CHANGELOG.md"],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "test": "jest --config jest.config.js",
-    "test:cov": "jest --config jest.config.js --coverage",
+    "test": "vitest run --config ../../../vitest.config.ts ../../../libs/rxjs/random",
+    "test:cov": "vitest run --config ../../../vitest.config.ts --coverage ../../../libs/rxjs/random",
     "lint": "eslint \"src/**/*.ts\""
   },
   "peerDependencies": {

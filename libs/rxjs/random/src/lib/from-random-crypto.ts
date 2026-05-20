@@ -5,11 +5,14 @@
 import { Observable, Subscriber, timer } from 'rxjs';
 import { map, takeWhile, tap } from 'rxjs/operators';
 import { FromRandomCryptoOpts } from '../types/from-random-crypto';
+import { cryptoRandomIndex } from '../utils/crypto-random-int';
 import { getIntTypedArray, RND_CRYPTO_DEFAULTS } from '../utils/from-random-crypto';
+import { getCrypto } from '../utils/get-crypto';
 
 /**
- * Returns an Observable that emits a number generated using Crypto.getRandomValues, and using Math.random selects one
- * random number value from the `TypedArray`.
+ * Returns an Observable that emits a number generated using `crypto.getRandomValues` from a `TypedArray` view.
+ * When the typed view contains more than one element, an unbiased index is chosen via `crypto.getRandomValues` (not
+ * `Math.random`). For fair integers in a range, use [[fromRandomCryptoInt]].
  *
  * By default this Observable will generate `4-bit signed` values
  *
@@ -43,8 +46,8 @@ export function fromRandomCrypto(emitDelay = 0, opts: FromRandomCryptoOpts = RND
     timer(0, emitDelay)
       .pipe(
         takeWhile(() => !subscriber.closed),
-        tap(() => window.crypto.getRandomValues(sourceArray)),
-        map(() => sourceArray[(sourceArray.length * Math.random()) | 0]),
+        tap(() => getCrypto().getRandomValues(sourceArray)),
+        map(() => sourceArray[cryptoRandomIndex(sourceArray.length)] as number),
         tap((value) => subscriber.next(value)),
       )
       .subscribe();

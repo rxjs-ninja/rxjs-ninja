@@ -7,11 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [3.0.0] - 2026-05-20
 
+### Added
+
+- `fromRandomUUID` using native `crypto.randomUUID()`
+- `fromRandomCryptoInt` for unbiased integers in `[min, max]` via `getRandomValues` (no `Math.random`)
+- `fromRandomBytes` emitting `Uint8Array` buffers from `getRandomValues`
+- `fromRandomCryptoStr` and `fromRandomCryptoCharset` for charset strings without `Math.random`
+
 ### Changed
 
 - **BREAKING**: Peer dependency is now RxJS `7.x` (was `>=6.5.0`)
 - **BREAKING**: Published entry points use `dist/` via `main`, `types`, and `exports` fields
 - Internal typed-array buffers for `fromRandomCrypto` use explicit `ArrayBuffer` instances (compatible with stricter DOM typings)
+- `fromRandomCrypto` uses `globalThis.crypto` and unbiased index selection when the typed view has multiple elements (still not a range operator; use `fromRandomCryptoInt` for fair ranges)
 
 ## [2.1.2] - 2021-01-25
 

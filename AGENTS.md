@@ -69,7 +69,7 @@ npm run test -w @rxjs-ninja/rxjs-array
 ## Documentation
 
 - Config: `typedoc.prod.json` / `typedoc.dev.json` (TypeDoc 0.28, default theme)
-- Build: `npm run docs:prod` or `npm run docs:dev` → `docs/`
+- Build: `npm run docs:prod` or `npm run docs:dev` → `docs/` (`treatWarningsAsErrors: true`)
 - TypeScript for docs: `tsconfig.typedoc.json` (excludes specs; includes `w3c-web-serial` types)
 - Extra pages: `typedoc-pages/` hub markdown (blog, licence, package READMEs/changelogs via `projectDocuments`; do not put sources under `docs/` output dir)
 - Plugins: `typedoc-plugin-extras`, `typedoc-plugin-replace-text`

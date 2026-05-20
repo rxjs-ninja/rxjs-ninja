@@ -14,7 +14,8 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @param exponential The exponential value to raise the number by
  *
- * @example Return a string passed numbers to the exponential of `2`
+ * @example
+  * Return a string passed numbers to the exponential of `2`
  * ```ts
  * const input = [-1, 0, 1, 2, 3.4];
  * from(input).pipe(toExponential(2)).subscribe();

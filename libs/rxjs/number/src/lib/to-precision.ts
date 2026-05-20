@@ -13,7 +13,8 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @param precision The number of decimal places to format the precision to.
  *
- * @example Return a string of numbers formatted to a precision of 4 places
+ * @example
+ * Return a string of numbers formatted to a precision of 4 places
  * ```ts
  * const input = [123.456, 0.004, 1.23e5];
  * from(input).pipe(toPrecision(4)).subscribe();

@@ -21,7 +21,8 @@ const ERROR_MESSAGE = `div operator cannot divide by 0`;
  *
  * @remarks If the input value is `0` this operator will throw an error
  *
- * @example Returns a number that is the division of source and input
+ * @example
+ * Returns a number that is the division of source and input
  * ```ts
  * const input = [4, 10, 12, 18, 20];
  * from(input).pipe(div(2)).subscribe();

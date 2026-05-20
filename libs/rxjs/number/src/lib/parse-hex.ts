@@ -10,7 +10,8 @@ import { map } from 'rxjs/operators';
  *
  * @category Parse
  *
- * @example Return only parsed hex values
+ * @example
+ * Return only parsed hex values
  * ```ts
  * const input = ['RxJS', 'ff', '00', '1b', '23', 'c89bb'];
  * from(input).pipe(parseHex()).subscribe();

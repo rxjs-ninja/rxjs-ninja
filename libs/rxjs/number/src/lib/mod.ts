@@ -14,7 +14,8 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @param modulus The dividing number for the Modulo operation
  *
- * @example Return the remainder of modulus `3`
+ * @example
+ * Return the remainder of modulus `3`
  * ```ts
  * const input = [2, 3, 4, 5, 6];
  * from(input).pipe(mod(3)).subscribe();

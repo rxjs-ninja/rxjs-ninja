@@ -14,7 +14,8 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @param power The number to raise the value by
  *
- * @example Return values raised to the power `2`
+ * @example
+ * Return values raised to the power `2`
  * ```ts
  * const input = [2, 4, 10, 16, 256];
  * from(input).pipe(pow(2)).subscribe();

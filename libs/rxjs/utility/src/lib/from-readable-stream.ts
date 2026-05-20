@@ -20,7 +20,8 @@ import { ReadableStreamLike } from '../types/streams';
  * @param queueStrategy Optional strategy for backpressure queueing
  * @param throwEndAsError Optional to return an error when the `AbortSignal` has been fired instead of just closing
  *
- * @example Create a ReadableStream of `0` to `100` and convert to an Observable
+ * @example
+ * Create a ReadableStream of `0` to `100` and convert to an Observable
  * ```ts
  * const stream = new ReadableStream({
  *   start: (controller) => {

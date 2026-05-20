@@ -13,7 +13,8 @@ import { parseJwt } from '../utils/jwt-token';
  *
  * @typeParam T The known JWT response object
  *
- * @example Parse a JWT token and return the decoded body
+ * @example
+ * Parse a JWT token and return the decoded body
  * ```ts
  * const input =
  *   'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';

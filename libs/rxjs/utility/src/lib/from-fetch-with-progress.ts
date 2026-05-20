@@ -20,7 +20,8 @@ import { map, scan, takeUntil, takeWhile } from 'rxjs/operators';
  * @param controller Optional {@link https://developer.mozilla.org/en-US/docs/Web/API/AbortController|AbortController}
  *   used to cancel any outstanding requests
  *
- * @example Set up fetching a large image, show a progress and image on final load
+ * @example
+ * Set up fetching a large image, show a progress and image on final load
  * ```ts
  * const image = document.querySelector(".image") as HTMLImageElement;
  * const progress = document.querySelector(".progress") as HTMLSpanElement;

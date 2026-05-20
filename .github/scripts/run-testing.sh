@@ -26,7 +26,7 @@ echo "Unit tests complete"
 
 if [[ "$RUN_BROWSER" == "True" ]]; then
   echo "Running browser tests (Playwright / Chrome)"
-  npx playwright install chromium
+  npx playwright install chrome
   npm run test:browser
   echo "Browser tests complete"
 fi

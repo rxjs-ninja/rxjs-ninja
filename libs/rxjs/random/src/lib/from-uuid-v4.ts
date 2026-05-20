@@ -17,7 +17,8 @@ import { uuidv4 } from '../utils/from-uuid';
  *
  * @param emitTime Optional time in `ms` to emit the UUID
  *
- * @example Get a random UUID
+ * @example
+ * Get a random UUID
  * ```ts
  * fromUUIDv4().pipe(take(1)).subscribe()
  * ```

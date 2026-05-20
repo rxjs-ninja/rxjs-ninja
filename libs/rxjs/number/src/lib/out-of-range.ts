@@ -21,14 +21,16 @@ import { createOrReturnObservable } from '../utils/internal';
  * @param max The maximum number for the range
  * @param includeBounds Optionally include the `min` and `max` values in the Observable
  *
- * @example Returns a boolean value if the number is out the range including the `min` and `max`
+ * @example
+  * Returns a boolean value if the number is out the range including the `min` and `max`
  * ```ts
  * const input = [-10, -2.3, 0, 1, 2, 3.14, 4.2, 10, 11, 42];
  * from(input).pipe(outOfRange(0, 10)).subscribe();
  * ```
  * Output: `true, true, true, false, false, false, false, true, true, true`
  *
- * @example Returns a boolean value if the number is out the range excluding the `min` and `max`
+ * @example
+  * Returns a boolean value if the number is out the range excluding the `min` and `max`
  * ```ts
  * const input = [-10, -2.3, 0, 1, 2, 3.14, 4.2, 10, 11, 42];
  * from(input).pipe(outOfRange(0, 10, true)).subscribe();

@@ -13,7 +13,8 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @param num The number to add to the source value
  *
- * @example Returns a number that is the addition of source and input
+ * @example
+ * Returns a number that is the addition of source and input
  * ```ts
  * const input = [2, 3, 4, 5, 6];
  * from(input).pipe(add(3)).subscribe();

@@ -15,7 +15,8 @@ import { map } from 'rxjs/operators';
  * @typeParam K The type of Map key
  * @typeParam V The type of Map value
  *
- * @example Convert an Array into a Map
+ * @example
+ * Convert an Array into a Map
  * ```ts
  * const input = [ [1, 'a'], [2, 'b'], [3, 'c'] ];
  * of(input).pipe(toMap()).subscribe();

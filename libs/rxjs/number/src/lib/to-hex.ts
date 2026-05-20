@@ -10,7 +10,8 @@ import { map } from 'rxjs/operators';
  *
  * @category Formatting
  *
- * @example Return a hex value of source number
+ * @example
+ * Return a hex value of source number
  * ```ts
  * const input = [2, 16, 32, 75, 255];
  * from(input).pipe(toHex()).subscribe();

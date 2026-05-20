@@ -12,7 +12,8 @@ import { map } from 'rxjs/operators';
  *
  * @typeParam T The input type of the source Array or Set
  *
- * @example Convert an Array into a Set
+ * @example
+ * Convert an Array into a Set
  * ```ts
  * const input = [1, 1, 2, 3, 3, 4, 5];
  * of(input).pipe(toSet()).subscribe();

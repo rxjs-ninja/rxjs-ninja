@@ -9,6 +9,7 @@
   "excludeExternals": true,
   "excludePrivate": true,
   "categorizeByGroup": true,
+  "treatWarningsAsErrors": true,
   "cname": "rxjs-ninja.tane.dev",
   "githubPages": true,
   "alwaysCreateEntryPointModule": true,

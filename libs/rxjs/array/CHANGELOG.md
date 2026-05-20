@@ -15,7 +15,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - Set algebra operators: `union`, `symmetricDifference`, and `isDisjointFrom` (via `Set.prototype` methods)
 - Array operators: `includes`, `concat`, `slice`, `at`, `findLastIndex`, `reduce`, `flat`, and `flatMap`
 - `ReduceFn` type for `reduce` reducer functions
-- Public type exports: `ArrayOrSet`, `isArrayOrSet`, `IterableInput`, `MapEntry`, `ScalarOrList`, `ScalarOrListInput`, and `isSearchList`
+- Public type exports: `ArrayOrSet`, `isArrayOrSet`, `IterableInput`, `MapEntry`, `ScalarOrList`, `ScalarOrListInput`, `GroupByFn`, `TypedArrayConstructor`, and `isSearchList`
+- **Array:** `mapArray`, `filterArray`, `reduceRight`, `copyWithin`, `toSorted`, `toReversed`, `withIndex`, `fromArray`, `fromArrayOf`, `isArray`
+- **Map (on emitted maps):** `mapGet`, `mapSet`, `mapHas`, `mapDelete`, `mapSize`, `mapGroupBy` — no Set `has`/`add`/`delete` stream operators
+- **Object:** `objectAssign`, `objectMerge`, `objectGroupBy` (`Object.groupBy`)
+- **Typed collections:** `arrayBufferFromTypedArray`, `typedArrayFromArrayBuffer`, `dataViewFromArrayBuffer`, `arrayFromTypedArray`
 
 ### Changed
 

@@ -7,11 +7,15 @@
  *
  */
 /* istanbul ignore file */
+export { at } from './lib/at';
 export { binarySearch } from './lib/binary-search';
+export { concat } from './lib/concat';
 export { difference } from './lib/difference';
 export { differenceAll } from './lib/difference-all';
 export { every } from './lib/every';
 export { fill } from './lib/fill';
+export { flat } from './lib/flat';
+export { flatMap } from './lib/flat-map';
 export { filterDifference } from './lib/filter-difference';
 export { filterEvery } from './lib/filter-every';
 export { filterIntersects } from './lib/filter-intersects';
@@ -20,11 +24,14 @@ export { find } from './lib/find';
 export { findAll } from './lib/find-all';
 export { findLast } from './lib/find-last';
 export { findIndex } from './lib/find-index';
+export { findLastIndex } from './lib/find-last-index';
 export { flipArray } from './lib/flip-array';
 export { fromMap } from './lib/from-map';
 export { fromSet } from './lib/from-set';
+export { includes } from './lib/includes';
 export { indexOf } from './lib/index-of';
 export { intersects } from './lib/intersects';
+export { isDisjointFrom } from './lib/is-disjoint-from';
 export { isEqualSet } from './lib/is-equal-set';
 export { isSubsetOf } from './lib/is-subset-of';
 export { isSupersetOf } from './lib/is-superset-of';
@@ -33,14 +40,20 @@ export { lastIndexOf } from './lib/last-index-of';
 export { mapToArray } from './lib/map-to-array';
 export { objectEntriesToArray } from './lib/object-entries-to-array';
 export { objectKeysToArray } from './lib/object-keys-to-array';
+export { objectValuesToArray } from './lib/object-values-to-array';
+export { reduce } from './lib/reduce';
 export { reverse } from './lib/reverse';
+export { slice } from './lib/slice';
 export { setToArray } from './lib/set-to-array';
 export { shuffle } from './lib/shuffle';
 export { some } from './lib/some';
 export { sort } from './lib/sort';
 export { sortMap } from './lib/sort-map';
+export { symmetricDifference } from './lib/symmetric-difference';
 export { toMap } from './lib/to-map';
+export { toObject } from './lib/to-object';
 export { toSet } from './lib/to-set';
+export { union } from './lib/union';
 
 export { BinarySearchResult } from './types/binary-search';
-export { PredicateFn, MapFn, SortFn } from './types/generic-methods';
+export { PredicateFn, MapFn, SortFn, ReduceFn } from './types/generic-methods';

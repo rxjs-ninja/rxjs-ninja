@@ -10,6 +10,11 @@ to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 
 - `ScalarOrList`, `ScalarOrListInput`, and `isSearchList` types for operators that accept a single value or a list of search values
+- `toObject` operator (export; implementation existed since 6.0.0)
+- `objectValuesToArray` operator using `Object.values`
+- Set algebra operators: `union`, `symmetricDifference`, and `isDisjointFrom` (via `Set.prototype` methods)
+- Array operators: `includes`, `concat`, `slice`, `at`, `findLastIndex`, `reduce`, `flat`, and `flatMap`
+- `ReduceFn` type for `reduce` reducer functions
 
 ### Changed
 

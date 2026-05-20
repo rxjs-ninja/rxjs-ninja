@@ -69,3 +69,16 @@ export type PredicateFn<T extends unknown> = (...args: T[]) => boolean;
  */
 
 export type SortFn<T extends unknown> = (first: T, second: T) => number;
+
+/**
+ * A function passed to Array.reduce to accumulate a single result from array elements
+ *
+ * @typeParam T The type of each element in the source array
+ * @typeParam K The type of the accumulated result
+ */
+export type ReduceFn<T extends unknown, K extends unknown> = (
+  accumulator: K,
+  currentValue: T,
+  currentIndex: number,
+  array: T[],
+) => K;

@@ -26,7 +26,7 @@ const technology$ = of(['RxJS', 'TypeScript', 'Angular', 'Node', 'NativeScript',
 const frontEnd$ = of(['RxJS', 'TypeScript', 'Angular', 'RxJS Ninja', 'React']);
 
 // Get the intersection between two Array values
-technology$.pipe(intersection(frontEnd$)).subscribe();
+technology$.pipe(intersects(frontEnd$)).subscribe();
 // Output: ['RxJS', 'TypeScript', 'Angular', 'RxJS Ninja']
 
 // Get the difference in the source array

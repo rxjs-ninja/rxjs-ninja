@@ -1,5 +1,5 @@
 import { observe } from 'rxjs-marbles/jest';
-import { reduce, take, tap } from 'rxjs/operators';
+import { take, tap } from 'rxjs/operators';
 import { fromRandomCryptoStr } from './from-random-crypto-str';
 
 describe('fromRandomCryptoStr', () => {

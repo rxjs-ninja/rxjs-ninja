@@ -1,5 +1,5 @@
 import { observe } from 'rxjs-marbles/jest';
-import { reduce, take, tap } from 'rxjs/operators';
+import { take, tap } from 'rxjs/operators';
 const hasRandomUUID = typeof globalThis.crypto?.randomUUID === 'function';
 import { fromRandomUUID } from './from-random-uuid';
 

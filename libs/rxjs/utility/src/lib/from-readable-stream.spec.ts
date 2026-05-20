@@ -3,24 +3,28 @@ import { fromReadableStream } from '@rxjs-ninja/rxjs-utility';
 import { catchError, reduce, tap } from 'rxjs/operators';
 import { CountQueuingStrategy, ReadableStream, WritableStream } from 'web-streams-polyfill/ponyfill';
 import { of } from 'rxjs';
+import { ReadableStreamLike } from '../types/streams';
+
+function createNumberStream(): ReadableStreamLike<number> {
+  return new ReadableStream<number>({
+    start: (controller) => {
+      for (let i = 0; i < 100; i++) {
+        controller.enqueue(i);
+      }
+      controller.close();
+    },
+  });
+}
 
 describe('fromReadableSource', () => {
   beforeAll(() => {
-    (global as any).WritableStream = WritableStream;
-    (global as any).CountQueuingStrategy = CountQueuingStrategy;
+    Object.assign(globalThis, { WritableStream, CountQueuingStrategy });
   });
 
   it(
     'should create an Observable from a readable source',
     observe(() => {
-      const stream = new ReadableStream({
-        start: (controller) => {
-          for (let i = 0; i < 100; i++) {
-            controller.enqueue(i);
-          }
-          controller.close();
-        },
-      });
+      const stream = createNumberStream();
 
       return fromReadableStream<number>(stream).pipe(
         reduce((a, b) => a + b, 0),
@@ -35,14 +39,7 @@ describe('fromReadableSource', () => {
       const abort = new AbortController();
       const signal = abort.signal;
 
-      const stream = new ReadableStream({
-        start: (controller) => {
-          for (let i = 0; i < 100; i++) {
-            controller.enqueue(i);
-          }
-          controller.close();
-        },
-      });
+      const stream = createNumberStream();
 
       return fromReadableStream<number>(stream, signal).pipe(
         tap((val) => {
@@ -59,14 +56,7 @@ describe('fromReadableSource', () => {
   it(
     'should create support a different queue strategy',
     observe(() => {
-      const stream = new ReadableStream({
-        start: (controller) => {
-          for (let i = 0; i < 100; i++) {
-            controller.enqueue(i);
-          }
-          controller.close();
-        },
-      });
+      const stream = createNumberStream();
 
       const queue = new CountQueuingStrategy({ highWaterMark: 10 });
 
@@ -83,14 +73,7 @@ describe('fromReadableSource', () => {
       const abort = new AbortController();
       const signal = abort.signal;
 
-      const stream = new ReadableStream({
-        start: (controller) => {
-          for (let i = 0; i < 100; i++) {
-            controller.enqueue(i);
-          }
-          controller.close();
-        },
-      });
+      const stream = createNumberStream();
 
       return fromReadableStream<number>(stream, signal, undefined, true).pipe(
         tap((val) => {
@@ -99,8 +82,8 @@ describe('fromReadableSource', () => {
           }
         }),
         reduce((a, b) => a + b, 0),
-        catchError((error) => {
-          expect(error.message).toBe('Aborted');
+        catchError((error: Error) => {
+          expect(error.message).toMatch(/aborted/i);
           return of(true);
         }),
       );

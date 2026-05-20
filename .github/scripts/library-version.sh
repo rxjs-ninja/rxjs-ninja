@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -o errexit -o noclobber -o nounset -o pipefail
 
-# This script uses the parent version as the version to publish a library with
-
 function getBuildType {
   local release_type="minor"
   if [[ "$1" == *"(major)"* ]]; then
@@ -37,16 +35,15 @@ function doVersioning {
       npm version "$RELEASE_TYPE" --git-tag-version=false --commit-hooks=false
       wait
     fi
-  done <<<"$1 " # leave space on end to generate correct output
+  done <<<"$1 "
 }
 
-AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base="$BASE")
+AFFECTED=$(node scripts/affected-workspaces.mjs "$BASE")
 echo "Will Version: $AFFECTED"
 
 if [[ "$AFFECTED" != "" ]]; then
   cd "$PARENT_DIR"
   doVersioning "$AFFECTED"
-  wait
 else
-  echo "No Libraries to build"
+  echo "No Libraries to version"
 fi

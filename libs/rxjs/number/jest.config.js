@@ -1,14 +1,13 @@
+const base = require('../../../jest.config.base');
+
+/** @type {import('jest').Config} */
 module.exports = {
+  ...base,
   displayName: 'rxjs-number',
-  preset: '../../../jest.preset.js',
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json',
-    },
+  rootDir: '.',
+  roots: ['<rootDir>/src'],
+  moduleNameMapper: {
+    '^@rxjs-ninja/rxjs-number$': '<rootDir>/src/index.ts',
   },
-  transform: {
-    '^.+\\.[tj]sx?$': 'ts-jest',
-  },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../../coverage/libs/rxjs/number',
 };

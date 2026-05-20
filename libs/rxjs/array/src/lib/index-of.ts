@@ -5,7 +5,7 @@
 
 import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
-import { isArrayOrSet } from '../utils/array-set';
+import { isSearchList, ScalarOrList, ScalarOrListInput } from '../types/scalar-or-list';
 import { createOrReturnObservable } from '../utils/internal';
 
 /**
@@ -47,7 +47,7 @@ import { createOrReturnObservable } from '../utils/internal';
  */
 
 export function indexOf<T extends unknown>(
-  input: Subscribable<Iterable<T> | T> | Iterable<T> | T,
+  input: ScalarOrListInput<T>,
   startIndex?: Subscribable<number> | number,
 ): OperatorFunction<Iterable<T>, number[]> {
   const input$ = createOrReturnObservable(input);
@@ -56,9 +56,10 @@ export function indexOf<T extends unknown>(
     source.pipe(
       withLatestFrom(input$, startIndex$),
       map(([[...value], inputValue, startIndexValue]) => {
-        return isArrayOrSet(inputValue)
-          ? [...inputValue].map((val) => value.indexOf(val, startIndexValue))
-          : [value.indexOf(inputValue as T, startIndexValue)];
+        const search = inputValue as ScalarOrList<T>;
+        return isSearchList(search)
+          ? [...search].map((val) => value.indexOf(val, startIndexValue))
+          : [value.indexOf(search, startIndexValue)];
       }),
     );
 }

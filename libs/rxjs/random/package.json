@@ -31,9 +31,25 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/rxjs-ninja/rxjs-ninja.git"
+    "url": "https://github.com/rxjs-ninja/rxjs-ninja.git",
+    "directory": "libs/rxjs/random"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "files": ["dist", "README.md", "CHANGELOG.md"],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "test": "jest --config jest.config.js",
+    "test:cov": "jest --config jest.config.js --coverage",
+    "lint": "eslint \"src/**/*.ts\""
   },
   "peerDependencies": {
-    "rxjs": ">=6.5.0"
+    "rxjs": "^7.0.0"
   }
 }

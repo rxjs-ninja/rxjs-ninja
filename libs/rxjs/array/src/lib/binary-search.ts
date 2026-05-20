@@ -76,7 +76,7 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @returns An Observable that emits a [[BinarySearchResult]]
  */
-export function binarySearch<T extends unknown, V extends unknown>(
+export function binarySearch<T extends string | number | bigint, V extends unknown>(
   search: Subscribable<T> | T,
   property?: Subscribable<string | number> | string | number,
   sortFn?: SortFn<V>,
@@ -90,7 +90,7 @@ export function binarySearch<T extends unknown, V extends unknown>(
       withLatestFrom(search$, property$),
       map<[[V[], V[]], T, string | number | undefined], BinarySearchResult<T, V>>(
         ([[searchArray, sortedArray], searchValue, propertyValue]) => [
-          binarySearcher(search, sortedArray, propertyValue),
+          binarySearcher(searchValue, sortedArray, propertyValue),
           searchValue,
           sortedArray,
           searchArray,

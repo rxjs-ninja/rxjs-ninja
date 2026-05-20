@@ -1,8 +1,6 @@
 #!/usr/bin/env bash
 set -o errexit -o nounset -o pipefail
 
-# This script uses the parent version as the version to publish a library with
-
 function getBuildType {
   local release_type="minor"
   if [[ "$1" == *"(major)"* ]]; then
@@ -40,19 +38,18 @@ function doChangelog {
 
       sed -i "s/\[Unreleased\]/${CHANGELOG_UPDATE}/" CHANGELOG.md
     else
-      echo "Dry Run, not publishing $lib"
+      echo "Dry Run, not updating changelog for $lib"
     fi
     wait
-  done <<<"$1 " # leave space on end to generate correct output
+  done <<<"$1 "
 }
 
-AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base="$BASE")
+AFFECTED=$(node scripts/affected-workspaces.mjs "$BASE")
 echo "Will Update Changelog: $AFFECTED"
 
 if [[ "$AFFECTED" != "" ]]; then
   cd "$PARENT_DIR"
   doChangelog "$AFFECTED"
-  wait
 else
-  echo "No Libraries to publish"
+  echo "No Libraries to update"
 fi

@@ -1,14 +1,14 @@
+const base = require('../../../jest.config.base');
+
+/** @type {import('jest').Config} */
 module.exports = {
+  ...base,
   displayName: 'rxjs-utility',
-  preset: '../../../jest.preset.js',
-  globals: {
-    'ts-jest': {
-      tsconfig: '<rootDir>/tsconfig.spec.json',
-    },
+  testEnvironment: 'jsdom',
+  rootDir: '.',
+  roots: ['<rootDir>/src'],
+  moduleNameMapper: {
+    '^@rxjs-ninja/rxjs-utility$': '<rootDir>/src/index.ts',
   },
-  transform: {
-    '^.+\\.[tj]sx?$': 'ts-jest',
-  },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   coverageDirectory: '../../../coverage/libs/rxjs/utility',
 };

@@ -4,7 +4,7 @@
  */
 import { OperatorFunction, Subscribable } from 'rxjs';
 import { map, withLatestFrom } from 'rxjs/operators';
-import { isArrayOrSet } from '../utils/array-set';
+import { isSearchList, ScalarOrList, ScalarOrListInput } from '../types/scalar-or-list';
 import { createOrReturnObservable } from '../utils/internal';
 
 /**
@@ -53,7 +53,7 @@ import { createOrReturnObservable } from '../utils/internal';
  * @returns Observable number or array of numbers containing the index of the last found value
  */
 export function lastIndexOf<T extends unknown>(
-  input: Subscribable<Iterable<T> | T> | Iterable<T> | T,
+  input: ScalarOrListInput<T>,
   fromIndex?: Subscribable<number> | number,
 ): OperatorFunction<Iterable<T>, number[]> {
   const input$ = createOrReturnObservable(input);
@@ -62,10 +62,11 @@ export function lastIndexOf<T extends unknown>(
     source.pipe(
       withLatestFrom(input$, fromIndex$),
       map(([[...value], inputValue, fromIndexValue]) => {
-        fromIndexValue = fromIndexValue || value.length - 1;
-        return isArrayOrSet(inputValue)
-          ? [...inputValue].map((val) => value.lastIndexOf(val, fromIndexValue))
-          : [value.lastIndexOf(inputValue as T, fromIndexValue)];
+        const search = inputValue as ScalarOrList<T>;
+        const from = fromIndexValue || value.length - 1;
+        return isSearchList(search)
+          ? [...search].map((val) => value.lastIndexOf(val, from))
+          : [value.lastIndexOf(search, from)];
       }),
     );
 }

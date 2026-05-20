@@ -3,7 +3,7 @@
  * @module Utility
  */
 import { MapFn, PredicateFn } from '../types/utility';
-import { OperatorFunction, Subscribable } from 'rxjs';
+import { from, ObservableInput, OperatorFunction } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 
 /**
@@ -38,10 +38,13 @@ import { switchMap } from 'rxjs/operators';
  *
  * @returns Observable that emits a value based on the [[PredicateFn]] result
  */
-export function switchMapIf<I extends unknown, T = I | unknown, F = I | unknown>(
+export function switchMapIf<I extends unknown, T = unknown, F = unknown>(
   predicate: PredicateFn<I>,
-  trueResult: MapFn<I, Subscribable<T>>,
-  falseResult: MapFn<I, Subscribable<F>>,
+  trueResult: MapFn<I, ObservableInput<T>>,
+  falseResult: MapFn<I, ObservableInput<F>>,
 ): OperatorFunction<I, T | F> {
-  return (source) => source.pipe(switchMap((value: I) => (predicate(value) ? trueResult(value) : falseResult(value))));
+  return (source) =>
+    source.pipe(
+      switchMap((value: I) => from(predicate(value) ? trueResult(value) : falseResult(value))),
+    );
 }

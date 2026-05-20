@@ -107,7 +107,9 @@ export function fromWebSerial(
           const process = async (
             result: ReadableStreamReadResult<Uint8Array>,
           ): Promise<ReadableStreamReadResult<Uint8Array>> => {
-            subscriber.next(result.value);
+            if (result.value !== undefined) {
+              subscriber.next(result.value);
+            }
             return !result.done || !port.readable ? reader.read().then(process) : Promise.resolve(result);
           };
 

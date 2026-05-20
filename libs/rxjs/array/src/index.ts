@@ -4,22 +4,21 @@
  *
  * @packageDocumentation
  * @module Array
- *
  */
 /* istanbul ignore file */
+
+// Operators
 export { arrayBufferFromTypedArray } from './lib/array-buffer-from-typed-array';
 export { arrayFromTypedArray } from './lib/array-from-typed-array';
 export { at } from './lib/at';
 export { binarySearch } from './lib/binary-search';
 export { concat } from './lib/concat';
 export { copyWithin } from './lib/copy-within';
-export { difference } from './lib/difference';
 export { dataViewFromArrayBuffer } from './lib/data-view-from-array-buffer';
+export { difference } from './lib/difference';
 export { differenceAll } from './lib/difference-all';
 export { every } from './lib/every';
 export { fill } from './lib/fill';
-export { flat } from './lib/flat';
-export { flatMap } from './lib/flat-map';
 export { filterArray } from './lib/filter-array';
 export { filterDifference } from './lib/filter-difference';
 export { filterEvery } from './lib/filter-every';
@@ -27,9 +26,11 @@ export { filterIntersects } from './lib/filter-intersects';
 export { filterSome } from './lib/filter-some';
 export { find } from './lib/find';
 export { findAll } from './lib/find-all';
-export { findLast } from './lib/find-last';
 export { findIndex } from './lib/find-index';
+export { findLast } from './lib/find-last';
 export { findLastIndex } from './lib/find-last-index';
+export { flat } from './lib/flat';
+export { flatMap } from './lib/flat-map';
 export { flipArray } from './lib/flip-array';
 export { fromArray } from './lib/from-array';
 export { fromArrayOf } from './lib/from-array-of';
@@ -62,9 +63,9 @@ export { objectValuesToArray } from './lib/object-values-to-array';
 export { reduce } from './lib/reduce';
 export { reduceRight } from './lib/reduce-right';
 export { reverse } from './lib/reverse';
-export { slice } from './lib/slice';
 export { setToArray } from './lib/set-to-array';
 export { shuffle } from './lib/shuffle';
+export { slice } from './lib/slice';
 export { some } from './lib/some';
 export { sort } from './lib/sort';
 export { sortMap } from './lib/sort-map';
@@ -78,11 +79,14 @@ export { typedArrayFromArrayBuffer } from './lib/typed-array-from-array-buffer';
 export { union } from './lib/union';
 export { withIndex } from './lib/with-index';
 
-export { ArrayOrSet, isArrayOrSet } from './types/array-set';
-export { BinarySearchResult } from './types/binary-search';
-export { PredicateFn, MapFn, SortFn, ReduceFn } from './types/generic-methods';
-export { GroupByFn } from './types/group-by';
-export { IterableInput } from './types/iterable-input';
-export { MapEntry } from './types/map-entry';
-export { isSearchList, ScalarOrList, ScalarOrListInput } from './types/scalar-or-list';
-export { TypedArrayConstructor } from './types/typed-array';
+// Types
+export type { ArrayOrSet } from './types/array-set';
+export { isArrayOrSet } from './types/array-set';
+export type { BinarySearchResult } from './types/binary-search';
+export type { GroupByFn } from './types/group-by';
+export type { MapFn, PredicateFn, ReduceFn, SortFn } from './types/generic-methods';
+export type { IterableInput } from './types/iterable-input';
+export type { MapEntry } from './types/map-entry';
+export type { ScalarOrList, ScalarOrListInput } from './types/scalar-or-list';
+export { isSearchList } from './types/scalar-or-list';
+export type { TypedArrayConstructor } from './types/typed-array';

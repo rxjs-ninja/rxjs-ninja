@@ -16,6 +16,13 @@ import { GroupByFn } from '../types/group-by';
  *
  * @param keyFn [[GroupByFn]] returning a property key for each element
  *
+ *
+ * @example
+ * Group strings by length
+ * ```ts
+ * of(['x', 'xy', 'y']).pipe(objectGroupBy((s) => s.length)).subscribe();
+ * ```
+ * Output: `{ 1: ['x', 'y'], 2: ['xy'] }`
  * @returns An Observable that emits a record of grouped arrays
  */
 export function objectGroupBy<T extends unknown, K extends PropertyKey>(

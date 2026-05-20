@@ -11,7 +11,6 @@ import { map } from 'rxjs/operators';
  *
  * @category Modify
  *
- * @remarks Alias: `trimLeft` (String.trimStart).
  *
  * @example
  * Returns the source string with any whitespace at the start removed

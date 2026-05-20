@@ -13,6 +13,13 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @param other Boolean value or Observable to combine with the source
  *
+ *
+ * @example
+ * Logical AND with a fixed value
+ * ```ts
+ * of(true, false).pipe(and(true)).subscribe();
+ * ```
+ * Output: `true, false`
  * @returns Observable that emits `source && other` for each emission
  */
 export function and(other: Subscribable<boolean> | boolean): OperatorFunction<boolean, boolean> {

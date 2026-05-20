@@ -142,3 +142,29 @@ const technologyStream$ = of(['RxJS', 'TypeScript', 'Angular', 'RxJS', 'TypeScri
 technology$.pipe(toSet()).subscribe();
 // Output: `Set(4) { 'RxJS', 'TypeScript', 'Angular', 'RxJS Ninja' }`
 ```
+
+### ECMAScript collection methods
+
+Operators that mirror modern `Array`, `Map`, `Object`, and typed-array APIs (Node.js 22+ / ES2024).
+
+```ts
+import { of } from 'rxjs';
+import { filterArray, mapArray, objectGroupBy, union } from '@rxjs-ninja/rxjs-array';
+
+// Array.prototype.map / filter (not RxJS map/filter)
+of([1, 2, 3])
+  .pipe(
+    mapArray((n) => n * 2),
+    filterArray((n) => n > 2),
+  )
+  .subscribe();
+// Output: `[4, 6]`
+
+// Object.groupBy / Map grouping
+of(['x', 'xy', 'y']).pipe(objectGroupBy((s) => s.length)).subscribe();
+// Output: `{ 1: ['x', 'y'], 2: ['xy'] }`
+
+// Set.prototype.union (ES2025)
+of(['a', 'b']).pipe(union(['b', 'c'])).subscribe();
+// Output: `['a', 'b', 'c']`
+```

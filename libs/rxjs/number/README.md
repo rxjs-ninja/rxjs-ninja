@@ -140,3 +140,42 @@ source$.pipe(inRange(2, 11)).subscribe();
 source.pipe(isNotNaN()).subscribe();
 // Output: `true, true, true, false, true, true, true, false, true`
 ```
+
+### Conversion
+
+Coerce unknown emissions to numbers.
+
+```ts
+import { of } from 'rxjs';
+import { coerceNumber } from '@rxjs-ninja/rxjs-number';
+
+of('42', '-3').pipe(coerceNumber()).subscribe();
+// Output: `42, -3`
+```
+
+### Intl
+
+Locale-aware number formatting via `Intl.NumberFormat`.
+
+```ts
+import { of } from 'rxjs';
+import { intlNumberFormat, intlNumberFormatRange } from '@rxjs-ninja/rxjs-number';
+
+of(1000).pipe(intlNumberFormat('en-US')).subscribe();
+// Output: `'1,000'`
+
+of([1, 5]).pipe(intlNumberFormatRange('en-US')).subscribe();
+// Output: `'1–5'`
+```
+
+### Math (ECMAScript)
+
+Unary `Math` operators such as `abs`, `sign`, `sqrt`, and hyperbolic functions.
+
+```ts
+import { of } from 'rxjs';
+import { abs, sign } from '@rxjs-ninja/rxjs-number';
+
+of(-4).pipe(abs()).subscribe();
+// Output: `4`
+```

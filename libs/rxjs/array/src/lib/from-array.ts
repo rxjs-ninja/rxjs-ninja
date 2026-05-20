@@ -18,6 +18,13 @@ import { createOrReturnObservable } from '../utils/internal';
  * @param input Array-like or iterable source
  * @param mapFn Optional [[MapFn]] passed to `Array.from`
  *
+ *
+ * @example
+ * Emit an array from an iterable
+ * ```ts
+ * fromArray('abc').subscribe();
+ * ```
+ * Output: `['a', 'b', 'c']`
  * @returns Observable that emits an array built from the input
  */
 export function fromArray<T extends unknown, K extends unknown = T>(

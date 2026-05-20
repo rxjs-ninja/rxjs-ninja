@@ -18,6 +18,13 @@ import { MapFn } from '../types/generic-methods';
  *
  * @param mapFn [[MapFn]] applied to each element
  *
+ *
+ * @example
+ * Double each number in an array emission
+ * ```ts
+ * of([1, 2, 3]).pipe(mapArray((n) => n * 2)).subscribe();
+ * ```
+ * Output: `[2, 4, 6]`
  * @returns An Observable that emits the mapped array
  */
 export function mapArray<T extends unknown, K extends unknown>(

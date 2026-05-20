@@ -50,7 +50,6 @@ export function padStart(
  *
  * @category Modify
  *
- * @remarks Alias: `padRight` (String.padEnd).
  *
  * @param maxLength The maximum length to pad the string to
  * @param fillString Optional string to use as the string padding

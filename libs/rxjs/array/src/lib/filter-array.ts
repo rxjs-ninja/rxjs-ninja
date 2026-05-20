@@ -16,6 +16,13 @@ import { matchPredicate } from '../utils/match-predicate';
  *
  * @param predicate Optional [[PredicateFn]]; when omitted, falsy values are removed (except `0` for numbers)
  *
+ *
+ * @example
+ * Keep elements that pass a predicate
+ * ```ts
+ * of([1, 2, 3]).pipe(filterArray((n) => n > 1)).subscribe();
+ * ```
+ * Output: `[2, 3]`
  * @returns An Observable that emits the filtered array
  */
 export function filterArray<T extends unknown>(predicate?: PredicateFn<T>): OperatorFunction<Iterable<T>, T[]> {

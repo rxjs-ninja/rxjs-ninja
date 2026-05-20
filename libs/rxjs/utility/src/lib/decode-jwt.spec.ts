@@ -6,8 +6,7 @@ describe('decodeJWT', () => {
     'should return a valid JSON Web Token object',
     marbles((m) => {
       const input = m.hot('-a|', {
-        a:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+        a: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
       });
       const subs = '^-!';
       const expected = m.cold('-a|', {
@@ -26,8 +25,7 @@ describe('decodeJWT', () => {
     'should return a valid JSON Web Token object with Unicode',
     marbles((m) => {
       const input = m.hot('-a|', {
-        a:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lw4bwn5iAIiwiaWF0IjoxNTE2MjM5MDIyfQ.6vr8IizGBr6dTAwSSqYHftvaxQJQWQBIQqrsFRBA608',
+        a: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lw4bwn5iAIiwiaWF0IjoxNTE2MjM5MDIyfQ.6vr8IizGBr6dTAwSSqYHftvaxQJQWQBIQqrsFRBA608',
       });
       const subs = '^-!';
       const expected = m.cold('-a|', {
@@ -46,8 +44,7 @@ describe('decodeJWT', () => {
     'should return an error for an invalid object',
     marbles((m) => {
       const input = m.hot('-a|', {
-        a:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI2h456adbfv6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+        a: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI2h456adbfv6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
       });
       const subs = '^!';
       const expected = m.cold('-#', {}, new URIError('URI malformed'));

@@ -38,9 +38,7 @@ export async function sumUntilAbort(): Promise<number> {
 export async function sumWithQueueStrategy(): Promise<number> {
   const stream = createNumberStream();
   const queue = new CountQueuingStrategy({ highWaterMark: 10 });
-  return firstValueFrom(
-    fromReadableStream<number>(stream, undefined, queue).pipe(reduce((a, b) => a + b, 0)),
-  );
+  return firstValueFrom(fromReadableStream<number>(stream, undefined, queue).pipe(reduce((a, b) => a + b, 0)));
 }
 
 export async function abortThrows(): Promise<string> {

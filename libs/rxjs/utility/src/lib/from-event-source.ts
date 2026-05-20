@@ -55,7 +55,9 @@ export function fromEventSource<T extends unknown>(
     if (signal) {
       signal.onabort = () => {
         source.close();
-        !subscriber.closed && subscriber.complete();
+        if (!subscriber.closed) {
+          subscriber.complete();
+        }
       };
     }
 
@@ -109,7 +111,9 @@ export function fromEventSource<T extends unknown>(
 
       source.close();
       /* istanbul ignore next */
-      !subscriber.closed && subscriber.complete();
+      if (!subscriber.closed) {
+        subscriber.complete();
+      }
     };
   });
 }

@@ -63,10 +63,7 @@ describe('fromMap', () => {
           [6, 'f'],
         ]),
       ]).pipe(
-        reduce<[number, string][], [number, string][]>(
-          (a, b) => [...a, ...b],
-          [],
-        ),
+        reduce<[number, string][], [number, string][]>((a, b) => [...a, ...b], []),
         tap((value) =>
           expect(value).toStrictEqual([
             [1, 'a'],
@@ -98,10 +95,7 @@ describe('fromMap', () => {
           ]),
         ]),
       ).pipe(
-        reduce<[number, string][], [number, string][]>(
-          (a, b) => [...a, ...b],
-          [],
-        ),
+        reduce<[number, string][], [number, string][]>((a, b) => [...a, ...b], []),
         tap((value) =>
           expect(value).toStrictEqual([
             [1, 'a'],

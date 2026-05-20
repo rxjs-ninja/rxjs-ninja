@@ -6,10 +6,7 @@
 type Comparable = string | number | bigint;
 
 function extractComparable<K extends unknown>(item: K, property?: string | number): Comparable | undefined {
-  const raw =
-    property === undefined || property === ''
-      ? item
-      : (item as Record<string | number, unknown>)[property];
+  const raw = property === undefined || property === '' ? item : (item as Record<string | number, unknown>)[property];
 
   if (typeof raw === 'string' || typeof raw === 'number' || typeof raw === 'bigint') {
     return raw;

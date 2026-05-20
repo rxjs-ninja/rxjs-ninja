@@ -16,7 +16,7 @@ This repo uses **npm workspaces** (`libs/rxjs/*`). Each package is published ind
 ## Commands
 
 ```bash
-npm install --legacy-peer-deps
+npm install
 npm run build
 npm test                    # Vitest unit tests (all workspaces)
 npm run test:cov            # Vitest with coverage
@@ -55,9 +55,15 @@ npm run test -w @rxjs-ninja/rxjs-array
 
 ## TypeScript
 
-- Shared config: `tsconfig.base.json`
+- Shared config: `tsconfig.base.json` (`ignoreDeprecations: "6.0"` for TS 6)
 - Per-package build: `tsconfig.build.json` → `dist/`
-- RxJS 7 peer dependency
+- RxJS 7 peer dependency (pinned in workspace `package.json` files)
+
+## Dependencies
+
+- Root and workspace versions are **pinned** (exact semver, no `^`/`~`)
+- `.npmrc`: `save-exact=true`, `legacy-peer-deps=true`
+- Bump deps: `npx npm-check-updates -u --workspaces`, then strip ranges or reinstall with `save-exact`
 
 ## Publishing
 

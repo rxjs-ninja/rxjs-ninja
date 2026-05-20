@@ -44,7 +44,11 @@
       "default": "./dist/index.js"
     }
   },
-  "files": ["dist", "README.md", "CHANGELOG.md"],
+  "files": [
+    "dist",
+    "README.md",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
     "test": "vitest run --config ../../../vitest.config.ts ../../../libs/rxjs/utility",
@@ -52,6 +56,6 @@
     "lint": "eslint \"src/**/*.ts\""
   },
   "peerDependencies": {
-    "rxjs": "^7.0.0"
+    "rxjs": "7.8.2"
   }
 }

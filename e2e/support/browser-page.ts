@@ -4,11 +4,7 @@ import type { Page } from '@playwright/test';
 const runnerHtml = path.resolve(__dirname, '../fixtures/runner.html');
 const publicDir = path.resolve(__dirname, '../public');
 
-export async function runBundledTest<T>(
-  page: Page,
-  bundleFile: string,
-  exportName: string,
-): Promise<T> {
+export async function runBundledTest<T>(page: Page, bundleFile: string, exportName: string): Promise<T> {
   await page.goto(`file://${runnerHtml}`);
   await page.evaluate(() => {
     delete (window as unknown as { RxjsNinjaE2E?: unknown }).RxjsNinjaE2E;

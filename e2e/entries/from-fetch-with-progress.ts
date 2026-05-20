@@ -9,7 +9,7 @@ function createFetch(ok: boolean, body: unknown) {
   return () =>
     Promise.resolve({
       ok,
-        headers: { get: () => 5 },
+      headers: { get: () => 5 },
       body,
       status: ok ? 200 : 500,
       statusText: ok ? 'ok' : 'Unknown Error',
@@ -26,7 +26,9 @@ export async function fetchWithProgress(): Promise<{ percents: number[]; isUint8
       return {
         read() {
           return Promise.resolve(
-            i < pieces.length ? { value: new Uint8Array([pieces[i++]]), done: false } : { value: undefined, done: true },
+            i < pieces.length
+              ? { value: new Uint8Array([pieces[i++]]), done: false }
+              : { value: undefined, done: true },
           );
         },
       };
@@ -57,9 +59,7 @@ export async function emptyBodyError(): Promise<string> {
   window.fetch = createFetch(true, undefined) as typeof fetch;
 
   return firstValueFrom(
-    fromFetchWithProgress('http://example.com/foo.jpg').pipe(
-      catchError((error: Error) => of(error.message)),
-    ),
+    fromFetchWithProgress('http://example.com/foo.jpg').pipe(catchError((error: Error) => of(error.message))),
   );
 }
 
@@ -67,8 +67,6 @@ export async function notOkError(): Promise<string> {
   window.fetch = createFetch(false, {}) as typeof fetch;
 
   return firstValueFrom(
-    fromFetchWithProgress('http://example.com/foo.jpg').pipe(
-      catchError((error: Error) => of(error.message)),
-    ),
+    fromFetchWithProgress('http://example.com/foo.jpg').pipe(catchError((error: Error) => of(error.message))),
   );
 }

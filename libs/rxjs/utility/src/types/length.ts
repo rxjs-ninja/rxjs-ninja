@@ -42,7 +42,7 @@ export const SupportedLengths = {
  * @private
  * @internal
  */
-export type SupportedLengths = typeof SupportedLengths[keyof typeof SupportedLengths];
+export type SupportedLengths = (typeof SupportedLengths)[keyof typeof SupportedLengths];
 
 /**
  * Supported length types in the [[length]] operator

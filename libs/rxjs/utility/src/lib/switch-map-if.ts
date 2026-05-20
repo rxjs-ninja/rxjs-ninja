@@ -44,7 +44,5 @@ export function switchMapIf<I extends unknown, T = unknown, F = unknown>(
   falseResult: MapFn<I, ObservableInput<F>>,
 ): OperatorFunction<I, T | F> {
   return (source) =>
-    source.pipe(
-      switchMap((value: I) => from(predicate(value) ? trueResult(value) : falseResult(value))),
-    );
+    source.pipe(switchMap((value: I) => from(predicate(value) ? trueResult(value) : falseResult(value))));
 }

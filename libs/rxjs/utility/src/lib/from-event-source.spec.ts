@@ -104,12 +104,12 @@ describe('fromEventSource', () => {
         sources['test.js'].emit(event.type, event);
       }, 1000);
 
-      const opened$ = new BehaviorSubject<any>(undefined);
+      const opened$ = new BehaviorSubject<Event | undefined>(undefined);
 
       return fromEventSource<Record<string, string>>(source, 'message', opened$).pipe(
         take(1),
         withLatestFrom(opened$.asObservable()),
-        tap(([message, opened]) => {
+        tap(([, opened]) => {
           expect(opened).toBeInstanceOf(Event);
         }),
       );

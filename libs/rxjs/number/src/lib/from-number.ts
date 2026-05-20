@@ -49,7 +49,9 @@ export function fromNumber<T extends number>(
 
           finalize(() => {
             /* istanbul ignore next-line */
-            !subscriber.closed && subscriber.complete();
+            if (!subscriber.closed) {
+              subscriber.complete();
+            }
           }),
         )
         .subscribe();
@@ -60,7 +62,9 @@ export function fromNumber<T extends number>(
           tap((value) => subscriber.next(value)),
           finalize(() => {
             /* istanbul ignore next-line */
-            !subscriber.closed && subscriber.complete();
+            if (!subscriber.closed) {
+              subscriber.complete();
+            }
           }),
         )
         .subscribe();
@@ -68,6 +72,10 @@ export function fromNumber<T extends number>(
     }
 
     /* istanbul ignore next-line */
-    return () => !subscriber.closed && subscriber.complete();
+    return () => {
+      if (!subscriber.closed) {
+        subscriber.complete();
+      }
+    };
   });
 }

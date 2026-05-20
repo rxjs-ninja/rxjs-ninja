@@ -30,7 +30,7 @@ export const SupportedTemperatures = {
  * @private
  * @internal
  */
-export type SupportedTemperatures = typeof SupportedTemperatures[keyof typeof SupportedTemperatures];
+export type SupportedTemperatures = (typeof SupportedTemperatures)[keyof typeof SupportedTemperatures];
 
 /**
  * Available supported values for conversion with the [[temperature]] operator

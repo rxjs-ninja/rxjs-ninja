@@ -63,7 +63,9 @@ export function fromWebSerial(
                 await writer.close();
                 await reader.cancel();
                 await port.close();
-                !subscriber.closed && subscriber.complete();
+                if (!subscriber.closed) {
+                  subscriber.complete();
+                }
               }),
             )
             .subscribe();

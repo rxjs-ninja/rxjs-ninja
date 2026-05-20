@@ -37,9 +37,10 @@ npm run test -w @rxjs-ninja/rxjs-array
 
 ### Vitest (unit)
 
-- Config: `vitest.config.ts`
+- Config: `vitest.config.ts` (`resolve.tsconfigPaths: true` for `@rxjs-ninja/*` path aliases)
 - RxJS marble tests import `rxjs-marbles/jest` — aliased to `tools/rxjs-marbles-vitest.ts`
-- Environment: Node
+- Environment: Node; excludes `dist/`, `coverage/`, and browser-only specs
+- Coverage (`test:cov`): explicit `coverage.include` per workspace under `libs/rxjs/*/src/**/*.ts` (Vitest 4)
 - Browser-only specs live under `e2e/browser/` (not Vitest)
 
 ### Playwright (Chrome)

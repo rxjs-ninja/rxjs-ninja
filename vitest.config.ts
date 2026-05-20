@@ -1,6 +1,5 @@
 import path from 'node:path';
-import { defineConfig } from 'vitest/config';
-import tsconfigPaths from 'vite-tsconfig-paths';
+import { configDefaults, defineConfig } from 'vitest/config';
 
 const workspaceLibs = ['array', 'boolean', 'number', 'random', 'string', 'utility'] as const;
 
@@ -13,8 +12,8 @@ const browserSpecs = [
 ];
 
 export default defineConfig({
-  plugins: [tsconfigPaths({ projects: [path.resolve(__dirname, 'tsconfig.base.json')] })],
   resolve: {
+    tsconfigPaths: true,
     alias: [
       {
         find: 'rxjs-marbles/jest',
@@ -31,12 +30,18 @@ export default defineConfig({
     globals: true,
     environment: 'node',
     include: workspaceLibs.map((lib) => `libs/rxjs/${lib}/src/**/*.spec.ts`),
-    exclude: ['**/node_modules/**', '**/dist/**', 'e2e/**', ...browserSpecs],
+    exclude: [
+      ...configDefaults.exclude,
+      '**/dist/**',
+      '**/coverage/**',
+      'e2e/**',
+      ...browserSpecs,
+    ],
     coverage: {
       provider: 'v8',
       reporter: ['text', 'lcov', 'html'],
       reportsDirectory: './coverage',
-      include: ['libs/rxjs/**/src/**/*.ts'],
+      include: workspaceLibs.map((lib) => `libs/rxjs/${lib}/src/**/*.ts`),
       exclude: ['**/*.spec.ts', '**/index.ts'],
     },
   },

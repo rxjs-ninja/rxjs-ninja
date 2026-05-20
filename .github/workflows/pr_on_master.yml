@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # Latest nodes only
-        node-version: [20.x]
+        # Latest Node.js (ES2024: Set ops, Object.groupBy, Map.groupBy)
+        node-version: [24.x]
 
     # Pipeline Steps
     steps:

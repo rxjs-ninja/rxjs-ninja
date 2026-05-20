@@ -74,6 +74,10 @@ npm run test -w @rxjs-ninja/rxjs-array
 - Extra pages: `typedoc-pages/` hub markdown (blog, licence, package READMEs/changelogs via `projectDocuments`; do not put sources under `docs/` output dir)
 - Plugins: `typedoc-plugin-extras`, `typedoc-plugin-replace-text`
 
+## CI
+
+GitHub Actions uses **Node.js 24.x** (see `.nvmrc`). Requires Node 22+ for ES2024 APIs used in `@rxjs-ninja/rxjs-array` (`Set.prototype.union`, `Object.groupBy`, etc.).
+
 ## Publishing
 
 CI publishes from `libs/rxjs/<name>/` after `npm run build` (see `.github/scripts/library-publish.sh`).

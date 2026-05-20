@@ -8,8 +8,7 @@ Cross-cutting utilities: conditional mapping, taps, unit conversion, colours, JW
 
 ```ts
 import { from } from 'rxjs';
-import { temperature, tapOnSubscribe, mapIf } from '@rxjs-ninja/rxjs-utility';
-import { Temperatures } from '@rxjs-ninja/rxjs-utility';
+import { temperature, tapOnSubscribe, mapIf, Temperatures } from '@rxjs-ninja/rxjs-utility';
 ```
 
 ## Categories & operators
@@ -25,9 +24,12 @@ import { Temperatures } from '@rxjs-ninja/rxjs-utility';
 Enums: `Temperatures`, `Lengths`, `Weights`.
 
 ```ts
+import { from } from 'rxjs';
+import { temperature, Temperatures } from '@rxjs-ninja/rxjs-utility';
+
 from([10, 50, 100])
   .pipe(temperature(Temperatures.CELSIUS, Temperatures.FAHRENHEIT))
-  .subscribe(); // 50, 122, 212
+  .subscribe(console.log);
 ```
 
 ### Colour
@@ -54,10 +56,13 @@ from([10, 50, 100])
 | `tapIf(predicate, fn)` | When predicate true |
 
 ```ts
+import { fromEvent } from 'rxjs';
+import { tapOnSubscribe, tapIf } from '@rxjs-ninja/rxjs-utility';
+
 fromEvent(document, 'click').pipe(
   tapOnSubscribe(() => console.log('subscribed')),
-  tapIf((e) => e.target.id === 'btn', () => console.log('btn click')),
-);
+  tapIf((e) => (e.target as HTMLElement).id === 'btn', () => console.log('btn click')),
+).subscribe();
 ```
 
 ### Streams & HTTP (browser)
@@ -83,7 +88,7 @@ See StackBlitz demos linked from package README.
 
 ## Types
 
-Re-exported from `./types/utility` (see API docs for full list).
+Import from `@rxjs-ninja/rxjs-utility` (see https://rxjs-ninja.tane.dev/modules/utility.html).
 
 ## Gotchas
 
@@ -103,5 +108,5 @@ from([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]).pipe(
     (n) => (n % 15 === 0 ? 'FizzBuzz' : n % 3 === 0 ? 'Fizz' : 'Buzz'),
     (n) => n,
   ),
-).subscribe();
+).subscribe(console.log);
 ```

@@ -16,7 +16,10 @@ import { union, mapArray, objectGroupBy } from '@rxjs-ninja/rxjs-array';
 Most operators expect each emission to be an **iterable** (array, Set, etc.). Example:
 
 ```ts
-of(['RxJS', 'TypeScript']).pipe(sort()).subscribe();
+import { of } from 'rxjs';
+import { sort } from '@rxjs-ninja/rxjs-array';
+
+of(['RxJS', 'TypeScript']).pipe(sort()).subscribe(console.log);
 ```
 
 ## Categories & operators
@@ -33,8 +36,14 @@ Compare source iterable to another array or Set (second arg can be `Observable`)
 | `isSubsetOf`, `isSupersetOf`, `isEqualSet` | `boolean` |
 
 ```ts
-technology$.pipe(intersects(frontEnd$)); // shared items
-technology$.pipe(union(['b', 'c']));    // unique union
+import { of } from 'rxjs';
+import { intersects, union } from '@rxjs-ninja/rxjs-array';
+
+const technology$ = of(['RxJS', 'TypeScript', 'Angular', 'Node']);
+const frontEnd$ = of(['RxJS', 'TypeScript', 'React']);
+
+technology$.pipe(intersects(frontEnd$)).subscribe(console.log);
+technology$.pipe(union(['b', 'c'])).subscribe(console.log);
 ```
 
 ### Query
@@ -73,6 +82,12 @@ technology$.pipe(union(['b', 'c']));    // unique union
 |----------|--------|
 | `fromArray(iterable)` | Single array from iterable |
 | `fromArrayOf(...items)` | One array of arguments |
+
+```ts
+import { fromArrayOf } from '@rxjs-ninja/rxjs-array';
+
+fromArrayOf(1, 2, 3).subscribe(console.log); // [1, 2, 3]
+```
 
 ## Types (TypeScript)
 

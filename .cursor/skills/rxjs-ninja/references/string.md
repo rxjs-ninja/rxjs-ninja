@@ -21,7 +21,9 @@ import { split, join, coerceString, intlListFormat } from '@rxjs-ninja/rxjs-stri
 | `fromCharCode`, `fromCodePoint`, `fromUnicode` | From code units/points |
 
 ```ts
-fromStringRaw`line1\nline2`.subscribe(); // literal backslash-n, not newline
+import { fromStringRaw } from '@rxjs-ninja/rxjs-string';
+
+fromStringRaw`line1\nline2`.subscribe(console.log);
 ```
 
 ### Conversion
@@ -56,7 +58,10 @@ Many accept index or search args as value or `Observable`.
 `split` → arrays; `join` → string from emitted arrays.
 
 ```ts
-of('a,b,c').pipe(split(','), join('\t')).subscribe(); // 'a\tb\tc'
+import { of } from 'rxjs';
+import { split, join } from '@rxjs-ninja/rxjs-string';
+
+of('a,b,c').pipe(split(','), join('\t')).subscribe(console.log);
 ```
 
 ### Intl
@@ -68,7 +73,10 @@ of('a,b,c').pipe(split(','), join('\t')).subscribe(); // 'a\tb\tc'
 | `intlListFormat(locale, options?)` | Formatted list string |
 
 ```ts
-of(['a', 'b', 'c']).pipe(intlListFormat('en')).subscribe(); // 'a, b, and c'
+import { of } from 'rxjs';
+import { intlListFormat } from '@rxjs-ninja/rxjs-string';
+
+of(['a', 'b', 'c']).pipe(intlListFormat('en')).subscribe(console.log);
 ```
 
 ### Types

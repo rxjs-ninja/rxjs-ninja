@@ -27,7 +27,10 @@ Right-hand side can be a number or `Observable<number>`:
 `add`, `sub`, `mul`, `div`, `mod`, `pow`
 
 ```ts
-from([1, 2, 3]).pipe(add(5)).subscribe(); // 6, 7, 8
+import { from } from 'rxjs';
+import { add } from '@rxjs-ninja/rxjs-number';
+
+from([1, 2, 3]).pipe(add(5)).subscribe(console.log); // 6, 7, 8
 ```
 
 ### Math (ECMAScript)
@@ -38,7 +41,7 @@ Unary `Math` on each number: `abs`, `sign`, `sqrt`, `floor`, `ceil`, `round` (`t
 import { of } from 'rxjs';
 import { abs, sign } from '@rxjs-ninja/rxjs-number';
 
-of(-4).pipe(abs()).subscribe(); // 4
+of(-4).pipe(abs()).subscribe(console.log);
 ```
 
 ### Distribution (iterable of numbers → one number)
@@ -48,7 +51,10 @@ Use when each emission is an **array of numbers**:
 `mean`, `median`, `min`, `max`
 
 ```ts
-from([[1, 2, 3], [10, 15, 8]]).pipe(mean()).subscribe(); // 2, 11, ...
+import { from } from 'rxjs';
+import { mean } from '@rxjs-ninja/rxjs-number';
+
+from([[1, 2, 3], [10, 15, 8]]).pipe(mean()).subscribe(console.log);
 ```
 
 ### Filter
@@ -85,8 +91,8 @@ from([[1, 2, 3], [10, 15, 8]]).pipe(mean()).subscribe(); // 2, 11, ...
 import { of } from 'rxjs';
 import { intlNumberFormat, intlNumberFormatRange } from '@rxjs-ninja/rxjs-number';
 
-of(1000).pipe(intlNumberFormat('en-US')).subscribe(); // '1,000'
-of([1, 5] as [number, number]).pipe(intlNumberFormatRange('en-US')).subscribe();
+of(1000).pipe(intlNumberFormat('en-US')).subscribe(console.log);
+of([1, 5] as [number, number]).pipe(intlNumberFormatRange('en-US')).subscribe(console.log);
 ```
 
 ### Constants

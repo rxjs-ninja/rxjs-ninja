@@ -20,7 +20,9 @@ import { firstTruthy, and, isTruthy } from '@rxjs-ninja/rxjs-boolean';
 | `fromBoolean(iterable)` | `boolean` per item (truthy/falsy rules) |
 
 ```ts
-fromBoolean([0, 1, '', 'RxJS']).subscribe();
+import { fromBoolean } from '@rxjs-ninja/rxjs-boolean';
+
+fromBoolean([0, 1, '', 'RxJS']).subscribe(console.log);
 // false, true, false, true
 ```
 
@@ -33,8 +35,11 @@ fromBoolean([0, 1, '', 'RxJS']).subscribe();
 | `firstTruthy`, `lastTruthy`, `firstFalsy`, `lastFalsy` | First/last match in stream |
 
 ```ts
-from(['RxJS', '', 'Ninja']).pipe(firstTruthy()).subscribe(); // 'RxJS'
-from(['RxJS', '', 'Ninja']).pipe(lastTruthy((v) => v.length < 5)).subscribe();
+import { from } from 'rxjs';
+import { firstTruthy, lastTruthy } from '@rxjs-ninja/rxjs-boolean';
+
+from(['RxJS', '', 'Ninja']).pipe(firstTruthy()).subscribe(console.log);
+from(['RxJS', '', 'Ninja']).pipe(lastTruthy((v) => v.length < 5)).subscribe(console.log);
 ```
 
 ### Query
@@ -57,8 +62,8 @@ Combine each boolean emission with a fixed value or `Observable<boolean>`:
 import { of } from 'rxjs';
 import { and, booleanSome } from '@rxjs-ninja/rxjs-boolean';
 
-of(true, false).pipe(and(true)).subscribe(); // true, false
-of(false, true, false).pipe(booleanSome()).subscribe(); // true (on complete)
+of(true, false).pipe(and(true)).subscribe(console.log);
+of(false, true, false).pipe(booleanSome()).subscribe(console.log);
 ```
 
 ### Modify
@@ -74,7 +79,10 @@ of(false, true, false).pipe(booleanSome()).subscribe(); // true (on complete)
 | `luhnCheck` | `boolean` per string (card numbers) |
 
 ```ts
-from(['4485275742308327', '1111222233334444']).pipe(luhnCheck()).subscribe();
+import { from } from 'rxjs';
+import { luhnCheck } from '@rxjs-ninja/rxjs-boolean';
+
+from(['4485275742308327', '1111222233334444']).pipe(luhnCheck()).subscribe(console.log);
 ```
 
 ## Types

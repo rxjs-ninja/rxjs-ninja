@@ -22,7 +22,10 @@ All exports are **creators** (call directly, not typically used as `source$.pipe
 | `fromRandomStr(length, delay?, options?)` | String from charset presets |
 
 ```ts
-fromRandom(5, 10).pipe(take(5)).subscribe();
+import { take } from 'rxjs/operators';
+import { fromRandom } from '@rxjs-ninja/rxjs-random';
+
+fromRandom(5, 10).pipe(take(5)).subscribe(console.log);
 ```
 
 Options type: `FromRandomStringOpts` · defaults: `RND_STR_DEFAULTS`.

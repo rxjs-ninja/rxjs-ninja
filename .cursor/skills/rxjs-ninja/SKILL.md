@@ -27,6 +27,8 @@ Full API: https://rxjs-ninja.tane.dev
 
 ## Usage patterns
 
+**Examples in this skill** always import from published packages (`@rxjs-ninja/rxjs-array`, etc.) and `rxjs`—never from repo paths like `./lib/...`.
+
 **Operators** (most symbols): use inside `.pipe()` on an Observable.
 
 ```ts

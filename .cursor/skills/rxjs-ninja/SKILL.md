@@ -69,7 +69,7 @@ fromArrayOf(1, 2, 3).subscribe(console.log);
 
 ## Examples
 
-Cross-package recipes: [examples.md](examples.md)
+Cross-package recipes: [examples.md](examples.md) — includes the **Digital Rube Goldberg** (all six packages in one pipeline)
 
 ## Per-package references
 

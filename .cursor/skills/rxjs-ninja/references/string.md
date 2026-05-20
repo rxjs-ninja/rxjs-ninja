@@ -95,7 +95,7 @@ of(['a', 'b', 'c']).pipe(intlListFormat('en')).subscribe(console.log);
 import { of } from 'rxjs';
 import { coerceString, asciiLowerCase, localeCompare } from '@rxjs-ninja/rxjs-string';
 
-of(42).pipe(coerceString()).subscribe();           // '42'
-of('AbC').pipe(asciiLowerCase()).subscribe();      // 'abc'
-of('b').pipe(localeCompare('a')).subscribe();      // 1
+of(42).pipe(coerceString()).subscribe(console.log);
+of('AbC').pipe(asciiLowerCase()).subscribe(console.log);
+of('b').pipe(localeCompare('a')).subscribe(console.log);
 ```

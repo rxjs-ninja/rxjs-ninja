@@ -23,13 +23,20 @@ export default defineConfig({
         find: /^rxjs-marbles$/,
         replacement: path.resolve(__dirname, 'tools/rxjs-marbles-vitest.ts'),
       },
+      ...workspaceLibs.map((lib) => ({
+        find: `@rxjs-ninja/rxjs-${lib}`,
+        replacement: path.resolve(__dirname, `libs/rxjs/${lib}/src/index.ts`),
+      })),
     ],
   },
   test: {
     name: 'unit',
     globals: true,
     environment: 'node',
-    include: workspaceLibs.map((lib) => `libs/rxjs/${lib}/src/**/*.spec.ts`),
+    include: [
+      ...workspaceLibs.map((lib) => `libs/rxjs/${lib}/src/**/*.spec.ts`),
+      'examples/**/*.spec.ts',
+    ],
     exclude: [
       ...configDefaults.exclude,
       '**/dist/**',

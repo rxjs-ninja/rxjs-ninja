@@ -11,6 +11,7 @@
     "build": "npm run build --workspaces --if-present",
     "build:e2e": "node scripts/build-e2e-bundles.mjs",
     "test": "vitest run",
+    "example:goldberg": "vitest run examples/digital-rube-goldberg.spec.ts",
     "test:watch": "vitest",
     "test:cov": "vitest run --coverage",
     "test:browser": "npm run build:e2e && playwright test",

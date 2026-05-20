@@ -112,9 +112,9 @@ of([1, 2, 3, 4])
     mapArray((n) => n * 2),
     filterArray((n) => n > 4),
   )
-  .subscribe(); // [6, 8]
+  .subscribe(console.log);
 
 of(['x', 'xy', 'y'])
   .pipe(objectGroupBy((s) => s.length))
-  .subscribe(); // { 1: ['x','y'], 2: ['xy'] }
+  .subscribe(console.log);
 ```

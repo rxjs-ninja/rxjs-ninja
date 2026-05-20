@@ -66,6 +66,14 @@ npm run test -w @rxjs-ninja/rxjs-array
 - `.npmrc`: `save-exact=true`, `legacy-peer-deps=true`
 - Bump deps: `npx npm-check-updates -u --workspaces`, then strip ranges or reinstall with `save-exact`
 
+## Documentation
+
+- Config: `typedoc.prod.json` / `typedoc.dev.json` (TypeDoc 0.28, default theme)
+- Build: `npm run docs:prod` or `npm run docs:dev` → `docs/`
+- TypeScript for docs: `tsconfig.typedoc.json` (excludes specs; includes `w3c-web-serial` types)
+- Extra pages: `typedoc-pages/` hub markdown (blog, licence, package READMEs/changelogs via `projectDocuments`; do not put sources under `docs/` output dir)
+- Plugins: `typedoc-plugin-extras`, `typedoc-plugin-replace-text`
+
 ## Publishing
 
 CI publishes from `libs/rxjs/<name>/` after `npm run build` (see `.github/scripts/library-publish.sh`).

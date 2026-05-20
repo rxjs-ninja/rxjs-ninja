@@ -1,6 +1,6 @@
 # RxJS Ninja — agent guide
 
-For operator conventions, tests, barrels, and JSDoc patterns, see the project skill at `.cursor/skills/rxjs-ninja/` (`SKILL.md`, `reference.md`, `examples.md`).
+For **using** the published libraries in app code, see `.cursor/skills/rxjs-ninja/` (consumer skill with per-package `references/*.md`).
 
 ## Monorepo layout
 

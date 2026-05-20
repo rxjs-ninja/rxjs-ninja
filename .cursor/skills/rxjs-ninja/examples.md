@@ -1,204 +1,166 @@
-# RxJS Ninja — examples
+# RxJS Ninja — consumer examples
 
-## New operator (array)
+Recipes by task. Package details: [references/](references/).
 
-**`libs/rxjs/array/src/lib/includes.ts`** (pattern)
-
-```ts
-/**
- * @packageDocumentation
- * @module Array
- */
-import { OperatorFunction, Subscribable } from 'rxjs';
-import { map, withLatestFrom } from 'rxjs/operators';
-import { createOrReturnObservable } from '../utils/internal';
-import { ScalarOrListInput } from '../types/scalar-or-list';
-
-/**
- * Returns whether the source iterable includes the search value(s) using `Array.prototype.includes`.
- *
- * @category Query
- *
- * @param searchElement Value(s) to search for
- *
- * @example
- * Check membership in an emitted array
- * ```ts
- * of(['a', 'b']).pipe(includes('a')).subscribe();
- * ```
- * Output: `true`
- *
- * @returns Observable that emits boolean results
- */
-export function includes<T>(searchElement: ScalarOrListInput<T>): OperatorFunction<Iterable<T>, boolean> {
-  const search$ = createOrReturnObservable(searchElement);
-  return (source) =>
-    source.pipe(
-      withLatestFrom(search$),
-      map(([value, search]) => [...value].includes(search as T)),
-    );
-}
-```
-
-**`libs/rxjs/array/src/lib/includes.spec.ts`**
+## Setup (any package)
 
 ```ts
-import { marbles } from 'rxjs-marbles';
-import { includes } from './includes';
-
-describe('includes', () => {
-  it(
-    'should emit whether the array includes the search value',
-    marbles((m) => {
-      const input = m.hot('-a-|', { a: ['a', 'b', 'c'] });
-      const subs = '^--!';
-      const expected = m.cold('-t-|', { t: true });
-      m.expect(input.pipe(includes('b'))).toBeObservable(expected);
-      m.expect(input).toHaveSubscriptions(subs);
-    }),
-  );
-});
+import { of, from } from 'rxjs';
+import { take } from 'rxjs/operators';
+// import operators from the @rxjs-ninja package you installed
 ```
 
-**`src/index.ts`**
+## Compare two lists (array)
 
 ```ts
-export { includes } from './lib/includes';
+import { of, combineLatest } from 'rxjs';
+import { intersects, difference } from '@rxjs-ninja/rxjs-array';
+
+const tech$ = of(['RxJS', 'TypeScript', 'Angular', 'Node']);
+const frontEnd$ = of(['RxJS', 'TypeScript', 'React']);
+
+tech$.pipe(intersects(frontEnd$)).subscribe();  // shared
+tech$.pipe(difference(frontEnd$)).subscribe();   // only in tech$
 ```
 
-## Barrel excerpt (explicit only)
+## Build a Map from parallel streams (array)
 
 ```ts
-// Operators
-export { mapArray } from './lib/map-array';
-export { filterArray } from './lib/filter-array';
+import { combineLatest } from 'rxjs';
+import { map, tap } from 'rxjs/operators';
+import { toMap } from '@rxjs-ninja/rxjs-array';
 
-// Types
-export type { ScalarOrList } from './types/scalar-or-list';
-export { isSearchList } from './types/scalar-or-list';
+const names$ = of(['RxJS', 'TypeScript']);
+const kinds$ = of(['Library', 'Language']);
+
+combineLatest([names$, kinds$]).pipe(
+  map(([names, kinds]) => names.map((n, i) => [n, kinds[i]] as const)),
+  toMap(),
+  tap((m) => console.log(m.get('RxJS'))),
+).subscribe();
 ```
 
-## README snippet
+## Group records (array)
 
 ```ts
 import { of } from 'rxjs';
-import { mapArray, objectGroupBy } from '@rxjs-ninja/rxjs-array';
-
-of([1, 2, 3]).pipe(mapArray((n) => n * 2)).subscribe();
-// Output: [2, 4, 6]
+import { objectGroupBy } from '@rxjs-ninja/rxjs-array';
 
 of(['x', 'xy', 'y']).pipe(objectGroupBy((s) => s.length)).subscribe();
-// Output: { 1: ['x', 'y'], 2: ['xy'] }
 ```
 
-## CHANGELOG entry
-
-```markdown
-## [7.0.0] - 2026-05-20
-
-### Added
-
-- `includes` operator using `Array.prototype.includes`
-- **Array:** `mapArray`, `filterArray`, `reduceRight`
-```
-
-## Boolean combinator spec
+## First truthy string (boolean)
 
 ```ts
-import { marbles } from 'rxjs-marbles/jest';
-import { and } from './and';
+import { from } from 'rxjs';
+import { firstTruthy } from '@rxjs-ninja/rxjs-boolean';
 
-describe('and', () => {
-  it(
-    'should emit the logical AND of source and input',
-    marbles((m) => {
-      const input = m.hot('-a-b-|', { a: true, b: false });
-      const subs = '^----!';
-      const expected = m.cold('-t-f-|', { t: true, f: false });
-      m.expect(input.pipe(and(true))).toBeObservable(expected);
-      m.expect(input).toHaveSubscriptions(subs);
-    }),
-  );
+from(['', 'RxJS', 'Ninja']).pipe(firstTruthy()).subscribe(); // 'RxJS'
+from(['', 'RxJS', 'TypeScript']).pipe(firstTruthy((v) => v.length > 5)).subscribe();
+```
+
+## Parse and format money-like numbers (number)
+
+```ts
+import { from } from 'rxjs';
+import { parseFloat, toLocaleString } from '@rxjs-ninja/rxjs-number';
+
+from(['19.99', '5.00']).pipe(
+  parseFloat(),
+  toLocaleString('en-US', { style: 'currency', currency: 'USD' }),
+).subscribe();
+```
+
+## Stats on batches (number)
+
+```ts
+import { from } from 'rxjs';
+import { mean, max } from '@rxjs-ninja/rxjs-number';
+
+from([[1, 2, 3], [10, 20, 30]]).pipe(mean()).subscribe(); // 2, 20
+```
+
+## Slug-style string pipeline (string)
+
+```ts
+import { of } from 'rxjs';
+import { toLowerCase, split, join } from '@rxjs-ninja/rxjs-string';
+
+of('Hello World Example')
+  .pipe(toLowerCase(), split(' '), join('-'))
+  .subscribe(); // 'hello-world-example'
+```
+
+## Locale-aware list label (string)
+
+```ts
+import { of } from 'rxjs';
+import { intlListFormat } from '@rxjs-ninja/rxjs-string';
+
+of(['Angular', 'RxJS', 'TypeScript']).pipe(intlListFormat('en')).subscribe();
+```
+
+## Session id / token bytes (random)
+
+```ts
+import { take, map } from 'rxjs/operators';
+import { fromRandomBytes, fromRandomCryptoCharset } from '@rxjs-ninja/rxjs-random';
+
+// 16 raw bytes once
+fromRandomBytes(16).pipe(take(1)).subscribe();
+
+// 32-char hex-ish from charset
+fromRandomCryptoCharset(32, '0123456789abcdef').pipe(take(1)).subscribe();
+```
+
+## Fetch download progress (utility + browser)
+
+```ts
+import { fromFetchWithProgress } from '@rxjs-ninja/rxjs-utility';
+
+fromFetchWithProgress('/api/large-file').subscribe((event) => {
+  // progress events — see package API for event shape
 });
 ```
 
-## Number Intl spec
+## Temperature dashboard (utility)
 
 ```ts
-import { marbles } from 'rxjs-marbles/jest';
-import { intlNumberFormat } from './intl-number-format';
+import { from } from 'rxjs';
+import { temperature, Temperatures } from '@rxjs-ninja/rxjs-utility';
 
-describe('intlNumberFormat', () => {
-  it(
-    'should format numbers for a locale',
-    marbles((m) => {
-      const input = m.hot('-a-|', { a: 1000 });
-      const subs = '^--!';
-      const expected = m.cold('-x-|', { x: '1,000' });
-      m.expect(input.pipe(intlNumberFormat('en-US'))).toBeObservable(expected);
-      m.expect(input).toHaveSubscriptions(subs);
-    }),
-  );
-});
+from([0, 20, 37]).pipe(
+  temperature(Temperatures.CELSIUS, Temperatures.FAHRENHEIT),
+).subscribe();
 ```
 
-## Random crypto spec (observe + skip)
+## Multi-package pipeline
 
 ```ts
-import { observe } from 'rxjs-marbles/jest';
-import { take, tap } from 'rxjs/operators';
+import { of } from 'rxjs';
+import { map, take } from 'rxjs/operators';
+import { filterArray } from '@rxjs-ninja/rxjs-array';
+import { mean } from '@rxjs-ninja/rxjs-number';
+import { join } from '@rxjs-ninja/rxjs-string';
 
-const hasRandomUUID = typeof globalThis.crypto?.randomUUID === 'function';
+of([1, 2, 3, 4, 5, 6])
+  .pipe(
+    filterArray((n) => n % 2 === 0),
+    map((nums) => [nums]), // mean expects iterable of numbers per emission
+    mean(),
+  )
+  .subscribe();
 
-import { fromRandomUUID } from './from-random-uuid';
-
-describe('fromRandomUUID', () => {
-  (hasRandomUUID ? it : it.skip)(
-    'should emit RFC 4122 UUID strings',
-    observe(() =>
-      fromRandomUUID().pipe(
-        take(2),
-        tap((value) => {
-          expect(value).toMatch(
-            /^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i,
-          );
-        }),
-      ),
-    ),
-  );
-});
+of(['a', 'b', 'c']).pipe(join(', ')).subscribe();
 ```
 
-## Splitting a consolidated gaps spec
+## Choosing packages (quick)
 
-**Before (avoid):** `ecma-collection.spec.ts` with many operators and multiple `m.expect` on one hot observable.
-
-**After:** delete the consolidated file; add:
-
-- `map-array.spec.ts`
-- `filter-array.spec.ts`
-- `map-get.spec.ts`
-- …one file per operator, imports from `./<operator>`.
-
-## Commands
-
-```bash
-# One package
-npx vitest run libs/rxjs/boolean
-
-# All unit tests
-npm test
-
-# Docs gate
-npm run docs:prod
-
-# Affected workspaces for a branch
-node scripts/affected-workspaces.mjs origin/main
-```
-
-## Cloud agent / PR workflow
-
-- Branch prefix: `cursor/<descriptive-name>-e2ee`
-- Commit per package or logical unit; push before opening/updating PR
-- Set `base_branch: main` unless directed otherwise
-- Per-package `CHANGELOG.md` only for that package’s release
+| Task | Package |
+|------|---------|
+| Set union / groupBy on arrays | `rxjs-array` |
+| Skip empty strings | `rxjs-boolean` |
+| `Intl.NumberFormat` | `rxjs-number` |
+| `Intl.ListFormat` | `rxjs-string` |
+| UUID / crypto int | `rxjs-random` |
+| Celsius → Fahrenheit | `rxjs-utility` |

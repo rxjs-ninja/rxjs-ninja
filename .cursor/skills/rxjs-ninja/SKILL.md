@@ -1,62 +1,81 @@
 ---
 name: rxjs-ninja
-description: Implements and documents RxJS Ninja operators in the @rxjs-ninja monorepo—Vitest marble tests, explicit package barrels, TypeDoc JSDoc, per-package CHANGELOGs, and Node 22+ ES2024 APIs. Use when adding or changing operators in libs/rxjs/*, fixing rxjs-marbles specs, updating package READMEs, or working on rxjs-array, rxjs-boolean, rxjs-number, rxjs-string, rxjs-random, or rxjs-utility.
+description: Guides use of published @rxjs-ninja packages (rxjs-array, rxjs-boolean, rxjs-number, rxjs-string, rxjs-random, rxjs-utility) with RxJS 7—install, operator selection, pipe patterns, and per-package API references. Use when consuming RxJS Ninja in application code, choosing which package fits a task, or writing examples with array/set/map, numbers, strings, booleans, random/crypto, or utility operators.
 ---
 
-# RxJS Ninja
+# RxJS Ninja (library consumer)
 
-## Quick start
+RxJS Ninja ships **six independent npm packages**. Install only what you need; each declares `rxjs` as a **peer dependency** (7.x).
 
-When implementing or reviewing RxJS Ninja work:
+## Install
 
-1. Read [AGENTS.md](../../../AGENTS.md) for commands, CI (Node 24), and workspace layout.
-2. Put **one operator per file** under `libs/rxjs/<pkg>/src/lib/<kebab-name>.ts`.
-3. Add **one spec per operator**: `libs/rxjs/<pkg>/src/lib/<kebab-name>.spec.ts` beside the implementation.
-4. Export from `libs/rxjs/<pkg>/src/index.ts` only—explicit named exports, grouped `// Operators` / `// Types`.
-5. Update **that package’s** `CHANGELOG.md` and `README.md` (not root-only docs for package changes).
-6. Run `npx vitest run libs/rxjs/<pkg>` then `npm run docs:prod` if JSDoc or public API changed.
-
-## Non-negotiable conventions
-
-| Rule | Do | Don’t |
-|------|-----|--------|
-| Barrel | `export { foo } from './lib/foo'` in `src/index.ts` | `export *`, `export { x as y }` aliases |
-| Naming | `mapArray` / `filterArray` for ECMAScript Array methods | Re-export RxJS `map`/`filter` under other names |
-| Tests | One `describe('<operator>')` per spec file | `*-gaps.spec.ts` or `ecma-collection.spec.ts` combining many operators |
-| Imports in specs | `import { union } from './union'` (array) or `rxjs-marbles/jest` (other pkgs) | Multiple `m.expect` on the same hot observable in one `it` |
-| Marbles | `subs = '^--!'` for `-a-\|` hot sources | `^-!` when emissions need two frames after subscribe |
-| Changelog | `libs/rxjs/<pkg>/CHANGELOG.md` per release | Monorepo-only changelog for a single published package |
-| Deps | Pinned exact versions in `package.json` | `^` / `~` ranges |
-
-## Operator implementation checklist
-
-```
-- [ ] File: src/lib/<name>.ts with @packageDocumentation, @module, @category
-- [ ] JSDoc: @param, @returns, @example (ts block + Output line) — see reference.md
-- [ ] Iterable/second arg: use createOrReturnObservable from package utils when needed
-- [ ] Export in src/index.ts (correct section)
-- [ ] Spec: src/lib/<name>.spec.ts (marbles or observe)
-- [ ] README example in the right category section
-- [ ] CHANGELOG entry under Added/Changed/Fixed for the package version
+```bash
+npm install rxjs @rxjs-ninja/rxjs-array
+# and/or: rxjs-boolean rxjs-number rxjs-string rxjs-random rxjs-utility
 ```
 
-## Testing
+| Package | Install | Docs |
+|---------|---------|------|
+| Arrays, Set, Map, Object | `@rxjs-ninja/rxjs-array` | [references/array.md](references/array.md) |
+| Booleans & truthiness | `@rxjs-ninja/rxjs-boolean` | [references/boolean.md](references/boolean.md) |
+| Numbers & Math | `@rxjs-ninja/rxjs-number` | [references/number.md](references/number.md) |
+| Strings & Intl | `@rxjs-ninja/rxjs-string` | [references/string.md](references/string.md) |
+| Random & Web Crypto | `@rxjs-ninja/rxjs-random` | [references/random.md](references/random.md) |
+| Units, streams, side effects | `@rxjs-ninja/rxjs-utility` | [references/utility.md](references/utility.md) |
 
-- **Marbles**: `import { marbles } from 'rxjs-marbles/jest'` (aliased to `tools/rxjs-marbles-vitest.ts`). Array specs may use `import { marbles } from 'rxjs-marbles'` (same adapter).
-- **Non-deterministic** (crypto, random): `import { observe } from 'rxjs-marbles/jest'`; gate with `it.skip` when APIs are missing (e.g. `crypto.randomUUID`).
-- **Browser-only**: specs under `e2e/browser/`; excluded from Vitest via `vitest.config.ts`.
+Full API: https://rxjs-ninja.tane.dev
 
-## Documentation
+## Usage patterns
 
-- Operator JSDoc should match `union.ts` quality: `@category`, `@example`, `@returns`.
-- Package `README.md`: category sections with runnable ` ```ts ` examples.
-- TypeDoc: `npm run docs:prod` (`treatWarningsAsErrors: true`).
+**Operators** (most symbols): use inside `.pipe()` on an Observable.
 
-## ES2024 / Node
+```ts
+import { of } from 'rxjs';
+import { union } from '@rxjs-ninja/rxjs-array';
 
-`@rxjs-ninja/rxjs-array` uses `Set.prototype.union`, `Object.groupBy`, `Array.prototype.toSorted`, etc. CI targets **Node 24** (`.nvmrc`). Do not polyfill these for older Node—upgrade CI instead.
+of(['a', 'b']).pipe(union(['b', 'c'])).subscribe(console.log);
+```
 
-## Additional resources
+**Creators** (`fromArray`, `fromBoolean`, `fromRandom`, …): call directly; they return an Observable.
 
-- Detailed conventions: [reference.md](reference.md)
-- Copy-paste examples: [examples.md](examples.md)
+```ts
+import { fromArrayOf } from '@rxjs-ninja/rxjs-array';
+
+fromArrayOf(1, 2, 3).subscribe(console.log);
+```
+
+**Second argument as Observable**: many operators accept a plain value *or* an Observable (e.g. `union(other$)`, `intersects(frontEnd$)`). Pass `of(x)` or any `Observable` when the comparison value changes over time.
+
+**Do not confuse** `@rxjs-ninja/rxjs-array` **`mapArray` / `filterArray`** with RxJS **`map` / `filter`**. The array variants run `Array.prototype.map` / `filter` on each *emitted array*, not on the stream of emissions.
+
+## Pick a package
+
+| You need to… | Package |
+|--------------|---------|
+| Compare, transform, or build arrays / sets / maps | `rxjs-array` |
+| Truthy/falsy filtering, `and`/`or`, card Luhn | `rxjs-boolean` |
+| Parse, format, stats, `Math.*`, Intl numbers | `rxjs-number` |
+| String methods, regex, Intl collator/list/segment | `rxjs-string` |
+| `Math.random` or `crypto` random values | `rxjs-random` |
+| Fetch progress, streams, JWT, RGB, units | `rxjs-utility` |
+
+## Environment notes
+
+- **rxjs-array (7.x)**: Set/Object/Array ES2024+ helpers (`union`, `objectGroupBy`, `toSorted`, …) need a modern runtime (Node 22+).
+- **rxjs-random (3.x)**: `fromRandomUUID` needs `crypto.randomUUID`; crypto ints/bytes use `crypto.getRandomValues` (not SubtleCrypto).
+- **rxjs-utility**: `fromFetchWithProgress`, `fromReadableStream`, `fromWebSerial` are browser-oriented; Node apps typically use conversion/tap operators only.
+
+## Examples
+
+Cross-package recipes: [examples.md](examples.md)
+
+## Per-package references
+
+Read the reference for the package you are using—each lists categories, main exports, and gotchas:
+
+- [references/array.md](references/array.md)
+- [references/boolean.md](references/boolean.md)
+- [references/number.md](references/number.md)
+- [references/string.md](references/string.md)
+- [references/random.md](references/random.md)
+- [references/utility.md](references/utility.md)

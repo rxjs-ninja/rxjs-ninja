@@ -5,6 +5,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0] - 2026-05-20
+
+### Added
+
+- `ReadableStreamLike` interface for `fromReadableStream` sources (DOM streams and compatible ponyfills)
+
+### Changed
+
+- **BREAKING**: Peer dependency is now RxJS `7.x` (was `>=6.5.0`)
+- **BREAKING**: Published entry points use `dist/` via `main`, `types`, and `exports` fields
+- **BREAKING**: `switchMapIf` branch functions must return `ObservableInput<T>` (arrays, promises, and observables are supported via `from()`)
+- **BREAKING**: `fromReadableStream` accepts `ReadableStreamLike<T>` instead of `ReadableStream<T>` only
+- `takeUntilSignal` registers `abort` with `addEventListener` instead of assigning `signal.onabort`
+
+### Fixed
+
+- `fromWebSerial` skips `undefined` read chunks and completes the subscriber when streams close
+- `fromEventSource` uses explicit completion checks on abort and teardown
+
 ## [5.1.2] - 2021-01-31
 
 ### Fixed

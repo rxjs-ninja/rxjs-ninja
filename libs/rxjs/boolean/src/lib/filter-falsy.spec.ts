@@ -3,6 +3,17 @@ import { marbles } from 'rxjs-marbles/jest';
 
 describe('filterFalsy', () => {
   it(
+    'should filter falsy values without a predicate',
+    marbles((m) => {
+      const input = m.hot('-a-b-c-d-|', { a: 0, b: 1, c: '', d: 'x' });
+      const subs = '^--------!';
+      const expected = m.cold('-a---c---|', { a: 0, c: '' });
+      m.expect(input.pipe(filterFalsy())).toBeObservable(expected);
+      m.expect(input).toHaveSubscriptions(subs);
+    }),
+  );
+
+  it(
     'should filter a source of truthy values with predicate',
     marbles((m) => {
       const predicate = (num: number): boolean => num % 2 === 0;

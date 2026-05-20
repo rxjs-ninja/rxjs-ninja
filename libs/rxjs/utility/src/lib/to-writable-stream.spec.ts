@@ -2,7 +2,7 @@ import { observe } from 'rxjs-marbles/jest';
 import { toWritableStream } from '@rxjs-ninja/rxjs-utility';
 import { catchError, map, reduce, take, tap } from 'rxjs/operators';
 import { from, of, throwError } from 'rxjs';
-import { WritableStream } from 'web-streams-polyfill/ponyfill';
+import { WritableStream } from 'web-streams-polyfill';
 
 describe('toWritableStream', () => {
   it(

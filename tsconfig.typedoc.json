@@ -1,0 +1,8 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["node", "w3c-web-serial"]
+  },
+  "include": ["libs/rxjs/*/src/**/*.ts", "README.md", "BLOG.md", "LICENCE.md"],
+  "exclude": ["**/*.spec.ts", "node_modules", "tools", "e2e", "typedoc-pages"]
+}

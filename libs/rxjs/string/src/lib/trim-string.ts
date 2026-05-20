@@ -11,7 +11,6 @@ import { map } from 'rxjs/operators';
  *
  * @category Modify
  *
- * @alias `trimLeft`
  *
  * @example
  * Returns the source string with any whitespace at the start removed
@@ -32,12 +31,11 @@ export function trimStart(): MonoTypeOperatorFunction<string> {
  *
  * @category Modify
  *
- * @alias `trimRight`
  *
  * @example
  * Returns the source string with any whitespace at the end removed
  * ```ts
- * of('  RxJS Ninja  ').pipe(trimStart()).subscribe();
+ * of('  RxJS Ninja  ').pipe(trimEnd()).subscribe();
  * ```
  * Output: `'  RxJS Ninja'`
  *

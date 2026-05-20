@@ -93,3 +93,48 @@ source$.pipe(startWith('JS')).subscribe();
 source$.pipe(endsWith('JS')).subscribe();
 // Output: `true, false, false, true, false`
 ```
+
+### Conversion
+
+Coerce values to strings and read characters by index.
+
+```ts
+import { of } from 'rxjs';
+import { coerceString, stringAt, fromStringRaw } from '@rxjs-ninja/rxjs-string';
+
+of(42).pipe(coerceString()).subscribe();
+// Output: `'42'`
+
+of('RxJS').pipe(stringAt(0)).subscribe();
+// Output: `'R'`
+
+fromStringRaw`line1\nline2`.subscribe();
+// Output: `'line1\\nline2'` (raw, no escape processing)
+```
+
+### Intl
+
+Locale-aware comparison, segmentation, and list formatting.
+
+```ts
+import { of } from 'rxjs';
+import { localeCompare, intlListFormat, intlSegment } from '@rxjs-ninja/rxjs-string';
+
+of('b').pipe(localeCompare('a')).subscribe();
+// Output: `1` (sort order)
+
+of(['a', 'b', 'c']).pipe(intlListFormat('en')).subscribe();
+// Output: `'a, b, and c'`
+```
+
+### ASCII casing
+
+ASCII-only `toLowerCase` / `toUpperCase` (no locale rules).
+
+```ts
+import { of } from 'rxjs';
+import { asciiLowerCase, asciiUpperCase } from '@rxjs-ninja/rxjs-string';
+
+of('AbC').pipe(asciiLowerCase()).subscribe();
+// Output: `'abc'`
+```

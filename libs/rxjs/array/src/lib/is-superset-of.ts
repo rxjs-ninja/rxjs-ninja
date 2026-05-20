@@ -18,7 +18,8 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @param input The Array or Set to check if the value is a subset of it
  *
- * @example Return if the source array is a subset of the input array
+ * @example
+ * Return if the source array is a subset of the input array
  * ```ts
  * const input = [ ['a', 'b', 'c'], b: ['a', 'b', 'e'], c: ['x', 'y', 'z'] ]
  * from(input).pipe(isSupersetOf(['a', 'c'])).subscribe()

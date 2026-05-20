@@ -5,6 +5,21 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [6.0.0] - 2026-05-20
+
+### Added
+
+- `coerceNumber` operator (`Number()` coercion)
+- `NUMBER_*` constants (`EPSILON`, safe integer bounds, infinities, etc.)
+- `Math` operators: `abs`, `sign`, `floor`, `ceil`, `trunc`, `sqrt`, `cbrt`, trig/log/exp family, `atan2`, `hypot`
+- `Intl.NumberFormat` operators: `intlNumberFormat`, `intlNumberFormatParts`, `intlNumberFormatRange`
+
+### Changed
+
+- **BREAKING**: Peer dependency is now RxJS `7.x` (was `>=6.5.0`)
+- **BREAKING**: Published entry points use `dist/` via `main`, `types`, and `exports` fields
+- **BREAKING**: Removed `average` alias; use `mean` only
+
 ## [5.1.3] - 2021-02-02
 
 ### Fixed

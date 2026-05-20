@@ -34,7 +34,7 @@ export const SupportedWeights = {
  * @private
  * @internal
  */
-export type SupportedWeights = typeof SupportedWeights[keyof typeof SupportedWeights];
+export type SupportedWeights = (typeof SupportedWeights)[keyof typeof SupportedWeights];
 
 /**
  * Types of weights supported by the [[weight]] operator

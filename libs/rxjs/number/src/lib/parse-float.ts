@@ -10,7 +10,8 @@ import { map } from 'rxjs/operators';
  *
  * @category Parse
  *
- * @example Return only parsed number values using base `10`
+ * @example
+ * Return only parsed number values using base `10`
  * ```ts
  * const input = ['RxJS', '-2.3', '0', '1', '2', '3.14', 'Infinity'];
  * from(input).pipe(parseFloat()).subscribe();

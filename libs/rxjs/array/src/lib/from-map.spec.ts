@@ -63,7 +63,7 @@ describe('fromMap', () => {
           [6, 'f'],
         ]),
       ]).pipe(
-        reduce((a, b) => [...a, ...b], [] as [number, string][]),
+        reduce<[number, string][], [number, string][]>((a, b) => [...a, ...b], []),
         tap((value) =>
           expect(value).toStrictEqual([
             [1, 'a'],
@@ -81,7 +81,7 @@ describe('fromMap', () => {
   it(
     'should create an Observable from Observable array of Map arguments',
     observe(() => {
-      return fromMap(
+      return fromMap<number, string>(
         of([
           new Map([
             [1, 'a'],
@@ -95,7 +95,7 @@ describe('fromMap', () => {
           ]),
         ]),
       ).pipe(
-        reduce((a, b) => [...a, ...b], [] as [number, string][]),
+        reduce<[number, string][], [number, string][]>((a, b) => [...a, ...b], []),
         tap((value) =>
           expect(value).toStrictEqual([
             [1, 'a'],

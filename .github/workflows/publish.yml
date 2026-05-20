@@ -23,11 +23,11 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [ 15.x ]
+        node-version: [24.x]
     steps:
       # Checkout code
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       # Make sure we have all branches
       - name: Fetch other branches
@@ -35,9 +35,10 @@ jobs:
 
       # Setup node
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
+          cache: npm
           registry-url: 'https://registry.npmjs.org'
 
       # Run Install

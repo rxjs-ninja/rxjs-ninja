@@ -5,20 +5,32 @@ RUN_ALL=${1:-"False"}
 WITH_COVERAGE=${2:-"True"}
 CODECOV_TOKEN_INPUT=${3:-""}
 BASE=${4:-"origin/main"}
+RUN_BROWSER=${5:-"True"}
 
+COVERAGE_ARGS=$([[ "$WITH_COVERAGE" == "True" ]] && echo "--coverage" || echo "")
 
-COVERAGE_RULE=$([[ "$WITH_COVERAGE" == 'True' ]] && echo "--codeCoverage" || echo "")
-
-echo "Running Unit Testing"
+echo "Running unit tests (Vitest)"
 if [[ "$RUN_ALL" == "True" ]]; then
-  npm run affected:test -- "$COVERAGE_RULE" --all --parallel --maxParallel=2
+  npm run test:cov
 else
-  AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base="$BASE")
+  AFFECTED=$(node scripts/affected-workspaces.mjs "$BASE")
   echo "Will test: $AFFECTED"
-  npm run affected:test -- --base="$BASE" "$COVERAGE_RULE" --parallel --maxParallel=2
+  if [[ "$AFFECTED" != "" ]]; then
+    for lib in $AFFECTED; do
+      # shellcheck disable=SC2086
+      npm exec vitest -- run $COVERAGE_ARGS "libs/${lib/-//}"
+    done
+  fi
 fi
-echo "Unit Testing Complete"
+echo "Unit tests complete"
+
+if [[ "$RUN_BROWSER" == "True" ]]; then
+  echo "Running browser tests (Playwright / Chrome)"
+  npx playwright install chrome
+  npm run test:browser
+  echo "Browser tests complete"
+fi
+
 if [[ "$WITH_COVERAGE" == "True" ]]; then
   CODECOV_TOKEN="$CODECOV_TOKEN_INPUT" npm run coverage
 fi
-wait

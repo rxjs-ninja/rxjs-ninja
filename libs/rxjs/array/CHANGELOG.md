@@ -5,6 +5,35 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres
 to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [7.0.0] - 2026-05-20
+
+### Added
+
+- `ScalarOrList`, `ScalarOrListInput`, and `isSearchList` for operators that accept a single value or a list of search values (exported from the package entry point)
+- `toObject` operator (export; implementation existed since 6.0.0)
+- `objectValuesToArray` operator using `Object.values`
+- Set algebra operators: `union`, `symmetricDifference`, and `isDisjointFrom` (via `Set.prototype` methods)
+- Array operators: `includes`, `concat`, `slice`, `at`, `findLastIndex`, `reduce`, `flat`, and `flatMap`
+- `ReduceFn` type for `reduce` reducer functions
+- Public type exports: `ArrayOrSet`, `isArrayOrSet`, `IterableInput`, `MapEntry`, `ScalarOrList`, `ScalarOrListInput`, `GroupByFn`, `TypedArrayConstructor`, and `isSearchList`
+- **Array:** `mapArray`, `filterArray`, `reduceRight`, `copyWithin`, `toSorted`, `toReversed`, `withIndex`, `fromArray`, `fromArrayOf`, `isArray`
+- **Map (on emitted maps):** `mapGet`, `mapSet`, `mapHas`, `mapDelete`, `mapSize`, `mapGroupBy` — no Set `has`/`add`/`delete` stream operators
+- **Object:** `objectAssign`, `objectMerge`, `objectGroupBy` (`Object.groupBy`)
+- **Typed collections:** `arrayBufferFromTypedArray`, `typedArrayFromArrayBuffer`, `dataViewFromArrayBuffer`, `arrayFromTypedArray`
+
+### Changed
+
+- **BREAKING**: Peer dependency is now RxJS `7.x` (was `>=6.5.0`)
+- **BREAKING**: Published entry points use `dist/` via `main`, `types`, and `exports` fields
+- **BREAKING**: `fill` return type is `Array<T | K>` instead of `K[]`
+- **BREAKING**: `indexOf` and `lastIndexOf` take `ScalarOrListInput<T>`; string search values are no longer treated as iterable character lists
+- **BREAKING**: `binarySearch` requires the search key type to extend `string | number | bigint`
+
+### Fixed
+
+- `binarySearch` passes the resolved search value into the internal searcher (previously used the wrong argument)
+- `binarySearcher` compares using explicit string/number/bigint extraction and skips entries without a comparable property value
+
 ## [6.0.3] - 2021-02-02
 
 ### Fixed

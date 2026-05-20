@@ -13,7 +13,8 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @param digits Optional number of digits to fix to, if not passed treated as `0`
  *
- * @example Return a string of a number to fixed position of `2`
+ * @example
+  * Return a string of a number to fixed position of `2`
  * ```ts
  * const input = [1.8372, 2.12353, 3.14, 42.2];
  * from(input).pipe(toFixed(2)).subscribe();

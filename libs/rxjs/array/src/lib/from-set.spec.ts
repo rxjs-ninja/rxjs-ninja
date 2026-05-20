@@ -24,7 +24,7 @@ describe('fromSet', () => {
     'should create an Observable from array of Set arguments',
     observe(() =>
       fromSet([new Set([1, 1, 2, 3, 3, 4, 4, 5, 5]), new Set([5, 4, 3, 2, 1])]).pipe(
-        reduce((a, b) => [...a, ...b], [] as number[]),
+        reduce<number[], number[]>((a, b) => [...a, ...b], []),
         tap((value) => expect(value).toStrictEqual([1, 2, 3, 4, 5, 5, 4, 3, 2, 1])),
       ),
     ),
@@ -33,8 +33,8 @@ describe('fromSet', () => {
   it(
     'should create an Observable from Observable array of Set arguments',
     observe(() =>
-      fromSet(of([new Set([1, 1, 2, 3, 3, 4, 4, 5, 5]), new Set([5, 4, 3, 2, 1])])).pipe(
-        reduce((a, b) => [...a, ...b], [] as number[]),
+      fromSet<number>(of([new Set([1, 1, 2, 3, 3, 4, 4, 5, 5]), new Set([5, 4, 3, 2, 1])])).pipe(
+        reduce<number[], number[]>((a, b) => [...a, ...b], []),
         tap((value) => expect(value).toStrictEqual([1, 2, 3, 4, 5, 5, 4, 3, 2, 1])),
       ),
     ),

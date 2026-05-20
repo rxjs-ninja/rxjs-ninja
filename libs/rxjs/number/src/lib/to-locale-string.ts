@@ -16,19 +16,22 @@ import { createOrReturnObservable } from '../utils/internal';
  * @param format Formatting of the string based on
  *   [Intl.NumberFormat](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat)
  *
- * @example Return a string with Dutch number formatting
+ * @example
+ * Return a string with Dutch number formatting
  * ```ts
  * of(1000000).pipe(toLocaleString('nl-NL')).subscribe();
  * ```
  * Output: `'1.000.000'`
  *
- * @example Return a string with UK English number formatting
+ * @example
+ * Return a string with UK English number formatting
  * ```ts
  * of(1000000).pipe(toLocaleString('en-GB')).subscribe();
  * ```
  * Output: `'1,000,000'`
  *
- * @example Return a string with UK English number formatting and Euro currency style
+ * @example
+ * Return a string with UK English number formatting and Euro currency style
  * ```ts
  * of(1000000).pipe(toLocaleString('en-GB', { currency: 'EUR', style: 'currency' })).subscribe();
  * ```

@@ -47,20 +47,21 @@ import { createOrReturnObservable } from '../utils/internal';
  * @returns An Observable that emits an Array of values where some or all of the source array values are replaced with
  *   the `fillValue`
  */
-export function fill<T extends unknown, K extends unknown>(
+export function fill<T extends unknown, K extends unknown = T>(
   fillWith: Subscribable<K> | K,
   startIndex: Subscribable<number> | number = 0,
   endIndex?: Subscribable<number> | number,
-): OperatorFunction<Iterable<T>, K[]> {
+): OperatorFunction<Iterable<T>, Array<T | K>> {
   const fillWith$ = createOrReturnObservable(fillWith);
   const startIndex$ = createOrReturnObservable(startIndex);
   const endIndex$ = createOrReturnObservable(endIndex);
   return (source) =>
     source.pipe(
       withLatestFrom(fillWith$, startIndex$, endIndex$),
-      map(
-        ([value, fillWithValue, starIndexValue, endIndexValue]) =>
-          [...value].fill(fillWithValue as never, starIndexValue, endIndexValue) as K[],
-      ),
+      map(([value, fillWithValue, starIndexValue, endIndexValue]) => {
+        const copy: Array<T | K> = [...value];
+        copy.fill(fillWithValue, starIndexValue, endIndexValue);
+        return copy;
+      }),
     );
 }

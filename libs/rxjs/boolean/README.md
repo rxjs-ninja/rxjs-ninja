@@ -77,3 +77,33 @@ const input = ['4485275742308327', '1111222233334444', '111133332224444'];
 from(input).pipe(luhnCheck()).subscribe();
 // Output: `[true, true, false]`
 ```
+
+### Combinator
+
+Logical operators that combine boolean streams with a fixed or Observable value.
+
+```ts
+import { of } from 'rxjs';
+import { and, or, xor, booleanEvery, booleanSome } from '@rxjs-ninja/rxjs-boolean';
+
+of(true, false).pipe(and(true)).subscribe();
+// Output: `true, false`
+
+of(false, true, false).pipe(booleanSome()).subscribe();
+// Output: `true` (after the stream completes)
+```
+
+### Query
+
+Type and truthiness checks on arbitrary emissions.
+
+```ts
+import { of } from 'rxjs';
+import { isBoolean, isTruthy, isFalsy, filterFalsy } from '@rxjs-ninja/rxjs-boolean';
+
+of(true, 0, '').pipe(isTruthy()).subscribe();
+// Output: `true, false, false`
+
+of(0, 1, '').pipe(filterFalsy()).subscribe();
+// Output: `0, ''` (keeps falsy values)
+```

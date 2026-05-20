@@ -13,14 +13,16 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @param radix The number base to convert from. Default is base `10`
  *
- * @example Return only parsed integer values using base `10`
+ * @example
+ * Return only parsed integer values using base `10`
  * ```ts
  * const input = ['RxJS', '-2.3', '0', '1', '2', '3.14', 'Infinity'];
  * from(input).pipe(parseInt()).subscribe();
  * ```
  * Output: `-2, 0, 1, 2, 3`
  *
- * @example Return parsed integer values using base `16`
+ * @example
+ * Return parsed integer values using base `16`
  * ```ts
  * const input = ['1', 'ff', '40'];
  * from(input).pipe(parseInt(16)).subscribe();

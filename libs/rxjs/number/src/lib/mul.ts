@@ -13,7 +13,8 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @param num The number to multiply to the source value
  *
- * @example Returns a number that is the multiplication of source and input
+ * @example
+ * Returns a number that is the multiplication of source and input
  * ```ts
  * const input = [2, 3, 4, 5, 6];
  * from(input).pipe(mul(2)).subscribe();

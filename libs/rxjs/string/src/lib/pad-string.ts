@@ -11,7 +11,6 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @category Modify
  *
- * @alias `padLeft`
  *
  * @param maxLength The maximum length to pad the string to
  * @param fillString Optional string to use as the string padding
@@ -51,7 +50,6 @@ export function padStart(
  *
  * @category Modify
  *
- * @alias `padRight`
  *
  * @param maxLength The maximum length to pad the string to
  * @param fillString Optional string to use as the string padding

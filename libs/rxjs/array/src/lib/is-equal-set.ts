@@ -18,7 +18,8 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @param input The Array or Set to check if the set is equal
  *
- * @example Return if the source array is a subset of the input array
+ * @example
+ * Return if the source array is a subset of the input array
  * ```ts
  * const input = [ ['a', 'b', 'c'],  ['a', 'c', 'b', 'a'], ['a', 'b', 'z', 'x' ] ];
  * from(input).pipe(isEqualSet(['a', 'b', 'c'])).subscribe()

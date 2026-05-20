@@ -13,7 +13,8 @@ import { map } from 'rxjs/operators';
  * @typeParam K The type of Object key
  * @typeParam V The type of Object value
  *
- * @example Convert an Array into a Object
+ * @example
+ * Convert an Array into a Object
  * ```ts
  * const input = [ [1, 'a'], [2, 'b'], [3, 'c'] ];
  * of(input).pipe(toObject()).subscribe();

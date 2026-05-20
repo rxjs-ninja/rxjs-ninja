@@ -14,14 +14,14 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        # Latest nodes only
-        node-version: [15.x]
+        # Latest Node.js (ES2024: Set ops, Object.groupBy, Map.groupBy)
+        node-version: [24.x]
 
     # Pipeline Steps
     steps:
       #1 - Checkout code
       - name: Checkout Code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
         with:
           ref: ${{ github.event.pull_request.head.ref }}
           fetch-depth: 0
@@ -32,10 +32,10 @@ jobs:
 
       #3 - Run initial node setup
       - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          registry-url: 'https://registry.npmjs.org'
+          cache: npm
       #4 - Clean up folders and run a new install
       - name: Install environment
         run: |
@@ -44,7 +44,13 @@ jobs:
       #5 - Run Linting
       - name: Run lint
         run: ./.github/scripts/run-linting.sh False
-      #6 - Run tests and submit coverage
+      #6 - Build libraries
+      - name: Build
+        run: npm run build
+      #7 - Build documentation
+      - name: Build docs
+        run: npm run docs:prod
+      #8 - Run tests and submit coverage
       - name: Tests coverage
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}

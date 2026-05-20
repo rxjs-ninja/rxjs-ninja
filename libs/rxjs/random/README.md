@@ -27,7 +27,32 @@ Output: `-12, 4, 64, 32, -1, 21, -43`;
 ### Random Strings
 
 ```ts
-// Generate a random UUID
-fromUUIDv4().pipe(take(1)).subscribe();
+import { take } from 'rxjs/operators';
+import {
+  fromRandomCryptoStr,
+  fromRandomCryptoCharset,
+  fromRandomUUID,
+} from '@rxjs-ninja/rxjs-random';
+
+// Unbiased crypto string from a charset preset
+fromRandomCryptoStr(12, 0, { caps: true, number: true }).pipe(take(1)).subscribe();
+
+// Sample from a custom charset
+fromRandomCryptoCharset(8, 'ab').pipe(take(1)).subscribe();
+
+// RFC 4122 UUID (requires crypto.randomUUID)
+fromRandomUUID().pipe(take(1)).subscribe();
 // Output: `2a6d71bf-6ccd-4810-bc60-c9ffdedf8864`
+```
+
+### Web Crypto
+
+Unbiased integers and byte buffers from `crypto.getRandomValues`.
+
+```ts
+import { take, reduce } from 'rxjs/operators';
+import { fromRandomCryptoInt, fromRandomBytes } from '@rxjs-ninja/rxjs-random';
+
+fromRandomCryptoInt(0, 10).pipe(take(5)).subscribe();
+fromRandomBytes(16).pipe(take(1)).subscribe();
 ```

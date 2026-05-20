@@ -23,7 +23,7 @@ import { takeUntil } from 'rxjs/operators';
  * @returns Observable that will end subscription when the AbortSignal has been fired
  */
 export function takeUntilSignal<T extends unknown>(signal: AbortSignal): MonoTypeOperatorFunction<T> {
-  const innerSubject$ = new Subject();
-  signal.onabort = () => innerSubject$.next();
+  const innerSubject$ = new Subject<void>();
+  signal.addEventListener('abort', () => innerSubject$.next(), { once: true });
   return (source) => source.pipe(takeUntil(innerSubject$));
 }

@@ -8,7 +8,7 @@ describe('tapIf', () => {
     'tap only if the predicate is truthy ',
     observe(() => {
       const isEven = (num: number): boolean => num % 2 == 0;
-      const mock = jest.fn();
+      const mock = vi.fn();
       return from([1, 2, 3, 4, 5]).pipe(
         tapIf(isEven, (val) => mock(val)),
         finalize(() => {
@@ -23,7 +23,7 @@ describe('tapIf', () => {
     'never taps if values are falsy ',
     observe(() => {
       const ltZero = (num: number): boolean => num < 0;
-      const mock = jest.fn();
+      const mock = vi.fn();
       return from([1, 2, 3, 4, 5]).pipe(
         tapIf(ltZero, (val) => mock(val)),
         finalize(() => expect(mock).not.toHaveBeenCalled()),

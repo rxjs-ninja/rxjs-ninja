@@ -16,7 +16,8 @@ import { map } from 'rxjs/operators';
  * @typeParam K The key type of the source Object
  * @typeParam T The value type of the source Object
  *
- * @example Convert an Object into an array of keys
+ * @example
+ * Convert an Object into an array of keys
  * ```ts
  * const input = { 1: 'a', 2: 'b', 3: 'c' };
  * of(input).pipe(objectKeysToArray()).subscribe();

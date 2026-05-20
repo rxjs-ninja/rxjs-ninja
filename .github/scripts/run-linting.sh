@@ -2,16 +2,18 @@
 set -o errexit -o noclobber -o nounset -o pipefail
 
 RUN_ALL=${1:-"False"}
-BASE="origin/main"
-
+BASE="${2:-origin/main}"
 
 echo "Running Linting"
 if [[ "$RUN_ALL" == "True" ]]; then
-  npm run affected:lint -- --all
+  npm run lint --workspaces --if-present
 else
-  AFFECTED=$(node node_modules/.bin/nx affected:libs --plain --base="$BASE")
+  AFFECTED=$(node scripts/affected-workspaces.mjs "$BASE")
   echo "Will Lint: $AFFECTED"
-  npm run affected:lint -- --base="$BASE"
+  if [[ "$AFFECTED" != "" ]]; then
+    for lib in $AFFECTED; do
+      npm run lint -w "@rxjs-ninja/${lib}"
+    done
+  fi
 fi
 echo "Linting Complete"
-wait

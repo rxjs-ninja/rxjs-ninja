@@ -13,7 +13,15 @@ import { PredicateFn } from '../types/boolean';
  *
  * @typeParam T Type of the value from the source Observable
  *
- * @param predicate Optional [[PredicateFn]] function to compared the values against
+ * @param predicate Optional [[PredicateFn]]; when omitted, emits values that are falsy under `Boolean()` conversion
+ *
+ * @example
+ * Returns values from a source that are falsy
+ * ```ts
+ * const input = [0, 1, '', 'RxJS', false, true];
+ * from(input).pipe(filterFalsy()).subscribe();
+ * ```
+ * Output: `0, '', false`
  *
  * @example
  * Returns a number value from a source where the number does not pass the predicate
@@ -24,8 +32,11 @@ import { PredicateFn } from '../types/boolean';
  * ```
  * Output: `1, 3, 5`
  *
- * @returns Observable that emits only values that don't pass the [[PredicateFn]]
+ * @returns Observable that emits only falsy values, or values that don't pass the optional [[PredicateFn]]
  */
-export function filterFalsy<T extends unknown>(predicate: PredicateFn<T>): MonoTypeOperatorFunction<T> {
-  return (source) => source.pipe(filter((value) => !predicate(value)));
+export function filterFalsy<T extends unknown>(predicate?: PredicateFn<T>): MonoTypeOperatorFunction<T> {
+  return (source) =>
+    source.pipe(
+      filter((value) => (predicate ? !predicate(value) : !Boolean(value))),
+    );
 }

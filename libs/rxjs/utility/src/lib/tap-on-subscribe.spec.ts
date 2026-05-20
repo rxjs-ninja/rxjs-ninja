@@ -7,7 +7,7 @@ describe('tapOnSubscribe', () => {
   it(
     'tap on each subscription',
     observe(() => {
-      const mock = jest.fn();
+      const mock = vi.fn();
 
       const input = from([1, 2, 3]).pipe(tapOnSubscribe(() => mock('Test')));
       input.pipe(take(2)).subscribe();

@@ -3,6 +3,7 @@
  * @module Utility
  */
 import { Observable, Subscriber } from 'rxjs';
+import { ReadableStreamLike } from '../types/streams';
 
 /**
  * Creates an Observable source from a ReadableStream source that will emit any
@@ -19,7 +20,8 @@ import { Observable, Subscriber } from 'rxjs';
  * @param queueStrategy Optional strategy for backpressure queueing
  * @param throwEndAsError Optional to return an error when the `AbortSignal` has been fired instead of just closing
  *
- * @example Create a ReadableStream of `0` to `100` and convert to an Observable
+ * @example
+ * Create a ReadableStream of `0` to `100` and convert to an Observable
  * ```ts
  * const stream = new ReadableStream({
  *   start: (controller) => {
@@ -37,7 +39,7 @@ import { Observable, Subscriber } from 'rxjs';
  * @returns Observable that emits from a ReadableStream source
  */
 export function fromReadableStream<T extends unknown>(
-  stream: ReadableStream<T>,
+  stream: ReadableStreamLike<T>,
   signal?: AbortSignal,
   queueStrategy?: QueuingStrategy,
   throwEndAsError = false,

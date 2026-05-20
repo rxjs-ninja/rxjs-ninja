@@ -13,7 +13,8 @@ import { createOrReturnObservable } from '../utils/internal';
  *
  * @param precision Maximum number of digits to round the number to
  *
- * @example Return a number to fixed position of `2`
+ * @example
+ * Return a number to fixed position of `2`
  * ```ts
  * const input = [1.8372, 2.12353, 3.14, 42.2];
  * from(input).pipe(roundTo(2)).subscribe();
